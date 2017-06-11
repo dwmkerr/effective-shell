@@ -74,20 +74,29 @@ These were new to me when I was researching for this article. I can't see myself
 
 If you are ever looking to go deeper, then search the web for *GNU Readline*, which is the library used under the hood to handle the command line in many shells. You can actually configure lower level details of how all shells which use readline work, with the [`.inputrc`](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html) configuration file.
 
+The great thing about learning these shortcuts is that they will work in any prompt which uses GNU Readline under the hood. This means everything you've learnt applies to:
+
+1. Bash
+2. zsh
+3. The Python REPL
+4. The Node.js REPL
+
+And probably a whole bunch more[^2].
+
 All of these shortcuts should be familar to Emacs users. There is in fact a 'Vi Mode' option for readline, which allows you to use vi commands to work with text. You can enter this mode with `set -o vi`, I'll likely come back to this in detail in a later article.
+
+There's a great cheat sheet on emacs readline commands at [readline.kablamo.org/emacs](http://readline.kablamo.org/emacs.html), which is a very useful reference if you want to dig deeper. For this article I've tried to focus on what I think are the most useful commands (and transpose just so you can show off!).
 
 Hope that was useful! GIFs were made with [LICEcap](http://www.cockos.com/licecap/).
 
 #### Footnotes
 
 [^1]: If you are using zsh, then this will clear the entire line.
+[^2]: If you know of any more, please let me know and I'll update the article!
 
 #### References
 
 - [Wikipedia: GNU Readline](https://en.wikipedia.org/wiki/GNU_Readline)
 - [GNU Org: Readline Init File](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html)
-
-#### TODO
-
-- [ ]: letter commands in diagram only, first last line in diagram only.
+- [Kablamo.org: Readline Cheat Sheet](http://readline.kablamo.org/emacs.html)
 - [ ]: What programs and prompts use readline
