@@ -23,7 +23,8 @@ Here's a quick reference diagram, the rest of the article goes into the details!
 Let's assume we have a very simple command we are writing, which is going to write a quote to a text file:
 
 ```bash
-echo "The trouble with writing fiction is that it has to make sense, whereas real life doesn't. -- Iain M. Banks" >> quote.txt
+echo "The trouble with writing fiction is that it has to make sense,
+whereas real life doesn't. -- Iain M. Banks" >> quote.txt
 ```
 
 Navigating around long lines of text is a slow process if you are only relying on the arrow keys, so take the time to learn the following shortcuts:
@@ -36,10 +37,9 @@ Navigating around long lines of text is a slow process if you are only relying o
 | Delete next word                        | `Alt + d`               | ![delete next word](images/delete-next-word.gif)       |
 | Delete all the way to the beginning[^1] | `Ctrl + u`              | ![delete to beginning](images/delete-to-beginning.gif) |
 | Delete all the way to the end           | `Ctrl + k`              | ![delete to end](images/delete-to-end.gif)             |
-
 ## Searching for Commands
 
-Another indespensible command is the 'Search History' command, invoked with `Ctrl + R`:
+Another indispensable command is the 'Search History' command, invoked with `Ctrl + R`:
 
 ![Search History](images/search-history.gif)
 
@@ -47,7 +47,7 @@ As you type, your command history is searched, the most recent commands coming f
 
 | Action                  | Shortcut      | Example                                                |
 |-------------------------|---------------|--------------------------------------------------------|
-| Find the next occurence | `Ctrl + r`    | ![find next occurence](images/search-history-next.gif) |
+| Find the next occurrence | `Ctrl + r`    | ![find next occurrence](images/search-history-next.gif) |
 | Run the command         | `Enter`       | ![execute](images/search-history-execute.gif)          |
 | Edit the command        | `Right Arrow` | ![edit command](images/search-history-edit.gif)        |
 | Stop searching          | `Ctrl + g`    | ![cancel search](images/search-history-cancel.gif)     |
@@ -70,7 +70,7 @@ Probably the shortcut I use the most is `Ctrl + l`, which clears the screen with
 
 ## Pro Tip: Transposing!
 
-If you've mastered all of the commands here and feel like adding something else to your repetoire, try this:
+If you've mastered all of the commands here and feel like adding something else to your repertoire, try this:
 
 ![transpose-word](images/transpose-word.gif)
 
