@@ -4,6 +4,10 @@ This is the first part of a series I writing which contains practical tips for u
 
 I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly get unweildy. There are some simple tricks you can use to navigate in the command line.
 
+Here's a quick reference diagram, the rest of the article goes into the details!
+
+![command line](command-line.png)
+
 ## Basic Navigation
 
 Let's assume we have a very simple command we are writing, which is going to write a quote to a text file:
@@ -38,6 +42,22 @@ As you type, your command history is searched, the most recent commands coming f
 | Edit the command | `Right Arrow` | ![edit command](search-history-edit.gif) |
 | Stop searching | `Ctrl + g` | ![cancel search](search-history-cancel.gif) |
 
+## Editing In-Place
+
+These tips and tricks are helpful, but if you are working with a really long or complex command, you might find it useful just to jump into your favourite editor.
+
+Use `Ctrl + x , Ctrl + e` to edit-in place:
+
+![edit in place](edit-in-place.gif)
+
+In a later article I'll talk a little more about how to configure the default editor.
+
+## Clear the Screen
+
+Probably the shortcut I use the most is `Ctrl + l`, which clears the screen without trashing your current command. Here's how it looks:
+
+![clear screen](clear-screen.gif)
+
 ## Pro Tip: Transposing!
 
 If you've mastered all of the commands here and feel like adding something else to your repetoire, try this:
@@ -52,7 +72,7 @@ These were new to me when I was researching for this article. I can't see myself
 
 ## Closing Thoughts
 
-If you are ever looking to go deeper, then search the web for *GNU Readline*, which is the library used under the hood to handle the command line in many shells.
+If you are ever looking to go deeper, then search the web for *GNU Readline*, which is the library used under the hood to handle the command line in many shells. You can actually configure lower level details of how all shells which use readline work, with the [`.inputrc`](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html) configuration file.
 
 All of these shortcuts should be familar to Emacs users. There is in fact a 'Vi Mode' option for readline, which allows you to use vi commands to work with text. You can enter this mode with `set -o vi`, I'll likely come back to this in detail in a later article.
 
@@ -61,3 +81,13 @@ Hope that was useful! GIFs were made with [LICEcap](http://www.cockos.com/liceca
 #### Footnotes
 
 [^1]: If you are using zsh, then this will clear the entire line.
+
+#### References
+
+- [Wikipedia: GNU Readline](https://en.wikipedia.org/wiki/GNU_Readline)
+- [GNU Org: Readline Init File](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html)
+
+#### TODO
+
+- [ ]: letter commands in diagram only, first last line in diagram only.
+- [ ]: What programs and prompts use readline
