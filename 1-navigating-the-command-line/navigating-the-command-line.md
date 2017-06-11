@@ -2,7 +2,7 @@
 
 This is the first part of a series I writing which contains practical tips for using the shell more effectively.
 
-I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly get unweildy. There are some simple tricks you can use to navigate in the command line.
+I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly get unwieldy. There are some simple tricks you can use to navigate in the command line.
 
 Here's a quick reference diagram, the rest of the article goes into the details!
 
