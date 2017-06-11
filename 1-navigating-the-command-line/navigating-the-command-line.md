@@ -2,7 +2,7 @@
 
 This is the first part of a series I writing which contains practical tips for using the shell more effectively.
 
-I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly get unweildy. There are some simple tricks you can use to navigate in the command line.
+I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly get unwieldy. There are some simple tricks you can use to navigate in the command line.
 
 Here's a quick reference diagram, the rest of the article goes into the details!
 
@@ -84,7 +84,7 @@ These were new to me when I was researching for this article. I can't see myself
 
 If you are ever looking to go deeper, then search the web for *GNU Readline*, which is the library used under the hood to handle the command line in many shells. You can actually configure lower level details of how all shells which use readline work, with the [`.inputrc`](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html) configuration file.
 
-The great thing about learning these shortcuts is that they will work in any prompt which uses GNU Readline under the hood. This means everything you've learnt applies to:
+The great thing about learning these shortcuts is that they will work in any prompt which uses GNU Readline. This means everything you've learnt applies to:
 
 1. Bash
 2. zsh
