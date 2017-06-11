@@ -6,7 +6,17 @@ I can't think of a better place to start than *navigating the command line*. As 
 
 Here's a quick reference diagram, the rest of the article goes into the details!
 
-![command line](command-line.png)
+![command line](images/command-line.png)
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Basic Navigation](#basic-navigation)
+- [Searching for Commands](#searching-for-commands)
+- [Editing In-Place](#editing-in-place)
+- [Clear the Screen](#clear-the-screen)
+- [Pro Tip: Transposing!](#pro-tip-transposing)
+- [Closing Thoughts](#closing-thoughts)
+
+<!-- /TOC -->
 
 ## Basic Navigation
 
@@ -18,29 +28,29 @@ echo "The trouble with writing fiction is that it has to make sense, whereas rea
 
 Navigating around long lines of text is a slow process if you are only relying on the arrow keys, so take the time to learn the following shortcuts:
 
-| Action | Shortcut | Example |
-|--------|----------|---------|
-| Go to beginning / end | `Ctrl + a` / `Ctrl + b` | ![begin / end](begin-end.gif) |
-| Go backwards / forwards one word | `Alt + b` / `Alt + f` | ![backward / forward](forward-backwards.gif) |
-| Delete a word / undo | `Ctrl + w` / `Ctrl + -` | ![delete / undo](delete-undo.gif) |
-| Delete next word | `Alt + d` | ![delete next word](delete-next-word.gif) |
-| Delete all the way to the beginning[^1] | `Ctrl + u` | ![delete to beginning](delete-to-beginning.gif) |
-| Delete all the way to the end | `Ctrl + k` | ![delete to end](delete-to-end.gif) |
+| Action                                  | Shortcut                | Example                                                |
+|-----------------------------------------|-------------------------|--------------------------------------------------------|
+| Go to beginning / end                   | `Ctrl + a` / `Ctrl + b` | ![begin / end](images/begin-end.gif)                   |
+| Go backwards / forwards one word        | `Alt + b` / `Alt + f`   | ![backward / forward](images/forward-backwards.gif)    |
+| Delete a word / undo                    | `Ctrl + w` / `Ctrl + -` | ![delete / undo](images/delete-undo.gif)               |
+| Delete next word                        | `Alt + d`               | ![delete next word](images/delete-next-word.gif)       |
+| Delete all the way to the beginning[^1] | `Ctrl + u`              | ![delete to beginning](images/delete-to-beginning.gif) |
+| Delete all the way to the end           | `Ctrl + k`              | ![delete to end](images/delete-to-end.gif)             |
 
 ## Searching for Commands
 
 Another indespensible command is the 'Search History' command, invoked with `Ctrl + R`:
 
-![Search History](search-history.gif)
+![Search History](images/search-history.gif)
 
 As you type, your command history is searched, the most recent commands coming first. Use the following shortcuts to complete the operation:
 
-| Action | Shortcut | Example |
-|--------|----------|---------|
-| Find the next occurence | `Ctrl + r` | ![find next occurence](search-history-next.gif) |
-| Run the command | `Enter` | ![execute](search-history-execute.gif) |
-| Edit the command | `Right Arrow` | ![edit command](search-history-edit.gif) |
-| Stop searching | `Ctrl + g` | ![cancel search](search-history-cancel.gif) |
+| Action                  | Shortcut      | Example                                                |
+|-------------------------|---------------|--------------------------------------------------------|
+| Find the next occurence | `Ctrl + r`    | ![find next occurence](images/search-history-next.gif) |
+| Run the command         | `Enter`       | ![execute](images/search-history-execute.gif)          |
+| Edit the command        | `Right Arrow` | ![edit command](images/search-history-edit.gif)        |
+| Stop searching          | `Ctrl + g`    | ![cancel search](images/search-history-cancel.gif)     |
 
 ## Editing In-Place
 
@@ -48,7 +58,7 @@ These tips and tricks are helpful, but if you are working with a really long or 
 
 Use `Ctrl + x , Ctrl + e` to edit-in place:
 
-![edit in place](edit-in-place.gif)
+![edit in place](images/edit-in-place.gif)
 
 In a later article I'll talk a little more about how to configure the default editor.
 
@@ -56,17 +66,17 @@ In a later article I'll talk a little more about how to configure the default ed
 
 Probably the shortcut I use the most is `Ctrl + l`, which clears the screen without trashing your current command. Here's how it looks:
 
-![clear screen](clear-screen.gif)
+![clear screen](images/clear-screen.gif)
 
 ## Pro Tip: Transposing!
 
 If you've mastered all of the commands here and feel like adding something else to your repetoire, try this:
 
-![transpose-word](transpose-word.gif)
+![transpose-word](images/transpose-word.gif)
 
 The `Alt + t` shortcut will transpose the last two words. Use `Ctrl + t` to transpose the last two letters:
 
-![transpose-letters](transpose-letters.gif)
+![transpose-letters](images/transpose-letters.gif)
 
 These were new to me when I was researching for this article. I can't see myself ever being able to remember the commands more quickly than just deleting the last two words or characters and re-typing them, but there you go!
 
@@ -99,4 +109,3 @@ Hope that was useful! GIFs were made with [LICEcap](http://www.cockos.com/liceca
 - [Wikipedia: GNU Readline](https://en.wikipedia.org/wiki/GNU_Readline)
 - [GNU Org: Readline Init File](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html)
 - [Kablamo.org: Readline Cheat Sheet](http://readline.kablamo.org/emacs.html)
-- [ ]: What programs and prompts use readline
