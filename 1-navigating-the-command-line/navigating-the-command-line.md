@@ -84,7 +84,7 @@ These were new to me when I was researching for this article. I can't see myself
 
 If you are ever looking to go deeper, then search the web for *GNU Readline*, which is the library used under the hood to handle the command line in many shells. You can actually configure lower level details of how all shells which use readline work, with the [`.inputrc`](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html) configuration file.
 
-The great thing about learning these shortcuts is that they will work in any prompt which uses GNU Readline under the hood. This means everything you've learnt applies to:
+The great thing about learning these shortcuts is that they will work in any prompt which uses GNU Readline. This means everything you've learnt applies to:
 
 1. Bash
 2. zsh
