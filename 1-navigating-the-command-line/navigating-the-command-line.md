@@ -1,12 +1,15 @@
 # Effective Shell Part 1 - Navigating the Command Line
 
-This is the first part of a series I writing which contains practical tips for using the shell more effectively.
+This is the [first part of a series](https://github.com/dwmkerr/effective-shell) I writing which contains practical tips for using the shell more effectively.
 
-I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly get unwieldy. There are some simple tricks you can use to navigate in the command line.
+I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly become hard to handle. In this article I'll show some simple tricks for working with the command line more effectively. 
 
 Here's a quick reference diagram, the rest of the article goes into the details!
 
-![command line](images/command-line.png)
+[![command line](/content/images/2017/06/command-line-3.png)](https://github.com/dwmkerr/effective-shell)
+
+This article, examples and diagrams are available at [github.com/dwmkerr/effective-shell](https://github.com/dwmkerr/effective-shell).
+
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Basic Navigation](#basic-navigation)
