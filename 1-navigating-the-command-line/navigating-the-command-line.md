@@ -34,7 +34,7 @@ Navigating around long lines of text is a slow process if you are only relying o
 
 | Action                                  | Shortcut                | Example                                                |
 |-----------------------------------------|-------------------------|--------------------------------------------------------|
-| Go to beginning / end                   | `Ctrl + a` / `Ctrl + b` | ![begin / end](images/begin-end.gif)                   |
+| Go to beginning / end                   | `Ctrl + a` / `Ctrl + e` | ![begin / end](images/begin-end.gif)                   |
 | Go backwards / forwards one word        | `Alt + b` / `Alt + f`   | ![backward / forward](images/forward-backwards.gif)    |
 | Delete a word / undo                    | `Ctrl + w` / `Ctrl + -` | ![delete / undo](images/delete-undo.gif)               |
 | Delete next word                        | `Alt + d`               | ![delete next word](images/delete-next-word.gif)       |
