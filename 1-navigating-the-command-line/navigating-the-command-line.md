@@ -6,7 +6,7 @@ I can't think of a better place to start than *navigating the command line*. As 
 
 Here's a quick reference diagram, the rest of the article goes into the details!
 
-[![command line](/content/images/2017/06/command-line-3.png)](https://github.com/dwmkerr/effective-shell)
+[![command line](images/command-line.png)](https://github.com/dwmkerr/effective-shell)
 
 This article, examples and diagrams are available at [github.com/dwmkerr/effective-shell](https://github.com/dwmkerr/effective-shell).
 
