@@ -65,7 +65,7 @@ Here are the same commands applied to the original example:
 
 | Action                  | Shortcut      | Example                                                |
 |-------------------------|---------------|--------------------------------------------------------|
-| Search backwards / forewards | `Ctrl + r` / `Ctrl + s`   | ![find next occurrence](images/search-history-next.gif) |
+| Search backwards / forwards | `Ctrl + r` / `Ctrl + s`   | ![find next occurrence](images/search-history-next.gif) |
 | Run the command         | `Enter`       | ![execute](images/search-history-execute.gif)          |
 | Edit the command        | `Right Arrow` / `Left Arrow` | ![edit command](images/search-history-edit.gif)        |
 | Stop searching          | `Ctrl + g`    | ![cancel search](images/search-history-cancel.gif)     |
