@@ -2,7 +2,7 @@
 
 This is the [first part of a series](https://github.com/dwmkerr/effective-shell) I writing which contains practical tips for using the shell more effectively.
 
-I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly become hard to handle. In this article I'll show some simple tricks for working with the command line more effectively. 
+I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly become hard to handle. In this article I'll show some simple tricks for working with the command line more effectively.
 
 Here's a quick reference diagram, the rest of the article goes into the details!
 
@@ -13,7 +13,7 @@ This article, examples and diagrams are available at [github.com/dwmkerr/effecti
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Basic Navigation](#basic-navigation)
-- [Searching for Commands](#searching-for-commands)
+- [Searching](#searching)
 - [Editing In-Place](#editing-in-place)
 - [Clear the Screen](#clear-the-screen)
 - [Pro Tip: Transposing!](#pro-tip-transposing)
@@ -40,19 +40,34 @@ Navigating around long lines of text is a slow process if you are only relying o
 | Delete next word                        | `Alt + d`               | ![delete next word](images/delete-next-word.gif)       |
 | Delete all the way to the beginning[^1] | `Ctrl + u`              | ![delete to beginning](images/delete-to-beginning.gif) |
 | Delete all the way to the end           | `Ctrl + k`              | ![delete to end](images/delete-to-end.gif)             |
-## Searching for Commands
 
-Another indispensable command is the 'Search History' command, invoked with `Ctrl + R`:
+## Searching
 
-![Search History](images/search-history.gif)
+Once you have the basic navigation commands down, the next essential is searching. Let's assume we've run the following three commands:
 
-As you type, your command history is searched, the most recent commands coming first. Use the following shortcuts to complete the operation:
+```bash
+$ command1 param1 param2 param3
+$ command2 param4 param5 param6
+$ command3 param7 param8 param9
+```
+
+You can search backwards or forwards with `Ctrl + r` and `Ctrl + s`. This will search in the current command and then iteratively through previous commands:
+
+![search backwards and forwards](images/search-backwards-and-forwards.gif)
+
+This is useful for searching in the current command, but can be also used to quickly search backwards and forwards through the command history:
+
+![search commands backwards and forwards](images/search-commands-backwards-and-forwards.gif)
+
+As you type, your command history is searched, the most recent commands coming first. Use the arrow keys to edit the command, press enter to execute it, or `Ctrl + g` to cancel the search.
+
+Here are the same commands applied to the original example:
 
 | Action                  | Shortcut      | Example                                                |
 |-------------------------|---------------|--------------------------------------------------------|
-| Find the next occurrence | `Ctrl + r`    | ![find next occurrence](images/search-history-next.gif) |
+| Search backwards / forewards | `Ctrl + r` / `Ctrl + s`   | ![find next occurrence](images/search-history-next.gif) |
 | Run the command         | `Enter`       | ![execute](images/search-history-execute.gif)          |
-| Edit the command        | `Right Arrow` | ![edit command](images/search-history-edit.gif)        |
+| Edit the command        | `Right Arrow` / `Left Arrow` | ![edit command](images/search-history-edit.gif)        |
 | Stop searching          | `Ctrl + g`    | ![cancel search](images/search-history-cancel.gif)     |
 
 ## Editing In-Place
