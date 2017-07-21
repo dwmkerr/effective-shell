@@ -1,6 +1,6 @@
 # Effective Shell Part 1 - Navigating the Command Line
 
-This is the [first part of a series](https://github.com/dwmkerr/effective-shell) I writing which contains practical tips for using the shell more effectively.
+This is the [first part of a series](https://github.com/dwmkerr/effective-shell) I am writing which contains practical tips for using the shell more effectively.
 
 I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly become hard to handle. In this article I'll show some simple tricks for working with the command line more effectively.
 
