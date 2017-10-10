@@ -1,8 +1,32 @@
-# Effective Shell Part 2 - Manipulating the Clipboard
+# Effective Shell Part 2 - Become a Clipboard Gymnast
 
-This is the second part of my [Effective Shell](https://github.com/dwmkerr/effective-shell) series, which contains practical tips for using the shell more effectively.
+This is the second part of my [Effective Shell](https://github.com/dwmkerr/effective-shell) series, which contains practical tips for using the shell to help with every day tasks and be more efficient:
+
+- [Part 1: Navigating the Command Line](www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
 
 In this article I'll show you how you can use the shell as an efficient tool to compliment how you use the clipboard.
+
+*Note for Linux Users: In this article I'll use the `pbcopy` and `pbpaste` commands to access the clipboard, which are available on a Mac only. To get access to the same commands on other platforms, check [Appendix: Clipboard Access on Linux](#appendixclipboardaccessonlinux)*
+
+## Use the Shell on the Clipboard
+
+You can easily use shell commands on the contents of your clipboard. Just use `pbpaste` to output the clipboard, run the output through some commands, then use `pbcopy` to copy the result.
+
+Try copying the following text:
+
+```
+Kirk Van Houten
+Timothy Lovejoy
+Artie Ziff
+```
+
+Then in the shell, run:
+
+```bash
+pbpaste
+```
+
+You should see the contents of the clipboard. Now we'll look at some ways that shell access to the clipboard can help with common tasks.
 
 ## Removing Formatting
 
@@ -16,11 +40,27 @@ If you just run the command `pbpaste | pbcopy`, you can easily strip the formatt
 
 ![Stripping formatting from the clipboard](./images/strip-formatting-after.png)
 
-This little trick can be very useful. We can use this pattern to quickly manipulate the contents of the clipboard.
+We're just piping out the clipboard (which ends up as plain text, cause we're in a terminal!) and then piping that plain text *back into the clipboard*, replacing the formatted text which was there before.
+
+This little trick can be very useful. But we can use the same pattern to quickly manipulate the contents of the clipboard in more sophisticated ways.
 
 ## Manipulating Text
 
 Let's say someone has emailed me a list of people I need to invite to an event:
+
+![Email List](./images/email_list_excel.png)
+
+The problem is:
+
+1. The list is in Excel and is formatted
+1. The list has duplicates
+2. I need to turn each name into an email address like 'Artie_Ziff@simpsons.com'
+
+And I want to email everyone quickly.
+
+We can quickly handle this task without leaving the shell.
+
+Copy the raw text below if you want to try out the same commands and follow along:
 
 ```
 Artie Ziff
@@ -39,14 +79,11 @@ Agnes Skinner
 Helen Lovejoy
 ```
 
-The problem is:
+First, we copy the text to the clipboard.
 
-1. The list has duplicates
-2. I need to turn each name into an email address like 'Artie_Ziff@simpsons.com'
+Now we can paste and sort:
 
-We can quickly clean this list up with the shell. First, we copy the text to the clipboard. Then we can sort it:
-
-```bash
+```
 $ pbpaste | sort
 Agnes Skinner
 Artie Ziff
@@ -66,7 +103,7 @@ Timothy Lovejoy
 
 Then remove the duplicates:
 
-```bash
+```
 $ pbpaste | sort | uniq
 Agnes Skinner
 Artie Ziff
@@ -83,7 +120,7 @@ Timothy Lovejoy
 
 Replace the underscore with an ampersand:
 
-```bash
+```
 $ pbpaste | sort | uniq | tr " " "_"
 Agnes_Skinner
 Artie_Ziff
@@ -100,7 +137,7 @@ Timothy_Lovejoy
 
 Then add the final part of the email address:
 
-```bash
+```
 $ pbpaste | sort | uniq | tr " " "_" | sed 's/$/@simpsons.com/'
 Agnes_Skinner@simpsons.com
 Artie_Ziff@simpsons.com
@@ -117,13 +154,29 @@ Timothy_Lovejoy@simpsons.com
 
 This looks perfect! We can now put the transformed text back onto the clipboard:
 
-```bash
+```
 $ pbpaste | sort | uniq | tr ' ' '_' | sed 's/$/@simpsons.com' | pbcopy
 ```
 
+All in all we have the following pipeline:
+
+1. `pbpaste` - output the clipboard
+2. `sort` - order the output
+3. `uniq` - deduplicate the rows
+4. `tr ' ' '_'` - replace spaces with underscores
+5. `sed /$/@simpsons.com` - add the email domain to the end of the row
+
+Building this in one go is hard, let's look at little more at the pipeline.
+
+I hope this was useful! Please comment if you have any questions or tips. To see further articles as they come out, follow the repo at:
+
+[github.com/dwmkerr/effective-shell](github.com/dwmkerr/effective-shell)
+
+Or just follow [@dwmkerr](twitter.com/dwmkerr) on Twitter.
+
 ## Thinking in Pipelines
 
-Some of these commands might be unfamiliar, some might not make sense, and you might be thinking 'how would I remember that'. Actually, there are many ways to solve the problem above, this is the one I came up with by iteratively changing my input text.
+Some of these commands might be unfamiliar, some might not make sense, and you might be thinking 'how would I remember that'. Actually, there are many ways to solve the problem above, this is the one I came up with by *iteratively* changing my input text.
 
 Here's what I mean - you'll see that I actually build a pipeline like this step-by-step:
 
@@ -139,9 +192,24 @@ What we're doing here is only possible because these simple commands all follow 
 
 We don't need a command such as 'Take a muddy list, sort and clean it, then turn pairs of words into an email address' - with a few simple 'workhorse' commands we can easily build this functionality ourselves.
 
-These workhorse commands will be introduced and detailed as we go through the series.
+These workhorse commands will be introduced and detailed as we go through the series. We'll also spend a lot more time looking at pipelines.
 
-# TODO
+# Appendix - Clipboard Access on Linux
 
-- [ ] Come up with a better title!
-- [ ] Give examples for linux
+If you are using Linux, there is no `pbcopy` and `pbpaste` commands. You can use the [`xclip`](https://linux.die.net/man/1/xclip) tool to create equivalent commands.
+
+First, install `xclip`:
+
+```bash
+sudo apt-get install -y xclip
+```
+
+Then add the following to your `.bashrc` file:
+
+```bash
+# Create mac style aliases for clipboard access.
+alias pbcopy="xclip -selection c"
+alias pbpaste="xclip -selection c -o"
+```
+
+Obviously you can use any alias you like! The article assumes that `pbcopy` and `pbpaste` have been used.
