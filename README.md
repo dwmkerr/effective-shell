@@ -5,7 +5,7 @@ Text, samples and references for my 'Effective Shell' series.
 ## Chapters
 
 1. [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-2. [Become a Clipboard Gymnast](TODO)
+2. [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
 
 ## Quick References
 
