@@ -2,7 +2,7 @@
 
 This is the second part of my [Effective Shell](https://github.com/dwmkerr/effective-shell) series, which contains practical tips for using the shell to help with every day tasks and be more efficient:
 
-- [Part 1: Navigating the Command Line](www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
+- [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
 
 In this article I'll show you how you can use the shell as an efficient tool to compliment how you use the clipboard.
 
