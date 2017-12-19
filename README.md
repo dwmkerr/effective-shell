@@ -6,6 +6,7 @@ Text, samples and references for my 'Effective Shell' series.
 
 1. [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
 2. [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
+3. [Getting Help](http://www.dwmkerr.com/effective-shell-part-3-getting-hepl)
 
 ## Quick References
 

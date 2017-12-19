@@ -31,13 +31,13 @@ The first example is exactly what I'm looking for. Now for any more detail than 
 
 And this is just page one of six! There's a *lot* of detail, which is great sometimes, but for a quick lookup, `tldr` is perfect.
 
-You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`. It's open source and community driven and a wonderfully useful tool.
+You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`. It's open source and community maintainedFASTCACHE_TIME_ZONE
 
 Now a lot of the time, you are still going to need more help or more detail. For the rest of the article, we'll dive a bit deeper into `man`, the system manual pages.
 
 ## Understanding 'man'
 
-Most tools you encounter in the shell have manual pages available. Many people will be familar with the `man` command to get help on a tool, but let's take a look in a bit more detail.
+Most tools you encounter in the shell have manual pages available. Many people will be familiar with the `man` command to get help on a tool, but let's take a look in a bit more detail, there's actually a lot more available than just the documentation for common commands.
 
 ### Getting help on a command
 
@@ -69,7 +69,7 @@ DESCRIPTION
 
 The `man` command opens the manual for the given tool. These manuals should contain all command line options and details of how to use the tool.
 
-You'll notice you can scroll up and down through the content, this is because the information is presented in the shell *pager*, which is a tool for looking through content which might not easily fit on a screen.
+You can scroll up and down through the content with the arrow  keys, this is because the information is presented in the shell *pager*, which is a tool for looking through content which might not easily fit on a screen.
 
 ### Using the pager
 
@@ -79,15 +79,13 @@ Manpages are just text files, and `man` opens them in a pager tool, which is wha
 
 On most systems, the pager will be the `less` program. There are lots of commands you can use to navigate through files with `less`, but the bare essentials are:
 
-| Command | Usage |
-|---------|-------|
-| `d`     | Scroll down half a page. |
-| `u`     | Scroll up half a page. |
-| `j` / `k` | Scroll down or up a line. You can also use the arrow keys for this. |
-| `q`     | Quit. |
-| `/<search>` | Search for text. |
-| `n`     | When searching, find the next occurence. |
-| `N`     | When searching, find the previous occurence. |
+- `d` - Scroll down half a page
+- `u` - Scroll up half a page
+- `j` / `k` - Scroll down or up a line. You can also use the arrow keys for this
+- `q` - Quit
+- `/<search>` - Search for text
+- `n` - When searching, find the next occurrence
+- `N` - When searching, find the previous occurrence
 
 There are *many* other commands, but the set above is normally what I find myself using the most.
 
@@ -98,7 +96,9 @@ $ echo $PAGER
 less
 ```
 
-You can put any text content into your page - try this:
+The `$PAGER` environment variable is used to tell the shell what program to use for paging. More details are found with `man man`.
+
+You can put any text content into your pager - try this:
 
 ```sh
 ls -al /usr/bin | less
@@ -116,17 +116,15 @@ You'll often see tools referred to in manpages with numbers after them. Take a l
 
 The number is the manual **Section Number**. The different sections of the manual are documented be found on most unix-like systems in `man`'s documentation, which you can check by running `man man`[^1]. Here's what you'd get on Ubuntu 16:
 
-| Section | Description |
-|---------|-------------|
-| 1   | Executable programs or shell commands |
-| 2   | System calls (functions provided by the kernel) |
-| 3   | Library calls (functions within program libraries) |
-| 4   | Special files (usually found in /dev) |
-| 5   | File formats and conventions eg /etc/passwd |
-| 6   | Games |
-| 7   | Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7) |
-| 8   | System administration commands (usually only for root) |
-| 9   | Kernel routines [Non standard] |
+- **Section 1** - Executable programs or shell commands
+- **Section 2** - System calls (functions provided by the kernel)
+- **Section 3** - Library calls (functions within program libraries)
+- **Section 4** - Special files (usually found in /dev)
+- **Section 5** - File formats and conventions eg /etc/passwd
+- **Section 6** - Games
+- **Section 7** - Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
+- **Section 8** - System administration commands (usually only for root)
+- **Section 9** - Kernel routines [Non standard]
 
 We'll go through the setions in detail shorltly.
 
@@ -333,9 +331,23 @@ DESCRIPTION
 ...
 ```
 
-Nowadays given how easy it is generally to just look something up on the internet, I'm not sure how much you'll use these last two sectiions!
+#### Section 8: System Commands
 
-Some distributions might have slightly different sections from 7 onwards.
+We've actually already seen one of these commands mentioned, in the manpage for `crontab(5)` it mentions `cron(8)`. Let's see, with `man 8 cron`:
+
+```
+CRON(8)                   BSD System Manager's Manual                  CRON(8)
+
+NAME
+     cron -- daemon to execute scheduled commands (Vixie Cron)
+
+SYNOPSIS
+     cron [-s] [-o] [-x debugflag[,...]]
+```
+
+These are commands which sysadmins would normally run. You might open section eight unexpectedly, for example `man chmod` will open `chmod(1)`, but `man chown` will open `chown(8)`, as it is a system command.
+
+Some distributions might vary for section nine. On my Mac it contains information about the kernel interfaces, a C style guide and some more.
 
 #### Getting the Index of Manual Section
 
@@ -344,13 +356,25 @@ Manpages are just files on the filesystem, so you can get the index of a section
 For example, to index the available system calls, try `ls /usr/share/man/man2`:
 
 ```
-EV_SET.2             fsync.2              mlock.2              setegid.2
-FD_CLR.2             ftruncate.2          mmap.2               seteuid.2
-FD_COPY.2            futimes.2            mount.2              setgid.2
+EV_SET.2
+FD_CLR.2
+FD_COPY.2
+FD_ISSET.2
+FD_SET.2
+FD_ZERO.2
+_exit.2
+accept.2
+access.2
+acct.2
 ...
 ```
 
-This is quick and easy way to see what sort of entries you have on your system.
+This is quick and easy way to see what sort of entries you have on your system. If you want to work out where an entry lives, use the `-w` flag:
+
+```
+$ man -w printf
+/usr/share/man/man1/printf.1
+```
 
 ### Searching the Manual
 
