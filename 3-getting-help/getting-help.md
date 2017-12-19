@@ -1,33 +1,39 @@
 # Effective Shell Part 3 - Getting Help
 
-This is the third part of my [Effective Shell](https://github.com/dwmkerr/effective-shell) series, which is a set of practical examples of ways to be more efficient when working with a shell!
+This is the third part of my [Effective Shell](https://github.com/dwmkerr/effective-shell) series, a set of practical examples of ways to be more efficient with everyday tasks.
 
 - [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
 - [Part 2: Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
 
-In this article I'll show you how to quickly get help when working with tools in the shell.
+In this article I'll show you how to quickly get help when working with tools in the shell, without disrupting your flow!
 
 ## Getting Help is Important!
 
-If you are trying to be more effective when using the shell, it is crucial to know how to quickly look things up, check parameters for commands and so on. There'll be many circumstances where you'll need to open a browser to get the kind of information you need, but there's also a wealth of information only a few keystrokes away.
+If you are trying to be more effective when using the shell, it is crucial to know how to quickly look things up.
 
-Before we look at the standard way of accessing documentation on \*nix systes, which is the `man` command, I'm going to introduce `tldr`. I'll introduce it first because nine times out of ten nowaways it's the first thing I jump to to get help!
+There'll be many circumstances where you'll need to open a browser to search for help, but there's also a wealth of information only a few keystrokes away. Looking up parameters, checking how to run commads, C library docs or useful information like ASCII charts are available directly in the system.
+
+Before we look at the standard way of accessing documentation on unix-like systems, which is the `man` command, I'm going to introduce `tldr`.
+
+Nine times out of ten I get the help I need in a few seconds with `tldr`, so if you take only one thing away from the article, take the first section. Then if you want to learn more about the system manuals, read on!
 
 ## tl;dr
 
-Let's say I need to find and replace some text in a file. Now I know I can do this with the `sed` command, but have forgotten the syntax. I *could* use the manual (and we'll see a lot of this later) to try and work out the syntax, but the manual for `sed` is very detailed:
+Let's say I need to find and replace some text in a file. I know I can do this with the `sed` command, but have forgotten the syntax.
+
+All I need to do is run `tldr sed`:
+
+![tldr sed screenshot](./images/tldr-sed.png)
+
+The first example is exactly what I'm looking for. Now for any more detail than a few basic examples, I'm going to have to go to the manual, but it's overkill for the basics. Here's what `man sed` shows me:
 
 ![sed manpage](./images/man-sed.png)
 
-You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`. Now let's try using `tldr sed`:
+And this is just page one of six! There's a *lot* of detail, which is great sometimes, but for a quick lookup, `tldr` is perfect.
 
-![sed tldr](./images/tldr-sed.png)
+You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`. It's open source and community driven and a wonderfully useful tool.
 
-Much easier!
-
-A lot of the time, if you just quickly need a reminder of how a program works, try `tldr`. It lists the most common commands for a program, keeping the output as lean as possible. This has been a **huge** time saver for me and I always recommend it!
-
-`tldr` is a nice tool and will help you a lot of the time, but it's really important as you use the shell more to understand how the manual pages work for your system, this is what we'll look at for the rest of the article.
+Now a lot of the time, you are still going to need more help or more detail. For the rest of the article, we'll dive a bit deeper into `man`, the system manual pages.
 
 ## Understanding 'man'
 
@@ -37,7 +43,7 @@ Most tools you encounter in the shell have manual pages available. Many people w
 
 The most basic way to get help on a command is with `man`. Here's an example:
 
-```sh
+```
 $ man cp
 
 
@@ -59,14 +65,17 @@ DESCRIPTION
      cp detects an attempt to copy a file to itself, the copy will fail.
 
 ...
-
 ```
 
-The `man` command opens the manual for the given tool. These manuals shuold contain all command line options and details of how to use the command. This information is running in your shell *pager*, which gives you some help for quickly looking through larger documents. We'll look at this next.
+The `man` command opens the manual for the given tool. These manuals should contain all command line options and details of how to use the tool.
+
+You'll notice you can scroll up and down through the content, this is because the information is presented in the shell *pager*, which is a tool for looking through content which might not easily fit on a screen.
 
 ### Using the pager
 
-The first thing you might notice is that you can move through the manual pages with the arrow keys. The manpages are just text files, but they are being opened in the shell's pager. A pager is a program which lets you easily look through large files. 
+The first thing you might notice is that you can move through the manual pages with the arrow keys.
+
+Manpages are just text files, and `man` opens them in a pager tool, which is what is providing the keyboard interface to look through the file.
 
 On most systems, the pager will be the `less` program. There are lots of commands you can use to navigate through files with `less`, but the bare essentials are:
 
@@ -80,23 +89,32 @@ On most systems, the pager will be the `less` program. There are lots of command
 | `n`     | When searching, find the next occurence. |
 | `N`     | When searching, find the previous occurence. |
 
-There are lots of other commands, but the set above is normally what I find myself using the most.
+There are *many* other commands, but the set above is normally what I find myself using the most.
 
 If you are interested, you can actually see what your pager is with the command below:
 
 ```sh
-echo $PAGER
+$ echo $PAGER
+less
 ```
+
+You can put any text content into your page - try this:
+
+```sh
+ls -al /usr/bin | less
+```
+
+This lists the contents of the `/usr/bin` folder, piping the output to `less` so we can easily scroll through it.
 
 There are alternative pagers available (on many Unix-y systems you'll have `less`, `more` and `most`) but in general you'll normally get what you need with `less`.
 
 ### What's with the numbers?
 
-You'll often see tools referred to in manpages with numbers after them:
+You'll often see tools referred to in manpages with numbers after them. Take a look at `man less`:
 
 ![Screenshot of numbers](./images/numbers.png)
 
-This is the manual 'Section Number'. The different sections of the manual can be found on most \*nix distributions with `man man` (this is the example from Ubuntu 16):
+The number is the manual **Section Number**. The different sections of the manual are documented be found on most unix-like systems in `man`'s documentation, which you can check by running `man man`[^1]. Here's what you'd get on Ubuntu 16:
 
 | Section | Description |
 |---------|-------------|
@@ -110,7 +128,15 @@ This is the manual 'Section Number'. The different sections of the manual can be
 | 8   | System administration commands (usually only for root) |
 | 9   | Kernel routines [Non standard] |
 
-You can specifically choose which section of the manual you are looking in, using `man <section> <search`. You can also get more information about the sections themselves by opening up the `intro` page. For example:
+We'll go through the setions in detail shorltly.
+
+You can specifically choose *which* section of the manual you are looking in by using:
+
+```
+man <section> <search>
+```
+
+You can also get more information about the sections themselves by opening up the `intro` page. For example:
 
 ```
 $ man 1 intro
@@ -121,13 +147,12 @@ NAME
      intro -- introduction to general commands (tools and utilities)
 
 DESCRIPTION
-     Section one of the manual contains most of the commands which comprise
-...
+     Section one of the manual contains most of the commands which comprise...
 ```
 
-This might be clearer with a few examples.
+Why would you do this, and why would you care? A few examples from each section show how this can be quite useful to know about.
 
-#### Programs and Shell Commands
+#### Section 1: Programs and Shell Commands
 
 These are programs, probably what you are going to be looking up most regularly! For example, `man 1 time` shows:
 
@@ -148,9 +173,9 @@ DESCRIPTION
 ...
 ```
 
-#### System Calls
+#### Section 2: System Calls
 
-You'll probably not use this section unless you are doing systems programming. This section contains info on the avaiable Linux Kernel system calls. For example, running `man 2 chown` gives:
+You'll probably not use this section unless you are doing systems programming[^2]. This section contains info on the avaiable Linux Kernel system calls. For example, running `man 2 chown` gives:
 
 ```
 CHOWN(2)                    BSD System Calls Manual                   CHOWN(2)
@@ -166,9 +191,9 @@ SYNOPSIS
 ...
 ```
 
-#### Library Calls
+#### Section 3: Library Calls
 
-These are the manpages for the C library calls. For example, `man 3 time`:
+These are the manpages for the C standard library functions. For example, `man 3 time`:
 
 ```
 TIME(3)                  BSD Library Functions Manual                  TIME(3)
@@ -187,9 +212,13 @@ SYNOPSIS
 ...
 ```
 
-Here we can see why the sections are important to know about - running `man time` does not open the page above, because `man` searches the library in order of sections ascending, meaning that it actually finds `time(1)` and shows the pages for the `time` program, not the `time` C library call. Because of the ambiguity of the names (without the section number) in most Linux documentation you'll see the man section number written next to library calls, system calls, programs and so on.
+Here we can see why the sections are important to know about.
 
-#### Devices
+Running `man time` would *not* open the page above, because `man` searches the library in ascending section order, meaning that it actually finds `time(1)` and shows the pages for the `time` program, not the `time` C library call.
+
+Because of the potential ambiguity of names if no section number is included, in lots of Linux documentation you'll see the man section number written next to library calls, system calls, programs and so on (things will refer to `sed(1)` or `time(3)` for example.
+
+#### Section 4: Devices
 
 This section deals with the special devices which live in the `/dev/*` folder. For example, running `man 4 random` shows:
 
@@ -206,7 +235,7 @@ DESCRIPTION
      The random device produces uniformly distributed random byte values of
      potentially high quality.
 ...
-``` 
+```
 
 Again, we see that section numbers can be important. If you just run `man random`, you'll see:
 
@@ -233,7 +262,7 @@ SYNOPSIS
 
 Which is the manpage for `random(3)`, which is C library function, not the `/dev/random` file!
 
-#### File Formats
+#### Section 5: File Formats
 
 This section details special files in the system. For example, `man 5 crontab` shows:
 
@@ -255,9 +284,9 @@ DESCRIPTION
 
 Which describes the crontab file used to define scheduled tasks. Again, this is different to `man crontab` which would document `crontab(1)`. Similarly, `man 5 passwd` is going to show something quite different to `man passwd`.
 
-#### Games
+#### Section 6: Games
 
-Nothing says it better than `man 6 intro` itself (this'll not work on a Mac, if you want to see the section, try `docker run alpine man 6 intro`):
+Nothing says it better than `man 6 intro` itself (this'll not work on a Mac sadly, but try it on another Linux system):
 
 ```
 ...
@@ -287,7 +316,7 @@ DESCRIPTION
 
 This section is going to be highly dependent on your OS!
 
-#### Miscellaneous
+#### Section 7: Miscellaneous
 
 This is where you'll find additional assorted documentation. For example, `man 7 ascii` shows:
 
@@ -304,11 +333,15 @@ DESCRIPTION
 ...
 ```
 
-Nowadays given how easy it is generally to just look something up on the internet, I'm not sure how much you'll use this section!
+Nowadays given how easy it is generally to just look something up on the internet, I'm not sure how much you'll use these last two sectiions!
+
+Some distributions might have slightly different sections from 7 onwards.
 
 #### Getting the Index of Manual Section
 
-Manpages are just files on the filesystem, so you can get the index of a section just by looking in the appropriate folder. For example, to index the available system calls, try `ls /usr/share/man/man2`:
+Manpages are just files on the filesystem, so you can get the index of a section just by looking in the appropriate folder.
+
+For example, to index the available system calls, try `ls /usr/share/man/man2`:
 
 ```
 EV_SET.2             fsync.2              mlock.2              setegid.2
@@ -329,6 +362,30 @@ dispqlen.d(1m)           - dispatcher queue length by CPU. Uses DTrace
 gasm(n), grammar::me::cpu::gasm(n) - ME assembler
 ```
 
+You can find more advanced options for searching by using your newfound `man` skills on `man` itself.
+
 ## That's Enough!
 
-Like many tools which have been around for a long time, there's a lot you can do with `man`. Much of it you'll likely never need, so I've tried to keep this article to the basics, as well as giving a bit of information about the sections and structure, which can be useful to know about. I hope this helps you save some time when you are working, and please let me know in the comments if you have any questions or thoughts. You can also check out the [rest of the effective shell series](https://github.com/dwmkerr/effective-shell).
+I'd recommend `tldr` as a first-call for checking to see how to use a command.
+
+`man` is a powerful tool to dive deeper into how programs and components of the system work. Like many tools which have been around for a long time, there's a lot you can do with `man`. Much of it you'll likely never need, so I've tried to keep this article to the basics.
+
+Understanding manpage sections is useful - you'll see them referenced again and again in documentation on the system and online.
+
+I hope this helps you save some time when you are working! Please let me know in the comments if you have any questions or thoughts.
+
+You can also check out the [rest of the effective shell series](https://github.com/dwmkerr/effective-shell).
+
+## Appendix: Dash
+
+As a final note, if you find yourself using `man` a lot because you work offline (I fly a lot so find it very helpful when on a plane with no WiFi), you should also look at *Dash*[^3].
+
+Dash is simply an offline documentation aggregator. It can download online manuals for many, many different programming languages, frameworks, technologies and so on. I actually have a `vim` keyboard command to open the word under the cursor in dash, with the documentation automatically set based on the type of the file.
+
+This is super-useful if you are offline at lot and need more sophisticated offline documentation. You can find out more about it at https://kapeli.com/dash.
+
+## Footnotes
+
+[^1]: Weirdly satisfying to run.
+[^2]: Which it is always fun to try if you get the chance, and a great way to learn more about the fundamentals of the operating system.
+[^3]: Dash is a paid product. Full disclosure - I don't get any money from them or anyone else to write about anything, all content is 100% based on my experiences. I don't run ads on my site either.
