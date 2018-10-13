@@ -10,4 +10,4 @@ Text, samples and references for my 'Effective Shell' series.
 
 ## Quick References
 
-[![Navigating the Command Line](1-navigating-the-command-line/images/command-line.png)](1-navigating-the-command-line/navigating-the-command-line.md)
+[![Navigating the Command Line](1-navigating-the-command-line/images/command-line.png)](1-navigating-the-command-line/navigating-the-command-line.md) [![GuardRails badge](https://badges.production.guardrails.io/dwmkerr/effective-shell.svg)](https://www.guardrails.io)
