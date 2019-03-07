@@ -39,18 +39,26 @@ $ pwd
 $ cd
 
 $ pwd
-/Users/dave
+/users/dave
 
 $ cd -
 ~/repos/github/dwmkerr/effective-shell
 
 $ pwd
 /Users/dave/repos/github/dwmkerr/effective-shell
+
+$ cd ~
+
+$ pwd
+/users/dave
+
 ```
 
 Here we can see that running `cd` with no parameters moves to the users 'home' directory. This directory is always available in the `$HOME` environment variable.
 
 Running `cd -` will switch _back_ to the previous directory - this is very useful if you want to quickly jump somewhere and then back again.
+
+You can use `~` as an alias for the home directory, allowing you to quickly move to personal folders, with commands such as `cd ~/Downloads`.
 
 Most commonly, you will specify a path when changing directory. This can be a fully-qualified path, or it can be a relative path:
 
@@ -149,6 +157,29 @@ $ popd
 ```
 
 In this case, using `cd -` would not be sufficient, that would just switch us from the `aws-nuke` folder to `Downloads` and back again. But by using the _directory stack_ we can save where we are, move, and the 'pop' our way back to where we started.
+
+## Auto-Completion
+
+Pressing `tab` when using commands like `cd` will generally show an auto-completion menu:
+
+```sh
+$ cd ~/repos/       # press 'tab' now...
+github/   gitlab/   local/    scratch/
+```
+
+Pressing tab again will cycle through options, and shift-tab will cycle backwards. Enter will select an option, escape (or Ctrl-C) will cancel.
+
+Some shells, such as `zsh` support even more advanced auto-completion. For example, we can auto-complete to fill in partially specified directory names:
+
+```sh
+% cd ~/r/g/d/e    # press tab now...
+
+% cd ~/repos/github/dwmkerr/effective-
+effective-container-engineering/  effective-shell/
+```
+
+Auto-completion is generally _very_ shell specific. We'll look more into the different shells which are available in later chapters. But in general, if you are uncertain, pressing tab will often show a sensible set of options.
+
 
 ## That's It!
 
