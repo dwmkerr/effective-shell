@@ -11,3 +11,12 @@ Text, samples and references for my 'Effective Shell' series.
 ## Quick References
 
 [![Navigating the Command Line](1-navigating-the-command-line/images/command-line.png)](1-navigating-the-command-line/navigating-the-command-line.md)
+
+## Proofing Notes
+
+When proofreading, consider:
+
+1. `which` vs `that` - a common error
+2. `—` vs `-`
+
+

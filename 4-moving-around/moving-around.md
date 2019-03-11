@@ -26,7 +26,7 @@ $ echo $PWD
 /Users/dave/repos/github/dwmkerr/effective-shell
 ```
 
-Depending on your shell, or your commandline setup (which we will discuss in a later chapter), you might also see your working directly directly on the commandline.
+Depending on your shell, or your command-line setup (which we will discuss in a later chapter), you might also see your working directly on the command-line.
 
 ## Changing Directory
 
@@ -56,11 +56,11 @@ $ pwd
 
 Here we can see that running `cd` with no parameters moves to the users 'home' directory. This directory is always available in the `$HOME` environment variable.
 
-Running `cd -` will switch _back_ to the previous directory - this is very useful if you want to quickly jump somewhere and then back again.
+Running `cd -` will switch _back_ to the previous directory — this is very useful if you want to quickly jump somewhere and then back again.
 
 You can use `~` as an alias for the home directory, allowing you to quickly move to personal folders, with commands such as `cd ~/Downloads`.
 
-Most commonly, you will specify a path when changing directory. This can be a fully-qualified path, or it can be a relative path:
+Most commonly, you will specify a path when changing directory. This can be a fully qualified path, or it can be a relative path:
 
 ```sh
 $ cd /dev
@@ -70,7 +70,7 @@ $ cd ~/repos
 $ cd ./github
 ```
 
-You can use the special link `..` which is a folder which points to the _parent_ directory to move 'upwards':
+You can use the special link `..`, which is a folder that points to the _parent_ directory to move 'upwards':
 
 ```sh
 $ pwd
@@ -156,7 +156,7 @@ $ popd
 ~/repos/github/dwmkerr/effective-shell
 ```
 
-In this case, using `cd -` would not be sufficient, that would just switch us from the `aws-nuke` folder to `Downloads` and back again. But by using the _directory stack_ we can save where we are, move, and the 'pop' our way back to where we started.
+In this case, using `cd -` would not be sufficient — that would just switch us from the `aws-nuke` folder to `Downloads` and back again. But by using the _directory stack_ we can save where we are, move, and then 'pop' our way back to where we started.
 
 ## Auto-Completion
 
@@ -169,7 +169,7 @@ github/   gitlab/   local/    scratch/
 
 Pressing tab again will cycle through options, and shift-tab will cycle backwards. Enter will select an option, escape (or Ctrl-C) will cancel.
 
-Some shells, such as `zsh` support even more advanced auto-completion. For example, we can auto-complete to fill in partially specified directory names:
+Some shells, such as `zsh`, support even more advanced auto-completion. For example, we can auto-complete to fill in partially specified directory names:
 
 ```sh
 % cd ~/r/g/d/e    # press tab now...
@@ -178,7 +178,7 @@ Some shells, such as `zsh` support even more advanced auto-completion. For examp
 effective-container-engineering/  effective-shell/
 ```
 
-Auto-completion is generally _very_ shell specific. We'll look more into the different shells which are available in later chapters. But in general, if you are uncertain, pressing tab will often show a sensible set of options.
+Auto-completion is generally _very_ shell specific. We'll look more into the different shells that are available in later chapters. But in general, if you are uncertain, pressing tab will often show a sensible set of options.
 
 
 ## That's It!
