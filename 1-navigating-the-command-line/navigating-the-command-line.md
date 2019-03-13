@@ -2,6 +2,9 @@
 
 This is the [first part of a series](https://github.com/dwmkerr/effective-shell) I am writing which contains practical tips for using the shell more effectively.
 
+- [Part 2: Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
+- [Part 3: Getting Help](http://www.dwmkerr.com/effective-shell-part-3-getting-hepl/)
+
 I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly become hard to handle. In this article I'll show some simple tricks for working with the command line more effectively.
 
 Here's a quick reference diagram, the rest of the article goes into the details!
@@ -12,12 +15,13 @@ This article, examples and diagrams are available at [github.com/dwmkerr/effecti
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Basic Navigation](#basic-navigation)
+- [Basic Navigation](#basicnavigation)
 - [Searching](#searching)
-- [Editing In-Place](#editing-in-place)
-- [Clear the Screen](#clear-the-screen)
-- [Pro Tip: Transposing!](#pro-tip-transposing)
-- [Closing Thoughts](#closing-thoughts)
+- [Editing In-Place](#editinginplace)
+- [Clear the Screen](#clearthescreen)
+- [Pro Tip: All The Keys!](#protipallthekeys)
+- [Pro Tip: Transposing!](#protiptransposing)
+- [Closing Thoughts](#closingthoughts)
 
 <!-- /TOC -->
 
@@ -85,6 +89,29 @@ In a later article I'll talk a little more about how to configure the default ed
 Probably the shortcut I use the most is `Ctrl + l`, which clears the screen without trashing your current command. Here's how it looks:
 
 ![clear screen](images/clear-screen.gif)
+
+## Pro Tip: All The Keys!
+
+You can use the `bindkey` command to see a list of all keyboard shortcuts:
+
+```
+$ bindkeys
+"^@" set-mark-command
+"^A" beginning-of-line
+"^B" backward-char
+"^D" delete-char-or-list
+"^E" end-of-line
+"^F" forward-char
+"^G" send-break
+"^H" backward-delete-char
+"^I" expand-or-complete
+"^J" accept-line
+"^K" kill-line
+"^L" clear-screen
+...
+```
+
+This is an extremely useful command to use if you forget the specific keyboard shortcuts, or just want to see the shortcuts which are available.
 
 ## Pro Tip: Transposing!
 
