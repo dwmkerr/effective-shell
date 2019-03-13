@@ -19,4 +19,7 @@ When proofreading, consider:
 1. `which` vs `that` - a common error
 2. `—` vs `-`
 
+## Ideas
 
+- [ ] Background/Foreground Processes
+- [ ] `screen` and `tmux`
