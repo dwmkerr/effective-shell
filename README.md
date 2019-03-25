@@ -20,6 +20,21 @@ When proofreading, consider:
 1. `which` vs `that` - a common error
 2. `—` vs `-`
 
+## The Pitch
+
+This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell progamming is covered, but this is primary a book about how to work more effectively with command line interfaces and shells in general.
+
+Possible titles:
+
+**Darkscreen**: 30 ways to use shells and terminals to be more effective developer or operator.
+
+## Shell Programming Books
+
+This is list of useful books which are about Shell Programming, Terminal usage, Vim usage etc.
+
+- [Practical Vim: Edit Text at the Speed of Thought, Drew Niel](https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980): Absolutely the best book I've read on Vim, perfect for users of all levels. Written by Drew Niel, who is the author of the amazing [Vimcasts](http://vimcasts.org/) series.
+- [Modern Vim: Craft Your Development Environment with Vim 8 and Neovim, Drew Niel](https://pragprog.com/book/modvim/modern-vim) - I've not read it yet but will do so ASAP.
+
 ## Improvements
 
 - [ ] Add `tree` to the Chapter 'Moving Around'.
@@ -29,3 +44,9 @@ When proofreading, consider:
 - [ ] Background/Foreground Processes
 - [ ] `screen` and `tmux`
 - [ ] ANSI C Escaping (see https://www.dwmkerr.com/quick-tip-sending-newlines-with-curl/#comment-4375113010)
+- [ ] See if I can get an interview with a shell creator?
+- [ ] The history of shells, a shell family tree
+- [ ] The rising popularity of commandline interfaces (Borland, VC++ vs Code, Vim etc)
+- [ ] Globing (e.g. `cat file{1,2,3}`)
+- [ ] Quick aliases (e.g. `D` for ISO8601 date)
+- [ ] Watching (e.g. `watch k get pods`)
