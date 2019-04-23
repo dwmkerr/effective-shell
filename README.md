@@ -50,3 +50,4 @@ This is list of useful books which are about Shell Programming, Terminal usage, 
 - [ ] Globing (e.g. `cat file{1,2,3}`)
 - [ ] Quick aliases (e.g. `D` for ISO8601 date)
 - [ ] Watching (e.g. `watch k get pods`)
+- [ ] Supercharging autocomplete
