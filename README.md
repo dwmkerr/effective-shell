@@ -8,10 +8,27 @@ Text, samples and references for my 'Effective Shell' series.
 2. [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
 3. [Getting Help](http://www.dwmkerr.com/effective-shell-part-3-getting-hepl)
 4. [Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
+5. [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
 
 ## Quick References
 
 [![Navigating the Command Line](1-navigating-the-command-line/images/command-line.png)](1-navigating-the-command-line/navigating-the-command-line.md)
+
+## Coming Soon!
+
+If you have arrived on this link, it will be for a link to a section which has not been completed yet. Other chapters I am working on, or planning are:
+
+- Background/Foreground Processes
+- Understand logging (syslog, `logger` etc)
+- Understanding Pipelines
+- Terminal Multiplexing: `screen` and `tmux`
+- ANSI C Escaping (see https://www.dwmkerr.com/quick-tip-sending-newlines-with-curl/#comment-4375113010)
+- Moving Files - `scp`, `aws s3`, `xcopy` etc
+- Know Your Arrows! Pipe stdin <, >>, >, 2&>1 etc
+- Understanding Commands (`command -v` to see functions, aliases, builtins etc)
+- Customising the command prompt
+- Basic Shell Scripting
+- Internal Variables (https://www.tldp.org/LDP/abs/html/internalvariables.html#PROCCID)
 
 ## Proofing Notes
 
@@ -38,6 +55,7 @@ This is list of useful books which are about Shell Programming, Terminal usage, 
 ## Improvements
 
 - [ ] Add `tree` to the Chapter 'Moving Around'.
+- [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
 
 ## Ideas
 
@@ -51,3 +69,24 @@ This is list of useful books which are about Shell Programming, Terminal usage, 
 - [ ] Quick aliases (e.g. `D` for ISO8601 date)
 - [ ] Watching (e.g. `watch k get pods`)
 - [ ] Supercharging autocomplete
+
+## Research
+
+(Note: once this research starts getting used, must create a proper citations/references section)
+
+Great source of shell tricks and tips:
+
+- https://twitter.com/krisnova/status/1109618657305333761?s=11
+
+## Reading List
+
+### Beginners
+
+[Shell Scripting by Jason Cannon](TODO) - For absolute beginners this book might be useful. However, it is _very_ short and really only covers a few topics. I suggest that for a beginners book, something with a bit more content may be better.
+
+Great books!
+
+Shell Scripting: How to Automate Command Line Tasks Using Bash Scripting and Shell Programming - Jason Cannon
+How Linux Works, 2nd Edition: What Every Superuser Should Know - Brian Ward
+Wicked Cool Shell Scripts, 2nd Edition: 101 Scripts for Linux, OS X, and UNIX Systems - Dave Taylor
+The Linux Command Line: A Complete Introduction - William E. Shotts Jr.
