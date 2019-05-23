@@ -18,9 +18,13 @@ Text, samples and references for my 'Effective Shell' series.
 
 If you have arrived on this link, it will be for a link to a section which has not been completed yet. Other chapters I am working on, or planning are:
 
+- Shebangs: How to use, when to use `env`, how shebangs work with multiple shells (e.g. if I source a bash shebang in a zsh, what will happen?)
+- Aliases. When to use (and more importantly, when not to use).
+- Dotfile management (profile, private, etc)
+- Sourcing (bashrc, profile, interactive, noninteractive, etc)
 - Background/Foreground Processes
-- Understand logging (syslog, `logger` etc)
 - Understanding Pipelines
+- Understand logging (syslog, `logger` etc)
 - Terminal Multiplexing: `screen` and `tmux`
 - ANSI C Escaping (see https://www.dwmkerr.com/quick-tip-sending-newlines-with-curl/#comment-4375113010)
 - Moving Files - `scp`, `aws s3`, `xcopy` etc
@@ -39,7 +43,7 @@ When proofreading, consider:
 
 ## The Pitch
 
-This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell progamming is covered, but this is primary a book about how to work more effectively with command line interfaces and shells in general.
+This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primary a book about how to work more effectively with command line interfaces and shells in general.
 
 Possible titles:
 
