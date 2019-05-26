@@ -2,6 +2,23 @@
 
 Text, samples and references for my 'Effective Shell' series.
 
+
+<!-- vim-markdown-toc GFM -->
+
+* [Chapters](#chapters)
+* [Quick References](#quick-references)
+* [Coming Soon!](#coming-soon)
+* [Proofing Notes](#proofing-notes)
+* [The Pitch](#the-pitch)
+* [Shell Programming Books](#shell-programming-books)
+* [Improvements](#improvements)
+* [Ideas](#ideas)
+* [Research](#research)
+* [Reading List](#reading-list)
+    * [Beginners](#beginners)
+
+<!-- vim-markdown-toc -->
+
 ## Chapters
 
 1. [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
@@ -18,11 +35,11 @@ Text, samples and references for my 'Effective Shell' series.
 
 If you have arrived on this link, it will be for a link to a section which has not been completed yet. Other chapters I am working on, or planning are:
 
+- Background/Foreground Processes
 - Shebangs: How to use, when to use `env`, how shebangs work with multiple shells (e.g. if I source a bash shebang in a zsh, what will happen?)
 - Aliases. When to use (and more importantly, when not to use).
 - Dotfile management (profile, private, etc)
 - Sourcing (bashrc, profile, interactive, noninteractive, etc)
-- Background/Foreground Processes
 - Understanding Pipelines
 - Understand logging (syslog, `logger` etc)
 - Terminal Multiplexing: `screen` and `tmux`
@@ -60,6 +77,7 @@ This is list of useful books which are about Shell Programming, Terminal usage, 
 
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
+- [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
 
 ## Ideas
 
@@ -81,6 +99,7 @@ This is list of useful books which are about Shell Programming, Terminal usage, 
 Great source of shell tricks and tips:
 
 - https://twitter.com/krisnova/status/1109618657305333761?s=11
+- Useful Linux commands: https://www.thegeekstuff.com/2010/11/50-linux-commands/
 
 ## Reading List
 
