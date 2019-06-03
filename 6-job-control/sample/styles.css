@@ -39,6 +39,15 @@ body {
 	color: #333333;
 }
 
+header {
+    padding: 40px;
+}
+
+section {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 h1,
 h2,
 h3,
