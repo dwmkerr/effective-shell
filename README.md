@@ -8,12 +8,13 @@ Text, samples and references for my 'Effective Shell' series.
 * [Chapters](#chapters)
 * [Quick References](#quick-references)
 * [Coming Soon!](#coming-soon)
-* [Proofing Notes](#proofing-notes)
+* [Improvements](#improvements)
+* [Research](#research)
 * [The Pitch](#the-pitch)
 * [Shell Programming Books](#shell-programming-books)
-* [Improvements](#improvements)
+* [Improvements](#improvements-1)
 * [Ideas](#ideas)
-* [Research](#research)
+* [Research](#research-1)
 * [Reading List](#reading-list)
     * [Beginners](#beginners)
 
@@ -21,11 +22,26 @@ Text, samples and references for my 'Effective Shell' series.
 
 ## Chapters
 
-1. [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-2. [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
-3. [Getting Help](http://www.dwmkerr.com/effective-shell-part-3-getting-hepl)
-4. [Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
-5. [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
+- Part 1: Core Skills
+    - [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
+    - [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
+    - [Getting Help](http://www.dwmkerr.com/effective-shell-part-3-getting-hepl)
+    - [Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
+    - [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
+- Part 2: Beyond the Basics
+    - WIP: Job Control
+    - WIP: Understanding Commands
+    - WIP: Thinking in Pipelines
+    - WIP: Shebangs
+    - WIP: Interlude: The Shell Family Tree
+- Part 3: Building Your Toolkit
+    - WIP: Shell Customisation
+    - WIP: Dotfile Management and Docfile Management
+    - WIP: Aliases
+    - WIP: Functions
+    - WIP: Interlude: Future Shells
+
+Note: Chapters can be read in any order. But all of the chapters in Part 3 assume you have read the first two chapters of Part 3, which teach you how to manage your own customisations.
 
 ## Quick References
 
@@ -50,13 +66,31 @@ If you have arrived on this link, it will be for a link to a section which has n
 - Customising the command prompt
 - Basic Shell Scripting
 - Internal Variables (https://www.tldp.org/LDP/abs/html/internalvariables.html#PROCCID)
+- Heredocs
+- `screen` and `tmux`
+- ANSI C Escaping (see https://www.dwmkerr.com/quick-tip-sending-newlines-with-curl/#comment-4375113010)
+- See if I can get an interview with shell creators?
+- The history of shells, a shell family tree
+- The rising popularity of commandline interfaces (Borland, VC++ vs Code, Vim etc)
+- Globing (e.g. `cat file{1,2,3}`)
+- Quick aliases (e.g. `D` for ISO8601 date)
+- Watching (e.g. `watch k get pods`)
+- Supercharging autocomplete
 
-## Proofing Notes
+## Improvements
 
-When proofreading, consider:
+- [ ] Add `tree` to the Chapter 'Moving Around'.
+- [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
+- [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
 
-1. `which` vs `that` - a common error
-2. `—` vs `-`
+## Research
+
+(Note: once this research starts getting used, must create a proper citations/references section)
+
+Great source of shell tricks and tips:
+
+- https://twitter.com/krisnova/status/1109618657305333761?s=11
+- Useful Linux commands: https://www.thegeekstuff.com/2010/11/50-linux-commands/
 
 ## The Pitch
 
