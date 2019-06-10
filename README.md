@@ -29,7 +29,7 @@ Text, samples and references for my 'Effective Shell' series.
     - [Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
     - [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
 - Part 2: Beyond the Basics
-    - WIP: Job Control
+    - [Job Control](https://dwmkerr.com/effective-shell-6-job-control/)
     - WIP: Understanding Commands
     - WIP: Thinking in Pipelines
     - WIP: Shebangs
