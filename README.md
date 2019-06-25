@@ -9,11 +9,10 @@ Text, samples and references for my 'Effective Shell' series.
 * [Quick References](#quick-references)
 * [Coming Soon!](#coming-soon)
 * [Improvements](#improvements)
+* [Sharing](#sharing)
 * [Research](#research)
 * [The Pitch](#the-pitch)
 * [Shell Programming Books](#shell-programming-books)
-* [Improvements](#improvements-1)
-* [Ideas](#ideas)
 * [Research](#research-1)
 * [Reading List](#reading-list)
     * [Beginners](#beginners)
@@ -51,7 +50,6 @@ Note: Chapters can be read in any order. But all of the chapters in Part 3 assum
 
 If you have arrived on this link, it will be for a link to a section which has not been completed yet. Other chapters I am working on, or planning are:
 
-- Background/Foreground Processes
 - Shebangs: How to use, when to use `env`, how shebangs work with multiple shells (e.g. if I source a bash shebang in a zsh, what will happen?)
 - Aliases. When to use (and more importantly, when not to use).
 - Dotfile management (profile, private, etc)
@@ -80,8 +78,17 @@ If you have arrived on this link, it will be for a link to a section which has n
 ## Improvements
 
 - [ ] Add `tree` to the Chapter 'Moving Around'.
+- [ ] Getting Help: `help`
 - [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
 - [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
+
+## Sharing
+
+When sharing, the following hashtags have proven to be useful:
+
+```
+#shell #linux #bash #devops #hacking #coding #programming
+```
 
 ## Research
 
@@ -106,25 +113,6 @@ This is list of useful books which are about Shell Programming, Terminal usage, 
 
 - [Practical Vim: Edit Text at the Speed of Thought, Drew Niel](https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980): Absolutely the best book I've read on Vim, perfect for users of all levels. Written by Drew Niel, who is the author of the amazing [Vimcasts](http://vimcasts.org/) series.
 - [Modern Vim: Craft Your Development Environment with Vim 8 and Neovim, Drew Niel](https://pragprog.com/book/modvim/modern-vim) - I've not read it yet but will do so ASAP.
-
-## Improvements
-
-- [ ] Add `tree` to the Chapter 'Moving Around'.
-- [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
-- [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
-
-## Ideas
-
-- [ ] Background/Foreground Processes
-- [ ] `screen` and `tmux`
-- [ ] ANSI C Escaping (see https://www.dwmkerr.com/quick-tip-sending-newlines-with-curl/#comment-4375113010)
-- [ ] See if I can get an interview with a shell creator?
-- [ ] The history of shells, a shell family tree
-- [ ] The rising popularity of commandline interfaces (Borland, VC++ vs Code, Vim etc)
-- [ ] Globing (e.g. `cat file{1,2,3}`)
-- [ ] Quick aliases (e.g. `D` for ISO8601 date)
-- [ ] Watching (e.g. `watch k get pods`)
-- [ ] Supercharging autocomplete
 
 ## Research
 
