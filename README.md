@@ -9,6 +9,7 @@ Text, samples and references for my 'Effective Shell' series.
 * [Quick References](#quick-references)
 * [Coming Soon!](#coming-soon)
 * [Improvements](#improvements)
+* [Sharing](#sharing)
 * [Research](#research)
 * [The Pitch](#the-pitch)
 * [Shell Programming Books](#shell-programming-books)
@@ -77,8 +78,17 @@ If you have arrived on this link, it will be for a link to a section which has n
 ## Improvements
 
 - [ ] Add `tree` to the Chapter 'Moving Around'.
+- [ ] Getting Help: `help`
 - [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
 - [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
+
+## Sharing
+
+When sharing, the following hashtags have proven to be useful:
+
+```
+#shell #linux #bash #devops #hacking #coding #programming
+```
 
 ## Research
 
