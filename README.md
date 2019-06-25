@@ -16,6 +16,7 @@ Text, samples and references for my 'Effective Shell' series.
 * [Research](#research-1)
 * [Reading List](#reading-list)
     * [Beginners](#beginners)
+    * [Advanced](#advanced)
 
 <!-- vim-markdown-toc -->
 
@@ -135,3 +136,8 @@ Shell Scripting: How to Automate Command Line Tasks Using Bash Scripting and She
 How Linux Works, 2nd Edition: What Every Superuser Should Know - Brian Ward
 Wicked Cool Shell Scripts, 2nd Edition: 101 Scripts for Linux, OS X, and UNIX Systems - Dave Taylor
 The Linux Command Line: A Complete Introduction - William E. Shotts Jr.
+
+### Advanced
+
+- [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours
+](https://www.in-ulm.de/~mascheck/various/shebang) - Excellent article on the internals of how different Unix platforms handle shebangs.
