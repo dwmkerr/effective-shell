@@ -30,7 +30,7 @@ Text, samples and references for my 'Effective Shell' series.
     - [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
 - Part 2: Beyond the Basics
     - [Job Control](https://dwmkerr.com/effective-shell-6-job-control/)
-    - WIP: Understanding Commands
+    - [The Subtleties of Shell Commands](https://dwmkerr.com/effective-shell-7-shell-commands/)
     - WIP: Thinking in Pipelines
     - WIP: Shebangs
     - WIP: Interlude: The Shell Family Tree
