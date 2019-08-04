@@ -13,6 +13,7 @@ Text, samples and references for my 'Effective Shell' series.
 * [Research](#research)
 * [The Pitch](#the-pitch)
 * [Shell Programming Books](#shell-programming-books)
+* [The Future](#the-future)
 * [Research](#research-1)
 * [Reading List](#reading-list)
     * [Beginners](#beginners)
@@ -114,6 +115,12 @@ This is list of useful books which are about Shell Programming, Terminal usage, 
 
 - [Practical Vim: Edit Text at the Speed of Thought, Drew Niel](https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980): Absolutely the best book I've read on Vim, perfect for users of all levels. Written by Drew Niel, who is the author of the amazing [Vimcasts](http://vimcasts.org/) series.
 - [Modern Vim: Craft Your Development Environment with Vim 8 and Neovim, Drew Niel](https://pragprog.com/book/modvim/modern-vim) - I've not read it yet but will do so ASAP.
+
+## The Future
+
+Useful notes for what might be changing and evolving in this space.
+
+[A Terminal for the Graphical Age](https://medium.com/the-graphical-terminal/a-terminal-for-the-graphical-age-87ab7aaa2749) - Great article on an ASCII terminal with modern features. Very interesting project.
 
 ## Research
 
