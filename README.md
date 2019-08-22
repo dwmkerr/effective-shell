@@ -1,7 +1,6 @@
-# effective-shell
+# effective-shell 
 
 Text, samples and references for my 'Effective Shell' series.
-
 
 <!-- vim-markdown-toc GFM -->
 
@@ -43,6 +42,12 @@ Text, samples and references for my 'Effective Shell' series.
     - WIP: Interlude: Future Shells
 
 Note: Chapters can be read in any order. But all of the chapters in Part 3 assume you have read the first two chapters of Part 3, which teach you how to manage your own customisations.
+
+Another potential structure would be:
+
+- Section 1: Independent Tips
+- Section 2: Pipelines
+- Section 3: Customisation (bashrc)
 
 ## Quick References
 
