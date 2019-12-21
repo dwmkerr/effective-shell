@@ -17,11 +17,20 @@ Text, samples and references for my 'Effective Shell' series.
 * [Reading List](#reading-list)
     * [Beginners](#beginners)
     * [Advanced](#advanced)
+* [TODO](#todo)
 
 <!-- vim-markdown-toc -->
 
 ## Chapters
 
+Note that the structure below is still something of a work-in-progress while I think about what would be the best structure for the book.
+
+- Part 0: For The Newcomer
+    What is a shell
+    Opening a shell
+    Moving around
+    Showing files
+    Copy, move, delete, new directory, open zip, open photo
 - Part 1: Core Skills
     - [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
     - [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
@@ -40,6 +49,8 @@ Text, samples and references for my 'Effective Shell' series.
     - WIP: Aliases
     - WIP: Functions
     - WIP: Interlude: Future Shells
+    - WIP: Who am I, What am I running? uname, whoami, $SHELL etc
+    - WIP: Managing Performance: top, kill, signals and disk usage
 
 Note: Chapters can be read in any order. But all of the chapters in Part 3 assume you have read the first two chapters of Part 3, which teach you how to manage your own customisations.
 
@@ -153,3 +164,12 @@ The Linux Command Line: A Complete Introduction - William E. Shotts Jr.
 
 - [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours
 ](https://www.in-ulm.de/~mascheck/various/shebang) - Excellent article on the internals of how different Unix platforms handle shebangs.
+
+## TODO
+
+This is a list of general tasks I need to do to bring this content into a form where it can be a standalone print book and website:
+
+- [ ] Overview for each section: describes who should read it, what you will learn, and any pre-requisites
+- [ ] Summaries for each section, highlighting what has been covered. This is also for people who want to skip a section, and just skim what was covered.
+- [ ] Build a simple static website for the series.
+
