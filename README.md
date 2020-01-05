@@ -1,11 +1,10 @@
 # effective-shell 
 
-Text, samples and references for my 'Effective Shell' series.
+Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com][https://effective-shell.com].
 
 <!-- vim-markdown-toc GFM -->
 
 * [Chapters](#chapters)
-* [Quick References](#quick-references)
 * [Coming Soon!](#coming-soon)
 * [Improvements](#improvements)
 * [Sharing](#sharing)
@@ -17,6 +16,7 @@ Text, samples and references for my 'Effective Shell' series.
 * [Reading List](#reading-list)
     * [Beginners](#beginners)
     * [Advanced](#advanced)
+* [Building the Website](#building-the-website)
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
@@ -59,10 +59,6 @@ Another potential structure would be:
 - Section 1: Independent Tips
 - Section 2: Pipelines
 - Section 3: Customisation (bashrc)
-
-## Quick References
-
-[![Navigating the Command Line](1-navigating-the-command-line/images/command-line.png)](1-navigating-the-command-line/navigating-the-command-line.md)
 
 ## Coming Soon!
 
@@ -164,6 +160,30 @@ The Linux Command Line: A Complete Introduction - William E. Shotts Jr.
 
 - [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours
 ](https://www.in-ulm.de/~mascheck/various/shebang) - Excellent article on the internals of how different Unix platforms handle shebangs.
+
+## Building the Website
+
+This website is built with [Hugo](https://gohugo.io/).
+
+To setup dependencies, run:
+
+```sh
+make setup
+```
+
+To serve the site locally, run:
+
+```sh
+make serve
+```
+
+To build the site, run:
+
+```sh
+make build
+```
+
+The built site is generated at `./public`.
 
 ## TODO
 
