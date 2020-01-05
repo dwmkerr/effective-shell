@@ -1,3 +1,7 @@
 [submodule "themes/book"]
 	path = themes/book
 	url = https://github.com/alex-shpak/hugo-book
+[submodule "themes/dwmkerr-hugo-book"]
+	path = themes/dwmkerr-hugo-book
+	url = https://github.com/dwmkerr/hugo-book.git
+	branch = feat/disqus

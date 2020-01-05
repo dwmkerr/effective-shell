@@ -1,14 +1,4 @@
-# Effective Shell Part 4 - Moving Around
-
-This is the fourth part of my [Effective Shell](https://github.com/dwmkerr/effective-shell) series, a set of practical examples of ways to be more efficient with everyday tasks in the shell or at the command line.
-
-- [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-- [Part 2: Become a Clipboard Gymnast](https://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
-- [Part 3: Getting Help](https://www.dwmkerr.com/effective-shell-part-3-getting-hepl/)
-
-In this article we'll look at the key elements of navigation in the shell.
-
-## Getting Comfortable Moving Around
+# Moving Around
 
 You might already spend a lot of time in the shell, running various command line programs or using tooling for development projects or operational tasks. But you might also still switch back to a more visual paradigm for working with files, directories and resources.
 

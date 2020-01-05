@@ -1,9 +1,4 @@
-# Effective Shell Part 3 - Getting Help
-
-This is the third part of my [Effective Shell](https://github.com/dwmkerr/effective-shell) series, a set of practical examples of ways to be more efficient with everyday tasks.
-
-- [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-- [Part 2: Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
+# Getting Help
 
 In this article I'll show you how to quickly get help when working with tools in the shell, without disrupting your flow!
 

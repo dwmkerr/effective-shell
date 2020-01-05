@@ -1,10 +1,10 @@
-baseURL = "http://example.org/"
+baseURL = "https://effective-shell.com/"
 languageCode = "en-us"
 title = "Effective Shell"
 
 # (Optional) Set Google Analytics if you use it to track your website.
 # Always put it on the top of the configuration file, otherwise it won't work
-googleAnalytics = "UA-XXXXXXXXX-X"
+googleAnalytics = "UA-155335600-1"
 
 # (Optional) Set this to true if you use capital letters in file names
 disablePathToLower = true
@@ -18,7 +18,10 @@ enableGitInfo = true
 disableKinds = ['taxonomy', 'taxonomyTerm']
 
 # Use the 'book' theme.
-theme = "book"
+theme = "dwmkerr-hugo-book"
+
+# Set the disqus shortname for the site.
+disqusShortname = "effective-shell"
 
 # Needed for mermaid/katex shortcodes
 [markup]
@@ -29,6 +32,9 @@ theme = "book"
     startLevel = 1
   
 [params]
+  # Set the subtitle to the author name.
+  Subtitle = "By Dave Kerr"
+
   # (Optional, default 6) Set how many table of contents levels to be showed on page.
   # Use false to hide ToC, note that 0 will default to 6 (https://gohugo.io/functions/default/)
   # You can also specify this parameter per page in front matter
@@ -48,7 +54,7 @@ theme = "book"
   
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo = 'https://github.com/alex-shpak/hugo-book'
+  BookRepo = 'https://github.com/dwmkerr/effective-shell'
   
   # Enable 'Edit this page' links for 'doc' page type.
   # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
