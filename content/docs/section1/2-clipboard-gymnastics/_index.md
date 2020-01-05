@@ -114,7 +114,7 @@ Seymore Skinner
 Timothy Lovejoy
 ```
 
-Replace the underscore with an ampersand:
+Replace the space with an underscore:
 
 ```
 $ pbpaste | sort | uniq | tr " " "_"
