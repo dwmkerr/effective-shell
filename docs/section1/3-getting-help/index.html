@@ -1,0 +1,171 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3 Getting Help"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="http://example.org/docs/section1/3-getting-help/"><title>3 Getting Help | Effective Shell</title><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.68d45956421753cdf6bcfc865ede445c56afc5bcaaebfe02961f44fe77d8f45a.css integrity="sha256-aNRZVkIXU832vPyGXt5EXFavxbyq6/4Clh9E/nfY9Fo="><script defer src=/en.search.min.1d66d9ccf71dd58e07c406a60e877811235747c3aa8c0ad9b2c319748665b349.js integrity="sha256-HWbZzPcd1Y4HxAamDod4ESNXR8OqjArZssMZdIZls0k="></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-XXXXXXXXX-X','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=alternate type=application/rss+xml href=http://example.org/docs/section1/3-getting-help/index.xml title="Effective Shell"></head><body><input type=checkbox class=hidden id=menu-control><main class="flex container"><aside class="book-menu fixed"><nav><h2 class=book-brand><a href=http://example.org/><span>Effective Shell</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64><div class="book-search-spinner spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/example/><strong>Example Site</strong></a></li><li><a href=/docs/example/table-of-contents/>Table of Contents</a><ul><li><a href=/docs/example/table-of-contents/with-toc/>With ToC</a></li><li><a href=/docs/example/table-of-contents/without-toc/>Without ToC</a></li></ul></li><li><a href=/docs/example/2nd/>2nd</a><ul><li><a href=/docs/example/2nd/3rd/>3rd</a><ul><li><a href=/docs/example/2nd/3rd/4th/>4th</a></li></ul></li></ul></li><li><strong>Shortcodes</strong></li><li><a href=/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/docs/shortcodes/columns/>Columns</a></li><li><a href=/docs/shortcodes/expand/>Expand</a></li><li><a href=/docs/shortcodes/hints/>Hints</a></li><li><a href=/docs/shortcodes/katex/>Katex</a></li><li><a href=/docs/shortcodes/mermaid/>Mermaid</a></li><li><a href=/docs/shortcodes/tabs/>Tabs</a></li><li><strong>Section 1</strong><ul><li><a href=/docs/section1/1-navigating-the-command-line/>Navigating the Command Line</a></li><li><a href=/docs/section1/2-clipboard-gymnastics/>Clipboard Gymnastics</a></li><li><a href=/docs/section1/3-getting-help/ class=active>Getting Help</a></li><li><a href=/docs/section1/4-moving-around/>Moving Around</a></li><li><a href=/docs/section1/5-what-is-a-shell/>What is a Shell?</a></li></ul></li></ul></nav><script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script></aside><div class=book-page><header class="flex align-center justify-between book-header"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>3 Getting Help</strong></header><article class=markdown><h1 id=effective-shell-part-3---getting-help>Effective Shell Part 3 - Getting Help</h1><p>This is the third part of my <a href=https://github.com/dwmkerr/effective-shell>Effective Shell</a> series, a set of practical examples of ways to be more efficient with everyday tasks.</p><ul><li><a href=https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/>Part 1: Navigating the Command Line</a></li><li><a href=http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/>Part 2: Become a Clipboard Gymnast</a></li></ul><p>In this article I'll show you how to quickly get help when working with tools in the shell, without disrupting your flow!</p><h2 id=getting-help-is-important>Getting Help is Important!</h2><p>If you are trying to be more effective when using the shell, it is crucial to know how to quickly look things up.</p><p>There'll be many circumstances where you'll need to open a browser to search for help, but there's also a wealth of information only a few keystrokes away. Looking up parameters, checking how to run commads, C library docs or useful information like ASCII charts are available directly in the system.</p><p>Before we look at the standard way of accessing documentation on unix-like systems, which is the <code>man</code> command, I'm going to introduce <code>tldr</code>.</p><p>Nine times out of ten I get the help I need in a few seconds with <code>tldr</code>, so if you take only one thing away from the article, take the first section. Then if you want to learn more about the system manuals, read on!</p><h2 id=tldr>tl;dr</h2><p>Let's say I need to find and replace some text in a file. I know I can do this with the <code>sed</code> command, but have forgotten the syntax.</p><p>All I need to do is run <code>tldr sed</code>:</p><p><img src=./images/tldr-sed.png alt="tldr sed screenshot"></p><p>The first example is exactly what I'm looking for. Now for any more detail than a few basic examples, I'm going to have to go to the manual, but it's overkill for the basics. Here's what <code>man sed</code> shows me:</p><p><img src=./images/man-sed.png alt="sed manpage"></p><p>And this is just page one of six! There's a <em>lot</em> of detail, which is great sometimes, but for a quick lookup, <code>tldr</code> is perfect.</p><p>You can install the <a href=https://github.com/tldr-pages/tldr><code>tldr</code></a> tool with <code>npm install -g tldr</code>. It's open source and community maintainedFASTCACHE_TIME_ZONE</p><p>Now a lot of the time, you are still going to need more help or more detail. For the rest of the article, we'll dive a bit deeper into <code>man</code>, the system manual pages.</p><h2 id=understanding-man>Understanding &lsquo;man&rsquo;</h2><p>Most tools you encounter in the shell have manual pages available. Many people will be familiar with the <code>man</code> command to get help on a tool, but let's take a look in a bit more detail, there's actually a lot more available than just the documentation for common commands.</p><h3 id=getting-help-on-a-command>Getting help on a command</h3><p>The most basic way to get help on a command is with <code>man</code>. Here's an example:</p><pre><code>$ man cp
+
+
+CP(1)                     BSD General Commands Manual                    CP(1)
+
+NAME
+     cp -- copy files
+
+SYNOPSIS
+     cp [-R [-H | -L | -P]] [-fi | -n] [-apvX] source_file target_file
+     cp [-R [-H | -L | -P]] [-fi | -n] [-apvX] source_file ...
+        target_directory
+
+DESCRIPTION
+     In the first synopsis form, the cp utility copies the contents of the
+     source_file to the target_file.  In the second synopsis form, the con-
+     tents of each named source_file is copied to the destination
+     target_directory.  The names of the files themselves are not changed.  If
+     cp detects an attempt to copy a file to itself, the copy will fail.
+
+...
+</code></pre><p>The <code>man</code> command opens the manual for the given tool. These manuals should contain all command line options and details of how to use the tool.</p><p>You can scroll up and down through the content with the arrow keys, this is because the information is presented in the shell <em>pager</em>, which is a tool for looking through content which might not easily fit on a screen.</p><h3 id=using-the-pager>Using the pager</h3><p>The first thing you might notice is that you can move through the manual pages with the arrow keys.</p><p>Manpages are just text files, and <code>man</code> opens them in a pager tool, which is what is providing the keyboard interface to look through the file.</p><p>On most systems, the pager will be the <code>less</code> program. There are lots of commands you can use to navigate through files with <code>less</code>, but the bare essentials are:</p><ul><li><code>d</code> - Scroll down half a page</li><li><code>u</code> - Scroll up half a page</li><li><code>j</code> / <code>k</code> - Scroll down or up a line. You can also use the arrow keys for this</li><li><code>q</code> - Quit</li><li><code>/&lt;search></code> - Search for text</li><li><code>n</code> - When searching, find the next occurrence</li><li><code>N</code> - When searching, find the previous occurrence</li></ul><p>There are <em>many</em> other commands, but the set above is normally what I find myself using the most.</p><p>If you are interested, you can actually see what your pager is with the command below:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ echo $PAGER
+less
+</code></pre></div><p>The <code>$PAGER</code> environment variable is used to tell the shell what program to use for paging. More details are found with <code>man man</code>.</p><p>You can put any text content into your pager - try this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>ls -al /usr/bin | less
+</code></pre></div><p>This lists the contents of the <code>/usr/bin</code> folder, piping the output to <code>less</code> so we can easily scroll through it.</p><p>There are alternative pagers available (on many Unix-y systems you'll have <code>less</code>, <code>more</code> and <code>most</code>) but in general you'll normally get what you need with <code>less</code>.</p><h3 id=whats-with-the-numbers>What's with the numbers?</h3><p>You'll often see tools referred to in manpages with numbers after them. Take a look at <code>man less</code>:</p><p><img src=./images/numbers.png alt="Screenshot of numbers"></p><p>The number is the manual <strong>Section Number</strong>. The different sections of the manual are documented be found on most unix-like systems in <code>man</code>'s documentation, which you can check by running <code>man man</code><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. Here's what you'd get on Ubuntu 16:</p><ul><li><strong>Section 1</strong> - Executable programs or shell commands</li><li><strong>Section 2</strong> - System calls (functions provided by the kernel)</li><li><strong>Section 3</strong> - Library calls (functions within program libraries)</li><li><strong>Section 4</strong> - Special files (usually found in /dev)</li><li><strong>Section 5</strong> - File formats and conventions eg /etc/passwd</li><li><strong>Section 6</strong> - Games</li><li><strong>Section 7</strong> - Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)</li><li><strong>Section 8</strong> - System administration commands (usually only for root)</li><li><strong>Section 9</strong> - Kernel routines [Non standard]</li></ul><p>We'll go through the setions in detail shorltly.</p><p>You can specifically choose <em>which</em> section of the manual you are looking in by using:</p><pre><code>man &lt;section&gt; &lt;search&gt;
+</code></pre><p>You can also get more information about the sections themselves by opening up the <code>intro</code> page. For example:</p><pre><code>$ man 1 intro
+
+INTRO(1)                  BSD General Commands Manual                 INTRO(1)
+
+NAME
+     intro -- introduction to general commands (tools and utilities)
+
+DESCRIPTION
+     Section one of the manual contains most of the commands which comprise...
+</code></pre><p>Why would you do this, and why would you care? A few examples from each section show how this can be quite useful to know about.</p><h4 id=section-1-programs-and-shell-commands>Section 1: Programs and Shell Commands</h4><p>These are programs, probably what you are going to be looking up most regularly! For example, <code>man 1 time</code> shows:</p><pre><code>TIME(1)                   BSD General Commands Manual                  TIME(1)
+
+NAME
+     time -- time command execution
+
+SYNOPSIS
+     time [-lp] utility
+
+DESCRIPTION
+     The time utility executes and times utility.  After the utility finishes, time writes the total time
+     elapsed, the time consumed by system overhead, and the time used to execute utility to the standard
+     error stream.  Times are reported in seconds.
+
+...
+</code></pre><h4 id=section-2-system-calls>Section 2: System Calls</h4><p>You'll probably not use this section unless you are doing systems programming<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>. This section contains info on the avaiable Linux Kernel system calls. For example, running <code>man 2 chown</code> gives:</p><pre><code>CHOWN(2)                    BSD System Calls Manual                   CHOWN(2)
+
+NAME
+     chown, fchown, lchown, fchownat -- change owner and group of a file
+
+SYNOPSIS
+     #include &lt;unistd.h&gt;
+
+     int
+     chown(const char *path, uid_t owner, gid_t group);
+...
+</code></pre><h4 id=section-3-library-calls>Section 3: Library Calls</h4><p>These are the manpages for the C standard library functions. For example, <code>man 3 time</code>:</p><pre><code>TIME(3)                  BSD Library Functions Manual                  TIME(3)
+
+NAME
+     time -- get time of day
+
+LIBRARY
+     Standard C Library (libc, -lc)
+
+SYNOPSIS
+     #include &lt;time.h&gt;
+
+     time_t
+     time(time_t *tloc);
+...
+</code></pre><p>Here we can see why the sections are important to know about.</p><p>Running <code>man time</code> would <em>not</em> open the page above, because <code>man</code> searches the library in ascending section order, meaning that it actually finds <code>time(1)</code> and shows the pages for the <code>time</code> program, not the <code>time</code> C library call.</p><p>Because of the potential ambiguity of names if no section number is included, in lots of Linux documentation you'll see the man section number written next to library calls, system calls, programs and so on (things will refer to <code>sed(1)</code> or <code>time(3)</code> for example.</p><h4 id=section-4-devices>Section 4: Devices</h4><p>This section deals with the special devices which live in the <code>/dev/*</code> folder. For example, running <code>man 4 random</code> shows:</p><pre><code>RANDOM(4)                BSD Kernel Interfaces Manual                RANDOM(4)
+
+NAME
+     random , urandom -- random data source devices.
+
+SYNOPSIS
+     pseudo-device random
+
+DESCRIPTION
+     The random device produces uniformly distributed random byte values of
+     potentially high quality.
+...
+</code></pre><p>Again, we see that section numbers can be important. If you just run <code>man random</code>, you'll see:</p><pre><code>RANDOM(3)                BSD Library Functions Manual                RANDOM(3)
+
+NAME
+     initstate, random, setstate, srandom, srandomdev -- better random num-
+     ber generator; routines for changing generators
+
+LIBRARY
+     Standard C Library (libc, -lc)
+
+SYNOPSIS
+     #include &lt;stdlib.h&gt;
+
+     char *
+     initstate(unsigned seed, char *state, size_t size);
+
+     long
+     random(void);
+...
+</code></pre><p>Which is the manpage for <code>random(3)</code>, which is C library function, not the <code>/dev/random</code> file!</p><h4 id=section-5-file-formats>Section 5: File Formats</h4><p>This section details special files in the system. For example, <code>man 5 crontab</code> shows:</p><pre><code>CRONTAB(5)                  BSD File Formats Manual                 CRONTAB(5)
+
+NAME
+     crontab -- tables for driving cron
+
+DESCRIPTION
+     A crontab file contains instructions to the cron(8) daemon of the gen-
+     eral form: ``run this command at this time on this date''.  Each user
+     has their own crontab, and commands in any given crontab will be exe-
+     cuted as the user who owns the crontab.  Uucp and News will usually
+     have their own crontabs, eliminating the need for explicitly running
+     su(1) as part of a cron command.
+...
+</code></pre><p>Which describes the crontab file used to define scheduled tasks. Again, this is different to <code>man crontab</code> which would document <code>crontab(1)</code>. Similarly, <code>man 5 passwd</code> is going to show something quite different to <code>man passwd</code>.</p><h4 id=section-6-games>Section 6: Games</h4><p>Nothing says it better than <code>man 6 intro</code> itself (this'll not work on a Mac sadly, but try it on another Linux system):</p><pre><code>...
+DESCRIPTION
+       Section 6 of the manual describes all the games and funny little programs available on the system.
+...
+
+</code></pre><p>There are probably a few silly programs available on your system, here you'll find their manuals. For example, <code>man 6 banner</code> on a Mac shows:</p><pre><code>BANNER(6)                      BSD Games Manual                      BANNER(6)
+
+NAME
+     banner -- print large banner on printer
+
+SYNOPSIS
+     banner [-d] [-t] [-w width] message ...
+
+DESCRIPTION
+     Banner prints a large, high quality banner on the standard output.  If
+     the message is omitted, it prompts for and reads one line of its stan-
+     dard input.
+...
+</code></pre><p>This section is going to be highly dependent on your OS!</p><h4 id=section-7-miscellaneous>Section 7: Miscellaneous</h4><p>This is where you'll find additional assorted documentation. For example, <code>man 7 ascii</code> shows:</p><pre><code>ASCII(7)             BSD Miscellaneous Information Manual             ASCII(7)
+
+NAME
+     ascii -- octal, hexadecimal and decimal ASCII character sets
+
+DESCRIPTION
+     The octal set:
+
+     000 nul  001 soh  002 stx  003 etx  004 eot  005 enq  006 ack  007 bel
+...
+</code></pre><h4 id=section-8-system-commands>Section 8: System Commands</h4><p>We've actually already seen one of these commands mentioned, in the manpage for <code>crontab(5)</code> it mentions <code>cron(8)</code>. Let's see, with <code>man 8 cron</code>:</p><pre><code>CRON(8)                   BSD System Manager's Manual                  CRON(8)
+
+NAME
+     cron -- daemon to execute scheduled commands (Vixie Cron)
+
+SYNOPSIS
+     cron [-s] [-o] [-x debugflag[,...]]
+</code></pre><p>These are commands which sysadmins would normally run. You might open section eight unexpectedly, for example <code>man chmod</code> will open <code>chmod(1)</code>, but <code>man chown</code> will open <code>chown(8)</code>, as it is a system command.</p><p>Some distributions might vary for section nine. On my Mac it contains information about the kernel interfaces, a C style guide and some more.</p><h4 id=getting-the-index-of-manual-section>Getting the Index of Manual Section</h4><p>Manpages are just files on the filesystem, so you can get the index of a section just by looking in the appropriate folder.</p><p>For example, to index the available system calls, try <code>ls /usr/share/man/man2</code>:</p><pre><code>EV_SET.2
+FD_CLR.2
+FD_COPY.2
+FD_ISSET.2
+FD_SET.2
+FD_ZERO.2
+_exit.2
+accept.2
+access.2
+acct.2
+...
+</code></pre><p>This is quick and easy way to see what sort of entries you have on your system. If you want to work out where an entry lives, use the <code>-w</code> flag:</p><pre><code>$ man -w printf
+/usr/share/man/man1/printf.1
+</code></pre><h3 id=searching-the-manual>Searching the Manual</h3><p>You can search the manpage titles and summaries with <code>man -k</code>. For example, <code>man -k cpu</code> shows:</p><pre><code>cpuwalk.d(1m)            - Measure which CPUs a process runs on. Uses DTrace
+dispqlen.d(1m)           - dispatcher queue length by CPU. Uses DTrace
+gasm(n), grammar::me::cpu::gasm(n) - ME assembler
+</code></pre><p>You can find more advanced options for searching by using your newfound <code>man</code> skills on <code>man</code> itself.</p><h2 id=thats-enough>That's Enough!</h2><p>I'd recommend <code>tldr</code> as a first-call for checking to see how to use a command.</p><p><code>man</code> is a powerful tool to dive deeper into how programs and components of the system work. Like many tools which have been around for a long time, there's a lot you can do with <code>man</code>. Much of it you'll likely never need, so I've tried to keep this article to the basics.</p><p>Understanding manpage sections is useful - you'll see them referenced again and again in documentation on the system and online.</p><p>I hope this helps you save some time when you are working! Please let me know in the comments if you have any questions or thoughts.</p><p>You can also check out the <a href=https://github.com/dwmkerr/effective-shell>rest of the effective shell series</a>.</p><h2 id=appendix-dash>Appendix: Dash</h2><p>As a final note, if you find yourself using <code>man</code> a lot because you work offline (I fly a lot so find it very helpful when on a plane with no WiFi), you should also look at <em>Dash</em><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.</p><p>Dash is simply an offline documentation aggregator. It can download online manuals for many, many different programming languages, frameworks, technologies and so on. I actually have a <code>vim</code> keyboard command to open the word under the cursor in dash, with the documentation automatically set based on the type of the file.</p><p>This is super-useful if you are offline at lot and need more sophisticated offline documentation. You can find out more about it at <a href=https://kapeli.com/dash>https://kapeli.com/dash</a>.</p><h2 id=footnotes>Footnotes</h2><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Weirdly satisfying to run. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>Which it is always fun to try if you get the chance, and a great way to learn more about the fundamentals of the operating system. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>Dash is a paid product. Full disclosure - I don't get any money from them or anyone else to write about anything, all content is 100% based on my experiences. I don't run ads on my site either. <a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></article><div class="book-footer justify-between"><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/commit/64188902d04b3a978730e9966ecee359894acaf4 title="Last modified by Dave Kerr | Jan 5, 2020" target=_blank><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>Jan 5, 2020</span></a></div><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/edit/master/exampleSite/content/docs/section1/3-getting-help/_index.md target=_blank><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div></div><aside class="book-toc levels-3 fixed"><nav id=TableOfContents><ul><li><a href=#effective-shell-part-3---getting-help>Effective Shell Part 3 - Getting Help</a><ul><li><a href=#getting-help-is-important>Getting Help is Important!</a></li><li><a href=#tldr>tl;dr</a></li><li><a href=#understanding-man>Understanding &lsquo;man&rsquo;</a><ul><li><a href=#getting-help-on-a-command>Getting help on a command</a></li><li><a href=#using-the-pager>Using the pager</a></li><li><a href=#whats-with-the-numbers>What's with the numbers?</a></li><li><a href=#searching-the-manual>Searching the Manual</a></li></ul></li><li><a href=#thats-enough>That's Enough!</a></li><li><a href=#appendix-dash>Appendix: Dash</a></li><li><a href=#footnotes>Footnotes</a></li></ul></li></ul></nav></aside></main></body></html>

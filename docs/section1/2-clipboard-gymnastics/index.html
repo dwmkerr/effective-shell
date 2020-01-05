@@ -1,0 +1,78 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2 Clipboard Gymnastics"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="http://example.org/docs/section1/2-clipboard-gymnastics/"><title>2 Clipboard Gymnastics | Effective Shell</title><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.68d45956421753cdf6bcfc865ede445c56afc5bcaaebfe02961f44fe77d8f45a.css integrity="sha256-aNRZVkIXU832vPyGXt5EXFavxbyq6/4Clh9E/nfY9Fo="><script defer src=/en.search.min.1d66d9ccf71dd58e07c406a60e877811235747c3aa8c0ad9b2c319748665b349.js integrity="sha256-HWbZzPcd1Y4HxAamDod4ESNXR8OqjArZssMZdIZls0k="></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-XXXXXXXXX-X','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=alternate type=application/rss+xml href=http://example.org/docs/section1/2-clipboard-gymnastics/index.xml title="Effective Shell"></head><body><input type=checkbox class=hidden id=menu-control><main class="flex container"><aside class="book-menu fixed"><nav><h2 class=book-brand><a href=http://example.org/><span>Effective Shell</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64><div class="book-search-spinner spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/example/><strong>Example Site</strong></a></li><li><a href=/docs/example/table-of-contents/>Table of Contents</a><ul><li><a href=/docs/example/table-of-contents/with-toc/>With ToC</a></li><li><a href=/docs/example/table-of-contents/without-toc/>Without ToC</a></li></ul></li><li><a href=/docs/example/2nd/>2nd</a><ul><li><a href=/docs/example/2nd/3rd/>3rd</a><ul><li><a href=/docs/example/2nd/3rd/4th/>4th</a></li></ul></li></ul></li><li><strong>Shortcodes</strong></li><li><a href=/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/docs/shortcodes/columns/>Columns</a></li><li><a href=/docs/shortcodes/expand/>Expand</a></li><li><a href=/docs/shortcodes/hints/>Hints</a></li><li><a href=/docs/shortcodes/katex/>Katex</a></li><li><a href=/docs/shortcodes/mermaid/>Mermaid</a></li><li><a href=/docs/shortcodes/tabs/>Tabs</a></li><li><strong>Section 1</strong><ul><li><a href=/docs/section1/1-navigating-the-command-line/>Navigating the Command Line</a></li><li><a href=/docs/section1/2-clipboard-gymnastics/ class=active>Clipboard Gymnastics</a></li><li><a href=/docs/section1/3-getting-help/>Getting Help</a></li><li><a href=/docs/section1/4-moving-around/>Moving Around</a></li><li><a href=/docs/section1/5-what-is-a-shell/>What is a Shell?</a></li></ul></li></ul></nav><script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script></aside><div class=book-page><header class="flex align-center justify-between book-header"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>2 Clipboard Gymnastics</strong></header><article class=markdown><h1 id=effective-shell-part-2---become-a-clipboard-gymnast>Effective Shell Part 2 - Become a Clipboard Gymnast</h1><p>This is the second part of my <a href=https://github.com/dwmkerr/effective-shell>Effective Shell</a> series, which contains practical tips for using the shell to help with every day tasks and be more efficient:</p><ul><li><a href=https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/>Part 1: Navigating the Command Line</a></li></ul><p>In this article I'll show you how you can use the shell as an efficient tool to compliment how you use the clipboard.</p><p><em>Note for Linux Users: In this article I'll use the <code>pbcopy</code> and <code>pbpaste</code> commands to access the clipboard, which are available on a Mac only. To get access to the same commands on other platforms, check <a href=#appendixclipboardaccessonlinux>Appendix: Clipboard Access on Linux</a></em></p><h2 id=use-the-shell-on-the-clipboard>Use the Shell on the Clipboard</h2><p>You can easily use shell commands on the contents of your clipboard. Just use <code>pbpaste</code> to output the clipboard, run the output through some commands, then use <code>pbcopy</code> to copy the result.</p><p>Try copying the following text:</p><pre><code>Kirk Van Houten
+Timothy Lovejoy
+Artie Ziff
+</code></pre><p>Then in the shell, run:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pbpaste
+</code></pre></div><p>You should see the contents of the clipboard. Now we'll look at some ways that shell access to the clipboard can help with common tasks.</p><h2 id=removing-formatting>Removing Formatting</h2><p>Don't you hate it when you have to copy formatted text and don't have an easy way to paste it as <em>unformatted</em> text? Here's an example, I want to copy this Wikipedia page on &lsquo;bash&rsquo;, and paste it into a Word document:</p><p><img src=./images/strip-formatting-before.png alt="Copying and pasting with formatting"></p><p>Many programs have a shortcut to paste the contents of the clipboard (such as &lsquo;command + shift + v&rsquo;) but if you are like me you might find yourself pasting <em>into</em> a plain text editor just to copy <em>out</em> the plain text.</p><p>If you just run the command <code>pbpaste | pbcopy</code>, you can easily strip the formatting:</p><p><img src=./images/strip-formatting-after.png alt="Stripping formatting from the clipboard"></p><p>We're just piping out the clipboard (which ends up as plain text, cause we're in a terminal!) and then piping that plain text <em>back into the clipboard</em>, replacing the formatted text which was there before.</p><p>This little trick can be very useful. But we can use the same pattern to quickly manipulate the contents of the clipboard in more sophisticated ways.</p><h2 id=manipulating-text>Manipulating Text</h2><p>Let's say someone has emailed me a list of people I need to invite to an event:</p><p><img src=./images/email_list_excel.png alt="Email List"></p><p>The problem is:</p><ol><li>The list is in Excel and is formatted</li><li>The list has duplicates</li><li>I need to turn each name into an email address like <a href="mailto:'Artie_Ziff@simpsons.com">'Artie_Ziff@simpsons.com</a>&rsquo;</li></ol><p>And I want to email everyone quickly.</p><p>We can quickly handle this task without leaving the shell.</p><p>Copy the raw text below if you want to try out the same commands and follow along:</p><pre><code>Artie Ziff
+Kirk Van Houten
+Timothy Lovejoy
+Artie Ziff
+Nick Riviera
+Seymore Skinner
+Hank Scorpio
+Timothy Lovejoy
+John Frink
+Cletus Spuckler
+Ruth Powers
+Artie Ziff
+Agnes Skinner
+Helen Lovejoy
+</code></pre><p>First, we copy the text to the clipboard.</p><p>Now we can paste and sort:</p><pre><code>$ pbpaste | sort
+Agnes Skinner
+Artie Ziff
+Artie Ziff
+Artie Ziff
+Cletus Spuckler
+Hank Scorpio
+Helen Lovejoy
+John Frink
+Kirk Van Houten
+Nick Riviera
+Ruth Powers
+Seymore Skinner
+Timothy Lovejoy
+Timothy Lovejoy
+</code></pre><p>Then remove the duplicates:</p><pre><code>$ pbpaste | sort | uniq
+Agnes Skinner
+Artie Ziff
+Cletus Spuckler
+Hank Scorpio
+Helen Lovejoy
+John Frink
+Kirk Van Houten
+Nick Riviera
+Ruth Powers
+Seymore Skinner
+Timothy Lovejoy
+</code></pre><p>Replace the underscore with an ampersand:</p><pre><code>$ pbpaste | sort | uniq | tr &quot; &quot; &quot;_&quot;
+Agnes_Skinner
+Artie_Ziff
+Cletus_Spuckler
+Hank_Scorpio
+Helen_Lovejoy
+John_Frink
+Kirk_Van_Houten
+Nick_Riviera
+Ruth_Powers
+Seymore_Skinner
+Timothy_Lovejoy
+</code></pre><p>Then add the final part of the email address:</p><pre><code>$ pbpaste | sort | uniq | tr &quot; &quot; &quot;_&quot; | sed 's/$/@simpsons.com/'
+Agnes_Skinner@simpsons.com
+Artie_Ziff@simpsons.com
+Cletus_Spuckler@simpsons.com
+Hank_Scorpio@simpsons.com
+Helen_Lovejoy@simpsons.com
+John_Frink@simpsons.com
+Kirk_Van_Houten@simpsons.com
+Nick_Riviera@simpsons.com
+Ruth_Powers@simpsons.com
+Seymore_Skinner@simpsons.com
+Timothy_Lovejoy@simpsons.com
+</code></pre><p>This looks perfect! We can now put the transformed text back onto the clipboard:</p><pre><code>$ pbpaste | sort | uniq | tr ' ' '_' | sed 's/$/@simpsons.com' | pbcopy
+</code></pre><p>All in all we have the following pipeline:</p><ol><li><code>pbpaste</code> - output the clipboard</li><li><code>sort</code> - order the output</li><li><code>uniq</code> - deduplicate the rows</li><li><code>tr ' ' '_'</code> - replace spaces with underscores</li><li><code>sed /$/@simpsons.com</code> - add the email domain to the end of the row</li></ol><p>Building this in one go is hard, let's look at little more at the pipeline.</p><p>I hope this was useful! Please comment if you have any questions or tips. To see further articles as they come out, follow the repo at:</p><p><a href=github.com/dwmkerr/effective-shell>github.com/dwmkerr/effective-shell</a></p><p>Or just follow <a href=twitter.com/dwmkerr>@dwmkerr</a> on Twitter.</p><h2 id=thinking-in-pipelines>Thinking in Pipelines</h2><p>Some of these commands might be unfamiliar, some might not make sense, and you might be thinking &lsquo;how would I remember that&rsquo;. Actually, there are many ways to solve the problem above, this is the one I came up with by <em>iteratively</em> changing my input text.</p><p>Here's what I mean - you'll see that I actually build a pipeline like this step-by-step:</p><p><img src=./images/pipeline.gif alt="Animation of the process of building a pipeline"></p><p>(P.S - if you are wondering how I am jumping backwards and forwards a word at a time, check the last chapter &lsquo;<a href=www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/>Navigating the Command Line</a>').</p><p>What we're doing here is only possible because these simple commands all follow &lsquo;the Unix Philosophy&rsquo;. They do one thing well, and each command expects it's input to become the input of <em>another</em> command later on. Specifically:</p><ol><li>The commands are primitive and simple - <code>sort</code> is sorting a list, <code>uniq</code> is making elements unique.</li><li>The commands don't produce unnecessary output - <code>sort</code> doesn't add a header such as <code>Sorted Items</code>, which is great because otherwise it would clutter our pipeline.</li><li>We are chaining commands together, the output of one becomes the input of another.</li></ol><p>We don't need a command such as &lsquo;Take a muddy list, sort and clean it, then turn pairs of words into an email address&rsquo; - with a few simple &lsquo;workhorse&rsquo; commands we can easily build this functionality ourselves.</p><p>These workhorse commands will be introduced and detailed as we go through the series. We'll also spend a lot more time looking at pipelines.</p><h1 id=appendix---clipboard-access-on-linux>Appendix - Clipboard Access on Linux</h1><p>If you are using Linux, there is no <code>pbcopy</code> and <code>pbpaste</code> commands. You can use the <a href=https://linux.die.net/man/1/xclip><code>xclip</code></a> tool to create equivalent commands.</p><p>First, install <code>xclip</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt-get install -y xclip
+</code></pre></div><p>Then add the following to your <code>.bashrc</code> file:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Create mac style aliases for clipboard access.</span>
+alias pbcopy<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;xclip -selection c&#34;</span>
+alias pbpaste<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;xclip -selection c -o&#34;</span>
+</code></pre></div><p>Obviously you can use any alias you like! The article assumes that <code>pbcopy</code> and <code>pbpaste</code> have been used.</p></article><div class="book-footer justify-between"><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/commit/64188902d04b3a978730e9966ecee359894acaf4 title="Last modified by Dave Kerr | Jan 5, 2020" target=_blank><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>Jan 5, 2020</span></a></div><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/edit/master/exampleSite/content/docs/section1/2-clipboard-gymnastics/_index.md target=_blank><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div></div><aside class="book-toc levels-3 fixed"><nav id=TableOfContents><ul><li><a href=#effective-shell-part-2---become-a-clipboard-gymnast>Effective Shell Part 2 - Become a Clipboard Gymnast</a><ul><li><a href=#use-the-shell-on-the-clipboard>Use the Shell on the Clipboard</a></li><li><a href=#removing-formatting>Removing Formatting</a></li><li><a href=#manipulating-text>Manipulating Text</a></li><li><a href=#thinking-in-pipelines>Thinking in Pipelines</a></li></ul></li><li><a href=#appendix---clipboard-access-on-linux>Appendix - Clipboard Access on Linux</a></li></ul></nav></aside></main></body></html>
