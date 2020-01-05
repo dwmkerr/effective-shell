@@ -1,6 +1,7 @@
 ---
 title: Effective Shell
 type: docs
+disable_comments: true
 ---
 
 ## Effective Shell

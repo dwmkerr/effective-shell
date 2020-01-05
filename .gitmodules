@@ -4,4 +4,4 @@
 [submodule "themes/dwmkerr-hugo-book"]
 	path = themes/dwmkerr-hugo-book
 	url = https://github.com/dwmkerr/hugo-book.git
-	branch = feat/disqus
+	branch = feat/disqus-support
