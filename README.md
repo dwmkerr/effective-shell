@@ -31,6 +31,8 @@ Note that the structure below is still something of a work-in-progress while I t
     Moving around
     Showing files
     Copy, move, delete, new directory, open zip, open photo
+    Standardising the shell (GNU tools, GNU sed, posix)
+    Basic commands (whoami, ps)
 - Part 1: Core Skills
     - [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
     - [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
@@ -191,5 +193,9 @@ This is a list of general tasks I need to do to bring this content into a form w
 
 - [ ] Overview for each section: describes who should read it, what you will learn, and any pre-requisites
 - [ ] Summaries for each section, highlighting what has been covered. This is also for people who want to skip a section, and just skim what was covered.
-- [ ] Build a simple static website for the series.
+- [ ] Fix the favicon
 
+
+Maybe setup blog first
+
+Sent from my iPhone
