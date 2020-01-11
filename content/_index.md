@@ -1,7 +1,7 @@
 ---
 title: Effective Shell
 type: docs
-disable_comments: true
+bookDisableComments: true
 ---
 
 ## Effective Shell
