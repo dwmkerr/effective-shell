@@ -161,7 +161,7 @@ And a lot more! In fact, that's what the whole [Effective Shell](https://github.
 
 The last part of the diagram, which we haven't covered yet, is the *command prompt*.
 
-<img width="300px" alt="Diagram: Command Prompt" src="images/diagram4-command-prompt-1.png" />
+<img width="300px" alt="Diagram: Command Prompt" src="images/diagram4-command-prompt.png" />
 
 When a *shell* is running in *terminal*, it knows that a human operator will be interfacing with it. So to make sure that the operator has some kind of visual hint that _they have to enter commands_, the shell will output some kind of prompt.
 
@@ -177,19 +177,19 @@ Shell command prompts can be customised, so they will often look different from 
 
 ### Shell Commands and Different Shells
 
-A lot of the 'commands' in a shell, such as `cat` (which shows the contents of a file), are actually just simple programs, which will interface with the kernel. No matter what shell you use, these commands will behave the same way, because really all you are doing is calling another progam.
+A lot of the 'commands' in a shell, such as `cat` (which shows the contents of a file), are actually just simple programs, which will interface with the kernel. No matter what shell you use, these commands will behave the same way, because really all you are doing is calling another program.
 
 Some commands, such as `cd` (change directory), are built into the shell. Some commands are functions that have been defined, or aliases to other commands (for more details on commands, see [Effective Shell - Commands](https://github.com/dwmkerr/effective-shell#coming-soon)). Commands will often differ between shells.
 
-Not all shells are created equal - anyone can write a shell program, maybe creating a simple interface to the computer or a highly complex one with many features. In fact, a later article in this series will look at the geneology of the most common shells.
+Not all shells are created equal - anyone can write a shell program, maybe creating a simple interface to the computer or a highly complex one with many features. In fact, a later article in this series will look at the genealogy of the most common shells.
 
 On most Unix-like systems, the default shell is a program called `bash`, which stands for " Bourne Again Shell" (the name and history around it will be discussed at length in the later article). But there are many other shells: the C Shell, the Korn Shell, Z Shell and Fish, just to name just a few.
 
-Users and administators can configure what shell they like to use. When a terminal opens, it will immediately start the user's preferred shell program. It is possible to change this. Different users will have different preferences, given that shells offer varying features. This can cause complexity when working with systems, as we cannot always expect every user to have the same shell, or even for the same shell to be set up consistently, as they can be extensively customised.
+Users and administrators can configure what shell they like to use. When a terminal opens, it will immediately start the user's preferred shell program. It is possible to change this. Different users will have different preferences, given that shells offer varying features. This can cause complexity when working with systems, as we cannot always expect every user to have the same shell, or even for the same shell to be set up consistently, as they can be extensively customised.
 
 Let's review the earlier diagram again:
 
-<img width="600px" alt="Diagram: The Terminal & The Shell" src="images/diagram3-terminal-and-shell-1.png" />
+<img width="600px" alt="Diagram: The Terminal & The Shell" src="images/diagram3-terminal-and-shell.png" />
 
 We can see the real internals of what is going on in this "Terminal -> Shell -> Program" chain in the diagram above quite easily.
 
