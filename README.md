@@ -20,13 +20,13 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 Note that the structure below is still something of a work-in-progress while I think about what would be the best structure for the book.
 
 - Part 0: For The Newcomer
-    What is a shell
-    Opening a shell
-    Moving around
-    Showing files
-    Copy, move, delete, new directory, open zip, open photo
-    Standardising the shell (GNU tools, GNU sed, posix)
-    Basic commands (whoami, ps)
+    - What is a shell
+    - Opening a shell
+    - Moving around
+    - Showing files
+    - Copy, move, delete, new directory, open zip, open photo
+    - Standardising the shell (GNU tools, GNU sed, posix)
+    - Basic commands (whoami, ps)
 - Part 1: Core Skills
     - [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
     - [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
