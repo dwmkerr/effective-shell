@@ -18,6 +18,8 @@ bookMenuLevels: 1
  <!-- - [Katex]({{< relref "/docs/shortcodes/katex" >}}) -->
  <!-- - [Mermaid]({{< relref "/docs/shortcodes/mermaid" >}}) -->
  <!-- - [Tabs]({{< relref "/docs/shortcodes/tabs" >}})   -->
+ - [**Section 0** - For Beginners]()
+   - [Is This Book For Me?]({{< relref "/docs/section0/is-this-book-for-me" >}})
  - **Section 1**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
    - [Clipboard Gymnastics]({{< relref "/docs/section1/2-clipboard-gymnastics" >}})
@@ -27,3 +29,12 @@ bookMenuLevels: 1
  - **Section 2**
    - [Job Control]({{< relref "/docs/section2/6-job-control" >}})
    - [Understanding Commands]({{< relref "/docs/section2/7-understanding-commands" >}})
+ - **Section 3** - Pipelines and your Toolkit
+   - [Coming Soon!]({{< relref "/docs/section3" >}})
+ - **Section 4** - Customising and Managing Your Shell
+   - [Coming Soon!]({{< relref "/docs/section4" >}})
+ - **Section 5** - Shell Programming
+   - [Coming Soon!]({{< relref "/docs/section5" >}})
+ - **Section 6** - Next Steps
+   - [The Future]({{< relref "/docs/section6/the-future" >}})
+   - [Reading List]({{< relref "/docs/section6/reading-list" >}})

@@ -1,6 +1,6 @@
 # effective-shell 
 
-Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com][https://effective-shell.com].
+Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com).
 
 <!-- vim-markdown-toc GFM -->
 
@@ -8,16 +8,10 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 * [Coming Soon!](#coming-soon)
 * [Improvements](#improvements)
 * [Sharing](#sharing)
-* [Research](#research)
 * [The Pitch](#the-pitch)
-* [Shell Programming Books](#shell-programming-books)
-* [The Future](#the-future)
-* [Research](#research-1)
-* [Reading List](#reading-list)
-    * [Beginners](#beginners)
-    * [Advanced](#advanced)
-* [Building the Website](#building-the-website)
-* [TODO](#todo)
+* [The Website](#the-website)
+    * [Building the Website](#building-the-website)
+    * [Updating the Theme](#updating-the-theme)
 
 <!-- vim-markdown-toc -->
 
@@ -55,12 +49,6 @@ Note that the structure below is still something of a work-in-progress while I t
     - WIP: Managing Performance: top, kill, signals and disk usage
 
 Note: Chapters can be read in any order. But all of the chapters in Part 3 assume you have read the first two chapters of Part 3, which teach you how to manage your own customisations.
-
-Another potential structure would be:
-
-- Section 1: Independent Tips
-- Section 2: Pipelines
-- Section 3: Customisation (bashrc)
 
 ## Coming Soon!
 
@@ -100,20 +88,11 @@ If you have arrived on this link, it will be for a link to a section which has n
 
 ## Sharing
 
-When sharing, the following hashtags have proven to be useful:
+I tend to use the following hashtags when sharing:
 
 ```
-#shell #linux #bash #devops #hacking #coding #programming
+#effective-shell #shell #linux #bash #devops #hacking #coding #programming
 ```
-
-## Research
-
-(Note: once this research starts getting used, must create a proper citations/references section)
-
-Great source of shell tricks and tips:
-
-- https://twitter.com/krisnova/status/1109618657305333761?s=11
-- Useful Linux commands: https://www.thegeekstuff.com/2010/11/50-linux-commands/
 
 ## The Pitch
 
@@ -123,49 +102,15 @@ Possible titles:
 
 **Darkscreen**: 30 ways to use shells and terminals to be more effective developer or operator.
 
-## Shell Programming Books
+## The Website
 
-This is list of useful books which are about Shell Programming, Terminal usage, Vim usage etc.
+The content in this repo is build into a static site available at [effective-shell.com](https://effective-shell). This is done using [Hugo](https://gohugo.io/).
 
-- [Practical Vim: Edit Text at the Speed of Thought, Drew Niel](https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980): Absolutely the best book I've read on Vim, perfect for users of all levels. Written by Drew Niel, who is the author of the amazing [Vimcasts](http://vimcasts.org/) series.
-- [Modern Vim: Craft Your Development Environment with Vim 8 and Neovim, Drew Niel](https://pragprog.com/book/modvim/modern-vim) - I've not read it yet but will do so ASAP.
+This section contains information on how to built, use and edit the site.
 
-## The Future
+### Building the Website
 
-Useful notes for what might be changing and evolving in this space.
-
-[A Terminal for the Graphical Age](https://medium.com/the-graphical-terminal/a-terminal-for-the-graphical-age-87ab7aaa2749) - Great article on an ASCII terminal with modern features. Very interesting project.
-
-## Research
-
-(Note: once this research starts getting used, must create a proper citations/references section)
-
-Great source of shell tricks and tips:
-
-- https://twitter.com/krisnova/status/1109618657305333761?s=11
-- Useful Linux commands: https://www.thegeekstuff.com/2010/11/50-linux-commands/
-
-## Reading List
-
-### Beginners
-
-[Shell Scripting by Jason Cannon](TODO) - For absolute beginners this book might be useful. However, it is _very_ short and really only covers a few topics. I suggest that for a beginners book, something with a bit more content may be better.
-
-Great books!
-
-Shell Scripting: How to Automate Command Line Tasks Using Bash Scripting and Shell Programming - Jason Cannon
-How Linux Works, 2nd Edition: What Every Superuser Should Know - Brian Ward
-Wicked Cool Shell Scripts, 2nd Edition: 101 Scripts for Linux, OS X, and UNIX Systems - Dave Taylor
-The Linux Command Line: A Complete Introduction - William E. Shotts Jr.
-
-### Advanced
-
-- [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours
-](https://www.in-ulm.de/~mascheck/various/shebang) - Excellent article on the internals of how different Unix platforms handle shebangs.
-
-## Building the Website
-
-This website is built with [Hugo](https://gohugo.io/).
+This website is built with 
 
 To setup dependencies, run:
 
@@ -187,15 +132,6 @@ make build
 
 The built site is generated at `./public`.
 
-## TODO
+### Updating the Theme
 
-This is a list of general tasks I need to do to bring this content into a form where it can be a standalone print book and website:
-
-- [ ] Overview for each section: describes who should read it, what you will learn, and any pre-requisites
-- [ ] Summaries for each section, highlighting what has been covered. This is also for people who want to skip a section, and just skim what was covered.
-- [ ] Fix the favicon
-
-
-Maybe setup blog first
-
-Sent from my iPhone
+The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo-book) theme, which is a fork of [alex-shpak](https://github.com/alex-shpak/hugo-book).
