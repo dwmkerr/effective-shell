@@ -23,7 +23,7 @@ bookMenuLevels: 1
    - [What is the Shell?]({{< relref "/docs/section0/2-what-is-the-shell" >}})
    - [Opening the Shell]({{< relref "/docs/section0/3-opening-the-shell" >}})
    - [Configuring the Shell]({{< relref "/docs/section0/4-configuring-the-shell" >}})
-   - [Summary]({{< relref "/docs/section1/summary" >}})
+   - [Summary]({{< relref "/docs/section0/5-summary" >}})
 
  - **Section 1**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
