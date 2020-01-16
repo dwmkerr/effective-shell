@@ -1,3 +1,9 @@
+---
+title: What is a Shell?
+slug: what-is-a-shell
+weight: 5
+---
+
 his is the first 'interlude' in my [Effective Shell](https://github.com/dwmkerr/effective-shell) series. These interludes give some background, history or more flavour to some of the topics.
 
 - [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
@@ -12,13 +18,13 @@ This one _should_ be high-level enough for even non-technical readers to enjoy (
 
 It might come as a surprise that _many_ technical computer users (programmers, data scientists, systems administrators etc) spend a lot of time using an interface which looks like it's from the sixties:
 
-<img width="600px" alt="Diagram: The Shell" src="/content/images/2019/05/screenshot-shell.png" />
+<img width="600px" alt="Diagram: The Shell" src="images/screenshot-shell.png" />
 
 If you work with technologists, you might have seen them using an interface like this. This kind of simple, text-based interface is called a _shell_, and it has been a common way to interface with computers ever since the first screens and keyboards were created.
 
 Given how much computing has advanced, why would people use such an interface? Just look at how much the Windows operating-system has changed over the last three decades:
 
-<img width="600px" alt="Image: The Evolution of Windows" src="/content/images/2019/05/screenshot-windows-evolution.png" />
+<img width="600px" alt="Image: The Evolution of Windows" src="images/screenshot-windows-evolution.png" />
 
 *(By Source (WP:NFCC#4), Fair use, https://en.wikipedia.org/w/index.php?curid=58853841)*
 
@@ -32,7 +38,7 @@ Not all technical users will use a shell regularly, but there are many who will 
 
 ## Introduction for the Technical Reader
 
-You may be familar with the shell, but it can be useful to understand some of the surrounding concepts in detail. How does a shell differ from a terminal? What is a _tty_? How do shells really work? Hopefully as you read this article you'll discovery something that you didn't know about shells.
+You may be familiar with the shell, but it can be useful to understand some of the surrounding concepts in detail. How does a shell differ from a terminal? What is a _tty_? How do shells really work? Hopefully as you read this article you'll discovery something that you didn't know about shells.
 
 ## Let's Get Started!
 
@@ -42,7 +48,7 @@ To understand what shells, terminals, command-prompts and so on are and how they
 
 The diagram below shows a simplified view of a typical computer:
 
-<img width="600px" alt="Diagram: Operating System" src="/content/images/2019/05/diagram1-operating-system.png" />
+<img width="600px" alt="Diagram: Operating System" src="images/diagram1-operating-system.png" />
 
 Already there's a lot going on.
 
@@ -56,7 +62,7 @@ The abstraction the operating system provides is essential. Developers don't nee
 
 The operating system is generally broken down into two parts - the *kernel* and *user space*:
 
-<img width="600px" alt="Diagram: The Kernel and User Space" src="/content/images/2019/05/diagram2-the-kernel-and-user-space.png" />
+<img width="600px" alt="Diagram: The Kernel and User Space" src="images/diagram2-the-kernel-and-user-space.png" />
 
 Let's look at these in more detail.
 
@@ -68,7 +74,7 @@ Software running in the kernel has direct access to resources, so is _extremely_
 
 Why 'kernel'? The kernel is the soft, edible part of a nut or seed, which is surrounded by a shell. Below you can see a walnut - the kernel is the soft bit in the middle, and the shell surrounds and protects it. This is a useful metaphor that is used for parts of a computer.
 
-<img width="200px" alt="Image: Photo of a walnut, showing the kernel and the shell" src="/content/images/2019/05/image-walnut.jpg" />
+<img width="200px" alt="Image: Photo of a walnut, showing the kernel and the shell" src="images/image-walnut.jpg" />
 
 *(By Kkchaudhary11 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=49069244)*
 
@@ -94,13 +100,13 @@ For example, to see all of the files in a folder, the human operator *could* wri
 
 Here's an example, where a shell is being used to show the 'png' images in the folder I am working in[^7]:
 
-<img width="600px" alt="Screenshot: Browsing Contents of the File System the the Bourne Again Shell" src="/content/images/2019/05/screenshot1-example-shell.png" />
+<img width="600px" alt="Screenshot: Browsing Contents of the File System the the Bourne Again Shell" src="images/screenshot1-example-shell.png" />
 
 So a shell is a user-space program to interface with the computer. But there a few more moving parts than just a shell we are seeing in the image above. There are different types of shells, there are terminal programs, and there are the programs or commands that the shell calls (in the example above, `tree` is a program). Let's pick these apart.
 
 Here's a diagram that more accurately shows what is going on:
 
-<img width="600px" alt="Diagram: The Terminal & The Shell" src="/content/images/2019/05/diagram3-terminal-and-shell.png" />
+<img width="600px" alt="Diagram: The Terminal & The Shell" src="images/diagram3-terminal-and-shell.png" />
  
 We've introduced a few new things here. There's a _user_, who is interfacing with a _terminal_, which is running a _shell_, which is showing a _command prompt_. The user has written a command that is calling a program (in this case, the `tree` program).
 
@@ -114,13 +120,13 @@ A terminal is just a program that reads input from the keyboard, passes that inp
 
 Why the word _terminal_? This makes sense when you look at how people interfaced with computers historically. Input to a computer might be through punch cards, and output would often be via a printer. The *Teletype Termimal*[^8] became a common way for users to interface with computers.
 
-<img width="600px" alt="Photo: ASR-33 TTY" src="/content/images/2019/05/image-asr-33.jpg" />
+<img width="600px" alt="Photo: ASR-33 TTY" src="images/image-asr-33.jpg" />
 
 *(Photograph by Rama, Wikimedia Commons, Cc-by-sa-2.0-fr, CC BY-SA 2.0 fr, https://commons.wikimedia.org/w/index.php?curid=17821795)*
 
 At this time, computers were very large, complex, and expensive machines. It was common to have *many* terminals connected to a single large machine (or 'mainframe'), or a few terminals that people would share. But the terminal itself was just a human interface to the operating system. A more modern terminal would be something like an IBM 3486:
 
-<img width="600px" alt="Photo: IBM 3486" src="/content/images/2019/05/image-ibm3486.jpg" />
+<img width="600px" alt="Photo: IBM 3486" src="images/image-ibm3486.jpg" />
 
 *(By ClickRick - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=6693700)*
 
@@ -155,7 +161,7 @@ And a lot more! In fact, that's what the whole [Effective Shell](https://github.
 
 The last part of the diagram, which we haven't covered yet, is the *command prompt*.
 
-<img width="300px" alt="Diagram: Command Prompt" src="/content/images/2019/05/diagram4-command-prompt-1.png" />
+<img width="300px" alt="Diagram: Command Prompt" src="images/diagram4-command-prompt-1.png" />
 
 When a *shell* is running in *terminal*, it knows that a human operator will be interfacing with it. So to make sure that the operator has some kind of visual hint that _they have to enter commands_, the shell will output some kind of prompt.
 
@@ -165,7 +171,7 @@ Note that shells don't have to use command prompts - if you use a shell program 
 
 Shell command prompts can be customised, so they will often look different from machine to machine (for more details, see [Effective Shell - Customising the Command Line](https://github.com/dwmkerr/effective-shell#coming-soon)). Below is an example that shows a _lot_ of technical information. This is from the highly popular [oh-my-zsh](https://ohmyz.sh/) framework for the 'Z Shell' shell, which is very popular among developers:
 
-<img width="600px" alt="Image: Customised oh-my-zsh" src="/content/images/2019/05/image-ohmyzsh.jpg" />
+<img width="600px" alt="Image: Customised oh-my-zsh" src="images/image-ohmyzsh.jpg" />
 
 *(Source: https://ohmyz.sh/)
 
@@ -183,13 +189,13 @@ Users and administators can configure what shell they like to use. When a termin
 
 Let's review the earlier diagram again:
 
-<img width="600px" alt="Diagram: The Terminal & The Shell" src="/content/images/2019/05/diagram3-terminal-and-shell-1.png" />
+<img width="600px" alt="Diagram: The Terminal & The Shell" src="images/diagram3-terminal-and-shell-1.png" />
 
 We can see the real internals of what is going on in this "Terminal -> Shell -> Program" chain in the diagram above quite easily.
 
 Try the command `pstree -psa $$` in a shell[^9]:
 
-<img width="600px" alt="Image: Process Tree" src="/content/images/2019/05/image-psforest.png" />
+<img width="600px" alt="Image: Process Tree" src="images/image-psforest.png" />
 
 The first `systemd` process is the primary process for the OS - it is process number `1`, which initialises everything else. The second `systemd` process is the process that is running the interface for my user. We can ignore these for now; they are internals to how the operating system boots and starts processes.
 
@@ -205,7 +211,7 @@ To close the article, below are some examples of different terminals, shells, co
 
 #### Example: iTerm 2 / tmux / zsh
 
-<img width="600px" alt="Example: iTerm 2, tmux, zsh" src="/content/images/2019/05/example-iterm-zsh.png" />
+<img width="600px" alt="Example: iTerm 2, tmux, zsh" src="images/example-iterm-zsh.png" />
 
 In this example, we have:
 
@@ -217,9 +223,9 @@ In this example, we have:
 
 #### Example: Bash
 
-<img width="600px" alt="Example: Bash" src="/content/images/2019/05/example-bash.png" />
+<img width="600px" alt="Example: Bash" src="images/example-bash.png" />
 
-<img width="600px" alt="Example: Bash Elevated" src="/content/images/2019/05/example-bash-root.png" />
+<img width="600px" alt="Example: Bash Elevated" src="images/example-bash-root.png" />
 
 In this example, we have:
 
@@ -230,7 +236,7 @@ In this example, we have:
 
 #### Example: Windows Explorer
 
-<img width="600px" alt="Example: Windows Explorer" src="/content/images/2019/05/example-explorer.png" />
+<img width="600px" alt="Example: Windows Explorer" src="images/example-explorer.png" />
 
 In this example, we have:
 
@@ -242,7 +248,7 @@ This looks different from previous examples. The program, which shows the famili
 
 #### Example: Windows Command Prompt
 
-<img width="600px" alt="Example: Command Prompt" src="/content/images/2019/05/example-cmd.png" />
+<img width="600px" alt="Example: Command Prompt" src="images/example-cmd.png" />
 
 In this example, we have:
 
@@ -253,7 +259,7 @@ In Windows, the terminal and shell are combined into a single `cmd.exe` program.
 
 #### Example: Windows PowerShell
 
-<img width="600px" alt="Example: Windows Powershell" src="/content/images/2019/05/example-powershell.png" />
+<img width="600px" alt="Example: Windows Powershell" src="images/example-powershell.png" />
 
 In this example, we have:
 
@@ -264,7 +270,7 @@ PowerShell is an improvement on the 'command prompt' program that was originally
 
 #### Example: Windows Subsystem for Linux (WSL)
 
-<img width="600px" alt="Example: WSL" src="/content/images/2019/05/example-wsl.png" />
+<img width="600px" alt="Example: WSL" src="images/example-wsl.png" />
 
 In this example, we have:
 

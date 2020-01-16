@@ -1,3 +1,9 @@
+---
+title: Getting Help
+slug: getting-help
+weight: 3
+---
+
 # Getting Help
 
 In this article I'll show you how to quickly get help when working with tools in the shell, without disrupting your flow!

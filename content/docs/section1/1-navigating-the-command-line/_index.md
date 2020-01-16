@@ -1,3 +1,9 @@
+---
+title: Navigating the Command Line
+slug: navigating-the-command-line
+weight: 1
+---
+
 # Navigating the Command Line
 
 I can't think of a better place to start than *navigating the command line*. As you start to do more and more in the shell, text in the command line can quickly become hard to handle. In this article I'll show some simple tricks for working with the command line more effectively.

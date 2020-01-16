@@ -1,3 +1,9 @@
+---
+title: Become a Clipboard Gymnast
+slug: become-a-clipboard-gymnast
+weight: 2
+---
+
 # Become a Clipboard Gymnast
 
 In this article I'll show you how you can use the shell as an efficient tool to compliment how you use the clipboard.

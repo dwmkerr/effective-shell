@@ -1,3 +1,9 @@
+---
+title: Moving Around
+slug: moving-around
+weight: 4
+---
+
 # Moving Around
 
 You might already spend a lot of time in the shell, running various command line programs or using tooling for development projects or operational tasks. But you might also still switch back to a more visual paradigm for working with files, directories and resources.
