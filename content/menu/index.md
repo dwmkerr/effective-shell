@@ -19,7 +19,12 @@ bookMenuLevels: 1
  <!-- - [Mermaid]({{< relref "/docs/shortcodes/mermaid" >}}) -->
  <!-- - [Tabs]({{< relref "/docs/shortcodes/tabs" >}})   -->
  - [**Section 0** - For Beginners]()
-   - [Is This Book For Me?]({{< relref "/docs/section0/is-this-book-for-me" >}})
+   - [Is This Book For Me?]({{< relref "/docs/section0/1-is-this-book-for-me" >}})
+   - [What is the Shell?]({{< relref "/docs/section0/2-what-is-the-shell" >}})
+   - [Opening the Shell]({{< relref "/docs/section0/3-opening-the-shell" >}})
+   - [Configuring the Shell]({{< relref "/docs/section0/4-configuring-the-shell" >}})
+   - [Summary]({{< relref "/docs/section1/summary" >}})
+
  - **Section 1**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
    - [Clipboard Gymnastics]({{< relref "/docs/section1/2-clipboard-gymnastics" >}})
