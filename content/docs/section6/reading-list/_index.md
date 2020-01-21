@@ -15,6 +15,10 @@ This section is currently work in progress and not ready for publication.
 
 Some great books and articles for specific topics are listed below.
 
+The Linux Command Line - William Shotts
+Wicked Cool Shell Scripts - Dave Taylor & Brandon Perryi
+How Linux Works - Brian Ward
+
 ## Beginners
 
 [Shell Scripting by Jason Cannon](TODO) - For absolute beginners this book might be useful. However, it is _very_ short and really only covers a few topics. I suggest that for a beginners book, something with a bit more content may be better.

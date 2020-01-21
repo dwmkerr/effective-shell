@@ -9,6 +9,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 * [Improvements](#improvements)
 * [Sharing](#sharing)
 * [The Pitch](#the-pitch)
+    * [Publishers](#publishers)
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
     * [Updating the Theme](#updating-the-theme)
@@ -37,15 +38,16 @@ Note that the structure below is still something of a work-in-progress while I t
     - [Job Control](https://dwmkerr.com/effective-shell-6-job-control/)
     - [The Subtleties of Shell Commands](https://dwmkerr.com/effective-shell-7-shell-commands/)
     - WIP: Thinking in Pipelines
-    - WIP: Shebangs
+    - WIP: Scripts & Shebangs
     - WIP: Interlude: The Shell Family Tree
 - Part 3: Building Your Toolkit
     - WIP: Shell Customisation
-    - WIP: Dotfile Management and Docfile Management
+    - WIP: Dotfile Management and Configuration Management
     - WIP: Aliases
     - WIP: Functions
     - WIP: Interlude: Future Shells
     - WIP: Who am I, What am I running? uname, whoami, $SHELL etc
+- Part 3: 
     - WIP: Managing Performance: top, kill, signals and disk usage
 
 Note: Chapters can be read in any order. But all of the chapters in Part 3 assume you have read the first two chapters of Part 3, which teach you how to manage your own customisations.
@@ -101,6 +103,16 @@ This is _not_ a book about Shell Programming. There are many excellent Shell Pro
 Possible titles:
 
 **Darkscreen**: 30 ways to use shells and terminals to be more effective developer or operator.
+**Effective Shell**: 30 ways to use shells and terminals to be more effective.
+
+### Publishers
+
+Books which I've found exciting, which I think could be examples of how this book might be developed:
+
+- [Effective C++: 55 Specific Ways to Improve Your Programs and Designs](https://www.amazon.com/Effective-Specific-Improve-Programs-Designs/dp/0321334876)
+- [Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14](https://www.amazon.com/Effective-Modern-Specific-Ways-Improve/dp/1491903996)
+- [3D Graphics Programming: Games & Beyond](https://www.amazon.com/3D-Graphics-Programming-Games-Beyond/dp/0672319292/)
+- [How Linux Works, 2nd Edition](https://nostarch.com/howlinuxworks2)
 
 ## The Website
 
