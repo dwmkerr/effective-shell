@@ -86,6 +86,7 @@ If you have arrived on this link, it will be for a link to a section which has n
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] Getting Help: `help`
 - [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
+- [ ] `man set` is super useful when checking options like `set -ex` in scripts
 - [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
 
 ## Sharing
