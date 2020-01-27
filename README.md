@@ -41,6 +41,7 @@ Note that the structure below is still something of a work-in-progress while I t
     - WIP: Scripts & Shebangs
     - WIP: Interlude: The Shell Family Tree
 - Part 3: Building Your Toolkit
+    - WIP: POSIX/GNU/Standards
     - WIP: Shell Customisation
     - WIP: Dotfile Management and Configuration Management
     - WIP: Aliases
@@ -88,6 +89,7 @@ If you have arrived on this link, it will be for a link to a section which has n
 - [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
 - [ ] `man set` is super useful when checking options like `set -ex` in scripts
 - [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
+- [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
 
 ## Sharing
 
