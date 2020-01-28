@@ -57,6 +57,19 @@ Note: Chapters can be read in any order. But all of the chapters in Part 3 assum
 
 If you have arrived on this link, it will be for a link to a section which has not been completed yet. Other chapters I am working on, or planning are:
 
+- Testing: `-x`, `-f`, `-e`, etc
+- Basic Maths: `$(( 1/3 ))`, etc
+- Bash Regexes: `$x ~= /something/`, etc
+- Splicing: `$var = ${x:1:3}`
+- Length: `$len = $#`, `${var:#}`, etc
+- Unit Testing with Tap
+- When to *not* script: diving into C, Python, Ruby, Node
+- How to write shell programs: Recognising `stdin` as input, silencing output, writing to stdout/stderr, modern syntax (`command verb` such as `k8s` and `s3`).
+- Key files in the system `/etc/passwd`
+- Workhorses: `fmt`, `awk`, `bc`, `sed`, `cut`, `grep`, `cron`, `make`
+- The core parts of the linux filesystem (`/var/, /sbin/ etc`)
+- Quick trick on cut: `rev | cut -d. -f 1 | rev` gets the file extension, `rev | cut -d. -f 2 | rev` gets the filename, source is 101 Wicked Shell Scripts).
+- Being compliant: `brew install coreutils`: see also Wicked Shell Scripts #100
 - Shebangs: How to use, when to use `env`, how shebangs work with multiple shells (e.g. if I source a bash shebang in a zsh, what will happen?)
 - Aliases. When to use (and more importantly, when not to use).
 - Dotfile management (profile, private, etc)
