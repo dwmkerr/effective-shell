@@ -1,6 +1,6 @@
 # effective-shell 
 
-Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com).
+Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com). All content is Copyright (©) Dave Kerr.
 
 <!-- vim-markdown-toc GFM -->
 
@@ -138,7 +138,7 @@ This section contains information on how to built, use and edit the site.
 
 ### Building the Website
 
-This website is built with 
+This website is built with [Hugo](https://gohugo.io/). It is very easy to setup and run locally.
 
 To setup dependencies, run:
 
