@@ -13,21 +13,21 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 3 - Opening the Shell](#chapter-3---opening-the-shell)
         * [Chapter 4 - Setting up your Shell](#chapter-4---setting-up-your-shell)
         * [Chapter 5 - The Absolute Basics](#chapter-5---the-absolute-basics)
-        * [Interlude 1 - The Renaissance of the Shell](#interlude-1---the-renaissance-of-the-shell)
-    * [Section One - Transitioning from The GUI](#section-one---transitioning-from-the-gui)
+    * [Interlude - The Shell Renaissance](#interlude---the-shell-renaissance)
+    * [Section One - Transitioning from the GUI](#section-one---transitioning-from-the-gui)
         * [Chapter 6 - Moving Around](#chapter-6---moving-around)
         * [Chapter 7 - Organising Files](#chapter-7---organising-files)
         * [Chapter 8 - Creating Files, Opening Files, Previewing Files and Searching for Files](#chapter-8---creating-files-opening-files-previewing-files-and-searching-for-files)
         * [Chapter 9 - Become a Clipboard Gymnast](#chapter-9---become-a-clipboard-gymnast)
         * [Chapter 10 - Getting Help](#chapter-10---getting-help)
-        * [Interlude 2 - The Unix Philosophy](#interlude-2---the-unix-philosophy)
+    * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
     * [Section Two - Core Skills](#section-two---core-skills)
         * [Chapter 11 - Navigating the Command-line](#chapter-11---navigating-the-command-line)
         * [Chapter 12 - Job Control](#chapter-12---job-control)
         * [Chapter 13 - Thinking in Pipelines](#chapter-13---thinking-in-pipelines)
         * [Chapter 14 - The Subtleties of Shell Commands](#chapter-14---the-subtleties-of-shell-commands)
         * [Chapter 15 - The Secure Shell](#chapter-15---the-secure-shell)
-        * [Interlude 3 - The Shell in Detail](#interlude-3---the-shell-in-detail)
+    * [Interlude - The Shell in Detail](#interlude---the-shell-in-detail)
     * [Section Three - Manipulating Text & Streams](#section-three---manipulating-text--streams)
         * [Chapter 16 - Slice and Dice with Cut and Rev](#chapter-16---slice-and-dice-with-cut-and-rev)
         * [Chapter 17 - Getting to Grips with Grep](#chapter-17---getting-to-grips-with-grep)
@@ -35,26 +35,26 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 19 - Clever Commands with Xargs and Quick Scripts](#chapter-19---clever-commands-with-xargs-and-quick-scripts)
         * [Chapter 20 - Bash Text Tricks - Regexes and String Manipulation](#chapter-20---bash-text-tricks---regexes-and-string-manipulation)
         * [Chapter 21 - The Missing Toolkit - jq, yq and xq](#chapter-21---the-missing-toolkit---jq-yq-and-xq)
-        * [Interlude 4 - The Linux and Shell Family Tree](#interlude-4---the-linux-and-shell-family-tree)
+    * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
     * [Section Four - Building Your Toolkit](#section-four---building-your-toolkit)
         * [Chapter 22 - Configuring the Shell](#chapter-22---configuring-the-shell)
         * [Chapter 23 - Customising your Command Prompt](#chapter-23---customising-your-command-prompt)
         * [Chapter 24 - Managing Your Dotfiles](#chapter-24---managing-your-dotfiles)
         * [Chapter 25 - Creating Shell Scripts and Understanding Shebangs](#chapter-25---creating-shell-scripts-and-understanding-shebangs)
         * [Chapter 26 - Gitting to Grips with Git](#chapter-26---gitting-to-grips-with-git)
-        * [Interlude 5 - TBC](#interlude-5---tbc)
+    * [Interlude - TBC](#interlude---tbc)
     * [Section Five - Shell Scripting](#section-five---shell-scripting)
         * [Chapter 27 - Looping over files and folders](#chapter-27---looping-over-files-and-folders)
         * [Chapter 28 - Basic Maths](#chapter-28---basic-maths)
         * [Chapter 29 - Understanding Heredocs](#chapter-29---understanding-heredocs)
         * [Chapter 30 - How to avoid scripting!](#chapter-30---how-to-avoid-scripting)
-        * [Interlude Five - TBC](#interlude-five---tbc)
+    * [Interlude - TBC](#interlude---tbc-1)
     * [Section Six - Advanced Techniques](#section-six---advanced-techniques)
         * [Chapter 31 - Managing Multiple Programming Languages with Make](#chapter-31---managing-multiple-programming-languages-with-make)
         * [Chapter 32 - The Power of Terminal Editors](#chapter-32---the-power-of-terminal-editors)
         * [Chapter 33 - The Multiplexer](#chapter-33---the-multiplexer)
         * [Chapter 34 - Writing Tools Which Follow The Unix Philosophy](#chapter-34---writing-tools-which-follow-the-unix-philosophy)
-        * [Interlude Six - The Future](#interlude-six---the-future)
+    * [Interlude - The Future](#interlude---the-future)
 
 <!-- vim-markdown-toc -->
 
@@ -94,11 +94,11 @@ In this chapter we'll make sure our system is able to run a recent version of Ba
 
 Before we close this section, we'll cover the absolutely basics of how to use a shell. We'll look at the same soft of operations you might use when operating the computer from a graphical interface - how to move around the file system, copy and paste files, rename and move files and open files up. Once you've completed this chapter you'll know the basics of how to use your shell to navigate your computer, and we are ready to get onto the meat of the book.
 
-#### Interlude 1 - The Renaissance of the Shell
+### Interlude - The Shell Renaissance
 
 The "interludes" which end each section are completely optional! They don't tech any specific skills, but instead give a little more flavour and background about the world of the shell, Linux and modern computing. In this first interlude we'll look at just why the shell is experiencing something of a renaissance in the modern age of IT.
 
-### Section One - Transitioning from The GUI
+### Section One - Transitioning from the GUI
 
 These are the key skills which everyone should know. Without them, you might struggle to perform certain tasks at all. Experienced users can probably skip this section, or just review the summary. But if you are new to the shell, this is the best place to start! This section focuses on helping you quickly get up to speed with how to perform the same kind of tasks you might have performed in a GUI (Graphical User Interface) with the shell.
 
@@ -132,7 +132,7 @@ If you are new to the shell, then we've already covered a lot. It's going to be 
 
 This chapter will introduce the `man`, `curl` and `help` commands. We'll also learn about the `tldr`, `cht.sh` and `fuck` tools, as well as how manual pages are structured in Linux.
 
-#### Interlude 2 - The Unix Philosophy
+### Interlude - The Unix Philosophy
 
 We've already introduced a lot of commands. It turns out that the idea of small, focused commands which do one thing and one thing only is very fundamental to how Linux and Unix systems are designed. The idea of having a large number of simple tools, which can be composed together to perform complex operations is called "The Unix Philosophy". Understanding this philosophy can help you understand why certain choices have been made with the shell and Linux tooling, and help you understand your system better.
 
@@ -168,7 +168,7 @@ In this chapter we'll see the `which`, `whereis` and related commands. We'll als
 
 One of the main reasons you might use a shell is to operate a machine remotely. In these cases it's often the case that the _only_ way to interact with these machines is via the shell, as they don't have a graphical user interface installed. In this chapter we'll look at how the secure shell, `ssh` works, and how to configure it for maximum convenience and efficiency.
 
-#### Interlude 3 - The Shell in Detail
+### Interlude - The Shell in Detail
 
 We've spent quite a bit of time with the shell now. For those who are interested, we'll now look into the technicalities of what a shell is, how it differs from a terminal, and what a `tty` is.
 
@@ -202,7 +202,7 @@ Sometimes you might find yourself battling with the shell text manipulation tool
 
 In this chapter we'll see how to install these tools and perform common tasks with them.
 
-#### Interlude 4 - The Linux and Shell Family Tree
+### Interlude - The Linux and Shell Family Tree
 
 There are lots of different flavours of Linux and Unix, and lots of different shells. This interlude takes a quick look at the Linux and Unix family tree, and the different shells which have evolved over time.
 
@@ -230,7 +230,7 @@ As you get more comfortable with the shell, you can bundle common commands into 
 
 If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell, in this chapter we'll look at the most operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories.
 
-#### Interlude 5 - TBC
+### Interlude - TBC
 
 I haven't got a solid idea for this interlude yet - I'm keeping track of ideas as I bulk out each chapter!
 
@@ -254,7 +254,7 @@ Heredocs are a feature of the shell you might have seen before, without necessar
 
 The shell is powerful, but can be complex. There are times where jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
-#### Interlude Five - TBC
+### Interlude - TBC
 
 To be confirmed.
 
@@ -278,7 +278,7 @@ If you are regularly using a shell, then learning how to use a terminal multiple
 
 To finish the book we'll look at how you can write tools which integrate seamlessly into the shell. We'll see how tooling and patterns have evolved, and some suggestions for how to write tools which others can use easily. We'll look at some of the similarities and patterns in very popular tools like `aws`, `kubectl` and `gcp`.
 
-#### Interlude Six - The Future
+### Interlude - The Future
 
 The shell, in particular the Bourne-Again Shell has been popular for many years. But what does the future hold? With the advent of the Linux Subsystem for Windows, new shells like Nushell, and the latest version of MacOS switching from Bash to Z-Shell, we finish off by looking at some of the trends which might shape how we use shells in the future.
 
