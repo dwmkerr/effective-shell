@@ -5,8 +5,6 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
-* [Chapters](#chapters)
-* [Coming Soon!](#coming-soon)
 * [Improvements](#improvements)
 * [Sharing](#sharing)
 * [The Pitch](#the-pitch)
@@ -20,85 +18,6 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 ## Introduction
 
 This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book.
-
-## Chapters
-
-Note that the structure below is still something of a work-in-progress while I think about what would be the best structure for the book.
-
-- Part 0: For The Newcomer
-    - What is a shell
-    - Opening a shell
-    - Moving around
-    - Showing files
-    - Copy, move, delete, new directory, open zip, open photo
-    - Standardising the shell (GNU tools, GNU sed, posix)
-    - Basic commands (whoami, ps)
-- Part 1: Core Skills
-    - [Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-    - [Become a Clipboard Gymnast](http://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
-    - [Getting Help](http://www.dwmkerr.com/effective-shell-part-3-getting-hepl)
-    - [Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
-    - [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
-- Part 2: Beyond the Basics
-    - [Job Control](https://dwmkerr.com/effective-shell-6-job-control/)
-    - [The Subtleties of Shell Commands](https://dwmkerr.com/effective-shell-7-shell-commands/)
-    - WIP: Thinking in Pipelines
-    - WIP: Scripts & Shebangs
-    - WIP: Interlude: The Shell Family Tree
-- Part 3: Building Your Toolkit
-    - WIP: POSIX/GNU/Standards
-    - WIP: Shell Customisation
-    - WIP: Dotfile Management and Configuration Management
-    - WIP: Aliases
-    - WIP: Functions
-    - WIP: Interlude: Future Shells
-    - WIP: Who am I, What am I running? uname, whoami, $SHELL etc
-- Part 3: 
-    - WIP: Managing Performance: top, kill, signals and disk usage
-
-Note: Chapters can be read in any order. But all of the chapters in Part 3 assume you have read the first two chapters of Part 3, which teach you how to manage your own customisations.
-
-## Coming Soon!
-
-If you have arrived on this link, it will be for a link to a section which has not been completed yet. Other chapters I am working on, or planning are:
-
-- Testing: `-x`, `-f`, `-e`, etc
-- Basic Maths: `$(( 1/3 ))`, etc
-- Bash Regexes: `$x ~= /something/`, etc
-- Splicing: `$var = ${x:1:3}`
-- Length: `$len = $#`, `${var:#}`, etc
-- Unit Testing with Tap
-- When to *not* script: diving into C, Python, Ruby, Node
-- How to write shell programs: Recognising `stdin` as input, silencing output, writing to stdout/stderr, modern syntax (`command verb` such as `k8s` and `s3`).
-- Key files in the system `/etc/passwd`
-- Workhorses: `fmt`, `awk`, `bc`, `sed`, `cut`, `grep`, `cron`, `make`
-- The core parts of the linux filesystem (`/var/, /sbin/ etc`)
-- Quick trick on cut: `rev | cut -d. -f 1 | rev` gets the file extension, `rev | cut -d. -f 2 | rev` gets the filename, source is 101 Wicked Shell Scripts).
-- Being compliant: `brew install coreutils`: see also Wicked Shell Scripts #100
-- Shebangs: How to use, when to use `env`, how shebangs work with multiple shells (e.g. if I source a bash shebang in a zsh, what will happen?)
-- Aliases. When to use (and more importantly, when not to use).
-- Dotfile management (profile, private, etc)
-- Sourcing (bashrc, profile, interactive, noninteractive, etc)
-- Understanding Pipelines
-- Understand logging (syslog, `logger` etc)
-- Terminal Multiplexing: `screen` and `tmux`
-- ANSI C Escaping (see https://www.dwmkerr.com/quick-tip-sending-newlines-with-curl/#comment-4375113010)
-- Moving Files - `scp`, `aws s3`, `xcopy` etc
-- Know Your Arrows! Pipe stdin <, >>, >, 2&>1 etc
-- Understanding Commands (`command -v` to see functions, aliases, builtins etc)
-- Customising the command prompt
-- Basic Shell Scripting
-- Internal Variables (https://www.tldp.org/LDP/abs/html/internalvariables.html#PROCCID)
-- Heredocs
-- `screen` and `tmux`
-- ANSI C Escaping (see https://www.dwmkerr.com/quick-tip-sending-newlines-with-curl/#comment-4375113010)
-- See if I can get an interview with shell creators?
-- The history of shells, a shell family tree
-- The rising popularity of commandline interfaces (Borland, VC++ vs Code, Vim etc)
-- Globing (e.g. `cat file{1,2,3}`)
-- Quick aliases (e.g. `D` for ISO8601 date)
-- Watching (e.g. `watch k get pods`)
-- Supercharging autocomplete
 
 ## Improvements
 
@@ -137,9 +56,12 @@ Books which I've found exciting, which I think could be examples of how this boo
 
 ## The Website
 
-The content in this repo is build into a static site available at [effective-shell.com](https://effective-shell). This is done using [Hugo](https://gohugo.io/).
+The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell). This is done using [Hugo](https://gohugo.io/).
 
-This section contains information on how to built, use and edit the site.
+This section contains information on how to built, use and edit the site. To help you quickly edit the site, some tips are below:
+
+- The main _content_ is at [website/content/docs/](website/content/docs/)
+- The menu structure is defined at [website/content/menu/index.md](website/content/menu/index.md).
 
 ### Building the Website
 
@@ -163,7 +85,7 @@ To build the site, run:
 make build
 ```
 
-The built site is generated at `./public`.
+The built site is generated at `./website/public`.
 
 ### Updating the Theme
 
