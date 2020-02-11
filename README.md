@@ -4,6 +4,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 
 <!-- vim-markdown-toc GFM -->
 
+* [Introduction](#introduction)
 * [Chapters](#chapters)
 * [Coming Soon!](#coming-soon)
 * [Improvements](#improvements)
@@ -15,6 +16,10 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
     * [Updating the Theme](#updating-the-theme)
 
 <!-- vim-markdown-toc -->
+
+## Introduction
+
+This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book.
 
 ## Chapters
 
