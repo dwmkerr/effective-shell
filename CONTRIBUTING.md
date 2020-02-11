@@ -7,5 +7,3 @@ When proofreading, consider:
 1. `which` vs `that` - a common error, good guide here: https://www.quickanddirtytips.com/education/grammar/which-versus-that-0?page=1
 2. `—` vs `-` - the first comes back from editors sometimes but doesn't render consistently
 3. `–` vs `-` - as above.
-
-

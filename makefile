@@ -11,4 +11,9 @@ serve:
 build:
 	cd website && hugo --minify
 
+# Create the summary document in word format.
+summary:
+	pandoc -o structure.docx -f markdown -t docx structure.md
+
+
 .PHONY: setup serve build
