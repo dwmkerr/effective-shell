@@ -1,6 +1,6 @@
 # effective-shell 
 
-Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com). All content is Copyright (©) Dave Kerr.
+Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com).
 
 <!-- vim-markdown-toc GFM -->
 
@@ -12,6 +12,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
     * [Updating the Theme](#updating-the-theme)
+* [Copyright & Licensing](#copyright--licensing)
 
 <!-- vim-markdown-toc -->
 
@@ -90,3 +91,7 @@ The built site is generated at `./website/public`.
 ### Updating the Theme
 
 The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo-book) theme, which is a fork of [alex-shpak](https://github.com/alex-shpak/hugo-book).
+
+## Copyright & Licensing
+
+All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue if you have questions on copyright or licensing.
