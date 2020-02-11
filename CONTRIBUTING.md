@@ -1,5 +1,11 @@
 # Contributing Guide
 
+❗ Important ❗
+
+Content in this repository may be published as a physical book. Please be aware that any contributions may be used commercially. I will try to keep track of contributors and attribute them in any printed material, but cannot make any guarantees on this, and therefore please assume that any contributions waive all rights to copyright etc.
+
+## Style Guide
+
 Currently, this guide is mainly for me, as I am writing the book. I am using it to keep track of useful notes for proofreading.
 
 When proofreading, consider:
