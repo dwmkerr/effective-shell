@@ -1,14 +1,5 @@
 _Job control_ is a feature of most shells, which is generally not particularly intuitive to work with. However, knowing the basics can help prevent you from getting yourself into a tangle, and can from time to time make certain tasks a little easier.
 
-In this chapter, we'll look at the main features of job control, why it can be a problematic, and some alternatives.
-
-- [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-- [Part 2: Become a Clipboard Gymnast](https://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
-- [Part 3: Getting Help](https://www.dwmkerr.com/effective-shell-part-3-getting-hepl/)
-- [Part 4: Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
-- [Part 5: Interlude - Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
-- **[Part 6: Everything You Don't Need to Know About Job Control](https://dwmkerr.com/dwmkerr.com/effective-shell-6-job-control/)**
-
 ## What Is Job Control?
 
 Let's start with an example. I am building a simple web page. It has one `index.html` file, one `styles.css` file, and one `code.js` file. The `index.html` file looks like this:
@@ -38,11 +29,11 @@ In fact, this is so useful that I normally _alias_ this command, so that I can j
 
 For now, if we run this command (you can get the three sample files here if you want to try this yourself), then we can open the webpage in a browser, with the styles and code loaded:
 
-<img alt="Screenshot: Website" src="/content/images/2019/06/website-screenshot.png" width="600" />
+<img alt="Screenshot: Website" src="images/website-screenshot.png" width="600" />
 
 We can also see that the server has served the HTML, JavaScript, and CSS files:
 
-<img alt="Screenshot: Server" src="/content/images/2019/06/server-screenshot.png" width="600" />
+<img alt="Screenshot: Server" src="images/server-screenshot.png" width="600" />
 
 All well and good so far.
 
@@ -52,7 +43,7 @@ Let's say we want to now continue using our shell, maybe to edit the website wit
 
 We have a problem. The `python` process is still running - it's serving the website. Our shell is essentially useless, until we stop the server. See what happens when I try to edit a file:
 
-<img alt="Demo: Blocked Shell" src="/content/images/2019/06/blocked-shell.gif" width="600" />
+<img alt="Demo: Blocked Shell" src="images/blocked-shell.gif" width="600" />
 
 In the example above, I try to run `vi`, but nothing is happening. Standard input is not being read by the server and not being interpreted by the shell.
 
@@ -64,7 +55,7 @@ This is obviously not optimal. Let's look at some solutions.
 
 In most shells, you can run a command and instruct the shell to run it in the _background_. To do this, you end the line with an ampersand. Here's how the example would look in this case:
 
-<img alt="Demo: Starting a Background Job" src="/content/images/2019/06/start-in-background.gif" width="600" />
+<img alt="Demo: Starting a Background Job" src="images/start-in-background.gif" width="600" />
 
 By ending the command with an `&` ampersand symbol, we instruct the shell to run the command as a _background job_. This means that our shell is still functional. The shell has also notified us that this command is running as a background job with a specific _job number_:
 
@@ -83,7 +74,7 @@ Let's say you forgot to start the command in the background. Most likely in this
 
 In the example below, we'll move the job to the background:
 
-<img alt="Demo: Moving a Job to the Background" src="/content/images/2019/06/move-to-background.gif" width="600" />
+<img alt="Demo: Moving a Job to the Background" src="images/move-to-background.gif" width="600" />
 
 The process is currently in the foreground, so my shell is inactive. Hitting `Ctrl+Z` sends a 'suspend' signal to the process[^3], pausing it and moving it to the background.
 
@@ -153,7 +144,7 @@ Now the job is in the foreground, and you can interact with the process again ho
 
 You might realise you cannot continue what you are doing because an old job is _still running_. Here's an example:
 
-<img alt="Demo: Cleaning Up Jobs" src="/content/images/2019/06/kill-job.gif" width="600" />
+<img alt="Demo: Cleaning Up Jobs" src="images/kill-job.gif" width="600" />
 
 I tried to run my web server, but there was still one running as a background job. The server failed to start because the port is in use.
 
@@ -181,7 +172,7 @@ Avoid jobs. They are not intuitive to interface with, and they suffer from some 
 
 The most obvious one is that all jobs write to the same output, meaning you can quickly get garbled output like this:
 
-<img alt="Screenshot: Garbled Output" src="/content/images/2019/06/output.png" width="600" />
+<img alt="Screenshot: Garbled Output" src="images/output.png" width="600" />
 
 This is what happens when I run a job, which just outputs text every second. It's in the background, but it's printing all over my commands. Even running the `jobs` command to try and find the job to stop it is difficult.
 
@@ -211,7 +202,7 @@ The benefit to this is that each tab gets its own standard input and output, so 
 
 The traditional alternative to a job for an operator who simply wants more than one thing going on at once would be a _terminal multiplexer_, such as `screen` or `tmux`:
 
-![terminal-multiplexer](/content/images/2019/06/terminal-multiplexer.gif)
+![terminal-multiplexer](images/terminal-multiplexer.gif)
 
 Multiplexers work in a very similar way to a modern graphical terminal - they manage many shell instances. The benefits to a modern terminal, such as iTerm, is that you have a very intuitive GUI and lots of features.
 

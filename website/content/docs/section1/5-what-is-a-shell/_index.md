@@ -4,13 +4,7 @@ slug: what-is-a-shell
 weight: 5
 ---
 
-his is the first 'interlude' in my [Effective Shell](https://github.com/dwmkerr/effective-shell) series. These interludes give some background, history or more flavour to some of the topics.
-
-- [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-- [Part 2: Become a Clipboard Gymnast](https://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
-- [Part 3: Getting Help](https://www.dwmkerr.com/effective-shell-part-3-getting-hepl/)
-- [Part 4: Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
-- [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
+This is the first 'interlude' in my [Effective Shell](https://github.com/dwmkerr/effective-shell) series. These interludes give some background, history or more flavour to some of the topics.
 
 This one _should_ be high-level enough for even non-technical readers to enjoy (or at least understand!). I've tried to make sure any term that might be unfamiliar is described in a footnote[^1]. For the more technical reader, it provides an important grounding on some of the key concepts relating to shells and how they work.
 

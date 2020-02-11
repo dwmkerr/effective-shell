@@ -6,14 +6,6 @@ By the end of this chapter, you might even be able to make sense of the horrifyi
 which $(where $(what $(whence $(whereis who))))
 ```
 
-- [Part 1: Navigating the Command Line](https://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)
-- [Part 2: Become a Clipboard Gymnast](https://www.dwmkerr.com/effective-shell-part-2-become-a-clipboard-gymnast/)
-- [Part 3: Getting Help](https://www.dwmkerr.com/effective-shell-part-3-getting-hepl/)
-- [Part 4: Moving Around](https://dwmkerr.com/effective-shell-4-moving-around/)
-- [Part 5: Interlude - Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/)
-- [Part 6: Everything You Don't Need to Know About Job Control](https://dwmkerr.com/effective-shell-6-job-control/)
-- **[Part 7: The Subtleties of Shell Commands](https://dwmkerr.com/effective-shell-7-shell-commands/)**
-
 ## What Are Commands?
 
 This is _really_ important to understand! A _command_ in a shell is something you execute. It might take parameters. Generally it'll have a form like this:
