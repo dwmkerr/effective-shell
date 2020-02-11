@@ -5,10 +5,10 @@ setup:
 
 # Serve the site locally for testing.
 serve:
-	hugo server --baseURL "http://localhost/" --buildDrafts -v --debug
+	cd website && hugo server --baseURL "http://localhost/" --buildDrafts -v --debug
 
 # Build the site.
 build:
-	hugo --minify
+	cd website && hugo --minify
 
-.PHONY: setup serve
+.PHONY: setup serve build
