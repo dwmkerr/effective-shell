@@ -4,6 +4,7 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc GFM -->
 
+* [Potential Titles](#potential-titles)
 * [Introduction by Steve Bourne](#introduction-by-steve-bourne)
 * [Section Zero - For the Complete Newcomer](#section-zero---for-the-complete-newcomer)
     * [Chapter 1 - Is this book for me?](#chapter-1---is-this-book-for-me)
@@ -55,6 +56,11 @@ This document contains the proposed structure of the book. It is still work in p
 * [Interlude - The Future](#interlude---the-future)
 
 <!-- vim-markdown-toc -->
+
+### Potential Titles
+
+- Effective Shell
+- Darkscreen: Specific techniques to be more effective in the shell
 
 ### Introduction by Steve Bourne
 
