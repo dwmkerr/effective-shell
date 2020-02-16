@@ -1,5 +1,0 @@
-'use strict';(function(){const input=document.querySelector('#book-search-input');const results=document.querySelector('#book-search-results');input.addEventListener('focus',init);input.addEventListener('keyup',search);function init(){input.removeEventListener('focus',init);input.required=true;loadScript('/flexsearch.min.js');loadScript('/en.search-data.min.03bcce8e4d911d2fb2b962dba4f89c4ff2c387d0875b8052c1e883253e6824fa.js',function(){input.required=false;search();});}
-function search(){while(results.firstChild){results.removeChild(results.firstChild);}
-if(!input.value){return;}
-const searchHits=window.bookSearchIndex.search(input.value,10);searchHits.forEach(function(page){const li=document.createElement('li'),a=li.appendChild(document.createElement('a'));a.href=page.href;a.textContent=page.title;results.appendChild(li);});}
-function loadScript(src,callback){const script=document.createElement('script');script.defer=true;script.async=false;script.src=src;script.onload=callback;document.head.appendChild(script);}})();
