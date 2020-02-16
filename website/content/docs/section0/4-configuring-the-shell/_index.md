@@ -5,11 +5,12 @@ date: "2020-01-16"
 description: "This section describes how to configure your shell to get the most out of the book"
 weight: 4
 ---
+
 # Configuring the Shell
 
-Shells can vary enormously between different systems. In general, Linux systems tend to use the "Bash" shell and require little configuration. Apple's OSX operating system is actually based on BSD Unix, and under the hood is somewhat different to most Linux systems. Microsoft Windows is a completely unrelated operating system to either Linux or Unix and operates in a fundamentally different way both of them.
+Shells can vary enormously between different systems. In general, Linux systems tend to use the "Bash" shell and require little configuration. Apple's MacOS operating system is actually based on BSD Unix, and under the hood is somewhat different to most Linux systems. Microsoft Windows is a completely unrelated operating system to either Linux or Unix and operates in a fundamentally different way both of them.
 
-In this book, we assume that you are using a "Linux-like" system, something which operates like a modern Linux distribution. This is a deliberate choice. If you become comfortable using a Linux-like shell, you can generally apply the techniques we'll show to OSX with no difficulties. For Windows, the techniques are not necessarily transferable immediately, but still valuable to know. Windows is actually being updated at the time of writing to provide a Linux-like shell interface as part of the core operating system (this is known as the [Windows Subsystem Linux](https://docs.microsoft.com/en-us/windows/wsl). As time progresses it will be easier to run commands using the techniques in this book natively, but for now we'll have to tweak a few things.
+In this book, we assume that you are using a "Linux-like" system, something which operates like a modern Linux distribution. This is a deliberate choice. If you become comfortable using a Linux-like shell, you can generally apply the techniques we'll show to MacOS with no difficulties. For Windows, the techniques are not necessarily transferable immediately, but still valuable to know. Windows is actually being updated at the time of writing to provide a Linux-like shell interface as part of the core operating system (this is known as the [Windows Subsystem Linux](https://docs.microsoft.com/en-us/windows/wsl). As time progresses it will be easier to run commands using the techniques in this book natively, but for now we'll have to tweak a few things.
 
 In this section we'll make sure that we are running with a setup which is close to Linux, and aim to set the latest version of our shell to the popular "Bash" program. If you are familiar with Bash but prefer to use another shell, that is fine, most of the book will work with any modern shell. However, if you are not sure what shell you should be using, I would recommend you follow the guides below to setup the most popular shell at its latest version.
 
@@ -147,27 +148,41 @@ At the time of writing, WSL is still fairly new. I would only recommend this opt
 
 After installation ensure that you are running the latest available version of Bash.
 
-## macOS / OSX
+## MacOS
 
-If you are running a Mac, then you can probably run the standard Terminal program and follow the material in this book without making any changes. However, if you want to make sure you are running Bash 5, you will need to upgrade the default installation (which at the time of writing is version 3) and make sure your shell is set to Bash (on Catalina the shell is set to ZSh, which will also work fine for this book).
+If you are running a Mac, then you can probably run the standard Terminal program and follow the material in this book without making any changes. However, the version of _Bash_ which comes installed by default on MacOS is version 3, which is a little out of date. I would strongly suggest that you upgrade the default installation. On MacOS Catalina, the default shell has changed to _Z Shell_ - this should work fine for all of the examples in this book, but you might want to switch it to Bash to be on the safe side (you can always change back later).
+
+To install the right software, we'll use a tool called _Homebrew_. Homebrew is a 'package manager', a tool used to install software on your computer, from the shell. It's kind of like the App Store but for shell users!
 
 First, follow the instructions online to install [Homebrew](https://brew.sh/):
 
 <img alt="Screenshot: OSX Installation" src="images/setup-osx-1.png" width="800px" />
 
-Once this has installed, install Bash with:
+In most cases, this will require opening the terminal programming and running a snippet which looks like this:
 
+```sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
+However, this might have changed since the time of writing so do [check the website](https://brew.sh/) to see what the latest instructions are. You don't actually need to know what is going on with this command (but by the time you've worked through a bit more of this book it will make sense!), but in a nutshell it runs a basic installation script, using the _Ruby_ programming language (which comes pre-installed on MacOS).
+
+Once this has installed, install Bash by running the following command in the shell:
+
+```sh
 brew install bash
 ```
+
+This uses the `brew` command, which we have just installed, to install the `bash` program.
 
 Finally, update the Terminal preferences to use the version of Bash you have just installed, rather than the default, by setting the shell location to `/usr/local/bin/bash`:
 
 <img alt="Screenshot: OSX Installation" src="images/setup-osx-2.png" width="800px" />
 
-New terminal windows will now run the latest version of Bash, which you can confirm by running `echo $BASH_VERSION`:
+Again, why we make these changes is not essential to know for now, we'll go into more details in a later section. Once you've made this change, whenever you open a new `terminal` window, it will run the latest version of Bash, which you can confirm by running `echo $BASH_VERSION`:
 
 <img alt="Screenshot: OSX Installation" src="images/setup-osx-3.png" width="800px" />
+
+There is actually a more sophisticated way to change what shell is used in a system, which is the special `chsh` command (short for "change shell"). We'll see this in a later section. We'll also see what `echo` is in more detail shortly.
 
 ## Linux
 

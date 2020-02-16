@@ -11,7 +11,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 2 - What is the Shell?](#chapter-2---what-is-the-shell)
     * [Chapter 3 - Opening the Shell on Your Computer](#chapter-3---opening-the-shell-on-your-computer)
     * [Chapter 4 - Setting up Bash](#chapter-4---setting-up-bash)
-    * [Chapter 5 - Some Absolute Basics](#chapter-5---some-absolute-basics)
+    * [Chapter 5 - Getting Started with the Shell](#chapter-5---getting-started-with-the-shell)
 * [Interlude - The Renaissance of the Shell](#interlude---the-renaissance-of-the-shell)
 * [Section One - Transitioning from The Graphical User Interface (GUI) to the Shell](#section-one---transitioning-from-the-graphical-user-interface-gui-to-the-shell)
     * [Chapter 6 - Navigating your System](#chapter-6---navigating-your-system)
@@ -72,7 +72,7 @@ This section is for those who are completely new to this topic. In this section 
 
 We'll also look at how to set your computer up so that you can follow along with the examples. We'll finish by demonstrating a few basic skills so that you can learn to move around in the shell and get started with the rest of the book.
 
-If you are already comfortable with running a shell, know what `bash` is, and know how to run basic commands like `ls` and `cd`, then you can completely skip this section and move onto Section One.
+If you are already comfortable with running a shell, know what `bash` is, and know how to run basic commands like `ls` and `cd`, are familiar with terms like _command_ and _parameter_ then you can completely skip this section and move onto Section One.
 
 #### Chapter 1 - Is this book for me?
 
@@ -92,9 +92,11 @@ In this book we are going to assume that you are using "Bash" - the "Bourne-Agai
 
 In this chapter we'll make sure your system is able to run a recent version of Bash, regardless of whether you are using MacOS, Microsoft Windows, or Linux. There are a few different ways to configure your system, particularly if you are using Microsoft Windows. We'll take a look at the options and choose the one which makes the most sense for you.
 
-#### Chapter 5 - Some Absolute Basics
+#### Chapter 5 - Getting Started with the Shell
 
 Before we close section zero, we'll cover some basics of how to use a shell to navigate your computer. We'll look at the same sort of operations you might use when operating a computer from a graphical interface; how to move around the file system, copy and paste files, rename and move files and open files up. Once you've completed this chapter you'll know the absolute basics of how to use your shell and will be ready to get your teeth into the meat of the various topics in this book.
+
+In this chapter we'll see the `ls`, `pwd`, `cd`, `echo` and `open` commands. We'll also get familiar with 'commands' and 'parameters'.
 
 ### Interlude - The Renaissance of the Shell
 
@@ -192,7 +194,7 @@ Sed - the 'stream editor' tool can be used to perform sophisticated manipulation
 
 #### Chapter 19 - Clever Commands with Xargs and Quick Scripts
 
-With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file.
+With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file. We'll also see a few useful commands like `wc` to get information about text.
 
 #### Chapter 20 - Bash Text Tricks - Regexes and String Manipulation
 
@@ -215,6 +217,8 @@ As you work more with the shell, you will want to customise it and build tools a
 #### Chapter 22 - Configuring the Shell
 
 There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
+
+In this chapter we'll see the various different configuration files used, introduce the `chsh` command, the `SHELL` environment variable, and see how to manage configuration using `set`.
 
 #### Chapter 23 - Customising your Command Prompt
 

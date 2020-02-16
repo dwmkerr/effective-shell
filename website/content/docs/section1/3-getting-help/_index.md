@@ -32,7 +32,7 @@ The first example is exactly what I'm looking for. Now for any more detail than 
 
 And this is just page one of six! There's a *lot* of detail, which is great sometimes, but for a quick lookup, `tldr` is perfect.
 
-You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`. It's open source and community maintainedFASTCACHE_TIME_ZONE
+You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`. It's open source and community maintained.
 
 Now a lot of the time, you are still going to need more help or more detail. For the rest of the article, we'll dive a bit deeper into `man`, the system manual pages.
 
