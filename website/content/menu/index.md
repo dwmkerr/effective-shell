@@ -18,12 +18,13 @@ bookMenuLevels: 1
  <!-- - [Katex]({{< relref "/docs/shortcodes/katex" >}}) -->
  <!-- - [Mermaid]({{< relref "/docs/shortcodes/mermaid" >}}) -->
  <!-- - [Tabs]({{< relref "/docs/shortcodes/tabs" >}})   -->
- - [**Section 0** - For Beginners]()
+ - [**For the Complete Newcomer**]({{< relref "/docs/section0/0-introduction" >}})
    - [Is This Book For Me?]({{< relref "/docs/section0/1-is-this-book-for-me" >}})
    - [What is the Shell?]({{< relref "/docs/section0/2-what-is-the-shell" >}})
    - [Opening the Shell]({{< relref "/docs/section0/3-opening-the-shell" >}})
    - [Configuring the Shell]({{< relref "/docs/section0/4-configuring-the-shell" >}})
-   - [Summary]({{< relref "/docs/section0/5-summary" >}})
+   - [Getting Started with the Shell]({{< relref "/docs/section0/5-getting-started-with-the-shell" >}})
+   - [Summary]({{< relref "/docs/section0/6-summary" >}})
 
  - **Section 1**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
