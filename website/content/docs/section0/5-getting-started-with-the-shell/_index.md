@@ -48,17 +48,19 @@ cd ~
 
 Is used to _change directory_ - that's what `cd` stands for. The _parameter_ we passed to `cd` was just the 'tilde' character (`~`). This character has a special meaning in the shell - it means "the current user's home directory".
 
-Finally, we ran the `pwd` command. This command is short for _print working directory_. It writes out to the screen _where_ you currently are.
+Finally, we ran the `pwd` command. This command is short for _print working directory_. It writes out to the screen _where_ you currently are. On my Mac, my home directory is located at `/Users/dwmkerr`, which is what the command has shown me.
 
-Let's take another look at a command with some parameters. Run the following in your shell:
+Let's take another look at a command. Run the following in your shell:
 
 ```sh
 ls
 ```
 
-The `ls` command is short for _list directory contents_ - it shows you everything that is in the current directory.
+The `ls` command is short for _list directory contents_ - it shows you everything that is in the current directory. On my computer you can see things like the 'Downloads', 'Music' and 'Pictures' folders, which are set up by default on a Mac, as well as some of my own folders.
 
-We can pass different parameters to ls. The main parameter is the location of the folder we'd like to list the contents of. So if we wanted to see what was in the `Music` folder, we'd just run:
+![Screenshot: List directory contents](./images/ls.png)
+
+We can pass different parameters to `ls`. The main parameter is the location of the folder we'd like to list the contents of. So if we wanted to see what was in the `Music` folder, we'd just run:
 
 ```sh
 ls Music
@@ -82,6 +84,8 @@ We can do this by running `ls /Appliciations`:
 
 ![Screenshot: List global applications](./images/ls-applications.png)
 
+The trick here is that we start with a leading forward slash - this means the `Applications` folder in the _root_ of the computer, not the one in my current folder.
+
 On Windows, applications are kept in different places, but we can see some of the installed applications by running `ls "c:\program files\"`:
 
 ![Screenshot: List applications on Windows](./images/ls-applications-windows.png)
@@ -92,7 +96,7 @@ Why do we have the extra quotation marks here? If we ran the command without the
 
 The error above shows what happens when we miss the quotation marks.
 
-What about it I wanted to know the _size_ of the files I was seeing? I could pass the `-a` parameter, which is short for _all details_:
+Now we can take a look at how a _flag_ would work. A flag is a parameter which changes how a command works. Flags normally start with a hyphen. Let's say we wanted to know the _size_ of the files in the folder. We do this by using the `-lh` pass the parameter, which is short for _long list, human readable_:
 
 ```sh
 ls -lh Downloads/*.jpg
@@ -100,15 +104,15 @@ ls -lh Downloads/*.jpg
 
 ![Screenshot: List downloaded photos](./images/ls-downloads.png)
 
-Now I can see all of the `jpg` files (`jpg` files are images) in my `Downloads` folder. Blow by blow, this is what we've got:
+Now I can see all of the `jpg` files (`jpg` files are images) in my `Downloads` folder. I can see it looks like I've got two pictures of "Mardi Himal" (a mountain in the Himalayas) which are both 384 Kilobytes in size, as well as some other images. Blow by blow, this is what we've got:
 
 - `ls` - List the contents of a folder
-- `-lh` - This is the _list in human-readable sizes_ parameter, which means we see how big the files are
+- `-lh` - This is the _long list in human-readable sizes_ parameter, which means we see how big the files are in a friendly format (like `911K` for Kilobytes, rather than showing something like `911012` which would be the number of bytes - and harder to read!)
 - `Downloads/*.jpg` - Show the contents of the `Downloads` folder, including any files which end with `.jpg` - the `*` is a wildcard which means that we don't mind what the filename is
 
 The `-lh` parameter is _shorthand_. Many commands offer longhand parameters (such as `--version`) as well as shorthand (such as `-v` as an alternative for `--version`). Longhand is easier to read, shorthand is faster to type.
 
-Don't worry - in the next section we'll see how to look up the available parameters for a command.
+Don't worry - in the next section we'll see how to look up the available parameters for a command. You don't need to remember all of these details, only understand which part is the command and which parts are the parameters. This is just an introduction for now!
 
 Now let's look at one more command.
 
@@ -140,19 +144,19 @@ We're going to see all sorts of cool things we can do with `echo` as we continue
 
 ## Move Around
 
-One common thing we can do in a visual file explorer is move around. We can open folders, and go 'up' from the current folder. We often also see visually where we are in the folder structure with an 'address bar'. We can actually make a quick visual that shows how to do all of this in the shell:
+One common thing we can do in a visual file explorer is move around. We can open folders, and go 'up' from the current folder. We often also see visually where we are in the folder structure with an 'address bar'.
+
+A useful reference might be the picture below:
 
 ![Screenshot: Shell quick reference](./images/shell-commands.png)
 
-As a quick reference:
+Here we map the shell commands to the visual interface's equivalents:
 
 - `pwd` shows the current working directory - where you currently are in the file system
 - `ls` lists the files in the current directory (or any directory you tell it)
 - `cd ..` changes the directory to another location - if you use the special `..` directory, you are telling it to change to the _parent_ directory, i.e. 'go up' in the file system 
 
-As a final trick, if you want to actually open something, then there is a command for that too. Unfortunately, it is different on different operating systems (but we're going to see later on how to fix that!).
-
-Let's say I want to open one of the photos in my Downloads folder. Here's how I can do it:
+As a final trick, lets see how we open a file or folder.  Let's say I want to open one of the photos in my Downloads folder. Here's how I can do it:
 
 ```sh
 cd ~/Downloads
@@ -163,9 +167,15 @@ We can see the result here:
 
 ![Screenshot: Open a photo](./images/open-command.png)
 
-The `open` command will open a file on MacOS. On windows you can use `start`, and on Linux you can generally use `xdg-open`.
+Running `open himalayas.jpg` has opened the photo in the application which is used for photos by default in the operating system.
 
-As a nifty trick, trying running `open .` (or `start .`, or `xdg-open .`, depending on your operating system). This will open the _current folder_. Every folder contains two 'special' folders. The first is `..`, which we've seen means 'my parent folder' and the second is `.`, which means 'myself'. Having this `.` folder is convenient, as it means we can do things like this - run a command to open the current folder.
+Be aware -  this command is different on different operating systems (but we're going to see later on how to fix that and make it consistent everywhere!). The `open` command will open a file on MacOS. On Windows you can use `start`, and on Linux you can generally use `xdg-open`.
+
+As a nifty trick, trying running `open .`[^1]:
+
+![Screenshot: Open the current directory](./images/open-current-directory.png)
+
+. This will open the _current folder_. Every folder contains two 'special' folders. The first is `..`, which we've seen means 'my parent folder' and the second is `.`, which means 'myself'. Having this `.` folder is convenient, as it means we can do things like this - run a command to open the current folder.
 
 We're going to go into a lot more detail on how to work with files and folders, move around, but hopefully this has provided a crash course for the basics. They key _concepts_ to remember, which are much more important than the individual commands we've see are:
 
@@ -181,3 +191,11 @@ We've also learned:
 - `ls` lists the files in a directory
 - `echo` can be used to write out text to the screen
 - `open`, `start` and `xdg-open` can be used to open a file or folder on MacOS, Windows and Linux respectively
+
+Now we can start to get into more detail!
+
+---
+
+## Footnotes
+
+[^1]: On Windows you might need to run `start .` and on Linux, `xdg-open .`.
