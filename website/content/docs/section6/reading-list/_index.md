@@ -27,6 +27,10 @@ Ideal for systems administrators and power users who can benefit from automating
 
 Absolutely the best book I've read on Vim, perfect for users of all levels. Written by Drew Niel, who is the author of the amazing [Vimcasts](http://vimcasts.org/) series.
 
+#### [Joshua Levy - The Art of the Command Line](https://github.com/jlevy/the-art-of-command-line)
+
+This is a wonderful repository, which aims to help you "Master the command line, in one page". This page is full of useful resources and is a superb reference for users from novice all the way to advanced!
+
 ## Advanced
 
 - [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours
