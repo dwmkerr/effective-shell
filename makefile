@@ -1,3 +1,5 @@
+SHELL:=/bin/bash
+
 # Setup tools required for local development.
 setup:
 	brew install hugo
@@ -11,9 +13,14 @@ serve:
 build:
 	cd website && hugo --minify
 
-# Create the summary document in word format.
-summary:
+# Create the summary structure in word format, easier to share.
+structure:
 	pandoc -o structure.docx -f markdown -t docx structure.md
+
+# Create the statistics document.
+statistics:
+	./scripts/wordcount.sh ./website/content/docs/section*/**/_index.md > statistics.csv
+
 
 
 .PHONY: setup serve build
