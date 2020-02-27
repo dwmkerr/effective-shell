@@ -3,21 +3,7 @@ headless: true
 bookMenuLevels: 1
 ---
 
- <!-- - [**Example Site**]({{< relref "/docs/example" >}}) -->
- <!-- - [Table of Contents]({{< relref "/docs/example/table-of-contents" >}}) -->
- <!--   - [With ToC]({{< relref "/docs/example/table-of-contents/with-toc" >}}) -->
- <!--   - [Without ToC]({{< relref "/docs/example/table-of-contents/without-toc" >}}) -->
- <!-- - [2nd]({{< relref "/docs/example/2nd" >}}) -->
- <!--   - [3rd]({{< relref "/docs/example/2nd/3rd" >}}) -->
- <!--     - [4th]({{< relref "/docs/example/2nd/3rd/4th" >}})   -->
- <!-- - **Shortcodes** -->
- <!-- - [Buttons]({{< relref "/docs/shortcodes/buttons" >}}) -->
- <!-- - [Columns]({{< relref "/docs/shortcodes/columns" >}}) -->
- <!-- - [Expand]({{< relref "/docs/shortcodes/expand" >}}) -->
- <!-- - [Hints]({{< relref "/docs/shortcodes/hints" >}}) -->
- <!-- - [Katex]({{< relref "/docs/shortcodes/katex" >}}) -->
- <!-- - [Mermaid]({{< relref "/docs/shortcodes/mermaid" >}}) -->
- <!-- - [Tabs]({{< relref "/docs/shortcodes/tabs" >}})   -->
+ <!-- Section 0 -->
  - [**For the Complete Newcomer**]({{< relref "/docs/section0/0-introduction" >}})
    - [Is This Book For Me?]({{< relref "/docs/section0/1-is-this-book-for-me" >}})
    - [What is the Shell?]({{< relref "/docs/section0/2-what-is-the-shell" >}})
