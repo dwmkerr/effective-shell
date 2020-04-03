@@ -4,15 +4,16 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 
 <!-- vim-markdown-toc GFM -->
 
-* [Introduction](#introduction)
-* [Improvements](#improvements)
-* [Sharing](#sharing)
-* [The Pitch](#the-pitch)
-    * [Publishers](#publishers)
-* [The Website](#the-website)
-    * [Building the Website](#building-the-website)
-    * [Updating the Theme](#updating-the-theme)
-* [Copyright & Licensing](#copyright--licensing)
+    * [Introduction](#introduction)
+    * [Improvements](#improvements)
+    * [Sharing](#sharing)
+    * [The Pitch](#the-pitch)
+        * [Publishers](#publishers)
+    * [The Website](#the-website)
+        * [Building the Website](#building-the-website)
+        * [Updating the Theme](#updating-the-theme)
+    * [Copyright & Licensing](#copyright--licensing)
+* [TODO](#todo)
 
 <!-- vim-markdown-toc -->
 
@@ -95,3 +96,14 @@ The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo
 ## Copyright & Licensing
 
 All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue if you have questions on copyright or licensing.
+
+# TODO
+
+This is my quick and dirty task list.
+
+- [ ] Complete Part 1, as per the structuure
+- [ ] Once Part 1 is complete, share
+
+**Sharing**
+
+- [ ] Add a 'share' button on each page
