@@ -4,6 +4,7 @@ bookMenuLevels: 1
 ---
 
  - [**Introduction**]({{< relref "/docs/0-introduction" >}})
+ - [**Getting Started**]({{< relref "/docs/1-getting-started" >}})
  - [**For the Complete Newcomer**]({{< relref "/docs/section0/0-introduction" >}})
    - [Is This Book For Me?]({{< relref "/docs/section0/1-is-this-book-for-me" >}})
    - [What is the Shell?]({{< relref "/docs/section0/2-what-is-the-shell" >}})
