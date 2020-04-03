@@ -6,40 +6,36 @@ bookDisableComments: true
 
 ## Effective Shell
 
-Effective Shell is a book for anyone who uses a shell regularly. Whether you are a programmer, data scientist, reliability engineer, or just an enthusiast who loves to know how computers work, this is the book for you.
+This book is for anyone who is interested in computing, and wants to learn more about the exciting, but sometimes daunting world of "The Shell"!
 
-Each chapter is designed to be independent, showing a technique or idea which will help make you more effective.
+For the newcomer, you'll learn what a shell is, how to use it on your system, and then how to become more effective everyday by integrating the shell into your work.
 
-Each section also ends with an 'interlude', which gives a little bit of historic or interesting information about the shell, you can also skip these if you want!
+For the experienced professional, there are chapters which go into advanced topics and introduce real-world ways to be more effective with your usage.
 
-Every section and chapter is detailed below, use this table to decide where to start!
+To get started, jump over to the [Introduction]({{< relref "/docs/0-introduction" >}}) page from the menu or the left, whichever chapter sounds the most appealing!
 
-- **Section 0: For Beginners**
+If you would like to get email updates when new chapters are published, please do provide your email below. I won't be using it for anything beyond updates to the book.
 
-  This section is for complete beginners. If you are not sure whether this book is for you, what a shell is, or how to get started, start here!
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://effective-shell.us19.list-manage.com/subscribe/post?u=eac1a082b6db34d40aaff2caf&amp;id=20c9542b27" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Subscribe for Updates</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_eac1a082b6db34d40aaff2caf_20c9542b27" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
 
-- **Section 1: Core Skills**
+<!--End mc_embed_signup-->
 
-  This section covers what I think to be the most fundamental skills which are critical for being effective when using the shell. If you are pro, you might want to skim this section to see if there's anything which is new for you.
+This book is also open source! The code is on [github.com/dwmkerr/effective-shell](https://github.com/dwmkerr/effective-shell). Feel free to use the 'Comments' section at the bottom of each page to discuss the content, or even [open a pull request](https://github.com/dwmkerr/effective-shell/pulls) to propose changes.
 
-- **Section 2: Beyond the Basics**
-
-  This contains more advanced topics, which still work as 'standalone' chapters and don't require any understanding of earlier sections of the book.
-
-- **Section 3: Pipelines and your Toolkit**
-
-  This section starts by giving a detailed description of how 'pipelines' work. This is essential reading for the rest of the section. The later chapters detail some of the most key tools and programs you'll use in the shell. A basic understanding of each of the tool could be really useful in improving your experience.
-
-- **Section 4: Customising and Managing Your Shell**
-
-  In this section we look at how to customise the shell to your own needs and preferences. We also look at how to control these customisations and maintain them over time.
-
-- **Section 5: Shell Programming**
-
-  Even though this is not a dedicated book for programming in the shell, it makes sense to at least cover the key programming skills which you can use regularly to improve how you work with the shell.
-
-- **Section 6: Next Steps**
-
-  The final section suggests useful areas to look into once you've finished the book, recommends some other excellent reading material, and how to continue your learning. It also discusses the future of the shell and what is changing in this space.
-
-This entire book is currently open source - feel free to propose changes, and get involved in the discussions at the bottom of each page!
