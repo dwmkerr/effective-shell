@@ -95,7 +95,7 @@ Windows is not anything like Linux under the hood. So to get a shell working, we
 
 1. Use a tool which provides common Linux tools which have been written to work with Windows
 2. Use a "virtual machine" running Linux
-3. Use the Windows Subsystem Linux
+3. Use the Windows Subsystem for Linux
 
 The first option is the best if you want to actually be able to work with the files on your computer quickly and easily day to day.
 
@@ -213,13 +213,31 @@ You are now running the "Bash" shell in the terminal. You can run the `whoami` c
 
 That's it! You now have a virtual machine running Ubuntu and Bash which you can use to learn about the shell.
 
-### Option 3: Setup Windows Subsystem Linux
+### Option 3: Setup the Windows Subsystem for Linux
 
-At the time of writing, WSL is still fairly new. I would only recommend this option for advanced users who are keen to learn how to use this new feature of Windows. Given that the installation process may change quite a bit as the platform evolves, I won't document it here. The best guide for setting up WSL is at:
+The Windows Subsystem for Linux is a relatively new set of features for Microsoft Windows. It allows users to install a Linux distribution on their Windows machine. This is a great way for us to be able to use the "Bash" shell without having to set up a virtual machine.
 
-[Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+First, open up the "Turn Windows Features on or off" option from the control panel:
 
-After installation ensure that you are running the latest available version of Bash.
+<img alt="Screenshot: Turn Windows Features on or off" src="images/setup-wsl-1.png" width="800px" />
+
+Then enable the "Windows Subsystem for Linux" feature:
+
+<img alt="Screenshot: Enable Windows Subsystem for Linux" src="images/setup-wsl-2.png" width="800px" />
+
+After your computer has restarted, open up the Windows App Store and search for "Ubuntu":
+
+<img alt="Screenshot: Ubuntu on App Store" src="images/setup-wsl-3.png" width="800px" />
+
+Once Ubuntu has installed, open up the app. It will then initialise (which can take a little while):
+
+<img alt="Screenshot: Initialise Ubuntu" src="images/setup-wsl-4.png" width="800px" />
+
+Choose a username and password to complete the setup:
+
+<img alt="Screenshot: Choose Username and Password" src="images/setup-wsl-5.png" width="800px" />
+
+And that's it! You can now open the Ubuntu app at any time to use Ubuntu on Windows, interfacing using the Bash shell.
 
 ## MacOS
 
