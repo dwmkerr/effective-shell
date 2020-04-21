@@ -1,6 +1,7 @@
 ---
 title: "Part 1 - Transitioning to the Shell"
 slug: "part-1-transitioning-to-the-shell"
+bookDisableComments: true
 ---
 
 ## Part 1 - Transitioning to the Shell
