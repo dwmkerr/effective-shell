@@ -1,5 +1,7 @@
 # effective-shell 
 
+[![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+
 Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com).
 
 <!-- vim-markdown-toc GFM -->
@@ -96,6 +98,11 @@ The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo
 ## Copyright & Licensing
 
 All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue if you have questions on copyright or licensing.
+
+[![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+
 
 # TODO
 
