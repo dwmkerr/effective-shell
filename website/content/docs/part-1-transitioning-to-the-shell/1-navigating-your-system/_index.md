@@ -26,7 +26,7 @@ You should see something like this:
 
 When we open a folder in a graphical user interface, we are always viewing the contents of a folder, or directory. When you open the shell, the same applies - we are always sitting in a specific directory.
 
-The `pwd` command is the `Print Working Directory` command. It shows the full path of the directory that you are in. You might not use this command very often, as in many shells you can see the directory you are in (if you cannot see this in your shell, you'll find out how to do this in the [Chapter 18](#TODO).
+The `pwd` command is the _Print Working Directory_ command. It shows the full path of the directory that you are in. You might not use this command very often, as in many shells you can see the directory you are in (if you cannot see this in your shell, you'll find out how to do this in the [Chapter 18](#TODO)).
 
 There's one more way to find the working directory. It is stored in an _Environment Variable_ called `PWD`.
 
@@ -58,7 +58,7 @@ You should see something like this:
 
 The `ls` command is the _List Directory Contents_ command. It will show the contents of a directory. If we don't give it any parameters it will show the contents of the current directory.
 
-There are a lot of options for the `ls` command. In [Chapter 5](#TODO) we'll see how to find out the options for commands. For now, let's look at one of the most common options - `-l`. This shows the contents as a list:
+There are a lot of options for the `ls` command. In [Chapter 5](#TODO) we'll see how to find out the options for commands. For now, let's look at one of the most common options `-l`. This shows the contents as a list:
 
 ```sh
 ls -l
@@ -79,6 +79,7 @@ In the shell, you run the `cd` command. Try it out with:
 cd Pictures
 
 # ...then list the contents of the directory.
+# Note that the '-al' flags mean show *all* files, as a *list*.
 ls -al
 ```
 
@@ -107,7 +108,7 @@ Absolute paths _always_ start with a slash. That's how the system knows it is an
 If I have an absolute path, I know _exactly_ where the file or folder is. Let's compare this to a _relative path_. Below is the _relative path_ in my shell for the file I'm writing right now:
 
 ```
-website/content/docs/part-1-transitioning-to-the-shell/1-navigating-your-system/chapter-1.md
+website/content/docs/part-1-transitioning-to-the-shell
 ```
 
 This path is _relative_ to my current working directory in the shell. This means that this path only makes sense if you use it from a specific directory. If I am in my `Pictures` folder, and I want to move to the `2020-photos` folder, I could do it in two ways. The first is with an absolute path:
@@ -126,7 +127,7 @@ In short - relative paths are often useful if you want to move to something _wit
 
 # The Special Dot and Dot Dot Folders
 
-As you experiment with these commands, you might have noticed that there every folder seems to contain two other folders, one with the name `.` and one with the name `..`. Run `ls -al` on the `pictures` folder to see an example:
+As you experiment with these commands, you might have noticed that  every folder contains two other folders, one with the name `.` and one with the name `..`. Run `ls -al` on the `pictures` folder to see an example:
 
 ```sh
 ls -al pictures
