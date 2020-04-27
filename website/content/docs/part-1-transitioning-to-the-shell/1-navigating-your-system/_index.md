@@ -8,7 +8,7 @@ weight: 1
 
 Switching from a graphical user interface to the shell can take some getting used to. First we'll take a look at how to navigate your system using the shell, and get information on files and folders in the system.
 
-This section will touch on the `pwd`, `ls`, `cd`, `pushd` and `popd` commands, as well as introducing the concept of the "working directory" and "environment variables". We'll also introduce how "Paths" work.
+This section will introduce the `pwd`, `ls`, `cd`, `pushd` and `popd` commands, as well as the concepts of the "working directory" and "environment variables". We'll also take bit of a look into how "Paths" work.
 
 If these commands far familiar to you then feel free to jump to the next chapter! Otherwise, let's get started.
 
