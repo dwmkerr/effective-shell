@@ -6,16 +6,15 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 
 <!-- vim-markdown-toc GFM -->
 
-    * [Introduction](#introduction)
-    * [Improvements](#improvements)
-    * [Sharing](#sharing)
-    * [The Pitch](#the-pitch)
-        * [Publishers](#publishers)
-    * [The Website](#the-website)
-        * [Building the Website](#building-the-website)
-        * [Updating the Theme](#updating-the-theme)
-    * [Copyright & Licensing](#copyright--licensing)
-* [TODO](#todo)
+* [Introduction](#introduction)
+* [Improvements](#improvements)
+* [Sharing](#sharing)
+* [The Pitch](#the-pitch)
+    * [Publishers](#publishers)
+* [The Website](#the-website)
+    * [Building the Website](#building-the-website)
+    * [Updating the Theme](#updating-the-theme)
+* [Copyright & Licensing](#copyright--licensing)
 
 <!-- vim-markdown-toc -->
 
@@ -102,15 +101,3 @@ All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue
 [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
-
-
-# TODO
-
-This is my quick and dirty task list.
-
-- [ ] Complete Part 1, as per the structuure
-- [ ] Once Part 1 is complete, share
-
-**Sharing**
-
-- [ ] Add a 'share' button on each page

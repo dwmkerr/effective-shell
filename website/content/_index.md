@@ -14,6 +14,8 @@ For the experienced professional, there are chapters which go into advanced topi
 
 To get started, jump over to the [Introduction]({{< relref "/docs/0-introduction" >}}) page from the menu or the left, whichever chapter sounds the most appealing!
 
+To setup your computer to follow along with the chapters, check the [Getting Started]({{< relref "/docs/1-getting-started" >}}) guide.
+
 If you would like to get email updates when new chapters are published, please do provide your email below. I won't be using it for anything beyond updates to the book.
 
 <!-- Begin Mailchimp Signup Form -->

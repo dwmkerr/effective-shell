@@ -83,7 +83,7 @@ These are the key skills which everyone should know. Without them, you might str
 
 Switching from a graphical user interface to the shell can take some getting used to. First we'll take a look at how to navigate your system using the shell, and get information on files and folders in the system.
 
-This section will touch on the `pwd`, `cd`, `ls`, `pushd`, `popd` and `file` commands, as well as introducing the concept of the "working directory" and "environment variables".
+This section will touch on the `pwd`, `cd`, `ls`, `pushd` and `popd` commands, as well as introducing the concept of the "working directory" and "environment variables".
 
 #### Chapter 3 - Managing Your Files
 
@@ -91,7 +91,7 @@ Copying, moving, renaming and deleting files in a graphical user interface is no
 
 Now that we know how to organise the files in our computer, we'll take a look at how to create new files, preview the contents of files, open files, download files and particularly importantly, how to search for files.
 
-This chapter will introduce the `cat`, `less`, `touch`, `zip`, `unzip`, `find`, `cp`, `mv`, `rm`, `rmdir`, `mkdir`, `curl` and `wget` commands. It will also introduce 'wildcards' and 'globs'.
+This chapter will introduce the `file`, `cat`, `less`, `touch`, `zip`, `unzip`, `find`, `cp`, `mv`, `rm`, `rmdir`, `mkdir`, `curl` and `wget` commands. It will also introduce 'wildcards' and 'globs'.
 
 #### Chapter 4 - Becoming a Clipboard Gymnast
 

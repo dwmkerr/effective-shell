@@ -6,6 +6,7 @@ bookMenuLevels: 1
  - [**Introduction**]({{< relref "/docs/0-introduction" >}})
  - [**Getting Started**]({{< relref "/docs/1-getting-started" >}})
  - [**Part 1 - Transitioning to the Shell**]({{< relref "/docs/part-1-transitioning-to-the-shell" >}})
+   - [Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/1-navigating-your-system" >}})
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
    - [Clipboard Gymnastics]({{< relref "/docs/section1/2-clipboard-gymnastics" >}})
    - [Getting Help]({{< relref "/docs/section1/3-getting-help" >}})
