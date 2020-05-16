@@ -47,6 +47,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
     * [Chapter 29 - Writing Tools that Follow The Unix Philosophy](#chapter-29---writing-tools-that-follow-the-unix-philosophy)
 * [Interlude - The Future](#interlude---the-future)
+    * [Missing Pieces](#missing-pieces)
 
 <!-- vim-markdown-toc -->
 
@@ -83,7 +84,7 @@ These are the key skills which everyone should know. Without them, you might str
 
 Switching from a graphical user interface to the shell can take some getting used to. First we'll take a look at how to navigate your system using the shell, and get information on files and folders in the system.
 
-This section will touch on the `pwd`, `cd`, `ls`, `pushd` and `popd` commands, as well as introducing the concept of the "working directory" and "environment variables".
+This chapter will introduce the `wget`, `unzip`, `cp`, `mv`, `rm`, `mkdir`, and `rmdir` commands. We'll also briefly look at `cat`, _wildcards_ and _redirection_.
 
 #### Chapter 3 - Managing Your Files
 
@@ -254,3 +255,13 @@ To finish the book, we'll look at how you can write tools which integrate seamle
 ### Interlude - The Future
 
 The shell, in particular the Bourne-Again Shell has been popular for many years. But what does the future hold? With the advent of the Linux Subsystem for Windows, new shells like Nushell, and the latest version of MacOS switching from Bash to Z-Shell, we finish off by looking at some of the trends which might shape how we use shells in the future.
+
+#### Missing Pieces
+
+This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
+
+- `find` was in 'managing files
+- `globs` was in 'managing files
+- `curl` was in managing files
+- `df` to find out free space, or also how to find out how much space a folder takes up
+- `$IFS` to avoid easily avoidable errors
