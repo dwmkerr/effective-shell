@@ -11,6 +11,9 @@ serve:
 
 # Build the site.
 build:
+	# Zip up the playground and add to the 'static/downloads' folder.
+	mkdir -p website/static/downloads
+	zip -r website/static/downloads/effective-shell-playground.zip effective-shell-playground
 	cd website && hugo --minify
 
 # Create the summary structure in word format, easier to share.
