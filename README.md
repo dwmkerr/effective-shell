@@ -22,6 +22,8 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 
 This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book.
 
+The `effective-shell-playground` folder which has all of the samples can be downloaded from [https://effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
+
 ## Improvements
 
 - [ ] Add `tree` to the Chapter 'Moving Around'.
@@ -89,6 +91,12 @@ make build
 ```
 
 The built site is generated at `./website/public`.
+
+Note that the [`effective-shell-playground`](./effective-shell-playground) folder is automatically zipped up and added to the website, meaning it can be downloaded directly from:
+
+```
+https://effective-shell.com/downloads/effective-shell-playground.zip
+```
 
 ### Updating the Theme
 
