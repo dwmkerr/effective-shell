@@ -172,7 +172,7 @@ Building this in one go is hard, let's look at little more at the pipeline.
 
 I hope this was useful! Please comment if you have any questions or tips. To see further articles as they come out, follow the repo at:
 
-[github.com/dwmkerr/effective-shell](github.com/dwmkerr/effective-shell)
+[github.com/dwmkerr/effective-shell](https://github.com/dwmkerr/effective-shell)
 
 Or just follow [@dwmkerr](twitter.com/dwmkerr) on Twitter.
 
