@@ -15,6 +15,16 @@ This section is currently work in progress and not ready for publication.
 
 Some great books and articles for specific topics are listed below.
 
+#### The Missing Semester of Your CS Education
+
+The introduction in the site says it better than I could!
+
+Classes teach you all about advanced topics within CS, from operating systems to machine learning, but there's one critical subject that's rarely covered, and is instead left to students to figure out on their own: proficiency with their tools. We’ll teach you how to master the command-line, use a powerful text editor, use fancy features of version control systems, and much more!
+
+https://missing.csail.mit.edu/
+
+Thanks to [Lennart R. Wilke](https://www.linkedin.com/in/lrwilke/) for sharing this with me!
+
 #### [Shell Scripting by Jason Cannon](https://www.amazon.com/Shell-Scripting-Automate-Command-Programming-ebook/dp/B015FZAXU6)
 
 Short and sweet, this is a good book for absolute shell scripting beginners.
