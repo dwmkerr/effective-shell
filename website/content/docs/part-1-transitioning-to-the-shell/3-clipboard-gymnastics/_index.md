@@ -1,16 +1,43 @@
 ---
 title: Become a Clipboard Gymnast
 slug: become-a-clipboard-gymnast
-weight: 2
+title: "Chapter 3 - Becoming a Clipboard Gymnast"
+slug: "chapter-3-becoming-a-clipboard-gymnast"
+weight: 3
 ---
 
-# Become a Clipboard Gymnast
+# Chapter 3 - Becoming a Clipboard Gymnast
 
-In this article I'll show you how you can use the shell as an efficient tool to compliment how you use the clipboard.
+For those who are new to the shell, we've covered a lot. In this chapter we'll slow down the pace of new commands a bit and instead focus on a core skill which you already be familiar with - using the clipboard.
 
-*Note for Linux Users: In this article I'll use the `pbcopy` and `pbpaste` commands to access the clipboard, which are available on a Mac only. To get access to the same commands on other platforms, check [Appendix: Clipboard Access on Linux](#appendixclipboardaccessonlinux)*
+You have probably already been using the clipboard with the shell, copying and pasting commands and their outputs. However, there's a lot more we can do with the clipboard. Now we'll look at how to take this to the next level. We'll also briefly introduce introduce _aliases_ and _pipelines_, which will be covered in a lot more detail in later chapters.
+
+## The Most Basic Clipboard Commands
+
+You are probably used to using the keyboard to access the clipboard, using the Cut, Copy and Paste commands. The keyboard shortcuts are probably already locked in as muscle memory:
+
+| Command | Windows Shortcut | Linux Shortcut | MacOS Shortcut |
+|---------|------------------|----------------|----------------|
+| Cut     | `Ctrl` + `X`     | `Ctrl` + `X`   | `⌘` + `X`      |
+| Copy    | `Ctrl` + `C`     | `Ctrl` + `C`   | `⌘` + `C`      |
+| Paste   | `Ctrl` + `V`     | `Ctrl` + `V`   | `⌘` + `V`      |
+
+In the shell, you may find that these commands don't run as expected. For example, in the screenshot below I have tried to use `Ctrl` + `V` a few times paste into terminal on Ubuntu:
+
+![Screenshot: Ctrl + V on Ubuntu](./images/ctrl-v-on-ubuntu.png)
+
+Instead of the contents of the clipboard being dropped into the shell, we see the text `^V`. Why is this?
+
+Well, some of this is historical. The reason the `Ctrl` key is _called_ the _Control Key_ is that it is used to send _control sequences_ to the computer. When we're using the Control Key, the characters we send are not plain text, they're used to perform actions. This is something that is probably pretty familiar - `Ctrl` + `P` is pretty universally 'Print' for example.
+
+Now most shells and command-line interfaces pre-date graphical user interfaces (and even new shells tend to follow the conventions of earlier ones to ensure a consistent experience for users who are used to working with shells). Shells have a whole bunch of control sequences which actually pre-date the clipboard itself.
+
+
+
 
 ## Use the Shell on the Clipboard
+
+*Note for Linux Users: In this article I'll use the `pbcopy` and `pbpaste` commands to access the clipboard, which are available on a Mac only. To get access to the same commands on other platforms, check [Appendix: Clipboard Access on Linux](#appendixclipboardaccessonlinux)*
 
 You can easily use shell commands on the contents of your clipboard. Just use `pbpaste` to output the clipboard, run the output through some commands, then use `pbcopy` to copy the result.
 
