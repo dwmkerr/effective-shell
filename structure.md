@@ -15,9 +15,9 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 5 - Getting Help](#chapter-5---getting-help)
 * [Interlude - The Renaissance of the Shell](#interlude---the-renaissance-of-the-shell)
 * [Part 2 - Core Skills](#part-2---core-skills)
-    * [Chapter 6 - Fly on the Command-line](#chapter-6---fly-on-the-command-line)
-    * [Chapter 7 - Understanding Job Control](#chapter-7---understanding-job-control)
-    * [Chapter 8 - Thinking in Pipelines](#chapter-8---thinking-in-pipelines)
+    * [Chapter 6 - Thinking in Pipelines](#chapter-6---thinking-in-pipelines)
+    * [Chapter 7 - Fly on the Command-line](#chapter-7---fly-on-the-command-line)
+    * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
     * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
     * [Chapter 10 - Talking to other machines with the Secure Shell](#chapter-10---talking-to-other-machines-with-the-secure-shell)
 * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
@@ -114,23 +114,23 @@ The "interludes" which end each section are completely optional. They don't teac
 
 There are a few techniques and skills which you'll touch on time and time again. This section introduces some of the core skills and concepts which it is useful to understand when working with the shell.
 
-#### Chapter 6 - Fly on the Command-line
+#### Chapter 6 - Thinking in Pipelines
+
+The shell allows us to chain sets of commands together. These 'pipeline' features allow us to take basic commands and perform increasingly complex and sophisticated operations.
+
+In this chapter we'll see how pipelines work, introduce the `tee` command, and learn about basic redirection.
+
+#### Chapter 7 - Fly on the Command-line
 
 If there's one set of skills which will save you an enormous amount of time, it's the skills needed to quickly navigate the command line. These skills are also immediately transferable to a whole set of other common tools. In this section we'll see how to very quickly navigate the command-line with the keyboard, and where we can also use these techniques.
 
 This chapter introduces the most commonly used keyboard shortcuts used in 'readline' based tools, like the shell and many programming tools.
 
-#### Chapter 7 - Understanding Job Control
+#### Chapter 8 - Understanding Job Control
 
 The shell contains a whole set of features for working with long running tasks. These features are called "Job Control". Knowing how to move a task into the background, work on something else, move it back into the foreground, and generally control these jobs can be a real time-saver. Even if you don't use these features regularly, understanding how job control works (and how to recover work you might have accidentally paused or put into the background) can be very helpful.
 
 In this chapter we'll introduce job control, and the `bg`, `fg`, and `jobs` commands.
-
-#### Chapter 8 - Thinking in Pipelines
-
-The shell allows us to chain sets of commands together. These 'pipeline' features allow us to take basic commands and perform increasingly complex and sophisticated operations.
-
-In this chapter we'll see how pipelines work, introduce the `tee` command, and learn about basic redirection.
 
 #### Chapter 9 - Understanding the Subtleties of Shell Commands
 
