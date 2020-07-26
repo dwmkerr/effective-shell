@@ -32,8 +32,35 @@ Well, some of this is historical. The reason the `Ctrl` key is _called_ the _Con
 
 Now most shells and command-line interfaces pre-date graphical user interfaces (and even new shells tend to follow the conventions of earlier ones to ensure a consistent experience for users who are used to working with shells). Shells have a whole bunch of control sequences which actually pre-date the clipboard itself.
 
+Some of the control sequences used in the shell you might already be familiar with. For example, if you have a program running and want to cancel it, you might be used to using `Ctrl` + `C`. This actually sends a signal to the program and terminates it (there's a lot more about this in later articles).
 
+The `Ctrl` + `C` combination terminates the current program. What about `Ctrl` + `V`? This actually is the _verbatim insert_ command. It tells the shell to write out the _next_ keystroke you give it, instead of processing them normally. This allows you to write out 'special' characters like the escape key, or even the `Ctrl` + `V` command.
 
+In this case if you press `Ctrl` + `V` again it writes out the text `^V`. The hat symbol `^` represents `Ctrl`. You can try writing out some different sequences:
+
+Different shells and different terminals can handle these sequences in different ways, and often the behaviour can be customised. For now, let's just quickly look at the basics of how to use Cut / Copy / Paste in each environment.
+
+**Windows**
+
+If you are using a _Command Prompt_, then the usual shortcuts will work fine. However, most of the time we will be using Bash. In this case the shortcuts will _not_ work. Instead, select the _Use Ctrl+Shift+C/V as Copy/Paste_ option from the properties menu:
+
+![Screenshot: Use Ctrl+Shift+C/V as Copy/Paste on Bash on Windows](./images/ctrl-v-on-ubuntu.png)
+
+You can now use `Ctrl+Shift+C` for copy and `Ctrl+Shift+V` for paste. You can also copy text by just dragging the cursor over it with the right mouse button.
+
+**Linux**
+
+On most Linux systems you'll be using the Gnome terminal, which means that you can use `Ctrl+Shift+C` for copy and `Ctrl+Shift+V` for paste. You can also right click on text with the cursor to select it.
+
+**MacOS**
+
+Mac users can just use `⌘ + C` for copy and `⌘ + V` for paste. The shell doesn't use the special Mac Command character `⌘`, which means the default keyboard mappings on MacOS work fine in a shell as they do not clash with anything.
+
+Now that we've got the basics out of the way, and learnt far more than we probably wanted to about control keys, we can look at more ways to use the clipboard.
+
+## TODO Sharing
+
+Verbatim insert
 
 ## Use the Shell on the Clipboard
 
