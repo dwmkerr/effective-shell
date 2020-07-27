@@ -1,20 +1,22 @@
 ---
 title: Become a Clipboard Gymnast
 slug: become-a-clipboard-gymnast
-title: "Chapter 3 - Becoming a Clipboard Gymnast"
-slug: "chapter-3-becoming-a-clipboard-gymnast"
-weight: 3
+title: "Chapter 4 - Becoming a Clipboard Gymnast"
+slug: "chapter-4-becoming-a-clipboard-gymnast"
+weight: 4
 ---
 
-# Chapter 3 - Becoming a Clipboard Gymnast
+# Chapter 4 - Becoming a Clipboard Gymnast
 
-For those who are new to the shell, we've covered a lot. In this chapter we'll slow down the pace of new commands a bit and instead focus on a core skill which you already be familiar with - using the clipboard.
+For those who are new to the shell, we've covered a lot. In this chapter we'll slow down the pace of new commands a bit and instead focus on a core skill which you will already be familiar with from Graphical User Interfaces - using the clipboard.
 
-You have probably already been using the clipboard with the shell, copying and pasting commands and their outputs. However, there's a lot more we can do with the clipboard. Now we'll look at how to take this to the next level. We'll also briefly introduce introduce _aliases_ and _pipelines_, which will be covered in a lot more detail in later chapters.
+You have probably already been using the clipboard with the shell, copying and pasting commands and their outputs. However, there's a lot more we can do with the clipboard. Now we'll look at how to take this to the next level.
+
+We'll also briefly introduce introduce _aliases_ and _pipelines_, which will be covered in a lot more detail in later chapters.
 
 ## The Clipboard Essentials
 
-You are probably used to using the keyboard to access the clipboard, using the Cut, Copy and Paste commands. The keyboard shortcuts are probably already locked in as muscle memory:
+I wouldn't be surprised if the keyboard shortcuts to access the clipboard are already firmly locked into muscle memory for almost all readers, but just in case, here's a reminder of the shortcuts across different systems:
 
 | Command | Windows Shortcut | Linux Shortcut | MacOS Shortcut |
 |---------|------------------|----------------|----------------|
@@ -22,29 +24,33 @@ You are probably used to using the keyboard to access the clipboard, using the C
 | Copy    | `Ctrl` + `C`     | `Ctrl` + `C`   | `⌘` + `C`      |
 | Paste   | `Ctrl` + `V`     | `Ctrl` + `V`   | `⌘` + `V`      |
 
-In the shell, you may find that these commands don't run as expected. For example, in the screenshot below I have tried to use `Ctrl` + `V` a few times paste into terminal on Ubuntu:
+In the shell, you may find that these commands don't run as expected. For example, in the screenshot below I have tried to use `Ctrl` + `V` a few times to paste into terminal on Ubuntu:
 
 ![Screenshot: Ctrl + V on Ubuntu](./images/ctrl-v-on-ubuntu.png)
 
 Instead of the contents of the clipboard being dropped into the shell, we see the text `^V`. Why is this?
 
-Well, some of this is historical. The reason the `Ctrl` key is _called_ the _Control Key_ is that it is used to send _control sequences_ to the computer. When we're using the Control Key, the characters we send are not plain text, they're used to perform actions. This is something that is probably pretty familiar - `Ctrl` + `P` is pretty universally 'Print' for example.
+Well, some of this is historical (the shell has been around for a long time so we'll see this answer a lot!). The reason the `Ctrl` key is _called_ the _Control Key_ is that it is used to send _control sequences_ to the computer. When we're using the Control Key, the characters we send are not plain text, they're used to perform actions. This is something that is probably pretty familiar. For example, `Ctrl` + `P` is almost universally used as a shortcut for the 'Print' command.
 
-Now most shells and command-line interfaces pre-date graphical user interfaces (and even new shells tend to follow the conventions of earlier ones to ensure a consistent experience for users who are used to working with shells). Shells have a whole bunch of control sequences which actually pre-date the clipboard itself.
+We tend to think of these commands as _shortcuts_ to save us from finding the appropriate command in a menu or on a toolbar.  But of course most shells and command-line interfaces pre-date graphical user interfaces. They needed a way to differentiate between a user entering plain old text, and a user wanting to execute a certain command.
 
-Some of the control sequences used in the shell you might already be familiar with. For example, if you have a program running and want to cancel it, you might be used to using `Ctrl` + `C`. This actually sends a signal to the program and terminates it (there's a lot more about this in later articles).
+Even modern shells tend to follow the conventions around control sequences which were established by earlier ones to ensure a consistent experience for users who are used to working with shells. Shells have a whole bunch of control sequences which actually pre-date the graphical user interface, the clipboard itself, and even screens!
 
-The `Ctrl` + `C` combination terminates the current program. What about `Ctrl` + `V`? This actually is the _verbatim insert_ command. It tells the shell to write out the _next_ keystroke you give it, instead of processing them normally. This allows you to write out 'special' characters like the escape key, or even the `Ctrl` + `V` command.
+Some of the control sequences used in the shell you might already be familiar with. For example, if you have a program running and want to cancel it, you might be used to using `Ctrl` + `C`. This actually sends a _signal_ to the program and typically the program responds by closing. We'll see signals again and again as we go through the book.
 
-In this case if you press `Ctrl` + `V` again it writes out the text `^V`. The hat symbol `^` represents `Ctrl`. You can try writing out some different sequences:
+The `Ctrl` + `C` combination terminates the current program. What about `Ctrl` + `V`? This is the grand-sounding "_Verbatim Insert_" command. It tells the shell to write out the _next_ keystroke you give it. This allows you to write out 'special' characters like the escape key, left or right keys, or even the `Ctrl` + `V` combination itself.
 
-Different shells and different terminals can handle these sequences in different ways, and often the behaviour can be customised. For now, let's just quickly look at the basics of how to use Cut / Copy / Paste in each environment.
+So if you type `Ctrl` + `V` twice, the shell writes out the text `^V`. The hat symbol `^` represents `Ctrl`. The first command tells the shell to write out the following command, the second is then written out directly. You can try writing out some different sequences. You'll see various odd looking symbols drawn, which represent things like the `Alt` key and other special keys.
+
+So why do we need to care? Well the shell already has a command for `Ctrl` + `C` and `Ctrl` + `V`, so we're going to need to work around this to use our familiar 'copy' and 'paste' commands.
+
+How this works varies across platforms. Follow the instructions below for the platform you are using.
 
 **Windows**
 
 If you are using a _Command Prompt_, then the usual shortcuts will work fine. However, most of the time we will be using Bash. In this case the shortcuts will _not_ work. Instead, select the _Use Ctrl+Shift+C/V as Copy/Paste_ option from the properties menu:
 
-![Screenshot: Use Ctrl+Shift+C/V as Copy/Paste on Bash on Windows](./images/ctrl-v-on-ubuntu.png)
+<img alt="Screenshot: Use Ctrl+Shift+C/V as Copy/Paste on Bash on Windows" src="./images/windows-bash-options.png" width="380px" />
 
 You can now use `Ctrl+Shift+C` for copy and `Ctrl+Shift+V` for paste. You can also copy text by just dragging the cursor over it with the right mouse button.
 
@@ -75,7 +81,7 @@ alias pbcopy="clip.exe"
 alias pbpaste="powershell.exe -command 'Get-Clipboard' | sed -e 's/\r\n$//g'"
 ```
 
-Don't worry about how these commands work - by the time you've gone through the book it should make perfect sense. For now you just need to know we're adding two new commands to our toolkit - `copy` and `paste`, which will work in Bash on Windows.
+Don't worry about how these commands work - by the time you've gone through the book it should make perfect sense. For now you just need to know we're adding two new commands to our toolkit - `pbcopy` and `pbpaste`, which will work in Bash on Windows.
 
 **Linux**
 
@@ -92,6 +98,8 @@ alias pbpaste="xclip -selection c -o"
 Nothing is required on MacOS - `pbcopy` and `pbpaste` are built in.
 
 **Making these changes permanent**
+
+We've used the `alias` command to create `pbcopy` and `pbpaste`. In Bash (and most shells) an `alias` is something you can configure as a shortcut to avoid having to type longer commands. There's a whole chapter on commands in Section 2.
 
 These instructions will need to be repeated when you re-open your terminal. In a later chapter we'll see how to make permanent customisations to our shells so that we don't have to repeat this setup.
 
@@ -212,9 +220,9 @@ The problem is:
 1. The list has duplicates
 2. I need to turn each name into an email address like 'Artie_Ziff@simpsons.com'
 
-And I want to email everyone quickly. We can quickly handle this task without leaving the shell.
+I want to email get the email addresses on my clipboard ready to paste into my email client quickly. We can quickly handle this task without leaving the shell.
 
-Copy the raw text below if you want to try out the same commands and follow along:
+If you want to try out the same commands and follow along you can copy the raw text below (don't worry if the commands are unfamiliar, we'll be seeing them again and again and breaking down each one in later chapters):
 
 ```
 Artie Ziff
