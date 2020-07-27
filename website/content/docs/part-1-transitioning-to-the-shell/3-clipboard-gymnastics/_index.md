@@ -12,7 +12,7 @@ For those who are new to the shell, we've covered a lot. In this chapter we'll s
 
 You have probably already been using the clipboard with the shell, copying and pasting commands and their outputs. However, there's a lot more we can do with the clipboard. Now we'll look at how to take this to the next level. We'll also briefly introduce introduce _aliases_ and _pipelines_, which will be covered in a lot more detail in later chapters.
 
-## The Most Basic Clipboard Commands
+## The Clipboard Essentials
 
 You are probably used to using the keyboard to access the clipboard, using the Cut, Copy and Paste commands. The keyboard shortcuts are probably already locked in as muscle memory:
 
@@ -58,17 +58,48 @@ Mac users can just use `⌘ + C` for copy and `⌘ + V` for paste. The shell doe
 
 Now that we've got the basics out of the way, and learnt far more than we probably wanted to about control keys, we can look at more ways to use the clipboard.
 
-## TODO Sharing
+## Preparing the Clipboard Commands
 
-Verbatim insert
+Copying and pasting text to and from the clipboard is useful, but there's a lot more we can do. With a couple of basic commands we can hugely expand what we can do with the shell and make a whole set of everyday tasks far easier to accomplish.
 
-## Use the Shell on the Clipboard
+There is one small complexity we'll need to work through before we continue. The complexity is that the clipboard is accessed in different ways on Windows, Linux and MacOS. I'll first show you how to deal with this, just follow the instructions for the platform you are working on.
 
-*Note for Linux Users: In this article I'll use the `pbcopy` and `pbpaste` commands to access the clipboard, which are available on a Mac only. To get access to the same commands on other platforms, check [Appendix: Clipboard Access on Linux](#appendixclipboardaccessonlinux)*
+To make things easier for the reader I'm going to assume you have created the `pbcopy` and `pbpaste` commands by following the instructions below. I am creating these commands so that regardless of the platform you are using the tutorials will work in the same way!
 
-You can easily use shell commands on the contents of your clipboard. Just use `pbpaste` to output the clipboard, run the output through some commands, then use `pbcopy` to copy the result.
+**Windows**
 
-Try copying the following text:
+Assuming you are using WSL, you will need to run the following two commands. By the time this book is published there _may_ be a cleaner way, but for now this is a workaround for some limitations on the WSL system:
+
+```sh
+alias pbcopy="clip.exe"
+alias pbpaste="powershell.exe -command 'Get-Clipboard' | sed -e 's/\r\n$//g'"
+```
+
+Don't worry about how these commands work - by the time you've gone through the book it should make perfect sense. For now you just need to know we're adding two new commands to our toolkit - `copy` and `paste`, which will work in Bash on Windows.
+
+**Linux**
+
+Hopefully if you are Linux user the commands below will seem familiar. They install the `xclip` program and create shortcuts to copy and paste. You absolutely don't need to do this if you prefer to call `xclip` directly, these commands are just setup so that across all platforms the tutorial looks the same.
+
+```sh
+sudo apt install -y xclip
+alias pbcopy="xclip -selection c"
+alias pbpaste="xclip -selection c -o"
+```
+
+**MacOS**
+
+Nothing is required on MacOS - `pbcopy` and `pbpaste` are built in.
+
+**Making these changes permanent**
+
+These instructions will need to be repeated when you re-open your terminal. In a later chapter we'll see how to make permanent customisations to our shells so that we don't have to repeat this setup.
+
+We'll also see later on how to create configuration which works across many different platforms, so that you can use the same configuration regardless of what platform you are working on. This is very useful if you work across multiple machines or operating systems!
+
+## Copy and Paste Basics
+
+Now that we've created these commands, we can use them to access the clipboard. For example, if I copy the following text:
 
 ```
 Kirk Van Houten
@@ -76,13 +107,31 @@ Timothy Lovejoy
 Artie Ziff
 ```
 
-Then in the shell, run:
+Then I can paste it into the shell with the following command:
 
-```bash
+```sh
 pbpaste
 ```
 
-You should see the contents of the clipboard. Now we'll look at some ways that shell access to the clipboard can help with common tasks.
+And we'll see something like this:
+
+![Screenshot: pbpaste in action](./images/pbpaste.png)
+
+Copying is just as straightforward. If you have downloaded the Effective Shell 'playground' folder you can see we have a list of characters from "The Simpsons" in the file `playground/text/simpsons-characters.txt`. Now we _could_ use the `cat` command to show the contents of the file, and then manually select the text and copy it. Even easier though is to just _pipe_ the contents of the file to the `pbcopy` command:
+
+```sh
+cat ~/playground/text/simpsons-characters.txt | pbcopy
+```
+
+The output will look similar to the below (I've included the output of `cat` for reference as well):
+
+![Screenshot: pbcopy in action](./images/pbcopy.png)
+
+The vertical bar `|` is the _pipe_ operator. It tells the shell to take the output from the command on the left and send it straight to the _input_ of the program on the right. We're going to see a _lot_ more of the pipeline operator as we continue. For now it's enough to know you can use it to 'chain' commands together.
+
+This might not seem super useful so far - but if the text file was a lot larger then it would be much harder to `cat` it out, use the mouse to select all of the text (scrolling up through the window) and then copy it. And if you didn't have a mouse, it would be even more tricky. We're aiming to be as effective as possible when using the shell so being able to use the keyboard quickly for common tasks is critical.
+
+Now we can see some real world examples of how these commands can be useful in daily tasks!
 
 ## Removing Formatting
 
@@ -100,6 +149,57 @@ We're just piping out the clipboard (which ends up as plain text, cause we're in
 
 This little trick can be very useful. But we can use the same pattern to quickly manipulate the contents of the clipboard in more sophisticated ways.
 
+## Sorting Text
+
+Because we can _pipe_ the contents of the clipboard to other programs, that means we can easily use the huge number of tools available to us to work with text.
+
+Let's take another look at the list of characters we have in the `~/plaground/text/simpsons-characters.txt` file:
+
+```sh
+$ cat ~/playground/text/simpsons-characters.txt
+Artie Ziff
+Kirk Van Houten
+Timothy Lovejoy
+Artie Ziff
+Nick Riviera
+Seymore Skinner
+Hank Scorpio
+Timothy Lovejoy
+John Frink
+Cletus Spuckler
+Ruth Powers
+Artie Ziff
+Agnes Skinner
+Helen Lovejoy
+```
+
+We can easily take this text, sort it and then directly copy the results:
+
+```sh
+$ cat ~/playground/text/simpsons-characters.txt | sort | pbcopy
+```
+
+The contents of the clipboard will now contain:
+
+```sh
+Agnes Skinner
+Artie Ziff
+Artie Ziff
+Artie Ziff
+Cletus Spuckler
+Hank Scorpio
+Helen Lovejoy
+John Frink
+Kirk Van Houten
+Nick Riviera
+Ruth Powers
+Seymore Skinner
+Timothy Lovejoy
+Timothy Lovejoy
+```
+
+The `sort` command has lots of different options but the defaults work fine for this case. We can see we've got quite a few duplicates - now we can move onto how we'd handle that.
+
 ## Manipulating Text
 
 Let's say someone has emailed me a list of people I need to invite to an event:
@@ -112,9 +212,7 @@ The problem is:
 1. The list has duplicates
 2. I need to turn each name into an email address like 'Artie_Ziff@simpsons.com'
 
-And I want to email everyone quickly.
-
-We can quickly handle this task without leaving the shell.
+And I want to email everyone quickly. We can quickly handle this task without leaving the shell.
 
 Copy the raw text below if you want to try out the same commands and follow along:
 
@@ -222,50 +320,32 @@ All in all we have the following pipeline:
 4. `tr ' ' '_'` - replace spaces with underscores
 5. `sed /$/@simpsons.com` - add the email domain to the end of the row
 
-Building this in one go is hard, let's look at little more at the pipeline.
+Now you don't need to remember all of these commands. We'll be going into them in detail as the book continues, and in the next chapter we'll be looking into how you can get help directly in the shell to discover how commands work. The key concept is that you can treat the clipboard just like a file - reading from it, manipulating it, and writing back to it, without ever leaving the shell.
 
-I hope this was useful! Please comment if you have any questions or tips. To see further articles as they come out, follow the repo at:
+In fact - if you are on a Linux system, try running:
 
-[github.com/dwmkerr/effective-shell](https://github.com/dwmkerr/effective-shell)
-
-Or just follow [@dwmkerr](twitter.com/dwmkerr) on Twitter.
-
-## Thinking in Pipelines
-
-Some of these commands might be unfamiliar, some might not make sense, and you might be thinking 'how would I remember that'. Actually, there are many ways to solve the problem above, this is the one I came up with by *iteratively* changing my input text.
-
-Here's what I mean - you'll see that I actually build a pipeline like this step-by-step:
-
-![Animation of the process of building a pipeline](./images/pipeline.gif)
-
-(P.S - if you are wondering how I am jumping backwards and forwards a word at a time, check the last chapter '[Navigating the Command Line](www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/)').
-
-What we're doing here is only possible because these simple commands all follow 'the Unix Philosophy'. They do one thing well, and each command expects it's input to become the input of *another* command later on. Specifically:
-
-1. The commands are primitive and simple - `sort` is sorting a list, `uniq` is making elements unique.
-2. The commands don't produce unnecessary output - `sort` doesn't add a header such as `Sorted Items`, which is great because otherwise it would clutter our pipeline.
-3. We are chaining commands together, the output of one becomes the input of another.
-
-We don't need a command such as 'Take a muddy list, sort and clean it, then turn pairs of words into an email address' - with a few simple 'workhorse' commands we can easily build this functionality ourselves.
-
-These workhorse commands will be introduced and detailed as we go through the series. We'll also spend a lot more time looking at pipelines.
-
-# Appendix - Clipboard Access on Linux
-
-If you are using Linux, there is no `pbcopy` and `pbpaste` commands. You can use the [`xclip`](https://linux.die.net/man/1/xclip) tool to create equivalent commands.
-
-First, install `xclip`:
-
-```bash
-sudo apt-get install -y xclip
+```sh
+cat /dev/clipboard
 ```
 
-Then add the following to your `.bashrc` file:
+You'll see the contents of the clipboard written out. In Linux almost everything can be represented as a file - the clipboard included! Like a lot of the other topics this is something we'll visit again in detail later.
 
-```bash
-# Create mac style aliases for clipboard access.
-alias pbcopy="xclip -selection c"
-alias pbpaste="xclip -selection c -o"
-```
+We're also going to spend a lot of time later on looking at _pipelines_ in detail, so don't worry too much if this seems overwhelming at this stage!
 
-Obviously you can use any alias you like! The article assumes that `pbcopy` and `pbpaste` have been used.
+As you go through the book you'll be able to apply every technique you learn to the clipboard itself - hopefully you'll find this can save you a lot of time and make you even faster with your day to day work.
+
+
+# Summary
+
+In this chapter we learnt: 
+
+- You can copy and paste into the shell with keyboard commands which are the same, or at least very similar, to the commands you normally use.
+- Different operating systems access the clipboard in different ways, but we can work around this by creating an `alias` command (which we'll see in detail later)
+- We can use `pbcopy` to copy and `pbpaste` to paste.
+- We can 'chain' commands together with the `|` (pipe) operator.
+- We can turn formatted text on the clipboard into plain text by just running `pbpaste | pbcopy`.
+- We can sort lines of text with the `sort` command.
+- There is clearly a lot more we can do with text as we save hints of with the `uniq`, `tr` and `sed` commands - which we'll introduce in detail later.
+- You can treat the clipboard a bit like a file in the shell.
+- On Linux, lots of things can be represented as files - including the clipboard (which is accessed via the `/dev/clipboard` file).
+
