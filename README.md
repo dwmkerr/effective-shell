@@ -16,7 +16,6 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
     * [Updating the Theme](#updating-the-theme)
 * [Copyright & Licensing](#copyright--licensing)
 * [TODO](#todo)
-* [TODO Sharing](#todo-sharing)
 
 <!-- vim-markdown-toc -->
 
@@ -115,8 +114,6 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 ## TODO
 
 Quick and dirty task list:
-
-## TODO Sharing
 
 - Share Chapter 3 online, Verbatim insert, mailchimp
 - Reference in 
