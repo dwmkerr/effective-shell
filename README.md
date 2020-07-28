@@ -15,7 +15,6 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
     * [Building the Website](#building-the-website)
     * [Updating the Theme](#updating-the-theme)
 * [Copyright & Licensing](#copyright--licensing)
-* [TODO](#todo)
 
 <!-- vim-markdown-toc -->
 
@@ -39,7 +38,7 @@ The `effective-shell-playground` folder which has all of the samples can be down
 I tend to use the following hashtags when sharing:
 
 ```
-#effective-shell #shell #linux #bash #devops #hacking #coding #programming
+#effectiveshell #shell #linux #bash #devops #hacking #coding #programming
 ```
 
 ## The Pitch
@@ -110,16 +109,3 @@ All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue
 [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
-
-## TODO
-
-Quick and dirty task list:
-
-- Share Chapter 3 online, Verbatim insert, mailchimp
-- Reference in 
-    https://askubuntu.com/questions/1035903/how-can-i-get-around-using-xclip-in-the-linux-subsystem-on-win-10
-    https://github.com/microsoft/WSL/issues/1069
-    https://github.com/microsoft/WSL/issues/4933
-    https://askubuntu.com/questions/1035903/how-can-i-get-around-using-xclip-in-the-linux-subsystem-on-win-10
-
-
