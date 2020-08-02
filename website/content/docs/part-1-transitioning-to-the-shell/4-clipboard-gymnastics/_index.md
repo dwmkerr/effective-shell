@@ -78,7 +78,7 @@ Assuming you are using WSL, you will need to run the following two commands. By 
 
 ```sh
 alias pbcopy="clip.exe"
-alias pbpaste="powershell.exe -command 'Get-Clipboard' | sed -e 's/\r\n$//g'"
+alias pbpaste="powershell.exe -command 'Get-Clipboard' | head -n -1"
 ```
 
 Don't worry about how these commands work - by the time you've gone through the book it should make perfect sense. For now you just need to know we're adding two new commands to our toolkit - `pbcopy` and `pbpaste`, which will work in Bash on Windows.
