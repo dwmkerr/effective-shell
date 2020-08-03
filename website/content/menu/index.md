@@ -9,10 +9,10 @@ bookMenuLevels: 1
    - [Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/1-navigating-your-system" >}})
    - [Managing Your Files]({{< relref "/docs/part-1-transitioning-to-the-shell/2-managing-your-files" >}})
    - [Clipboard Gymnastics]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}})
+   - [Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}})
  - **Work in Progress!**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
    - [Thinking In Pipelines]({{< relref "/docs/section1/2-thinking-in-pipelines" >}})
-   - [Getting Help]({{< relref "/docs/section1/3-getting-help" >}})
    - [Moving Around]({{< relref "/docs/section1/4-moving-around" >}})
    - [What is a Shell?]({{< relref "/docs/section1/5-what-is-a-shell" >}})
    - [Job Control]({{< relref "/docs/section2/6-job-control" >}})

@@ -14,7 +14,7 @@ You have probably already been using the clipboard with the shell, copying and p
 
 We'll also briefly introduce introduce _aliases_ and _pipelines_, which will be covered in a lot more detail in later chapters.
 
-## The Clipboard Essentials
+# The Clipboard Essentials
 
 I wouldn't be surprised if the keyboard shortcuts to access the clipboard are already firmly locked into muscle memory for almost all readers, but just in case, here's a reminder of the shortcuts across different systems:
 
@@ -64,7 +64,7 @@ Mac users can just use `⌘ + C` for copy and `⌘ + V` for paste. The shell doe
 
 Now that we've got the basics out of the way, and learnt far more than we probably wanted to about control keys, we can look at more ways to use the clipboard.
 
-## Preparing the Clipboard Commands
+# Preparing the Clipboard Commands
 
 Copying and pasting text to and from the clipboard is useful, but there's a lot more we can do. With a couple of basic commands we can hugely expand what we can do with the shell and make a whole set of everyday tasks far easier to accomplish.
 
@@ -105,7 +105,7 @@ These instructions will need to be repeated when you re-open your terminal. In a
 
 We'll also see later on how to create configuration which works across many different platforms, so that you can use the same configuration regardless of what platform you are working on. This is very useful if you work across multiple machines or operating systems!
 
-## Copy and Paste Basics
+# Copy and Paste Basics
 
 Now that we've created these commands, we can use them to access the clipboard. For example, if I copy the following text:
 
@@ -141,7 +141,7 @@ This might not seem super useful so far - but if the text file was a lot larger 
 
 Now we can see some real world examples of how these commands can be useful in daily tasks!
 
-## Removing Formatting
+# Removing Formatting
 
 Don't you hate it when you have to copy formatted text and don't have an easy way to paste it as *unformatted* text? Here's an example, I want to copy this Wikipedia page on 'bash', and paste it into a Word document:
 
@@ -157,7 +157,7 @@ We're just piping out the clipboard (which ends up as plain text, cause we're in
 
 This little trick can be very useful. But we can use the same pattern to quickly manipulate the contents of the clipboard in more sophisticated ways.
 
-## Sorting Text
+# Sorting Text
 
 Because we can _pipe_ the contents of the clipboard to other programs, that means we can easily use the huge number of tools available to us to work with text.
 
@@ -208,7 +208,7 @@ Timothy Lovejoy
 
 The `sort` command has lots of different options but the defaults work fine for this case. We can see we've got quite a few duplicates - now we can move onto how we'd handle that.
 
-## Manipulating Text
+# Manipulating Text
 
 Let's say someone has emailed me a list of people I need to invite to an event:
 
