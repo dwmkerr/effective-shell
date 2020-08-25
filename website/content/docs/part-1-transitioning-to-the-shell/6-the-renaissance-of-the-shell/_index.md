@@ -92,19 +92,9 @@ Whilst there are still many workloads which run on proprietary systems, modern s
 
 Love it or hate it, DevOps has exploded in popularity. DevOps engineers, site-reliability engineers, these kinds of roles may have been unheard of in companies not that long ago and are now becoming ubiquitous.
 
-At its heart, DevOps represents an organisational and cultural change, one that tries to unify the goals of development and operation of software. Rather than having one group focus on feature development and another group focus on reliable software operations, a single group is responsible for both. The theory is that this encourages software engineers to also consider security, reliability, maintainability etc, and operators to also consider speed of delivery.
+In attempting to unify the goals of development and operation of software, DevOps represents an organisational and cultural change. Rather than having one group focus on feature development and another group focus on reliable software operations, a single group is responsible for both. The theory is that this encourages software engineers to also consider security, reliability, maintainability etc, and operators to also consider speed of delivery.
 
-In practice, regardless of whether teams are genuinely combined, or specialised roles are added to teams, or even if teams are still separated, the lines between development and operations blur somewhat. Software developers are expected to build and plan with knowledge of the execution environment, operators are expected to work with developers to build features which support reliability.
-
-The intersection of these two roles often is in the realm of automation. Automated deployments after testing, automated failover in case of errors, automated alerting when potential issues are discovered, automated provisioning of environments, automated scaling of systems when load increases.
-
-The world of automation is intimately linked to the world of the shell and in particular shell scripting. Many tasks which require automation can be easily achieved using shell scripts. Many aspects of modern environments (such as cloud environments) support provisioning and management of services via scripting. In fact, services which _cannot_ be managed via shell scripts or simple interfaces are increasingly becoming obsolete. If it cannot be scripted, it cannot be automated, and the increasingly complex systems we build _require_ automation.
-
-In practice, this means software engineers are far more likely to have to build shell scripts (or at least understand how to interface with systems via the shell) than they perhaps might have been. Similarly, operators are far more likely to have to _program_ automated routines to manage high availability and so on. Again, the shell and shell scripts are a common way to manage this (even if they are simply entrypoints to more complex systems, such as scripts which execute programs).
-
-The rise in encourages software engineers to also consider security, reliability, maintainability etc, and operators to also consider speed of delivery.
-
-In practice, regardless of whether teams are genuinely combined, or specialised roles are added to teams, or even if teams are still separated, the lines between development and operations blur somewhat. Software developers are expected to build and plan with knowledge of the execution environment, operators are expected to work with developers to build features which support reliability.
+Regardless of whether teams are genuinely combined, or specialised roles are added to teams, or even if teams are still separated, the lines between development and operations blur somewhat. Software developers are expected to build and plan with knowledge of the execution environment, operators are expected to work with developers to build features which support reliability.
 
 The intersection of these two roles often is in the realm of automation. Automated deployments after testing, automated failover in case of errors, automated alerting when potential issues are discovered, automated provisioning of environments, automated scaling of systems when load increases.
 
