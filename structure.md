@@ -104,7 +104,7 @@ This chapter will introduce the `alias`, `pbcopy`, `pbpaste`, `xcopy`, `xpaste` 
 
 If you are new to the shell, then we've already covered a lot and you might be worrying about how to remember so many commands! For beginner and advanced users alike it's critical to know how to look up commands and how they are used without interrupting your flow of work in the Shell. In this chapter we'll see how to get help on commands, as well as some particularly useful tricks to get the *right* information quickly, rather than a dense and complicated manual page.
 
-This chapter will introduce the `man`, `curl` and `help` commands. We'll also learn about the `tldr`, `cht.sh` and `fuck` tools, as well as how manual pages are structured in Linux.
+This chapter will introduce the `man`, `curl` and `help` commands. We'll also learn about the `tldr`, `cht.sh` and how manual pages are structured in Linux.
 
 ### Interlude - The Renaissance of the Shell
 
