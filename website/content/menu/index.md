@@ -11,6 +11,7 @@ bookMenuLevels: 1
    - [Clipboard Gymnastics]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}})
    - [Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}})
    - [The Renaissance of the Shell]({{< relref "/docs/part-1-transitioning-to-the-shell/6-the-renaissance-of-the-shell" >}})
+ - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
  - **Work in Progress!**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
    - [Thinking In Pipelines]({{< relref "/docs/section1/2-thinking-in-pipelines" >}})
