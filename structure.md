@@ -4,50 +4,53 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc GFM -->
 
-* [Potential Titles](#potential-titles)
-* [Foreword by Steve Bourne](#foreword-by-steve-bourne)
-* [Introduction](#introduction)
-* [Chapter 1 - Getting Started](#chapter-1---getting-started)
-* [Part 1 - Transitioning from The Graphical User Interface to the Shell](#part-1---transitioning-from-the-graphical-user-interface-to-the-shell)
-    * [Chapter 2 - Navigating your System](#chapter-2---navigating-your-system)
-    * [Chapter 3 - Managing Your Files](#chapter-3---managing-your-files)
-    * [Chapter 4 - Becoming a Clipboard Gymnast](#chapter-4---becoming-a-clipboard-gymnast)
-    * [Chapter 5 - Getting Help](#chapter-5---getting-help)
-* [Interlude - The Renaissance of the Shell](#interlude---the-renaissance-of-the-shell)
-* [Part 2 - Core Skills](#part-2---core-skills)
-    * [Chapter 6 - Thinking in Pipelines](#chapter-6---thinking-in-pipelines)
-    * [Chapter 7 - Fly on the Command-line](#chapter-7---fly-on-the-command-line)
-    * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
-    * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
-    * [Chapter 10 - Talking to other machines with the Secure Shell](#chapter-10---talking-to-other-machines-with-the-secure-shell)
-* [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
-* [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
-    * [Chapter 11 - Get to Grips with Grep](#chapter-11---get-to-grips-with-grep)
-    * [Chapter 12 - Slice and Dice Text](#chapter-12---slice-and-dice-text)
-    * [Chapter 13 - Master Advanced Text Manipulation with Sed and Awk](#chapter-13---master-advanced-text-manipulation-with-sed-and-awk)
-    * [Chapter 14 - Build Commands on the Fly](#chapter-14---build-commands-on-the-fly)
-    * [Chapter 15 - The Missing Tools: jq, yq and xq](#chapter-15---the-missing-tools-jq-yq-and-xq)
-    * [Chapter 16 - Bash Text Tricks - Regexes and String Manipulation](#chapter-16---bash-text-tricks---regexes-and-string-manipulation)
-* [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
-    * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
-    * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
-    * [Chapter 19 - Managing Your Dotfiles](#chapter-19---managing-your-dotfiles)
-    * [Chapter 20 - Creating Shell Scripts and Understanding Shebangs](#chapter-20---creating-shell-scripts-and-understanding-shebangs)
-    * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
-* [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
-* [Part 5 - Shell Scripting](#part-5---shell-scripting)
-    * [Chapter 22 - Operating on Files and Folders](#chapter-22---operating-on-files-and-folders)
-    * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
-    * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
-    * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
-* [Interlude - TBC](#interlude---tbc)
-* [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
-    * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
-    * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
-    * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
-    * [Chapter 29 - Writing Tools that Follow The Unix Philosophy](#chapter-29---writing-tools-that-follow-the-unix-philosophy)
-* [Interlude - The Future](#interlude---the-future)
-    * [Missing Pieces](#missing-pieces)
+    * [Potential Titles](#potential-titles)
+    * [Foreword by Steve Bourne](#foreword-by-steve-bourne)
+    * [Introduction](#introduction)
+    * [Chapter 1 - Getting Started](#chapter-1---getting-started)
+    * [Part 1 - Transitioning from The Graphical User Interface to the Shell](#part-1---transitioning-from-the-graphical-user-interface-to-the-shell)
+        * [Chapter 2 - Navigating your System](#chapter-2---navigating-your-system)
+        * [Chapter 3 - Managing Your Files](#chapter-3---managing-your-files)
+        * [Chapter 4 - Becoming a Clipboard Gymnast](#chapter-4---becoming-a-clipboard-gymnast)
+        * [Chapter 5 - Getting Help](#chapter-5---getting-help)
+    * [Interlude - The Renaissance of the Shell](#interlude---the-renaissance-of-the-shell)
+    * [Part 2 - Core Skills](#part-2---core-skills)
+        * [Chapter 6 - Thinking in Pipelines](#chapter-6---thinking-in-pipelines)
+        * [Chapter 7 - Fly on the Command-line](#chapter-7---fly-on-the-command-line)
+        * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
+        * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
+        * [Chapter 10 - Talking to other machines with the Secure Shell](#chapter-10---talking-to-other-machines-with-the-secure-shell)
+    * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
+    * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
+        * [Chapter 11 - Get to Grips with Grep](#chapter-11---get-to-grips-with-grep)
+        * [Chapter 12 - Slice and Dice Text](#chapter-12---slice-and-dice-text)
+        * [Chapter 13 - Master Advanced Text Manipulation with Sed and Awk](#chapter-13---master-advanced-text-manipulation-with-sed-and-awk)
+        * [Chapter 14 - Build Commands on the Fly](#chapter-14---build-commands-on-the-fly)
+        * [Chapter 15 - The Missing Tools: jq, yq and xq](#chapter-15---the-missing-tools-jq-yq-and-xq)
+        * [Chapter 16 - Bash Text Tricks - Regexes and String Manipulation](#chapter-16---bash-text-tricks---regexes-and-string-manipulation)
+    * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
+        * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
+        * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
+        * [Chapter 19 - Managing Your Dotfiles](#chapter-19---managing-your-dotfiles)
+        * [Chapter 20 - Creating Shell Scripts and Understanding Shebangs](#chapter-20---creating-shell-scripts-and-understanding-shebangs)
+        * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
+    * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
+    * [Part 5 - Shell Scripting](#part-5---shell-scripting)
+        * [Chapter 22 - Operating on Files and Folders](#chapter-22---operating-on-files-and-folders)
+        * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
+        * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
+        * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
+    * [Interlude - TBC](#interlude---tbc)
+    * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
+        * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
+        * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
+        * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
+        * [Chapter 29 - Writing Tools that Follow The Unix Philosophy](#chapter-29---writing-tools-that-follow-the-unix-philosophy)
+    * [Interlude - The Future](#interlude---the-future)
+        * [Introduction](#introduction-1)
+        * [Missing Pieces](#missing-pieces)
+* [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
+* [Posters!](#posters)
 
 <!-- vim-markdown-toc -->
 
@@ -256,6 +259,10 @@ To finish the book, we'll look at how you can write tools which integrate seamle
 
 The shell, in particular the Bourne-Again Shell has been popular for many years. But what does the future hold? With the advent of the Linux Subsystem for Windows, new shells like Nushell, and the latest version of MacOS switching from Bash to Z-Shell, we finish off by looking at some of the trends which might shape how we use shells in the future.
 
+#### Introduction
+
+This is not a book about Bash. It's not a book about shell programming. It's a book about how to use a keyboard as the main way to work with a computer, and become incredibly efficient doing so. That means we'll cover a lot of Bash and shell topics, but we'll also look at how linux works. But this is not a book about systems adminstration. We won't see how to set up a mailserver, but we will understand _why_ linux systems work as they do, in a more fundamental way, which will help us save time and optimise our work, whether we're programming, administering systems, exploring or hobbying, working with data science or even just doing general purpose computing.
+
 #### Missing Pieces
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
@@ -265,3 +272,35 @@ This section contains the things which have been pulled out of chapters as they 
 - `curl` was in managing files
 - `df` to find out free space, or also how to find out how much space a folder takes up
 - `$IFS` to avoid easily avoidable errors
+- **Error Codes** and **set -e** are tacitly referred to in the `stderr` sections of the 'thinking in pipelines' chapter, we will need to have a reference
+
+- streams: Introduce the concept of streams
+- streams: when I pipe from dev/random how do I not run out of memory?
+- streams: why are some things linewise (compare `cat` to `sort` to `uniq`)
+- streams: lines vs EOF (compare sort with uniq)
+- control characters: we touch on these in the 'clipboard gymnastics' chapter (`^V`) and also in the pipelines chapter. Is it worth a chapter of its own? I used it recently to add a windows line ending in a file in vim (to support a test), I added `^M` by striking `^V[enter]` to enter the `^M` character
+- chapter 22: writing linux programs: use `wc` as an example of a bad program - it outputs silly whitespace.
+- chapter 22: writing linux programs: use `sort` and `uniq` as inconsistent examples of how input is read (linewise vs til `EOT`)
+
+- summary: should we also have a manpages section for each summary (e.g. bash redirection manpage, stdin manpage, etc?, might be good for pros)
+
+There is a section on this (see `section1`)
+Also we can do more on tty:
+
+```
+$ tty
+/dev/ttys031
+echo "Groovy" > /dev/ttys031
+```
+
+## Does it make sense to have 'golden rules'?
+
+Such as:
+
+- Everything is a file
+
+## Posters!
+
+Could some of these things be posters? The shell navigation poster, the pipelines poster? Show input, output, err and maybe 30 commands?
+
+Could these posters be sold online?
