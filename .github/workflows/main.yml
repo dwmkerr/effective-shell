@@ -1,10 +1,7 @@
 name: Build & Deploy
 
-on:
-  push:
-    branches:
-    - 'master'
-    - 'build/**'
+# Run for push and PRs.
+on: [push, pull_request]
 
 jobs:
   build-deploy:
@@ -26,6 +23,8 @@ jobs:
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
+      # Only deploy when we push to master.
+      if: github.ref == 'refs/heads/master'
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
