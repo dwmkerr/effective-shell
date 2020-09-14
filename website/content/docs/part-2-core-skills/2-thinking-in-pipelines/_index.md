@@ -72,7 +72,7 @@ lr-xr-xr-x 1 root wheel 0 Jan  1  1970 /dev/stdin -> fd/0
 lr-xr-xr-x 1 root wheel 0 Jan  1  1970 /dev/stdout -> fd/1
 ```
 
-If you are not familiar with `ls` (the _list directory contents_ command) then check [Chapter 2 - Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/2-navigating-your-system/" >}}). The first part of the output isn't too important - but we can see we have three files in the special `/dev/` (short for _device_ folder). We can also see the associated file descriptors.
+If you are not familiar with `ls` (the _list directory contents_ command) then check [Chapter 2 - Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/2-navigating-your-system" >}}). The first part of the output isn't too important - but we can see we have three files in the special `/dev/` (short for _device_ folder). We can also see the associated file descriptors.
 
 As an aside - this is a really fundamental thing we'll see again and again in Unix and Linux - almost everything can be represented as a file. This is a core concept and one we'll touch on regularly.
 
