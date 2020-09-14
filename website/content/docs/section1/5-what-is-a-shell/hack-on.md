@@ -39,7 +39,7 @@ TODO TTY picture
 
 ## TODO
 
-## Summmary; technical
+## Summary; technical
 
 For technical readers, there's quite a lot of terms which get thrown about almost interchangeably; shell, command-line, terminal, tty, command-prompt, CLI and so on. But each of these have a very specific meaning. It's important to understand exactly what each of these terms really means, where they came from, and how these different types of system or concept relate to each other.
 
