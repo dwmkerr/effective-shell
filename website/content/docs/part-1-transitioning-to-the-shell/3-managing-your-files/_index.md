@@ -24,7 +24,7 @@ We *could* open up a web browser, download the file, unzip it and then start fro
 
 Open your shell - if you've not yet got set up with your shell, that's OK, just check [Chapter 1 - Getting Started]({{< relref "/docs/1-getting-started" >}}).
 
-Now that you have your shell open, we can run the `wget` command (_Web Get_) to download the zip file. Let's download it to our Home folder. If you are not sure what the Home folder is, check [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/1-navigating-your-system" >}}).
+Now that you have your shell open, we can run the `wget` command (_Web Get_) to download the zip file. Let's download it to our Home folder. If you are not sure what the Home folder is, check [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/2-navigating-your-system" >}}).
 
 First, we'll move to our home directory, then download the file.
 
@@ -169,7 +169,7 @@ We can see we've made a copy.
 
 # Saving Some Keystrokes
 
-Wow, it's painful putting `~/effective-shell-playground` before everything! From [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/1-navigating-your-system" >}}) we already know how to change directory, so let's do that now:
+Wow, it's painful putting `~/effective-shell-playground` before everything! From [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/2-navigating-your-system" >}}) we already know how to change directory, so let's do that now:
 
 ```sh
 cd ~/effective-shell-playground
