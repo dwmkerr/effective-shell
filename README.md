@@ -15,6 +15,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
     * [Building the Website](#building-the-website)
     * [Updating the Theme](#updating-the-theme)
 * [Copyright & Licensing](#copyright--licensing)
+* [Thanks!](#thanks)
 
 <!-- vim-markdown-toc -->
 
@@ -109,3 +110,9 @@ All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue
 [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+
+## Thanks!
+
+Thanks to the following people who have helped with reviews, comments, suggestions.
+
+Andrew Bestbier, Thomas Neumann, Tam Nguyen

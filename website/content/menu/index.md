@@ -12,7 +12,7 @@ bookMenuLevels: 1
    - [Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}})
    - [The Renaissance of the Shell]({{< relref "/docs/part-1-transitioning-to-the-shell/6-the-renaissance-of-the-shell" >}})
  - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
-   - [Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/2-thinking-in-pipelines" >}})
+   - [Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/7-thinking-in-pipelines" >}})
  - **Work in Progress!**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
    - [Moving Around]({{< relref "/docs/section1/4-moving-around" >}})
