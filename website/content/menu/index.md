@@ -15,7 +15,6 @@ bookMenuLevels: 1
    - [Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/7-thinking-in-pipelines" >}})
  - **Work in Progress!**
    - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
-   - [Moving Around]({{< relref "/docs/section1/4-moving-around" >}})
    - [What is a Shell?]({{< relref "/docs/section1/5-what-is-a-shell" >}})
    - [Job Control]({{< relref "/docs/section2/6-job-control" >}})
    - [Understanding Commands]({{< relref "/docs/section2/7-understanding-commands" >}})
