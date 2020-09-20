@@ -41,6 +41,10 @@ Absolutely the best book I've read on Vim, perfect for users of all levels. Writ
 
 This is a wonderful repository, which aims to help you "Master the command line, in one page". This page is full of useful resources and is a superb reference for users from novice all the way to advanced!
 
+#### [Maarten Billemont - Bash Guide](http://mywiki.wooledge.org/BashGuide)
+
+This is an excellent and very detailed resource on bash. It goes into a lot of detail on how things are implemented and is a great resource to find all of the low level details you might be interested in. There is also a more modern version being currently drafted at [https://guide.bash.academy/](https://guide.bash.academy/).
+
 ## Advanced
 
 - [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours
