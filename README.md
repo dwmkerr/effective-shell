@@ -115,4 +115,4 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 Thanks to the following people who have helped with reviews, comments, suggestions.
 
-Andrew Bestbier, Thomas Neumann, Tam Nguyen
+Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal
