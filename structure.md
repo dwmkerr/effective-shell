@@ -255,6 +255,8 @@ If you are regularly using a shell, then learning how to use a terminal multiple
 
 To finish the book, we'll look at how you can write tools which integrate seamlessly into the shell. We'll see how tooling and patterns have evolved, and some suggestions for how to write tools which others can use easily. We'll look at some of the similarities and patterns in very popular tools like `aws`, `kubectl` and `gcp`.
 
+We'll look at how to appropriate use `stdin`, `stdout` and `stderr` to build programs which are 'pipeline friendly'.
+
 ### Interlude - The Future
 
 The shell, in particular the Bourne-Again Shell has been popular for many years. But what does the future hold? With the advent of the Linux Subsystem for Windows, new shells like Nushell, and the latest version of MacOS switching from Bash to Z-Shell, we finish off by looking at some of the trends which might shape how we use shells in the future.
@@ -281,8 +283,10 @@ This section contains the things which have been pulled out of chapters as they 
 - control characters: we touch on these in the 'clipboard gymnastics' chapter (`^V`) and also in the pipelines chapter. Is it worth a chapter of its own? I used it recently to add a windows line ending in a file in vim (to support a test), I added `^M` by striking `^V[enter]` to enter the `^M` character
 - chapter 22: writing linux programs: use `wc` as an example of a bad program - it outputs silly whitespace.
 - chapter 22: writing linux programs: use `sort` and `uniq` as inconsistent examples of how input is read (linewise vs til `EOT`)
-
 - summary: should we also have a manpages section for each summary (e.g. bash redirection manpage, stdin manpage, etc?, might be good for pros)
+- input: there is a convention for `-f -` (or just `-` in some programs) to mean `stdin`, this could go in pipelines, or advanced pipelines - another example (`curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -`) - note that `apt-key add -` uses stdin.
+- input: use `grep` to search a dictionary (e.g. https://github.com/dwyl/english-words and also add this to the samples).
+- heredocs: here docs vs herestrings (`<<<`), see https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash there's a good example of it in use here https://unix.stackexchange.com/questions/572424/retrieve-both-http-status-code-and-content-from-curl-in-a-shell-script
 
 There is a section on this (see `section1`)
 Also we can do more on tty:

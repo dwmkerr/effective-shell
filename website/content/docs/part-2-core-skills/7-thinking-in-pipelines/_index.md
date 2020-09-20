@@ -10,7 +10,7 @@ weight: 7
 
 Understanding the concept of _pipelines_ in the shell, as well as how input and output work for command line programs is critical to be able to use the shell effectively.
 
-In this chapter, we'll look at the ways programs handle input and output, then we'll look at how we can chain multiple commands together with pipelines.
+In this chapter, we'll look at the ways programs handle input and output, then we'll look at how we can chain multiple commands together with pipelines. We'll also look at some really common ways to use pipelines which should hopefully make your life easier!
 
 When you understand these concepts, it will open up a new world in terms of what you can do with in the shell. We'll briefly touch on the 'The Unix Philosophy', which is a concept which allows us to perform highly complex tasks by composing together small, simple components.
 
@@ -62,6 +62,8 @@ Every program has access to three 'special' files, `stdin`, `stdout` and `stderr
 - `stdin` is short for 'standard input' - it's where _many_ programs read their input from
 - `stdout` is short for 'standard output' - it's where _many_ programs write their output to
 - `stderr` is short for 'standard error' -  it's where _some_ programs write error messages to
+
+Why do I say 'many' and 'some'? Well the reason is that while this is _convention_, it is not adhered to universally. Anyone who writes a program is free to choose how they read input and write output, so some programs might not follow these conventions. In Chapter 29 we'll look at how to write tools which follow these conventions, as well as others which are useful.
 
 Each of these files has a special number which is shown in grey in the diagram. This is known as the _file descriptor_ and we'll see it later on. Each of these files also has a special location in the system which you can access directly - you can see these files by running `ls -al /dev/std*`:
 
@@ -131,9 +133,11 @@ The **pipe** operator (which is the vertical pipe symbol or `|`) has a very spec
 
 That's it! If you can follow what is going on here then you have the key information you need to know to understand how pipelines work. The pipe operator just connects the output of one program to the input of another. A pipeline is just a set of connected programs. Easy!
 
+We could do the same thing by writing the output of each step as a file, then reading that file with the next step, but that would mean we'd have a lot of intermediate files to clean up (and if we're processing a _big_ file, it also uses a lot of space). Pipelines let us create complex sequences of operations which work well even on very large files.
+
 Now we'll look at `stdin`, `stdout` and `stderr` in a little more detail. We'll be seeing these special streams a lot as we go through the book. Knowing more about them is really going to help you when working in the shell or with Linux-like systems.
 
-# Standard Input - Options Galore
+# Common Patterns - Standard Input
 
 Let's have a quick look at some of the common things we might see as sources of inputs for other programs. Each one illustrates an interesting point about how the shell or the standard input stream works.
 
@@ -197,11 +201,29 @@ $ pbpaste | rev | pbcopy
 
 This pipeline pastes the contents of the clipboard to `stdout`, which is piped to `rev` (reversing the text) and then pipes the output to `pbcopy`, which copies the results to the clipboard[^2].
 
+**Filtered Input**
+
+This is a trick a friend shared with me. He works with data scientists and whenever he shows them this command they love it!
+
+```
+$ head -100 100GBFile.csv > 100linefile.csv
+```
+
+The `head` (_display first lines of a file_) command in this case just grabs the first 100 lines of a file and puts it straight into a smaller, more manageable file. We'll see what the `>` symbol (the _redirection_ symbol) means in the section lower down on Standard Output.
+
+You can also use `tail` in the same way to get the _last_ lines from a file. And if you are a more advanced user, you might use something like this:
+
+```
+$ grep -C 5 error /var/log/mylogfile.txt | less
+```
+
+We'll see all of these commands as we go through the book, but this very cool trick uses the `grep` (_file pattern searcher_) command to search for the text `error` in the file `/var/log/mylogfile.txt`, shows five lines of _context_ (`-C 5`), which are the lines before and after the match, then puts the result into your pager! We'll see the pager just below. We'll do a lot of `grep`-ing as we go through the book so don't worry if this looks a little confusing for now.
+
 **Many More!**
 
 We've only scratched the surface - almost any program will write to the standard output, meaning it can be the input for any pipeline you can imagine!
 
-# Standard Output - Redirection
+# Common Patterns - Standard Output
 
 Now let's look at some of the things we can do with the standard output:
 
@@ -214,6 +236,22 @@ Some of these outputs are things we've seen before, but let's do a quick revisio
 This is what we've been doing a lot of so far.  When you are working with the shell _interactively_ this makes a lot of sense.
 
 If you have jobs which run in the _background_ (or on a timer, such as backup jobs which run nightly), you might not actually have a terminal attached to the program to see the output, in which case you'll likely write to a file.
+
+What about if you have a _lot_ of output? It can be quite inconvenient to have to scroll through the terminal (or impossible, depending on the system you are on). In this case use a _pager_. A pager is a program which makes it possible to interactively _page_ through output in the shell, scrolling up and down, searching and so on.
+
+Try this out as an example:
+
+```sh
+ls /usr/bin /usr/local/bin /usr/sbin | less
+```
+
+You'll see something like this:
+
+<img src="./images/screenshot-less.png" alt="Screenshot: Less Example" width="800px" />
+
+This long list of files would be hard to search through if it was printed directly to the shell, but in the pager we can use the `d` and `u` keys to go _down_ and _up_, or the `/` and `?` keys to search forwards or backwards.
+
+Piping into your pager is a really useful trick - you can read more about pagers in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}}).
 
 **File**
 
@@ -249,7 +287,7 @@ This is what we've spent most of this chapter looking at - to simply pipe the st
 
 In this case, the output of our program becomes the input of the next one in the pipeline.
 
-# Standard Error - Ahah!
+# Common Patterns - Standard Error
 
 We haven't actually seen `stderr` in action yet. Let's see how it works.
 
@@ -353,6 +391,14 @@ Visually, what is happening is this:
 
 If you can wrap your head around this, the other options we showed for `stderr` might start to make a little more sense.
 
+A nice trick to remember the slightly obscure ampersand `&` which references a file descriptor - if you were to write this:
+
+```sh
+cat some-file-that-might-not-exist 2>1
+```
+
+What would happen is that the shell would write `stderr` to a _new file_ with the name `1`! Why don't we need an ampersand _before_ the `>` symbol, only for the file descriptor afterwards? This is just because the shell only supports redirecting file descriptors, so an additional ampersand would be superfluous. 
+
 **To a File**
 
 Before, we redirected to `&2`, which is 'the file with descriptor `2`. We can also use a similar trick to redirect to any arbitrary file:
@@ -389,6 +435,34 @@ mkdir ~/playground/new-folder 2>>./all-errors.log
 
 Just like before, we use `>>` which means _append_ (rather than _overwrite or create_).
 
+**All to a File**
+
+This is a really important subtlety. If you want to write _both_ `stdout` and `stderr` to a file, you might try this:
+
+```sh
+ls /usr/bin /nothing 2>&1 > all-output.txt
+```
+
+If you run this command, you'll get `stdout` written to `all-output.txt`, but the error message `cannot access  '/nothing'` is written to the screen, not the file. Why is this?
+
+Bash (and most bash-like shells) process redirections from _left to right_, and when we redirect we _duplicate_ the source. So breaking this down:
+
+- `2>&1` - duplicate file descriptor `2` (`stderr`) and write it to `1` - which is _currently the terminal_!
+- `> all-output.txt` - duplicate file descriptor `1` (`stdout`) and write it to a file called `all-output.txt`
+
+To write _everything_ to the file, try do this:
+
+```sh
+ls /usr/bin /nothing > all-output.txt 2>&1
+```
+
+This will work. Breaking it down:
+
+- Redirect `stdout` to the file `all-output.txt`
+- Now redirect `stderr` to `stdout` - which by this point _has already been redirected to a file_
+
+This can be tough to remember so it's worth trying it out[^4]. There are many variations you can play with and we'll see more as we go through the book.
+
 # One Last Trick - The T Pipe
 
 This is a long chapter, but I can't talk about pipelines without briefly mentioning the T pipe. Check out this command:
@@ -415,7 +489,7 @@ Just the day before I wrote this chapter, I had to find out how many unique data
 cat data.dat | sort | uniq | grep -v '^#' | wc -l
 ```
 
-I didn't have to find a special program which does exactly what I needed[^4] - I just incrementally built a pipeline. Each section I added one by one, writing to the screen each time, until I had it working. The thought process was:
+I didn't have to find a special program which does exactly what I needed[^5] - I just incrementally built a pipeline. Each section I added one by one, writing to the screen each time, until I had it working. The thought process was:
 
 - `cat data.dat` - OK, first I need to write out the file
 - `sort` - now I can sort it, that'll put all the blank lines together
@@ -474,4 +548,5 @@ When these chapters are published I'll update the links here. If you want to be 
 [^1]: Technically there is another layer here, which is the `tty`. You can see this by running `tty` in the shell. We'll more about this in the [Interlude - What is a Shell](#TODO) section.
 [^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}}) for how to do this on a Linux or Windows machine.
 [^3]: Although always use tricks like this with caution! If we had a _different_ error, perhaps one we really do want to know about, we would lose the message in this case.
-[^4]: With the correct options, `sed` could likely do this in a single operation, but I'd probably spend a lot longer Googling the right options for it!
+[^4]: There is a very detailed explanation of this behaviour at https://linuxnewbieguide.org/21-and-understanding-other-shell-scripts-idioms/.
+[^5]: With the correct options, `sed` could likely do this in a single operation, but I'd probably spend a lot longer Googling the right options for it!
