@@ -13,8 +13,8 @@ bookMenuLevels: 1
    - [The Renaissance of the Shell]({{< relref "/docs/part-1-transitioning-to-the-shell/6-the-renaissance-of-the-shell" >}})
  - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
    - [Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/7-thinking-in-pipelines" >}})
+   - [Fly on the Command Line]({{< relref "/docs/part-2-core-skills/8-fly-on-the-command-line" >}})
  - **Work in Progress!**
-   - [Navigating the Command Line]({{< relref "/docs/section1/1-navigating-the-command-line" >}})
    - [What is a Shell?]({{< relref "/docs/section1/5-what-is-a-shell" >}})
    - [Job Control]({{< relref "/docs/section2/6-job-control" >}})
    - [Understanding Commands]({{< relref "/docs/section2/7-understanding-commands" >}})

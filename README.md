@@ -7,7 +7,6 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
-* [Improvements](#improvements)
 * [Sharing](#sharing)
 * [The Pitch](#the-pitch)
     * [Publishers](#publishers)
@@ -24,15 +23,6 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book.
 
 The `effective-shell-playground` folder which has all of the samples can be downloaded from [https://effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
-
-## Improvements
-
-- [ ] Add `tree` to the Chapter 'Moving Around'.
-- [ ] Getting Help: `help`
-- [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
-- [ ] `man set` is super useful when checking options like `set -ex` in scripts
-- [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
-- [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
 
 ## Sharing
 
