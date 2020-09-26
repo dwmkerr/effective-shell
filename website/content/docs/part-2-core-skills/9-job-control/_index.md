@@ -1,6 +1,16 @@
-_Job control_ is a feature of most shells, which is generally not particularly intuitive to work with. However, knowing the basics can help prevent you from getting yourself into a tangle, and can from time to time make certain tasks a little easier.
+---
+title: Job Control
+slug: job-control
+title: "Chapter 9 - Job Control"
+slug: "chapter-9-job-control"
+weight: 9
+---
 
-## What Is Job Control?
+# Chapter 9 - Job Control
+
+_Job control_ is a feature of most shells which can often be somewhat complicated to work with. However, knowing the basics can help prevent you from getting yourself into a tangle and can from time to time make certain tasks a little easier.
+
+# What Is Job Control?
 
 Let's start with an example. I am building a simple web page. It has one `index.html` file, one `styles.css` file, and one `code.js` file. The `index.html` file looks like this:
 
@@ -27,7 +37,14 @@ python -m SimpleHTTPServer 3000
 
 In fact, this is so useful that I normally _alias_ this command, so that I can just type `serve`. We'll see aliases in a later chapter.
 
-For now, if we run this command (you can get the three sample files here if you want to try this yourself), then we can open the webpage in a browser, with the styles and code loaded:
+Make sure you have the playground folder downloaded, then run the following commands to open the webpage:
+
+```
+$ cd ~/playground/websites/simple
+$ python -m SimpleHTTPServer 3000
+```
+
+For now, if we run this command, then we can open the webpage in a browser, with the styles and code loaded:
 
 <img alt="Screenshot: Website" src="images/website-screenshot.png" width="600" />
 
@@ -37,7 +54,7 @@ We can also see that the server has served the HTML, JavaScript, and CSS files:
 
 All well and good so far.
 
-## The Problem
+# The Problem
 
 Let's say we want to now continue using our shell, maybe to edit the website with a terminal editor like Vim or Emacs, or we want to zip up the site, or just run any shell command[^1].
 
@@ -47,7 +64,7 @@ We have a problem. The `python` process is still running - it's serving the webs
 
 In the example above, I try to run `vi`, but nothing is happening. Standard input is not being read by the server and not being interpreted by the shell.
 
-I have to kill the server by hitting `Ctrl+C` (which sends a `SIGINT`[^2] - we'll see more about signals later), clear my screen to get rid of all of the error messages, then start again.
+I have to kill the server by hitting `Ctrl+C`. This sends a `SIGINT` signal (which tells the command to stop). We saw signals briefly in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}}) and we'll see more of them in as we continue. Now I need to clear my screen to get rid of all of the error messages, then start again.
 
 This is obviously not optimal. Let's look at some solutions.
 
@@ -60,13 +77,13 @@ In most shells, you can run a command and instruct the shell to run it in the _b
 By ending the command with an `&` ampersand symbol, we instruct the shell to run the command as a _background job_. This means that our shell is still functional. The shell has also notified us that this command is running as a background job with a specific _job number_:
 
 ```sh
-% python -m SimpleHTTPServer 3000 &
+$ python -m SimpleHTTPServer 3000 &
 [1] 19372
 ```
 
 In slightly obtuse language, the shell has informed us that it has started a job in the background, with job number `1` and that this job is currently handling the process with ID `19372`.
 
-The ampersand solution is a fairly common pattern used in day-to-day work.
+The ampersand solution is a fairly common pattern used in day-to-day work. The process is in the background and our shell is available for us to use as normal, the web server will continue to run in the background.
 
 ## Solution 2: Move the Server to the Background
 
@@ -81,7 +98,7 @@ The process is currently in the foreground, so my shell is inactive. Hitting `Ct
 Let's dissect this:
 
 ```sh
-% python -m SimpleHTTPServer 3000
+$ python -m SimpleHTTPServer 3000
 Serving HTTP on 0.0.0.0 port 3000 ...
 127.0.0.1 - - [03/Jun/2019 13:38:45] "GET / HTTP/1.1" 200 -
 ^Z
@@ -95,7 +112,7 @@ The key here is that it is _suspended_. The process is paused. So the web server
 To _continue_ the job, in the background, we use the `bg` ('background') command, with a _job identifier_ (which always starts with a `%` symbol - we'll see why soon) to tell the shell to continue the job:
 
 ```sh
-% bg %1
+$ bg %1
 [1]  + 21268 continued  python -m SimpleHTTPServer 3000
 ```
 
@@ -104,14 +121,14 @@ The shell lets us know the job is being continued, and if we load the webpage ag
 As a final check, we run the `jobs` command to see what jobs the shell is running:
 
 ```sh
-% jobs
+$ jobs
 [1]  + running    python -m SimpleHTTPServer 3000
 ```
 
 And there you have it - our server is running as a background job. This is exactly what we would see if we run `jobs` after starting the server with an `&` at the end. In fact, using an `&` is perhaps an easier way to remember how to continue a suspended job:
 
 ```sh
-% %1 &
+$ %1 &
 [1]  + 21268 continued  python -m SimpleHTTPServer 3000
 ```
 
@@ -119,12 +136,12 @@ In the same way ending a command with `&` runs it in the background, ending a jo
 
 There is at least one more way to move a job to the background[^4], but I have not yet found it useful in any scenarios, and it is overly complex to explain. See the footnote for details if you are interested.
 
-## Moving Background Jobs to the Foreground
+# Moving Background Jobs to the Foreground
 
 If you have a job in the background, you can bring it back to the foreground with the `fg` ('foreground') command. Let's show the jobs, with the `jobs` command:
 
 ```sh
-% jobs
+$ jobs
 [1]  + running    python -m SimpleHTTPServer 3000
 ```
 
@@ -140,7 +157,7 @@ fg      # ...if not given an id, fg and bg assume the most recent job.
 
 Now the job is in the foreground, and you can interact with the process again however you like.
 
-## Cleaning Up Jobs
+# Cleaning Up Jobs
 
 You might realise you cannot continue what you are doing because an old job is _still running_. Here's an example:
 
@@ -151,7 +168,7 @@ I tried to run my web server, but there was still one running as a background jo
 To clean it up, I run the `jobs` command to list the jobs:
 
 ```sh
-% jobs
+$ jobs
 [1]  + suspended  python -m SimpleHTTPServer 3000
 ```
 
@@ -160,15 +177,15 @@ There's my old web server. Note that even though it is suspended, it'll still be
 Now that I know the job identifier (`%1` in this case), I can kill the job:
 
 ```sh
-% kill %1
+$ kill %1
 [1]  + 22843 terminated  python -m SimpleHTTPServer 3000
 ```
 
 *This is why job identifiers start with a percentage sign!* The `kill` command I have used is not a special job control command (like `bg` or `fg`). It is the normal `kill` command, which terminates a process. But shells that support job control can normally use a job identifier in place of a _process identifier_. So rather than working out what the process identifier is that I need to kill, I can just use the job identifier[^6].
 
-## Why You Shouldn't Use Jobs
+# Why You Shouldn't Use Jobs
 
-Avoid jobs. They are not intuitive to interface with, and they suffer from some serious problems. 
+Avoid jobs. They are not intuitive to interface with and they suffer from some challenges. 
 
 The most obvious one is that all jobs write to the same output, meaning you can quickly get garbled output like this:
 
@@ -182,9 +199,13 @@ Jobs _can_ be used in scripts but must be done so with caution and could easily 
 
 Handling errors and exit codes for jobs can be problematic, causing confusion, poor error handling, or overly complex code.
 
-## How to Escape Jobs
+If jobs should be avoided, why discuss them at all? Well sometimes you move things into the background by mistake, sometimes it _can_ be useful to quickly shift a download or slow command into the background, and also if you are going to avoid something it's good to know why! And the challenge of managing multiple units of work on a computer has been around for a long, long time, with jobs as one of the tools in the toolkit to deal with the challenge.
 
-If there are two things to take away, it would be this:
+But given I'd suggest to avoid jobs, let's summarise with the most key takeaways and some alternatives.
+
+# The Most Key Takeaways
+
+If there are two things to take away, they would be:
 
 > If you have started running a command in the foreground, and you don't want to stop it and would rather move it to the background, hit `Ctrl+Z`. Then Google "job control".
 
@@ -194,7 +215,7 @@ And:
 
 In either case, if you need to do something more subtle, you can return to this reference. But the first command should allow you to get your shell back while you work out how to continue the job, and the second should kill a background job that is messing with your screen.
 
-## Alternatives to Jobs
+# Alternatives to Jobs
 
 If you are using any kind of modern terminal such as iTerm, Terminal or the GNOME Terminal, just open a new tab or split! Much easier.
 
@@ -204,13 +225,13 @@ The traditional alternative to a job for an operator who simply wants more than 
 
 ![terminal-multiplexer](images/terminal-multiplexer.gif)
 
-Multiplexers work in a very similar way to a modern graphical terminal - they manage many shell instances. The benefits to a modern terminal, such as iTerm, is that you have a very intuitive GUI and lots of features.
+Multiplexers work in a very similar way to a modern graphical terminal - they manage many shell instances. But there are some differences.
 
-The benefits to a multiplexer are that you can run them over SSH sessions to manage complex operations on remote machines and that they run a client-server model, meaning many people can work with many multiplexed processes (and they can persist beyond sessions).
+Modern terminals, such as iTerm, tend to have more intuitive GUIs and a lot of features. Multiplexers can be stateful - and manage work even when you close the shell (allowing you to 're-attach' later. We can also run them over SSH sessions to manage complex operations on remote machines. They run a client-server model, meaning many people can work with many multiplexed processes (and they can persist beyond sessions).
 
-My personal preference is both - I use a modern terminal _and_ run everything inside it in `tmux`. We'll look at both of these options in later chapters.
+My personal preference is both - I use a modern terminal _and_ run everything inside it in `tmux`, which is a very common multiplexer (and in some ways the spiritual successor to `screen`, an older multiplexer). We'll look at both of these options in later chapters.
 
-## Quick Reference
+# Quick Reference
 
 You might find that jobs are useful, or you might find that they are not. Either way, here's a quick reference of some common commands:
 
@@ -224,10 +245,7 @@ You might find that jobs are useful, or you might find that they are not. Either
 | `kill %1`   | Terminate job number 1.                                    |
 | `wait %1`   | Block until job number 1 exits.                            |
 
-
-If you want to find out more about the gory details of jobs, the best place to start is the [Bash Manual - Job Control Section]( https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control), or the 'Job Control' section of your preferred shell's manual.
-
-I hope you found this useful, and, as always, please leave comments, questions or suggestions below!
+If you want to find out more about the gory details of jobs, the best place to start is the [Bash Manual - Job Control Section](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control), or the 'Job Control' section of your preferred shell's manual. On Bash you can find this by using `man bash` and searching for the text `JOB CONTROL`. You can find out more about how to get help in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}})
 
 ---
 
@@ -235,9 +253,7 @@ I hope you found this useful, and, as always, please leave comments, questions o
 
 [^1]: If you are not a heavy shell user, this might seem unlikely. But if you do a lot of work in shells, such as sysadmin, devops, or do your coding from a terminal, this happens all the time!
 
-[^2]: Signals like `SIGINT`, `SIGKILL`, `SIGTERM` and so on will be covered in a later chapter.
-
-[^3]: Technically, `SIGTSTP` - which is 'TTY stop'. If you have always wondered about the 'TTY' acroynm, check the previous chatper, [Interlude: Understanding the Shell](https://dwmkerr.com/effective-shell-part-5-understanding-the-shell/).
+[^3]: Technically, `SIGTSTP` signal - which is 'TTY stop'. If you have always wondered about the 'TTY' acronym, check the chapter, [Interlude: Understanding the Shell](TODO).
 
 [^4]: The alternative method is to use `Ctrl+Y`, which will send a _delayed interrupt_, which will continue to run the process until it tries to read from `stdin`. At this point, the job is suspended and the control given to the shell. The operator can then use `bg` or `kill` or `fg` to either move to the background, stop the process, or keep in the foreground as preferred. See: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control
 

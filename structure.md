@@ -287,6 +287,7 @@ This section contains the things which have been pulled out of chapters as they 
 - input: there is a convention for `-f -` (or just `-` in some programs) to mean `stdin`, this could go in pipelines, or advanced pipelines - another example (`curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -`) - note that `apt-key add -` uses stdin.
 - input: use `grep` to search a dictionary (e.g. https://github.com/dwyl/english-words and also add this to the samples).
 - heredocs: here docs vs herestrings (`<<<`), see https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash there's a good example of it in use here https://unix.stackexchange.com/questions/572424/retrieve-both-http-status-code-and-content-from-curl-in-a-shell-script
+- bug: in chapter 9 (job control) we mention signals are in a later chapter, but not sure where this should be yet.
 - programs: note that `readline` should be used when building prompts
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] Getting Help: `help`
