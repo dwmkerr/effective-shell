@@ -289,6 +289,7 @@ This section contains the things which have been pulled out of chapters as they 
 - heredocs: here docs vs herestrings (`<<<`), see https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash there's a good example of it in use here https://unix.stackexchange.com/questions/572424/retrieve-both-http-status-code-and-content-from-curl-in-a-shell-script
 - bug: in chapter 9 (job control) we mention signals are in a later chapter, but not sure where this should be yet.
 - programs: note that `readline` should be used when building prompts
+- tmux: hit `<leader>+s` to list all sessions (with cool window previews). `x` deletes a session. Look up how to rename, new, etc.
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] Getting Help: `help`
 - [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
