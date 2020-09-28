@@ -291,6 +291,7 @@ This section contains the things which have been pulled out of chapters as they 
 - programs: note that `readline` should be used when building prompts
 - tmux: hit `<leader>+s` to list all sessions (with cool window previews). `x` deletes a session. Look up how to rename, new, etc.
 - managing resources: `htop` as a good cross-platform process manager
+- weird stuff: things which _don't_ work consistently across systems and are just plain weird and good to know about: `sed`, Regexs, Non posix, Posix, Different systems, Different shells
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] Getting Help: `help`
 - [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
