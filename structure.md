@@ -299,6 +299,19 @@ This section contains the things which have been pulled out of chapters as they 
 - [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
 - [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
 
+Section: building good command line tools
+
+This is really nice:
+
+> Black is a well-behaved Unix-style command-line tool:
+> it does nothing if no sources are passed to it;
+> it will read from standard input and write to standard output if - is used as the filename;
+> it only outputs messages to users on standard error;
+> exits with code 0 unless an internal error occurred (or --check was used).
+
+https://github.com/psf/black#command-line-options
+
+
 There is a section on this (see `section1`)
 Also we can do more on tty:
 
