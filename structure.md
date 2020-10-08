@@ -20,7 +20,7 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
         * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
         * [Chapter 10 - Talking to other machines with the Secure Shell](#chapter-10---talking-to-other-machines-with-the-secure-shell)
-    * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
+    * [Interlude - What is a Shell?](#interlude---what-is-a-shell)
     * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
         * [Chapter 11 - Get to Grips with Grep](#chapter-11---get-to-grips-with-grep)
         * [Chapter 12 - Slice and Dice Text](#chapter-12---slice-and-dice-text)
@@ -34,13 +34,13 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 19 - Managing Your Dotfiles](#chapter-19---managing-your-dotfiles)
         * [Chapter 20 - Creating Shell Scripts and Understanding Shebangs](#chapter-20---creating-shell-scripts-and-understanding-shebangs)
         * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
-    * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
+    * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
     * [Part 5 - Shell Scripting](#part-5---shell-scripting)
         * [Chapter 22 - Operating on Files and Folders](#chapter-22---operating-on-files-and-folders)
         * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
         * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
         * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
-    * [Interlude - TBC](#interlude---tbc)
+    * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
     * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
         * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
         * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
@@ -49,6 +49,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Interlude - The Future](#interlude---the-future)
         * [Introduction](#introduction-1)
         * [Missing Pieces](#missing-pieces)
+* [Essential Tools](#essential-tools)
 * [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
 * [Posters!](#posters)
 
@@ -145,9 +146,9 @@ In this chapter we'll see the `which`, `whereis` and related commands. We'll als
 
 One of the main reasons you might use a shell is to operate a machine remotely. In these cases it's often the case that the *only* way to interact with these machines is via the shell, as they don't have a graphical user interface installed. In this chapter we'll look at how the secure shell, `ssh` works, and how to configure it for maximum convenience and efficiency.
 
-### Interlude - The Unix Philosophy
+### Interlude - What is a Shell?
 
-We've already introduced a lot of commands. It turns out that the idea of small, focused commands which do one thing and one thing only is very fundamental to how Linux and Unix systems are designed. The idea of having a large number of simple tools, which can be composed together to perform complex operations is called "The Unix Philosophy". Understanding this philosophy can help you understand why certain choices have been made with the shell and Linux tooling, and help you understand your system better.
+We're working with a lot of different technologies and sometimes it can be good to take a step back and look at each of them in detail. What exactly _is_ a shell? What about a command line, or a prompt? Or a terminal? Or even a 'TTY' device? In this interlude we'll look at what exactly a shell is and how it has evolved over time.
 
 ### Part 3 - Manipulating Text & Streams
 
@@ -207,9 +208,9 @@ As you get more comfortable with the shell, you can bundle common commands into 
 
 If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell.In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories.
 
-### Interlude - The Linux and Shell Family Tree
+### Interlude - The Unix Philosophy
 
-There are lots of different flavours of Linux and Unix, and lots of different shells. This interlude takes a quick look at the Linux and Unix family tree, and the different shells which have evolved over time.
+We've already introduced a lot of commands. It turns out that the idea of small, focused commands which do one thing and one thing only is very fundamental to how Linux and Unix systems are designed. The idea of having a large number of simple tools, which can be composed together to perform complex operations is called "The Unix Philosophy". Understanding this philosophy can help you understand why certain choices have been made with the shell and Linux tooling, and help you understand your system better.
 
 ### Part 5 - Shell Scripting
 
@@ -231,9 +232,9 @@ We'll now introduce a few practical real-world scripts. These will demonstrate m
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
-### Interlude - TBC
+### Interlude - The Linux and Shell Family Tree
 
-To be confirmed.
+There are lots of different flavours of Linux and Unix, and lots of different shells. This interlude takes a quick look at the Linux and Unix family tree, and the different shells which have evolved over time.
 
 ### Part 6 - Advanced Techniques
 
@@ -291,6 +292,7 @@ This section contains the things which have been pulled out of chapters as they 
 - programs: note that `readline` should be used when building prompts
 - tmux: hit `<leader>+s` to list all sessions (with cool window previews). `x` deletes a session. Look up how to rename, new, etc.
 - managing resources: `htop` as a good cross-platform process manager
+- tmux: getting help, <leader>?
 - weird stuff: things which _don't_ work consistently across systems and are just plain weird and good to know about: `sed`, Regexs, Non posix, Posix, Different systems, Different shells
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] Getting Help: `help`
@@ -320,6 +322,26 @@ $ tty
 /dev/ttys031
 echo "Groovy" > /dev/ttys031
 ```
+
+## Essential Tools
+
+- ls
+- grep
+- mkdir
+- rm
+- rmdir
+- touch
+- cat
+- watch
+- tail
+- head
+- less
+- more
+- most
+- echo
+
+- timeout
+- until
 
 ## Does it make sense to have 'golden rules'?
 
