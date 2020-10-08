@@ -292,6 +292,7 @@ This section contains the things which have been pulled out of chapters as they 
 - programs: note that `readline` should be used when building prompts
 - tmux: hit `<leader>+s` to list all sessions (with cool window previews). `x` deletes a session. Look up how to rename, new, etc.
 - managing resources: `htop` as a good cross-platform process manager
+- commands: we reference the 'executable bit' in a footnote, but where will we put this?
 - tmux: getting help, <leader>?
 - weird stuff: things which _don't_ work consistently across systems and are just plain weird and good to know about: `sed`, Regexs, Non posix, Posix, Different systems, Different shells
 - [ ] Add `tree` to the Chapter 'Moving Around'.
@@ -300,6 +301,7 @@ This section contains the things which have been pulled out of chapters as they 
 - [ ] `man set` is super useful when checking options like `set -ex` in scripts
 - [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
 - [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
+- manipulating text: a good example might be 'build a table of all executables': http://localhost:1313/docs/part-2-core-skills/10-understanding-commands/#executables---programs
 
 Section: building good command line tools
 
