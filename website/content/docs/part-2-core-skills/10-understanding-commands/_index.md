@@ -1,4 +1,14 @@
-In this chapter, we'll take a look at the various different types of shell commands that exist and how this can affect your work.
+---
+title: Understanding Commands
+slug: understanding-commands
+title: "Chapter 10 - Understanding Commands"
+slug: "chapter-10-understanding-commands"
+weight: 10
+---
+
+# Chapter 10 - Understanding Commands
+
+In this chapter, we'll take a look at the various different types of shell commands that exist and how this can affect your work. Commands are far more subtle than you might think and in this chapter we'll look at some of the nuances of commands and the practical consequences for your work.
 
 By the end of this chapter, you might even be able to make sense of the horrifying and perfectly syntactically valid code below:
 
@@ -6,7 +16,7 @@ By the end of this chapter, you might even be able to make sense of the horrifyi
 which $(where $(what $(whence $(whereis who))))
 ```
 
-## What Are Commands?
+# What Are Commands?
 
 This is _really_ important to understand! A _command_ in a shell is something you execute. It might take parameters. Generally it'll have a form like this:
 
@@ -24,14 +34,16 @@ cat file.txt    # Output the contents of 'file.txt' to stdout
 
 But to be an effective shell user, you must understand that not all commands are created equal. The differences between the types of commands will affect how you use them.
 
-There are four types of commands in most shells:
+# The Different Types of Commands
+
+There are *four* types of commands in most shells:
 
 1. Executables
 2. "Built-Ins" (which we'll just call _builtins_ from now on)
 3. Functions
 4. Aliases
 
-Let's quickly dig in and see a bit more.
+Each is different and has its own quirks. Let's quickly dig in and see a bit more.
 
 ## Executables - Programs
 
@@ -67,28 +79,40 @@ There will likely be other locations too - you might see Java folders, package m
 
 ## Executables - Scripts
 
-Imagine we create a text file called `dog` in the local folder:
+Imagine we create a text file called `dog` in the local folder that looks like this:
 
 ```sh
 #!/bin/sh
 echo "🐶 woof 🐶"
 ```
 
-If we make the file _executable_, by running `chmod +x dog`[^3], then we can run this just like any other program - as long as we tell the shell to look for programs in the current directory:
+This is a shell script (you've heard this before, but we'll see a _lot_ more of these as we go through the book!). We mentioned that _executables_ are any files which have the _executable_ bit set. Let's actually do this, using the `chmod` (_change file modes_) command:
+
+```sh
+$ ls -l dog
+-rw-r--r-- 1 dwmkerr staff 32 Oct  8 22:44 dog
+$ chmod +x dog
+$ ls -l dog
+-rwxr-xr-x 1 dwmkerr staff 32 Oct  8 22:44 dog
+```
+
+I've used `ls -l dog` to show the file permissions of `dog` before and after the `chmod +x dog`[^3] command. We can see that there are some new `x`'s in the first section. These are saying that the file is now _executable_ by all users.
+
+Now that we have made the file executable we can run this just like any other program - as long as we tell the shell to look for programs in the current directory:
 
 ```sh
 $ PATH="." dog
 🐶 woof 🐶
 ```
 
-More common would be to run the program by giving a path:
+More common would be to run the program by specifying the path to the file, like so:
 
 ```sh
 $ ./dog
 🐶 woof 🐶
 ```
 
-Or just move it to a standard location that the shell already checks for programs:
+Another option would just be to move it to a standard location that the shell already checks for programs:
 
 ```sh
 $ mv dog /usr/local/bin
@@ -96,9 +120,9 @@ $ dog
 🐶 woof 🐶
 ```
 
-The point is that executables don't _have_ to be compiled program code. If a file starts with `#!` (the 'shebang'), then the system will try to run the contents of the file with the program specified in the shebang.
+Executables don't _have_ to be compiled program code, they can be scripts. If a file starts with `#!` (the 'shebang'), then the system will try to run the contents of the file with the program specified in the shebang.
 
-We will look at shebangs in greater detail in a later chapter.
+We will look at shebangs in greater detail in a later chapter. But the key takeaway here is that we can also have _executable scripts_ as commands.
 
 ## Builtins
 
@@ -137,13 +161,15 @@ By using the `-a` flag on `type` to show _all_ commands that match the name, we 
 
 Many simple programs have builtin versions. The shell can execute them much faster.
 
-Some commands are a builtin so that they can function in a sensible manner. The `cd` command changes the current directory - if we executed it as a process, it would change only the directory for the `cd` process itself, not the shell, making it much less useful.
+Some commands are a builtin so that they can function in a sensible manner. For example, `cd` command changes the current directory - if we executed it as a process, it would change only the directory for the `cd` process itself, not the shell, making it much less useful.
+
+Echo is builtin because the shell can run much more quickly by not actually running a program if it has its own built in implementation.
 
 Builtins will vary from shell to shell, but many shells are 'Bash-like' - meaning they will have a set very similar to the Bash builtins, which you can see here:
 
 https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
 
-As should be familiar from [Part 3: Getting Help](https://www.dwmkerr.com/effective-shell-part-3-getting-hepl/), you can get help for builtins:
+As should be familiar from [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}}), you can get help for builtins:
 
 ```sh
 $ man source     # source is a builtin
@@ -222,13 +248,13 @@ From this point on, I can use the `k` alias as shorthand for the `kubectl` comma
 
 Aliases are far less sophisticated than functions. Think of them as keystroke savers and nothing more, and you won't go far wrong.
 
-## So What?
+# The Key Takeaways
 
 So we now hopefully have a greater understanding of the variety of shell commands. Not all commands are executables, not all of the commands we _think_ are executables necessarily are, and some commands might be more sophisticated.
 
 As a shell user, the key things to remember are:
 
-1. Executables are 'safe' - they are programs your system can use; your shell just calls out to them.
+1. Executables are programs your system can use; your shell just calls out to them.
 2. Builtins are _very_ shell-specific and usually control the shell itself
 3. Functions are powerful ways to write logic but will normally be shell-specific.
 4. Aliases are conveniences for human operators, but only in the context of an interactive shell.
@@ -240,7 +266,7 @@ $ type -a cat
 cat is /bin/cat
 ```
 
-## More than You Need to Know
+# More than You Need to Know
 
 OK, for the masochistic few, you might be wondering about all of the other commands and utilities you may have seen that can tell you about programs and commands:
 
@@ -255,7 +281,7 @@ OK, for the masochistic few, you might be wondering about all of the other comma
 
 A _lot_ of these are legacy and should be avoided, but for completeness sake, we'll go through them.
 
-### `what`
+## `what`
 
 `what` reads out special metadata embedded in a program, generally used to identify the version of source code it was built from:
 
@@ -268,7 +294,7 @@ $ what /bin/ls
 
 There should be almost no circumstance in which you need to use it in your day-to-day work, but you might come across it if you _meant_ to type `whatis`.
 
-### `whatis`
+## `whatis`
 
 `whatis` searches a local help database for text. This can be useful in tracking down manual pages:
 
@@ -280,7 +306,7 @@ bashbug(1)               - report a bug in bash
 
 But I can't imagine it will be a regularly used tool by most users.
 
-### `which`
+## `which`
 
 `which` will search your `$PATH` to see whether an executable can be found. With the `-a` flag, it will show all results.
 
@@ -292,7 +318,7 @@ $ which -a vi
 
 `which` originated in `csh`. It remains on many systems for compatibility but in general should be avoided due to potentially odd behaviour[^4].
 
-### `whence`
+## `whence`
 
 `whence` was added to the Korn shell. You are unlikely to use it unless you are on systems using `ksh`. `zsh` also has this command, but it should be avoided and considered non-standard.
 
@@ -301,7 +327,7 @@ $ which -a vi
 /usr/local/bin/brew
 ```
 
-### `where`
+## `where`
 
 This is a shell builtin that can provide information on commands, similar to `type`:
 
@@ -313,7 +339,7 @@ ls: aliased to ls -G
 
 However, `type` should be preferred, as it is more standard.
 
-### `whereis`
+## `whereis`
 
 `whereis` is available on some systems and generally operates the same as `which`, searching paths for an executable:
 
@@ -322,9 +348,9 @@ However, `type` should be preferred, as it is more standard.
 /bin/ls
 ```
 
-Again, `type` should be preferred for compatability.
+Again, `type` should be preferred for compatibility.
 
-### `command`
+## `command`
 
 `command` is defined in the POSIX standard, so should be expected to be present on most modern systems. Without arguments, it simply executes a command. With the `-v` argument, you get a fairly machine-readable or processable response; with the `-V` argument, you get a more human readable response:
 
@@ -337,7 +363,7 @@ ls is an alias for ls -G
 
 `command` can be useful in scripts, as we will see in later chapters.
 
-### `type`
+## `type`
 
 `type` is part of the Unix standard and will be present in most modern systems. As we've already seen, it will identify the type of command as well as the location for an executable:
 
@@ -364,7 +390,7 @@ In summary, avoid anything that starts with '`w`'! These are legacy commands, ge
 
 [^1]: We will cover permissions and modes in later chapters.
 
-[^2]: Why these names and locations? It's a long story. The best place to start if you are intersted is the [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard).
+[^2]: Why these names and locations? It's a long story. The best place to start if you are interested is the [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard).
 
 [^3]: `chmod` changes the mode of a file; `+x` means 'add the executable bit'. This tells the operating system the file can be executed.
 

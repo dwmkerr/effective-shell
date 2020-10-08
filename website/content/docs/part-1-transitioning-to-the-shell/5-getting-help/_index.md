@@ -95,6 +95,36 @@ This lists the contents of the `/usr/bin` folder, piping the output to `less` so
 
 There are alternative pagers available (on many Unix-y systems you'll have `less`, `more` and `most`) but in general you'll normally get what you need with `less`.
 
+# The Alternative - Help
+
+Sometimes you'll look something up in the manual and get the 'builtins' page. For example:
+
+```sh
+$ man cd
+BUILTIN(1)                BSD General Commands Manual               BUILTIN(1)
+
+NAME
+     builtin, !, %, ., :, @, {, }, alias, alloc, bg, bind, bindkey, break,
+     breaksw, builtins, case, cd, chdir, command, complete, continue,
+
+# (I've skipped the bulk of the output to save space!)
+```
+
+This happens when the command you are looking up is not actually a program with a manual page, but a built-in shell command. Most shells have a way get help on such commands - `bash` for example has `help`:
+
+```sh
+$ help cd
+cd: cd [-L|[-P [-e]] [-@]] [dir]
+    Change the shell working directory.
+
+    Change the current directory to DIR.  The default DIR is the value of the
+    HOME shell variable.
+
+# (I've skipped the bulk of the output to save space!)
+```
+
+This is all I'll say about `help` for now. We visit it again in [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/10-understanding-commands" >}}, where we talk more about built-in commands. For now we'll go back to the `man` command, which works across all shells as it is a Linux feature rather than a shell specific feature!
+
 ## Manual Sections
 
 You'll often see tools referred to in manpages with numbers after them. Take a look at `man less`:
