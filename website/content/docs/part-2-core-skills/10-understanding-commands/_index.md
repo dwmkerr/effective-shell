@@ -105,7 +105,7 @@ $ PATH="." dog
 🐶 woof 🐶
 ```
 
-More common would be to run the program by specifying the path to the file, like so:
+By the way - don't do this! Adding the special `.` directory to the path is generally not a safe or sensible thing to do, this is just a demonstration of how it works. More common would be to run the program by specifying the path to the file, like so:
 
 ```sh
 $ ./dog
