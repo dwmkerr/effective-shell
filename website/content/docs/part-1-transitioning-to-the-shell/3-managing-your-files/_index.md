@@ -39,7 +39,7 @@ You'll see something like this:
 
 When you call the `wget` command, you can give it any web address and it'll download it to your current folder. It also shows the progress of the download interactively (particularly useful if it's a big file!).
 
-As an aside, if we were not in our home folder when we called the `wget` command, we'd download the file to wherever we are currently working in. If we wanted to be explicit about where we download the file, we can use the `-0` (_Output File_) flag to say explicitly where we want to download the file.
+As an aside, if we were not in our home folder when we called the `wget` command, we'd download the file to wherever we are currently working in. If we wanted to be explicit about where we download the file, we can use the `-O` (_Output File_) flag to say explicitly where we want to download the file.
 
 As an example, if were not in the home folder, but wanted to download there, we'd just call:
 
