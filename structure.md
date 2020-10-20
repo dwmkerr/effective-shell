@@ -303,6 +303,7 @@ This section contains the things which have been pulled out of chapters as they 
 - [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
 - manipulating text: a good example might be 'build a table of all executables': http://localhost:1313/docs/part-2-core-skills/10-understanding-commands/#executables---programs
 - tricks: this is a nice trick `$(cd <dir> && do_stuff)` - this allows you to run a command in a subshell in a particularly directory. Given that it spawns a subshell there's no need to change _back_ to the directory you were in.
+- env vars: the ${!env_var_name} trick: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-expansion_002c-parameter - useful for the `get_env_var_or_fail` function.
 
 Section: building good command line tools
 

@@ -15,7 +15,11 @@ This section is currently work in progress and not ready for publication.
 
 Some great books and articles for specific topics are listed below.
 
-#### The Missing Semester of Your CS Education
+## Great Online Resources
+
+These resources are available online and are particularly useful.
+
+### The Missing Semester of Your CS Education
 
 The introduction in the site says it better than I could!
 
@@ -25,25 +29,41 @@ https://missing.csail.mit.edu/
 
 Thanks to [Lennart R. Wilke](https://www.linkedin.com/in/lrwilke/) for sharing this with me!
 
-#### [Shell Scripting by Jason Cannon](https://www.amazon.com/Shell-Scripting-Automate-Command-Programming-ebook/dp/B015FZAXU6)
+### [Maarten Billemont - Bash Guide](http://mywiki.wooledge.org/BashGuide)
+
+This is an excellent and very detailed resource on bash. It goes into a lot of detail on how things are implemented and is a great resource to find all of the low level details you might be interested in. There is also a more modern version being currently drafted at [https://guide.bash.academy/](https://guide.bash.academy/).
+
+## Great Books
+
+### [Shell Scripting by Jason Cannon](https://www.amazon.com/Shell-Scripting-Automate-Command-Programming-ebook/dp/B015FZAXU6)
 
 Short and sweet, this is a good book for absolute shell scripting beginners.
 
-#### [Wicked Cool Shell Scripts - Dave Taylor & Brandon Perry](https://nostarch.com/wcss2)
+### [Wicked Cool Shell Scripts - Dave Taylor & Brandon Perry](https://nostarch.com/wcss2)
 
 Ideal for systems administrators and power users who can benefit from automating processes across many platforms. This book contains a lot of tips on how to standardise the behaviour of programs across Linux and Unix systems. If you find yourself regularly shell scripting and want to start to build a library of your own scripts to run across machines, this is a great book to read. It will be particularly useful for anyone who faces challenges on incompatibilities and inconsistencies between programs on different systems.
 
-#### [Practical Vim: Edit Text at the Speed of Thought, Drew Niel](https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980)
+### [Practical Vim: Edit Text at the Speed of Thought, Drew Niel](https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980)
 
 Absolutely the best book I've read on Vim, perfect for users of all levels. Written by Drew Niel, who is the author of the amazing [Vimcasts](http://vimcasts.org/) series.
 
-#### [Joshua Levy - The Art of the Command Line](https://github.com/jlevy/the-art-of-command-line)
+### [Joshua Levy - The Art of the Command Line](https://github.com/jlevy/the-art-of-command-line)
 
 This is a wonderful repository, which aims to help you "Master the command line, in one page". This page is full of useful resources and is a superb reference for users from novice all the way to advanced!
 
-#### [Maarten Billemont - Bash Guide](http://mywiki.wooledge.org/BashGuide)
+## Great Videos
 
-This is an excellent and very detailed resource on bash. It goes into a lot of detail on how things are implemented and is a great resource to find all of the low level details you might be interested in. There is also a more modern version being currently drafted at [https://guide.bash.academy/](https://guide.bash.academy/).
+### The UNIX Operating System
+
+This is a fascinating video from the late 60s - you might be amazed at how much of the stuff you see here is still fundamental to how we work with computers today. The shell, pipelines, the file system and more:
+
+[![Screenshot: The Unix Operating System](./images/atat-the-unix-operating-system.png)](https://www.youtube.com/watch?v=tc4ROCJYbm0)
+
+### The Mother of All Demos
+
+Another fascinating video from the late 60s - see the mouse, hypertext, word processing and more:
+
+[![Screenshot: The Mother of all Demos](./images/the-mother-of-all-demos.png)](https://www.youtube.com/watch?v=yJDv-zdhzMY)
 
 ## Advanced
 
