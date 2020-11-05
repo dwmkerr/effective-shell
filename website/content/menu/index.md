@@ -16,5 +16,4 @@ bookMenuLevels: 1
    - [Fly on the Command Line]({{< relref "/docs/part-2-core-skills/8-fly-on-the-command-line" >}})
    - [Job Control]({{< relref "/docs/part-2-core-skills/9-job-control" >}})
    - [Understanding Commands]({{< relref "/docs/part-2-core-skills/10-understanding-commands" >}})
- - **Work in Progress!**
-   - [What is a Shell?]({{< relref "/docs/section1/5-what-is-a-shell" >}})
+   - [What is a Shell?]({{< relref "/docs/part-2-core-skills/11-what-is-a-shell" >}})

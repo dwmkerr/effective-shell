@@ -1,12 +1,16 @@
 ---
 title: What is a Shell?
 slug: what-is-a-shell
-weight: 5
+title: "Chapter 11 - Interlude - What is a Shell"
+slug: "chapter-11-the-renaissance-of-the-shell"
+weight: 11
 ---
 
-This is the first 'interlude' in my [Effective Shell](https://github.com/dwmkerr/effective-shell) series. These interludes give some background, history or more flavour to some of the topics.
+# Chapter 11 - Interlude - What is a Shell
 
-This one _should_ be high-level enough for even non-technical readers to enjoy (or at least understand!). I've tried to make sure any term that might be unfamiliar is described in a footnote[^1]. For the more technical reader, it provides an important grounding on some of the key concepts relating to shells and how they work.
+This is the second of the "interludes" which end each section of the book. These interludes give flavour, concepts, context and the history of some of the concepts we're dealing with. These interlude are not essential to mastering the _skills_ of the shell, but you might find them interesting.
+
+In this interlude we'll actually look at what a shell is, all the way from the highest level, which non-technical readers will be able to comfortably follow, to the low level, which advanced users may find illuminating.
 
 ## Introduction for the Non-Technical Reader
 
@@ -46,7 +50,7 @@ The diagram below shows a simplified view of a typical computer:
 
 Already there's a lot going on.
 
-Your computer is going to have a CPU[^2] and memory[^3], and almost certainly a network adapter[^4] and display adapter[^5]. Most computers will have at least one hard disk. For home PCs, there'll also likely be a bunch of peripherals, such as a mouse, keyboard, printers, flash drives, webcams and so on.
+Your computer is going to have a CPU[^1] and memory[^2], and almost certainly a network adapter[^3] and display adapter[^4]. Most computers will have at least one hard disk. For home PCs, there'll also likely be a bunch of peripherals, such as a mouse, keyboard, printers, flash drives, webcams and so on.
 
 ### The Operating System
 
@@ -72,7 +76,7 @@ Why 'kernel'? The kernel is the soft, edible part of a nut or seed, which is sur
 
 *(By Kkchaudhary11 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=49069244)*
 
-The operating system kernel really is the _core_ of the operating system. It's such a sensitive area of the operating system that we actually want to avoid running software in it if possible[^6]. And that is where _user space_ comes in.
+The operating system kernel really is the _core_ of the operating system. It's such a sensitive area of the operating system that we actually want to avoid running software in it if possible[^5]. And that is where _user space_ comes in.
 
 ### User Space
 
@@ -92,7 +96,7 @@ Shells come in many different flavours but are generally provided to aid a human
 
 For example, to see all of the files in a folder, the human operator *could* write a program in a language such as C, making system calls to do what they want. But for day-to-day tasks, this would be repetitive. A shell will normally offer us a quick way to do that exact task, without having to manually write a program to do it.
 
-Here's an example, where a shell is being used to show the 'png' images in the folder I am working in[^7]:
+Here's an example, where a shell is being used to show the 'png' images in the folder I am working in[^6]:
 
 <img width="600px" alt="Screenshot: Browsing Contents of the File System the the Bourne Again Shell" src="images/screenshot1-example-shell.png" />
 
@@ -112,7 +116,7 @@ We're not _directly_ interacting with the 'shell' in this diagram. We're actuall
 
 A terminal is just a program that reads input from the keyboard, passes that input to another program (normally a shell), and displays the results on the screen. A shell program on its own does not do this - it requires a terminal as an interface.
 
-Why the word _terminal_? This makes sense when you look at how people interfaced with computers historically. Input to a computer might be through punch cards, and output would often be via a printer. The *Teletype Termimal*[^8] became a common way for users to interface with computers.
+Why the word _terminal_? This makes sense when you look at how people interfaced with computers historically. Input to a computer might be through punch cards, and output would often be via a printer. The *Teletype Termimal*[^7] became a common way for users to interface with computers.
 
 <img width="600px" alt="Photo: ASR-33 TTY" src="images/image-asr-33.jpg" />
 
@@ -144,12 +148,12 @@ Shells can write output to files or other locations, and so on. You can run a sh
  
 So what else does a shell do? Most of the features are related to helping human operators work with the system more efficiently.
 
-- Quickly enter commands, see the history of commands and quickly restructure commands (see [Effective Shell - Navigating the Command Line](http://www.dwmkerr.com/effective-shell-part-1-navigating-the-command-line/))
-- Navigate through the file system, moving from folder to folder (see [Effective Shell - Move Around!](https://dwmkerr.com/effective-shell-4-moving-around/)), which makes it easier for an operator to navigate the file system.
-- Chain the output of commands together - for example, taking the output of one basic program, such as the `tree` program we saw, and writing it to a file (see [Effective Shell - Understanding Pipelines](https://github.com/dwmkerr/effective-shell#coming-soon))
-- Offer a programming language, allowing the operator to perform more complicated tasks (see [Effective Shell - Basic Shell Scripting](https://github.com/dwmkerr/effective-shell#coming-soon))
+- Quickly enter commands, see the history of commands and quickly restructure commands (see [Chapter 8 - Fly on the Command Line]({{< relref "/docs/part-2-core-skills/8-fly-on-the-command-line" >}}))
+- Navigate through the file system, moving from folder to folder (see [Chapter 1- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/2-navigating-your-system" >}})), which makes it easier for an operator to navigate the file system
+- Chain the output of commands together - for example, taking the output of one basic program, such as the `tree` program we saw, and writing it to a file (see [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/7-thinking-in-pipelines" >}}))
+- Offer a programming language, allowing the operator to perform more complicated tasks
 
-And a lot more! In fact, that's what the whole [Effective Shell](https://github.com/dwmkerr/effective-shell) series is about - how to get the most from these powerful programs, particularly for those who use them regularly.
+And a lot more! In fact, that's what the whole book is about - how to get the most from these powerful programs, particularly for those who use them regularly.
 
 ### The Command Prompt or Command Line
 
@@ -163,7 +167,7 @@ I've included a set of screenshots at the end of the article, just after this se
 
 Note that shells don't have to use command prompts - if you use a shell program to execute a script, there will be no command prompt. Shells only show a prompt when they know they are being used interactively. Many programs which allow a user to operate interactively will show a command prompt.
 
-Shell command prompts can be customised, so they will often look different from machine to machine (for more details, see [Effective Shell - Customising the Command Line](https://github.com/dwmkerr/effective-shell#coming-soon)). Below is an example that shows a _lot_ of technical information. This is from the highly popular [oh-my-zsh](https://ohmyz.sh/) framework for the 'Z Shell' shell, which is very popular among developers:
+Shell command prompts can be customised, so they will often look different from machine to machine. Below is an example that shows a _lot_ of technical information. This is from the highly popular [oh-my-zsh](https://ohmyz.sh/) framework for the 'Z Shell' shell, which is very popular among developers:
 
 <img width="600px" alt="Image: Customised oh-my-zsh" src="images/image-ohmyzsh.jpg" />
 
@@ -173,7 +177,7 @@ Shell command prompts can be customised, so they will often look different from 
 
 A lot of the 'commands' in a shell, such as `cat` (which shows the contents of a file), are actually just simple programs, which will interface with the kernel. No matter what shell you use, these commands will behave the same way, because really all you are doing is calling another program.
 
-Some commands, such as `cd` (change directory), are built into the shell. Some commands are functions that have been defined, or aliases to other commands (for more details on commands, see [Effective Shell - Commands](https://github.com/dwmkerr/effective-shell#coming-soon)). Commands will often differ between shells.
+Some commands, such as `cd` (change directory), are built into the shell. Some commands are functions that have been defined, or aliases to other commands (for more details on commands, see [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/10-understanding-commands" >}})). Commands will often differ between shells.
 
 Not all shells are created equal - anyone can write a shell program, maybe creating a simple interface to the computer or a highly complex one with many features. In fact, a later article in this series will look at the genealogy of the most common shells.
 
@@ -187,7 +191,7 @@ Let's review the earlier diagram again:
 
 We can see the real internals of what is going on in this "Terminal -> Shell -> Program" chain in the diagram above quite easily.
 
-Try the command `pstree -psa $$` in a shell[^9]:
+Try the command `pstree -psa $$` in a shell[^8]:
 
 <img width="600px" alt="Image: Process Tree" src="images/image-psforest.png" />
 
@@ -290,22 +294,20 @@ If you enjoyed this article, please do share it! Feel free to include suggestion
 
 **Footnotes**
 
-[^1]: I'd be fascinated to know if this is at all interesting to less technically inclined people, so please do go ahead and let me know in the comments!
+[^1]: CPU: central processing unit. This is the chip in the computer that does most of the work (which after many layers of abstraction eventually becomes arithmetic and sending simple instructions to other places).
 
-[^2]: CPU: central processing unit. This is the chip in the computer that does most of the work (which after many layers of abstraction eventually becomes arithmetic and sending simple instructions to other places).
+[^2]: Memory is the 'working space' where the state of your system is stored. If you are writing a document, the text lives in memory, until you save it, when it then gets written to a hard drive. Memory is _ephemeral_ - everything is gone when you turn off the power to it.
 
-[^3]: Memory is the 'working space' where the state of your system is stored. If you are writing a document, the text lives in memory, until you save it, when it then gets written to a hard drive. Memory is _ephemeral_ - everything is gone when you turn off the power to it.
+[^3]: This is the part of your computer that knows how to do things like connect to a WiFi network, or has a network socket you might plug a network cable into.
 
-[^4]: This is the part of your computer that knows how to do things like connect to a WiFi network, or has a network socket you might plug a network cable into.
+[^4]: This is the part of your computer you plug the screen into.
 
-[^5]: This is the part of your computer you plug the screen into.
+[^5]: This is because a mistake in _Kernel Mode_ programs can have disasterous effects. It could access any files, no matter who they belong do, control the hardware, install more software - almost anything. Errors in this code can cause terrible issues (like the infamous Windows 'blue screen of death'), and malicious code in the kernel essentially has full access to not only all your data but also your webcam, network adapter and so on.
 
-[^6]: This is because a mistake in _Kernel Mode_ programs can have disasterous effects. It could access any files, no matter who they belong do, control the hardware, install more software - almost anything. Errors in this code can cause terrible issues (like the infamous Windows 'blue screen of death'), and malicious code in the kernel essentially has full access to not only all your data but also your webcam, network adapter and so on.
+[^6]: As an aside, if you are curious about the visual style of my setup or customisations that have been made, everything in my setup is available online on my 'dotfiles' repo - [github.com/dwmkerr/dotfiles](https://github.com/dwmkerr/dotfiles).
 
-[^7]: As an aside, if you are curious about the visual style of my setup or customisations that have been made, everything in my setup is available online on my 'dotfiles' repo - [github.com/dwmkerr/dotfiles](https://github.com/dwmkerr/dotfiles).
+[^7]: And that's where the 'TTY' acronym you will see sometimes comes from. Enter the `ps` command, and you'll actually see the TTY interface each process is attached to. This is a topic that will come up later in the series.
 
-[^8]: And that's where the 'TTY' acronym you will see sometimes comes from. Enter the `ps` command, and you'll actually see the TTY interface each process is attached to. This is a topic that will come up later in the series.
+[^8]: `$$` is a Bash [internal variable](https://www.tldp.org/LDP/abs/html/internalvariables.html#PROCCID). These will also be covered in a later article in the series.
 
-[^9]: `$$` is a Bash [internal variable](https://www.tldp.org/LDP/abs/html/internalvariables.html#PROCCID). These will also be covered in a later article in the series.
-
-[^10]: Feel free to see my [dotfiles](https://github.com/dwmkerr/dotfiles) to configure a similar setup for yourself.
+[^9]: Feel free to see my [dotfiles](https://github.com/dwmkerr/dotfiles) to configure a similar setup for yourself.
