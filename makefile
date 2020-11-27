@@ -22,7 +22,7 @@ structure:
 
 # Create the statistics document.
 statistics:
-	./scripts/wordcount.sh ./website/content/docs/section*/**/_index.md > statistics.csv
+	./scripts/wordcount.sh ./website/content/docs/*/**/_index.md > statistics.csv
 
 
 

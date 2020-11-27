@@ -26,7 +26,7 @@ You should see something like this:
 
 When we open a folder in a graphical user interface, we are always viewing the contents of a folder, or directory. When you open the shell, the same applies - we are always sitting in a specific directory.
 
-The `pwd` command is the _Print Working Directory_ command. It shows the full path of the directory that you are in. You might not use this command very often, as in many shells you can see the directory you are in (if you cannot see this in your shell, you'll find out how to do this in the [Chapter 18](#TODO)).
+The `pwd` command is the _Print Working Directory_ command. It shows the full path of the directory that you are in. You might not use this command very often, as in many shells you can see the directory you are in (if you cannot see this in your shell, you'll find out how to do this in [Chapter 18](#TODO)).
 
 There's one more way to find the working directory. It is stored in an _Environment Variable_ called `PWD`.
 
@@ -56,7 +56,7 @@ You should see something like this:
 
 <img alt="Screenshot: ls" src="images/ls.png" width="800px" />
 
-The `ls` command is the _List Directory Contents_ command. It will show the contents of a directory. If we don't give it any parameters it will show the contents of the current directory.
+The `ls` command is the _List Directory Contents_ command. It will show the contents of a directory. If we don't give it any parameters, it will show the contents of the current directory.
 
 There are a lot of options for the `ls` command. In [Chapter 5](#TODO) we'll see how to find out the options for commands. For now, let's look at one of the most common options `-l`. This shows the contents as a list:
 
@@ -89,7 +89,7 @@ On my system, we'll see the following output:
 
 <img alt="Screenshot: cd" src="images/cd.png" width="800px" />
 
-The `cd` command is the _Change Directory_ command. You might see a pattern here - shell commands often are very short (to make it easier to type them quickly), and are often made up of the first letters of the description of the command (`pwd` for _Print Working Directory_, `cd` for _Change Directory_).
+The `cd` command is the _Change Directory_ command. You might see a pattern here - shell commands often are very short (to make it easier to type them quickly) and are often made up of the first letters of the description of the command (`pwd` for _Print Working Directory_, `cd` for _Change Directory_).
 
 Now that you know how the `cd` command works, you will be able to move around to different folders. At this stage, it's important to talk a little bit about how _paths_ work in systems.
 
@@ -175,7 +175,7 @@ And we'll see this:
 
 There is one more special part of the file system we have to know about. That is the _Home Directory_. In Linux-like systems every user has their own personal directory where they can keep their files and folders.
 
-This directory can always be accessed through the `~` character. For example, no matter where I am in the system I can run the following command to move to my home directory and show the contents:
+This directory can always be accessed through the `~` character. For example, no matter where I am in the system, I can run the following command to move to my home directory and show the contents:
 
 ```sh
 cd ~
@@ -224,11 +224,11 @@ popd
 
 After I've checked my downloads, I can run `popd` to go back to where I was:
 
-<img alt="Screenshot: echo home" src="images/echo-home.png" width="800px" />
+<img alt="Screenshot: pushd and popd" src="images/pushd-popd.png" width="800px" />
 
-The `pushd` command 'pushes' a new working directory onto a stack - moving you there. The `popd` command 'pops' the working directory off the top of the stack. A stack is a structure often used in computers, we can actually push lots of different files to the working directory stack.
+The `pushd` command 'pushes' a new working directory onto a stack - moving you there. The `popd` command 'pops' the working directory off the top of the stack. A stack is a structure often used in computers; we can actually push lots of different files to the working directory stack.
 
-Why is it called a stack? Well the reason is that if we were to visualise the structure, it might look like a stack of plates or similar. Here's how `pushd` and `popd` would look if we were to visualise it:
+Why is it called a stack? Well, the reason is that if we were to visualise the structure, it might look like a stack of plates or similar. Here's how `pushd` and `popd` would look if we were to visualise it:
 
 <img alt="Screenshot: pushd popd stack" src="images/pushd-popd-stack.png" width="800px" />
 
@@ -254,7 +254,7 @@ In this chapter we introduced the following:
 
 - The `pwd` (_print working directory_) command shows the current working directory
 - The `$PWD` environment variable holds the current working directory
-- The `ls` (_list) command shows the contents of the current directory or a given directory
+- The `ls` (_list_) command shows the contents of the current directory or a given directory
 - The `ls -l` command shows the contents of the current directory as list
 - The `cd` (_change directory_) changes the current working directory
 - Absolute paths are paths which specify the exact location of a file or folder...
