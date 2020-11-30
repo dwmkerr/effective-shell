@@ -65,7 +65,7 @@ Another fascinating video from the late 60s - see the mouse, hypertext, word pro
 
 [![Screenshot: The Mother of all Demos](./images/the-mother-of-all-demos.png)](https://www.youtube.com/watch?v=yJDv-zdhzMY)
 
-### Where Grep Came From - Computerfile
+### Where Grep Came From - Computerphile
 
 Professor Brian Kerninghan explains where the `grep` tool came from:
 

@@ -70,7 +70,7 @@ g/re/p
 
 This command ran on all lines (`g`, for _global_), applied a regular expression (`re`, for _regular expression_) and then printed (`p` for _print_) the results. A colleague of Ken Thompson, one of the early innovators and inventors in the Unix world, needed to edit a large file - a file which was too large to fit in `ed`. Ken wrote the `grep` program overnight to allow the file's text to be filtered - and the results passed to the `ed` editor!
 
-You can read more about this story and some of the fascinating history of the early days of Unix in a [great interview with Brian Kerninghan](https://www.youtube.com/watch?v=NTfOnGZUZDk&feature=emb_title) from Computerfile[^1].
+You can read more about this story and some of the fascinating history of the early days of Unix in a [great interview with Brian Kerninghan](https://www.youtube.com/watch?v=NTfOnGZUZDk&feature=emb_title) from Computerphile[^1].
 
 # Searching Through Text
 
