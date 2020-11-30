@@ -65,6 +65,12 @@ Another fascinating video from the late 60s - see the mouse, hypertext, word pro
 
 [![Screenshot: The Mother of all Demos](./images/the-mother-of-all-demos.png)](https://www.youtube.com/watch?v=yJDv-zdhzMY)
 
+### Where Grep Came From - Computerfile
+
+Professor Brian Kerninghan explains where the `grep` tool came from:
+
+[![Screenshot: YouTube Where Grep Came From](./images/youtube-where-grep-came-from.png)](https://www.youtube.com/watch?v=NTfOnGZUZDk)
+
 ## Advanced
 
 - [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours

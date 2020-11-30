@@ -19,7 +19,7 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 7 - Fly on the Command-line](#chapter-7---fly-on-the-command-line)
         * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
         * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
-        * [Chapter 10 - Talking to other machines with the Secure Shell](#chapter-10---talking-to-other-machines-with-the-secure-shell)
+        * [TODO Chapter 10 - Talking to other machines with the Secure Shell](#todo-chapter-10---talking-to-other-machines-with-the-secure-shell)
     * [Interlude - What is a Shell?](#interlude---what-is-a-shell)
     * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
         * [Chapter 11 - Get to Grips with Grep](#chapter-11---get-to-grips-with-grep)
@@ -27,6 +27,7 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 13 - Master Advanced Text Manipulation with Sed and Awk](#chapter-13---master-advanced-text-manipulation-with-sed-and-awk)
         * [Chapter 14 - Build Commands on the Fly](#chapter-14---build-commands-on-the-fly)
         * [Chapter 15 - The Missing Tools: jq, yq and xq](#chapter-15---the-missing-tools-jq-yq-and-xq)
+        * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
         * [Chapter 16 - Bash Text Tricks - Regexes and String Manipulation](#chapter-16---bash-text-tricks---regexes-and-string-manipulation)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
         * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
@@ -142,7 +143,7 @@ Not everything we run in a shell works in the same way. Some commands run extern
 
 In this chapter we'll see the `which`, `whereis` and related commands. We'll also look at the differences between builtins, executables, aliases and functions.
 
-#### Chapter 10 - Talking to other machines with the Secure Shell
+#### TODO Chapter 10 - Talking to other machines with the Secure Shell
 
 One of the main reasons you might use a shell is to operate a machine remotely. In these cases it's often the case that the *only* way to interact with these machines is via the shell, as they don't have a graphical user interface installed. In this chapter we'll look at how the secure shell, `ssh` works, and how to configure it for maximum convenience and efficiency.
 
@@ -177,6 +178,10 @@ With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios
 Sometimes you might find yourself battling with the shell text manipulation tools to manipulate JSON, YAML or XML. The `jq`, `yq` and `xq` tools can save you a lot of time, and might just be the missing tools you need to add to your toolkit.
 
 In this chapter we'll see how to install these tools and perform common tasks with them.
+
+#### Chapter X - Built Text Manipulation Programs?
+
+Could do a small chapter on how to build a text manipulation program which simply edits a line of `stdin`, then pipe it into other commands?
 
 #### Chapter 16 - Bash Text Tricks - Regexes and String Manipulation
 
@@ -286,7 +291,6 @@ This section contains the things which have been pulled out of chapters as they 
 - chapter 22: writing linux programs: use `sort` and `uniq` as inconsistent examples of how input is read (linewise vs til `EOT`)
 - summary: should we also have a manpages section for each summary (e.g. bash redirection manpage, stdin manpage, etc?, might be good for pros)
 - input: there is a convention for `-f -` (or just `-` in some programs) to mean `stdin`, this could go in pipelines, or advanced pipelines - another example (`curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -`) - note that `apt-key add -` uses stdin.
-- input: use `grep` to search a dictionary (e.g. https://github.com/dwyl/english-words and also add this to the samples).
 - heredocs: here docs vs herestrings (`<<<`), see https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash there's a good example of it in use here https://unix.stackexchange.com/questions/572424/retrieve-both-http-status-code-and-content-from-curl-in-a-shell-script
 - bug: in chapter 9 (job control) we mention signals are in a later chapter, but not sure where this should be yet.
 - programs: note that `readline` should be used when building prompts
@@ -304,6 +308,17 @@ This section contains the things which have been pulled out of chapters as they 
 - manipulating text: a good example might be 'build a table of all executables': http://localhost:1313/docs/part-2-core-skills/10-understanding-commands/#executables---programs
 - tricks: this is a nice trick `$(cd <dir> && do_stuff)` - this allows you to run a command in a subshell in a particularly directory. Given that it spawns a subshell there's no need to change _back_ to the directory you were in.
 - env vars: the ${!env_var_name} trick: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-expansion_002c-parameter - useful for the `get_env_var_or_fail` function.
+- everything is a file - testing if we have a connection, by using:
+    echo "Checking to see if EventstoreDB is ready to accept request..."
+    timeout 5m bash -c 'until printf "" 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' ${EVENTSTORE_HOST} ${EVENTSTORE_HTTP_MANAGEMENT_PORT}
+    echo "EventstoreDB is ready to accept requests"
+- question: should we have a chapter on regular expressions
+- idea: installing GNU utils on a Mac - https://unix.stackexchange.com/questions/284162/install-gnu-command
+  Note that this allows us to use _standard_ command line sequences like:
+  ```
+  gsplit -C 5m --numeric-suffixes apm.logs apm
+  ```
+- note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`
 
 Section: building good command line tools
 
