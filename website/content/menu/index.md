@@ -19,3 +19,4 @@ bookMenuLevels: 1
    - [What is a Shell?]({{< relref "/docs/part-2-core-skills/11-what-is-a-shell" >}})
  - [**Part 3 - Manipulating Text and Streams**]({{< relref "/docs/part-3-manipulating-text-and-streams" >}})
    - [Get to Grips with Grep]({{< relref "/docs/part-3-manipulating-text-and-streams/12-get-to-grips-with-grep" >}})
+   - [Slice and Dice Text]({{< relref "/docs/part-3-manipulating-text-and-streams/13-slice-and-dice-text" >}})
