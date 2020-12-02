@@ -206,7 +206,7 @@ This pipeline pastes the contents of the clipboard to `stdout`, which is piped t
 This is a trick a friend shared with me. He works with data scientists and whenever he shows them this command they love it!
 
 ```
-$ head -100 100GBFile.csv > 100linefile.csv
+$ head -n 100 100GBFile.csv > 100linefile.csv
 ```
 
 The `head` (_display first lines of a file_) command in this case just grabs the first 100 lines of a file and puts it straight into a smaller, more manageable file. We'll see what the `>` symbol (the _redirection_ symbol) means in the section lower down on Standard Output.
