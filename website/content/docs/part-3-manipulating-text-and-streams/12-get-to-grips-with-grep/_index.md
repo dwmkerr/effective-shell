@@ -76,10 +76,10 @@ You can read more about this story and some of the fascinating history of the ea
 
 If you've been working through this book, you've probably entered quite a few commands in the shell. Most shells keep a history of the commands you type. Under the hood, when you use the up and down keys to look through commands you entered earlier, or use the `Ctrl-R` shortcut to _search_ through earlier commands, your shell is looking through this file. If these tricks are not familiar, check [Chapter 9 - Fly on the Command Line]({{< relref "/docs/part-2-core-skills/8-fly-on-the-command-line" >}}).
 
-The file which keeps the history can vary from shell to shell. For example, on my system, my history for Bash is in the file `~/.bash_history`. Let's look at this file:
+The file which keeps the history can vary from shell to shell. For example, on my system, my history for Bash is in the file `~/.bash_history`. But most 'Bash-like' shells provide a built-in environment variable which let's you find the path of the shell history. Let's at this file:
 
 ```
-cat ~/.bash_history
+cat $HISTFILE
 
 ...
 cat ~/.ssh/config
@@ -89,10 +89,10 @@ help cd
 exit
 ```
 
-This file will likely be huge. Let's search through it using `grep`! Here's how we can use the `grep` command to search for lines which contain the text `man`:
+This file will generally contain a list of the commands that the logged in user has entered in their shell. This file will likely be huge. Let's search through it using `grep`! Here's how we can use the `grep` command to search for lines which contain the text `man`:
 
 <pre>
-grep man ~/.bash_history
+grep man $HISTFILE
 
 ...
 <strong>man</strong> socket
@@ -142,7 +142,7 @@ Now as you can see from the output above, when we searched through my history, w
 To perform a search like this, we can use a _regular expression_. Here's how it would work:
 
 <pre>
-history | grep -E "[0-9]+  man"
+history | grep "[0-9]\+  man"
 
 ...
  <strong>9125  man</strong> socket
@@ -150,10 +150,22 @@ history | grep -E "[0-9]+  man"
 <strong>10002  man</strong> grep
 </pre>
 
-Let's break this down. First, we use the `-E` flag to tell `grep` to use _Extended Regular Expressions_. This allows us to use some clever constructs to search for text. After this, we have the actual expression. This expression is made up of the following components:
+Let's break this down. In this search, we are using a _pattern_ to search for text. The pattern in this case is a _basic regular expression_. Regular expressions allow us to use some clever constructs to search for text. The expression we've used is made up of the following components:
 
-- `[0-9]+` At least one number - any character in the range zero to nine.
+- `[0-9]\+` At least one number - any character in the range zero to nine.
 - `  man` The literal text written, i.e. two spaces and the letters `man`.
+
+Now for anyone who is familiar with regular expressions, you might wonder why we have a slash before the `+` symbol, when the `+` symbol has a specific meaning in regular expressions (it means 'at least one of the previous characters). The reason we have a leading slash is that by default `grep` is using _basic regular expressions_. In general, this will be less familiar for users and will be different to what they are used to from different tools.
+
+To make regular expressions more 'standard', we can use the `-E` flag to tell `grep` to use _Extended Regular Expressions_. We can also use the `egrep` tool, which assumes the pattern will be an extended regular expression. Using either approach will work, and allow you to re-write the pattern as below:
+
+```
+history | grep -E "[0-9]+  man"
+
+# ...or...
+
+history | egrep "[0-9]+  man"
+```
 
 This is just a little hint of the power of regular expressions. They can be daunting at first, and many people never become comfortable with them, but I would strongly encourage you to start exploring them.
 
@@ -296,7 +308,7 @@ This is the essence of the Unix Philosophy - with a small number of simple tools
 
 # Don't Forget Your Pipelines!
 
-We've introduced a very powerful command in this chapter. For familiar uses, `grep` becomes a _verb_ they use regularly - you `grep` the output of something, or might be _grepping_ to find something. Remember that `grep`, just like most of the tools in this section, works on `stdin` by default. So you can easily `grep` the output of almost anything!
+We've introduced a very powerful command in this chapter. For familiar users, `grep` becomes a _verb_ they use regularly - you `grep` the output of something, or might be _grepping_ to find something. Remember that `grep`, just like most of the tools in this section, works on `stdin` by default. So you can easily `grep` the output of almost anything!
 
 Here are a few simple examples just to show you how easy it is to perform more complex tasks with grep.
 

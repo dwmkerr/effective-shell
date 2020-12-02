@@ -1,2 +1,5 @@
 # The 'website/public' directory is an artifact created during the build process.
 website/public
+
+# Folders which might be created by IDEs or other editing tools.
+.idea/
