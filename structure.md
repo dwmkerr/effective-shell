@@ -319,6 +319,8 @@ This section contains the things which have been pulled out of chapters as they 
   gsplit -C 5m --numeric-suffixes apm.logs apm
   ```
 - note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`
+- todo: we really should look at symlinks, e.g. `ln -s $(pwd) ~/effective-shell` 
+- todo: a good example of what we can use text transformation for - add 'comments' to a CSV file which start with `#` and then strip them with `grep`.
 
 Section: building good command line tools
 
