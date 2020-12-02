@@ -8,13 +8,15 @@ weight: 13
 
 # Chapter 13 - Slice and Dice Text
 
-In [Chapter 12]({{< relref "/docs/part-3-manipulating-text-and-streams/12-get-to-grips-with-grep" >}}) we looked at how to use the `grep` command to search through text and filter text. In this chapter we're going to look at some of the basic commands which we can use to _manipulate_ text. There are a whole raft of commands and options available. We'll start with the basics and move onto some of the more sophisticated commands in the next chapter.
+In [Chapter 12]({{< relref "/docs/part-3-manipulating-text-and-streams/12-get-to-grips-with-grep" >}}) we looked at how to use the `grep` command to search through text and filter text. In this chapter we're going to look at some of the basic commands which we can use to _manipulate_ text. There are a whole raft of commands and options available.
+
+We'll start with the basics and move onto some of the more sophisticated commands in the next chapter.
 
 # Heads and Tails
 
-The commands `head` and `tail` are absolutely essential when working with any kind of text or data files.
+The commands `head` and `tail` are very simple but incredibly useful.
 
-These commands are very simple but incredibly useful. `head` is used to extract part of the _top_ of a file and `tail` is used to extract part of the _end_ of a file. Once you starting using these commands you'll find yourself using them regularly.
+`head` is used to extract part of the _top_ of a file and `tail` is used to extract part of the _end_ of a file. Once you starting using these commands you'll find yourself using them regularly.
 
 Let's start with `head`. Imagine we have a data file which has been sent to us, we don't know exactly what is in it, but we know it is large. How can we take a quick look?
 
@@ -33,7 +35,9 @@ $ head ~/effective-shell/data/top100.csv
 "9","96","The Irishman (2019)","441"
 ```
 
-The `head` command just shows the first ten lines of a file. If you want to be more specific, you can use the `-n` flag to specify the number of lines you want to see, for example:
+The `head` command just shows the first ten lines of a file. Here we can see that this is a _comma separated values_ file which seems to be a list of movies. This file is actually a list of the top 100 films on 'Rotten Tomatoes' at the time of writing, with the score, tomato meter, name and number of votes. We'll use it a lot in this chapter to demonstrate text manipulation.
+
+You can use the `-n` flag to specify the number of lines you want to see, for example:
 
 ```
 $ head -n 3 ~/effective-shell/data/top100.csv
@@ -43,7 +47,6 @@ $ head -n 3 ~/effective-shell/data/top100.csv
 "2","94","Avengers: Endgame (2019)","531"
 ```
 
-This file is a list of the top 100 films on 'Rotten Tomatoes' at the time of writing. We'll use it a lot in this chapter to demonstrate text manipulation.
 
 The `tail` command works in the same way - but looks at the _end_ of a file. This is more useful when you are looking content which changes over time, like log files. In this case you probably want to see only the most _recent_ entries.
 
@@ -64,6 +67,14 @@ $ tail $HISTFILE
 : 1606819803:0;tail $HISTFILE
 ```
 
+{{< hint info >}}
+**What is $HISTFILE?**  
+
+Most Bash-like shells keep a file called the _history_ file. This is essentially a record of all of the commands which have been written in the shell. The `history` command can be used to show the contents of this file. But if we want to work with the file directly, we can find its location with the special variable called `$HISTFILE`. 
+
+Enter `help history` for more information on the shell history.
+{{< /hint >}}
+
 We can be more specific, just like with `head`, by specifying the number of lines to show:
 
 ```
@@ -74,7 +85,7 @@ $ tail -n 3 $HISTFILE
 : 1606819803:0;tail $HISTFILE
 ```
 
-There is one more feature of `tail` which can be extremely useful when you are trying to see real time changes to files. Add the `-f` flag to _follow_ the contents of the file - this means the `tail` command will only show content as it gets added.
+`tail` can also be used to show the _changes_ to a file in real time. Add the `-f` flag to _follow_ the contents of the file - this means the `tail` command show each new line as it gets added to the file.
 
 To try it out, run the following command in one shell:
 
@@ -84,7 +95,7 @@ $ tail -f $HISTFILE
 
 In another terminal window, start entering commands. You'll see that the `tail` command in the first window is writing the updates to the terminal as they are entered in the file. Press `Ctrl+C` to close the `tail` program.
 
-Another trick I use a lot with `tail` is to use `-n +2` as the number of lines. This shows everything _from the second line_. This makes it easy to strip the header, or first line, from content. Here's how you might use it:
+Another trick I use a lot with `tail` is to use `-n +2`. This shows everything _from the second line_ - the `+` symbol indicates we show everything from the given line onwards. This makes it easy to strip the header, or first line, from content. Here's how you might use it:
 
 ```
 $ head ~/effective-shell/data/top100.csv | tail -n +2
@@ -100,23 +111,15 @@ $ head ~/effective-shell/data/top100.csv | tail -n +2
 "9","96","The Irishman (2019)","441"
 ````
 
-Here I've taken the `head` of the file (otherwise the output gets quite difficult to follow), then piped the results into `tail -n +2` to grab everything from the second line onwards - which removes the heading line.
+Here I've taken the `head` of the file (otherwise the output gets quite difficult to follow), then piped the results into `tail -n +2` to grab everything from the second line onwards - which removes the heading line. We see the films only, not the titles of each column.
 
 We're going to use `head` and `tail` quite a lot when working with text. These are two crucial tools which can really speed up your work.
-
-{{< hint info >}}
-**What is $HISTFILE?**  
-
-Most Bash-like shells keep a file called the _history_ file. This is essentially a record of all of the commands which have been written in the shell. The `history` command can be used to show the contents of this file. But if we want to work with the file directly, we can find its location with the special variable called `$HISTFILE`. 
-
-Enter `help history` for more information on the shell history.
-{{< /hint >}}
 
 # Replacing Text 
 
 The next tool we'll look at is `tr` (_translate characters_). This program is very simple. My most common use for `tr` is to perform a simple substitution of characters.
 
-Here's an example of how the `tr` command works - let's create a list of each of the columns in the data file we saw before:
+Let's create a list of each of the columns in the data file we saw before to show how the command works:
 
 ```
 $ head -n 1 ~/effective-shell/data/top100.csv | tr ',' '\n'
@@ -189,7 +192,7 @@ On Linux systems you can find more about character classes with `man 7 regex`. I
 
 # How to Cut
 
-The next command is one which I've used far more than I expected. The `cut` command _splits_ up a line of text, using a given delimiter. Let's see some examples:
+The next command is one which I've used far more than I expected. The `cut` command _splits_ a line of text, using a given delimiter. Let's see some examples:
 
 ```
 $ cut -d',' -f 3 ~/effective-shell/data/top100.csv | head
@@ -206,7 +209,7 @@ $ cut -d',' -f 3 ~/effective-shell/data/top100.csv | head
 "The Irishman (2019)"
 ```
 
-This is the first way to use `cut`. We specify the `-d` flag to choose a _delimiter_ which we will cut the text with, then `-f` to choose _which field_ we want to see. In this case we show the third field - the _title_ of the film in the data file.
+This is the first way to use `cut`. We specify the `-d` flag to choose a _delimiter_ which we will cut the text with, then `-f` to choose _which field_ we want to see. In this case we show split on the command character and show the third field - the _title_ of the film in the data file.
 
 This can be extraordinarily useful. Let's see how to get the names of the Kubernetes pods I have running on a cluster. I can use the following command to get the pods:
 
@@ -283,7 +286,7 @@ metricbeat-beat-metricbeat-96dkt
 metricbeat-beat-metricbeat-n7kxm
 ```
 
-With these simple shell commands there are often a few ways to accomplish the same goal.
+With even just a few simple shell commands there are often many ways to accomplish the same goal!
 
 There is another way we can `cut` text. We can `cut` by slicing a number of characters from each line.
 
@@ -376,11 +379,11 @@ cut -d'/' -f 1   llehs-evitceffe
 rev              effective-shell
 ```
 
-This is a neat trick to rip all of the text from the _final_ occurrence of a character. You might not use it very often but it's an interesting reminder that you can often do more than you think by piecing together simple commands into a pipeline!
+This is a neat trick to rip all of the text from the _final_ occurrence of a character. You might not use it very often but it's an interesting reminder that you can often do more than you think by chaining together simple commands into a pipeline!
 
 # Sort and Unique
 
-Two other commands which can be really helpful - `sort` and `uniq`. Let's see `sort` first:
+Two other commands which can be really helpful are `sort` and `uniq`. Let's see `sort` first:
 
 ```
 $ cut -d',' -f 3 ~/effective-shell/data/top100.csv | sort | head
@@ -420,7 +423,7 @@ There are actually quite a few other options for sort, you can see them with `ma
 
 The `uniq` command removes duplicate lines from a stream of text. Note that this _only_ removes duplicate lines when they are _next to each other_. This means that you will often have to `sort` first.
 
-Here's an example of where I might use `uniq`:
+Here's an example of where I might use `uniq` - getting all unique error messages in a log file:
 
 ```
 $ cut -c 27- ~/effective-shell/logs/web-server-logs.txt | grep error | sort | uniq
@@ -436,7 +439,7 @@ info - Serving file '../../../website/public/docs/part-1-transitioning-to-the-sh
 
 Let's break this down:
 
-- `cut -c 27- ~/effective-shell/logs/web-server-logs.txt` extract log messages from a log file, skipping the timestamp
+- `cut -c 27- ~/effective-shell/logs/web-server-logs.txt` - extract log messages from a log file, skipping the timestamp
 - `grep error` - filter down to lines which contain the text `error`
 - `sort` - sort the output
 - `uniq` - show only unique values
@@ -445,7 +448,7 @@ This is a powerful technique - if we had thousands of errors in the file, this w
 
 # Don't Forget Your Pager!
 
-In [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}}) we talking about the _pager_ - the program your shell uses to make it easier to look through larger text files, giving the option to move backwards and forwards a page at a time (or searching and so on). Don't forget to use your pager when you are working with text. When you are trying to build a pipeline and want to see intermediate results (perhaps _before_ you use `head` or `tail`) then you can use the pager to avoid filling your screen and terminal with too much text.
+In [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}}) we talked about the _pager_ - the program your shell uses to make it easier to look through larger text files, giving the option to move backwards and forwards a page at a time (or searching and so on). Don't forget to use your pager when you are working with text. When you are trying to build a pipeline and want to see intermediate results (perhaps _before_ you use `head` or `tail`) then you can use the pager to avoid filling your screen and terminal with too much text.
 
 For example, when looking at the sorted list of films, I might run this:
 
@@ -486,3 +489,4 @@ In this chapter we introduced a number of basic tools which let us work with tex
 - The `-r` flag for `sort` reverses the sort order.
 - The `uniq` command removes duplicate lines - but only when they are next to each other, so you'll often use it in combination with `sort`.
 - Your pager, for example the `less` program can be useful when inspecting the output of your text transformation commands.
+
