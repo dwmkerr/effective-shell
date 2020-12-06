@@ -169,6 +169,18 @@ history | egrep "[0-9]+  man"
 
 This is just a little hint of the power of regular expressions. They can be daunting at first, and many people never become comfortable with them, but I would strongly encourage you to start exploring them.
 
+{{< hint info >}}
+**Getting Help on Regular Expressions**  
+If you want to find out more about the difference between the slightly old-fashioned _basic_ regular expressions and modern regular expressions, you can use:
+
+
+```
+man re_format
+```
+
+This manpage gives lots of information on regular expressions, including the differences between basic and extended patterns.
+{{< /hint >}}
+
 If you ever want to see how a regular expression works, try using the website [regex101.com](https://regex101.com). It let's you test out regular expressions and also describes exactly how they work. For example, if I enter the regular expression we just used I'll see this:
 
 <img src="images/regex101.png" width="800px" alt="Screenshot of the 'regex101' website" />
