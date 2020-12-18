@@ -275,6 +275,10 @@ This is not a book about Bash. It's not a book about shell programming. It's a b
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
+- introduction: Note that we are going to use `#` to indicate comments
+- introduction: Note that we are going to use `...` to indicate cropped output
+- chapter: useful tools: fzf, ag, ack, ripgrep?
+- structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
 - `find` was in 'managing files
 - `globs` was in 'managing files
 - `curl` was in managing files
@@ -324,6 +328,15 @@ This section contains the things which have been pulled out of chapters as they 
 - idea: as an appendix, or printed reference, list of the top ten manpages? `man re_format`, `man test`, `man getopt` etc.
 - idea: `getopt` as a potential trick for command line programs, just like `readline`.
 - todo: make sure we include bash variable assignment: https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash
+- todo: using `grep` in an `if` statement (with the `-q` flag). example: my dotfiles project uses this trick to decide whether to add the profile file
+- todo: using `history` shows starts next to some commands - why?
+- todo: aliases - a good example is `alias sed='sed -E'
+- keredocs: really good example here:
+  https://linuxize.com/post/bash-heredoc/
+  refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
+- todo: variable indirection, e.g. `${!env_var_name}`
+- best practices: local variables are `in_snake_case`, global variables are `${CAPITALISED_WITH_BRACES}` so that they don't `$CLASH_likethis`
+- best practices: refer to files with `./` when they are relative. It makes it explicit that we are using a path, not a function, alias or anything else. It can also make it easier to grep paths.
 
 Section: building good command line tools
 

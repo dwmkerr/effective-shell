@@ -20,3 +20,4 @@ bookMenuLevels: 1
  - [**Part 3 - Manipulating Text and Streams**]({{< relref "/docs/part-3-manipulating-text-and-streams" >}})
    - [Get to Grips with Grep]({{< relref "/docs/part-3-manipulating-text-and-streams/12-get-to-grips-with-grep" >}})
    - [Slice and Dice Text]({{< relref "/docs/part-3-manipulating-text-and-streams/13-slice-and-dice-text" >}})
+   - [Advanced Text Manipulation with Sed]({{< relref "/docs/part-3-manipulating-text-and-streams/14-advanced-text-manipulation/" >}})
