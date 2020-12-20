@@ -279,9 +279,12 @@ This section contains the things which have been pulled out of chapters as they 
 - introduction: Note that we are going to use `...` to indicate cropped output
 - chapter: useful tools: fzf, ag, ack, ripgrep?
 - structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
+- todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
+- todo: getting help - what is the `zsh` equivalent of `help`?
 - `find` was in 'managing files
 - `globs` was in 'managing files
 - `curl` was in managing files
+- todo: tab complete `man`
 - `df` to find out free space, or also how to find out how much space a folder takes up
 - `$IFS` to avoid easily avoidable errors
 - **Error Codes** and **set -e** are tacitly referred to in the `stderr` sections of the 'thinking in pipelines' chapter, we will need to have a reference
@@ -336,7 +339,9 @@ This section contains the things which have been pulled out of chapters as they 
   refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
 - todo: variable indirection, e.g. `${!env_var_name}`
 - best practices: local variables are `in_snake_case`, global variables are `${CAPITALISED_WITH_BRACES}` so that they don't `$CLASH_likethis`
+- todo: echo "$?" for the return code, quite useful.
 - best practices: refer to files with `./` when they are relative. It makes it explicit that we are using a path, not a function, alias or anything else. It can also make it easier to grep paths.
+- maybe: `ls -1` is kind of cool - one file per line
 
 Section: building good command line tools
 
