@@ -353,8 +353,6 @@ Great! We've created a zip. Let's dissect the command a bit:
 - `2019-outdoor-pictures.zip` is the name of the file we want to create, we put this first...
 - ...because everything which follows (e.g. `2019`) is going to be zipped, and we can specify many files and folders if we want
 
-#### TODO DAVE clean up the playground there should be no photos folder or copied file
-
 # Summary
 
 In this chapter we introduced the following: 
