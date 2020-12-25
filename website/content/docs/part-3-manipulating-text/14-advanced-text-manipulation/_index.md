@@ -6,7 +6,7 @@ weight: 14
 
 # Chapter 14 - Advanced Text Manipulation with Sed
 
-In [Chapter 13]({{< relref "/docs/part-3-manipulating-text-and-streams/13-slice-and-dice-text" >}}) we introduced some simple commands to work with text - specifically `head`, `tail`, `tr` and `cut`. Now we are going to introduce `sed` the _Stream Editor_ command. 
+In [Chapter 13]({{< relref "/docs/part-3-manipulating-text/13-slice-and-dice-text" >}}) we introduced some simple commands to work with text - specifically `head`, `tail`, `tr` and `cut`. Now we are going to introduce `sed` the _Stream Editor_ command. 
 
 `sed` can be used to perform a variety of tasks with text. In many cases a small command involving `sed` can quickly solve problems. We'll look at some of the common ways to use `sed`, some more sophisticated examples and discuss when you might want to consider using alternative tools like `awk` or a programming language.
 
@@ -89,7 +89,7 @@ s/settings/dotfiles/
 - The second `/` indicates the start of the _replacement_ we will make when the _pattern_ is found
 - The final `/` indicates the end of the replacement - we can also optionally put _flags_ after this slash
 
-Just as we saw in [Chapter 12 - Get to Grips with Grep]({{< relref "/docs/part-3-manipulating-text-and-streams/12-get-to-grips-with-grep" >}}), we can provide a _regular expression_ as the pattern to search for. By default, `sed` will use _basic_ regular expressions. We can use _extended regular expressions_ by providing the `-E` flag.
+Just as we saw in [Chapter 12 - Get to Grips with Grep]({{< relref "/docs/part-3-manipulating-text/12-get-to-grips-with-grep" >}}), we can provide a _regular expression_ as the pattern to search for. By default, `sed` will use _basic_ regular expressions. We can use _extended regular expressions_ by providing the `-E` flag.
 
 {{< hint info >}}
 **Basic and Extended Regular Expressions**
@@ -523,7 +523,7 @@ weight: "14"
 
 # Chapter 14 - Advanced Text Manipulation
 
-In [Chapter 13]({{< relref "/docs/part-3-manipulating-text-and-streams/13-slice-and-dice-text" >}}) we introduced some simple commands to work with text - specifically `head`, `tail`, `tr` and `cut`. Now we are going to take a look at how we can perform more sophisticated tasks with text.
+In [Chapter 13]({{< relref "/docs/part-3-manipulating-text/13-slice-and-dice-text" >}}) we introduced some simple commands to work with text - specifically `head`, `tail`, `tr` and `cut`. Now we are going to take a look at how we can perform more sophisticated tasks with text.
 ```
 
 Impressive - we've found a very specific pattern in a large file, substituted to match what we need and then saved the results.

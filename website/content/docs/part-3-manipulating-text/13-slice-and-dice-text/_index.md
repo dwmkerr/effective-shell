@@ -8,7 +8,7 @@ weight: 13
 
 # Chapter 13 - Slice and Dice Text
 
-In [Chapter 12]({{< relref "/docs/part-3-manipulating-text-and-streams/12-get-to-grips-with-grep" >}}) we looked at how to use the `grep` command to search through text and filter text. In this chapter we're going to look at some of the basic commands which we can use to _manipulate_ text. There are a whole raft of commands and options available.
+In [Chapter 12]({{< relref "/docs/part-3-manipulating-text/12-get-to-grips-with-grep" >}}) we looked at how to use the `grep` command to search through text and filter text. In this chapter we're going to look at some of the basic commands which we can use to _manipulate_ text. There are a whole raft of commands and options available.
 
 We'll start with the basics and move onto some of the more sophisticated commands in the next chapter.
 

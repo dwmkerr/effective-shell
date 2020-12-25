@@ -1,6 +1,6 @@
 ---
 title: "Part 2 - Manipulating Text and Streams"
-slug: "part-2-manipulating-text-and-streams"
+slug: "part-2-manipulating-text"
 bookDisableComments: true
 ---
 
