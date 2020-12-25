@@ -24,7 +24,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
         * [Chapter 11 - Get to Grips with Grep](#chapter-11---get-to-grips-with-grep)
         * [Chapter 12 - Slice and Dice Text](#chapter-12---slice-and-dice-text)
-        * [Chapter 13 - Master Advanced Text Manipulation with Sed and Awk](#chapter-13---master-advanced-text-manipulation-with-sed-and-awk)
+        * [Chapter 13 - Advanced Text Manipulation](#chapter-13---advanced-text-manipulation)
         * [Chapter 14 - Build Commands on the Fly](#chapter-14---build-commands-on-the-fly)
         * [Chapter 15 - The Missing Tools: jq, yq and xq](#chapter-15---the-missing-tools-jq-yq-and-xq)
         * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
@@ -165,7 +165,7 @@ One of the most simple and useful tools for working with text is the `cut` tool.
 
 We'll also look at some useful ways to sort, filter, remove duplicates, and more.
 
-#### Chapter 13 - Master Advanced Text Manipulation with Sed and Awk
+#### Chapter 13 - Advanced Text Manipulation
 
 Sed - the 'stream editor' tool can be used to perform sophisticated manipulation of text. In many cases a small command involving `sed` can quickly solve problems. In this chapter we'll look at some common ways to use `sed`, and when you might want to consider the `awk` tool.
 
@@ -275,13 +275,19 @@ This is not a book about Bash. It's not a book about shell programming. It's a b
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
+- introduction: Note that we are going to use `#` to indicate comments
+- introduction: Note that we are going to use `...` to indicate cropped output
+- chapter: useful tools: fzf, ag, ack, ripgrep?
+- structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
+- todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
+- todo: getting help - what is the `zsh` equivalent of `help`?
 - `find` was in 'managing files
 - `globs` was in 'managing files
 - `curl` was in managing files
+- todo: tab complete `man`
 - `df` to find out free space, or also how to find out how much space a folder takes up
 - `$IFS` to avoid easily avoidable errors
 - **Error Codes** and **set -e** are tacitly referred to in the `stderr` sections of the 'thinking in pipelines' chapter, we will need to have a reference
-
 - streams: Introduce the concept of streams
 - streams: when I pipe from dev/random how do I not run out of memory?
 - streams: why are some things linewise (compare `cat` to `sort` to `uniq`)
@@ -318,9 +324,24 @@ This section contains the things which have been pulled out of chapters as they 
   ```
   gsplit -C 5m --numeric-suffixes apm.logs apm
   ```
-- note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`
+- note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`. Note that `aws s3` uses `-` to indicate `stdin`
 - todo: we really should look at symlinks, e.g. `ln -s $(pwd) ~/effective-shell` 
 - todo: a good example of what we can use text transformation for - add 'comments' to a CSV file which start with `#` and then strip them with `grep`.
+- note: it would be really good to have a 'stream-wise' understanding of how text processing works. For example, if `cat` a file into a tool which I have built, do I get the input linewise or filewise?
+- idea: as an appendix, or printed reference, list of the top ten manpages? `man re_format`, `man test`, `man getopt` etc.
+- idea: `getopt` as a potential trick for command line programs, just like `readline`.
+- todo: make sure we include bash variable assignment: https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash
+- todo: using `grep` in an `if` statement (with the `-q` flag). example: my dotfiles project uses this trick to decide whether to add the profile file
+- todo: using `history` shows starts next to some commands - why?
+- todo: aliases - a good example is `alias sed='sed -E'
+- keredocs: really good example here:
+  https://linuxize.com/post/bash-heredoc/
+  refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
+- todo: variable indirection, e.g. `${!env_var_name}`
+- best practices: local variables are `in_snake_case`, global variables are `${CAPITALISED_WITH_BRACES}` so that they don't `$CLASH_likethis`
+- todo: echo "$?" for the return code, quite useful.
+- best practices: refer to files with `./` when they are relative. It makes it explicit that we are using a path, not a function, alias or anything else. It can also make it easier to grep paths.
+- maybe: `ls -1` is kind of cool - one file per line
 
 Section: building good command line tools
 

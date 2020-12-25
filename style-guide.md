@@ -7,6 +7,7 @@ This style guide may be useful when proofing, writing or reviewing changes.
 * [Person](#person)
 * [Common Mistakes](#common-mistakes)
 * [Hyphenations](#hyphenations)
+* [Info](#info)
 
 <!-- vim-markdown-toc -->
 
@@ -55,3 +56,20 @@ Editors have returned copy with different unicode characters for hyphens, which 
 `-`
 
 The preferred hyphen is the one which will be written on a standard keyboard.
+
+## Info
+
+If there is content which is more informational, will in printed form would be pulled into a box, you can use the 'info' panel of the provided them:
+
+```
+{{< hint [info|warning|danger] >}}
+**Markdown content**  
+Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
+stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
+{{< /hint >}}
+```
+
+This is documented at:
+
+https://themes.gohugo.io//theme/hugo-book/docs/shortcodes/hints/
+

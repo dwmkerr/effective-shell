@@ -90,7 +90,7 @@ The `rm` (_Remove_) command can be used to delete a file. If we run:
 
 ```sh
 rm ~/effective-shell-playground.zip
-ls
+ls | grep playground
 ```
 
 Then we'll see the following:
@@ -193,7 +193,7 @@ Let's run `tree` to see what happened. Remember - now that our working folder is
 
 <img alt="Screenshot: mv command" src="images/mv.png" width="800px" />
 
-Much nicer! Now our copied file has been moved to have a new name. It's in the same folder still, but you can use `mv` to also change what folder a file is in.
+Much nicer! Now our copied file has been moved to have a new name. It's in the same folder still, but you can use `mv` to also change what folder a file is in.
 
 # Creating a New Folder
 
@@ -227,6 +227,40 @@ Let's see how it looks:
 
 All we had to do was add the `-p` flag (which means "make the parent folder if it doesn't already exist) and we can create a whole set of subfolders. Now we're starting to see why knowing the shell can be powerful - if you know you have this trick up your sleeve you can be doing things like re-organising files _more effectively_ in a shell than in your graphical user interface!
 
+# Copying or Moving Multiple Files with Wildcards
+
+Let's copy the photos that we have in the `pictures` folder into the `photos/2019/outdoor/climbing` folder.
+
+When we run the `cp` or `mv` command, we can use a _wildcard_ to specify the files we are copying and moving. A wildcard is a simple pattern which can be used to select multiple files. Here's how we can copy the photos over:
+
+```
+cp pictures/* photos/2019/outdoor/climbing
+```
+
+Here's how it works for 
+Now we need to copy over our files from the `pictures` folder to the `2019/outdoor/photos` folder. We'll use exactly the command we used before to copy a file - `cp`:
+
+```sh
+$ cp pictures/* photos/2019/outdoors/climbing/
+
+$ tree photos
+photos
+├── 2019
+│   └── outdoors
+│       └── climbing
+│           ├── laos-gch-copy.jpeg
+│           ├── laos-gch.JPG
+│           └── nepal-mardi-himal.jpeg
+└── 2020
+    └── outdoors
+        └── climbing
+
+6 directories, 3 files
+```
+
+Here we've used the _wildcard_ symbol, which is `*`, to say "everything in the folder". Many commands can take wildcards as inputs. We'll see much more about them later!
+
+
 # Deleting a Folder
 
 Now that we have our more organise `2019/outdoors/photos` folder, we don't need the `photos` folder we created. So let's delete it! Remember how `rm` removes a file, and `mkdir` creates a folder? Well `rmdir` will remove a folder!
@@ -247,20 +281,6 @@ rmdir pictures
 <img alt="Screenshot: rmdir fail command" src="images/rmdir-fail.png" width="800px" />
 
 In this case, it is actually easier to just call `rm -r pictures`. Why is that? Well it's just like we saw in the earlier example - `rm` can delete files or directories. And if the directory is not empty, we just add the `-r` (_Recursive_) flag to tell it to delete the directory and everything it contains.
-
-# Copying Multiple Files
-
-Now we need to copy over our files from the `pictures` folder to the `2019/outdoor/photos` folder. We'll use exactly the command we used before to copy a file - `cp`:
-
-```sh
-cp pictures/* 2019/outdoor/photos
-tree
-```
-
-<img alt="Screenshot: cp wildcard" src="images/cp-wildcard.png" width="800px" />
-
-Here we've used the _wildcard_ symbol, which is `*`, to say "everything in the folder". Many commands can take wildcards as inputs. We'll see much more about them later!
-
 
 # Looking at Text Files
 
