@@ -50,6 +50,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Interlude - The Future](#interlude---the-future)
         * [Introduction](#introduction-1)
         * [Missing Pieces](#missing-pieces)
+    * [The Most Important Manpages](#the-most-important-manpages)
 * [Essential Tools](#essential-tools)
 * [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
 * [Posters!](#posters)
@@ -273,6 +274,18 @@ This is not a book about Bash. It's not a book about shell programming. It's a b
 
 #### Missing Pieces
 
+### The Most Important Manpages
+
+As an appendix, or printed reference, list of the top ten manpages?
+
+- `man re_pattern` - basic and extended regex patterns
+- `man test` is an excellent way to quickly check common tests (existence of a file etc)
+- `man set` is super useful when checking options like `set -ex` in scripts
+- `man re_format`
+- `man getopt`
+- `man XXX` show signal commands (`Ctrl+V` etc)
+
+
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
 - introduction: Note that we are going to use `#` to indicate comments
@@ -287,7 +300,9 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: tab complete `man`
 - `df` to find out free space, or also how to find out how much space a folder takes up
 - `$IFS` to avoid easily avoidable errors
+- `open` and similar commands which are used to interface with the host _graphical_ shell
 - **Error Codes** and **set -e** are tacitly referred to in the `stderr` sections of the 'thinking in pipelines' chapter, we will need to have a reference
+- chapter 4: instead of creating the aliases directly, we should have a `setup-copy-and-paste.sh` script in the playground which sets up these commands as a one liner, then the user can just call the script.
 - streams: Introduce the concept of streams
 - streams: when I pipe from dev/random how do I not run out of memory?
 - streams: why are some things linewise (compare `cat` to `sort` to `uniq`)
@@ -305,10 +320,9 @@ This section contains the things which have been pulled out of chapters as they 
 - commands: we reference the 'executable bit' in a footnote, but where will we put this?
 - tmux: getting help, <leader>?
 - weird stuff: things which _don't_ work consistently across systems and are just plain weird and good to know about: `sed`, Regexs, Non posix, Posix, Different systems, Different shells
+- Where do we describe `POSIX`? It is referenced directly in Chapter 4, as there is a standard for keyboard shortcuts in the shell.
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] Getting Help: `help`
-- [ ] `man test` is an excellent way to quickly check common tests (existence of a file etc)
-- [ ] `man set` is super useful when checking options like `set -ex` in scripts
 - [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
 - [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
 - manipulating text: a good example might be 'build a table of all executables': http://localhost:1313/docs/part-2-core-skills/10-understanding-commands/#executables---programs
@@ -328,12 +342,12 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: we really should look at symlinks, e.g. `ln -s $(pwd) ~/effective-shell` 
 - todo: a good example of what we can use text transformation for - add 'comments' to a CSV file which start with `#` and then strip them with `grep`.
 - note: it would be really good to have a 'stream-wise' understanding of how text processing works. For example, if `cat` a file into a tool which I have built, do I get the input linewise or filewise?
-- idea: as an appendix, or printed reference, list of the top ten manpages? `man re_format`, `man test`, `man getopt` etc.
 - idea: `getopt` as a potential trick for command line programs, just like `readline`.
 - todo: make sure we include bash variable assignment: https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash
 - todo: using `grep` in an `if` statement (with the `-q` flag). example: my dotfiles project uses this trick to decide whether to add the profile file
 - todo: using `history` shows starts next to some commands - why?
-- todo: aliases - a good example is `alias sed='sed -E'
+- todo: aliases - a good example is `alias sed='sed -E`
+- todo: bash traps with signals, this is an excellent reference: https://www.linuxjournal.com/content/bash-trap-command
 - keredocs: really good example here:
   https://linuxize.com/post/bash-heredoc/
   refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
