@@ -49,8 +49,12 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 29 - Writing Tools that Follow The Unix Philosophy](#chapter-29---writing-tools-that-follow-the-unix-philosophy)
     * [Interlude - The Future](#interlude---the-future)
         * [Introduction](#introduction-1)
-        * [Missing Pieces](#missing-pieces)
+    * [Part 7 - The Missing Chapters](#part-7---the-missing-chapters)
+        * [Everything is a File](#everything-is-a-file)
+        * [Git](#git)
     * [The Most Important Manpages](#the-most-important-manpages)
+    * [Appendixes](#appendixes)
+        * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
 * [Essential Tools](#essential-tools)
 * [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
 * [Posters!](#posters)
@@ -202,6 +206,8 @@ In this chapter we'll see the various different configuration files used, introd
 
 The shell command prompt can be configured to show you what you find most important. In this section we'll see how the command prompt can be configured, and take a look at some of the advanced options available.
 
+- configuring things like the default editor
+
 #### Chapter 19 - Managing Your Dotfiles
 
 As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. In this chapter we'll see how to manage your configuration - and 'dotfiles' - as a GitHub repository. We'll also see how this can be used to share ideas and look at some great examples.
@@ -272,7 +278,30 @@ The shell, in particular the Bourne-Again Shell has been popular for many years.
 
 This is not a book about Bash. It's not a book about shell programming. It's a book about how to use a keyboard as the main way to work with a computer, and become incredibly efficient doing so. That means we'll cover a lot of Bash and shell topics, but we'll also look at how linux works. But this is not a book about systems adminstration. We won't see how to set up a mailserver, but we will understand _why_ linux systems work as they do, in a more fundamental way, which will help us save time and optimise our work, whether we're programming, administering systems, exploring or hobbying, working with data science or even just doing general purpose computing.
 
-#### Missing Pieces
+### Part 7 - The Missing Chapters
+
+#### Everything is a File
+
+You may have heard this Unix concept, but what does it mean and why does it matter?
+
+Note: This should cover things like:
+
+- testing if we have a connection, by using:
+    ```
+    echo "Checking to see if EventstoreDB is ready to accept request..."
+    timeout 5m bash -c 'until printf "" 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' ${EVENTSTORE_HOST} ${EVENTSTORE_HTTP_MANAGEMENT_PORT}
+    echo "EventstoreDB is ready to accept requests"
+    /dev/null
+    /dev/random
+    ```
+
+- Stdin, tcpip ports, os, processes, cpu info, sockets
+
+Link to this from clipboard chapter, pipelines chapter, others which use special files
+
+#### Git
+
+This may as well be an entire part, with 5 chapters, why not.
 
 ### The Most Important Manpages
 
@@ -284,6 +313,12 @@ As an appendix, or printed reference, list of the top ten manpages?
 - `man re_format`
 - `man getopt`
 - `man XXX` show signal commands (`Ctrl+V` etc)
+
+### Appendixes
+
+#### Appendix 1: Shell Shortcuts
+
+(This is the cheat sheet from 'fly on the command line'.)
 
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
@@ -298,6 +333,7 @@ This section contains the things which have been pulled out of chapters as they 
 - `globs` was in 'managing files
 - `curl` was in managing files
 - todo: tab complete `man`
+- todo: coding - how to handle autocomplete for commands
 - `df` to find out free space, or also how to find out how much space a folder takes up
 - `$IFS` to avoid easily avoidable errors
 - `open` and similar commands which are used to interface with the host _graphical_ shell
@@ -328,10 +364,6 @@ This section contains the things which have been pulled out of chapters as they 
 - manipulating text: a good example might be 'build a table of all executables': http://localhost:1313/docs/part-2-core-skills/10-understanding-commands/#executables---programs
 - tricks: this is a nice trick `$(cd <dir> && do_stuff)` - this allows you to run a command in a subshell in a particularly directory. Given that it spawns a subshell there's no need to change _back_ to the directory you were in.
 - env vars: the ${!env_var_name} trick: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-expansion_002c-parameter - useful for the `get_env_var_or_fail` function.
-- everything is a file - testing if we have a connection, by using:
-    echo "Checking to see if EventstoreDB is ready to accept request..."
-    timeout 5m bash -c 'until printf "" 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' ${EVENTSTORE_HOST} ${EVENTSTORE_HTTP_MANAGEMENT_PORT}
-    echo "EventstoreDB is ready to accept requests"
 - question: should we have a chapter on regular expressions
 - idea: installing GNU utils on a Mac - https://unix.stackexchange.com/questions/284162/install-gnu-command
   Note that this allows us to use _standard_ command line sequences like:

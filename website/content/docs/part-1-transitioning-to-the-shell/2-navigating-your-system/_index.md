@@ -1,6 +1,6 @@
 ---
 title: "Chapter 2 - Navigating Your System"
-slug: "chapter-2-navigating-your-system"
+slug: "navigating-your-system"
 weight: 1
 ---
 

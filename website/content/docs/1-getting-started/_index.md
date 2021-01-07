@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1 - Getting Started"
-slug: "chapter-1-getting-started"
+slug: "getting-started"
 weight: 1
 ---
 

@@ -1,8 +1,6 @@
 ---
-title: Fly on the Command Line
-slug: fly-on-the-command-line
 title: "Chapter 8 - Fly on the Command Line"
-slug: "chapter-8-fly-on-the-command-line"
+slug: "fly-on-the-command-line"
 weight: 8
 ---
 

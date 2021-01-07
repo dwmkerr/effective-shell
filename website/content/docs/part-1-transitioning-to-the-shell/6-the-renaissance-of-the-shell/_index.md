@@ -2,7 +2,6 @@
 title: The Renaissance of the Shell
 slug: the-renaissance-of-the-shell
 title: "Chapter 6 - Interlude - The Renaissance of the Shell"
-slug: "chapter-6-the-renaissance-of-the-shell"
 weight: 6
 ---
 
@@ -105,3 +104,9 @@ In practice, this means software engineers are far more likely to have to build 
 The rise in popularity of DevOps as a set of practices and beliefs has perhaps made the shell more popular, and more important, than any other recent developments in software engineering.
 
 And for these reasons and many more, learning how to use the shell effectively has never been more relevant or practical.
+
+---
+
+**Footnotes**
+
+[^1]: https://insights.stackoverflow.com/survey/2020

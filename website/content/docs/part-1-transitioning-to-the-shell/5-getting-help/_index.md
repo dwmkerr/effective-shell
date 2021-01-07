@@ -2,7 +2,6 @@
 title: Getting Help
 slug: getting-help
 title: "Chapter 5 - Getting Help"
-slug: "chapter-5-getting-help"
 weight: 5
 ---
 
@@ -26,7 +25,7 @@ First we're going to look at the standard help system which is available on all 
 
 Most tools you encounter in the shell have manual pages available. Many people will be familiar with the `man` command to get help on a tool, but there is a lot more help available than people often realise.
 
-### Getting help on a command
+## Getting help on a command
 
 The most basic way to get help on a command is with `man`. Here's an example:
 
@@ -58,7 +57,7 @@ The `man` command opens the manual for the given tool. These manuals should cont
 
 You can scroll up and down through the content with the arrow  keys. This scrolling capability actually is not part of `man` - it is available because the information is presented in the shell *pager*. A pager is a tool for looking through content which might not easily fit on a screen.
 
-### Using the pager
+## Using the pager
 
 The first thing you might notice is that you can move through the manual pages with the arrow keys.
 

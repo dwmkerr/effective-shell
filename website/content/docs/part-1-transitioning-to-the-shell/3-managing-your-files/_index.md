@@ -1,6 +1,6 @@
 ---
 title: "Chapter 3 - Managing Your Files"
-slug: "chapter-3-managing-your-files"
+slug: "managing-your-files"
 weight: 2
 ---
 

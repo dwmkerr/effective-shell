@@ -1,8 +1,6 @@
 ---
-title: Thinking in Pipelines
-slug: thinking-in-pipelines
 title: "Chapter 7 - Thinking in Pipelines"
-slug: "chapter-7-thinking-in-pipelines"
+slug: "thinking-in-pipelines"
 weight: 7
 ---
 
