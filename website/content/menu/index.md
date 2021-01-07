@@ -20,4 +20,4 @@ bookMenuLevels: 1
  - [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}})
    - [Get to Grips with Grep]({{< relref "/docs/part-3-manipulating-text/12-get-to-grips-with-grep" >}})
    - [Slice and Dice Text]({{< relref "/docs/part-3-manipulating-text/13-slice-and-dice-text" >}})
-   - [Advanced Text Manipulation with Sed]({{< relref "/docs/part-3-manipulating-text/14-advanced-text-manipulation/" >}})
+   - [Advanced Text Manipulation with Sed]({{< relref "/docs/part-3-manipulating-text/14-advanced-text-manipulation" >}})
