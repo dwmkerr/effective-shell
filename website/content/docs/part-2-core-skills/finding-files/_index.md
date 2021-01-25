@@ -1,12 +1,15 @@
 ---
-title: "Chapter 10 - Understanding Commands"
-slug: "understanding-commands"
+title: "Finding Files"
+slug: "finding-files"
 weight: 10
 ---
 
-# Chapter 10 - Understanding Commands
+# Finding Files
 
-In this chapter, we'll take a look at the various different types of shell commands that exist and how this can affect your work. Commands are far more subtle than you might think and in this chapter we'll look at some of the nuances of commands and the practical consequences for your work.
+Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders, some quick ways to accomplish common tasks and also look at some faster and more user-friendly alternatives to the built in `find` command.
+
+---
+
 
 By the end of this chapter, you might even be able to make sense of the horrifying and perfectly syntactically valid code below:
 

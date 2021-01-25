@@ -19,6 +19,7 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 7 - Fly on the Command-line](#chapter-7---fly-on-the-command-line)
         * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
         * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
+        * [Finding Files](#finding-files)
         * [TODO Chapter 10 - Talking to other machines with the Secure Shell](#todo-chapter-10---talking-to-other-machines-with-the-secure-shell)
     * [Interlude - What is a Shell?](#interlude---what-is-a-shell)
     * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
@@ -50,6 +51,9 @@ This document contains the proposed structure of the book. It is still work in p
     * [Interlude - The Future](#interlude---the-future)
         * [Introduction](#introduction-1)
     * [Part 7 - The Missing Chapters](#part-7---the-missing-chapters)
+    * [Part X - Linux Essentials](#part-x---linux-essentials)
+        * [Users, Groups and Permissions](#users-groups-and-permissions)
+        * [The Linux Filesystem Hierarchy Standard](#the-linux-filesystem-hierarchy-standard)
         * [Everything is a File](#everything-is-a-file)
         * [Git](#git)
     * [The Most Important Manpages](#the-most-important-manpages)
@@ -147,6 +151,10 @@ In this chapter we'll introduce job control, and the `bg`, `fg`, and `jobs` comm
 Not everything we run in a shell works in the same way. Some commands run external programs, whearas some commands are 'built in' and implemented by the shell itself. Understanding the different types of shell commands that exist can be very important when problem-solving or trying to work out why or how something works. In this chapter we'll look at the subtle differences between different types of commands.
 
 In this chapter we'll see the `which`, `whereis` and related commands. We'll also look at the differences between builtins, executables, aliases and functions.
+
+#### Finding Files
+
+Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders, some quick ways to accomplish common tasks and also look at some faster and more user-friendly alternatives to the built in `find` command.
 
 #### TODO Chapter 10 - Talking to other machines with the Secure Shell
 
@@ -280,6 +288,18 @@ This is not a book about Bash. It's not a book about shell programming. It's a b
 
 ### Part 7 - The Missing Chapters
 
+### Part X - Linux Essentials
+
+#### Users, Groups and Permissions
+
+Users, whoami, chmod, etc
+
+#### The Linux Filesystem Hierarchy Standard
+
+The standard files / folders.
+
+ - everything in `$PATH`, such as `/usr/local/bin/` vs `/usr/bin`
+
 #### Everything is a File
 
 You may have heard this Unix concept, but what does it mean and why does it matter?
@@ -350,6 +370,11 @@ This section contains the things which have been pulled out of chapters as they 
 - input: there is a convention for `-f -` (or just `-` in some programs) to mean `stdin`, this could go in pipelines, or advanced pipelines - another example (`curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -`) - note that `apt-key add -` uses stdin.
 - heredocs: here docs vs herestrings (`<<<`), see https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash there's a good example of it in use here https://unix.stackexchange.com/questions/572424/retrieve-both-http-status-code-and-content-from-curl-in-a-shell-script
 - bug: in chapter 9 (job control) we mention signals are in a later chapter, but not sure where this should be yet.
+- todo: bash traps with signals, this is an excellent reference: https://www.linuxjournal.com/content/bash-trap-command
+- todo: signals - we definitely need to discuss them and also talk about how shells capture them, scripts handle them and how we must write programs which handle them.
+  1. Ctrl Z - Chapter 8
+  2. Ctrl C - TODO
+  3. Ctrl D - Chapter X
 - programs: note that `readline` should be used when building prompts
 - tmux: hit `<leader>+s` to list all sessions (with cool window previews). `x` deletes a session. Look up how to rename, new, etc.
 - managing resources: `htop` as a good cross-platform process manager
@@ -379,7 +404,6 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: using `grep` in an `if` statement (with the `-q` flag). example: my dotfiles project uses this trick to decide whether to add the profile file
 - todo: using `history` shows starts next to some commands - why?
 - todo: aliases - a good example is `alias sed='sed -E`
-- todo: bash traps with signals, this is an excellent reference: https://www.linuxjournal.com/content/bash-trap-command
 - keredocs: really good example here:
   https://linuxize.com/post/bash-heredoc/
   refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
@@ -388,6 +412,8 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: echo "$?" for the return code, quite useful.
 - best practices: refer to files with `./` when they are relative. It makes it explicit that we are using a path, not a function, alias or anything else. It can also make it easier to grep paths.
 - maybe: `ls -1` is kind of cool - one file per line
+- showing aliases `alias | grep git push`
+- todo: part 2 now has one extra chapter (finding files), maybe we should move 'job control' further back?
 
 Section: building good command line tools
 

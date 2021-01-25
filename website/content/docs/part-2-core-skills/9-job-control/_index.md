@@ -1,8 +1,6 @@
 ---
-title: Job Control
-slug: job-control
 title: "Chapter 9 - Job Control"
-slug: "chapter-9-job-control"
+slug: "job-control"
 weight: 9
 ---
 
@@ -40,7 +38,7 @@ In fact, this is so useful that I normally _alias_ this command, so that I can j
 Make sure you have the playground folder downloaded, then run the following commands to open the webpage:
 
 ```
-$ cd ~/playground/websites/simple
+$ cd ~/effective-shell/websites/simple
 $ python -m SimpleHTTPServer 3000
 ```
 
@@ -48,11 +46,20 @@ For now, if we run this command, then we can open the webpage in a browser, with
 
 <img alt="Screenshot: Website" src="images/website-screenshot.png" width="600" />
 
-We can also see that the server has served the HTML, JavaScript, and CSS files:
+We can also see that the server has served the HTML, JavaScript, and CSS files, this is clear from the output of the Python command we ran:
 
-<img alt="Screenshot: Server" src="images/server-screenshot.png" width="600" />
+```
+$ python -m SimpleHTTPServer 3000
 
-All well and good so far.
+Serving HTTP on 0.0.0.0 port 3000 ...
+127.0.0.1 - - [08/Jan/2021 16:33:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jan/2021 16:33:40] "GET /styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jan/2021 16:33:40] "GET /code.js HTTP/1.1" 200 -
+127.0.0.1 - - [08/Jan/2021 16:33:40] code 404, message File not found
+127.0.0.1 - - [08/Jan/2021 16:33:40] "GET /favicon.ico HTTP/1.1" 404 -
+```
+
+All well and good so far. But if you try and use the shell to do something else, you will encounter a problem, let’s take a look.
 
 # The Problem
 
@@ -72,11 +79,16 @@ This is obviously not optimal. Let's look at some solutions.
 
 In most shells, you can run a command and instruct the shell to run it in the _background_. To do this, you end the line with an ampersand. Here's how the example would look in this case:
 
-<img alt="Demo: Starting a Background Job" src="images/start-in-background.gif" width="600" />
+```
+$ python -m SimpleHTTPServer 3000 &
+[1] 7025
+
+$ Serving HTTP on 0.0.0.0 port 3000 ...
+```
 
 By ending the command with an `&` ampersand symbol, we instruct the shell to run the command as a _background job_. This means that our shell is still functional. The shell has also notified us that this command is running as a background job with a specific _job number_:
 
-```sh
+```
 $ python -m SimpleHTTPServer 3000 &
 [1] 19372
 ```
@@ -91,13 +103,18 @@ Let's say you forgot to start the command in the background. Most likely in this
 
 In the example below, we'll move the job to the background:
 
-<img alt="Demo: Moving a Job to the Background" src="images/move-to-background.gif" width="600" />
+```
+$ python -m SimpleHTTPServer 3000
+Serving HTTP on 0.0.0.0 port 3000 ...
+^Z
+[1]  + 7657 suspended  python -m SimpleHTTPServer 3000
+```
 
 The process is currently in the foreground, so my shell is inactive. Hitting `Ctrl+Z` sends a 'suspend' signal to the process[^3], pausing it and moving it to the background.
 
 Let's dissect this:
 
-```sh
+```
 $ python -m SimpleHTTPServer 3000
 Serving HTTP on 0.0.0.0 port 3000 ...
 127.0.0.1 - - [03/Jun/2019 13:38:45] "GET / HTTP/1.1" 200 -
@@ -111,7 +128,7 @@ The key here is that it is _suspended_. The process is paused. So the web server
 
 To _continue_ the job, in the background, we use the `bg` ('background') command, with a _job identifier_ (which always starts with a `%` symbol - we'll see why soon) to tell the shell to continue the job:
 
-```sh
+```
 $ bg %1
 [1]  + 21268 continued  python -m SimpleHTTPServer 3000
 ```
@@ -120,14 +137,14 @@ The shell lets us know the job is being continued, and if we load the webpage ag
 
 As a final check, we run the `jobs` command to see what jobs the shell is running:
 
-```sh
+```
 $ jobs
 [1]  + running    python -m SimpleHTTPServer 3000
 ```
 
 And there you have it - our server is running as a background job. This is exactly what we would see if we run `jobs` after starting the server with an `&` at the end. In fact, using an `&` is perhaps an easier way to remember how to continue a suspended job:
 
-```sh
+```
 $ %1 &
 [1]  + 21268 continued  python -m SimpleHTTPServer 3000
 ```
@@ -140,14 +157,14 @@ There is at least one more way to move a job to the background[^4], but I have n
 
 If you have a job in the background, you can bring it back to the foreground with the `fg` ('foreground') command. Let's show the jobs, with the `jobs` command:
 
-```sh
+```
 $ jobs
 [1]  + running    python -m SimpleHTTPServer 3000
 ```
 
 Here I have a background job running a server. Any one of the following commands will bring it back to the foreground:
 
-```sh
+```
 fg %1   # Explicitly bring Job 1 into the foreground
 
 %1      # ...or in shorthand, just enter the job id...
@@ -167,7 +184,7 @@ I tried to run my web server, but there was still one running as a background jo
 
 To clean it up, I run the `jobs` command to list the jobs:
 
-```sh
+```
 $ jobs
 [1]  + suspended  python -m SimpleHTTPServer 3000
 ```
@@ -176,7 +193,7 @@ There's my old web server. Note that even though it is suspended, it'll still be
 
 Now that I know the job identifier (`%1` in this case), I can kill the job:
 
-```sh
+```
 $ kill %1
 [1]  + 22843 terminated  python -m SimpleHTTPServer 3000
 ```
