@@ -395,6 +395,9 @@ This section contains the things which have been pulled out of chapters as they 
   ```
   gsplit -C 5m --numeric-suffixes apm.logs apm
   ```
+  note: it's really important to understand that GNU have *tried* to make tools mac compatable, see for example the manpage for `find`, in particular the `-d` option, which explicitly states that they've added it for OSX etc.
+- note: POSIX: we should talk about options/flags/arguments/structure
+- note: We need a chapter on GNU, POSIX, BSD, Unix and Linux
 - note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`. Note that `aws s3` uses `-` to indicate `stdin`
 - todo: we really should look at symlinks, e.g. `ln -s $(pwd) ~/effective-shell` 
 - todo: a good example of what we can use text transformation for - add 'comments' to a CSV file which start with `#` and then strip them with `grep`.
