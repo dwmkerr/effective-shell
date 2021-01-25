@@ -26,7 +26,8 @@ Rather than dissecting each and every option or flag and every nuance of the pro
 Each of these samples assumes you are in the `effective-shell` samples folder. If you don't have this folder, just run:
 
 ```
-curl -s https://effective-shell/downloads/effective-shell-playground.zip | tar xvz - -C ~/effective-shell
+mkdir -p ~/effective-shell
+curl -s -L https://effective-shell.com/downloads/effective-shell-playground.tar.gz | tar -xzf - -C ~/effective-shell
 cd ~/effective-shell
 ```
 

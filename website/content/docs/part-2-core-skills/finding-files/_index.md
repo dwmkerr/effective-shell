@@ -8,391 +8,455 @@ weight: 10
 
 Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders, some quick ways to accomplish common tasks and also look at some faster and more user-friendly alternatives to the built in `find` command.
 
----
+## Introducing the Find Command
 
+The `find` (search for files) command is used to search for files and folders and to perform operations on the results. Let's see it in action by running it in the `~/effective-shell` folder.
 
-By the end of this chapter, you might even be able to make sense of the horrifying and perfectly syntactically valid code below:
+{{< hint info >}}
+**Running the Samples**
 
-```sh
-which $(where $(what $(whence $(whereis who))))
-```
-
-# What Are Commands?
-
-This is _really_ important to understand! A _command_ in a shell is something you execute. It might take parameters. Generally it'll have a form like this:
-
-```sh
-command param1 param2
-```
-
-We've already seen many commands during this series:
-
-```sh
-ls              # Show the contents of the current directory
-cd ~            # Move to the user's home
-cat file.txt    # Output the contents of 'file.txt' to stdout
-```
-
-But to be an effective shell user, you must understand that not all commands are created equal. The differences between the types of commands will affect how you use them.
-
-# The Different Types of Commands
-
-There are *four* types of commands in most shells:
-
-1. Executables
-2. "Built-Ins" (which we'll just call _builtins_ from now on)
-3. Functions
-4. Aliases
-
-Each is different and has its own quirks. Let's quickly dig in and see a bit more.
-
-## Executables - Programs
-
-Executables are just files with the 'executable' bit set[^1]. If I execute the `cat` command, the shell will search for an executable named `cat` in my `$PATH`. If it finds it, it will run the program.
+Each of these samples assumes you are in the `effective-shell` samples folder. If you don't have this folder, just run:
 
 ```
-$ cat file.txt
-This is a simple text file
+mkdir -p ~/effective-shell
+curl -s -L https://effective-shell.com/downloads/effective-shell-playground.tar.gz | tar -xzf - -C ~/effective-shell
+cd ~/effective-shell
 ```
 
-What is `$PATH`? `$PATH` is the standard environment variable used to define _where_ the shell should search for programs. If we temporarily _empty_ this variable, the shell won't find the command:
+This command will download and extract the samples folder in your home directory an then set it as your working directory.
+{{< /hint >}}
 
-```sh
-$ PATH="" cat file.txt
-bash: cat: No such file or directory
-```
-
-Normally your `$PATH` variable will include the standard locations for Linux programs - folders such as `/bin`, `/sbin`, `/usr/bin` and so on[^2].
-
-If you were to print the variable, you'd see a bunch of paths (they are separated by colons; I've put them on separate lines for readability):
+Let's set the current working directory to the `effective-shell` folder and run the `find` command:
 
 ```
-/usr/local/bin
+$ cd ~/effective-shell
+$ find
+.
+./text
+./text/simpsons-characters.txt
+./scripts
+./scripts/show-info.sh
+./websites
+./websites/simple
+./websites/simple/index.html
+./websites/simple/styles.css
+./websites/simple/code.js
+...
+```
+
+By default, `find` will list all of the files and folders which are present in the current working directory. It will also show the _children_ of any folders it finds, meaning that it shows the full hierarchy of files and folders.
+
+{{< hint info >}}
+**Find not working on MacOS**
+
+If you are running these samples on MacOS, you will probably see the following output:
+
+```
+$ find
+usage: find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
+```
+
+This is the `find` command telling you what parameters can be used. On MacOS the default `find` command does _not_ assume the current working directory.
+
+This is because there is a difference between the MacOS and GNU versions of `find` and in this book I will use GNU wherever possible as it will be more compatible (MacOS is based on the BSD operating system, most Linux distributions use a set of tools which are part of the GNU project - there are sometimes differences).
+
+To run the equivalent command on MacOS, just provide the current directory as a parameter:
+
+```
+$ find .
+```
+
+A better solution is to install the `findtools` package, which will install the GNU versions of the tools we'll be using:
+
+```
+$ brew install findtools
+$ gfind
+```
+
+If you do install `findtools`, remember that all of the GNU versions of the tools start with `g` - so when reading this chapter substitute `find` with `gfind`.
+
+For more details on what BSD and GNU are, you can check [Chapter - Unix, Linux, GNU and POSIX]({{< relref "/docs/work-in-progress" >}}), which covers these concepts in detail.
+{{< /hint >}}
+
+So this is the `find` command - you can provide it a directory (or let it use the current directory) and the command will list all of files and folders in the given directory, including all children.
+
+You can also provide multiple directories:
+
+```
+$ find /usr/bin /usr/sbin
 /usr/bin
-/bin
+/usr/bin/fwupdtool
+/usr/bin/gnome-keyring
+...
 /usr/sbin
-/sbin
+/usr/sbin/cupsd
+/usr/sbin/pppdump
+...
 ```
 
-The shell will start with the _earlier_ locations and move to the later ones. This allows _local_ flavours of tools to be installed for users, which will take precedence over _general_ versions of tools.
+This is the most basic use of `find` - showing a file and folder hierarchy. Now let's look at how to search using this command.
 
-There will likely be other locations too - you might see Java folders, package manager folders and so on.
+# Searching with Find
 
-## Executables - Scripts
+Perhaps the most common use for `find` is to search for files. There are a number of options which can be used to filter the results shown, which allow us to search for files. Let's look at some common ways to refine our searches, using the `~/effective-shell` folder as a playground to search in.
 
-Imagine we create a text file called `dog` in the local folder that looks like this:
+## Searching for Files or Folders only
 
-```sh
-#!/bin/sh
-echo "🐶 woof 🐶"
+The `-type` parameter can be used to search either for files or folders. Let's see both in action. First, we'll search for files only, using `-type f`:
+
+```
+$ find . -type f
+./text/simpsons-characters.txt
+./scripts/show-info.sh
+./websites/simple/index.html
+./websites/simple/styles.css
+./websites/simple/code.js
+...
 ```
 
-This is a shell script (you've heard this before, but we'll see a _lot_ more of these as we go through the book!). We mentioned that _executables_ are any files which have the _executable_ bit set. Let's actually do this, using the `chmod` (_change file modes_) command:
+And for folders, using `-type d` (remember, `d` is for directory!):
 
-```sh
-$ ls -l dog
--rw-r--r-- 1 dwmkerr staff 32 Oct  8 22:44 dog
-$ chmod +x dog
-$ ls -l dog
--rwxr-xr-x 1 dwmkerr staff 32 Oct  8 22:44 dog
+```
+$ find . -type d
+.
+./text
+./scripts
+./websites
+./websites/simple
+...
 ```
 
-I've used `ls -l dog` to show the file permissions of `dog` before and after the `chmod +x dog`[^3] command. We can see that there are some new `x`'s in the first section. These are saying that the file is now _executable_ by all users.
+It's important to note that when searching for folders, the `find` command shows folders which are normally hidden, such as the special 'dot' folder[^1].
 
-Now that we have made the file executable we can run this just like any other program - as long as we tell the shell to look for programs in the current directory:
+In both commands, I specified the 'dot' folder as the place to search. I could omit this parameter, I just think it makes it a little more readable.
 
-```sh
-$ PATH="." dog
-🐶 woof 🐶
+## Searching by Name
+
+We can use the `-name` parameter to search for files and folders by name. For example, this is how we would search for anything with the letters `log` in the name:
+
+```
+$ find . -name "*log*"
+./logs
+./logs/web-server-logs.txt
+./logs/apm-logs
+./logs/apm-logs/apm05.logs
+./logs/apm-logs/apm02.logs
+./logs/apm-logs/apm03.logs
+./logs/apm-logs/apm00.logs
+./logs/apm-logs/apm01.logs
+./logs/apm-logs/apm04.logs
 ```
 
-By the way - don't do this! Adding the special `.` directory to the path is generally not a safe or sensible thing to do, this is just a demonstration of how it works. More common would be to run the program by specifying the path to the file, like so:
+You can see I've used a `*` wildcard before and after the letters `log` - this means that I have actually supplied a _pattern_, which could be read as 'any characters (including nothing), followed by the characters `log`, followed by any other characters (including no characters)'.
 
-```sh
-$ ./dog
-🐶 woof 🐶
+If I don't use a wildcard, the `logs` folder will not be found - because it doesn't match the _pattern_ `log` - without using a wildcard, the pattern is explicitly looking for an _exact_ match:
+
+```
+$ find . -name "log"
 ```
 
-Another option would just be to move it to a standard location that the shell already checks for programs:
+Note the output - no files or folders were found, as none have the _exact_ name `log`. The `-name` parameter is very specific - it will only match files or folders with the _name_ provided. Here's an example:
 
-```sh
-$ mv dog /usr/local/bin
-$ dog
-🐶 woof 🐶
+```
+$ find . -name "apm00.logs"
+./logs/apm-logs/apm00.logs
 ```
 
-Executables don't _have_ to be compiled program code, they can be scripts. If a file starts with `#!` (the 'shebang'), then the system will try to run the contents of the file with the program specified in the shebang.
+Here I have used `-name` to search for an _exact_ name. What about if I search for `apm-logs`?
 
-We will look at shebangs in greater detail in a later chapter. But the key takeaway here is that we can also have _executable scripts_ as commands.
-
-## Builtins
-
-OK, so we've seen executables. What about a command like this?
-
-```sh
-local V="hello" echo $V
+```
+$ find . -name "apm-logs"
+./logs/apm-logs
 ```
 
-You will not find the `local` executable anywhere on your system. It is a _builtin_ - a special command built directly into the shell program.
+The _folder_ named `apm-logs` is found, but not the _files_ in the folder - the names of those files don't match the pattern `apm-logs`. What if we make it a wildcard pattern?
 
-Builtins are often highly specific to your shell. They might be used for programming (`local` for example is used to declare a locally scoped variable), or they might be for very shell-specific features.
-
-This is where we need to take note. As soon as you are running a builtin, you are potentially using a feature that is specific to _your_ shell, rather than a program that is shared across the system and can be run by _any_ shell.
-
-Trying to programmatically execute `local` as a process will fail - there is no executable with that name; it is purely a shell construct.
-
-So how do we know if a command is a builtin? The preferred method is to use the `type` command:
-
-```sh
-$ type local
-local is a shell builtin
+```
+$ find . -name "*apm-logs*"
+./logs/apm-logs
 ```
 
-The `type` command (which is _itself_ a builtin!) can tell you the exact type of shell command.
+The same results! This is because for the _files_ in the `apm-logs` folder they don't have `apm-logs` in their name anywhere - that is in their _path_, i.e. the full address of the file including its folder. So let's look at how to search by path next!
 
-Interestingly, you might be using more builtins than you think. `echo` is a program, but most of the time you are not executing it when you are in a shell:
+{{< hint info >}}
+**An Important Note on Quotes**
 
-```sh
-$ type -a echo
-echo is a shell builtin
-echo is /bin/echo
+Make sure you use quotes when building your patterns. This command:
+
+```
+$ find . -name "*log*"
 ```
 
-By using the `-a` flag on `type` to show _all_ commands that match the name, we see that `echo` is actually both a builtin _and_ a program.
+Will give different output to this command:
 
-Many simple programs have builtin versions. The shell can execute them much faster.
-
-Some commands are a builtin so that they can function in a sensible manner. For example, `cd` command changes the current directory - if we executed it as a process, it would change only the directory for the `cd` process itself, not the shell, making it much less useful.
-
-Echo is builtin because the shell can run much more quickly by not actually running a program if it has its own built in implementation.
-
-Builtins will vary from shell to shell, but many shells are 'Bash-like' - meaning they will have a set very similar to the Bash builtins, which you can see here:
-
-https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
-
-As should be familiar from [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}}), you can get help for builtins:
-
-```sh
-$ man source     # source is a builtin
-BUILTIN(1)                BSD General Commands Manual               BUILTIN(1)
-
-NAME
-     builtin, !, %, # ...snip...
-
-SYNOPSIS
-     builtin [-options] [args ...]
+```
+$ find . -name *log*
 ```
 
-However, the manual will _not_ show information on specific builtins, which is a pain. Your shell _might_ have an option to show more details - for example, in Bash you can use `help`:
+Why is this? In the first case, we explicitly pass the text `*log*` to the `find` command and let it deal with it. It uses the wildcards to build a pattern. Because we've surrounded the parameter with quotes, the shell itself doesn't try to do anything clever with the wildcard.
 
-```sh
-$ help source
-source: source filename [arguments]
-    Read and execute commands from FILENAME and return.  The pathnames
-    in $PATH are used to find the directory containing FILENAME.  If any
-    ARGUMENTS are supplied, they become the positional parameters when
-    FILENAME is executed.
+In the second case, _the shell itself_ tries to deal with the wildcards, then passes the results to `find`. And the shell deals with them differently. You can see exactly what the shell expands them to with this snippet:
+
+```
+$ parameter=(*log*)
+$ echo $parameter
+logs
 ```
 
-But remember: `help` is a builtin; you might not find it in all shells (you won't find it in `zsh`, for example). This highlights again the challenges of builtins.
+In the second case the shell is performing its own expansion of the wildcard and not searching through all of the child directories. We need to wrap the parameter with quotes so that the shell knows _not_ to interfere with the text and instead pass it to `find`, so that find can deal with the wildcard.
 
-## Functions
+The shell is using _globbing_ in the second case, which is covered in a later chapter.
+{{< /hint >}}
 
-You can define your own shell functions. We will see a lot more of this later, but let's show a quick example for now:
+## Searching by Path
 
-```sh
-$ restart-shell () { exec -l $SHELL }
+The `-path` parameter can be used to filter the results based on a pattern in the _path_ of the file:
+
+```
+$ find . -path "*apm-logs*"
+./logs/apm-logs
+./logs/apm-logs/apm05.logs
+./logs/apm-logs/apm02.logs
+./logs/apm-logs/apm03.logs
+./logs/apm-logs/apm00.logs
+./logs/apm-logs/apm01.logs
+./logs/apm-logs/apm04.logs
 ```
 
-This snippet creates a function that restarts the shell (quite useful if you are messing with shell configuration files or think you might have irreversibly goofed up your current session).
+Again, note that this is very specific, we've added wildcards to the pattern, making it `*apm-logs*`. Without the wildcards we would find nothing, because none of the results have the _exact_ path `apm-logs`.
 
-We can execute this function just like any command:
+## Combining Searches - the AND and OR operators
 
-```sh
-$ restart-shell
+We can provide multiple search options. For example, if we want to search _only_ for files which end in `.logs`, we can do this:
+
+```
+$ find . -type f -name "*.logs"
+./logs/apm-logs/apm05.logs
+./logs/apm-logs/apm02.logs
+./logs/apm-logs/apm03.logs
+./logs/apm-logs/apm00.logs
+./logs/apm-logs/apm01.logs
+./logs/apm-logs/apm04.logs
 ```
 
-And running `type` will show us that this is a function:
+By using both the `-type` and `-name` parameters, we've created an 'AND' style search - i.e. we're looking for items which match _both_ of the given criteria.
 
-```sh
-$ type restart-shell
-restart-shell is a function
-restart-shell ()
-{
-    exec -l $SHELL
-}
+What if we want to perform a search which returns items which match _either_ of the patterns (i.e an 'OR' search)? For that we can use the `-or` parameter:
+
+```
+$ find . -name "*.js" -or -name "*.html"
+./websites/simple/index.html
+./websites/simple/code.js
+./programs/web-server/web-server.js
 ```
 
-Functions are one of the most powerful shell constructs we will see; they are extremely useful for building sophisticated logic. We're going to see them in a lot more detail later, but for now it is enough to know that they exist, and can run logic, and are run as commands.
+In this case we show results which match either of the expressions.
 
-## Aliases
+## Case Insensitive Searches
 
-An alias is just a shortcut. Type in a certain set of characters, and the shell will replace them with the value defined in the alias.
+Any one of the search parameters you've seen so far can be made case-insensitive by putting the letter `i` before the parameter name.
 
-Some common commands are actually already aliases - for example, in my `zsh` shell, the `ls` command is an alias:
+This means that the following commands are identical:
 
-```sh
-% type -a ls
-ls is an alias for ls -G
-ls is /bin/ls
+```
+$ find . -name "*.js" -or -name "*.Js" -or -name "*.jS" -or name "*.JS"
 ```
 
-I make sure that when I use the `ls` command, the shell always expands it to `ls -G`, which colours the output.
+And:
 
-We can quickly define aliases to save on keystrokes. For example:
-
-```sh
-$ alias k='kubectl'
+```
+$ find . -iname "*.js"
 ```
 
-From this point on, I can use the `k` alias as shorthand for the `kubectl` command.
+I know which one I'd rather type! You can use `-iname` for case-insensitive name searches, or `-ipath` for case-insensitive path searches.
 
-Aliases are far less sophisticated than functions. Think of them as keystroke savers and nothing more, and you won't go far wrong.
+## Grouping and the NOT operator
 
-# The Key Takeaways
+We can build more complex expressions by grouping together patterns using brackets, or by using the `-not` pattern. Here's an example:
 
-So we now hopefully have a greater understanding of the variety of shell commands. Not all commands are executables, not all of the commands we _think_ are executables necessarily are, and some commands might be more sophisticated.
-
-As a shell user, the key things to remember are:
-
-1. Executables are programs your system can use; your shell just calls out to them.
-2. Builtins are _very_ shell-specific and usually control the shell itself
-3. Functions are powerful ways to write logic but will normally be shell-specific.
-4. Aliases are conveniences for human operators, but only in the context of an interactive shell.
-
-To find out how a command is implemented, just use the `type -a` command:
-
-```sh
-$ type -a cat
-cat is /bin/cat
+```
+$ find . \( -name "*.js" -or -name "*.html" \) -and -not -path "*programs*"
+./websites/simple/index.html
+./websites/simple/code.js
 ```
 
-# More than You Need to Know
+The first section groups together two expressions, meaning "files with names which match `*.js` or `*.html`, the second section then says "and also the text `programs` must not be in the path".
 
-OK, for the masochistic few, you might be wondering about all of the other commands and utilities you may have seen that can tell you about programs and commands:
+The only annoying thing about grouping is that you must _escape_ the brackets, by putting a `\` backslash before them, as brackets have a special meaning in the shell and we're telling the shell not to do anything smart with them but instead pass them to the `find` command.
 
-- `what`
-- `whatis`
-- `which`
-- `whence`
-- `where`
-- `whereis`
-- `command`
-- `type`
+# Why the Weird Parameters?
 
-A _lot_ of these are legacy and should be avoided, but for completeness sake, we'll go through them.
+The `find` command bothered me for years. The parameters looked odd - for example is it `-name` instead of `-n` or `--name`, which would be more standard[^2]?
 
-## `what`
+Also, why is it that I cannot type this:
 
-`what` reads out special metadata embedded in a program, generally used to identify the version of source code it was built from:
-
-```sh
-$ what /bin/ls
-/bin/ls
-         Copyright (c) 1989, 1993, 1994
-        PROGRAM:ls  PROJECT:file_cmds-272.220.1
+```
+find -name "something.txt" /home/
 ```
 
-There should be almost no circumstance in which you need to use it in your day-to-day work, but you might come across it if you _meant_ to type `whatis`.
+But instead have to put the folder name _before_ the parameters, which again is non-standard?
 
-## `whatis`
+The reason is actually quite simple - most of what we've seen so far are not parameters in the normal sense, they're just elements of a _search expression_.
 
-`whatis` searches a local help database for text. This can be useful in tracking down manual pages:
+The structure of the `find` command is as follows:
 
-```sh
-$ whatis bash
-bash(1)                  - GNU Bourne-Again SHell
-bashbug(1)               - report a bug in bash
+```
+find <options> [starting point...] [expression]
 ```
 
-But I can't imagine it will be a regularly used tool by most users.
+The options (or parameters) for the `find` command _are_ short, one-letter options which go before the file name. The `-L` (_follow links_) option is an example - it goes before the starting point of the search:
 
-## `which`
-
-`which` will search your `$PATH` to see whether an executable can be found. With the `-a` flag, it will show all results.
-
-```sh
-$ which -a vi
-/usr/local/bin/vi
-/usr/bin/vi
+```
+find -L /usr/bin -name "*sh"
 ```
 
-`which` originated in `csh`. It remains on many systems for compatibility but in general should be avoided due to potentially odd behaviour[^4].
+All of the other things we've seen so far which we've described as parameters are actually used to build the _expression_ - the actual search pattern.
 
-## `whence`
+The `-name`, `-and`, `-or`, `-ipath` and similar constructs we've looked at are actually part of a mini 'search language', they're not parameters to the command.
 
-`whence` was added to the Korn shell. You are unlikely to use it unless you are on systems using `ksh`. `zsh` also has this command, but it should be avoided and considered non-standard.
+This might seem obvious, or it might seem silly, but either way, remembering that the structure of the `find` command is `find <options> [starting points...] [expression]` may help you remember what order to write each part of the command in.
 
-```sh
-% whence brew
-/usr/local/bin/brew
+It certainly took a few years for me to realise this was the reason, and until that point I used to get frustrated with `find` as I could never seem to remember how to use it properly! Once the structure of the command clicked it became far easier to quickly use the command in day-to-day work.
+
+You can find details on this in the manpage for find, open it with `man find`.
+
+# Performing Actions on Search Results
+
+A lot of the time you are not just going to be searching for a file or folder - you'll be searching so that you can do something with what you find. It might be to delete, copy, edit, move or whatever.
+
+The `find` command can perform operations on the files which are found.
+
+Now before we continue, I'll warn that I'm _not_ going to go into much detail here. The reason is that I actually recommend not using these operations. Instead, use the `xargs` command which is covered in [Chapter 14 - Build Commands on the Fly with Xargs]({{< relref "/docs/work-in-progress" >}}). The Xargs command lets you take the list of files from `find` and create any command you can think of. I think this is far more sensible than trying to learn all of the options for `find` - and it is closer to the Unix Philosophy of having the `find` command 'do one thing and do it well'.
+
+However, you'll see these operations in other books and articles, or perhaps in scripts you have to work with, so let's take a quick look at some of the common operations and how they are used. Just remember that later on we'll see a more flexible (and easier to remember!) way of operating on the files we've found!
+
+## Printing Paths
+
+The `-print` action is the default action and doesn't need to be explicitly specified. But if you feel it makes your scripts or code more readable, you can always include it, and it gives us a way to show the syntax for actions.
+
+Here's how we'd find all files in the user's home directory with the ending `.tmp` and show their path:
+
+```
+$ find ~ -name "*.tmp" -print
+/home/dwmkerr/commands1.tmp
+/home/dwmkerr/commands2.tmp
+/home/dwmkerr/commands3.tmp
 ```
 
-## `where`
+You are unlikely to need to use `-print` - but it will come in handy to know it exists later on when we look at the `-print0` option (we'll see this in Chapter 14). Let's look at the other actions we can perform.
 
-This is a shell builtin that can provide information on commands, similar to `type`:
+## Deleting Files
 
-```sh
-% where ls
-ls: aliased to ls -G
-/bin/ls
+We can delete the files and folders found by using the `-delete` action:
+
+```
+$ find ~ -name "*.tmp" -delete
 ```
 
-However, `type` should be preferred, as it is more standard.
+This _can_ be a convenient way to delete files, but I would recommend _extreme caution_. This command does not show what has been deleted and does not ask for confirmation. It also slightly changes the order of results processed so that the _children_ of folders are deleted where necessary before the folders themselves. This might not be what you expect because that's not what the `-print` output would show (although you can force this behaviour with the `-depth` option).
 
-## `whereis`
+Check Chapter 14 for a better solution - in short we can use `find ~ -name "*.tmp" -print0 | xargs -p -0 rm` to instead pass the files to `rm` and ask the user to confirm before the deletion happens. This will be explain in a lot more detail in Chapter 14.
 
-`whereis` is available on some systems and generally operates the same as `which`, searching paths for an executable:
+## Execute a Command
 
-```sh
-% whereis ls
-/bin/ls
+You can use the `-exec` action to execute an arbitrary command. Use the special characters `{}` as a placeholder for the filename.
+
+Here's an example - we'll find all text files and count the number of words in each one:
+
+```
+$ find ~/effective-shell -name "*.txt" -exec wc -w {} \;
+29 /home/parallels/effective-shell/text/simpsons-characters.txt
+20 /home/parallels/effective-shell/quotes/iain-banks.txt
+16 /home/parallels/effective-shell/quotes/ursula-le-guin.txt
+10373 /home/parallels/effective-shell/logs/web-server-logs.txt
 ```
 
-Again, `type` should be preferred for compatibility.
+We use `-exec` to tell `find` we want to execute a command. Then we use `wc -w {}` to say "call the `wc` (word count) command with the `-w` (words) flag. The `{}` text is expanded to the list of files. Finally, we need a semi-colon to tell `find` where the _end_ of the `exec` command is. And because the semi-colon has a special meaning in the shell, we have to _escape_ this semi-colon by putting a `\` backslash before it.
 
-## `command`
+The `-exec` action is very powerful - we can construct almost any arbitrary command with it, which can be really useful. But remember we'll see what I think is a more flexible way to build commands a little later.
 
-`command` is defined in the POSIX standard, so should be expected to be present on most modern systems. Without arguments, it simply executes a command. With the `-v` argument, you get a fairly machine-readable or processable response; with the `-V` argument, you get a more human readable response:
+## Execute a Command with a Confirmation
 
-```sh
-% command -v ls
-alias ls='ls -G'
-% command -V ls
-ls is an alias for ls -G
+Now if there is one action to learn, it is the `-ok` action, which works just like `-exec`, but asks the user for a confirmation first. Here's how it might look if I use it to try and delete all files which end in `*.txt`:
+
+```
+$ find ~/effective-shell -name "*.txt" -ok rm {} \;
+< rm ... /home/parallels/effective-shell/text/simpsons-characters.txt > ? n
+< rm ... /home/parallels/effective-shell/quotes/iain-banks.txt > ? n
+< rm ... /home/parallels/effective-shell/quotes/ursula-le-guin.txt > ? n
+< rm ... /home/parallels/effective-shell/logs/web-server-logs.txt > ? n
 ```
 
-`command` can be useful in scripts, as we will see in later chapters.
+Note that each operation which will be performed is first printed, then I am asked for confirmation before the operation runs. In each case I've typed `n` (for 'no'). Type `y` (for 'yes') if you want to run the command.
 
-## `type`
+# Scratching the Surface
 
-`type` is part of the Unix standard and will be present in most modern systems. As we've already seen, it will identify the type of command as well as the location for an executable:
+The `find` command is _incredibly_ powerful. To go into detail on all of the options or potential ways these options can be combined to create operations could fill an entire book!
 
-```sh
-% type -a ls
-ls is an alias for ls -G
-ls is /bin/ls
+My recommendation is to ensure that you know at least the basics we've shown so far. But just as a hint of what can be done with `find`, which might make you want to learn more, here are a few commands which show just how versatile it can be!
+
+**Find large files**
+
+The `-size` test can be used to search by file size - note how with a `+` and `-` we can set the minimum and maximum sizes:
+
+```
+find / -size +1G -500G
 ```
 
-This command can also be used to only search for paths:
+**Find recently edited files**
 
-```sh
-% type -p ls
-ls is /bin/ls
+The `-mtime` test can be used to find files which were recently modified:
+
+```
+find . -not -path "*/\.*" -mtime -2
 ```
 
-**Summary**
+Note how a `-not -path` test is used to skip anything which starts with a `.` dot (i.e files and folders which are normally considered hidden).
 
-In summary, avoid anything that starts with '`w`'! These are legacy commands, generally needed only when working on older Unix machines. `type` or `command`  should be used instead.
+**Find files which have had permissions changed**
+
+The `-ctime` test can be used to find files which have had their attributes (such as permissions) changed:
+
+```
+find ~/.ssh -ctime -30
+```
+
+**Find any executable scripts and make them non-executable**
+
+We can search by permissions, as shown below:
+
+```
+find ~ -perm /a=x -exec chmod -x {} +
+```
+
+This example uses the `-perm` test, checking if 'all' (users, the owner and group) have the `x` (executable) bit set, then executes the `chmod -x` command to remove the executable bit. We also end the command with `+` rather than `;`, which means we will execute `chmod` once with each file passed to the command (rather than running `chmod` for _each_ file).
+
+**Find empty folders and remove them with a confirmation**
+
+We can use the `-empty` test to find empty folders:
+
+```
+find ~ -type d -maxdepth -empty -ok rmdir {} \;
+```
+
+This example uses the `-empty` test, as well as the `-maxdepth` parameter to limit the search to only three folders deep.
+
+These examples just scratch the surface of what `find` can do. The goal of this chapter is not to have an exhaustive description of the `find` command, but equip you with the essentials. When you feel comfortable with the essentials you can then build on your knowledge of `find`.
+
+# Summary
+
+In this chapter we introduced the `find` command, an incredibly powerful tool that lets us search for files and folders using simple or complex expressions. It also allows us to perform actions on the search results.
+
+In the next chapter we'll take a look in a bit more detail into what a shell actually is!
 
 ---
+
+Share - with "why the hell are the parameters so stupid"
+Blog post on linux essentials, refer to alpine for an example of why find is important
+Test work in progress page
 
 **Footnotes**
 
-[^1]: We will cover permissions and modes in later chapters.
+[^1]: If you are not sure what the 'dot' folder is, check [Chapter 2 - Navigating Your System](https://effective-shell.com/docs/part-1-transitioning-to-the-shell/2-navigating-your-system/)
 
-[^2]: Why these names and locations? It's a long story. The best place to start if you are interested is the [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard).
-
-[^3]: `chmod` changes the mode of a file; `+x` means 'add the executable bit'. This tells the operating system the file can be executed.
-
-[^4]: [Stack Exchange: Why not use “which”? What to use then?](https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then)
+[^2]: This is not just a personal preference thing, this is based on the POSIX standard: https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html which does recommends a specific set of patterns to make commands consistent and intuitive for user, 
