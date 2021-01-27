@@ -3,7 +3,7 @@ title: What is a Shell?
 slug: what-is-a-shell
 title: "Chapter 11 - Interlude - What is a Shell"
 slug: "chapter-11-the-renaissance-of-the-shell"
-weight: 11
+weight: 12
 ---
 
 # Chapter 11 - Interlude - What is a Shell

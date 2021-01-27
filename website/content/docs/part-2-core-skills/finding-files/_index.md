@@ -1,12 +1,12 @@
 ---
 title: "Finding Files"
 slug: "finding-files"
-weight: 10
+weight: 11
 ---
 
 # Finding Files
 
-Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders, some quick ways to accomplish common tasks and also look at some faster and more user-friendly alternatives to the built in `find` command.
+Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders and some quick ways to accomplish common tasks.
 
 ## Introducing the Find Command
 
@@ -23,7 +23,7 @@ curl -s -L https://effective-shell.com/downloads/effective-shell-playground.tar.
 cd ~/effective-shell
 ```
 
-This command will download and extract the samples folder in your home directory an then set it as your working directory.
+This command will download and extract the samples folder in your home directory and then set it as your working directory.
 {{< /hint >}}
 
 Let's set the current working directory to the `effective-shell` folder and run the `find` command:
@@ -128,7 +128,7 @@ $ find . -type d
 
 It's important to note that when searching for folders, the `find` command shows folders which are normally hidden, such as the special 'dot' folder[^1].
 
-In both commands, I specified the 'dot' folder as the place to search. I could omit this parameter, I just think it makes it a little more readable.
+In both commands, I specified the 'dot' folder as the place to search. I could omit this parameter; I just think it makes it a little more readable.
 
 ## Searching by Name
 
@@ -286,7 +286,7 @@ The only annoying thing about grouping is that you must _escape_ the brackets, b
 
 # Why the Weird Parameters?
 
-The `find` command bothered me for years. The parameters looked odd - for example is it `-name` instead of `-n` or `--name`, which would be more standard[^2]?
+The `find` command bothered me for years. The parameters looked odd - for example why is it `-name` instead of `-n` or `--name`, which would be more standard[^2]?
 
 Also, why is it that I cannot type this:
 
@@ -355,7 +355,7 @@ $ find ~ -name "*.tmp" -delete
 
 This _can_ be a convenient way to delete files, but I would recommend _extreme caution_. This command does not show what has been deleted and does not ask for confirmation. It also slightly changes the order of results processed so that the _children_ of folders are deleted where necessary before the folders themselves. This might not be what you expect because that's not what the `-print` output would show (although you can force this behaviour with the `-depth` option).
 
-Check Chapter 14 for a better solution - in short we can use `find ~ -name "*.tmp" -print0 | xargs -p -0 rm` to instead pass the files to `rm` and ask the user to confirm before the deletion happens. This will be explain in a lot more detail in Chapter 14.
+Check Chapter 14 for a better solution - in short we can use `find ~ -name "*.tmp" -print0 | xargs -p -0 rm` to instead pass the files to `rm` and ask the user to confirm before the deletion happens. This will be explained in a lot more detail in Chapter 14.
 
 ## Execute a Command
 
@@ -459,4 +459,4 @@ Test work in progress page
 
 [^1]: If you are not sure what the 'dot' folder is, check [Chapter 2 - Navigating Your System](https://effective-shell.com/docs/part-1-transitioning-to-the-shell/2-navigating-your-system/)
 
-[^2]: This is not just a personal preference thing, this is based on the POSIX standard: https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html which does recommends a specific set of patterns to make commands consistent and intuitive for user, 
+[^2]: This is not just a personal preference thing; this is based on the POSIX standard: https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html which recommends a specific set of patterns to make commands consistent and intuitive for user.
