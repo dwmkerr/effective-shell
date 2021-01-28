@@ -1,12 +1,10 @@
 ---
 title: "Get to Grips with Grep"
-slug: get-to-grips-with-grep
-title: "Chapter 12 - Get to Grips with Grep"
-slug: "chapter-12-get-to-grips-with-grep"
-weight: 12
+slug: "get-to-grips-with-grep"
+weight: 13
 ---
 
-# Chapter 12 - Get to Grips with Grep
+# Chapter 13 - Get to Grips with Grep
 
 The `grep` tool is a real workhorse for shell users - once you've learned how to use it you will find yourself using it again and again. In this chapter we'll see how you can use `grep` for common tasks, and how to use it in combination with other tools.
 

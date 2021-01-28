@@ -23,10 +23,10 @@ This document contains the proposed structure of the book. It is still work in p
         * [TODO Chapter 10 - Talking to other machines with the Secure Shell](#todo-chapter-10---talking-to-other-machines-with-the-secure-shell)
     * [Interlude - What is a Shell?](#interlude---what-is-a-shell)
     * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
-        * [Chapter 11 - Get to Grips with Grep](#chapter-11---get-to-grips-with-grep)
-        * [Chapter 12 - Slice and Dice Text](#chapter-12---slice-and-dice-text)
-        * [Chapter 13 - Advanced Text Manipulation](#chapter-13---advanced-text-manipulation)
-        * [Chapter 14 - Build Commands on the Fly](#chapter-14---build-commands-on-the-fly)
+        * [Chapter 13 - Get to Grips with Grep](#chapter-13---get-to-grips-with-grep)
+        * [Chapter 14 - Slice and Dice Text](#chapter-14---slice-and-dice-text)
+        * [Chapter 15 - Advanced Text Manipulation](#chapter-15---advanced-text-manipulation)
+        * [Chapter 16 - Build Commands on the Fly](#chapter-16---build-commands-on-the-fly)
         * [Chapter 15 - The Missing Tools: jq, yq and xq](#chapter-15---the-missing-tools-jq-yq-and-xq)
         * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
         * [Chapter 16 - Bash Text Tricks - Regexes and String Manipulation](#chapter-16---bash-text-tricks---regexes-and-string-manipulation)
@@ -168,23 +168,23 @@ We're working with a lot of different technologies and sometimes it can be good 
 
 A key part of how Linux and Unix systems work is that almost everything is represented as a text file in the system, and almost everything can be *configured* with a text file. This means that you may find yourself regularly manipulating text. There are so many options for how to do this! In this section we'll look at some of the key techniques which can be used to work with text, and demonstrate this with practical examples.
 
-#### Chapter 11 - Get to Grips with Grep
+#### Chapter 13 - Get to Grips with Grep
 
 The `grep` tool is a real workhorse for shell users - once you've learned how to use it you will find yourself using it again and again. In this chapter we'll see how you can use `grep` for common tasks, and how to use it in combination with other tools.
 
-#### Chapter 12 - Slice and Dice Text
+#### Chapter 14 - Slice and Dice Text
 
 One of the most simple and useful tools for working with text is the `cut` tool. In this chapter we'll see how we can use it, in combination with `rev` to rapidly slice and dice text.
 
 We'll also look at some useful ways to sort, filter, remove duplicates, and more.
 
-#### Chapter 13 - Advanced Text Manipulation
+#### Chapter 15 - Advanced Text Manipulation
 
 Sed - the 'stream editor' tool can be used to perform sophisticated manipulation of text. In many cases a small command involving `sed` can quickly solve problems. In this chapter we'll look at some common ways to use `sed`, and when you might want to consider the `awk` tool.
 
-#### Chapter 14 - Build Commands on the Fly
+#### Chapter 16 - Build Commands on the Fly
 
-With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file. We'll also see a few useful commands like `wc` to get information about text.
+With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file.
 
 #### Chapter 15 - The Missing Tools: jq, yq and xq
 
