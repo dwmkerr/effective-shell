@@ -429,7 +429,7 @@ We can search by permissions, as shown below:
 find ~ -perm /a=x -exec chmod -x {} +
 ```
 
-This example uses the `-perm` test, checking if 'all' (users, the owner and group) have the `x` (executable) bit set, then executes the `chmod -x` command to remove the executable bit. We also end the command with `+` rather than `;`, which means we will execute `chmod` once with each file passed to the command (rather than running `chmod` for _each_ file).
+This example uses the `-perm` test, checking if 'all' (users, the owner and group) have the `x` (executable) bit set, then executes the `chmod -x` command to remove the executable bit. We also end the command with `+` rather than `;`, which means we will execute `chmod` once with each file passed to the command (rather than running `chmod` for _each_ file). Note that the `+` operator can cause an error if the list of files is too big for the command you pass it to to handle!
 
 **Find empty folders and remove them with a confirmation**
 
