@@ -4,7 +4,7 @@ slug: "finding-files"
 weight: 11
 ---
 
-# Finding Files
+# Chapter 11 - Finding Files
 
 Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders and some quick ways to accomplish common tasks.
 
@@ -388,6 +388,55 @@ $ find ~/effective-shell -name "*.txt" -ok rm {} \;
 ```
 
 Note that each operation which will be performed is first printed, then I am asked for confirmation before the operation runs. In each case I've typed `n` (for 'no'). Type `y` (for 'yes') if you want to run the command.
+
+# Handling Symlinks
+
+It is worth briefly mentioning symlinks - because if you don't understand how `find` handles symlinks then you might be surprised.
+
+As an example of how this might surprise you, compare the output of the two commands below:
+
+```
+$ find /usr/bin
+/usr/bin
+/usr/bin/uux
+/usr/bin/cpan
+/usr/bin/BuildStrings
+/usr/bin/loads.d
+/usr/bin/write
+...
+$ find /bin
+/bin
+```
+
+It seems that `/bin` doesn't contain any files - but is that the case? Running `ls /bin` will probably show that you have quite a few files. If you are on MacOS instead try running `find /tmp` to show the same oddity - the `find` program doesn't seem to show the contents of the files.
+
+So why did `find /bin` not show the files in the `/bin` folder?
+
+The answer is that `/bin` is a symlink (or if you are on MacOS and want to test the same behaviour and are using `/tmp`, `/tmp` is a symlink). You can see this by running the command below:
+
+```
+$ ls -l / /usr | grep bin
+lrwxrwxrwx   1 root root          7 Aug  7 18:06 bin -> usr/bin
+lrwxrwxrwx   1 root root          8 Aug  7 18:06 sbin -> usr/sbin
+drwxr-xr-x   2 root root 40960 Jan 25 17:17 bin
+drwxr-xr-x   2 root root 20480 Jan 25 16:42 sbin
+```
+
+Note how the root `bin` and `sbin` folders are actually just symlinks to `usr/bin` and `usr/sbin` respectively.
+
+When using the `find` command just remember that it won't follow symlinks by default - provide the `-L` option to follow symlinks:
+
+```
+$ find -L /bin
+/bin
+/bin/fwupdtool
+/bin/gnome-keyring
+/bin/dpkg-gencontrol
+/bin/prltoolsd
+...
+```
+
+There are more options which control how `find` works with links, check `man find` for the details.
 
 # Scratching the Surface
 
