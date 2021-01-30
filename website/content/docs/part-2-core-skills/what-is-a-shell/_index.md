@@ -4,13 +4,13 @@ slug: "what-is-a-shell"
 weight: 12
 ---
 
-# Chapter 11 - Interlude - What is a Shell?
+# Chapter 12 - Interlude - What is a Shell?
 
 This is the second of the "interludes" which end each section of the book. These interludes give flavour, concepts, context and the history of some of the concepts we're dealing with. These interlude are not essential to mastering the _skills_ of the shell, but you might find them interesting.
 
 In this interlude we'll actually look at what a shell is, all the way from the highest level, which non-technical readers will be able to comfortably follow, to the low level, which advanced users may find illuminating.
 
-## Introduction for the Non-Technical Reader
+# Introduction for the Non-Technical Reader
 
 It might come as a surprise that _many_ technical computer users (programmers, data scientists, systems administrators etc) spend a lot of time using an interface which looks like it's from the sixties:
 
@@ -27,16 +27,16 @@ Given how much computing has advanced, why would people use such an interface? J
 Why would people choose to use such an archaic interface as a shell?
 
 - Typing is _fast_: A skilled shell user can manipulate a system at dazzling speeds just using a keyboard. Typing commands is generally _much_ faster than exploring through user interfaces with a mouse
-- Shells are _programmable_: Users will often being programming as they work in a shell, creating scripts to automate time-consuming or repetetive processes
+- Shells are _programmable_: Users will often being programming as they work in a shell, creating scripts to automate time-consuming or repetitive processes
 - Shells are _portable_: A shell can be used to interface to almost any type of computer, from a mainframe to a Raspberry Pi, in a very similar way.
 
 Not all technical users will use a shell regularly, but there are many who will spend the bulk of their time in such an interface. It is such a crucial skill to be able to operate one effectively that I have been writing this series primarily to show ways to be more efficient with this kind of interface.
 
-## Introduction for the Technical Reader
+# Introduction for the Technical Reader
 
-You may be familiar with the shell, but it can be useful to understand some of the surrounding concepts in detail. How does a shell differ from a terminal? What is a _tty_? How do shells really work? Hopefully as you read this article you'll discovery something that you didn't know about shells.
+You may be familiar with the shell, but it can be useful to understand some of the surrounding concepts in detail. How does a shell differ from a terminal? What is a _tty_? How do shells really work? Hopefully as you read this chapter you'll discover something that you didn't know about shells.
 
-## Let's Get Started!
+# Let's Get Started!
 
 To understand what shells, terminals, command-prompts and so on are and how they relate, we need to start with the basics: how a modern computer works!
 
@@ -114,7 +114,7 @@ We're not _directly_ interacting with the 'shell' in this diagram. We're actuall
 
 A terminal is just a program that reads input from the keyboard, passes that input to another program (normally a shell), and displays the results on the screen. A shell program on its own does not do this - it requires a terminal as an interface.
 
-Why the word _terminal_? This makes sense when you look at how people interfaced with computers historically. Input to a computer might be through punch cards, and output would often be via a printer. The *Teletype Termimal*[^7] became a common way for users to interface with computers.
+Why the word _terminal_? This makes sense when you look at how people interfaced with computers historically. Input to a computer might be through punch cards, and output would often be via a printer. The *Teletype Terminal*[^7] became a common way for users to interface with computers.
 
 <img width="600px" alt="Photo: ASR-33 TTY" src="images/image-asr-33.jpg" />
 
@@ -300,7 +300,7 @@ If you enjoyed this article, please do share it! Feel free to include suggestion
 
 [^4]: This is the part of your computer you plug the screen into.
 
-[^5]: This is because a mistake in _Kernel Mode_ programs can have disasterous effects. It could access any files, no matter who they belong do, control the hardware, install more software - almost anything. Errors in this code can cause terrible issues (like the infamous Windows 'blue screen of death'), and malicious code in the kernel essentially has full access to not only all your data but also your webcam, network adapter and so on.
+[^5]: This is because a mistake in _Kernel Mode_ programs can have disastrous  effects. It could access any files, no matter who they belong do, control the hardware, install more software - almost anything. Errors in this code can cause terrible issues (like the infamous Windows 'blue screen of death'), and malicious code in the kernel essentially has full access to not only all your data but also your webcam, network adapter and so on.
 
 [^6]: As an aside, if you are curious about the visual style of my setup or customisations that have been made, everything in my setup is available online on my 'dotfiles' repo - [github.com/dwmkerr/dotfiles](https://github.com/dwmkerr/dotfiles).
 
