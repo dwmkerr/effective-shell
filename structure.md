@@ -27,9 +27,8 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 14 - Slice and Dice Text](#chapter-14---slice-and-dice-text)
         * [Chapter 15 - Advanced Text Manipulation](#chapter-15---advanced-text-manipulation)
         * [Chapter 16 - Build Commands on the Fly](#chapter-16---build-commands-on-the-fly)
-        * [Chapter 15 - The Missing Tools: jq, yq and xq](#chapter-15---the-missing-tools-jq-yq-and-xq)
-        * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
-        * [Chapter 16 - Bash Text Tricks - Regexes and String Manipulation](#chapter-16---bash-text-tricks---regexes-and-string-manipulation)
+        * [Chapter 17 - Bash Text Tricks - Regexes and String Manipulation](#chapter-17---bash-text-tricks---regexes-and-string-manipulation)
+        * [Chapter 18 - The Missing Tools: jq, yq and xq](#chapter-18---the-missing-tools-jq-yq-and-xq)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
         * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
         * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
@@ -51,6 +50,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Interlude - The Future](#interlude---the-future)
         * [Introduction](#introduction-1)
     * [Part 7 - The Missing Chapters](#part-7---the-missing-chapters)
+        * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
     * [Part X - Linux Essentials](#part-x---linux-essentials)
         * [Users, Groups and Permissions](#users-groups-and-permissions)
         * [The Linux Filesystem Hierarchy Standard](#the-linux-filesystem-hierarchy-standard)
@@ -186,19 +186,15 @@ Sed - the 'stream editor' tool can be used to perform sophisticated manipulation
 
 With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file.
 
-#### Chapter 15 - The Missing Tools: jq, yq and xq
+#### Chapter 17 - Bash Text Tricks - Regexes and String Manipulation
+
+Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
+
+#### Chapter 18 - The Missing Tools: jq, yq and xq
 
 Sometimes you might find yourself battling with the shell text manipulation tools to manipulate JSON, YAML or XML. The `jq`, `yq` and `xq` tools can save you a lot of time, and might just be the missing tools you need to add to your toolkit.
 
 In this chapter we'll see how to install these tools and perform common tasks with them.
-
-#### Chapter X - Built Text Manipulation Programs?
-
-Could do a small chapter on how to build a text manipulation program which simply edits a line of `stdin`, then pipe it into other commands?
-
-#### Chapter 16 - Bash Text Tricks - Regexes and String Manipulation
-
-Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
 
 ### Part 4 - Building Your Toolkit
 
@@ -287,6 +283,10 @@ The shell, in particular the Bourne-Again Shell has been popular for many years.
 This is not a book about Bash. It's not a book about shell programming. It's a book about how to use a keyboard as the main way to work with a computer, and become incredibly efficient doing so. That means we'll cover a lot of Bash and shell topics, but we'll also look at how linux works. But this is not a book about systems adminstration. We won't see how to set up a mailserver, but we will understand _why_ linux systems work as they do, in a more fundamental way, which will help us save time and optimise our work, whether we're programming, administering systems, exploring or hobbying, working with data science or even just doing general purpose computing.
 
 ### Part 7 - The Missing Chapters
+
+#### Chapter X - Built Text Manipulation Programs?
+
+Could do a small chapter on how to build a text manipulation program which simply edits a line of `stdin`, then pipe it into other commands?
 
 ### Part X - Linux Essentials
 
@@ -397,6 +397,8 @@ This section contains the things which have been pulled out of chapters as they 
   ```
   note: it's really important to understand that GNU have *tried* to make tools mac compatable, see for example the manpage for `find`, in particular the `-d` option, which explicitly states that they've added it for OSX etc.
 - note: POSIX: we should talk about options/flags/arguments/structure
+- todo: Shell Brace Expansion (e.g. `touch file{1..100}.txt`, see `man bash /Brace`
+- todo: We have not yet introduced the `touch` command
 - note: We need a chapter on GNU, POSIX, BSD, Unix and Linux
 - note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`. Note that `aws s3` uses `-` to indicate `stdin`
 - todo: we really should look at symlinks, e.g. `ln -s $(pwd) ~/effective-shell` 

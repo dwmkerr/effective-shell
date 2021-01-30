@@ -12,9 +12,9 @@ For the newcomer, you'll learn what a shell is, how to use it on your system, an
 
 For the experienced professional, there are chapters which go into advanced topics and introduce real-world ways to be more effective with your usage.
 
-To get started, jump over to the [Introduction]({{< relref "/docs/0-introduction" >}}) page from the menu or the left, whichever chapter sounds the most appealing!
+To get started, jump over to the [Introduction]({{< relref "/docs/introduction" >}}) page from the menu or the left, whichever chapter sounds the most appealing!
 
-To setup your computer to follow along with the chapters, check the [Getting Started]({{< relref "/docs/1-getting-started" >}}) guide.
+To setup your computer to follow along with the chapters, check the [Getting Started]({{< relref "/docs/getting-started" >}}) guide.
 
 If you would like to get email updates when new chapters are published, please do provide your email below. I won't be using it for anything beyond updates to the book.
 
