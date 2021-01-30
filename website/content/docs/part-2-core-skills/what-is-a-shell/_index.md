@@ -1,12 +1,10 @@
 ---
-title: What is a Shell?
-slug: what-is-a-shell
-title: "Chapter 11 - Interlude - What is a Shell"
-slug: "chapter-11-the-renaissance-of-the-shell"
+title: "What is a Shell?"
+slug: "what-is-a-shell"
 weight: 12
 ---
 
-# Chapter 11 - Interlude - What is a Shell
+# Chapter 11 - Interlude - What is a Shell?
 
 This is the second of the "interludes" which end each section of the book. These interludes give flavour, concepts, context and the history of some of the concepts we're dealing with. These interlude are not essential to mastering the _skills_ of the shell, but you might find them interesting.
 
@@ -148,9 +146,9 @@ Shells can write output to files or other locations, and so on. You can run a sh
  
 So what else does a shell do? Most of the features are related to helping human operators work with the system more efficiently.
 
-- Quickly enter commands, see the history of commands and quickly restructure commands (see [Chapter 8 - Fly on the Command Line]({{< relref "/docs/part-2-core-skills/8-fly-on-the-command-line" >}}))
-- Navigate through the file system, moving from folder to folder (see [Chapter 1- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/2-navigating-your-system" >}})), which makes it easier for an operator to navigate the file system
-- Chain the output of commands together - for example, taking the output of one basic program, such as the `tree` program we saw, and writing it to a file (see [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/7-thinking-in-pipelines" >}}))
+- Quickly enter commands, see the history of commands and quickly restructure commands (see [Chapter 8 - Fly on the Command Line]({{< relref "/docs/part-2-core-skills/fly-on-the-command-line" >}}))
+- Navigate through the file system, moving from folder to folder (see [Chapter 1- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/navigating-your-system" >}})), which makes it easier for an operator to navigate the file system
+- Chain the output of commands together - for example, taking the output of one basic program, such as the `tree` program we saw, and writing it to a file (see [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}}))
 - Offer a programming language, allowing the operator to perform more complicated tasks
 
 And a lot more! In fact, that's what the whole book is about - how to get the most from these powerful programs, particularly for those who use them regularly.
@@ -177,7 +175,7 @@ Shell command prompts can be customised, so they will often look different from 
 
 A lot of the 'commands' in a shell, such as `cat` (which shows the contents of a file), are actually just simple programs, which will interface with the kernel. No matter what shell you use, these commands will behave the same way, because really all you are doing is calling another program.
 
-Some commands, such as `cd` (change directory), are built into the shell. Some commands are functions that have been defined, or aliases to other commands (for more details on commands, see [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/10-understanding-commands" >}})). Commands will often differ between shells.
+Some commands, such as `cd` (change directory), are built into the shell. Some commands are functions that have been defined, or aliases to other commands (for more details on commands, see [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})). Commands will often differ between shells.
 
 Not all shells are created equal - anyone can write a shell program, maybe creating a simple interface to the computer or a highly complex one with many features. In fact, a later article in this series will look at the genealogy of the most common shells.
 

@@ -1,5 +1,5 @@
 ---
-title: "Chapter 7 - Thinking in Pipelines"
+title: "Thinking in Pipelines"
 slug: "thinking-in-pipelines"
 weight: 7
 ---
@@ -72,7 +72,7 @@ lr-xr-xr-x 1 root wheel 0 Jan  1  1970 /dev/stdin -> fd/0
 lr-xr-xr-x 1 root wheel 0 Jan  1  1970 /dev/stdout -> fd/1
 ```
 
-If you are not familiar with `ls` (the _list directory contents_ command) then check [Chapter 2 - Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/2-navigating-your-system" >}}). The first part of the output isn't too important - but we can see we have three files in the special `/dev/` (short for _device_ folder). We can also see the associated file descriptors.
+If you are not familiar with `ls` (the _list directory contents_ command) then check [Chapter 2 - Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/navigating-your-system" >}}). The first part of the output isn't too important - but we can see we have three files in the special `/dev/` (short for _device_ folder). We can also see the associated file descriptors.
 
 As an aside - this is a really fundamental thing we'll see again and again in Unix and Linux - almost everything can be represented as a file. This is a core concept and one we'll touch on regularly.
 
@@ -108,7 +108,7 @@ Agnes Skinner
 Helen Lovejoy
 ```
 
-We saw in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}}) that we could **pipe** the output of this command into the `sort` command to order it and then into the `uniq` command to remove duplicates, like this:
+We saw in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/clipboard-gymnastics" >}}) that we could **pipe** the output of this command into the `sort` command to order it and then into the `uniq` command to remove duplicates, like this:
 
 ```
 $ cat ~/playground/text/simpsons-characters.txt | sort | uniq
@@ -191,7 +191,7 @@ The `<` operator redirects the standard input of a program to come from the give
 
 **The Clipboard**
 
-In [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}}) we saw a trick to remove formatting from text in the clipboard. Here's a similar trick to reverse the contents of the clipboard:
+In [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/clipboard-gymnastics" >}}) we saw a trick to remove formatting from text in the clipboard. Here's a similar trick to reverse the contents of the clipboard:
 
 ```
 $ pbpaste | rev | pbcopy
@@ -249,7 +249,7 @@ You'll see something like this:
 
 This long list of files would be hard to search through if it was printed directly to the shell, but in the pager we can use the `d` and `u` keys to go _down_ and _up_, or the `/` and `?` keys to search forwards or backwards.
 
-Piping into your pager is a really useful trick - you can read more about pagers in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}}).
+Piping into your pager is a really useful trick - you can read more about pagers in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/getting-help" >}}).
 
 **File**
 
@@ -544,7 +544,7 @@ When these chapters are published I'll update the links here. If you want to be 
 **Footnotes**
 
 [^1]: Technically there is another layer here, which is the `tty`. You can see this by running `tty` in the shell. We'll more about this in the [Interlude - What is a Shell](#TODO) section.
-[^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}}) for how to do this on a Linux or Windows machine.
+[^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/clipboard-gymnastics" >}}) for how to do this on a Linux or Windows machine.
 [^3]: Although always use tricks like this with caution! If we had a _different_ error, perhaps one we really do want to know about, we would lose the message in this case.
 [^4]: There is a very detailed explanation of this behaviour at https://linuxnewbieguide.org/21-and-understanding-other-shell-scripts-idioms/.
 [^5]: With the correct options, `sed` could likely do this in a single operation, but I'd probably spend a lot longer Googling the right options for it!

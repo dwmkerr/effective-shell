@@ -1,7 +1,6 @@
 ---
-title: The Renaissance of the Shell
-slug: the-renaissance-of-the-shell
-title: "Chapter 6 - Interlude - The Renaissance of the Shell"
+title: "The Renaissance of the Shell"
+slug: "the-renaissance-of-the-shell"
 weight: 6
 ---
 

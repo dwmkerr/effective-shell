@@ -1,7 +1,7 @@
 ---
-title: "Chapter 2 - Navigating Your System"
+title: "Navigating Your System"
 slug: "navigating-your-system"
-weight: 1
+weight: 2
 ---
 
 # Chapter 2 - Navigating Your System

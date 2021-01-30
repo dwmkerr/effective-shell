@@ -48,7 +48,7 @@ $ tldr grep
   Supports simple patterns and regular expressions.
 ```
 
-That is indeed a little more concise. By the way, if you are not familiar with how you can get help on commands, check out [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}}). As the manual pages indicate, `grep` is used to match patterns in files. More advanced users will most likely know exactly what this means, but a more simple description is just:
+That is indeed a little more concise. By the way, if you are not familiar with how you can get help on commands, check out [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/getting-help" >}}). As the manual pages indicate, `grep` is used to match patterns in files. More advanced users will most likely know exactly what this means, but a more simple description is just:
 
 > Grep lets you search for text or filter text.
 
@@ -72,7 +72,7 @@ You can read more about this story and some of the fascinating history of the ea
 
 # Searching Through Text
 
-If you've been working through this book, you've probably entered quite a few commands in the shell. Most shells keep a history of the commands you type. Under the hood, when you use the up and down keys to look through commands you entered earlier, or use the `Ctrl-R` shortcut to _search_ through earlier commands, your shell is looking through this file. If these tricks are not familiar, check [Chapter 9 - Fly on the Command Line]({{< relref "/docs/part-2-core-skills/8-fly-on-the-command-line" >}}).
+If you've been working through this book, you've probably entered quite a few commands in the shell. Most shells keep a history of the commands you type. Under the hood, when you use the up and down keys to look through commands you entered earlier, or use the `Ctrl-R` shortcut to _search_ through earlier commands, your shell is looking through this file. If these tricks are not familiar, check [Chapter 9 - Fly on the Command Line]({{< relref "/docs/part-2-core-skills/fly-on-the-command-line" >}}).
 
 The file which keeps the history can vary from shell to shell. For example, on my system, my history for Bash is in the file `~/.bash_history`. But most 'Bash-like' shells provide a built-in environment variable which let's you find the path of the shell history. Let's at this file:
 
@@ -106,7 +106,7 @@ nvim perfor<strong>man</strong>ce.md
 
 Here I can see all of the commands I have recently entered which have the text `man` in them. Note that the text which matches is highlighted and shown in bold.
 
-Now what if you a different shell, or forget where the history file lives? A nice trick here is to use the `history` command. This command prints out the history, as well as the line number. The `history` command writes to `stdout`. If we don't give `grep` a source file, it will simply search through `stdin`. Just as we learnt in [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/7-thinking-in-pipelines" >}}) this means we can just `grep` the output of the `history` command!
+Now what if you a different shell, or forget where the history file lives? A nice trick here is to use the `history` command. This command prints out the history, as well as the line number. The `history` command writes to `stdout`. If we don't give `grep` a source file, it will simply search through `stdin`. Just as we learnt in [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}}) this means we can just `grep` the output of the `history` command!
 
 Here's how that would work:
 

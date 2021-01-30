@@ -1,5 +1,5 @@
 ---
-title: "Chapter 9 - Job Control"
+title: "Job Control"
 slug: "job-control"
 weight: 9
 ---
@@ -71,7 +71,7 @@ We have a problem. The `python` process is still running - it's serving the webs
 
 In the example above, I try to run `vi`, but nothing is happening. Standard input is not being read by the server and not being interpreted by the shell.
 
-I have to kill the server by hitting `Ctrl+C`. This sends a `SIGINT` signal (which tells the command to stop). We saw signals briefly in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/4-clipboard-gymnastics" >}}) and we'll see more of them in as we continue. Now I need to clear my screen to get rid of all of the error messages, then start again.
+I have to kill the server by hitting `Ctrl+C`. This sends a `SIGINT` signal (which tells the command to stop). We saw signals briefly in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/clipboard-gymnastics" >}}) and we'll see more of them in as we continue. Now I need to clear my screen to get rid of all of the error messages, then start again.
 
 This is obviously not optimal. Let's look at some solutions.
 
@@ -262,7 +262,7 @@ You might find that jobs are useful, or you might find that they are not. Either
 | `kill %1`   | Terminate job number 1.                                    |
 | `wait %1`   | Block until job number 1 exits.                            |
 
-If you want to find out more about the gory details of jobs, the best place to start is the [Bash Manual - Job Control Section](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control), or the 'Job Control' section of your preferred shell's manual. On Bash you can find this by using `man bash` and searching for the text `JOB CONTROL`. You can find out more about how to get help in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/5-getting-help" >}})
+If you want to find out more about the gory details of jobs, the best place to start is the [Bash Manual - Job Control Section](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control), or the 'Job Control' section of your preferred shell's manual. On Bash you can find this by using `man bash` and searching for the text `JOB CONTROL`. You can find out more about how to get help in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/getting-help" >}})
 
 ---
 

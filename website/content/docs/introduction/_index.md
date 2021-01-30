@@ -1,8 +1,7 @@
 ---
-title: Introduction
-slug: introduction
+title: "Introduction"
+slug: "introduction"
 weight: 0
-date: "2020-04-03"
 description: Introduction.  The contents of this book can be useful for a surprisingly wide group of people.  We'll look at what a shell is, and why it can be so useful to learn about.
 ---
 

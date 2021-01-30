@@ -1,5 +1,5 @@
 ---
-title: "Chapter 1 - Getting Started"
+title: "Getting Started"
 slug: "getting-started"
 weight: 1
 ---

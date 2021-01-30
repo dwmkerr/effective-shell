@@ -1,5 +1,5 @@
 ---
-title: "Chapter 8 - Fly on the Command Line"
+title: "Fly on the Command Line"
 slug: "fly-on-the-command-line"
 weight: 8
 ---

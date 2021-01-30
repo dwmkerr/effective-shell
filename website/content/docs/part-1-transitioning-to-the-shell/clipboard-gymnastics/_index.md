@@ -1,7 +1,6 @@
 ---
-title: Become a Clipboard Gymnast
-slug: become-a-clipboard-gymnast
-title: "Chapter 4 - Becoming a Clipboard Gymnast"
+title: "Becoming a Clipboard Gymnast"
+slug: "become-a-clipboard-gymnast"
 weight: 4
 ---
 
