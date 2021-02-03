@@ -4,7 +4,7 @@ slug: "build-commands-on-the-fly"
 weight: 16
 ---
 
-# Chapter 16 - Build Commands on the Fly
+# Chapter 16 - Build Commands on the Fly with Xargs
 
 In the earlier chapters of this part of the book we've seen a number of ways to manipulate text. Now we're going to introduce the `xargs` command and show how to use our text manipulation skills to dynamically build complex commands on the fly.
 
@@ -109,7 +109,7 @@ The file name has a space in it, which is confusing `rm` as it thinks we're prov
 We can use the `-t` (_trace_) option to see what `xargs` actually tried to do:
 
 ```
-$ find . -type f | xargs rm
+$ find . -type f | xargs -t rm
 rm ./chapter 1.md ./chapter 2.md ./chapter 3.md
 ...
 ```
