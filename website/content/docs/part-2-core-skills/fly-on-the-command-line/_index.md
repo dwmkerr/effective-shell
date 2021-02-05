@@ -217,7 +217,7 @@ There are many configuration options for the shell history. But the main thing t
 You can use the `bindkey` command to see a list of all keyboard shortcuts:
 
 ```
-$ bindkeys
+$ bindkey
 "^@" set-mark-command
 "^A" beginning-of-line
 "^B" backward-char
