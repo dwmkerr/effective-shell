@@ -34,12 +34,13 @@ I tend to use the following hashtags when sharing:
 
 ## The Pitch
 
-This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primary a book about how to work more effectively with command line interfaces and shells in general.
+This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primarily a book about how to work more effectively with command line interfaces and shells in general.
 
 Possible titles:
 
-**Darkscreen**: 30 ways to use shells and terminals to be more effective developer or operator.
-**Effective Shell**: 30 ways to use shells and terminals to be more effective.
+**Darkscreen**: 30 ways to use shells and terminals to be more effective developer or operator.\
+**Effective Shell**: 30 ways to use shells and terminals to be more effective.\
+**Command the Shell**: 30 ways to be more effective with software.
 
 ### Publishers
 
