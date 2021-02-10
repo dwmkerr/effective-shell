@@ -31,7 +31,7 @@ To:
 
 > You should run the `wc` command to count the words in the document.
 
-This is stylistically a little more informal than "you" and much more so that "one", but the overall tone of the writing is supposed to be somewhat informal and friendly.
+This is stylistically a little more informal than "you" and much more so than "one", but the overall tone of the writing is supposed to be somewhat informal and friendly.
 
 ## Common Mistakes
 
@@ -59,7 +59,7 @@ The preferred hyphen is the one which will be written on a standard keyboard.
 
 ## Info
 
-If there is content which is more informational, will in printed form would be pulled into a box, you can use the 'info' panel of the provided them:
+If there is content which is more informational, it will in printed form be pulled into a box. You can use the 'info' panel of the provided theme:
 
 ```
 {{< hint [info|warning|danger] >}}
