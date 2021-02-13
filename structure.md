@@ -27,7 +27,8 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 14 - Slice and Dice Text](#chapter-14---slice-and-dice-text)
         * [Chapter 15 - Advanced Text Manipulation](#chapter-15---advanced-text-manipulation)
         * [Chapter 16 - Build Commands on the Fly](#chapter-16---build-commands-on-the-fly)
-        * [Chapter 17 - Bash Text Tricks - Regexes and String Manipulation](#chapter-17---bash-text-tricks---regexes-and-string-manipulation)
+        * [Chapter 17 - Regex Essentials](#chapter-17---regex-essentials)
+        * [Chapter 18 - Bash Text Tricks - Regexes and String Manipulation](#chapter-18---bash-text-tricks---regexes-and-string-manipulation)
         * [Chapter 18 - The Missing Tools: jq, yq and xq](#chapter-18---the-missing-tools-jq-yq-and-xq)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
         * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
@@ -186,7 +187,11 @@ Sed - the 'stream editor' tool can be used to perform sophisticated manipulation
 
 With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file.
 
-#### Chapter 17 - Bash Text Tricks - Regexes and String Manipulation
+#### Chapter 17 - Regex Essentials
+
+Many of the tools we're working with support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text. In this chapter we'll cover the core features of regexes. If you are already familiar with regular expressions you can skip this chapter as we introduce the concepts and syntax only - the application in the shell comes in the following chapter.
+
+#### Chapter 18 - Bash Text Tricks - Regexes and String Manipulation
 
 Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
 
@@ -419,6 +424,8 @@ This section contains the things which have been pulled out of chapters as they 
 - maybe: `ls -1` is kind of cool - one file per line
 - showing aliases `alias | grep git push`
 - todo: part 2 now has one extra chapter (finding files), maybe we should move 'job control' further back?
+- todo: ssh tunnels? https://robotmoon.com/ssh-tunnels/
+- idea: cli for regex testing, produces output as shown in regex101
 
 Section: building good command line tools
 

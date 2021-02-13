@@ -1,12 +1,16 @@
 ---
-title: "Bash Text Ticks - Regexes and String Manipulation"
-slug: "bash-text-tricks"
+title: "Regex Essentials"
+slug: "regex-essentials"
 weight: 17
 ---
 
-# Chapter 17 - Regexes and String Manipulation
+# Chapter 17 - Regex Essentials
 
-Bash has some built-in capabilities which can be very useful when you are working with text. In this chapter we'll take a look at the built-in regular expression support in most Bash-like shells and also take a look at some nifty tricks for manipulating text in the shell.
+Many of the tools we're working with support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text.
+
+Before we look at how to use regular expressions in the shell, it is important to understand some of the basic regular expression concepts and techniques. This chapter covers the essentials - if you are already familiar with regular expressions feel free to skip to the next chapter.
+
+In this chapter we'll look at why regular expressions can be intimidating, how to manage complexity and not overwhelm yourself, some of the core concepts in regular expressions and a few things to watch out for. Once we've seen the theory we'll be able to apply it in practice in the following chapters!
 
 # An Introduction to Regular Expressions
 
@@ -59,9 +63,7 @@ whatever123@😂.com
 dave@kerr@effective.shell.com
 ```
 
-Some are valid, some are not. Some you might not be sure about - for example, many people would assume that `dwmkerr@effective-shell` is invalid, as it doesn't have a _top level domain_ (or _TLD_) such as `.com` at the end. But in fact this _is_ valid and can be used sometimes for internal addresses on a corporate network.
-
-What about the one with the emoji? Well, it's valid if someone sets up a mail server which can handle it, but probably not a good address to use as some mail programs or servers will reject it (Gmail for example, at time of writing, would allow you to send and receive from an email address like this, but not create an email address like this).
+Some are valid, some are not. Some you might not be sure about - such as the one with the emoji. This one is valid if someone sets up a mail server which can handle it, but probably not a good address to use as some mail programs or servers will reject it (Gmail for example, at time of writing, would allow you to send and receive from an email address like this, but not create an email address like this).
 
 ## Building Regexes - Start with the Basics
 
@@ -73,7 +75,6 @@ Here's how I would start building a regex for an email address:
 
 That regex would look like this:
 
-
 ```
 .*@.*
 ```
@@ -84,13 +85,15 @@ The second bit is just the literal `@` ampersand character.
 
 The third bit is the same as the first - any characters any number of times.
 
-Let's see how that would look in regex101:
+Let's see how that would look in [regex101](https://regex101.com):
 
 <img src="images/regex_v1.png" alt="Regular Expression Example 1" width="1024px" />
 
 Here we can see in blue the lines that the regex has matched. We can also see which part of each line corresponds to which part of the expression. But perhaps the most useful thing we see is the 'explanation' on the right which explains exactly what each character does.
 
 Now that we have a basic pattern which matches the valid address, we can refine it to eliminate invalid addresses.
+
+Note that from this point onwards we'll not show screenshots of the results as you would see them in the regex101 website, instead we'll just highlight the matched part of the text in **bold**, this should make it easier to read. But to see a breakdown of how each part of the text is matched and what each part of the pattern means, feel free to run the examples in the regex101 website!
 
 ## Building Regexes - Quantifiers
 
@@ -104,11 +107,23 @@ Let's change number of characters before and after the ampersand to 'between one
 
 Previously we used the `*` ampersand quantifier (which means 'any number of times'). Now we'll use the `+` plus quantifier (which means 'at least one time'). Let's see how it looks:
 
-<img src="images/regex_v2.png" alt="Regular Expression Example 2" width="1024px" />
+<pre>
+.+@.+
 
-This is better - we've eliminated two invalid addresses, `@yahoo.com` and `dwmkerr@`.
+<strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell</strong>
+<strong>to: dave@effective-shell.com</strong>
+<strong>dave@effective-shell.com &lt;Dave Kerr&gt;</strong>
+test123.effective-shell.com
+@yahoo.com
+dave@
+<strong>whatever123@😂.com</strong>
+<strong>dave@kerr@effective.shell.com</strong>
+</pre>
 
-This is a key concept - a _quantifier_ is part of a regular expression which says 'how many times can a character be matched?'.
+This is better - we've eliminated some invalid addresses, `test123.effective-shell.com`, `@yahoo.com` and `dave@`.
+
+We have introduced a key concept - the _quantifier_. The quantifier we have used is the `+` plus symbol. This is the part of a regular expression which says 'how many times can a character be matched?'.
 
 There are a few different quantifiers, here is a quick reference:
 
@@ -143,13 +158,21 @@ A character set starts and ends with square brackets. We can use letters or numb
 
 This character set matches any of the letters A to Z (uppercase) or a-z (lowercase) or the digits 0-9. Let's see how it looks with the pattern:
 
-```
+<pre>
 [A-Za-z0-9]+@[A-Za-z0-9]+
-```
 
-<img src="images/regex_v3.png" alt="Regular Expression Example 3" width="1024px" />
+<strong>dave@effective</strong>-shell.com
+<strong>dave@effective</strong>-shell
+to: <strong>dave@effective-shell</strong>.com
+<strong>dave@effective</strong>-shell.com &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+whatever123@😂.com
+<strong>dave@kerr</strong>@effective.shell.com
+</pre>
 
-This fails to match the valid email address `dave@effective-shell.com` - because it has a hyphen after the ampersand, and the hyphen character is not in our character set. It also fails to match `d.w.m.kerr@effective.shell.com` for the same reason - we haven't got the 'dot' character in our character set.
+This fails to match the valid email address `dave@effective-shell.com` - because it has a hyphen after the ampersand, and the hyphen character is not in our character set. It also fails to match others for the same reason - we haven't got the 'dot' character in our character set.
 
 Let's see how we can do better.
 
@@ -163,39 +186,77 @@ We can add more characters to our character set. To include the dot and the hyph
 
 That's all there is to it! We can now see our pattern is more correct:
 
-```
+<pre>
 [A-Za-z0-9-.]+@[A-Za-z0-9-.]+
-```
 
-<img src="images/regex_v3.png" alt="Regular Expression Example 3" width="1024px" />
+<strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell</strong>
+to: <strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell.com</strong> &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+whatever123@😂.com
+<strong>dave@kerr</strong>@effective.shell.com
+</pre>
 
-However, the expression is getting larger and larger. We can use a _metacharacter_ instead of the character range to make it easier to read:
+However, the expression is getting larger and larger. We can use a _metacharacter_ instead of the character range to make it easier to read. A metacharacter is a special character which is use to represent a range of characters. For example:
 
 ```
 \w+@\w+
 ```
 
-<img src="images/regex_v4.png" alt="Regular Expression Example 4" width="1024px" />
+<pre>
+\w+@\w+
+
+<strong>dave@effective</strong>-shell.com
+<strong>dave@effective</strong>-shell
+to: <strong>dave@effective-shell</strong>.com
+<strong>dave@effective</strong>-shell.com &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+whatever123@😂.com
+<strong>dave@kerr</strong>@effective.shell.com
+</pre>
 
 The uses the 'word' metacharacter, `\w`. This is just a shorthand for `[a-zA-Z0-9_]`. But now our pattern fails again as the `\w` metacharacter doesn't include the hyphen or the dot. We can fix this easily - a *character set* can include metacharacters! So we can just combine `\w` and the hyphen and dot:
 
-```
-[\w+-.]@[\w+-.]+
-```
+<pre>
+[\w+-.]+@[\w+-.]+
 
-<img src="images/regex_v4.png" alt="Regular Expression Example 4" width="1024px" />
+<strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell</strong>
+to: <strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell.com</strong> &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+whatever123@😂.com
+<strong>dave@kerr</strong>@effective.shell.com
+</pre>
 
 **Character Sets - Negating Characters**
 
 We can use the `^` circumflex symbol to _negate_ a character. This allows us to build a character set which _doesn't_ match a pattern. For example, we could rewrite our pattern like this:
 
-```
+<pre>
 [\S^@]+@[\S^@]+
-```
 
-<img src="images/regex_v5.png" alt="Regular Expression Example 5" width="1024px" />
+<strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell</strong>
+to: <strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell.com</strong> &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+<strong>whatever123@😂.com</strong>
+<strong>dave@kerr@effective.shell.com</strong>
+</pre>
 
 We've used the character set `[\S^@]` which means 'any none-whitespace character' (this is the `\S` part) and 'not the ampersand character' (this is the `^@` part).
+
+Notice that in this case we have more matches - because the set of characters we are using is larger than a set such as `\w`. This expression now covers the email address with the emoji, because the emoji is not a whitespace character or an ampersand.
 
 **Character Sets - Escaping Characters**
 
@@ -213,7 +274,7 @@ This matches square brackets between one and many times.
 [\^]\+
 ```
 
-This matches the circumflex followed by the plus sign.
+This matches the circumflex followed by the plus sign. If there is every a point at which you need to use a special character in a regular expression as a _literal_ character, escape it by putting a slash in front of it.
 
 **Character Sets - Quick Reference**
 
@@ -221,17 +282,33 @@ We've seen quite a few character sets and metacharacters, here's a quick referen
 
 | Quantifier | Meaning                                              |
 |------------|------------------------------------------------------|
-| `TODO`        | Any number of characters.                            |
+| `.` | Any character except for a line break. |
+| `\w` | Any 'word' character, `[a-zA-Z0-9_]`. |
+| `\W` | Any non 'word' character. |
+| `\s` | Any 'whitespace' character (space, tab, etc). |
+| `\S` | Any non 'whitespace' character. |
+| `\d` | Any 'digit' character `[0-9]`. |
+| `\D` | Any non 'digit' character. |
+
+There are many other metacharacters, you can find more in the manpage `man re_pattern`
 
 ## Building Regexes - Anchors
 
 At the moment, if we use the expression below:
 
-```
+<pre>
 [\S^@]+@[\S^@]+
-```
 
-<img src="images/regex_v6.png" alt="Regular Expression Example 6" width="1024px" />
+<strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell</strong>
+to: <strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell.com</strong> &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+<strong>whatever123@😂.com</strong>
+<strong>dave@kerr@effective.shell.com</strong>
+</pre>
 
 Then we match any line which _contains_ an email address. But what if we only want to match complete email addresses? What if we need to exclude lines which have extra stuff at the beginning or end?
 
@@ -239,20 +316,70 @@ For this, we can use *anchors*. Anchors represent special parts of a string, suc
 
 If we want to only match lines which contain a complete email address, we can use the `^` circumflex (start of line) anchor and `$` dollar (end of line) anchor:
 
-```
+<pre>
 ^[\S^@]+@[\S^@]+$
-```
 
-<img src="images/regex_v7.png" alt="Regular Expression Example 7" width="1024px" />
+<strong>dave@effective-shell.com</strong>
+<strong>dave@effective-shell</strong>
+to: dave@effective-shell.com
+dave@effective-shell.com &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+<strong>whatever123@😂.com</strong>
+<strong>dave@kerr@effective.shell.com</strong>
+</pre>
 
 This allows us to create expressions which match patterns of text at certain points - anchors. For example, if we want to match any line which _starts with_ the letters `to: ` we could just use this:
 
-```
+<pre>
 ^to: .*
+
+dave@effective-shell.com
+dave@effective-shell
+<strong>to: dave@effective-shell.com</strong>
+dave@effective-shell.com &lt;Dave Kerr&gt;
+test123.effective-shell.com
+@yahoo.com
+dave@
+<strong>whatever123@😂.com</strong>
+<strong>dave@kerr@effective.shell.com</strong>
+</pre>
+
+You will see the start of line and end of line anchors quite often, they can be extremely useful when making a regular expression more specific.
+
+## Building Regexes - Capture Groups
+
+You can extract only _part_ of what you match in a regular expression using _capture groups_. A capture group lets you break up the expression into smaller parts and then operate on either the entire match, or only one of the groups.
+
+Here's an example:
+
+```
+(.+)@(.+)
+
+<strong>dave@effective-shell.com</string>
 ```
 
-<img src="images/regex_v8.png" alt="Regular Expression Example 8" width="1024px" />
+Now the entire line matches, but everything surrounded by `()` parentheses is a capture group. This means that the regular expression has actually made _three_ matches:
 
-You will see the start of line and end of line anchors quite often.
+1. `dave@effective-shell.com` - The first match in an expression is always the complete match
+2. `dave` - This is the first capture group, everything before the ampersand
+3. `effective-shell.com` - This is the second capture group, everything after the ampersand.
 
-## TODO: capture groups
+We're actually going to see how to use capture groups directly in the shell in the next chapter so we won't go into much more detail now.
+
+# A Word of Warning
+
+Different tools process regular expressions in different ways. There are subtle differences between how they are processed in Bash, JavaScript, Perl, Python, Golang and other languages. This can make them painful to work with.
+
+In general most of the features we've seen in this chapter will work the same regardless of the tool you are using, but as you move into more sophisticated features, you may find that some tools have slightly different syntaxes for certain types of capture groups. However, this generally only affects the more advanced features such as named capture groups.
+
+Using a website like regex101 you can quickly check how a regex works with different tools. Wherever you might encounter these differences in content in this book I've tried to call it out!
+
+# Summary
+
+Hopefully this gives a basic grounding in the fundamentals of regular expressions. Knowing only a few concepts - types of characters, quantifiers and capture groups is plenty for most people. And the online tool regex101 is a superb way to _learn_ regular expressions.
+
+Now we've learned the theory - in the next chapter we'll see some built-in ways to manipulate text in the shell, which include some clever regular expression features.
+
+
