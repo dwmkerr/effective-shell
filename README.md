@@ -53,7 +53,7 @@ Books which I've found exciting, which I think could be examples of how this boo
 
 ## The Website
 
-The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell). This is done using [Hugo](https://gohugo.io/).
+The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell.com). This is done using [Hugo](https://gohugo.io/).
 
 This section contains information on how to built, use and edit the site. To help you quickly edit the site, some tips are below:
 
