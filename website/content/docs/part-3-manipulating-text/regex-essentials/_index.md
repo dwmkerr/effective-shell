@@ -357,7 +357,7 @@ Here's an example:
 ```
 (.+)@(.+)
 
-<strong>dave@effective-shell.com</string>
+<strong>dave@effective-shell.com</strong>
 ```
 
 Now the entire line matches, but everything surrounded by `()` parentheses is a capture group. This means that the regular expression has actually made _three_ matches:
@@ -368,11 +368,78 @@ Now the entire line matches, but everything surrounded by `()` parentheses is a 
 
 We're actually going to see how to use capture groups directly in the shell in the next chapter so we won't go into much more detail now.
 
+## Building Regexes - Lazy and Greedy Expressions
+
+Regular expressions can be _lazy_ or _greedy_. Whether an expression is lazy or greedy affects how it matches patterns - basically whether it _stops_ at the earliest point the pattern is matched, or _continues_ until the pattern no longer matches.
+
+Regular expressions are _greedy_ by default. This means that if you are matching a pattern, the regular expression will capture as much as it possibly can - all the way to the last match. As an example, let's look at how we might capture the contents of an html tag:
+
+<pre>
+&lt;.+&gt;
+
+This text is <strong>&lt;strong&gt;bold&lt;/strong&gt;</strong>.
+</pre>
+
+The regular expression `<.+>` matches an angled bracket, then at least one character, then a closing angled bracket. Because regular expressions are greedy by default, it captures all the way until the _last angled bracket on the line_ - i.e. everything up until the closing `</strong>` tag.
+
+We can create a _lazy_ expression by using the `?` question mark symbol after the quantifier - this means that the expression will capture as few characters as possible until the end of the pattern is found:
+
+<pre>
+&lt;.+?&gt;
+
+This text is <strong>&lt;strong&gt;</strong>bold<strong>&lt;/strong&gt;</strong>.
+</pre>
+
+In this example we have actually captured _two_ results - the contents of the opening and closing tag. Because the expression `<.+?>` is _lazy_ it matches only until the first closing brace it finds, meaning that the results are quite different.
+
+To get the same results without using the lazy quantifier, we'd have to have an expression like this:
+
+<pre>
+&lt;[^&gt;]+?&gt;
+
+This text is <strong>&lt;strong&gt;</strong>bold<strong>&lt;/strong&gt;</strong>.
+</pre>
+
+In this case we've changed the match to 'any character which is not a closing brace'. Whether this is easier for the reader to understand than the lazy quantifier is hard to say, but it is useful to understand the difference between lazy and greedy expressions.
+
+# Avoiding Advanced Topics - Backtracking, Lookarounds and Atomic Grouping
+
+I think that if you have the basics of quantifiers, character sets and metacharacters and capture groups, then you are probably well equipped to use regular expressions. Knowing how to make an expression lazy can also make working with regexes more straightforward.
+
+However - you might come across a few terms when you are working with regular expressions which may be unfamiliar. These relate to perhaps more advanced topics. I'll give brief overview here, but if you have had your fill of regexes for now then you can safely skip to the next section!
+
+I am not going to show examples of each of these concepts. I'll explain why after a brief summary of the concepts.
+
+**Backtracking** - this refers to the process a regular expression engine goes through to try and identify a greedy match. In short, it is possible to inadvertently write a regular expression which has exponential processing complexity based on the length of the input string.
+
+This has led to cases of what is called 'catastrophic backtracking' - where the processing involved to match a pattern can cause system failures or even lead to exploits[^1].
+
+In short - very broad and greedy expressions such as `.+` (match _anything_ at least once) may be susceptible to this problem. Be careful when writing your expressions to test them with short and long strings to see if there's a noticeable performance difference. Regex101 and other tools can show you if your expression is time consuming. Avoid this by making expressions lazy when you can and matching more explicit characters.
+
+**Lookarounds** are special constructs which allow you to essentially say 
+"find me a pattern, but only if it comes before or after another pattern". A lookahead is used to say "find me a pattern, but only match it if it comes before another pattern", a lookbehind says "find me a pattern, but only match it if it comes after another pattern". There are 'negative' lookaheads and lookbehinds which essentially say "find me a pattern which is *not* preceded or followed by another pattern".
+
+As an example, the expression `\d+(?=€)` matches digits (this is the `\d` metacharacter), at least one or more (this is the `+` plus symbol), but only if the digits are followed by a Euro symbol. In this case the `(?=€)` part of the pattern is a 'positive lookahead'.
+
+I have not yet found a situation where I've really needed lookaround expressions. For example, I would simply write the above expression as:
+
+```
+(\d+)€
+```
+
+Which simply matches digits which precede a Euro symbol and puts them in a capture group.
+
+**Atomic Groups** are a more advanced construct which can be used to avoid backtracking which is described above. Lookarounds are atomic. Essentially when an atomic group is matched all backtracking ceases, so can provide a 'get out' clause to avoid catastrophic backtracking.
+
+This is somewhat opinionated, but in my years of engineering I am yet to find a situation which genuinely was made more simple with the use of lookarounds or atomic groups. I would instead advise that if your expression is highly complex, find a way to _break up the input_ first and then process it in multiple steps. That will likely lead to scripts and code which is easier for others to read and reason about.
+
 # A Word of Warning
 
 Different tools process regular expressions in different ways. There are subtle differences between how they are processed in Bash, JavaScript, Perl, Python, Golang and other languages. This can make them painful to work with.
 
-In general most of the features we've seen in this chapter will work the same regardless of the tool you are using, but as you move into more sophisticated features, you may find that some tools have slightly different syntaxes for certain types of capture groups. However, this generally only affects the more advanced features such as named capture groups.
+In general most of the features we've seen in this chapter will work the same regardless of the tool you are using, but as you move into more sophisticated features, you may find that some tools have slightly different syntaxes for certain types of capture groups. However, this generally only affects the more advanced features such as named capture groups (which is a special syntax allowing you to give capture groups a descriptive name).
+
+I would advise that you keep expressions simple if possible - if they are getting too complex then break up your input or break up the processing into smaller chunks of work!
 
 Using a website like regex101 you can quickly check how a regex works with different tools. Wherever you might encounter these differences in content in this book I've tried to call it out!
 
@@ -382,4 +449,6 @@ Hopefully this gives a basic grounding in the fundamentals of regular expression
 
 Now we've learned the theory - in the next chapter we'll see some built-in ways to manipulate text in the shell, which include some clever regular expression features.
 
+---
 
+[^1]: There is a fascinating write up of how this led to a severe Cloudflare outage in 2019 available online at: https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/
