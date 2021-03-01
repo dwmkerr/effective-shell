@@ -1,12 +1,12 @@
 ---
 title: "Advanced Text Manipulation"
 slug: "advanced-text-manipulation"
-weight: 15
+weight: 16
 ---
 
-# Chapter 15 - Advanced Text Manipulation with Sed
+# Chapter 16 - Advanced Text Manipulation with Sed
 
-In [Chapter 14]({{< relref "/docs/part-3-manipulating-text/slice-and-dice-text" >}}) we introduced some simple commands to work with text - specifically `head`, `tail`, `tr` and `cut`. Now we are going to introduce `sed` the _Stream Editor_ command. 
+In [Chapter 15]({{< relref "/docs/part-3-manipulating-text/slice-and-dice-text" >}}) we introduced some simple commands to work with text - specifically `head`, `tail`, `tr` and `cut`. Now we are going to introduce `sed` the _Stream Editor_ command. 
 
 `sed` can be used to perform a variety of tasks with text. In many cases a small command involving `sed` can quickly solve problems. We'll look at some of the common ways to use `sed`, some more sophisticated examples and discuss when you might want to consider using alternative tools like `awk` or a programming language.
 

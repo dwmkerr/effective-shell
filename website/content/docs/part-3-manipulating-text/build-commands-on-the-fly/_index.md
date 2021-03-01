@@ -1,10 +1,10 @@
 ---
 title: "Build Commands on the Fly"
 slug: "build-commands-on-the-fly"
-weight: 16
+weight: 17
 ---
 
-# Chapter 16 - Build Commands on the Fly with Xargs
+# Chapter 17 - Build Commands on the Fly with Xargs
 
 In the earlier chapters of this part of the book we've seen a number of ways to manipulate text. Now we're going to introduce the `xargs` command and show how to use our text manipulation skills to dynamically build complex commands on the fly.
 

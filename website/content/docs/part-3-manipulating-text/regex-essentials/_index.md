@@ -1,10 +1,10 @@
 ---
 title: "Regex Essentials"
 slug: "regex-essentials"
-weight: 17
+weight: 13
 ---
 
-# Chapter 17 - Regex Essentials
+# Chapter 13 - Regex Essentials
 
 Many of the tools we're working with support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text.
 
