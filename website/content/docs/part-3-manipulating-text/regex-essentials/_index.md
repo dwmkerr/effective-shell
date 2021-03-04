@@ -6,7 +6,7 @@ weight: 13
 
 # Chapter 13 - Regex Essentials
 
-Many of the tools we're working with support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text.
+Many of the tools we're going to introduce in this part of the book support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text.
 
 Before we look at how to use regular expressions in the shell, it is important to understand some of the basic regular expression concepts and techniques. This chapter covers the essentials - if you are already familiar with regular expressions feel free to skip to the next chapter.
 
@@ -103,7 +103,7 @@ Let's see how we can refine this expression further to eliminate some of the inv
 
 This is being matched by our pattern because our pattern allows any characters before and after the ampersand _any number of times_ - including _zero times_.
 
-Let's change number of characters before and after the ampersand to 'between one and many'. To do this we use a different _quantifier_ (and 'quantifier' is the part of a pattern which says 'how many occurrences of the characters do we expect).
+Let's change number of characters before and after the ampersand to be 'between one and many'. To do this we use a different _quantifier_ (a 'quantifier' is the part of a pattern which says 'how many occurrences of the characters do we expect).
 
 Previously we used the `*` ampersand quantifier (which means 'any number of times'). Now we'll use the `+` plus quantifier (which means 'at least one time'). Let's see how it looks:
 
@@ -200,7 +200,7 @@ whatever123@😂.com
 <strong>dave@kerr</strong>@effective.shell.com
 </pre>
 
-However, the expression is getting larger and larger. We can use a _metacharacter_ instead of the character range to make it easier to read. A metacharacter is a special character which is use to represent a range of characters. For example:
+However, the expression is getting larger and larger. We can use a _metacharacter_ instead of the character range to make it easier to read. A metacharacter is a special character which is used to represent a range of characters. For example:
 
 ```
 \w+@\w+
@@ -274,7 +274,7 @@ This matches square brackets between one and many times.
 [\^]\+
 ```
 
-This matches the circumflex followed by the plus sign. If there is every a point at which you need to use a special character in a regular expression as a _literal_ character, escape it by putting a slash in front of it.
+This matches the circumflex followed by the plus sign. If there is ever a point at which you need to use a special character in a regular expression as a _literal_ character, escape it by putting a slash in front of it.
 
 **Character Sets - Quick Reference**
 
@@ -440,6 +440,8 @@ Different tools process regular expressions in different ways. There are subtle 
 In general most of the features we've seen in this chapter will work the same regardless of the tool you are using, but as you move into more sophisticated features, you may find that some tools have slightly different syntaxes for certain types of capture groups. However, this generally only affects the more advanced features such as named capture groups (which is a special syntax allowing you to give capture groups a descriptive name).
 
 I would advise that you keep expressions simple if possible - if they are getting too complex then break up your input or break up the processing into smaller chunks of work!
+
+Remember that a regular expression does not have to be the only way you validate input. You might use a regular expression to do a quick check on a form on a website to make sure that an email address has at least the correct _structure_, but you might then use a more sophisticated check later on (such as sending the user an activation email) to actually confirm that the address actually belongs to the user.
 
 Using a website like regex101 you can quickly check how a regex works with different tools. Wherever you might encounter these differences in content in this book I've tried to call it out!
 
