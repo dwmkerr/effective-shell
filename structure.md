@@ -53,6 +53,9 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter X - The Missing Tools: jq, yq and xq](#chapter-x---the-missing-tools-jq-yq-and-xq)
         * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
     * [Part X - Linux Essentials](#part-x---linux-essentials)
+        * [What is Linux?](#what-is-linux)
+        * [Environment Variables](#environment-variables)
+        * [Processes](#processes)
         * [Users, Groups and Permissions](#users-groups-and-permissions)
         * [The Linux Filesystem Hierarchy Standard](#the-linux-filesystem-hierarchy-standard)
         * [Everything is a File](#everything-is-a-file)
@@ -295,6 +298,16 @@ In this chapter we'll see how to install these tools and perform common tasks wi
 Could do a small chapter on how to build a text manipulation program which simply edits a line of `stdin`, then pipe it into other commands?
 
 ### Part X - Linux Essentials
+
+#### What is Linux?
+
+Unix, Linux, BSD,
+
+#### Environment Variables
+
+How environment variables work, how they are accessed in a shell.
+
+#### Processes
 
 #### Users, Groups and Permissions
 
