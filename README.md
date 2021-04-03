@@ -13,6 +13,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
     * [Updating the Theme](#updating-the-theme)
+* [Versioning](#versioning)
 * [Copyright & Licensing](#copyright--licensing)
 * [Thanks!](#thanks)
 
@@ -93,6 +94,12 @@ https://effective-shell.com/downloads/effective-shell-playground.zip
 ### Updating the Theme
 
 The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo-book) theme, which is a fork of [alex-shpak](https://github.com/alex-shpak/hugo-book).
+
+## Versioning
+
+The version of the site and the code is defined in the [`version.txt`](./version.txt) file. This makes it reasonably straightforward to script actions which require the version.
+
+Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml] workflow file.
 
 ## Copyright & Licensing
 
