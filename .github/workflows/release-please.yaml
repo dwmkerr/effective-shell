@@ -1,0 +1,48 @@
+# The 'release-please' workflow is used to create the 'Release Please' pull
+# request. This PR is opened when we have a new commit to master.
+# See:
+#   https://github.com/googleapis/release-please
+on:
+  push:
+    branches:
+      - master
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GoogleCloudPlatform/release-please-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: simple
+          package-name: release-please-action
+          cp
+      
+      # If the 'release please' action has been performed, we can actually
+      # deploy the website.
+      # Note: *every* step here needs to check the 'release_created' flag.
+      - name: Checkout
+        uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.release_created }}
+
+      # Setup Hugo so we can build the site.
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.61.0'
+          extended: true
+        if: ${{ steps.release.outputs.release_created }}
+
+      # Run the build - this will fail if there are broken links etc.
+      - name: Build
+        run: make build
+        if: ${{ steps.release.outputs.release_created }}
+
+      # Deploy the website.
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./website/public
+        if: ${{ steps.release.outputs.release_created }}
