@@ -20,7 +20,6 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
         * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
         * [Finding Files](#finding-files)
-        * [TODO Chapter 10 - Talking to other machines with the Secure Shell](#todo-chapter-10---talking-to-other-machines-with-the-secure-shell)
     * [Interlude - What is a Shell?](#interlude---what-is-a-shell)
     * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
         * [Chapter 13 - Regex Essentials](#chapter-13---regex-essentials)
@@ -28,8 +27,6 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 15 - Slice and Dice Text](#chapter-15---slice-and-dice-text)
         * [Chapter 16 - Advanced Text Manipulation](#chapter-16---advanced-text-manipulation)
         * [Chapter 17 - Build Commands on the Fly](#chapter-17---build-commands-on-the-fly)
-        * [Chapter 18 - Bash Text Tricks - Regexes and String Manipulation](#chapter-18---bash-text-tricks---regexes-and-string-manipulation)
-        * [Chapter 18 - The Missing Tools: jq, yq and xq](#chapter-18---the-missing-tools-jq-yq-and-xq)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
         * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
         * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
@@ -41,6 +38,7 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 22 - Operating on Files and Folders](#chapter-22---operating-on-files-and-folders)
         * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
         * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
+        * [Chapter 18 - Bash Text Tricks - Regexes and String Manipulation](#chapter-18---bash-text-tricks---regexes-and-string-manipulation)
         * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
     * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
     * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
@@ -51,6 +49,8 @@ This document contains the proposed structure of the book. It is still work in p
     * [Interlude - The Future](#interlude---the-future)
         * [Introduction](#introduction-1)
     * [Part 7 - The Missing Chapters](#part-7---the-missing-chapters)
+        * [Chapter X - Talking to other machines with the Secure Shell](#chapter-x---talking-to-other-machines-with-the-secure-shell)
+        * [Chapter X - The Missing Tools: jq, yq and xq](#chapter-x---the-missing-tools-jq-yq-and-xq)
         * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
     * [Part X - Linux Essentials](#part-x---linux-essentials)
         * [Users, Groups and Permissions](#users-groups-and-permissions)
@@ -157,10 +157,6 @@ In this chapter we'll see the `which`, `whereis` and related commands. We'll als
 
 Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders, some quick ways to accomplish common tasks and also look at some faster and more user-friendly alternatives to the built in `find` command.
 
-#### TODO Chapter 10 - Talking to other machines with the Secure Shell
-
-One of the main reasons you might use a shell is to operate a machine remotely. In these cases it's often the case that the *only* way to interact with these machines is via the shell, as they don't have a graphical user interface installed. In this chapter we'll look at how the secure shell, `ssh` works, and how to configure it for maximum convenience and efficiency.
-
 ### Interlude - What is a Shell?
 
 We're working with a lot of different technologies and sometimes it can be good to take a step back and look at each of them in detail. What exactly _is_ a shell? What about a command line, or a prompt? Or a terminal? Or even a 'TTY' device? In this interlude we'll look at what exactly a shell is and how it has evolved over time.
@@ -190,16 +186,6 @@ Sed - the 'stream editor' tool can be used to perform sophisticated manipulation
 #### Chapter 17 - Build Commands on the Fly
 
 With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file.
-
-#### Chapter 18 - Bash Text Tricks - Regexes and String Manipulation
-
-Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
-
-#### Chapter 18 - The Missing Tools: jq, yq and xq
-
-Sometimes you might find yourself battling with the shell text manipulation tools to manipulate JSON, YAML or XML. The `jq`, `yq` and `xq` tools can save you a lot of time, and might just be the missing tools you need to add to your toolkit.
-
-In this chapter we'll see how to install these tools and perform common tasks with them.
 
 ### Part 4 - Building Your Toolkit
 
@@ -249,6 +235,10 @@ Bash allows you to write programs with complex logic. We'll look at how to do th
 
 We'll now introduce a few practical real-world scripts. These will demonstrate more advanced techniques, in the context of real world use cases. In this chapter we'll also look at 'Heredocs' and how they can help us manage files and more complex text content.
 
+#### Chapter 18 - Bash Text Tricks - Regexes and String Manipulation
+
+Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
+
 #### Chapter 25 - How to avoid scripting!
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
@@ -288,6 +278,17 @@ The shell, in particular the Bourne-Again Shell has been popular for many years.
 This is not a book about Bash. It's not a book about shell programming. It's a book about how to use a keyboard as the main way to work with a computer, and become incredibly efficient doing so. That means we'll cover a lot of Bash and shell topics, but we'll also look at how linux works. But this is not a book about systems adminstration. We won't see how to set up a mailserver, but we will understand _why_ linux systems work as they do, in a more fundamental way, which will help us save time and optimise our work, whether we're programming, administering systems, exploring or hobbying, working with data science or even just doing general purpose computing.
 
 ### Part 7 - The Missing Chapters
+
+#### Chapter X - Talking to other machines with the Secure Shell
+
+One of the main reasons you might use a shell is to operate a machine remotely. In these cases it's often the case that the *only* way to interact with these machines is via the shell, as they don't have a graphical user interface installed. In this chapter we'll look at how the secure shell, `ssh` works, and how to configure it for maximum convenience and efficiency.
+
+
+#### Chapter X - The Missing Tools: jq, yq and xq
+
+Sometimes you might find yourself battling with the shell text manipulation tools to manipulate JSON, YAML or XML. The `jq`, `yq` and `xq` tools can save you a lot of time, and might just be the missing tools you need to add to your toolkit.
+
+In this chapter we'll see how to install these tools and perform common tasks with them.
 
 #### Chapter X - Built Text Manipulation Programs?
 
