@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.1.0...v0.1.1) (2021-04-03)
+
+
+### Bug Fixes
+
+* fix the missing 'release' id in the release-please workflow ([3483a5c](https://www.github.com/dwmkerr/effective-shell/commit/3483a5c68d148779262a3a7608fec9e0782805aa))
+
 ## 0.1.0 (2021-04-03)
 
 
