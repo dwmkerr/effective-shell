@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.1.1...v0.1.2) (2021-04-03)
+
+
+### Bug Fixes
+
+* fix broken release-please workflow link ([1f3177b](https://www.github.com/dwmkerr/effective-shell/commit/1f3177b67a2a5f9a0732dc76305efe8d81b96e9c))
+
 ### [0.1.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.1.0...v0.1.1) (2021-04-03)
 
 
