@@ -18,7 +18,7 @@ serve:
 .PHONY: build
 build:
 	mkdir -p website/static/downloads
-	cp version.txt ./effective-shell-playground
+	cp version.txt ./effective-shell-playground/.version.txt
 	zip -r website/static/downloads/effective-shell-playground.zip ./effective-shell-playground
 	tar czf website/static/downloads/effective-shell-playground.tar.gz -C ./effective-shell-playground .
 	cd website && hugo --minify
