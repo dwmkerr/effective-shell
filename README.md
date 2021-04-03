@@ -111,7 +111,7 @@ The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo
 
 The version of the site and the code is defined in the [`version.txt`](./version.txt) file. This makes it reasonably straightforward to script actions which require the version.
 
-Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml] workflow file.
+Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
 
 ## Copyright & Licensing
 

@@ -13,10 +13,12 @@ serve:
 
 # Build the site.
 # We also create a zip and tar.gz of the playground/samples folder for quick
-# downloads for the user.
+# downloads for the user. We put the current version in the playground folder
+# as well for reference.
 .PHONY: build
 build:
 	mkdir -p website/static/downloads
+	cp version.txt ./effective-shell-playground
 	zip -r website/static/downloads/effective-shell-playground.zip ./effective-shell-playground
 	tar czf website/static/downloads/effective-shell-playground.tar.gz -C ./effective-shell-playground .
 	cd website && hugo --minify
