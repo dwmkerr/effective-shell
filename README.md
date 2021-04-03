@@ -7,6 +7,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
+* [Installing the Samples](#installing-the-samples)
 * [Sharing](#sharing)
 * [The Pitch](#the-pitch)
     * [Publishers](#publishers)
@@ -23,7 +24,18 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 
 This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book.
 
-The `effective-shell-playground` folder which has all of the samples can be downloaded from [https://effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
+## Installing the Samples
+
+You can install the samples into your `~/effective-shell` folder with this command:
+
+```sh
+curl effective.sh | sh
+```
+
+Or can also manually download them using from any of these locations:
+
+- [https://effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
+- [https://effective-shell.com/downloads/effective-shell-playground.tar.gz](https://effective-shell.com/downloads/effective-shell-playground.tar.gz)
 
 ## Sharing
 
