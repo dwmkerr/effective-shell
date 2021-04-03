@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.1.2...v0.2.0) (2021-04-03)
+
+
+### Features
+
+* **samples:** added a hidden file to the pictures samples folder to ([0a696f1](https://www.github.com/dwmkerr/effective-shell/commit/0a696f166bceda7ff24734e4c82508133b61d948))
+
 ### [0.1.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.1.1...v0.1.2) (2021-04-03)
 
 
