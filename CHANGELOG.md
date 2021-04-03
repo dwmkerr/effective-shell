@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.2.0...v0.3.0) (2021-04-03)
+
+
+### Features
+
+* **samples:** improve simple website sample ([47d8f69](https://www.github.com/dwmkerr/effective-shell/commit/47d8f69759d5eab03ba914440420aed54d2d4873))
+
 ## [0.2.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.1.2...v0.2.0) (2021-04-03)
 
 
