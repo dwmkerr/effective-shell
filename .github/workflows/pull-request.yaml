@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: Validate Pull Request
 
 # This workflow verifies that the site will build for pull requests.
 on: [pull_request]

@@ -2,11 +2,11 @@
 # request. This PR is opened when we have a new commit to master.
 # See:
 #   https://github.com/googleapis/release-please
+name: Release
 on:
   push:
     branches:
       - master
-name: release-please
 jobs:
   release-please:
     runs-on: ubuntu-latest
