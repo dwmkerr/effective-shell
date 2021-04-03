@@ -16,7 +16,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
           package-name: release-please-action
-          cp
       
       # If the 'release please' action has been performed, we can actually
       # deploy the website.
