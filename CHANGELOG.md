@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.3.0...v0.3.1) (2021-04-03)
+
+
+### Bug Fixes
+
+* **samples:** fix bug in simple website ([e27fb79](https://www.github.com/dwmkerr/effective-shell/commit/e27fb791746a38981f6bdf24a0d3e04db17acf0e))
+
 ## [0.3.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.2.0...v0.3.0) (2021-04-03)
 
 
