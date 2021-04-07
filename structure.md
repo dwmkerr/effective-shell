@@ -319,6 +319,10 @@ The standard files / folders.
 
  - everything in `$PATH`, such as `/usr/local/bin/` vs `/usr/bin`
 
+Good resources:
+
+- https://unix.stackexchange.com/questions/8656/usr-bin-vs-usr-local-bin-on-linux
+
 #### Everything is a File
 
 You may have heard this Unix concept, but what does it mean and why does it matter?
