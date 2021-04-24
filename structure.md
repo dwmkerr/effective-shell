@@ -27,6 +27,15 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 15 - Slice and Dice Text](#chapter-15---slice-and-dice-text)
         * [Chapter 16 - Advanced Text Manipulation](#chapter-16---advanced-text-manipulation)
         * [Chapter 17 - Build Commands on the Fly](#chapter-17---build-commands-on-the-fly)
+    * [Part 4 - Shell Scripting](#part-4---shell-scripting)
+        * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
+        * [Chapter 22 - Operating on Files and Folders](#chapter-22---operating-on-files-and-folders)
+        * [Chapter X - Parameters, Return Values, Error Handling](#chapter-x---parameters-return-values-error-handling)
+        * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
+        * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
+        * [Chapter X - Advanced Shell Scripts](#chapter-x---advanced-shell-scripts)
+        * [Chapter 18 - Bash Text Tricks - Regexes and String Manipulation](#chapter-18---bash-text-tricks---regexes-and-string-manipulation)
+        * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
         * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
         * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
@@ -34,12 +43,6 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 20 - Creating Shell Scripts and Understanding Shebangs](#chapter-20---creating-shell-scripts-and-understanding-shebangs)
         * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
     * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
-    * [Part 5 - Shell Scripting](#part-5---shell-scripting)
-        * [Chapter 22 - Operating on Files and Folders](#chapter-22---operating-on-files-and-folders)
-        * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
-        * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
-        * [Chapter 18 - Bash Text Tricks - Regexes and String Manipulation](#chapter-18---bash-text-tricks---regexes-and-string-manipulation)
-        * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
     * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
     * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
         * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
@@ -64,6 +67,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Appendixes](#appendixes)
         * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
 * [Essential Tools](#essential-tools)
+* [Good Scripts to write as exercises](#good-scripts-to-write-as-exercises)
 * [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
 * [Posters!](#posters)
 
@@ -190,6 +194,46 @@ Sed - the 'stream editor' tool can be used to perform sophisticated manipulation
 
 With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file.
 
+### Part 4 - Shell Scripting
+
+As we've seen, there's a lot we can do with the shell. Creating shell scripts allows us to further automate and extend what we can do with these skills. In this section we'll look at some of the key concepts which will help you write practical shell scripts for day to day use.
+
+#### Chapter 18 - Shell Script Fundamentals
+
+First we're going to look at how to write shell scripts as well as the different ways to execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run. These will be essential techniques to have as a foundation for building your own scripts.
+
+#### Chapter 22 - Operating on Files and Folders
+
+One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
+
+#### Chapter X - Parameters, Return Values, Error Handling
+
+https://www.leadingagile.com/2018/10/unit-testing-shell-scriptspart-one/
+
+Use the `rcut` function as an example
+
+
+#### Chapter 23 - Logic and Mathematics
+
+Bash allows you to write programs with complex logic. We'll look at how to do this. You can use the shell to perform arithmetic. Knowing how to do this can be quite convenient! In this chapter we'll look at how basic arithmetic works in the shell and how to use it in scripts.
+
+#### Chapter 24 - Common Shell Scripts 
+
+We'll now introduce a few practical real-world scripts. These will demonstrate more advanced techniques, in the context of real world use cases. In this chapter we'll also look at 'Heredocs' and how they can help us manage files and more complex text content.
+
+#### Chapter X - Advanced Shell Scripts
+
+Ctrl+Alt+R for `recent`, i.e. demoing key combinations?
+
+#### Chapter 18 - Bash Text Tricks - Regexes and String Manipulation
+
+Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
+
+#### Chapter 25 - How to avoid scripting!
+
+The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
+
+
 ### Part 4 - Building Your Toolkit
 
 As you work more with the shell, you will want to customise it and build tools and commands of your own. Before we look at shell scripting, we'll take a look at how the shell is configured, different ways a shell can run, and effective ways to manage your shell configuration.
@@ -221,30 +265,6 @@ If you are working with text, code, or other types of content, Git can be a powe
 ### Interlude - The Unix Philosophy
 
 We've already introduced a lot of commands. It turns out that the idea of small, focused commands which do one thing and one thing only is very fundamental to how Linux and Unix systems are designed. The idea of having a large number of simple tools, which can be composed together to perform complex operations is called "The Unix Philosophy". Understanding this philosophy can help you understand why certain choices have been made with the shell and Linux tooling, and help you understand your system better.
-
-### Part 5 - Shell Scripting
-
-As we've seen, there's a lot we can do with the shell. Creating shell scripts allows us to further automate and extend what we can do with these skills. In this section we'll look at some of the key concepts which will help you write practical shell scripts for day to day use.
-
-#### Chapter 22 - Operating on Files and Folders
-
-One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
-
-#### Chapter 23 - Logic and Mathematics
-
-Bash allows you to write programs with complex logic. We'll look at how to do this. You can use the shell to perform arithmetic. Knowing how to do this can be quite convenient! In this chapter we'll look at how basic arithmetic works in the shell and how to use it in scripts.
-
-#### Chapter 24 - Common Shell Scripts 
-
-We'll now introduce a few practical real-world scripts. These will demonstrate more advanced techniques, in the context of real world use cases. In this chapter we'll also look at 'Heredocs' and how they can help us manage files and more complex text content.
-
-#### Chapter 18 - Bash Text Tricks - Regexes and String Manipulation
-
-Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
-
-#### Chapter 25 - How to avoid scripting!
-
-The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
 ### Interlude - The Linux and Shell Family Tree
 
@@ -487,6 +507,11 @@ echo "Groovy" > /dev/ttys031
 
 - timeout
 - until
+
+## Good Scripts to write as exercises
+
+- `recent` - a better version of `history`, which deduplicates and sorts based on the most commonly used items
+- `quickman` - a quick link to the most common man pages
 
 ## Does it make sense to have 'golden rules'?
 
