@@ -1,12 +1,14 @@
 ---
-title: "Shell Script Fundamentals"
-slug: "shell-script-fundamentals"
+title: "Shell Script Essentials"
+slug: "shell-script-essentials"
 weight: 18
 ---
 
-# Chapter 18 - Shell Script Fundamentals
+# Chapter 18 - Shell Script Essentials
 
-First we're going to look at how to write shell scripts as well as the different ways to execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run. These will be essential techniques to have as a foundation for building your own scripts.
+First we're going to look at how to write shell scripts as well as the different ways to execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run.
+
+These will be essential techniques to have as a foundation for building your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about using the `env` command in shebangs.
 
 ## What is a Shell Script?
 
@@ -28,11 +30,10 @@ We're going to create a new command, called 'common', that shows the most common
 
 We should be able to do this using techniques we've seen so far. We'll do it like this:
 
-1. Open up the shell history, shown in the [Slice and Dice Text]({{< relref "/docs/part-3-manipulating-text/slide-and-dice-text" >}}) chapter.
-2. Read a large number of commands from the history
-3. Sort the commands, then count the number of duplicates
-4. Sort the commands, by the number of duplicates (i.e. ordering by 'most commonly used')
-5. Print the results to the screen.
+1. Read a large number of commands from the history
+2. Sort the commands, then count the number of duplicates
+3. Sort the commands, by the number of duplicates (i.e. ordering by 'most commonly used')
+4. Print the results to the screen.
 
 Let's get started!
 
@@ -56,14 +57,57 @@ vi ~/scripts.sh
 
 These commands should be familiar. The `mkdir` command creates a directory. The `-p` (create parent directories if needed) flag stops the command from returning an error if the directory already exist. The `touch` command creates an empty file with the given name. Finally, I open the file in an editor. I am using Vim, but you can open this file in any editor you like.
 
-Inside the `common.sh` file let's start building our script.
+Before we build the script, let's quickly talk about 'comments.
 
-### Building and Testing the Script
+## Comments
+
+The shell ignores any text which follows a `#` hash symbol. Whether this is text you type into a shell, or text in a shell script, the shell will ignore the content.
+
+This is extremely useful - it means we can use the hash symbol to add _comments_ to our scripts and commands. These comments are not interpreted by the shell, they are added just to make it easier for us to describe what is going on. If you come from a programming background you will likely be familiar with comments.
+
+Here are a few examples:
+
+```sh
+# This is a comment - we can use this to describe what we're trying to do.
+
+echo "Hello Shell" # Comments can go at the end of a line...
+
+# You can also use a comment symbol to 'comment out' a line:
+# echo "Goodbye Shell"
+```
+
+From this point on we'll use comments a lot to explain what we are trying to accomplish with each section of a script. It is generally good practice to use comments to describe your _intent_ - why you are doing something. This is far more useful for the reader than _what_ you are doing. The 'what' should be clear from the commands - the 'why' is the thing readers will likely want to understand.
+
+Here's an example of a bad comment:
+
+```sh
+# Write the CSV file, reverse it, cut it, reverse it.
+cat ~/effective-shell/data/top100.csv | rev | cut -d',' -f1 | rev
+```
+
+The comment just describes what the script is doing. But it doesn't explain _why_. A better comment would be:
+
+```sh
+# We want to extract the last field (the number of reviews) for each film.
+# Because we don't know how many fields there are we can reverse the text before
+# we cut it - then the last field becomes the first, which we extract and then
+# put back into the correct order by reversing it again.
+cat ~/effective-shell/data/top100.csv | rev | cut -d',' -f1 | rev
+```
+
+If you _don't_ come from a programming background you might think that many of these comments are a little obvious. But as you write more and more code you'll realise that something that seemed obvious when you wrote it a while ago can look surprisingly baffling even just a few days later!
+
+Now that we've discussed comments, we'll build our `common.sh` shell script.
+
+## Building and Testing the Script
 
 Add the following commands to the `common.sh` file:
 
 ```
+# Write the title of our command.
 echo "common commands:"
+
+# Show the most commonly used commands.
 tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -n 10
 ```
 
@@ -76,8 +120,9 @@ This is a short script, but there is quite a lot going on. Let's look at it blow
 5. Then we sort _numerically_
 6. Finally, we limit the results to the last ten items
 
+If you need a refresher on the shell history, `sort` or `uniq` the check the [Slice and Dice Text]({{< relref "/docs/part-3-manipulating-text/slice-and-dice-text" >}}) chapter. If the `sed` command doesn't look familiar then check the [Advanced Text Manipulation with Sed]({{< relref "/docs/part-3-manipulating-text/advanced-text-manipulation" >}}) chapter.
 
-If you want to see the details of how the script works, check [Appendix - How the Script Works](#appendix-how-the-script-works).
+If you want to see a more detailed breakdown of how the script works, check [Appendix - How the Script Works](#appendix-how-the-script-works). But this is not necessary for you to follow the content in this chapter.
 
 Now save the file. In your shell, run the following command to execute the file:
 
@@ -105,6 +150,26 @@ You can see my most common commands are short aliases for Git commands (the ones
 
 We now have a basic shell script. Let's look at a few different ways we can run the script.
 
+## Multi-line Commands
+
+You can use the `\` backslash character to create a 'continuation' that tells the shell it needs to join lines up. This allows you to break long commands into multiple lines.
+
+As an example, we could re-write our pipeline command to look like this:
+
+```sh
+# Show the most commonly used commands.
+tail ~/.bash_history -n 1000 \
+    | sort \
+    | uniq -c \
+    | sed 's/^ *//' \
+    | sort -n \
+    | tail -n 10
+```
+
+This will probably look very familiar to anyone with a background in functional programming!
+
+Be careful when you split lines up - the continuation character _must_ be the last character on the line. If you add something after it (such as a comment) then the command will fail.
+
 ## Running a Shell Script
 
 There are a few different ways we can run shell scripts.
@@ -123,15 +188,15 @@ The next way we can run a script it is make it 'executable'. This means we chang
 chmod +x ~/scripts/common.sh
 ```
 
-This should be familiar if you have read the [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}) chapter. Now that the file has been made executable, we can simply enter the path to the file and run it, as if it was any other command:
+If the `chmod` command looks unfamiliar then check the [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}) chapter. Now that the file has been made executable, we can simply enter the path to the file and run it, as if it was any other command:
 
 ```
 ~/scripts/common.sh
 ```
 
-There is a problem with this approach though. How this file is executed is going to vary depending on how your system is set up. For example, if you are using Bash, then the script will run in a new instance of the Bash shell. However, if you are using the Z shell, then the script will most likely run in the `sh` program[^3] (and depending on your system, this program might just be a link to _another_ type of shell).
+There is a problem with this approach though. How this file is executed is going to vary depending on how your system is set up[^3]. For example, if you are using Bash, then the script will run in a new instance of the Bash shell. However, if you are using the Z shell, then the script will most likely run in the `sh` program (and depending on your system, this program might just be a link to _another_ type of shell).
 
-What we really want to do is be explicit about _what_ program should run our script. We can do this using a special construct called a _shebang_
+We want to avoid any ambiguity and be explicit about _what_ program should run our script. We can do this using a special construct called a _shebang_.
 
 ## Using Shebangs
 
@@ -142,8 +207,11 @@ If we were to add a shebang to our `common.sh` file, it would look like this:
 ```sh
 #!/usr/bin/sh
 
+# Write the title of our command.
 echo "common commands:"
-tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n
+
+# Show the most commonly used commands.
+tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -n 10
 ```
 
 The shebang is the two characters - `#!`. The name 'shebang' comes from the names of the symbols. The first symbol is a 'sharp' symbol (sometimes it is called a hash, it depends a little on context). The second symbol is an exclamation point. In programming the exclamation point is sometimes called the 'bang' symbol. When we put the two together, we get 'sharp bang', which is shortened to 'shebang'.
@@ -152,7 +220,7 @@ Immediately after the shebang you write the full path to the program which shoul
 
 For example, if you wanted to write a script that is run in Python, you could do this:
 
-```
+```python
 #!/usr/bin/python3
 
 print('Hello from Python')
@@ -160,7 +228,7 @@ print('Hello from Python')
 
 If we wanted to explicitly use the Bash shell to run a script, we might use a shebang like this:
 
-```
+```sh
 #!/usr/bin/bash
 
 echo "Hello from Bash"
@@ -168,7 +236,7 @@ echo "Hello from Bash"
 
 What about Node.js? Easy!
 
-```
+```js
 #!/usr/bin/node
 
 console.log("Hello from Node.js");
@@ -176,23 +244,23 @@ console.log("Hello from Node.js");
 
 ### Shebangs - Dealing with Paths
 
-There is a bit of a challenge with shebangs. What if the program we want to use is not where we expect it to be?
+When we use a shebang we need to provide the full path the executable that will be used to run the script.
 
-For example, what if we want to use Ruby to run a script, and we write the script like this:
+For example, what if we want to use Ruby to run a script we could write a script like this:
 
-```
+```ruby
 #!/usr/bin/ruby
 
 puts 'Hello from Ruby'
 ```
 
-This will only work if you have the Ruby program installed in the location specified after the shebang (i.e. `/usr/bin/ruby`). If you do not have the Ruby program in this location the script will fail to run.
+But there is a problem here. This will only work if you have the Ruby program installed in the location specified after the shebang (i.e. `/usr/bin/ruby`). If you do not have the Ruby program in this location the script will fail to run.
 
 How can we know where the user will have a specific program installed?
 
-It turns out that this is actually a difficult problem to solve. Different people install programs in different locations and different distributions of Linux, Unix or Unix-like systems vary in where they keep even basic programs like the shell.
-
-Rather than try and work out where a program is, we can side step this entire problem. There is a common trick for dealing with this issue, which is to use the `env` (_set environment and execute command_) command. This command is often used to show environment variables, but you can also use it to execute an arbitrary command (often with a modified environment). One handy feature of the `env` command is that it looks through the `$PATH` variable to find the path of the command to execute.
+There is a common trick for dealing with this issue. We can use the `env` (_set environment and execute command_) command to run a command and it will work out the path for us.
+ 
+The `env` command is often used to show environment variables, but you can also use it to execute an arbitrary command (often with a modified environment). One handy feature of the `env` command is that it looks through the `$PATH` variable to find the path of the command to execute.
 
 You can see this by running a command like the below:
 
@@ -230,10 +298,13 @@ Before we finish with our shell script fundamentals, we'll take a look at one fi
 
 Our `common.sh` script (with the added shebang) looks like this:
 
-```
+```sh
 #!/usr/bin/env sh
 
+# Write the title of our command.
 echo "common commands:"
+
+# Show the most commonly used commands.
 tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -n 10
 ```
 
@@ -269,9 +340,13 @@ Why do we use the `/usr/bin/local` folder rather than the `/usr/bin` folder? Thi
 
 ## Summary
 
+If you want to see the script as it should look at the end of the chapter, install the samples and open the `effective-shell/scripts/common.v1.sh` file. We have 'v1' at the end of the file name to indicate this is version one, because in later chapters we will add more features.
+
 In this chapter we've covered quite a few of the fundamentals of shell scripts:
 
 - How to create a shell script
+- How comments work in shell scripts
+- How to handle long lines with continuations
 - How to run a shell script
 - How to make a shell script executable
 - How shebangs work
@@ -283,6 +358,8 @@ In the next chapter we'll look at how to add logic to our shell scripts.
 ---
 
 ## Appendix - How the Script Works
+
+This section briefly covers how the `common.sh` script works. Assuming we have a history that looks like this:
 
 ```
 vi README.md
@@ -296,7 +373,7 @@ vi README.md
 open .
 ```
 
-First we sort:
+First we sort, putting duplicate lines next to each other:
 
 ```
 git checkout main
@@ -351,8 +428,6 @@ Why the numeric sort? If we didn't sort numerically and instead performed the de
 ```
 
 This is a lexographic sort - the line starting with 13 comes after the line starting with 2. We want to sort by the value of the number.
-
----
 
 [^1]: The path to the shell history file is normally available in the `$HISTFILE` environment variable. However, in a non-interactive shell this variable is not set (and when we run a shell script, it is run in a non-interactive shell). We'll see more about interactive and non-interactive shells later, this is just a note in case you are wondering why we don't use the `$HISTFILE` variable or `history` command!
 [^3]: Try putting the command `pstree -p $$` in a shell script and running the script - you'll see exactly what process is run.

@@ -465,6 +465,9 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: ssh tunnels? https://robotmoon.com/ssh-tunnels/
 - idea: cli for regex testing, produces output as shown in regex101
 - todo: chapter 7 talks about control characters (specifically, ^D), maybe we put this in the 'processes' section?
+- todo: slice and dice: add count option (-c) for `uniq` and numeric (-n) for `sort` as we use these commands in the shell script essentials chapter
+- todo: we need to show the `ln` command. It is used in the shell script essentials chapter.
+
 
 Section: building good command line tools
 
