@@ -4,3 +4,8 @@ interactive vs non interactive shells - running a shell script is a good example
 
 - Why we don't echo in config - imagine shell scripts like `common` echoing stuff out
 
+## Useful reading
+
+- https://learnbyexample.gitbooks.io/linux-command-line/content/Shell_Customization.html
+- https://www.freecodecamp.org/news/bashrc-customization-guide/
+
