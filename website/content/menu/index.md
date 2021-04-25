@@ -24,4 +24,6 @@ bookMenuLevels: 1
    - [Advanced Text Manipulation with Sed]({{< relref "/docs/part-3-manipulating-text/advanced-text-manipulation" >}})
    - [Build Commands on the Fly with Xargs]({{< relref "/docs/part-3-manipulating-text/build-commands-on-the-fly" >}})
    - [Regex Essentials]({{< relref "/docs/part-3-manipulating-text/regex-essentials" >}})
+ - [**Part 4 - Shell Scripting**]({{< relref "/docs/part-4-shell-scripting" >}})
+   - [Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})
