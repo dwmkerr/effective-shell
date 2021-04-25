@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.4.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.4.0...v0.4.1) (2021-04-25)
+
+
+### Bug Fixes
+
+* regex essentials correct position in menu ([b23e421](https://www.github.com/dwmkerr/effective-shell/commit/b23e421b73d364bfdede1bee11e24a85721db1fa))
+
 ## [0.4.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.3.1...v0.4.0) (2021-04-25)
 
 
