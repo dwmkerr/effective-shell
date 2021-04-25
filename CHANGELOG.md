@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.3.1...v0.4.0) (2021-04-25)
+
+
+### Features
+
+* shell script essentials chapter ([ac5c306](https://www.github.com/dwmkerr/effective-shell/commit/ac5c3067432f15a74a0b966c2b9012830da4b02d))
+* shell scripting, intro and fundamentals ([81cb561](https://www.github.com/dwmkerr/effective-shell/commit/81cb561fed9bbfd82d30374ab0bc05076a664418))
+
 ### [0.3.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.3.0...v0.3.1) (2021-04-03)
 
 
