@@ -1,0 +1,380 @@
+---
+title: "Variables, Reading Input, and Mathematics"
+slug: "variables-reading-input-and-mathematics"
+weight: 19
+---
+
+# Chapter 19 - Variables, Reading Input, and Mathematics
+
+We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
+
+## Introducing Variables
+
+_Variables_<!-- index --> are places where the system, the shell, or shell users like ourselves can store data.
+
+We've already seen variables a few times in this book. For example in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/getting-help" >}}) we saw the `$PAGER` variable that is used to specify what pager program should be used in the shell.
+
+When we want to use a variable in the shell, we use the `$` dollar symbol to specify the variable name:
+
+```sh
+echo "Your pager is: $PAGER"
+```
+
+If you run this command you will see something like this:
+
+```
+Your pager is: less
+```
+
+By convention, if a variable is in uppercase then it is an _environment variable_<!--index--> or a built in variable that comes from the shell. An environment variable is a variable that is set by the system. They often contain useful values and are used to help configure your system.
+
+Here's a few common environment variables we might use:
+
+```sh
+echo "Your shell is: $SHELL"
+echo "Your user is: $USER"
+echo "Your user's home directory is: $HOME"
+```
+
+Your output will look similar to the below:
+
+```
+Your shell is: /bin/bash
+Your user is: dwmkerr
+Your user's home directory is: /home/dwmkerr
+```
+
+## Setting Variables
+
+You can create or set your own variables by simply entering the name you would like to use and putting an `=` equals symbol after the variable, followed by the value you would like to use.
+
+This is the one of the few times that you will use a variable name without putting a dollar symbol before it!
+
+```sh
+name="Dave"
+location="Singapore"
+echo "Hello $name in $location"
+```
+
+This will produce the output:
+
+```
+Hello Dave in Singapore
+```
+
+By convention, variables that you define yourself should be lowercase. This helps to distinguish between environment variables and your own variables.
+
+It is a good habit to use lowercase for variable names. Using uppercase will work, but when you use uppercase you run the risk of 'overwriting' the value of an environment variable and causing unexpected results later.
+
+For example, in this snippet I accidentally overwrite the `USER` variable. If a later part of the script expects the `USER` variable to contain the Linux username of the user then there will likely be an error because I have set it to something else!
+
+```sh
+# Don't do this!
+USER="Dave Kerr"
+
+# If I wanted to go to my home directory, this command would fail. That's
+# because USER should be 'dwmkerr' but I've set it to something else!
+cd "/home/$USER"
+```
+
+If you set a system variable to something incorrect, the impact will be limited to only the script you are running or the shell session you are in, or any commands you run from the script or session - other running programs will _not_ have their copy of the variable changed. You can read more about this in the [Processes]({{< relref "/docs/work-in-progress" >}}) chapter of the [Linux Fundamentals]({{< relref "/docs/work-in-progress" >}}) section.
+
+## Storing the Output of a Command into a Variable
+
+We can use a _subshell_<!--index--> to run a command and store the result in a variable.
+
+For example, if we had a variable which held a user's password and wanted to show it on the screen in a 'masked' form, where all of the characters are replaced with an asterisks symbol, we could write the password variable into the `sed` command and replace every character with an asterisks symbol like so:
+
+```sh
+password="somethingsecret"
+masked_password=$(echo "$password" | sed 's/./*/g')
+echo "Setting password '${masked_password}'..."
+```
+
+The output of this script will look like this:
+
+```
+Setting password '***************'...
+```
+
+To execute a set of commands in a 'sub shell', we can use the `$()` sequence. Everything inside the brackets will be executed in a new shell. We can then store the output of the commands in a variable by using the `=` equals symbol.
+
+## Being Explicit with Variable Names
+
+You can use curly braces around the name of a variable to be more explicit about what the variable name is. Let's take a look at why you might need to do this:
+
+```sh
+echo "Creating backup folder at: '$USERbackup'"
+mkdir $USERbackup
+```
+
+This script shows the output:
+
+```
+Creating backup folder at: ''
+usage: mkdir [-pv] [-m mode] directory ...
+```
+
+Rather than creating a folder called `dwmkerrbackup` (which is my `$USER` variable followed by the text `backup`), the script has actually failed. That is because it is looking for a variable called `USERbackup` - which has does not exist!
+
+To get around this we would surround the variable name with curly braces like so:
+
+```sh
+echo "Creating backup folder at: '${USER}backup'"
+mkdir "${USER}backup"
+```
+
+This script will show the correct output:
+
+```
+Creating backup folder at: 'dwmkerrbackup'
+```
+
+If there is ever any potential ambiguity with a variable name you should enclose it with curly braces to be on the safe side. Some people will use curly braces in all circumstances to be as explicit as possible about what the variable name is and reduce the risk of mistakes if someone later comes along to edit or change the code.
+
+This script would be improved with the use of a variable of our own to avoid us having to repeat the `${USER}backup` text:
+
+```sh
+backupdir="${USER}backup"
+echo "Creating backup folder at: '${backupdir}'"
+mkdir "${backupdir}"
+```
+
+In this case creating a variable to save us from creating the backup directory folder name each time we want to use it.
+
+We've looked at environment variables and our own _local_ variables. Now let's look at how we can read input from the user and store it in a variable for later usage.
+
+## The Read Command
+
+The `read` (_read from standard input_)<!--index--> command can be used to read a line of text from standard input. When the text is read it is put into a variable, allowing it to be used in our scripts.
+
+Let's see how this look in action!
+
+```sh
+echo "What is your name?"
+read
+echo "Hello, $REPLY"
+```
+
+Run the script - when you have finished writing your name, press 'enter'. This is needed because `read` will keep on reading until it reaches the end of a line, so we need to press 'enter' to complete the input.
+
+```
+What is your name?
+Dave
+Hello, Dave
+```
+
+The `read` command reads a line of text from standard input and stores the result in a variable called `REPLY`. We can then use this variable to use the text that was read.
+
+Why is the variable in uppercase? That's because even though we are setting the variable itself, it is still a 'special' variable defined by the shell. It is the variable that `read` puts its input into if we don't explicitly tell `read` what the variable name should be.
+
+### Reading into a Variable
+
+We can tell the `read` command to put the input it reads into a variable with a name of our choice by specifying the variable name after the command, like so:
+
+```sh
+echo "What is your name?"
+read name
+echo "Hello, ${name}"
+```
+
+In general you should provide a variable name for `read` - it will make your script a little easier to understand. Not every user will know that the `$REPLY` variable is the default location, so they might find it confusing if you don't provide a variable name. By specifying a variable name explicitly we make our script easier to follow.
+
+This also shows good coding practices - your variable names should be _descriptive_, and inform the reader of what they are likely to be used for. This makes the script easier to follow and maintain over time.
+
+This is another time that we use a variable name without putting a dollar before it. It might be helpful to remember that the dollar is used when we want to _use_ the variable and the dollar is omitted when we want to _set_ the variable.
+
+### Prompting for Input
+
+Before you run the `read` command you are probably going to write a message to the user letting them know they need to enter some input. We can either write out a message first to prompt the user, using the `echo` command as shown above, or we can use the special `-p` (_prompt_) parameter:
+
+```sh
+read -p "Please enter your name: " name
+echo "Hello, $name"
+```
+
+Now the output will look like this:
+
+```
+Please enter your name: Dave
+Hello, Dave
+```
+
+**Z-Shell Note**
+
+If you are using the Z-Shell, then this command will fail as `zsh` does not use the `-p` parameter for at prompt. To prompt a user for input with the `read` command in `zsh`, just put a line of text after the command that starts with a question mark:
+
+```sh
+read "?Please enter your name: "
+echo "Hello, $REPLY"
+```
+
+### Reading Secrets
+
+The `-s` (_silent_) flag can be used to hide the input as it is being written. This is useful if you want to read a secret such as a password:
+
+```sh
+read -s -p "Enter a new password: " password
+masked_password=$(echo "$password" | sed 's/./*/g') 
+echo ""
+echo "Your password is: $masked_password"
+```
+
+The output of this script will be something like the below:
+
+```
+Enter a new password:
+Your password is: ********
+```
+
+This uses the same trick as before to mask the characters. Note that when we use the `-s` flag, the read command does not print what we've typed - meaning we don't print the 'enter' symbol that the user presses to finish entering text. This means we don't see a new line after the `read` command. So we use `echo ""` to write a newline before we show the output.
+
+### Limiting the Input
+
+There may be times where you don't want to have the user press 'enter' to indicate that they have finished writing input.
+
+There are a couple of ways we can limit the input. The first is to use the `-n` (_number of characters_) parameter to limit the number of characters that are read:
+
+```sh
+read -n 1 -p "Continue? (y/n): " yesorno
+echo ""
+echo "You typed: ${yesorno}"
+```
+
+This script will only wait for the user to type a single character as we used the `-n` flag with the value `1` to specify that we want to read a single character only.
+
+Because the user doesn't press 'enter' at the end of their input, we need to add a blank newline before we show the output - otherwise it would look like this:
+
+```
+Continue? (y/n): nYou typed: n
+```
+
+It's only when we read a full line of text that we don't need to write an empty line. That's because when we read a full line of text we finish by pressing 'enter', which moves the cursor down to the next line for us.
+
+The other way to limit the input is to specify a character that is to use a _delimiter_ to indicate when `read` should stop reading input:
+
+```sh
+read -d ' ' -p "Enter your favourite word (then a space): " word
+echo ""
+echo "Your favourite word is: ${word}"
+```
+
+Because we used the `-d ' '` parameter, the read command will read up until it finds a 'space' symbol. This can be confusing for users however - if they press enter then `read` will read it as a newline and continue waiting for a space. So you should let the user know to finish input with the delimiter you have chosen!
+
+In general using another anything than a newline as the delimiter may be confusing to the user, and also causes some problems when the user wants to type special characters such as backspace, so I would suggest that you avoid this trick. Instead, let the user type their input and then use something like `sed` to extract everything up to the point that you want.
+
+There are a number of other options for the `read` command that you can read about by typing `help read`. But these are the ones that I think you will see most commonly used.
+
+## Mathematics
+
+The shell has some built in features that let you perform mathematical operations. You will commonly perform these operations on variables.
+
+You might assume that you can use symbols like `+` directly in the your scripts to perform mathematical operations - but they may not perform as expected. For example, here's what happens if you try to add two numbers together with the `+` plus symbol:
+
+```sh
+read -p "Enter a number: " number1
+read -p "Enter another number: " number2
+sum=$number1+$number2
+echo "The sum of $number1 and $number2 is $sum"
+```
+
+If you run this script you'll see something like this:
+
+```
+Enter a number: 23
+Enter another number: 34
+The sum of 23 and 34 is 23+34
+```
+
+The result we see is not the sum of the two numbers - it is the two numbers with the literal `+` plus symbol between them.
+
+To tell the shell that we want to perform an arithmetic operation, rather than just write out a mathematical operator, we use the 'double parenthesis' syntax shown below:
+
+```sh
+read -p "Enter a number: " number1
+read -p "Enter another number: " number2
+sum=$(($number1 + $number2))
+echo "The sum of $number1 and $number2 is $sum"
+```
+
+The output of this script will be something like the below:
+
+```
+Enter a number: 23
+Enter another number: 34
+The sum of 23 and 34 is 57
+```
+
+There is an alternative syntax - we can use the `let` keyword to indicate to the shell that we want to perform an arithmetic operation. This would look like this:
+
+```sh
+let sum=$number1 + $number2
+```
+
+I've included the `let` keyword here for completeness, but I would recommend that you use the double-parenthesis where possible as I think that it is probably the more commonly used construct.
+
+There are many arithmetic operators available. Here's a table showing a few common ones and how they are used:
+
+| Operator | Meaning        | Example                      |
+|----------|----------------|------------------------------|
+| `+`      | Addition       | `echo $((3+4)) # prints 7`   |
+| `-`      | Subtraction    | `echo $((4-2)) # prints 2`   |
+| `*`      | Multiplication | `echo $((4*2)) # prints 8`   |
+| `/`      | Division       | `echo $((4/2)) # prints 2`   |
+| `**`     | Exponent       | `echo $((4**3)) # prints 64` |
+| `%`      | Modulus        | `echo $((7%3)) # prints 1`   |
+
+If you want to find the complete set of arithmetic operators available or find more details on how arithmetic works in the shell, use `man bash` and search for the text `ARITHMETIC\ EVALUATION` (the backslash is needed to escape the space between the words when searching in the manual).
+
+The script below shows how you can use a combination of operators to convert a value in degrees Celsius to Fahrenheit:
+
+```sh
+read -p "Enter a value in Celsius: " celcius
+fahrenheit=$(( (celcius * 9/5) + 32 ))
+echo "${celcius} degrees Celsius is ${fahrenheit} degrees Fahrenheit"
+```
+
+Note that you can use brackets in your arithmetic expressions to be explicit about the order in which the calculations should be performed. The order that is used if you don't use brackets is detailed in the manual page, but in general using brackets will make things clearer to the reader.
+
+## Variable String Manipulation
+
+There are some built-in features in the Bash shell that allow you to manipulate string variables. In general I think that these are quite difficult to follow when they are in scripts so most readers can probably skip this section. But feel free to read about some of these common operations if you think you will use them or you think you might encounter them when working with scripts that other people have written!
+
+**String Length**
+
+The `${#var}` operator returns the length of the variable `var`:
+
+```sh
+var="The quick brown fox jumps over the lazy dog"
+length=${#var}
+echo "Length: $length"
+# Prints: 43
+```
+
+**Set Default Value**
+
+The `${var:-default}` operator returns the value of the variable `var` or the text `default` if it is not found:
+
+```sh
+read -p "Enter your username: " user
+username=${user:-$USER}
+echo "Username: $username"
+# Prints what you typed or the value of $USER otherwise
+```
+
+There are a number of other operators that exist. They allow you to extract parts of a string, make test uppercase or lowercase, apply regular expressions and so on. But I would recommend avoiding them as they are fairly specific to bash and likely will be confusing to readers. If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
+
+It is generally enough to know that if you see special symbols inside a `${variable}` expression then the writer is performing some kind of string manipulation. Hopefully they have included a comment that describes what they are doing to make it easier to follow!
+
+# Summary
+
+In this chapter we looked at how environment variables work and how we can use our own variables. We saw how to read input from the user and how to perform arithmetic operations.
+
+We've seen a few new constructs in this chapter that will appear again and again, these are summarised below so that you can recognise them!
+
+- `${variable}` gets the value of `variable` - the braces surround the variable name
+- `$(echo "$PAGER")` runs the `echo` command in a subshell - the single parenthesis indicates we are running a subshell
+- `$(($left + $right))` adds the values in the variables `left` and `right` - the double parenthesis indicate that we are performing arithmetic
+
+In the next chapter we are going to see how to perform _logic_ in scripts - running commands only when certain conditions are met. This is an incredibly powerful technique and will let you create much more sophisticated scripts!
+
