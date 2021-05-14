@@ -66,6 +66,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [The Most Important Manpages](#the-most-important-manpages)
     * [Appendixes](#appendixes)
         * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
+* [More Useful Reading](#more-useful-reading)
 * [Essential Tools](#essential-tools)
 * [Good Scripts to write as exercises](#good-scripts-to-write-as-exercises)
 * [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
@@ -327,11 +328,15 @@ Could do a small chapter on how to build a text manipulation program which simpl
 
 Unix, Linux, BSD,
 
+Great read: http://www.linfo.org/linuxdef.html
+
 #### Environment Variables
 
 How environment variables work, how they are accessed in a shell.
 
 #### Processes
+
+Signals, process tree, permissions, process id.
 
 #### Users, Groups and Permissions
 
@@ -472,6 +477,12 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: slice and dice: add count option (-c) for `uniq` and numeric (-n) for `sort` as we use these commands in the shell script essentials chapter
 - todo: we need to show the `ln` command. It is used in the shell script essentials chapter.
 
+## More Useful Reading
+
+http://samrowe.com/wordpress/advancing-in-the-bash-shell/
+http://www.linfo.org/shell.html
+http://www.linfo.org/bell_labs.html
+http://www.linfo.org/index.html
 
 Section: building good command line tools
 
