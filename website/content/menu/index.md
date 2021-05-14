@@ -26,4 +26,5 @@ bookMenuLevels: 1
    - [Build Commands on the Fly with Xargs]({{< relref "/docs/part-3-manipulating-text/build-commands-on-the-fly" >}})
  - [**Part 4 - Shell Scripting**]({{< relref "/docs/part-4-shell-scripting" >}})
    - [Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}})
+   - [Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics/" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})

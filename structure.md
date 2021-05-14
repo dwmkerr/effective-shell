@@ -29,12 +29,15 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 17 - Build Commands on the Fly](#chapter-17---build-commands-on-the-fly)
     * [Part 4 - Shell Scripting](#part-4---shell-scripting)
         * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
-        * [Chapter 22 - Operating on Files and Folders](#chapter-22---operating-on-files-and-folders)
+        * [Chapter 19 - Variables, Reading Input, and Mathematics](#chapter-19---variables-reading-input-and-mathematics)
+        * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
+        * [Chapter 20 - Logic, Loops and working with Files and Folders](#chapter-20---logic-loops-and-working-with-files-and-folders)
+        * [Chapter 20 - Loops and working sets of Files and Folders](#chapter-20---loops-and-working-sets-of-files-and-folders)
+        * [Chapter 21 - Getting Input from the User and using Variables](#chapter-21---getting-input-from-the-user-and-using-variables)
         * [Chapter X - Parameters, Return Values, Error Handling](#chapter-x---parameters-return-values-error-handling)
         * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
         * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
         * [Chapter X - Advanced Shell Scripts](#chapter-x---advanced-shell-scripts)
-        * [Chapter 18 - Bash Text Tricks - Regexes and String Manipulation](#chapter-18---bash-text-tricks---regexes-and-string-manipulation)
         * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
         * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
@@ -203,16 +206,32 @@ As we've seen, there's a lot we can do with the shell. Creating shell scripts al
 
 First we're going to look at how to write shell scripts as well as the different ways to execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run. These will be essential techniques to have as a foundation for building your own scripts.
 
-#### Chapter 22 - Operating on Files and Folders
+#### Chapter 19 - Variables, Reading Input, and Mathematics
+
+We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
+
+#### Chapter 20 - Mastering the If Statement
+
+Now that we know how to read input from the user, we'll introduce the _if statement_. 
+
+#### Chapter 20 - Logic, Loops and working with Files and Folders
 
 One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
+
+#### Chapter 20 - Loops and working sets of Files and Folders
+
+One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
+
+#### Chapter 21 - Getting Input from the User and using Variables
+
+How to read input, ties into logic, read variables, check the values of variables
+
 
 #### Chapter X - Parameters, Return Values, Error Handling
 
 https://www.leadingagile.com/2018/10/unit-testing-shell-scriptspart-one/
 
 Use the `rcut` function as an example
-
 
 #### Chapter 23 - Logic and Mathematics
 
@@ -226,14 +245,9 @@ We'll now introduce a few practical real-world scripts. These will demonstrate m
 
 Ctrl+Alt+R for `recent`, i.e. demoing key combinations?
 
-#### Chapter 18 - Bash Text Tricks - Regexes and String Manipulation
-
-Bash has some built-in capabilities which can be very difficult to handle when you are working with text. In this chapter we'll take a look at the built-in regular expression support in Bash, and also take a look at some nifty tricks for manipulating text in the shell.
-
 #### Chapter 25 - How to avoid scripting!
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
-
 
 ### Part 4 - Building Your Toolkit
 
@@ -385,6 +399,7 @@ As an appendix, or printed reference, list of the top ten manpages?
 - `man re_format`
 - `man getopt`
 - `man XXX` show signal commands (`Ctrl+V` etc)
+- `man bash` search for `ARITHMETIC\ EVALUATION` to find how arithmetic operators work in bash
 
 ### Appendixes
 
