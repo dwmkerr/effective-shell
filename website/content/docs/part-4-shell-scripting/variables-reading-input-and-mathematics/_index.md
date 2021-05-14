@@ -62,9 +62,11 @@ This will produce the output:
 Hello Dave in Singapore
 ```
 
-By convention, variables that you define yourself should be lowercase. This helps to distinguish between environment or built in variables and your own variables.
+By convention, variables that you define yourself should be lowercase. This helps to distinguish between environment variables and your own variables.
 
-It is a good habit to use lowercase for variable names - you will see many examples online of people not doing this. Using uppercase will work, but when you use uppercase you run the risk of 'overwriting' the value of an environment variable and causing unexpected results later. For example, in this snippet I accidentally overwrite the `USER` variable. If a later part of the script expects the `USER` variable to contain the Linux username of the user then there will likely be an error because I have set it to something else!
+It is a good habit to use lowercase for variable names. Using uppercase will work, but when you use uppercase you run the risk of 'overwriting' the value of an environment variable and causing unexpected results later.
+
+For example, in this snippet I accidentally overwrite the `USER` variable. If a later part of the script expects the `USER` variable to contain the Linux username of the user then there will likely be an error because I have set it to something else!
 
 ```sh
 # Don't do this!
@@ -75,7 +77,7 @@ USER="Dave Kerr"
 cd "/home/$USER"
 ```
 
-If you set a system variable to something incorrect, the impact will be limited to only the script you are running or the shell session you are in, or any commands you run from the script or session - other running programs will _not_ have their copy of the variable changed. You can read more about this in the Linux Fundamentals section in the chapter "Processes".
+If you set a system variable to something incorrect, the impact will be limited to only the script you are running or the shell session you are in, or any commands you run from the script or session - other running programs will _not_ have their copy of the variable changed. You can read more about this in the [Processes]({{< relref "/docs/work-in-progress" >}}) chapter of the [Linux Fundamentals]({{< relref "/docs/work-in-progress" >}}) section.
 
 ## Storing the Output of a Command into a Variable
 
@@ -113,7 +115,7 @@ Creating backup folder at: ''
 usage: mkdir [-pv] [-m mode] directory ...
 ```
 
-Rather than creating a folder called `dwmkerrbackup` (which is my `$USER` variable followed by the text `backup`), the script has actually failed. That is because it is looking for a variable called `USERbackup` - which has not been set!
+Rather than creating a folder called `dwmkerrbackup` (which is my `$USER` variable followed by the text `backup`), the script has actually failed. That is because it is looking for a variable called `USERbackup` - which has does not exist!
 
 To get around this we would surround the variable name with curly braces like so:
 
@@ -128,8 +130,6 @@ This script will show the correct output:
 Creating backup folder at: 'dwmkerrbackup'
 ```
 
-And create the appropriate folder.
-
 If there is ever any potential ambiguity with a variable name you should enclose it with curly braces to be on the safe side. Some people will use curly braces in all circumstances to be as explicit as possible about what the variable name is and reduce the risk of mistakes if someone later comes along to edit or change the code.
 
 This script would be improved with the use of a variable of our own to avoid us having to repeat the `${USER}backup` text:
@@ -140,7 +140,7 @@ echo "Creating backup folder at: '${backupdir}'"
 mkdir "${backupdir}"
 ```
 
-In this case creating a variable save us from creating the backup directory folder name each time we want to use it.
+In this case creating a variable to save us from creating the backup directory folder name each time we want to use it.
 
 We've looked at environment variables and our own _local_ variables. Now let's look at how we can read input from the user and store it in a variable for later usage.
 
@@ -178,9 +178,9 @@ read name
 echo "Hello, ${name}"
 ```
 
-In general you should provide a variable name for `read` - it will make your script a little easier to read. Not every use will know that the `$REPLY` variable is the default location, so they might find it confusing. By specifying a variable name explicitly we make our script a little easier to follow.
+In general you should provide a variable name for `read` - it will make your script a little easier to understand. Not every user will know that the `$REPLY` variable is the default location, so they might find it confusing if you don't provide a variable name. By specifying a variable name explicitly we make our script easier to follow.
 
-This also shows good coding practices - your variable names should be _descriptive_, and inform the reader of what they are likely to be used for. This just makes the script easier to follow and maintain over time.
+This also shows good coding practices - your variable names should be _descriptive_, and inform the reader of what they are likely to be used for. This makes the script easier to follow and maintain over time.
 
 This is another time that we use a variable name without putting a dollar before it. It might be helpful to remember that the dollar is used when we want to _use_ the variable and the dollar is omitted when we want to _set_ the variable.
 
@@ -233,7 +233,7 @@ This uses the same trick as before to mask the characters. Note that when we use
 
 There may be times where you don't want to have the user press 'enter' to indicate that they have finished writing input.
 
-There are a couple of ways we can do this. The first is to use the `-n` (_number of characters_) parameter to limit the number of characters that are read:
+There are a couple of ways we can limit the input. The first is to use the `-n` (_number of characters_) parameter to limit the number of characters that are read:
 
 ```sh
 read -n 1 -p "Continue? (y/n): " yesorno
@@ -251,7 +251,7 @@ Continue? (y/n): nYou typed: n
 
 It's only when we read a full line of text that we don't need to write an empty line. That's because when we read a full line of text we finish by pressing 'enter', which moves the cursor down to the next line for us.
 
-The other way to limit the input is to specify a character that is used to _delimit_ the input. A _delimiter_ is used to specify when `read` should stop reading:
+The other way to limit the input is to specify a character that is to use a _delimiter_ to indicate when `read` should stop reading input:
 
 ```sh
 read -d ' ' -p "Enter your favourite word (then a space): " word
@@ -259,9 +259,9 @@ echo ""
 echo "Your favourite word is: ${word}"
 ```
 
-When you type, the read command will read up until it finds a 'space' symbol. This can be confusing for users however - if they enter a newline that will be read as well, so you should let the user know to finish input with the delimiter you have chosen!
+Because we used the `-d ' '` parameter, the read command will read up until it finds a 'space' symbol. This can be confusing for users however - if they press enter then `read` will read it as a newline and continue waiting for a space. So you should let the user know to finish input with the delimiter you have chosen!
 
-In general using another anything than a newline as the delimiter may be confusing to the user, and also causes some problems when the user wants to type special characters such as backspace, so I would suggest that you avoid this trick. Instead, let the user type their input and then use something like `sed` to extract everything up to the point that you want!
+In general using another anything than a newline as the delimiter may be confusing to the user, and also causes some problems when the user wants to type special characters such as backspace, so I would suggest that you avoid this trick. Instead, let the user type their input and then use something like `sed` to extract everything up to the point that you want.
 
 There are a number of other options for the `read` command that you can read about by typing `help read`. But these are the ones that I think you will see most commonly used.
 
@@ -364,9 +364,17 @@ echo "Username: $username"
 
 There are a number of other operators that exist. They allow you to extract parts of a string, make test uppercase or lowercase, apply regular expressions and so on. But I would recommend avoiding them as they are fairly specific to bash and likely will be confusing to readers. If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
 
+It is generally enough to know that if you see special symbols inside a `${variable}` expression then the writer is performing some kind of string manipulation. Hopefully they have included a comment that describes what they are doing to make it easier to follow!
+
 # Summary
 
 In this chapter we looked at how environment variables work and how we can use our own variables. We saw how to read input from the user and how to perform arithmetic operations.
+
+We've seen a few new constructs in this chapter that will appear again and again, these are summarised below so that you can recognise them!
+
+- `${variable}` gets the value of `variable` - the braces surround the variable name
+- `$(echo "$PAGER")` runs the `echo` command in a subshell - the single parenthesis indicates we are running a subshell
+- `$(($left + $right))` adds the values in the variables `left` and `right` - the double parenthesis indicate that we are performing arithmetic
 
 In the next chapter we are going to see how to perform _logic_ in scripts - running commands only when certain conditions are met. This is an incredibly powerful technique and will let you create much more sophisticated scripts!
 
