@@ -1,14 +1,16 @@
 ---
-title: "Logic, Loops and working with Files and Folders"
-slug: "logic-loops-and-working-with-files-and-folders"
+title: "Matering the If Statement"
+slug: "mastering-the-if-statement"
 weight: 20
 ---
 
-# Chapter 20 - Logic, Loops and working with Files and Folders
+# Chapter 20 - Mastering the If Statement
 
-In this chapter we are going to look at how to perform logic in shell scripts. Logic allows us to perform operations only when certain conditions are met. We'll also look at loops, which let us perform a series of operations. To demonstrate the techniques used with logic and loops we'll look at some common use cases when dealing with files and folders, introducing a number of useful patterns that you can use in your own shell scripts.
+In this chapter we'll introduce the _if statement_ - this is a crucial feature of the shell as it allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
 
-## The If Statement<!-- index -->
+Let's get right into it!
+
+# The If Statement<!-- index -->
 
 We can use the _if statement_ to perform operations in shell scripts only when certain conditions are met. Let's take a look at a simple example:
 

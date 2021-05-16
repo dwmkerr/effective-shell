@@ -41,7 +41,7 @@ Let's get started!
 
 It's going to take some trial and error to get our commands right. So let's start by creating a shell script, which we'll run again and again.
 
-In your favourite editor, create a file called 'common.sh' and put it somewhere on your system. As an example, I'm going to create a folder called `scripts` in my home directory and create the `common.sh` file there:
+In your favourite editor, create a file called `common.v1.sh` and put it somewhere on your system. As an example, I'm going to create a folder called `scripts` in my home directory and create the `common.v1.sh` file there:
 
 ```sh
 # Create a directory called 'scripts'.
@@ -49,17 +49,20 @@ In your favourite editor, create a file called 'common.sh' and put it somewhere 
 mkdir -p ~/scripts 
 
 # Create the script file.
-touch ~/scripts/common.sh
+touch ~/scripts/common.v1.sh
 
 # Open the script file in my favourite editor.
 vi ~/scripts.sh
 ```
+I have called the script `common.v1.sh` rather than `common.sh` because in each chapter of this section we are going to improve upon the script and change the version number. So in later chapters we will create `common.v2.sh`, `common.v3.sh` and so on.
 
-These commands should be familiar. The `mkdir` command creates a directory. The `-p` (create parent directories if needed) flag stops the command from returning an error if the directory already exist. The `touch` command creates an empty file with the given name. Finally, I open the file in an editor. I am using Vim, but you can open this file in any editor you like.
+These commands should be familiar. The `mkdir` command creates a directory. The `-p` (create parent directories if needed) flag stops the command from returning an error if the directory already exist.
 
-Before we build the script, let's quickly talk about 'comments.
+The `touch` command creates an empty file with the given name. Finally, I open the file in an editor. I am using Vim, but you can open this file in any editor you like.
 
-## Comments
+Before we build the script, let's quickly talk about _comments_.
+
+## Comments<!--index..>
 
 The shell ignores any text which follows a `#` hash symbol. Whether this is text you type into a shell, or text in a shell script, the shell will ignore the content.
 
@@ -97,11 +100,11 @@ cat ~/effective-shell/data/top100.csv | rev | cut -d',' -f1 | rev
 
 If you _don't_ come from a programming background you might think that many of these comments are a little obvious. But as you write more and more code you'll realise that something that seemed obvious when you wrote it a while ago can look surprisingly baffling even just a few days later!
 
-Now that we've discussed comments, we'll build our `common.sh` shell script.
+Now that we've discussed comments, we'll build our `common.v1.sh` shell script.
 
 ## Building and Testing the Script
 
-Add the following commands to the `common.sh` file:
+Add the following commands to the `common.v1.sh` file:
 
 ```
 # Write the title of our command.
@@ -127,7 +130,7 @@ If you want to see a more detailed breakdown of how the script works, check [App
 Now save the file. In your shell, run the following command to execute the file:
 
 ```
-sh ~/scripts/common.sh
+sh ~/scripts/common.v1.sh
 ```
 
 The `sh` (shell) command starts a new shell. When we pass the path of a shell script, the shell command will run the script and then exit. The output you see will look something like this:
@@ -177,7 +180,7 @@ There are a few different ways we can run shell scripts.
 The first is to run a shell program and pass the script as a parameter. This is what we did in the earlier example. Here's another example of how we could run the script we created:
 
 ```
-bash ~/scripts/common.sh
+bash ~/scripts/common.v1.sh
 ```
 
 This is a perfectly valid technique. Now let's see the other ways we can run a script.
@@ -185,13 +188,13 @@ This is a perfectly valid technique. Now let's see the other ways we can run a s
 The next way we can run a script it is make it 'executable'. This means we change the file permissions of the script file, adding the 'executable bit'. This tells the systems we can run the file. We use the `chmod` (_change file mode_) command to do this:
 
 ```
-chmod +x ~/scripts/common.sh
+chmod +x ~/scripts/common.v1.sh
 ```
 
 If the `chmod` command looks unfamiliar then check the [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}) chapter. Now that the file has been made executable, we can simply enter the path to the file and run it, as if it was any other command:
 
 ```
-~/scripts/common.sh
+~/scripts/common.v1.sh
 ```
 
 There is a problem with this approach though. How this file is executed is going to vary depending on how your system is set up[^3]. For example, if you are using Bash, then the script will run in a new instance of the Bash shell. However, if you are using the Z shell, then the script will most likely run in the `sh` program (and depending on your system, this program might just be a link to _another_ type of shell).
@@ -202,7 +205,7 @@ We want to avoid any ambiguity and be explicit about _what_ program should run o
 
 A _shebang_ is a special set of symbols at the beginning of a file that tells the system what program should be used to run the file.
 
-If we were to add a shebang to our `common.sh` file, it would look like this:
+If we were to add a shebang to our `common.v1.sh` file, it would look like this:
 
 ```sh
 #!/usr/bin/sh
@@ -296,7 +299,7 @@ Using a shebang to specify the exact command to run, and then using the `env` co
 
 Before we finish with our shell script fundamentals, we'll take a look at one final commonly used pattern to run shell scripts - installing them as a local binary.
 
-Our `common.sh` script (with the added shebang) looks like this:
+Our `common.v1.sh` script (with the added shebang) looks like this:
 
 ```sh
 #!/usr/bin/env sh
@@ -311,7 +314,7 @@ tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -
 If we have made the script executable with the `chmod` command, then we can run the script by simply typing the location of the script in the shell:
 
 ```
-$ ~/scripts/common.sh
+$ ~/scripts/common.v1.sh
 common commands:
 96 gpr
 97 gcm
@@ -321,7 +324,7 @@ common commands:
 If we want to 'install' this script as a local command which we can run easily, we can create a _symbolic link_ to the shell script in our `/usr/local/bin` folder:
 
 ```
-ln -s ~/scripts/common.sh /usr/local/bin/common
+ln -s ~/scripts/common.v1.sh /usr/local/bin/common
 ```
 
 The `ln` (_create link_) command creates a link (which is like a shortcut in Windows and other desktop systems) in our `/usr/local/bin` folder, with the name `common`, which points to the script we have written. We can now run the `common` command without specifying its path:
@@ -340,8 +343,6 @@ Why do we use the `/usr/bin/local` folder rather than the `/usr/bin` folder? Thi
 
 ## Summary
 
-If you want to see the script as it should look at the end of the chapter, install the samples and open the `effective-shell/scripts/common.v1.sh` file. We have 'v1' at the end of the file name to indicate this is version one, because in later chapters we will add more features.
-
 In this chapter we've covered quite a few of the fundamentals of shell scripts:
 
 - How to create a shell script
@@ -359,7 +360,7 @@ In the next chapter we'll look at how to add logic to our shell scripts.
 
 ## Appendix - How the Script Works
 
-This section briefly covers how the `common.sh` script works. Assuming we have a history that looks like this:
+This section briefly covers how the `common.v1.sh` script works. Assuming we have a history that looks like this:
 
 ```
 vi README.md
