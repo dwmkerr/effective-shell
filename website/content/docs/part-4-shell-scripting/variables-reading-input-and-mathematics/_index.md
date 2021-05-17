@@ -8,7 +8,7 @@ weight: 19
 
 We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
 
-## Introducing Variables
+# Variables
 
 _Variables_<!-- index --> are places where the system, the shell, or shell users like ourselves can store data.
 
@@ -144,7 +144,7 @@ In this case creating a variable to save us from creating the backup directory f
 
 We've looked at environment variables and our own _local_ variables. Now let's look at how we can read input from the user and store it in a variable for later usage.
 
-## The Read Command
+# The Read Command
 
 The `read` (_read from standard input_)<!--index--> command can be used to read a line of text from standard input. When the text is read it is put into a variable, allowing it to be used in our scripts.
 
@@ -265,7 +265,7 @@ In general using another anything than a newline as the delimiter may be confusi
 
 There are a number of other options for the `read` command that you can read about by typing `help read`. But these are the ones that I think you will see most commonly used.
 
-## Mathematics
+# Mathematics
 
 The shell has some built in features that let you perform mathematical operations. You will commonly perform these operations on variables.
 
@@ -336,7 +336,43 @@ echo "${celcius} degrees Celsius is ${fahrenheit} degrees Fahrenheit"
 
 Note that you can use brackets in your arithmetic expressions to be explicit about the order in which the calculations should be performed. The order that is used if you don't use brackets is detailed in the manual page, but in general using brackets will make things clearer to the reader.
 
-## Variable String Manipulation
+# Arrays
+
+Arrays are variables which can store multiple values. An array is created by using the equals symbol and putting the array values in parenthesis, like so:
+
+```sh
+days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")
+```
+
+Once you have defined your array you can retrieve an element at a given index by using the square bracket notation shown below:
+
+```sh
+echo "The first day is: ${days[0]}"
+echo "The last day is: ${days[6]}"
+```
+
+Arrays in Bash start at index zero. Arrays in the Z-Shell start at index one - this can cause confusion and mistakes in scripts so it is something you might have to consider if you are writing scripts that can be used by either shell.
+
+There are a number of useful operations you can perform on arrays. An example of each is shown below:
+
+| Operation                | Syntax                   | Example                                                                                                       |
+|--------------------------|--------------------------|---------------------------------------------------------------------------------------------------------------|
+| Create Array             | array=()                 | `days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")`                               |
+| Get Array Element        | ${array[index]}          | `echo ${days[2]} # prints 'Wednesday'`                                                                        |
+| Get All Elements         | ${array[@]}              | `echo ${days[@]} # prints 'Monday Tuesday Wednesday Thursday Friday Saturday Sunday'`                         |
+| Set Array Element        | ${array[index]}=value    | `days[0]="Mon"`                                                                                               |
+| Get Array Indexes        | ${!array[@]}             | `arr=(); arr[3]="apple"; arr[5]="pear"; echo ${!arr[@]} # prints 3 5`                                         |
+| Get Array Length         | ${#array[@]}             | `echo ${#days[@]} # Prints 7`                                                                                 |
+| Append to Array          | array+=(val1 val2 valN)  | `fruits=(); fruits+=("Apples"); fruits+=("Pears" "Grapes"); echo ${fruits[@]} # prints 'Apples Pears Grapes'` |
+| Get a subset of elements | ${array[@]:start:number} | `echo ${days[@]:5:2} # prints 'Saturday Sunday'`                                                              |
+
+It's important to use curly braces around your array expressions. Note that in the examples above when we _set_ an array value we don't use braces or the dollar symbol - this is consistent with what we've seen so far - variable names do not have a dollar symbol when we are setting a value.
+
+You might have noticed from the examples that arrays in Bash can be _sparse_ - that means that you can have 'gaps' in your array. Arrays can also have a mixture of strings or numbers - not every element in an array has to be of the same type.
+
+We'll see arrays in more detail in the chapter on Loops.
+
+# Variable String Manipulation
 
 There are some built-in features in the Bash shell that allow you to manipulate string variables. In general I think that these are quite difficult to follow when they are in scripts so most readers can probably skip this section. But feel free to read about some of these common operations if you think you will use them or you think you might encounter them when working with scripts that other people have written!
 
@@ -365,6 +401,52 @@ echo "Username: $username"
 There are a number of other operators that exist. They allow you to extract parts of a string, make test uppercase or lowercase, apply regular expressions and so on. But I would recommend avoiding them as they are fairly specific to bash and likely will be confusing to readers. If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
 
 It is generally enough to know that if you see special symbols inside a `${variable}` expression then the writer is performing some kind of string manipulation. Hopefully they have included a comment that describes what they are doing to make it easier to follow!
+
+# Updating the 'Common' Command
+
+With our new understanding of variables, we can improve the 'common' command we created in the previous chapter by extracting certain values into variables so that they can be more easily changed.
+
+Let's look at our original 'common' command:
+
+```sh
+# Write the title of our command.
+echo "common commands:"
+
+# Show the most commonly used commands.
+tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -n 10
+```
+
+We could improve on this by making the number of lines of text in the history we search through and the number of commands to show variables, so that they can be more easily changed.
+
+Create a copy of the `common.v1.sh` script and call it `common.v2.sh` and update it like so:
+
+```sh
+# Write the title of our command.
+echo "common commands:"
+
+# The following variables control how the command runs.
+history_lines=1000 # The number of lines of history to search through
+command_count=10   # The number of common commands to show.
+
+# Show the most commonly used commands.
+tail ~/.bash_history -n ${history_lines} \
+    | sort \
+    | uniq -c \
+    | sed 's/^ *//' \
+    | sort -n \
+    | tail -n ${command_count}
+```
+
+We have replaced two 'hard-coded' values (the number of lines of history to search and the number of common commands to show) with variables, which are now easier to find and change. We have also split the command into multiple lines so that it is easier to read (as the line is quite long otherwise).
+
+If you want to replace the installed `common` command with this new one, update the symlink in your _/usr/local/bin_ folder:
+
+```sh
+ln -sf $HOME/effective-shell/scripts/common.v2.sh /usr/local/bin/common
+```
+
+Note that in this command we use the `-f` flag to force the creation of the symlink even if one already exists in the given location.
+
 
 # Summary
 

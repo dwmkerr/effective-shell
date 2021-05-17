@@ -212,7 +212,7 @@ We've seen variables a few times in our journey so far. In this chapter we'll lo
 
 #### Chapter 20 - Mastering the If Statement
 
-Now that we know how to read input from the user, we'll introduce the _if statement_. 
+In this chapter we'll introduce the _if statement_ - this is a crucial feature of the shell as it allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
 
 #### Chapter 20 - Logic, Loops and working with Files and Folders
 
