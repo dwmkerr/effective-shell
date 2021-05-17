@@ -6,7 +6,7 @@ weight: 20
 
 # Chapter 20 - Mastering the If Statement
 
-In this chapter we'll introduce the _if statement_ - a crucial feature of the shell that allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
+In this chapter we'll introduce the _if statement_ - a crucial feature of the shell that allows us to perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
 
 Let's get right into it!
 
@@ -26,8 +26,6 @@ fi
 ```
 
 The _if_ statement will run the 'test commands'. If the result of the commands are all zero (which means 'success'), then each of the 'conditional' commands will be run. We 'close' the if statement with the `fi` keyword, which is `if` written backwards.
-
-You might be surprised to hear that the result of the test commands has to be zero for the conditional commands to run. This is the opposite of how most programming languages work - normally zero would be considered 'false'. But there is a reason for this - when a command returns zero that means 'success'. When a command returns something other than zero, the result is an error code. So in the shell the if statement is only going to run the conditional commands if the test command (or commands) are successful.
 
 Let's see how the if statement is used with a simple example. We will try and create a folder using `mkdir`. The `mkdir` command will return zero if the folder is created successfully:
 
@@ -50,11 +48,15 @@ If you then run the script again, the `mkdir` command will fail. In this case it
 mkdir: /home/dwmkerr/backups: File exists
 ```
 
-This is the basics of how the if statement works - we provide a test command and if the test command succeeds, a set of conditional commands are then executed.
+This is the basics of how the if statement works. We provide test commands, if the test commands succeed, a set of conditional commands are then executed.
+
+You might be surprised to hear that the result of the test commands has to be zero for the conditional commands to run. This is the opposite of how most programming languages work - normally zero would be considered 'false'.
+
+The reason for this - is that for computer programs that run, 'zero' generally means success. Any non-zero value is typically used to indicate an error code. So whilst inside a programming language, an if statement will check for a value to be 'true', just remember that in the shell an if statement will check for a _command to be successful_.
 
 # The Test Command
 
-The `test` (_evaluate expression_)<!--index--> command is used to check to see whether a certain condition is true or not. If the condition is true then the test command returns zero to indicate success.
+The `test` (_evaluate expression_)<!--index--> command is used to check whether a certain condition is true or not. If the condition is true then the test command returns zero to indicate success.
 
 We could improve our earlier if statement example by only creating the 'backups' folder if it doesn't already exist, using the test command:
 
@@ -72,11 +74,9 @@ The `test` command evaluates an expression. In this case the expression is:
 -d ~/backups
 ```
 
-This expression uses the `-d` (_file exists and is a directory_) operator to check to see if the provided path is a directory. We to create the directory only if it _doesn't_ exist, so we use the 'not' operator to 'invert' the result of `test`. The 'not' operator is written with the `!` exclamation point symbol.
+This expression uses the `-d` (_file exists and is a directory_) operator to check to see if the provided path is a directory. We to want to create the directory only if it _doesn't_ exist, so we use the 'not' operator to 'invert' the result of `test`. The 'not' operator is written with the `!` exclamation point symbol.
 
-The `test` command is such a commonly used command that there is a shorthand form. To test an expression you can simply place it in square brackets - the shell will take the contents of the brackets and run them in the test command.
-
-This means we can write our if statements like this:
+You can surround an expression with square bracket and the shell will evaluate the expression with the `test` command. This can make your scripts far more compact:
 
 ```sh
 if ! [ -d ~/backups]
@@ -88,11 +88,11 @@ fi
 
 This square bracket syntax is very commonly used - but just remember it is shorthand for the `test` command.
 
-One of the most useful manual pages is the page for the test command as it shows all of the available operators. Open the page with `man test`.
+One of the most useful manual pages is the page for the `test` command as it shows all of the available operators. Open the page with `man test`.
 
 # Using Multiple Statements in a Single Line
 
-You will often see if statements written with the 'then' statement on the same line as the 'if' statement, like so:
+You will often see 'if' and 'then' statements on the same line as below:
 
 ```sh
 if ! [ -d ~/backups ]; then
@@ -100,19 +100,17 @@ if ! [ -d ~/backups ]; then
 fi
 ```
 
-It is very important to understand that by default the shell expects there to only be one statement in each line. If we want to put more than one statement on a line then we need to let the shell know when one statement ends and another starts. We can use a semi-colon for this. The shell uses the semi-colon as a 'command separator' symbol.
+The shell assumes that each individual line is a single statement. If you want to put more than one statement on a line then you need to let the shell know when one statement ends and another starts. We can use a semi-colon for this. The shell uses the semi-colon as a 'command separator' symbol.
 
-If you don't include a semi-colon at the end of a command then the shell assumes that the entire line is a command. If you try and run the script without the semi-colon you will get an error:
+If you don't include a semi-colon at the end of a command then the shell assumes that the entire line is a single statement. If you try and run the script without the semi-colon you will get an error:
 
 ```
 bash: syntax error near unexpected token `fi'
 ```
 
-Some people will use the first form, which is shorter, some people prefer the second form. This is really just a matter of personal preference.
-
 I would suggest you start by writing your if statements with the if and the then on separate lines. Once you are more familiar with the syntax, you can start to combine the lines if you prefer.
 
-You can put as many statements on a single line as you like - you could even write the script on a single line like so:
+You can put as many statements on a single line as you like - you could even write the script like so:
 
 ```sh
 if ! test -d ~/backups; then mkdir ~/backups; fi
@@ -126,7 +124,6 @@ You can use the _else statement_ to define a series of statements that should be
 
 Here's how we can write a script that informs the user of whether they have installed the 'common' command or not:
 
-
 ```sh
 if [ -e /usr/local/bin/common ]
 then
@@ -136,7 +133,7 @@ else
 fi
 ```
 
-In this case we used the `-e` (_file or folder exists_) operator that checks to see whether a file or folder exists in the location _/usr/local/bin/common_ (the 'common' command is the command we created in [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}}).
+In this case we used the `-e` (_file or folder exists_) operator to check whether a file or folder exists in the location _/usr/local/bin/common_. The 'common' command is the command we created in [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}}).
 
 Now if you run the script and you don't have the 'common' command installed you will see the following output:
 
@@ -144,13 +141,13 @@ Now if you run the script and you don't have the 'common' command installed you 
 The 'common' command has not been installed in the local bin folder.
 ```
 
-Note that we still need to use the _fi statement_ to close the _if_ statement.
+Note that we still need to use the 'fi' keyword to close the 'if' statement.
 
 # The Elif Statement<!-- index -->
 
 The _elif statement_ (which is short for 'else if') can be used to create additional checks and define statements that should run if _other_ conditions are true.
 
-Let's see this in action by updating our script to check to see whether the 'common' command is executable. We can do this using the `-x` (_is executable_) operator<!-- index -->.
+Let's see this in action by updating our script to check to see whether the 'common' command is executable, using the `-x` (_is executable_) operator<!-- index -->:
 
 ```sh
 if [ -x /usr/local/bin/common ]; then
@@ -162,14 +159,14 @@ else
 fi
 ```
 
-The message you see will depend on whether you have installed the 'common' command in your local binaries folder and whether the 'common' script is executable. If you want to see each of the different messages, you might find the following snippets useful:
+The message you see will depend on whether you have installed the 'common' command in your local binaries folder and whether the script is executable. If you want to see each of the different messages, you might find the following snippets useful to add or remove the command or change its executable permissions:
 
 - `ln -s $HOME/effective-shell/scripts/common.v1.sh /usr/local/bin/common` - Create a link to the 'common' command in the local binaries folder
 - `chmod -x $HOME/effective-shell/scripts/common.v1.sh` remove the 'executable' flag from the 'common' command, making it not executable
 - `chmod +x $HOME/effective-shell/scripts/common.v1.sh` add the 'executable' flag from the 'common' command, making it executable
 - `rm /usr/local/bin/common` remove the link to the 'common' command from the local binaries folder
 
-The _elif_ statement looks very similar to the _if_ statement. The statement takes a set of commands. These commands could be normal shell commands, test commands, or test commands written with the square brackets short-hand notation.
+The _elif_ statement looks very similar to the _if_ statement. The statement takes a set of commands. These commands could be normal shell commands, `test` commands, or `test` commands written with the square brackets short-hand notation.
 
 It is very important to think about the order in which the _if_ and _elif_ statement are executed. If we had written the script like this, it would not work:
 
@@ -207,7 +204,9 @@ Here are the most common operators you should know about!
 
 # Common Test Operators for Files
 
-One of the great things about the `test` command is the presence of a number of operators that are specifically used to work with files. Here are some of the most useful ones:
+One of the great things about the `test` command is the presence of a number of operators that are specifically used to work with the filesystem. These operators are very handy when you are building shell scripts!
+
+Here are some of the most useful ones:
 
 | Operator          | Usage                                                                                               |
 |-------------------|-----------------------------------------------------------------------------------------------------|
@@ -245,7 +244,7 @@ if [ $year -ge 1980 -a $year -lt 1990 ]; then
 fi
 ```
 
-These operators can lead to some subtle problems so I would not recommend that you use them. However, it is important to be able to recognise them so that they don't surprise you if you see them in someone else's script.
+These operators can lead to some subtle problems so I would not recommend that you use them. A better option is 'Conditional Expressions' which are described in the next section. However, it is important to be able to recognise these operators so that they don't surprise you if you see them in someone else's script.
 
 # Conditional Expressions
 
@@ -257,7 +256,7 @@ if [[ $year -ge 1980 && $year -lt 1990 ]]; then
 fi
 ```
 
-Conditional expressions have a number of benefits over plain 'test' commands. Some of the most important ones are:
+Conditional expressions have a number of benefits over plain `test` commands. Some of the most important ones are:
 
 - You can use the `&&` and `||` operators directly in the expression
 - If you use an `||` expression and the left hand side of the expression is true, the right hand side will not be evaluated - this is _not_ always the case with older versions of Bash when using the `-o` operator (this is a subtle difference but can help avoid potentially incorrect behaviour)
@@ -289,7 +288,7 @@ If you are running Z-Shell you will see the output below:
 It looks like your shell '/bin/zsh' is Z-Shell
 ```
 
-It is best to declare the regular expression in a variable rather than including it directly in the expression, this makes it easier to handle special characters such as the dollar symbol (which are useful in regular expressions).
+It is best to declare the regular expression in a variable rather than including it directly in the expression, this makes it easier to handle special characters such as the dollar symbol.
 
 You can use capture groups in your regular expression to help you extract text. For example, we could get the name of the current shell binary with the code below:
 
@@ -312,7 +311,7 @@ The `$BASH_REMATCH` variable is an array - the first result value in the array i
 
 # Updating the 'Common' Command
 
-Now that we know how to use if statements, we can update our 'common' command that we have been improving in each chapter.
+Now that we know how to use if statements, we can update the 'common' command that we have been improving as part of each chapter.
 
 We will update it to check to see whether the user is using Bash or Z-Shell and search through the history for for common commands appropriately.
 
