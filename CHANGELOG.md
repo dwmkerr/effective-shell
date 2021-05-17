@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.5.0...v0.5.1) (2021-05-17)
+
+
+### Bug Fixes
+
+* fix index messing with formatting ([a474299](https://www.github.com/dwmkerr/effective-shell/commit/a474299fdd24627f0cb18e147f161be7b5ec7257))
+
 ## [0.5.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.4.1...v0.5.0) (2021-05-14)
 
 
