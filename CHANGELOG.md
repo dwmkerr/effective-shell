@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.4.1...v0.5.0) (2021-05-14)
+
+
+### Features
+
+* chapter 19 variables, reading input, and mathematics ([0d9a9c5](https://www.github.com/dwmkerr/effective-shell/commit/0d9a9c59e3007ad8d964da42b7381229df87149d))
+
+
+### Bug Fixes
+
+* remove trailing slash that breaks build ([8b39984](https://www.github.com/dwmkerr/effective-shell/commit/8b39984c488350ef9b4d5e070dad34448eb26ce5))
+
 ### [0.4.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.4.0...v0.4.1) (2021-04-25)
 
 
