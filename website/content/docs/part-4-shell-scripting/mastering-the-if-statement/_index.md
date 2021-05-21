@@ -1,5 +1,5 @@
 ---
-title: "Matering the If Statement"
+title: "Mastering the If Statement"
 slug: "mastering-the-if-statement"
 weight: 20
 ---
