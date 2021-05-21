@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.5.1...v0.5.2) (2021-05-21)
+
+
+### Bug Fixes
+
+* typo in title ([1ee5e5e](https://www.github.com/dwmkerr/effective-shell/commit/1ee5e5ef9592e87ec41c5ffb3cc0b9246877460e))
+
 ### [0.5.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.5.0...v0.5.1) (2021-05-17)
 
 
