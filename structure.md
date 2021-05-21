@@ -31,8 +31,7 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
         * [Chapter 19 - Variables, Reading Input, and Mathematics](#chapter-19---variables-reading-input-and-mathematics)
         * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
-        * [Chapter 20 - Logic, Loops and working with Files and Folders](#chapter-20---logic-loops-and-working-with-files-and-folders)
-        * [Chapter 20 - Loops and working sets of Files and Folders](#chapter-20---loops-and-working-sets-of-files-and-folders)
+        * [Chapter 20 - Loops and working with Files and Folders](#chapter-20---loops-and-working-with-files-and-folders)
         * [Chapter 21 - Getting Input from the User and using Variables](#chapter-21---getting-input-from-the-user-and-using-variables)
         * [Chapter X - Parameters, Return Values, Error Handling](#chapter-x---parameters-return-values-error-handling)
         * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
@@ -214,11 +213,7 @@ We've seen variables a few times in our journey so far. In this chapter we'll lo
 
 In this chapter we'll introduce the _if statement_ - this is a crucial feature of the shell as it allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
 
-#### Chapter 20 - Logic, Loops and working with Files and Folders
-
-One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
-
-#### Chapter 20 - Loops and working sets of Files and Folders
+#### Chapter 20 - Loops and working with Files and Folders
 
 One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
 
@@ -491,6 +486,8 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: chapter 7 talks about control characters (specifically, ^D), maybe we put this in the 'processes' section?
 - todo: slice and dice: add count option (-c) for `uniq` and numeric (-n) for `sort` as we use these commands in the shell script essentials chapter
 - todo: we need to show the `ln` command. It is used in the shell script essentials chapter.
+- todo: chained commands: ```git pull && git checkout```, chained OR, OR true
+
 
 ## More Useful Reading
 

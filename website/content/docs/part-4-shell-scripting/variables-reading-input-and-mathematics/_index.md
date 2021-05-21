@@ -376,6 +376,8 @@ We'll see arrays in more detail in the chapter on Loops.
 
 There are some built-in features in the Bash shell that allow you to manipulate string variables. In general I think that these are quite difficult to follow when they are in scripts so most readers can probably skip this section. But feel free to read about some of these common operations if you think you will use them or you think you might encounter them when working with scripts that other people have written!
 
+If you ever want to read more about these features, you can find them in the manual if you search for _Shell Parameter Expansion_.
+
 **String Length**
 
 The `${#var}` operator returns the length of the variable `var`:
@@ -398,7 +400,27 @@ echo "Username: $username"
 # Prints what you typed or the value of $USER otherwise
 ```
 
-There are a number of other operators that exist. They allow you to extract parts of a string, make test uppercase or lowercase, apply regular expressions and so on. But I would recommend avoiding them as they are fairly specific to bash and likely will be confusing to readers. If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
+**Make Uppercase**
+
+The `${var^^}` operator returns the value of `var` with the text transformed to uppercase:
+
+```sh
+message="don't shout"
+echo ${message^^}
+# Prints: DON'T SHOUT
+```
+
+**Make Lowercase**
+
+```sh
+message="DON'T SHOUT"
+echo ${message,,}
+# Prints: don't shout
+```
+
+There are a number of other operators that exist. They allow you to extract parts of a string, apply regular expressions, manipulate the case and perform a number of complex operations. I would avoid these techniques if possible as they are fairly specific to Bash and likely will be confusing to readers. Some of these substitutions are not available in older versions of Bash.
+
+If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
 
 It is generally enough to know that if you see special symbols inside a `${variable}` expression then the writer is performing some kind of string manipulation. Hopefully they have included a comment that describes what they are doing to make it easier to follow!
 
