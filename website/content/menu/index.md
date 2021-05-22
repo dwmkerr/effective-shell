@@ -28,4 +28,5 @@ bookMenuLevels: 1
    - [Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}})
    - [Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}})
    - [Mastering the If Statement]({{< relref "/docs/part-4-shell-scripting/mastering-the-if-statement" >}})
+   - [Loops and working with Files and Folders]({{< relref "/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})

@@ -22,18 +22,18 @@ fi
 # If we are searching through the bash history, we can look at the history file
 # to get the most common commands.
 if [[ $shell_binary == "bash" ]]; then
-    # Show the most commonly used commands.
-    tail "${history_file}" -n ${history_lines} \
+    # Store the most commonly used commands.
+    commands=$(tail "${history_file}" -n ${history_lines} \
         | sort \
         | uniq -c \
         | sed 's/^ *//' \
         | sort -n -r \
-        | head -n ${command_count}
+        | head -n ${command_count})
 elif [[ $shell_binary == "zsh" ]]; then
     # Each line in the has some extra information at the beginning, the command
     # text only appears after a semi-colon. So extract the text from after the
     # semi-colon and then process it just like in the bash example.
-    tail "${history_file}" -n ${history_lines} \
+    commands=$(tail "${history_file}" -n ${history_lines} \
         | rev \
         | cut -d';' -f1 \
         | rev \
@@ -41,9 +41,22 @@ elif [[ $shell_binary == "zsh" ]]; then
         | uniq -c \
         | sed 's/^ *//' \
         | sort -n -r \
-        | head -n ${command_count}
+        | head -n ${command_count})
 else
     # Show a warning to the user that we don't know where the history file is
     # for their shell.
     echo "Sorry, I don't know where to find the history for '${SHELL}'"
 fi
+
+# Print each command, showing what its order is in the list.
+# Commands are separated by newlines, so temporarily change IFS to loop over
+# each line of the commands.
+counter=1
+old_ifs=$IFS
+IFS=$'\n'
+for command in $commands
+do
+    echo "$counter: $command"
+    counter=$((counter + 1))
+done
+IFS=$old_ifs

@@ -363,8 +363,8 @@ if [[ $shell_binary == "bash" ]]; then
         | sort \
         | uniq -c \
         | sed 's/^ *//' \
-        | sort -n \
-        | tail -n ${command_count}
+        | sort -n -r \
+        | head -n ${command_count}
 elif [[ $shell_binary == "zsh" ]]; then
     # Z-Shell history lines look like this:
     # : 1621135004:0;uname -a
@@ -377,8 +377,8 @@ elif [[ $shell_binary == "zsh" ]]; then
         | sort \
         | uniq -c \
         | sed 's/^ *//' \
-        | sort -n \
-        | tail -n ${command_count}
+        | sort -n -r \
+        | head -n ${command_count}
 else
     # Show a warning to the user that we don't know where the history file is
     # for their shell.

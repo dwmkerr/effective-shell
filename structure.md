@@ -47,6 +47,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
     * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
     * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
+        * [Understanding Shell Expansions](#understanding-shell-expansions)
         * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
         * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
         * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
@@ -284,6 +285,10 @@ There are lots of different flavours of Linux and Unix, and lots of different sh
 
 The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
 
+#### Understanding Shell Expansions
+
+https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
+
 #### Chapter 26 - Managing Multiple Programming Languages with Make
 
 GNU Make can be a powerful tool for anyone who uses multiple programming languages, or wants to make it easier to allow people to use their projects. In this chapter we'll look at some common patterns which we can use `make` for to make our lives easier when working with different programming languages and platforms.
@@ -486,7 +491,10 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: chapter 7 talks about control characters (specifically, ^D), maybe we put this in the 'processes' section?
 - todo: slice and dice: add count option (-c) for `uniq` and numeric (-n) for `sort` as we use these commands in the shell script essentials chapter
 - todo: we need to show the `ln` command. It is used in the shell script essentials chapter.
-- todo: chained commands: ```git pull && git checkout```, chained OR, OR true
+- todo: chained commands: `git pull && git checkout`, chained OR, OR true
+- todo: more portable sed:
+      -	sed -i '' 's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
+    +	perl -i -pe's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
 
 
 ## More Useful Reading

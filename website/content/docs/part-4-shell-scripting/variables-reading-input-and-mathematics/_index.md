@@ -355,16 +355,16 @@ Arrays in Bash start at index zero. Arrays in the Z-Shell start at index one - t
 
 There are a number of useful operations you can perform on arrays. An example of each is shown below:
 
-| Operation                | Syntax                   | Example                                                                                                       |
-|--------------------------|--------------------------|---------------------------------------------------------------------------------------------------------------|
-| Create Array             | array=()                 | `days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")`                               |
-| Get Array Element        | ${array[index]}          | `echo ${days[2]} # prints 'Wednesday'`                                                                        |
-| Get All Elements         | ${array[@]}              | `echo ${days[@]} # prints 'Monday Tuesday Wednesday Thursday Friday Saturday Sunday'`                         |
-| Set Array Element        | ${array[index]}=value    | `days[0]="Mon"`                                                                                               |
-| Get Array Indexes        | ${!array[@]}             | `arr=(); arr[3]="apple"; arr[5]="pear"; echo ${!arr[@]} # prints 3 5`                                         |
-| Get Array Length         | ${#array[@]}             | `echo ${#days[@]} # Prints 7`                                                                                 |
-| Append to Array          | array+=(val1 val2 valN)  | `fruits=(); fruits+=("Apples"); fruits+=("Pears" "Grapes"); echo ${fruits[@]} # prints 'Apples Pears Grapes'` |
-| Get a subset of elements | ${array[@]:start:number} | `echo ${days[@]:5:2} # prints 'Saturday Sunday'`                                                              |
+| Operation                | Syntax                     | Example                                                                                                       |
+|--------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------|
+| Create Array             | `array=()`                 | `days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")`                               |
+| Get Array Element        | `${array[index]}`          | `echo ${days[2]} # prints 'Wednesday'`                                                                        |
+| Get All Elements         | `${array[@]}`              | `echo ${days[@]} # prints 'Monday Tuesday Wednesday Thursday Friday Saturday Sunday'`                         |
+| Set Array Element        | `${array[index]}=value`    | `days[0]="Mon"`                                                                                               |
+| Get Array Indexes        | `${!array[@]}`             | `arr=(); arr[3]="apple"; arr[5]="pear"; echo ${!arr[@]} # prints 3 5`                                         |
+| Get Array Length         | `${#array[@]}`             | `echo ${#days[@]} # Prints 7`                                                                                 |
+| Append to Array          | `array+=(val1 val2 valN)`  | `fruits=(); fruits+=("Apples"); fruits+=("Pears" "Grapes"); echo ${fruits[@]} # prints 'Apples Pears Grapes'` |
+| Get a subset of elements | `${array[@]:start:number}` | `echo ${days[@]:5:2} # prints 'Saturday Sunday'`                                                              |
 
 It's important to use curly braces around your array expressions. Note that in the examples above when we _set_ an array value we don't use braces or the dollar symbol - this is consistent with what we've seen so far - variable names do not have a dollar symbol when we are setting a value.
 
@@ -455,8 +455,8 @@ tail ~/.bash_history -n ${history_lines} \
     | sort \
     | uniq -c \
     | sed 's/^ *//' \
-    | sort -n \
-    | tail -n ${command_count}
+    | sort -n -r \
+    | head -n ${command_count}
 ```
 
 We have replaced two 'hard-coded' values (the number of lines of history to search and the number of common commands to show) with variables, which are now easier to find and change. We have also split the command into multiple lines so that it is easier to read (as the line is quite long otherwise).

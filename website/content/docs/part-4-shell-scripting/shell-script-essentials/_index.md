@@ -111,7 +111,7 @@ Add the following commands to the `common.v1.sh` file:
 echo "common commands:"
 
 # Show the most commonly used commands.
-tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -n 10
+tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n -r | head -n 10
 ```
 
 This is a short script, but there is quite a lot going on. Let's look at it blow-by-blow:
@@ -120,8 +120,8 @@ This is a short script, but there is quite a lot going on. Let's look at it blow
 2. Then we sort the commands. This will put all of the duplicates next to each other
 3. Then we remove all duplicates and use the `-c` (_show count_) flag to count the duplicates
 4. Then we remove the leading spaces from the output (which we need to do so that we can sort properly)
-5. Then we sort _numerically_
-6. Finally, we limit the results to the last ten items
+5. Then we sort _numerically_ and in reverse - the highest count first
+6. Finally, we limit the results to the first ten items
 
 If you need a refresher on the shell history, `sort` or `uniq` the check the [Slice and Dice Text]({{< relref "/docs/part-3-manipulating-text/slice-and-dice-text" >}}) chapter. If the `sed` command doesn't look familiar then check the [Advanced Text Manipulation with Sed]({{< relref "/docs/part-3-manipulating-text/advanced-text-manipulation" >}}) chapter.
 
@@ -137,16 +137,15 @@ The `sh` (shell) command starts a new shell. When we pass the path of a shell sc
 
 ```
 common commands:
-96 gpr
-97 gcm
-112 gl
-122 make dev
-169 gpo
-212 ls
-238 ga .
-267 gc
 463 vi
-843 gst
+267 gc
+238 ga .
+212 ls
+169 gpo
+122 make dev
+112 gl
+97 gcm
+96 gpr
 ```
 
 You can see my most common commands are short aliases for Git commands (the ones that start with 'g'), opening Vim, running a makefile command and a few others.
@@ -165,8 +164,8 @@ tail ~/.bash_history -n 1000 \
     | sort \
     | uniq -c \
     | sed 's/^ *//' \
-    | sort -n \
-    | tail -n 10
+    | sort -n -r \
+    | head -n 10
 ```
 
 This will probably look very familiar to anyone with a background in functional programming!
@@ -214,7 +213,7 @@ If we were to add a shebang to our `common.v1.sh` file, it would look like this:
 echo "common commands:"
 
 # Show the most commonly used commands.
-tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -n 10
+tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n -r | head -n 10
 ```
 
 The shebang is the two characters - `#!`. The name 'shebang' comes from the names of the symbols. The first symbol is a 'sharp' symbol (sometimes it is called a hash, it depends a little on context). The second symbol is an exclamation point. In programming the exclamation point is sometimes called the 'bang' symbol. When we put the two together, we get 'sharp bang', which is shortened to 'shebang'.
@@ -308,7 +307,7 @@ Our `common.v1.sh` script (with the added shebang) looks like this:
 echo "common commands:"
 
 # Show the most commonly used commands.
-tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n | tail -n 10
+tail ~/.bash_history -n 1000 | sort | uniq -c | sed 's/^ *//' | sort -n -r | head -n 10
 ```
 
 If we have made the script executable with the `chmod` command, then we can run the script by simply typing the location of the script in the shell:
@@ -316,8 +315,8 @@ If we have made the script executable with the `chmod` command, then we can run 
 ```
 $ ~/scripts/common.v1.sh
 common commands:
-96 gpr
 97 gcm
+96 gpr
 ...
 ```
 
@@ -332,8 +331,8 @@ The `ln` (_create link_) command creates a link (which is like a shortcut in Win
 ```sh
 $ common
 common commands:
-96 gpr
 97 gcm
+96 gpr
 ...
 ```
 
@@ -408,14 +407,14 @@ Now we remove the leading whitespace:
 2 vi README.md
 ```
 
-Finally we sort numerically (by using the `-n` flag):
+Finally we sort numerically (by using the `-n` flag) and in descending order (by using the `-r` flag):
 
 ```
-1 git checkout main
-1 restart-shell
-2 open .
-2 vi README.md
 3 git status
+2 vi README.md
+2 open .
+1 restart-shell
+1 git checkout main
 ```
 
 Why the numeric sort? If we didn't sort numerically and instead performed the default lexographic sort and have more than single digit results, the output would look like this:
