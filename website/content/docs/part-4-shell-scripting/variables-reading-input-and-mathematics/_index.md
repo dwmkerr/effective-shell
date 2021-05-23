@@ -144,6 +144,257 @@ In this case creating a variable to save us from creating the backup directory f
 
 We've looked at environment variables and our own _local_ variables. Now let's look at how we can read input from the user and store it in a variable for later usage.
 
+# Arrays
+
+Arrays are variables that can store multiple values. An array is created by using the equals symbol and putting the array values in parenthesis, like so:
+
+```sh
+days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")
+```
+
+Once you have defined your array you can retrieve an element at a given index by using the square bracket notation shown below:
+
+```sh
+echo "The first day is: ${days[0]}"
+echo "The last day is: ${days[6]}"
+```
+
+Arrays in Bash start at index zero. Arrays in the Z-Shell start at index one - this can cause confusion and mistakes in scripts so it is something you might have to consider if you are writing scripts that can be used by either shell.
+
+There are a number of useful operations you can perform on arrays. An example of each is shown below:
+
+| Operation                | Syntax                     | Example                                                                                                       |
+|--------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------|
+| Create Array             | `array=()`                 | `days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")`                               |
+| Get Array Element        | `${array[index]}`          | `echo ${days[2]} # prints 'Wednesday'`                                                                        |
+| Get All Elements         | `${array[@]}`              | `echo ${days[@]} # prints 'Monday Tuesday Wednesday Thursday Friday Saturday Sunday'`                         |
+| Set Array Element        | `${array[index]}=value`    | `days[0]="Mon"`                                                                                               |
+| Get Array Indexes        | `${!array[@]}`             | `arr=(); arr[3]="apple"; arr[5]="pear"; echo ${!arr[@]} # prints 3 5`                                         |
+| Get Array Length         | `${#array[@]}`             | `echo ${#days[@]} # Prints 7`                                                                                 |
+| Append to Array          | `array+=(val1 val2 valN)`  | `fruits=(); fruits+=("Apples"); fruits+=("Pears" "Grapes"); echo ${fruits[@]} # prints 'Apples Pears Grapes'` |
+| Get a subset of elements | `${array[@]:start:number}` | `echo ${days[@]:5:2} # prints 'Saturday Sunday'`                                                              |
+
+It's important to use curly braces around your array expressions. Note that in the examples above when we _set_ an array value we don't use braces or the dollar symbol - this is consistent with what we've seen so far - variable names do not have a dollar symbol when we are setting a value.
+
+You might have noticed from the examples that arrays in Bash can be _sparse_ - that means that you can have 'gaps' in your array. Arrays can also have a mixture of strings or numbers - not every element in an array has to be of the same type.
+
+We'll see arrays in more detail in the chapter on Loops.
+
+## Associative Arrays
+
+More recent versions of Bash support the concept of _Associative Arrays_. These are arrays where rather than having a numeric index associated with each value, you can have a string. This allows you to create a 'map' or 'hash table' structure.
+
+An associative array is created using the `declare` (_set variable_) command<!--index-->:
+
+```sh
+# Create an associative array called 'user'.
+declare -A book
+
+# Set some values on the array.
+book[title]="Effective Shell"
+book[author]="Dave Kerr"
+
+# Show one of the values.
+echo "Book details: ${book[title]} - ${book[author]}"
+```
+
+Running this command will show the output:
+
+```
+Book details: Effective Shell - Dave Kerr
+```
+
+If you find yourself using associative arrays, I would expect that there is a good chance you are trying to do something that is more complex than is suitable for a shell script. In this circumstance I'd suggest you read the chapter [How to avoid scripting!]({{< relref "/docs/work-in-progress" >}}) to see how I'd look at alternative options!
+
+# Quoting Variables and Values
+
+There is often a lot of confusion about a specific topic in the shell - when should you surround a variable in quotes? This might sound like it is a purely stylistic question, but surrounding a variable in quotes can dramatically change how your script works.
+
+We're going to look at each type of quoting and when it should be used in the examples below. But if you ever need a reminder, run `man bash` and search for the text `QUOTING`.
+
+## Single Quotes - Literal Values
+
+Use single quotes when declaring a variable or using a value if you want to use literal text. The shell will _not_ expand special characters or variables:
+
+```sh
+message='   ~~ Save $$$ on with ** "this deal" ** ! ~~   '
+echo "$message"
+```
+
+This script will show:
+
+```
+   ~~ Save $$$ on with ** "this deal" ** ! ~~
+```
+
+Note that the shell has _not_ tried to expand the `~` tilde into `/home/dwmkerr`. It has not expanded the `*` asterisks into a wildcard pattern and it has not tried to use the `$` dollar symbol to reference an array.
+
+Single quotes should be used when you want to put special characters into a variable, or call a command that includes whitespace or special characters.
+
+## Single Quotes - ANSI C Quoting
+
+There is a special form of single quotes called 'ANSI C Quoting' that allows you to use escape sequences from the C language. ANSI C quoting is single quoting that starts with a dollar symbol. You can use it to use special characters like newlines in a variable:
+
+```sh
+message1='Hello\nWorld'
+message2=$'Hello\nWorld'
+echo "Message 1: $message1"
+echo "Message 2: $message2"
+```
+
+This snippet will show the following results:
+
+```
+Message 1: Hello\nWorld
+Message 2: Hello
+World
+```
+
+## Double Quotes - Parameter Expansion
+
+Double quotes work in a very similar way to single quotes except that they allow you to use _parameter expansion_ with the `$` dollar symbol and escaping with the `\` symbol. The ```` backtick symbol is also treated differently. Let's see some examples:
+
+```sh
+deal="Buy one get one free"
+message="Deal is '$deal' - save \$"
+echo "$message"
+```
+
+The output of this snippet is:
+
+```
+Deal is 'Buy one get one free' - save $
+```
+
+Notice that the `$deal` value has been expanded into the contents of the `$deal` variable. The last dollar symbol has been escaped with a `\` backslash - the shell knows that this means we want to use the _literal_ value of the dollar symbol at the end of the message. The backslash has been removed.
+
+The backtick character is also treated differently, as the backtick can be used to run a sub-shell:
+
+```
+$ echo "The date is `date`"
+The date is Sun 23 May 2021 11:36:54 AM +08
+```
+
+However, you should _not_ use the backtick character to run a sub-shell, it is harder to read than using the dollar and parenthesis syntax we've already seen:
+
+```
+$ echo "The date is `date`"
+The date is Sun 23 May 2021 11:36:54 AM +08
+```
+
+## No Quotes - Shell Expansion
+
+If you don't include quotes around a variable or value, then the shell will perform a series of operations called _Shell Expansion_. This includes many options we've seen so far, let's take a look at some examples:
+
+```sh
+home=~
+tilde="~"
+echo "My home is: $home"
+echo "A tilde is: $tilde"
+```
+
+This snippet shows the results:
+
+```
+My home is: /home/dwmkerr
+A tilde is: ~
+```
+
+In the first case the shell has expanded the `~` tilde to the home directory.
+
+We do not use quotes around a variable or a value if we want the shell to shell expansion. The following expansions will be performed:
+
+- Brace expansion: `touch file{1,2,3}` is expanded to `touch file1 file2 file3`
+- Tilde expansion: `cd ~` is expanded to `cd /home/dwmkerr`
+- Parameter and variable expansion `echo $SHELL` is expanded to `echo /usr/bin/sh` (note that this expansion also occurs with double quotes)
+- Command substitution: `echo $(date)` is expanded to echo the results of the `date` command (this also occurs with double quotes)
+- Arithmetic expansion: `square=$((4 * 4))` has the value `4 * 4` evaluated mathematically (we see this at the end of this chapter)
+- Word splitting: this is a more complex topic discussed in [Chapter 21 - Loops and working with Files and Folders]({{< relref "/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders" >}})
+- Pathname expansion: `ls *.txt` is expanded to all filename that match the wildcard pattern `*.txt`
+
+We are going to see more detail on Shell Expansion as we continue through this part of the book. There is also a detailed explanation in the final section of the book and an appendix with a quick reference.
+
+## Quoting Tips
+
+Quoting can seem confusing - but remember these tips and you will generally be on the right path:
+
+- Use double quotes most of the time - they will handle variables and sub-shells for you and not do weird things like word splitting
+- Use single quotes for literal values
+- Use no quotes if you want to expand wildcards
+
+# Shell Parameter Expansion
+
+Shell Parameter Expansion is the process by which the shell evaluates a variable that follows the `$` dollar symbol. In most of our examples we've seen simple expansion where we just expand the variable into its value, like so:
+
+```
+$ echo "My shell is $SHELL"
+My shell is: /usr/bin/sh
+```
+
+But there are a number of special features we can use when expanding parameters. There are many options available and you can find them all by running `man bash` and searching for the text `EXPANSION`. Let's take a look at some of the most common ones.
+
+**Length**
+
+The `${#var}` operator returns the length of the variable `var`:
+
+```sh
+var="The quick brown fox jumps over the lazy dog"
+length=${#var}
+echo "Length: $length"
+# Prints: 43
+```
+
+**Set Default Value**
+
+The `${var:-default}` operator returns the value of the variable `var` or the text `default` if it is not found:
+
+```sh
+read -p "Enter your username: " user
+username=${user:-$USER}
+echo "Username: $username"
+# Prints what you typed or the value of $USER otherwise
+```
+
+**Substring**
+
+The `${var:start:count}` operator returns a subset of the `var` variable, starting at position `start` and extracting up to `count` characters. If `count` is omitted everything from `start` to the end of the string is returned.
+
+```sh
+path="~/effective-shell"
+echo "${path:0:2}"
+# Prints ~/
+echo "${path:2}"
+# Prints effective-shell
+```
+
+**Make Uppercase**
+
+The `${var^^}` operator returns the value of `var` with the text transformed to uppercase:
+
+```sh
+message="don't shout"
+echo ${message^^}
+# Prints: DON'T SHOUT
+```
+
+**Make Lowercase**
+
+```sh
+message="DON'T SHOUT"
+echo ${message,,}
+# Prints: don't shout
+```
+
+Notice the similarity to the Array operators such as `${#array[@]}` to get the length of an array.
+
+There are a number of other operators that exist. They allow you to extract parts of a string, apply regular expressions, manipulate the case and perform a number of complex operations. I would avoid these techniques if possible as they are fairly specific to Bash and likely will be confusing to readers. Some of these substitutions are not available in older versions of Bash.
+
+If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
+
+It is generally enough to know that if you see special symbols inside a `${variable}` expression then the writer is performing some kind of string manipulation. Hopefully they have included a comment that describes what they are doing to make it easier to follow!
+
+You can find out more about these features in the manual under the `EXPANSION` section[^1].
+
 # The Read Command
 
 The `read` (_read from standard input_)<!--index--> command can be used to read a line of text from standard input. When the text is read it is put into a variable, allowing it to be used in our scripts.
@@ -336,94 +587,6 @@ echo "${celcius} degrees Celsius is ${fahrenheit} degrees Fahrenheit"
 
 Note that you can use brackets in your arithmetic expressions to be explicit about the order in which the calculations should be performed. The order that is used if you don't use brackets is detailed in the manual page, but in general using brackets will make things clearer to the reader.
 
-# Arrays
-
-Arrays are variables which can store multiple values. An array is created by using the equals symbol and putting the array values in parenthesis, like so:
-
-```sh
-days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")
-```
-
-Once you have defined your array you can retrieve an element at a given index by using the square bracket notation shown below:
-
-```sh
-echo "The first day is: ${days[0]}"
-echo "The last day is: ${days[6]}"
-```
-
-Arrays in Bash start at index zero. Arrays in the Z-Shell start at index one - this can cause confusion and mistakes in scripts so it is something you might have to consider if you are writing scripts that can be used by either shell.
-
-There are a number of useful operations you can perform on arrays. An example of each is shown below:
-
-| Operation                | Syntax                     | Example                                                                                                       |
-|--------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------|
-| Create Array             | `array=()`                 | `days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")`                               |
-| Get Array Element        | `${array[index]}`          | `echo ${days[2]} # prints 'Wednesday'`                                                                        |
-| Get All Elements         | `${array[@]}`              | `echo ${days[@]} # prints 'Monday Tuesday Wednesday Thursday Friday Saturday Sunday'`                         |
-| Set Array Element        | `${array[index]}=value`    | `days[0]="Mon"`                                                                                               |
-| Get Array Indexes        | `${!array[@]}`             | `arr=(); arr[3]="apple"; arr[5]="pear"; echo ${!arr[@]} # prints 3 5`                                         |
-| Get Array Length         | `${#array[@]}`             | `echo ${#days[@]} # Prints 7`                                                                                 |
-| Append to Array          | `array+=(val1 val2 valN)`  | `fruits=(); fruits+=("Apples"); fruits+=("Pears" "Grapes"); echo ${fruits[@]} # prints 'Apples Pears Grapes'` |
-| Get a subset of elements | `${array[@]:start:number}` | `echo ${days[@]:5:2} # prints 'Saturday Sunday'`                                                              |
-
-It's important to use curly braces around your array expressions. Note that in the examples above when we _set_ an array value we don't use braces or the dollar symbol - this is consistent with what we've seen so far - variable names do not have a dollar symbol when we are setting a value.
-
-You might have noticed from the examples that arrays in Bash can be _sparse_ - that means that you can have 'gaps' in your array. Arrays can also have a mixture of strings or numbers - not every element in an array has to be of the same type.
-
-We'll see arrays in more detail in the chapter on Loops.
-
-# Variable String Manipulation
-
-There are some built-in features in the Bash shell that allow you to manipulate string variables. In general I think that these are quite difficult to follow when they are in scripts so most readers can probably skip this section. But feel free to read about some of these common operations if you think you will use them or you think you might encounter them when working with scripts that other people have written!
-
-If you ever want to read more about these features, you can find them in the manual if you search for _Shell Parameter Expansion_.
-
-**String Length**
-
-The `${#var}` operator returns the length of the variable `var`:
-
-```sh
-var="The quick brown fox jumps over the lazy dog"
-length=${#var}
-echo "Length: $length"
-# Prints: 43
-```
-
-**Set Default Value**
-
-The `${var:-default}` operator returns the value of the variable `var` or the text `default` if it is not found:
-
-```sh
-read -p "Enter your username: " user
-username=${user:-$USER}
-echo "Username: $username"
-# Prints what you typed or the value of $USER otherwise
-```
-
-**Make Uppercase**
-
-The `${var^^}` operator returns the value of `var` with the text transformed to uppercase:
-
-```sh
-message="don't shout"
-echo ${message^^}
-# Prints: DON'T SHOUT
-```
-
-**Make Lowercase**
-
-```sh
-message="DON'T SHOUT"
-echo ${message,,}
-# Prints: don't shout
-```
-
-There are a number of other operators that exist. They allow you to extract parts of a string, apply regular expressions, manipulate the case and perform a number of complex operations. I would avoid these techniques if possible as they are fairly specific to Bash and likely will be confusing to readers. Some of these substitutions are not available in older versions of Bash.
-
-If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
-
-It is generally enough to know that if you see special symbols inside a `${variable}` expression then the writer is performing some kind of string manipulation. Hopefully they have included a comment that describes what they are doing to make it easier to follow!
-
 # Updating the 'Common' Command
 
 With our new understanding of variables, we can improve the 'common' command we created in the previous chapter by extracting certain values into variables so that they can be more easily changed.
@@ -469,7 +632,6 @@ ln -sf $HOME/effective-shell/scripts/common.v2.sh /usr/local/bin/common
 
 Note that in this command we use the `-f` flag to force the creation of the symlink even if one already exists in the given location.
 
-
 # Summary
 
 In this chapter we looked at how environment variables work and how we can use our own variables. We saw how to read input from the user and how to perform arithmetic operations.
@@ -482,3 +644,4 @@ We've seen a few new constructs in this chapter that will appear again and again
 
 In the next chapter we are going to see how to perform _logic_ in scripts - running commands only when certain conditions are met. This is an incredibly powerful technique and will let you create much more sophisticated scripts!
 
+[^1]: There is also a very good discussion on the differences in quoting options in the following Stack Overflow thread: https://stackoverflow.com/questions/10067266/when-to-wrap-quotes-around-a-shell-variable

@@ -6,7 +6,7 @@ weight: 21
 
 # Chapter 21 - Loops and working with Files and Folders
 
-One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at loops and how to operate on many files and folders. We'll also see how we can integrate commands like `find` into shell scripts.
+Loops allow us to perform a set of operations over multiple items, such as a set of files or folders or the results of a command. In this chapter we'll look at loops and how to operate on many files and folders.
 
 # The For Loop<!-- index -->
 
@@ -49,15 +49,15 @@ Found: /home/dwmkerr/effective-shell/text
 Found: /home/dwmkerr/effective-shell/websites
 ```
 
-Notice how the shell is smart enough to _expand_ the wildcard expression that we have included in the _for loop_. In just the same way we can use wildcards in commands such as `ls` or `cp` or `mv`, we can also use them in for loops - or in fact any statement!
+Notice how the shell is smart enough to _expand_ the wildcard expression that we have included in the _for loop_. In just the same way we can use wildcards in commands such as `ls` or `cp` or `mv`, we can also use them in for loops - or in fact any statement[^1]! 
 
-You will also see that when we specify the name of the variable to use in the loop (which in this example was _item_) we don't need to use a dollar symbol. Remember - when we are _setting_ a variable, we don't use a dollar symbol before the variable name, we only use the dollar symbol when we want to get the value of the variable.
+You will also see that when we specify the name of the variable to use in the loop (which in this example was _item_) we don't need to use a dollar symbol. Remember - when we are _setting_ a variable, we don't use a dollar symbol, we only use the dollar symbol when we want to get the value of the variable.
 
 The _for loop_ is closed with the `done` keyword. Here we can also see an inconsistency with the shell syntax - for the `if` statement, the statement is closed with `if` backwards (`fi`). But the `for` loop is closed with `done`. The shell is an old platform and there are some oddities like that that you might not see in more modern programming languages.
 
 ## For Loops - Arrays
 
-In [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) we saw how to create arrays. We can use an array as the set of items to use in a for loop. Here's an example:
+In [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) we saw how to create arrays. We can easily loop through the items in an array with a for loop. Here's an example:
 
 ```sh
 days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")
@@ -127,7 +127,7 @@ The _for loop_ has split up the sentence variable into a set of words. This migh
 
 This is not how most programming languages would work, so why does the shell do this?
 
-It's important to remember that the shell is a _text based_ environment. Most of the time when we are running shell commands in a terminal we are running commands that _simply output text_.
+The reason is that the shell is a _text based environment_ and the designers have taken this into account. Most of the time when we are running shell commands in a terminal we are running commands that _simply output text_. If we want to be able to use the output of these commands in constructs like loops, the shell has to decide how to split the output up.
 
 For example, let's see how the `ls` command would write its output:
 
@@ -165,7 +165,7 @@ Here we see why the shell splits up words in a sentence. It is making a best eff
 
 When we operate in a shell for day to day work we don't have to use the more specific syntax that would be used in a programming language - the shell has more of an emphasis on terseness of statements and the ability to quickly work with files. It is not designed as a general purpose programming tool, so it makes assumptions like this.
 
-How the shell actually splits up text into words is a complex topic and covered at the end of the chapter.
+We go into detail in word splitting nearer the end of this chapter.
 
 ## For Loop - Files with Wildcards
 
@@ -241,7 +241,9 @@ The `continue` statement 'skips' the current item in the loop and moves to the n
 
 ## For Loops - Files with Find
 
-If the files that you are trying to loop through are too complex to match with a shell pattern, you can use the `find` command to search for files, then loop through the results. If you are not familiar with the `find` command, check [Chapter 11 - Finding Files]({{< relref "/docs/part-2-core-skills/finding-files" >}}).
+If the files that you are trying to loop through are too complex to match with a shell pattern, you can use the `find` command to search for files, then loop through the results.
+
+If you are not familiar with the `find` command, check [Chapter 11 - Finding Files]({{< relref "/docs/part-2-core-skills/finding-files" >}}).
 
 Let's use the `find` command to run a loop that prints every symlink in the user's home directory. But before we run the loop we'll create a symlink with a space - this will cause some interesting output in our script:
 
@@ -300,7 +302,7 @@ This will cover you in most cases. However, this method is not ideal for a numbe
 
 1. It is quite verbose - we have to store the current value of `$IFS` and then reset it later
 2. It is not quite foolproof - filenames on some systems can have a newline character and this script would fail for those files
-3. We have to use the complex looking 'C String Literal' syntax to set `$IFS` to a newline
+3. We have to use the complex looking 'ANSI C Quoting' syntax to set `$IFS` to a newline[^2]
 4. If the reader doesn't know what `$IFS` is then the entire script will be difficult to follow
 
 The `$IFS` variable can be complex to work with and discussed at the end of the chapter.
@@ -327,13 +329,21 @@ As long as the _test commands_ return success, the loop will run the _conditiona
 Here's an example of how a while loop can be used to generate a list of random numbers:
 
 ```sh
+# Create an empty array of random numbers.
 random_numbers=()
+
+# As long as the length of the array is less than five, continue to loop.
 while [ ${#random_numbers[@]} -lt 5 ]
 do
+    # Get a random number, ask the user if they want to add it to the array.
     random_number=$RANDOM
     read -p "Add $random_number to the list? (y/n): " choice
+    
+    # If the user chose 'y' add the random number to the array.
     if [ "$choice" = "y" ]; then random_numbers+=($random_number); fi
 done
+
+# Show the contents of the array.
 echo "Random Numbers: ${random_numbers[@]}"
 ```
 
@@ -421,7 +431,10 @@ As long as the _test commands_ do not return success, the loop will run the _con
 Here's an example of an _until_ loop that builds a random number that is at least 15 characters long:
 
 ```sh
+# Create an empty random number string - we're going to build it up in the loop.
 random_number=""
+
+# Keep on looping until the random number is at least 15 characters long.
 until [ "${#random_number}" -ge 15 ]
 do
     random_number+=$RANDOM
@@ -454,11 +467,9 @@ In this case we've changed the condition from `-ge 15` (greater than or equal to
 
 # Continue and Break
 
-We briefly saw that the `continue` (_resume loop_) statement<!--index--> can be used to 'skip' an iteration in a loop. Let's look at `continue`, and its cousin the `break` (_exit loop_) statement in a bit more detail.
+We briefly saw that the `continue` (_resume loop_) statement<!--index--> can be used to 'skip' an iteration in a loop. `break` (_exit loop_) statement that can be used to stop running the loop.
 
-When we use the `continue` statement, we are telling the shell that we want to _stop_ processing the current 'iteration' of the loop and move onto the next item. You can use as many `continue` statements as you like in a loop. Here's an example:
-
-Using a `continue` statement can be a convenient way to simplify our code. If we didn't have a `continue` statement, we would have to use a lot of `if` statements to get the same results.
+When we use the `continue` statement, we are telling the shell that we want to _stop_ processing the current 'iteration' of the loop and move onto the next item. You can use as many `continue` statements as you like in a loop.
 
 Here's an example of a script that let's the users show the contents of a directory. If the directory is empty it uses the `continue` statement to skip to the next directory. If the users chooses to cancel the operation, it uses the `break` statement to stop iterating:
 
@@ -480,6 +491,8 @@ do
 done
 ```
 
+Using `break` and `continue` can simplify our loops - if we it would be much harder to write the loop above.
+
 # Creating Compact Loops
 
 In each example in this chapter we have split the loop constructs so that there is one statement per line. But just as with the `if` statement, we can combine any of these lines, as long as we use a semi-colon to let the shell know where each statement ends.
@@ -493,7 +506,7 @@ for num in ${numbers[@]}; do
 done
 ```
 
-If you are simply typing in the shell in a terminal, rather than writing a script, you might want to go even more compact:
+If you are simply typing in the shell in a terminal, rather than writing a script, you might write the loop on a single line:
 
 ```sh
 for script in *.sh; do touch "$script"; done
@@ -502,6 +515,10 @@ for script in *.sh; do touch "$script"; done
 This one-liner updates the last access and modified of all files that end with _*.sh_ in the current folder.
 
 Just like with the _if statement_ I would recommend that you keep each statement on its own line until you are 100% familiar with the syntax. Then when it is second-nature to be able to write a loop, you can use the more compact syntax if it is appropriate.
+
+When you are running the shell _interactively_, i.e. actually typing in the shell rather than writing a shell script, you can still use multiple lines. If you type `for script in *.sh` and press enter, the shell will let you type the next line. You can keep on adding lines until you type `done` and press enter.
+
+If you want to make a _really_ compact for loop, you can actually skip the `in <words>` part. If `in <words>` is omitted then the special 'all parameters' variable `$@` is used. We will look at this special parameter in the next chapter. But this will be confusing to readers so I would recommend that you are always explicit with the `in <words` part of a for loop.
 
 # Word Splitting and IFS<!--index-->
 
@@ -534,9 +551,9 @@ Here are some words
 
 The reason for this has been touched on in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) and also partly in this chapter.
 
-In the first example the loop iterates over the `$sentence` variable. Note that this variable is _not_ quoted. This means that it follows the standard rules for 'expansion' in the shell. This means that as well as all of the usual features such as wildcard expansion, word expansion will occur.
+In the first example the loop iterates over the `$sentence` variable. Note that this variable is _not_ quoted. This means that it follows the standard rules for 'expansion' in the shell. This means that as well as all of the usual features such as wildcard expansion, _word expansion_ will occur.
 
-In the second example, the loop iterates over the `"$sentence"` variable. Note that this variable _is_ quoted. If you open `man bash` and search for the text `QUOTING` there is a description of how quoting affects the behaviour of variables. In short, it causes _most_ special characters to be interpreted literally, and stops word splitting from happening.
+In the second example, the loop iterates over the `"$sentence"` variable. Note that this variable _is_ quoted. As we saw in [Chapter 19]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) quoting a variable means that it is treated literally, expect for parameter expansion.
 
 This means that in most circumstances you probably want to quote your variables - otherwise the shell is going to perform word splitting on them. But if you _do_ want expansion and splitting to occur, then you should _not_ quote text. For example, if we run the following we see invalid output:
 
@@ -596,6 +613,17 @@ Word: danzig
 Word: 1988
 ```
 
+Be careful when changing the `IFS` variable - it could cause subsequent commands to behave in unexpected ways. You should normally first copy current value into a variable, then change it, then set it back, like so:
+
+```sh
+old_ifs="$IFS"
+IFS=":"
+# Do some stuff
+IFS="$IFS"
+```
+
+In general if you are changing `IFS` you might be doing something that would be better done with a programming language.
+
 # Updating the 'common' Command
 
 In the previous chapter we created the `common.v3.sh` command, that shows common commands from the users shell history.
@@ -610,7 +638,7 @@ Let's add a loop to our common, that let's use show a number next to each comman
 
 As the file is a little larger now, I am not going to show the entire file, only the key changes we will make.
 
-First, in each of the sections that performs the command to get the common commands, we will store the results in a variable:
+First, in each of the sections that performs the command to get the common commands we will use Shell Parameter Expansion to run a sub-shell and store the results in a variable:
 
 ```sh
 # Store the most recently used commands in the 'commands' variable.
@@ -648,6 +676,22 @@ ln -s ~/effective-shell/scripts/common.v4.sh /usr/local/bin/common
 Now when we run this command, each of our common commands is printed with its order shown:
 
 ```
+$ common
+1: 135 gst
+2: 73 vi
+3: 47 gc
+4: 40 ls
+5: 37 ga .
+6: 27 gpo
+7: 25 gl
+8: 24 gpr
+9: 21 gcm
+10: 17 make dev
+```
+
+# Summary
 
 
- [^1]: There is a good reason for this. Would you prefer `ls *.nothing-here` to show a warning that _*.nothing-here_ doesn't exist or show the result of `ls` - which lists the current directory! This is discussed in more detail on this Stack Overflow thread: https://unix.stackexchange.com/questions/204803/why-is-nullglob-not-default
+[^1]: If we had put quotes around the wildcard text it would _not_ be expanded - check the section on 'Quoting' in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a refresher on this.
+[^2]: ANSI C Quoting is described in the 'Quoting' section in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}})
+[^2]: There is a good reason for this. Would you prefer `ls *.nothing-here` to show a warning that _*.nothing-here_ doesn't exist or show the result of `ls` - which lists the current directory! This is discussed in more detail on this Stack Overflow thread: https://unix.stackexchange.com/questions/204803/why-is-nullglob-not-default

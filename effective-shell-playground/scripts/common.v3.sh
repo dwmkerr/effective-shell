@@ -15,7 +15,7 @@ if [[ $SHELL =~ $shell_regex ]]; then
     if [[ $shell_binary == "bash" ]]; then
         history_file=~/.bash_history
     elif [[ $shell_binary == "zsh" ]]; then
-        history_file=~/.bash_history
+        history_file=~/.zsh_history
     fi
 fi
 
