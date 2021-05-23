@@ -31,13 +31,10 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
         * [Chapter 19 - Variables, Reading Input, and Mathematics](#chapter-19---variables-reading-input-and-mathematics)
         * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
-        * [Chapter 20 - Loops and working with Files and Folders](#chapter-20---loops-and-working-with-files-and-folders)
-        * [Chapter 21 - Getting Input from the User and using Variables](#chapter-21---getting-input-from-the-user-and-using-variables)
-        * [Chapter X - Parameters, Return Values, Error Handling](#chapter-x---parameters-return-values-error-handling)
-        * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
-        * [Chapter 24 - Common Shell Scripts](#chapter-24---common-shell-scripts)
-        * [Chapter X - Advanced Shell Scripts](#chapter-x---advanced-shell-scripts)
-        * [Chapter 25 - How to avoid scripting!](#chapter-25---how-to-avoid-scripting)
+        * [Chapter 21 - Loops and working with Files and Folders](#chapter-21---loops-and-working-with-files-and-folders)
+        * [Chapter 22 - Functions, Parameters and Error Handling](#chapter-22---functions-parameters-and-error-handling)
+        * [Chapter 23 - Advanced Shell Scripting Techniques](#chapter-23---advanced-shell-scripting-techniques)
+        * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
         * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
         * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
@@ -70,6 +67,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Appendixes](#appendixes)
         * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
         * [Appendix 2: Shell Parameter Expansion](#appendix-2-shell-parameter-expansion)
+        * [Appendix 3: Find Cheat Sheet](#appendix-3-find-cheat-sheet)
 * [More Useful Reading](#more-useful-reading)
 * [Essential Tools](#essential-tools)
 * [Good Scripts to write as exercises](#good-scripts-to-write-as-exercises)
@@ -215,34 +213,25 @@ We've seen variables a few times in our journey so far. In this chapter we'll lo
 
 In this chapter we'll introduce the _if statement_ - this is a crucial feature of the shell as it allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
 
-#### Chapter 20 - Loops and working with Files and Folders
+#### Chapter 21 - Loops and working with Files and Folders
 
 One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
 
-#### Chapter 21 - Getting Input from the User and using Variables
-
-How to read input, ties into logic, read variables, check the values of variables
-
-
-#### Chapter X - Parameters, Return Values, Error Handling
+#### Chapter 22 - Functions, Parameters and Error Handling
 
 https://www.leadingagile.com/2018/10/unit-testing-shell-scriptspart-one/
 
 Use the `rcut` function as an example
 
-#### Chapter 23 - Logic and Mathematics
+#### Chapter 23 - Advanced Shell Scripting Techniques
 
-Bash allows you to write programs with complex logic. We'll look at how to do this. You can use the shell to perform arithmetic. Knowing how to do this can be quite convenient! In this chapter we'll look at how basic arithmetic works in the shell and how to use it in scripts.
-
-#### Chapter 24 - Common Shell Scripts 
+(TODO: These are really just assorted advanced shell techniques, so might be better later on)
 
 We'll now introduce a few practical real-world scripts. These will demonstrate more advanced techniques, in the context of real world use cases. In this chapter we'll also look at 'Heredocs' and how they can help us manage files and more complex text content.
 
-#### Chapter X - Advanced Shell Scripts
-
 Ctrl+Alt+R for `recent`, i.e. demoing key combinations?
 
-#### Chapter 25 - How to avoid scripting!
+#### Chapter 24 - How to avoid scripting!
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
@@ -255,6 +244,9 @@ As you work more with the shell, you will want to customise it and build tools a
 There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
 
 In this chapter we'll see the various different configuration files used, introduce the `chsh` command, the `SHELL` environment variable, and see how to manage configuration using `set`.
+
+NOTE: `setopt` - extended globbing as a better way for file matching vs `find` (especially in loops)
+
 
 #### Chapter 18 - Customising your Command Prompt
 
@@ -411,6 +403,10 @@ As an appendix, or printed reference, list of the top ten manpages?
 #### Appendix 2: Shell Parameter Expansion
 
 Show the order of shell parameter expansion and an example of each one. This would actually be good as a pull-out reference.
+
+#### Appendix 3: Find Cheat Sheet
+
+A cheat sheet for the `find` command
 
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
