@@ -691,6 +691,25 @@ $ common
 
 # Summary
 
+In this chapter we looked at how to use different types of loops in the shell, to iterate over values in an array, words in a sentence, files and folders or even the results of commands.
+
+We also looked in detail at how 'word-splitting' works, as well as the `$IFS` variables. In the next chapter we'll look at functions and parameters.
+
+## Appendix - Loops and the Z-Shell
+
+The Z-Shell does _not_ perform word-splitting on unquoted variables. This is a deliberate choice by the designers, to avoid what can often be confusing behaviour.
+
+We can see this behaviour below:
+
+```
+% sentence="one two three"
+% for word in $sentence; do echo "Word: $word"; done
+Word: one two three
+```
+
+If you want to use more Posix-like functionality then you can set the `SH_WORD_SPLIT` parameter. You can find out more about this parameter by running `man zsh` and searching for `SH_WORD_SPLIT`.
+
+
 
 [^1]: If we had put quotes around the wildcard text it would _not_ be expanded - check the section on 'Quoting' in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a refresher on this.
 [^2]: ANSI C Quoting is described in the 'Quoting' section in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}})
