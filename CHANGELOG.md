@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.6.0...v0.7.0) (2021-05-23)
+
+
+### Features
+
+* chapter 21 - Loops and working with Files and Folders ([5561dda](https://www.github.com/dwmkerr/effective-shell/commit/5561dda8421d05bc56260c84f2fbdf6366ff7729))
+
 ## [0.6.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.5.2...v0.6.0) (2021-05-22)
 
 
