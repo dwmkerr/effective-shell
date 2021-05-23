@@ -70,6 +70,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Appendixes](#appendixes)
         * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
         * [Appendix 2: Shell Parameter Expansion](#appendix-2-shell-parameter-expansion)
+        * [Appendix 3: Find Cheat Sheet](#appendix-3-find-cheat-sheet)
 * [More Useful Reading](#more-useful-reading)
 * [Essential Tools](#essential-tools)
 * [Good Scripts to write as exercises](#good-scripts-to-write-as-exercises)
@@ -411,6 +412,10 @@ As an appendix, or printed reference, list of the top ten manpages?
 #### Appendix 2: Shell Parameter Expansion
 
 Show the order of shell parameter expansion and an example of each one. This would actually be good as a pull-out reference.
+
+#### Appendix 3: Find Cheat Sheet
+
+A cheat sheet for the `find` command
 
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
