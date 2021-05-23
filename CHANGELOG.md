@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.5.2...v0.6.0) (2021-05-22)
+
+
+### Features
+
+* update playground with sample scripts for part 4 ([3bfde4d](https://www.github.com/dwmkerr/effective-shell/commit/3bfde4d7efe5b1ca08dd55d52bf294e65e7d2709))
+
 ### [0.5.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.5.1...v0.5.2) (2021-05-21)
 
 
