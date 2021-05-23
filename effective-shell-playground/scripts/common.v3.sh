@@ -15,7 +15,7 @@ if [[ $SHELL =~ $shell_regex ]]; then
     if [[ $shell_binary == "bash" ]]; then
         history_file=~/.bash_history
     elif [[ $shell_binary == "zsh" ]]; then
-        history_file=~/.bash_history
+        history_file=~/.zsh_history
     fi
 fi
 
@@ -27,8 +27,8 @@ if [[ $shell_binary == "bash" ]]; then
         | sort \
         | uniq -c \
         | sed 's/^ *//' \
-        | sort -n \
-        | tail -n ${command_count}
+        | sort -n -r \
+        | head -n ${command_count}
 elif [[ $shell_binary == "zsh" ]]; then
     # Each line in the has some extra information at the beginning, the command
     # text only appears after a semi-colon. So extract the text from after the
@@ -40,8 +40,8 @@ elif [[ $shell_binary == "zsh" ]]; then
         | sort \
         | uniq -c \
         | sed 's/^ *//' \
-        | sort -n \
-        | tail -n ${command_count}
+        | sort -n -r \
+        | head -n ${command_count}
 else
     # Show a warning to the user that we don't know where the history file is
     # for their shell.

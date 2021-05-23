@@ -10,5 +10,5 @@ tail ~/.bash_history -n ${history_lines} \
     | sort \
     | uniq -c \
     | sed 's/^ *//' \
-    | sort -n \
-    | tail -n ${command_count}
+    | sort -n -r \
+    | head -n ${command_count}

@@ -1,10 +1,3 @@
-# If we are on a Mac, we need to use the GNU tools.
-if [[ "$(uname)" == "Darwin" ]]; then
-    alias tail=gtail
-    alias uniq=guniq
-    alias sed=gsed
-fi
-
 # Write the title of our command.
 echo "common commands:"
 
@@ -41,7 +34,6 @@ elif [[ $shell_binary == "zsh" ]]; then
     # text only appears after a semi-colon. So extract the text from after the
     # semi-colon and then process it just like in the bash example.
     commands=$(tail "${history_file}" -n ${history_lines} \
-    tail "${history_file}" -n ${history_lines} \
         | rev \
         | cut -d';' -f1 \
         | rev \

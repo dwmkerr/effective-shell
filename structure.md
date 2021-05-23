@@ -31,8 +31,7 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
         * [Chapter 19 - Variables, Reading Input, and Mathematics](#chapter-19---variables-reading-input-and-mathematics)
         * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
-        * [Chapter 20 - Logic, Loops and working with Files and Folders](#chapter-20---logic-loops-and-working-with-files-and-folders)
-        * [Chapter 20 - Loops and working sets of Files and Folders](#chapter-20---loops-and-working-sets-of-files-and-folders)
+        * [Chapter 20 - Loops and working with Files and Folders](#chapter-20---loops-and-working-with-files-and-folders)
         * [Chapter 21 - Getting Input from the User and using Variables](#chapter-21---getting-input-from-the-user-and-using-variables)
         * [Chapter X - Parameters, Return Values, Error Handling](#chapter-x---parameters-return-values-error-handling)
         * [Chapter 23 - Logic and Mathematics](#chapter-23---logic-and-mathematics)
@@ -48,6 +47,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
     * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
     * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
+        * [Understanding Shell Expansions](#understanding-shell-expansions)
         * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
         * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
         * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
@@ -69,6 +69,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [The Most Important Manpages](#the-most-important-manpages)
     * [Appendixes](#appendixes)
         * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
+        * [Appendix 2: Shell Parameter Expansion](#appendix-2-shell-parameter-expansion)
 * [More Useful Reading](#more-useful-reading)
 * [Essential Tools](#essential-tools)
 * [Good Scripts to write as exercises](#good-scripts-to-write-as-exercises)
@@ -214,11 +215,7 @@ We've seen variables a few times in our journey so far. In this chapter we'll lo
 
 In this chapter we'll introduce the _if statement_ - this is a crucial feature of the shell as it allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
 
-#### Chapter 20 - Logic, Loops and working with Files and Folders
-
-One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
-
-#### Chapter 20 - Loops and working sets of Files and Folders
+#### Chapter 20 - Loops and working with Files and Folders
 
 One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
 
@@ -288,6 +285,10 @@ There are lots of different flavours of Linux and Unix, and lots of different sh
 ### Part 6 - Advanced Techniques
 
 The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
+
+#### Understanding Shell Expansions
+
+https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
 
 #### Chapter 26 - Managing Multiple Programming Languages with Make
 
@@ -407,6 +408,10 @@ As an appendix, or printed reference, list of the top ten manpages?
 
 (This is the cheat sheet from 'fly on the command line'.)
 
+#### Appendix 2: Shell Parameter Expansion
+
+Show the order of shell parameter expansion and an example of each one. This would actually be good as a pull-out reference.
+
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
@@ -491,6 +496,11 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: chapter 7 talks about control characters (specifically, ^D), maybe we put this in the 'processes' section?
 - todo: slice and dice: add count option (-c) for `uniq` and numeric (-n) for `sort` as we use these commands in the shell script essentials chapter
 - todo: we need to show the `ln` command. It is used in the shell script essentials chapter.
+- todo: chained commands: `git pull && git checkout`, chained OR, OR true
+- todo: more portable sed:
+      -	sed -i '' 's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
+    +	perl -i -pe's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
+
 
 ## More Useful Reading
 
