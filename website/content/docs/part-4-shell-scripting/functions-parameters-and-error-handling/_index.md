@@ -6,7 +6,7 @@ weight: 22
 
 # Chapter 22 - Functions, Parameters and Error Handling
 
-We can use 'functions' as a way to break up our shell scripts into smaller components that are composed together as needed. In this chapter we'll see how to create functions and how function parameters and script parameters are handled. We will also look at error handling and some tricks for debugging shell scripts.
+The shell allows you to create _functions_ - a set of commands that you can call at any time. In this chapter we'll see how to create functions and how function parameters and script parameters are handled. We will also look at status codes for commands and scripts and error handling.
 
 # Creating a Function <!-- index -->
 
@@ -25,34 +25,19 @@ First we specify the name of the function. Then between a set of opening and clo
 Let's take a look at a very simple function in action:
 
 ```sh
-# Define a function called 'title'.
 title() {
     echo "My Script version 1.0"
 }
-
-# Call the 'title' function to write out our script's title.
-title
 ```
 
-This script defines a very simple function called _title_ that prints out a message. We call the function in the same way we would call any command in the shell - by simply writing out its name. The output should look like this:
+This script defines a very simple function called _title_ that prints out a message. We call the function in the same way we would call any command in the shell, by simply writing the name of the command and hitting enter. Here's how we would call the function:
 
 ```
+$ title
 My Script version 1.0"
 ```
 
-## The Function Keyword
-
-In some scripts you might see functions defined using the `function` keyword, as below:
-
-```sh
-function title() {
-    echo "My Script version 1.0"
-}
-```
-
-The 'function' keyword is not required. The benefit to using the 'function' keyword is that if you have already defined an _alias_ that has the same name as the function, then the definition of the function will not fail. The drawback is that the 'function' keyword is specific to Bash so may not work in other shells.
-
-I would recommend that you do not use the 'function' keyword. Firstly, this will make your scripts more portable. Secondly, if your function is going to clash with the name of an alias that has already been defined, I would actually think that it is better that the script fails. Better to fail early and realise there is clash than to silently overwrite the alias which may cause unexpected errors later on when something else tries to call the alias and calls your function instead!
+Easy! Functions let you structure commands into logical blocks and can help make your scripts easier to read and manage.
 
 # Variables in Functions
 
@@ -92,13 +77,11 @@ Title Message: My Cool Script - version 1.2
 
 This demonstrates that functions can use the variables that are available in the shell. They can also set variables. We can also create new variables in functions.
 
-## Dynamic and Lexical Scoping and Local Variables <!--index-->
+## Variable Scoping <!--index-->
 
-If you come from a programming background you might find it odd that you can create a variable in a function and use it outside of the function. This is a feature known as _dynamic scoping_ - many common programming languages like Python, JavaScript, C, Java and others use _lexical scoping_.
+If you come from a programming background you might find it odd that you can create a variable in a function and use it outside of the function. This is a feature known as _dynamic scoping_. Many common programming languages like Python, JavaScript, C, Java and others use an alternative mechanism called _lexical scoping_.
 
 Lexical scoping is a feature that ensures that you can only use a variable from within the 'scope' that it is defined. This can reduce errors - because it means that if you define a variable in a function you don't accidentally 'overwrite' the value of another variable that is used elsewhere.
-
-Shell functions use dynamic scoping because the shell is designed to be used interactively or for fairly simple scripts - in these cases dynamic scoping is arguably a little easier to work with (or it may be that the shell is just old fashioned!).
 
 You can use the 'local' keyword to define a variable that is only available in the 'local' scope, i.e. the function that it is defined in. This allows you to use lexical scoping and can reduce the risk of errors. Here's an example:
 
@@ -111,20 +94,18 @@ run_loop() {
     done
     echo "Count is: ${count}"
 }
-
-# Call our function and try and write out the count.
-run_loop
-echo "The 'count' variable is: ${count}"
 ```
 
-If we run this script we will see the following output:
+Let's see what happens if we run function:
 
 ```
+$ run_loop
 Count is: 10
-The 'count' variable is:
+$ echo "Count: ${count}"
+Count:
 ```
 
-Notice that because we declared the _count_ variable using the 'local' keyword, it is only available in the scope it was declared in - i.e. inside the _run_loop_ function. If we try and access it outside of the function it is undefined.
+Notice that because we declared the _count_ variable using the 'local' keyword, it is only available inside the _run_loop_ function. If we try and access it outside of the function it is undefined.
 
 In general, you should use 'local' variables inside functions. This can help to avoid problems where calling a function can have an unintended side effects:
 
@@ -157,26 +138,23 @@ In this case calling the function changes the 'count' variable that is outside o
 
 # Passing Parameters to Functions
 
-You can pass any number of parameters to a shell function. However, unlike in many programming languages, we do not specify the parameters in the definition of the function. Instead, to get the value of a parameter, we can use special built-in variables that represent each parameter. Let's take a look at an example:
+You can pass any number of parameters to a shell function. To get the value of a parameter, we can use special built-in variables that represent each parameter. Let's take a look at an example:
 
 ```sh
-# Create a function that calculates the sum of two numbers.
 sum() {
     local value1=$1
     local value2=$2
     local result=$((value1 + value2))
     echo "The sum of ${value1} and ${value2} is ${result}"
 }
-
-# Perform some sums.
-sum 3 6
-sum 10 33
 ```
 
-The output of the script is:
+Let's see how we can pass parameters to this function:
 
 ```
+$ sum 3 6
 The sum of 3 and 6 is 9
+$ sum 10 33
 The sum of 10 and 33 is 43
 ```
 
@@ -205,7 +183,6 @@ sum() {
 
     # Write out the result.
     echo "Summed $# values for a total of: ${total}"
-    echo "The third value is: ${[3]@}"
 }
 ```
 
@@ -236,7 +213,21 @@ $ show_top 3 10 20 30 40 50
 Top 3 values: 10 20 30
 ```
 
-We have used the 'range' operator on the `$@` variable to get a subset of the parameters. This script is a little odd to read because when we set the 'values' parameter we need to 'skip' past the first positional parameter, because the first positional parameter is the number of values to show. Let's look at a better way to deal with this.
+We have used the 'range' operator on the `$@` variable to get a subset of the parameters. This script is a little odd to read because when we set the 'values' parameter we need to 'skip' past the first positional parameter, because the first positional parameter is the number of values to show.
+
+The table below shows some of the common variables you can use when working with function parameters:
+
+| Variable           | Description                                                                                   |
+|--------------------|-----------------------------------------------------------------------------------------------|
+| `$1`               | The first parameter                                                                           |
+| `$2`               | The second parameter                                                                          |
+| `${11}`            | The 11th parameter - if the parameter is more than one digit you must surround it with braces |
+| `$#`               | The number of parameters                                                                      |
+| `$@`               | The full set of parameters as an array                                                        |
+| `$*`               | The full set of parameters as a string separated by the first value in the `$IFS` variable    |
+| `${@:start:count}` | A subset of 'count' parameters starting at parameter number 'start'                           |
+
+The `$@` and `@*` parameters look quite similar. The first one is an array, just like we saw in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}). The second version is the parameters collected together into a single string separated by spaces (actually, separated by the first character in the `$IFS` variable).
 
 ## Parameter Shifting
 
@@ -257,7 +248,7 @@ show_top() {
 }
 ```
 
-After we get the value of the first parameter, we 'shift', removing it from the list of positional parameters so that we can deal with the remaining parameters. In general I would probably avoid using 'shift' too much - if you find that you are having to write complex code to shift parameters around you might be better using a programming language rather than the shell for the task you are performing!
+After we get the value of the first parameter, we 'shift', removing it from the list of positional parameters so that we can deal with the remaining parameters. I would avoid using 'shift' too much - if you find that you are having to write complex code to shift parameters around you might be better using a programming language rather than the shell for the task you are performing!
 
 # Return Values
 
@@ -279,15 +270,10 @@ is_even() {
 
 A function could set any number of variables to provide output. Here's how we could use the _is_even_ function:
 
-```sh
-number=33
-is_even $number
-echo "Result is: $0"
 ```
-
-This script would output the below:
-
-```
+$ number=33
+$ is_even $number
+$ echo "Result is: $0"
 Result is: 0
 ```
 
@@ -300,27 +286,31 @@ A more common way to return a value from a function is to write its result to _s
 If we write our result to _stdout_, then we can capture the result of a function in a far more readable way:
 
 ```sh
-is_even() {
-    local number=$1
-
-    # A number is even if when we divide it by 2 there is no remainder.
-    # Set 'result' to 1 if the parameter is even and 0 otherwise.
-    if [ $((number % 2)) -eq 0 ]; then
-        echo 1
-    else
-        echo 0
-    fi
+lowercase() {
+    local params="$@"
+    # Translate all uppercase characters to lowercase characters.
+    echo "$params" | tr '[:upper:]' '[:lower:]' 
 }
-
-# Call the is_even function and capture the result.
-number=33
-result=$(is_even 33)
-echo "Result is: $result"
 ```
 
-In this example we write the result of the function to _stdout_. This means that we can capture the result and put it in another variable by simply executing the command in a subshell.
+In this example we write the result of the function to _stdout_. This means that we can capture the result and put it in another variable by simply executing the command in a subshell:
+
+```
+$ result=$(lowercase "Don't SHOUT!")
+$ echo "$result"
+don't shout!
+```
 
 If you have a programming background it might seem very strange that you write results in a function by writing to _stdout_. Remember - the shell is a text based interface to the computer system. The majority of commands that we have seen so far that provide output write their output to the screen. This is what `ls` does, what `find` does, what `cat` does and so on. When we `echo` a result from a function, we are really just following the Unix standard of writing the results of a program to the screen.
+
+This is important - if we run our function directly in a shell, we can see the result written to the screen:
+
+```
+$ lowercase "PLEASE don't SHOUT!"
+please don't shout!
+```
+
+Remember - shell functions are designed to behave in a similar way to shell commands. They write their output to _stdout_.
 
 ## Dealing with Output in Commands
 
@@ -354,9 +344,11 @@ This script fails, with the output:
 'Creating folder \'/tmp/2021-05-28\'...\n/tmp/2021-05-28': No such file or directory
 ```
 
-What's going on here? Well in the _temp_today_ function we wrote a message halfway through the function, showing the name of the folder that would be created. This message is part of the output of the function - so even though in the last line we echo the path to the folder, the output of the command is _all_ of the text we have written.
+What's going on here?
 
-It is important to remember that any command you call in a function that might write to _stdout_ could cause problems as it could write text to your output. In [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}}) we saw that we can send the output of a command to the 'null' device to silence its output. We can use this trick in our functions to stop commands from 'polluting' our result:
+Well in the _temp_today_ function we wrote a message halfway through the function, showing the name of the folder that would be created. This message is part of the output of the function. Even though in the last line we echo the path to the folder, the output of the command is _all_ of the text we have written.
+
+It is important to remember that any command you call in a function that might write to _stdout_ could cause problems as it could write text to your output:
 
 ```sh
 command_exists() {
@@ -368,24 +360,20 @@ command_exists() {
 }
 ```
 
-This is not a well written function, we'll look at a better way to write it next. But it shows an important challenge to be aware of - when `type` is used to find out whether a command exists it returns success if the command exists but also writes to _stdout_. This causes problems:
-
-```sh
-# Does the 'touch' command exist?
-result=$(command_exists "touch")
-
-# Show the result.
-echo "Result is: ${result}"
-```
-
-This script show the following output:
+What happens when we try and store the result of the function in a variable?
 
 ```
+$ result=$(command_exists "touch")
+$ echo "Result is: ${result}"
 Result is: touch is hashed (/usr/bin/touch)
 1
 ```
 
-This is because the `type` command has written a message to standard output. We can silence this message by redirecting _stdout_ for the `type` command to _/dev/null_, meaning it is not written as part of our function's output:
+This is not a well written function, we'll look at a better way to write it next. But it shows an important challenge to be aware of - when `type` is used to find out whether a command exists it returns success if the command exists but also writes to _stdout_.
+
+
+In [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}}) we saw that we can send the output of a command to the 'null' device to silence its output. We can use this trick in our functions to stop commands from 'polluting' our result:
+T
 
 ```sh
 command_exists() {
@@ -442,7 +430,7 @@ Result: 0
 
 # Error Handling
 
-When you run a shell script, if a command in the script fails, the script will continue to exit. Like many other points in this chapter this might seem unintuitive if you come from a programming background, but this makes sense in the shell - if the shell was to terminate whenever a command fails it would be very difficult to use interactively. But this is likely not the kind of behaviour we want in our scripts.
+When you run a shell script, if a command in the script fails, the script will continue to run. Like many other points in this chapter this might seem unintuitive if you come from a programming background, but this makes sense in the shell - if the shell was to terminate whenever a command fails it would be very difficult to use interactively.
 
 Let's create a script called 'today' that makes a new temporary folder each day, then puts a link to that folder in our home directory:
 
@@ -512,7 +500,7 @@ set -e
 # ...
 ```
 
-The 'set' allows you to turn on and turn off shell options. The 'e' option means 'exit if any command exists with a non-zero status'.
+The 'set' command allows you to turn on and turn off shell options. The 'e' option means 'exit if any command exits with a non-zero status'.
 
 Now let's clean up again:
 
@@ -530,6 +518,20 @@ mkdir: /tmp/2021-05-28: Not a directory
 ```
 
 In this case the script stopped running as soon as there was a failure - after the `mkdir` command failed.
+
+# The Function Keyword
+
+In some scripts you might see functions defined using the `function` keyword, as below:
+
+```sh
+function title() {
+    echo "My Script version 1.0"
+}
+```
+
+The 'function' keyword is not required. The keyword is available in Bash and similar shells. Using the function keyword has a minor benefit that it does not lead to an error if you have already defined an _alias_ with the same name as the function you are declaring. However, the drawback is that it is less standard and therefore less portable.
+
+I would recommend that you do not use the 'function' keyword. Firstly, this will make your scripts more portable. Secondly, if your function is going to clash with the name of an alias that has already been defined, I would actually think that it is better that the script fails. Better to fail early and realise there is clash than to silently overwrite the alias which may cause unexpected errors later on when something else tries to call the alias and calls your function instead!
 
 # Parameters and Status Codes for Scripts
 
@@ -549,7 +551,7 @@ If you need a refresher on what is in the script, you can view it in your pager 
 less ~/effective-shell/scripts/common.v4.sh
 ```
 
-The output of the command looks like this:
+The output of the command will look something like:
 
 ```
 1: 280 gst
