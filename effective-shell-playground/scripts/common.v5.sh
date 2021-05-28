@@ -1,10 +1,3 @@
-# If we are on a Mac, we need to use the GNU tools.
-if [[ "$(uname)" == "Darwin" ]]; then
-    alias tail=gtail
-    alias uniq=guniq
-    alias sed=gsed
-fi
-
 # Exit if any command fails.
 set -e
 
