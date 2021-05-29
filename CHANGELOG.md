@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.7.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.7.0...v0.7.1) (2021-05-29)
+
+
+### Bug Fixes
+
+* fix merge error that deleted a chapter ([5ecbeca](https://www.github.com/dwmkerr/effective-shell/commit/5ecbecab8c13ee5dea27acf89f3e8d83f8d61821))
+
 ## [0.7.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.6.0...v0.7.0) (2021-05-23)
 
 
