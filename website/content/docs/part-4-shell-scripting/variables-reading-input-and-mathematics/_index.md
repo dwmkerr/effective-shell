@@ -566,14 +566,20 @@ I've included the `let` keyword here for completeness, but I would recommend tha
 
 There are many arithmetic operators available. Here's a table showing a few common ones and how they are used:
 
-| Operator | Meaning        | Example                      |
-|----------|----------------|------------------------------|
-| `+`      | Addition       | `echo $((3+4)) # prints 7`   |
-| `-`      | Subtraction    | `echo $((4-2)) # prints 2`   |
-| `*`      | Multiplication | `echo $((4*2)) # prints 8`   |
-| `/`      | Division       | `echo $((4/2)) # prints 2`   |
-| `**`     | Exponent       | `echo $((4**3)) # prints 64` |
-| `%`      | Modulus        | `echo $((7%3)) # prints 1`   |
+| Operator | Meaning           | Example                                         |
+|----------|-------------------|-------------------------------------------------|
+| `+`      | Addition          | `echo $((3+4)) # prints 7`                      |
+| `-`      | Subtraction       | `echo $((4-2)) # prints 2`                      |
+| `*`      | Multiplication    | `echo $((4*2)) # prints 8`                      |
+| `/`      | Division          | `echo $((4/2)) # prints 2`                      |
+| `**`     | Exponent          | `echo $((4**3)) # prints 64`                    |
+| `%`      | Modulus           | `echo $((7%3)) # prints 1`                      |
+| `++i`    | Prefix Increment  | `i=1; echo $((++i)) # prints 1, i is set to 2`  |
+| `i++`    | Postfix Increment | `i=1; echo $((i++)) # prints 2, i is set to 2`  |
+| `--i`    | Prefix Decrement  | `i=3; echo $((--i)) # prints 3, i is set to 2`  |
+| `i--`    | Postfix Decrement | `i=3; echo $((i--)) # prints 2, i is set to 2`  |
+| `i+=n`   | Increment         | `i=3; echo $((i+=3)) # prints 6, i is set to 6` |
+| `i-=n`   | Decrement         | `i=3; echo $((i-=2)) # prints 1, i is set to 1` |
 
 If you want to find the complete set of arithmetic operators available or find more details on how arithmetic works in the shell, use `man bash` and search for the text `ARITHMETIC\ EVALUATION` (the backslash is needed to escape the space between the words when searching in the manual).
 
