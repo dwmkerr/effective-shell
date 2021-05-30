@@ -167,7 +167,7 @@ When we operate in a shell for day to day work we don't have to use the more spe
 
 We go into detail in word splitting nearer the end of this chapter.
 
-## For Loop - Files with Wildcards
+## For Loops - Files with Wildcards
 
 One of the most common scenarios for using a _for loop_ is to loop through a set of files or folders.
 
@@ -309,6 +309,86 @@ The `$IFS` variable can be complex to work with and discussed at the end of the 
 
 I believe that in this case it is probably best to not use a shell script. There is _no_ solution that is particularly clean or simple. In this case I think you might be better off using a programming language. Check the [How to avoid scripting!]({{< relref "/docs/work-in-progress" >}}) Chapter for more details on this.
 
+## For Loops - C Style Loops
+
+If you have used programming languages like C, C++, Python, Java and others, you may well be familiar with the 'C style loop' structure that is shown below:
+
+```
+for (( expression1 ; expression2 ; expression3 ))
+do
+    <command 1>
+    <command 2>
+    <command n>
+done
+```
+
+This loop structure uses three arithmetic expressions to run the loop. The first is in 'initialise' expression, this is typically used to setup the initial state of the loop. The second is the 'conditional' expression, this is used to check whether the loop is complex. The third is the 'iterate' expression, this is evaluated after the loop commands are completed.
+
+Here's how we can use a C style for loop to iterate through five numbers:
+
+```sh
+for (( i = 1; i <= 5; i++ ))
+do
+    echo "Loop ${i}"
+done
+```
+
+The output of this script is:
+
+```
+Loop 1
+Loop 2
+Loop 3
+Loop 4
+Loop 5
+```
+
+## For Loops - Looping over Sequences
+
+Another common way to use a for loop is with _brace expansion_. Brace expansion we have already seen a number of times so far - we can use it to generate a sequence of values. Here is how we might create three files using brace expansion:
+
+```sh
+touch {coffee,tea,milkshake}-menu.txt
+```
+
+This will create three files:
+
+```
+$ ls -1 *-menu.txt
+coffee-menu.txt
+milkshake-menu.txt
+tea-menu.txt
+```
+
+Brace expansion can be use in for loops, and brace expansion can be used to create sequences. For example, the loop below could be used as a way to loop through the numbers from one to ten:
+
+```sh
+for i in {1..10}
+do
+    echo "Loop ${i}"
+done
+```
+
+Brace expansion can be used to loop through a sequence of values or a range of numbers. You can even specify the 'increment' used in a sequence. For example, this loop iterates through a sequence of numbers adding five each time:
+
+```sh
+for i in {0..25..5}
+do
+    echo "Loop ${i}"
+done
+```
+
+The output of this loop would be:
+
+```
+Loop 0
+Loop 5
+Loop 10
+Loop 15
+Loop 20
+Loop 25
+```
+
 # The While Loop
 
 The _while loop_ is a loop that executes commands until a certain condition is met.
@@ -410,6 +490,33 @@ In this case we've had to use some complex tricks to avoid each issue:
 However this _still_ has issues - if commands in the loop read from standard input then the loop will still have errors. For this reason, I would again suggest you follow the advice in the [How to avoid scripting!]({{< relref "/docs/work-in-progress" >}}) Chapter to see better ways to read files!
 
 Even though I would recommend using a programming language to read the lines of a file, I have kept this example here because it is something you are likely to come across if you see scripts written by others. And for simple scenarios, where you are fairly sure of structure of a file, it might be useful. But this is definitely a case where you should consider using a programming language if you want to create more maintainable solutions to problems!
+
+## While Loops - The Infinite Loop
+
+There are times that you may want to loop forever. For example you might be writing a script that reads an option from the user, processes it, and then starts again.
+
+Here's an example of an infinite loop - we use the `true` command, which always returns success:
+
+```sh
+while true
+do
+    echo "1) Move forwards"
+    echo "2) Move backwards"
+    echo "3) Turn Left"
+    echo "4) Turn Right"
+    echo "5) Explore"
+    echo "0) Quit"
+    
+    read -p "What will you do: " choice
+    if [ $choice -eq 0 ]; then
+        exit
+    fi
+    # The rest of the game logic would go here!
+    # ...
+done
+```
+
+This example shows a common pattern for an infinite loop - offering a menu of options which the user can call repeatedly until they decide to quit.
 
 # The Until Loop
 
@@ -708,8 +815,6 @@ Word: one two three
 ```
 
 If you want to use more Posix-like functionality then you can set the `SH_WORD_SPLIT` parameter. You can find out more about this parameter by running `man zsh` and searching for `SH_WORD_SPLIT`.
-
-
 
 [^1]: If we had put quotes around the wildcard text it would _not_ be expanded - check the section on 'Quoting' in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a refresher on this.
 [^2]: ANSI C Quoting is described in the 'Quoting' section in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}})

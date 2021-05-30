@@ -33,14 +33,14 @@ This document contains the proposed structure of the book. It is still work in p
         * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
         * [Chapter 21 - Loops and working with Files and Folders](#chapter-21---loops-and-working-with-files-and-folders)
         * [Chapter 22 - Functions, Parameters and Error Handling](#chapter-22---functions-parameters-and-error-handling)
-        * [Chapter 23 - Advanced Shell Scripting Techniques](#chapter-23---advanced-shell-scripting-techniques)
-        * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
+        * [Chapter 23 - Useful Patterns for Shell Scripts](#chapter-23---useful-patterns-for-shell-scripts)
     * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
-        * [Chapter 17 - Configuring the Shell](#chapter-17---configuring-the-shell)
+        * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
         * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
         * [Chapter 19 - Managing Your Dotfiles](#chapter-19---managing-your-dotfiles)
-        * [Chapter 20 - Creating Shell Scripts and Understanding Shebangs](#chapter-20---creating-shell-scripts-and-understanding-shebangs)
         * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
+        * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
+        * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
     * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
     * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
     * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
@@ -63,13 +63,12 @@ This document contains the proposed structure of the book. It is still work in p
         * [The Linux Filesystem Hierarchy Standard](#the-linux-filesystem-hierarchy-standard)
         * [Everything is a File](#everything-is-a-file)
         * [Git](#git)
-    * [The Most Important Manpages](#the-most-important-manpages)
     * [Appendixes](#appendixes)
         * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
         * [Appendix 2: Shell Parameter Expansion](#appendix-2-shell-parameter-expansion)
         * [Appendix 3: Find Cheat Sheet](#appendix-3-find-cheat-sheet)
+        * [Appendix 4: Essential Manpages](#appendix-4-essential-manpages)
 * [More Useful Reading](#more-useful-reading)
-* [Essential Tools](#essential-tools)
 * [Good Scripts to write as exercises](#good-scripts-to-write-as-exercises)
 * [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
 * [Posters!](#posters)
@@ -219,27 +218,20 @@ One of the most common tasks we will do when scripting is operating functions ov
 
 #### Chapter 22 - Functions, Parameters and Error Handling
 
-https://www.leadingagile.com/2018/10/unit-testing-shell-scriptspart-one/
+The shell allows you to create _functions_ - a set of commands that you can call at any time. In this chapter we'll see how to create functions and how function parameters and script parameters are handled. We will also look at status codes for commands and scripts and error handling.
 
-Use the `rcut` function as an example
+#### Chapter 23 - Useful Patterns for Shell Scripts
 
-#### Chapter 23 - Advanced Shell Scripting Techniques
-
-(TODO: These are really just assorted advanced shell techniques, so might be better later on)
-
-We'll now introduce a few practical real-world scripts. These will demonstrate more advanced techniques, in the context of real world use cases. In this chapter we'll also look at 'Heredocs' and how they can help us manage files and more complex text content.
-
-Ctrl+Alt+R for `recent`, i.e. demoing key combinations?
-
-#### Chapter 24 - How to avoid scripting!
-
-The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
+To close this the section on shell script we're going to look at some common patterns you will see in shell scripts. These are an assortment of techniques you may find useful when building your scripts or when working with other peoples scripts.
 
 ### Part 4 - Building Your Toolkit
 
 As you work more with the shell, you will want to customise it and build tools and commands of your own. Before we look at shell scripting, we'll take a look at how the shell is configured, different ways a shell can run, and effective ways to manage your shell configuration.
 
-#### Chapter 17 - Configuring the Shell
+#### Chapter 25 - Configuring the Shell
+
+interactive vs non interactive shells - running a shell script is a good example because it is non interactive (i.e. no aliases, no history, etc)
+
 
 There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
 
@@ -247,6 +239,11 @@ In this chapter we'll see the various different configuration files used, introd
 
 NOTE: `setopt` - extended globbing as a better way for file matching vs `find` (especially in loops)
 
+set -f	set -o noglob	Disable file name generation using metacharacters (globbing).
+set -v	set -o verbose	Prints shell input lines as they are read.
+set -x	set -o xtrace	Print command traces before executing command.
+
+https://mywiki.wooledge.org/glob
 
 #### Chapter 18 - Customising your Command Prompt
 
@@ -258,13 +255,17 @@ The shell command prompt can be configured to show you what you find most import
 
 As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. In this chapter we'll see how to manage your configuration - and 'dotfiles' - as a GitHub repository. We'll also see how this can be used to share ideas and look at some great examples.
 
-#### Chapter 20 - Creating Shell Scripts and Understanding Shebangs
-
-As you get more comfortable with the shell, you can bundle common commands into scripts. These scripts can use Bash features, or can be written with other languages. In this chapter we'll see how to create simple shell scripts, scripts which use different languages, and see how 'sourcing' works.
-
 #### Chapter 21 - Getting to Grips with Git
 
 If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell.In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories.
+
+#### Chapter 24 - How to avoid scripting!
+
+The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
+
+#### Chapter X - Testing Shell Scripts with Docker
+
+TODO
 
 ### Interlude - The Unix Philosophy
 
@@ -345,6 +346,12 @@ How environment variables work, how they are accessed in a shell.
 
 Signals, process tree, permissions, process id.
 
+- bug: in chapter 9 (job control) we mention signals are in a later chapter, but not sure where this should be yet.
+- todo: signals - we definitely need to discuss them and also talk about how shells capture them, scripts handle them and how we must write programs which handle them.
+  1. Ctrl Z - Chapter 8
+  2. Ctrl C - TODO
+  3. Ctrl D - Chapter X
+
 #### Users, Groups and Permissions
 
 Users, whoami, chmod, etc
@@ -382,18 +389,6 @@ Link to this from clipboard chapter, pipelines chapter, others which use special
 
 This may as well be an entire part, with 5 chapters, why not.
 
-### The Most Important Manpages
-
-As an appendix, or printed reference, list of the top ten manpages?
-
-- `man re_pattern` - basic and extended regex patterns
-- `man test` is an excellent way to quickly check common tests (existence of a file etc)
-- `man set` is super useful when checking options like `set -ex` in scripts
-- `man re_format`
-- `man getopt`
-- `man XXX` show signal commands (`Ctrl+V` etc)
-- `man bash` search for `ARITHMETIC\ EVALUATION` to find how arithmetic operators work in bash
-
 ### Appendixes
 
 #### Appendix 1: Shell Shortcuts
@@ -408,12 +403,16 @@ Show the order of shell parameter expansion and an example of each one. This wou
 
 A cheat sheet for the `find` command
 
+#### Appendix 4: Essential Manpages
+
+There are a few manual pages that can be really useful to know about, this guide has a quick reference to them.
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
 - introduction: Note that we are going to use `#` to indicate comments
 - introduction: Note that we are going to use `...` to indicate cropped output
 - chapter: useful tools: fzf, ag, ack, ripgrep?
+
 - structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
 - todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
 - todo: getting help - what is the `zsh` equivalent of `help`?
@@ -423,7 +422,6 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: tab complete `man`
 - todo: coding - how to handle autocomplete for commands
 - `df` to find out free space, or also how to find out how much space a folder takes up
-- `$IFS` to avoid easily avoidable errors
 - `open` and similar commands which are used to interface with the host _graphical_ shell
 - **Error Codes** and **set -e** are tacitly referred to in the `stderr` sections of the 'thinking in pipelines' chapter, we will need to have a reference
 - chapter 4: instead of creating the aliases directly, we should have a `setup-copy-and-paste.sh` script in the playground which sets up these commands as a one liner, then the user can just call the script.
@@ -437,12 +435,6 @@ This section contains the things which have been pulled out of chapters as they 
 - summary: should we also have a manpages section for each summary (e.g. bash redirection manpage, stdin manpage, etc?, might be good for pros)
 - input: there is a convention for `-f -` (or just `-` in some programs) to mean `stdin`, this could go in pipelines, or advanced pipelines - another example (`curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -`) - note that `apt-key add -` uses stdin.
 - heredocs: here docs vs herestrings (`<<<`), see https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash there's a good example of it in use here https://unix.stackexchange.com/questions/572424/retrieve-both-http-status-code-and-content-from-curl-in-a-shell-script
-- bug: in chapter 9 (job control) we mention signals are in a later chapter, but not sure where this should be yet.
-- todo: bash traps with signals, this is an excellent reference: https://www.linuxjournal.com/content/bash-trap-command
-- todo: signals - we definitely need to discuss them and also talk about how shells capture them, scripts handle them and how we must write programs which handle them.
-  1. Ctrl Z - Chapter 8
-  2. Ctrl C - TODO
-  3. Ctrl D - Chapter X
 - programs: note that `readline` should be used when building prompts
 - tmux: hit `<leader>+s` to list all sessions (with cool window previews). `x` deletes a session. Look up how to rename, new, etc.
 - managing resources: `htop` as a good cross-platform process manager
@@ -451,8 +443,6 @@ This section contains the things which have been pulled out of chapters as they 
 - weird stuff: things which _don't_ work consistently across systems and are just plain weird and good to know about: `sed`, Regexs, Non posix, Posix, Different systems, Different shells
 - Where do we describe `POSIX`? It is referenced directly in Chapter 4, as there is a standard for keyboard shortcuts in the shell.
 - [ ] Add `tree` to the Chapter 'Moving Around'.
-- [ ] Getting Help: `help`
-- [ ] For the 'Getting Help' page, include `whatis` and `whereis`.
 - [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
 - manipulating text: a good example might be 'build a table of all executables': http://localhost:1313/docs/part-2-core-skills/10-understanding-commands/#executables---programs
 - tricks: this is a nice trick `$(cd <dir> && do_stuff)` - this allows you to run a command in a subshell in a particularly directory. Given that it spawns a subshell there's no need to change _back_ to the directory you were in.
@@ -481,8 +471,6 @@ This section contains the things which have been pulled out of chapters as they 
   https://linuxize.com/post/bash-heredoc/
   refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
 - todo: variable indirection, e.g. `${!env_var_name}`
-- best practices: local variables are `in_snake_case`, global variables are `${CAPITALISED_WITH_BRACES}` so that they don't `$CLASH_likethis`
-- todo: echo "$?" for the return code, quite useful.
 - best practices: refer to files with `./` when they are relative. It makes it explicit that we are using a path, not a function, alias or anything else. It can also make it easier to grep paths.
 - maybe: `ls -1` is kind of cool - one file per line
 - showing aliases `alias | grep git push`
@@ -496,7 +484,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: more portable sed:
       -	sed -i '' 's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
     +	perl -i -pe's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
-
+- todo: Ctrl+Alt+R for `recent`, i.e. demoing key combinations? - how this is done for scripts
 
 ## More Useful Reading
 
@@ -527,30 +515,11 @@ $ tty
 echo "Groovy" > /dev/ttys031
 ```
 
-## Essential Tools
-
-- ls
-- grep
-- mkdir
-- rm
-- rmdir
-- touch
-- cat
-- watch
-- tail
-- head
-- less
-- more
-- most
-- echo
-
-- timeout
-- until
-
 ## Good Scripts to write as exercises
 
 - `recent` - a better version of `history`, which deduplicates and sorts based on the most commonly used items
 - `quickman` - a quick link to the most common man pages
+- `options` - show and interactively toggle options
 
 ## Does it make sense to have 'golden rules'?
 
