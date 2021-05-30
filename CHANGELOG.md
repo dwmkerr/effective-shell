@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.7.1...v0.8.0) (2021-05-30)
+
+
+### Features
+
+* chapter 23 - useful patterns for shell scripts ([0197b23](https://www.github.com/dwmkerr/effective-shell/commit/0197b23e29bf95a07a35c9f1dbee92e9a26a3a52))
+
 ### [0.7.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.7.0...v0.7.1) (2021-05-29)
 
 
