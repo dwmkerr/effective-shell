@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.8.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.8.0...v0.8.1) (2021-05-30)
+
+
+### Bug Fixes
+
+* add increment/decrement operators ([1394bb9](https://www.github.com/dwmkerr/effective-shell/commit/1394bb9db913173ae2ef95d3deb40fb8fefb3672))
+
 ## [0.8.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.7.1...v0.8.0) (2021-05-30)
 
 
