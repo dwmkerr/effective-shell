@@ -263,6 +263,11 @@ If you are working with text, code, or other types of content, Git can be a powe
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
+Note: When to use the shell:
+- Universal compatability such as for installing ruby, node, nvm etc
+- When we need a shell function, e.g show options
+- When we want to execute programs (this is often not safe in code)
+
 #### Chapter X - Testing Shell Scripts with Docker
 
 TODO
@@ -485,6 +490,9 @@ This section contains the things which have been pulled out of chapters as they 
       -	sed -i '' 's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
     +	perl -i -pe's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
 - todo: Ctrl+Alt+R for `recent`, i.e. demoing key combinations? - how this is done for scripts
+- todo: Nice `tr` trick: `tr a-z A-Z` for uppercase
+- todo: Nice date tricks: https://linux.101hacks.com/date-manipulation/past-date-and-time/
+- todo: `lsof` for open ports https://linux.101hacks.com/monitoring-performance/lsof-command-examples/
 
 ## More Useful Reading
 
