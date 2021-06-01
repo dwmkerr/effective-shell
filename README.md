@@ -14,6 +14,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 * [Versioning](#versioning)
 * [Copyright & Licensing](#copyright--licensing)
 * [Thanks!](#thanks)
+* [TODO](#todo)
 
 <!-- vim-markdown-toc -->
 
@@ -93,7 +94,13 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 ## Thanks!
 
+Book icons made by [Freepik](https://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com/).
+
 Thanks to the following people who have helped with reviews, comments, suggestions.
 
 - Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal, Peter Mondlock, Samantha Baldwin for the useful comments and suggestions
 - [Ogus Ismail](https://stackoverflow.com/users/10248678/oguz-ismail) for helping me understand some of the [nuances of word splitting and filename expansion](https://stackoverflow.com/questions/67648392/how-can-i-confirm-whether-whitespace-or-special-characters-are-escaped-in-a-wild)
+
+## TODO
+
+- [ ] Book icon attribution in a 'thanks' page in the document

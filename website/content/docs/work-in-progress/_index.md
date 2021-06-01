@@ -12,6 +12,7 @@ I'm trying to get a few chapters published each week, check back regularly to se
 
 You can also sign up with the form below to be notified when I publish new chapters (I don't use this for anything beyond notifications of updates to the book and don't share any details).
 
+```
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
@@ -32,6 +33,7 @@ You can also sign up with the form below to be notified when I publish new chapt
 </div>
 
 <!--End mc_embed_signup-->
+```
 
 If you have comments on content you'd like to see, feel free to use the comments section below.
 
