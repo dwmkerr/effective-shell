@@ -4,71 +4,71 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc GFM -->
 
-    * [The Pitch](#the-pitch)
-    * [Potential Titles](#potential-titles)
-    * [Foreword by Steve Bourne](#foreword-by-steve-bourne)
-    * [Introduction](#introduction)
-    * [Chapter 1 - Getting Started](#chapter-1---getting-started)
+* [The Pitch](#the-pitch)
+* [Potential Titles](#potential-titles)
+* [Foreword by Steve Bourne](#foreword-by-steve-bourne)
+* [Introduction](#introduction)
+* [Chapter 1 - Getting Started](#chapter-1---getting-started)
     * [Part 1 - Transitioning from The Graphical User Interface to the Shell](#part-1---transitioning-from-the-graphical-user-interface-to-the-shell)
-        * [Chapter 2 - Navigating your System](#chapter-2---navigating-your-system)
-        * [Chapter 3 - Managing Your Files](#chapter-3---managing-your-files)
-        * [Chapter 4 - Becoming a Clipboard Gymnast](#chapter-4---becoming-a-clipboard-gymnast)
-        * [Chapter 5 - Getting Help](#chapter-5---getting-help)
-    * [Interlude - The Renaissance of the Shell](#interlude---the-renaissance-of-the-shell)
-    * [Part 2 - Core Skills](#part-2---core-skills)
-        * [Chapter 6 - Thinking in Pipelines](#chapter-6---thinking-in-pipelines)
-        * [Chapter 7 - Fly on the Command-line](#chapter-7---fly-on-the-command-line)
-        * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
-        * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
-        * [Finding Files](#finding-files)
-    * [Interlude - What is a Shell?](#interlude---what-is-a-shell)
-    * [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
-        * [Chapter 13 - Regex Essentials](#chapter-13---regex-essentials)
-        * [Chapter 14 - Get to Grips with Grep](#chapter-14---get-to-grips-with-grep)
-        * [Chapter 15 - Slice and Dice Text](#chapter-15---slice-and-dice-text)
-        * [Chapter 16 - Advanced Text Manipulation](#chapter-16---advanced-text-manipulation)
-        * [Chapter 17 - Build Commands on the Fly](#chapter-17---build-commands-on-the-fly)
-    * [Part 4 - Shell Scripting](#part-4---shell-scripting)
-        * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
-        * [Chapter 19 - Variables, Reading Input, and Mathematics](#chapter-19---variables-reading-input-and-mathematics)
-        * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
-        * [Chapter 21 - Loops and working with Files and Folders](#chapter-21---loops-and-working-with-files-and-folders)
-        * [Chapter 22 - Functions, Parameters and Error Handling](#chapter-22---functions-parameters-and-error-handling)
-        * [Chapter 23 - Useful Patterns for Shell Scripts](#chapter-23---useful-patterns-for-shell-scripts)
-    * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
-        * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
-        * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
-        * [Chapter 19 - Managing Your Dotfiles](#chapter-19---managing-your-dotfiles)
-        * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
-        * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
-        * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
-    * [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
-    * [Interlude - The Linux and Shell Family Tree](#interlude---the-linux-and-shell-family-tree)
-    * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
-        * [Understanding Shell Expansions](#understanding-shell-expansions)
-        * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
-        * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
-        * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
-        * [Chapter 29 - Writing Tools that Follow The Unix Philosophy](#chapter-29---writing-tools-that-follow-the-unix-philosophy)
-    * [Interlude - The Future](#interlude---the-future)
-        * [Introduction](#introduction-1)
-    * [Part 7 - The Missing Chapters](#part-7---the-missing-chapters)
-        * [Chapter X - Talking to other machines with the Secure Shell](#chapter-x---talking-to-other-machines-with-the-secure-shell)
-        * [Chapter X - The Missing Tools: jq, yq and xq](#chapter-x---the-missing-tools-jq-yq-and-xq)
-        * [Chapter X - Built Text Manipulation Programs?](#chapter-x---built-text-manipulation-programs)
-    * [Part X - Linux Essentials](#part-x---linux-essentials)
-        * [What is Linux?](#what-is-linux)
-        * [Environment Variables](#environment-variables)
-        * [Processes](#processes)
-        * [Users, Groups and Permissions](#users-groups-and-permissions)
-        * [The Linux Filesystem Hierarchy Standard](#the-linux-filesystem-hierarchy-standard)
-        * [Everything is a File](#everything-is-a-file)
-        * [Git](#git)
-    * [Appendixes](#appendixes)
-        * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
-        * [Appendix 2: Shell Parameter Expansion](#appendix-2-shell-parameter-expansion)
-        * [Appendix 3: Find Cheat Sheet](#appendix-3-find-cheat-sheet)
-        * [Appendix 4: Essential Manpages](#appendix-4-essential-manpages)
+    * [Chapter 2 - Navigating your System](#chapter-2---navigating-your-system)
+    * [Chapter 3 - Managing Your Files](#chapter-3---managing-your-files)
+    * [Chapter 4 - Becoming a Clipboard Gymnast](#chapter-4---becoming-a-clipboard-gymnast)
+    * [Chapter 5 - Getting Help](#chapter-5---getting-help)
+* [Interlude - The Renaissance of the Shell](#interlude---the-renaissance-of-the-shell)
+* [Part 2 - Core Skills](#part-2---core-skills)
+    * [Chapter 6 - Thinking in Pipelines](#chapter-6---thinking-in-pipelines)
+    * [Chapter 7 - Fly on the Command-line](#chapter-7---fly-on-the-command-line)
+    * [Chapter 8 - Understanding Job Control](#chapter-8---understanding-job-control)
+    * [Chapter 9 - Understanding the Subtleties of Shell Commands](#chapter-9---understanding-the-subtleties-of-shell-commands)
+    * [Chapter 10 - Finding Files](#chapter-10---finding-files)
+* [Interlude - What is a Shell?](#interlude---what-is-a-shell)
+* [Part 3 - Manipulating Text & Streams](#part-3---manipulating-text--streams)
+    * [Chapter 13 - Regex Essentials](#chapter-13---regex-essentials)
+    * [Chapter 14 - Get to Grips with Grep](#chapter-14---get-to-grips-with-grep)
+    * [Chapter 15 - Slice and Dice Text](#chapter-15---slice-and-dice-text)
+    * [Chapter 16 - Advanced Text Manipulation](#chapter-16---advanced-text-manipulation)
+    * [Chapter 17 - Build Commands on the Fly](#chapter-17---build-commands-on-the-fly)
+* [Interlude - The Unix Philosophy](#interlude---the-unix-philosophy)
+* [Part 4 - Shell Scripting](#part-4---shell-scripting)
+    * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
+    * [Chapter 19 - Variables, Reading Input, and Mathematics](#chapter-19---variables-reading-input-and-mathematics)
+    * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
+    * [Chapter 21 - Loops and working with Files and Folders](#chapter-21---loops-and-working-with-files-and-folders)
+    * [Chapter 22 - Functions, Parameters and Error Handling](#chapter-22---functions-parameters-and-error-handling)
+    * [Chapter 23 - Useful Patterns for Shell Scripts](#chapter-23---useful-patterns-for-shell-scripts)
+* [Interlude - The Shell Family Tree](#interlude---the-shell-family-tree)
+* [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
+    * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
+    * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
+    * [Chapter 19 - Managing Your Dotfiles](#chapter-19---managing-your-dotfiles)
+    * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
+    * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
+    * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
+* [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
+    * [Understanding Shell Expansions](#understanding-shell-expansions)
+    * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
+    * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
+    * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
+    * [Chapter 29 - Writing Tools that Follow The Unix Philosophy](#chapter-29---writing-tools-that-follow-the-unix-philosophy)
+* [Interlude - The Future](#interlude---the-future)
+* [Part 7 - The Missing Chapters](#part-7---the-missing-chapters)
+    * [Chapter X - Talking to other machines with the Secure Shell](#chapter-x---talking-to-other-machines-with-the-secure-shell)
+    * [Chapter X - The Missing Tools: jq, yq and xq](#chapter-x---the-missing-tools-jq-yq-and-xq)
+    * [Chapter X - Build Text Manipulation Programs?](#chapter-x---build-text-manipulation-programs)
+* [Part X - Linux Essentials](#part-x---linux-essentials)
+    * [What is Linux?](#what-is-linux)
+    * [Environment Variables](#environment-variables)
+    * [Processes](#processes)
+    * [Users, Groups and Permissions](#users-groups-and-permissions)
+    * [The Linux Filesystem Hierarchy Standard](#the-linux-filesystem-hierarchy-standard)
+    * [Everything is a File](#everything-is-a-file)
+    * [Git](#git)
+* [Appendixes](#appendixes)
+    * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
+    * [Appendix 2: Shell Parameter Expansion](#appendix-2-shell-parameter-expansion)
+    * [Appendix 3: Find Cheat Sheet](#appendix-3-find-cheat-sheet)
+    * [Appendix 4: Essential Manpages](#appendix-4-essential-manpages)
+* [Bugs, Ideas, Gaps](#bugs-ideas-gaps)
 * [More Useful Reading](#more-useful-reading)
 * [Good Scripts to write as exercises](#good-scripts-to-write-as-exercises)
 * [Does it make sense to have 'golden rules'?](#does-it-make-sense-to-have-golden-rules)
@@ -76,11 +76,11 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc -->
 
-### The Pitch
+# The Pitch
 
 This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primarily a book about how to work more effectively with command line interfaces and shells in general.
 
-### Potential Titles
+# Potential Titles
 
 - **Effective Shell**
 - **Effective Shell** - Essential techniques for the modern technologist
@@ -91,11 +91,11 @@ This is _not_ a book about Shell Programming. There are many excellent Shell Pro
 - **Command the Shell**: 30 ways to be more effective with software.
 
 
-### Foreword by Steve Bourne
+# Foreword by Steve Bourne
 
 For some, the text based interface to a computer might seem archaic in this day and age. However, the skills required to work with a computer shell might have never been in such high demand, or so relevant. In the introduction we cover just why the shell is more and more relevant for professionals and hobbyists, and why investing in your time learning about this topic could be a really smart move.
 
-### Introduction
+# Introduction
 
 The contents of this book can be useful for a surprisingly wide group of people. First of all, we'll cover who might find this book useful, and whether it will be useful for you.
 
@@ -103,7 +103,10 @@ We'll look at what a shell is, and why it can be so useful to learn about.
 
 We'll also talk about why we are emphasising how things work on Linux, rather than MacOS or Windows, and explain how for Windows and Mac users you will still be able to use the material.
 
-### Chapter 1 - Getting Started
+This is not a book about Bash. It's not a book about shell programming. It's a book about how to use a keyboard as the main way to work with a computer, and become incredibly efficient doing so. That means we'll cover a lot of Bash and shell topics, but we'll also look at how linux works. But this is not a book about systems adminstration. We won't see how to set up a mailserver, but we will understand _why_ linux systems work as they do, in a more fundamental way, which will help us save time and optimise our work, whether we're programming, administering systems, exploring or hobbying, working with data science or even just doing general purpose computing.
+
+
+# Chapter 1 - Getting Started
 
 Here we'll look at setting up your shell, how to open it, and how to configure your computer to follow along with the examples.
 
@@ -111,17 +114,17 @@ We'll look at the same sort of operations you might use when operating a compute
 
 If you are already comfortable with running a shell, know what `bash` is, and know how to run basic commands like `ls` and `cd`, are familiar with terms like _command_ and _parameter_ then you can completely skip this section and move onto Section One.
 
-### Part 1 - Transitioning from The Graphical User Interface to the Shell
+## Part 1 - Transitioning from The Graphical User Interface to the Shell
 
 These are the key skills which everyone should know. Without them, you might struggle to perform certain tasks at all. Experienced users can probably skip this section, or just review the summary. But if you are new to the shell, this is the best place to start! This section focuses on helping you quickly get up to speed with how to perform the same kind of tasks you might have performed in a GUI (Graphical User Interface) with the shell.
 
-#### Chapter 2 - Navigating your System
+## Chapter 2 - Navigating your System
 
 Switching from a graphical user interface to the shell can take some getting used to. First we'll take a look at how to navigate your system using the shell, and get information on files and folders in the system.
 
 This chapter will introduce the `wget`, `unzip`, `cp`, `mv`, `rm`, `mkdir`, and `rmdir` commands. We'll also briefly look at `cat`, _wildcards_ and _redirection_.
 
-#### Chapter 3 - Managing Your Files
+## Chapter 3 - Managing Your Files
 
 Copying, moving, renaming and deleting files in a graphical user interface is normally fairly intuitive. Now we'll learn how to perform the same operations in a shell. Once you can organise your files, you are well on your way to being able to use the shell more effectively for day to day tasks.
 
@@ -129,122 +132,129 @@ Now that we know how to organise the files in our computer, we'll take a look at
 
 This chapter will introduce the `file`, `cat`, `less`, `touch`, `zip`, `unzip`, `find`, `cp`, `mv`, `rm`, `rmdir`, `mkdir`, `curl` and `wget` commands. It will also introduce 'wildcards' and 'globs'.
 
-#### Chapter 4 - Becoming a Clipboard Gymnast
+## Chapter 4 - Becoming a Clipboard Gymnast
 
 As you spend more time in the shell, you'll find the clipboard particularly useful. In this chapter we'll see how to access and manipulate the clipboard, as well as starting to see the basics of how 'pipelines' work, which is fundamental to using the shell.
 
 This chapter will introduce the `alias`, `pbcopy`, `pbpaste`, `xcopy`, `xpaste` commands, as well as showing the basics of piping commands.
 
-#### Chapter 5 - Getting Help
+## Chapter 5 - Getting Help
 
 If you are new to the shell, then we've already covered a lot and you might be worrying about how to remember so many commands! For beginner and advanced users alike it's critical to know how to look up commands and how they are used without interrupting your flow of work in the Shell. In this chapter we'll see how to get help on commands, as well as some particularly useful tricks to get the *right* information quickly, rather than a dense and complicated manual page.
 
 This chapter will introduce the `man`, `curl` and `help` commands. We'll also learn about the `tldr`, `cht.sh` and how manual pages are structured in Linux.
 
-### Interlude - The Renaissance of the Shell
+# Interlude - The Renaissance of the Shell
 
 The "interludes" which end each section are completely optional. They don't teach any specific skills, but instead give a little more flavour and background about the world of the shell, Linux and modern computing. In this first interlude we'll look at just why the shell is experiencing something of a renaissance in the modern age of IT.
 
-### Part 2 - Core Skills
+# Part 2 - Core Skills
 
 There are a few techniques and skills which you'll touch on time and time again. This section introduces some of the core skills and concepts which it is useful to understand when working with the shell.
 
-#### Chapter 6 - Thinking in Pipelines
+## Chapter 6 - Thinking in Pipelines
 
 The shell allows us to chain sets of commands together. These 'pipeline' features allow us to take basic commands and perform increasingly complex and sophisticated operations.
 
 In this chapter we'll see how pipelines work, introduce the `tee` command, and learn about basic redirection.
 
-#### Chapter 7 - Fly on the Command-line
+## Chapter 7 - Fly on the Command-line
 
 If there's one set of skills which will save you an enormous amount of time, it's the skills needed to quickly navigate the command line. These skills are also immediately transferable to a whole set of other common tools. In this section we'll see how to very quickly navigate the command-line with the keyboard, and where we can also use these techniques.
 
 This chapter introduces the most commonly used keyboard shortcuts used in 'readline' based tools, like the shell and many programming tools.
 
-#### Chapter 8 - Understanding Job Control
+## Chapter 8 - Understanding Job Control
 
 The shell contains a whole set of features for working with long running tasks. These features are called "Job Control". Knowing how to move a task into the background, work on something else, move it back into the foreground, and generally control these jobs can be a real time-saver. Even if you don't use these features regularly, understanding how job control works (and how to recover work you might have accidentally paused or put into the background) can be very helpful.
 
 In this chapter we'll introduce job control, and the `bg`, `fg`, and `jobs` commands.
 
-#### Chapter 9 - Understanding the Subtleties of Shell Commands
+## Chapter 9 - Understanding the Subtleties of Shell Commands
 
 Not everything we run in a shell works in the same way. Some commands run external programs, whearas some commands are 'built in' and implemented by the shell itself. Understanding the different types of shell commands that exist can be very important when problem-solving or trying to work out why or how something works. In this chapter we'll look at the subtle differences between different types of commands.
 
 In this chapter we'll see the `which`, `whereis` and related commands. We'll also look at the differences between builtins, executables, aliases and functions.
 
-#### Finding Files
+## Chapter 10 - Finding Files
 
 Searching through a system to find files or folders can be complex and time consuming, even with a graphical user interface. In this chapter we'll look at how to use the shell to search for files and folders, some quick ways to accomplish common tasks and also look at some faster and more user-friendly alternatives to the built in `find` command.
 
-### Interlude - What is a Shell?
+# Interlude - What is a Shell?
 
 We're working with a lot of different technologies and sometimes it can be good to take a step back and look at each of them in detail. What exactly _is_ a shell? What about a command line, or a prompt? Or a terminal? Or even a 'TTY' device? In this interlude we'll look at what exactly a shell is and how it has evolved over time.
 
-### Part 3 - Manipulating Text & Streams
+# Part 3 - Manipulating Text & Streams
 
 A key part of how Linux and Unix systems work is that almost everything is represented as a text file in the system, and almost everything can be *configured* with a text file. This means that you may find yourself regularly manipulating text. There are so many options for how to do this! In this section we'll look at some of the key techniques which can be used to work with text, and demonstrate this with practical examples.
 
-#### Chapter 13 - Regex Essentials
+## Chapter 13 - Regex Essentials
 
 Many of the tools we're working with support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text. In this chapter we'll cover the core features of regexes. If you are already familiar with regular expressions you can skip this chapter as we introduce the concepts and syntax only - the application in the shell comes in the following chapter.
 
-#### Chapter 14 - Get to Grips with Grep
+## Chapter 14 - Get to Grips with Grep
 
 The `grep` tool is a real workhorse for shell users - once you've learned how to use it you will find yourself using it again and again. In this chapter we'll see how you can use `grep` for common tasks, and how to use it in combination with other tools.
 
-#### Chapter 15 - Slice and Dice Text
+## Chapter 15 - Slice and Dice Text
 
 One of the most simple and useful tools for working with text is the `cut` tool. In this chapter we'll see how we can use it, in combination with `rev` to rapidly slice and dice text.
 
 We'll also look at some useful ways to sort, filter, remove duplicates, and more.
 
-#### Chapter 16 - Advanced Text Manipulation
+## Chapter 16 - Advanced Text Manipulation
 
 Sed - the 'stream editor' tool can be used to perform sophisticated manipulation of text. In many cases a small command involving `sed` can quickly solve problems. In this chapter we'll look at some common ways to use `sed`, and when you might want to consider the `awk` tool.
 
-#### Chapter 17 - Build Commands on the Fly
+## Chapter 17 - Build Commands on the Fly
 
 With your `grep`, `sed` and `cut` skills ready to rock, you might find scenarios where you want to dynamically build new commands. In this chapter we'll see how `xargs` can be used to build commands. We'll also see some tricks for building commands dynamically, and writing them to a script file.
 
-### Part 4 - Shell Scripting
+# Interlude - The Unix Philosophy
+
+We've already introduced a lot of commands. It turns out that the idea of small, focused commands which do one thing and one thing only is very fundamental to how Linux and Unix systems are designed. The idea of having a large number of simple tools, which can be composed together to perform complex operations is called "The Unix Philosophy". Understanding this philosophy can help you understand why certain choices have been made with the shell and Linux tooling, and help you understand your system better.
+
+# Part 4 - Shell Scripting
 
 As we've seen, there's a lot we can do with the shell. Creating shell scripts allows us to further automate and extend what we can do with these skills. In this section we'll look at some of the key concepts which will help you write practical shell scripts for day to day use.
 
-#### Chapter 18 - Shell Script Fundamentals
+## Chapter 18 - Shell Script Fundamentals
 
 First we're going to look at how to write shell scripts as well as the different ways to execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run. These will be essential techniques to have as a foundation for building your own scripts.
 
-#### Chapter 19 - Variables, Reading Input, and Mathematics
+## Chapter 19 - Variables, Reading Input, and Mathematics
 
 We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
 
-#### Chapter 20 - Mastering the If Statement
+## Chapter 20 - Mastering the If Statement
 
 In this chapter we'll introduce the _if statement_ - this is a crucial feature of the shell as it allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
 
-#### Chapter 21 - Loops and working with Files and Folders
+## Chapter 21 - Loops and working with Files and Folders
 
 One of the most common tasks we will do when scripting is operating functions over a set of files or folders. In this chapter we'll look at basic loops, tests and how to operate on many files. We'll also see how we can integrate commands like `find` into shell scripts.
 
-#### Chapter 22 - Functions, Parameters and Error Handling
+## Chapter 22 - Functions, Parameters and Error Handling
 
 The shell allows you to create _functions_ - a set of commands that you can call at any time. In this chapter we'll see how to create functions and how function parameters and script parameters are handled. We will also look at status codes for commands and scripts and error handling.
 
-#### Chapter 23 - Useful Patterns for Shell Scripts
+## Chapter 23 - Useful Patterns for Shell Scripts
 
 To close this the section on shell script we're going to look at some common patterns you will see in shell scripts. These are an assortment of techniques you may find useful when building your scripts or when working with other peoples scripts.
 
-### Part 4 - Building Your Toolkit
+# Interlude - The Shell Family Tree
+
+There are lots of different flavours of Linux and Unix, and lots of different shells. This interlude takes a quick look at the Linux and Unix family tree, and the different shells which have evolved over time.
+
+# Part 4 - Building Your Toolkit
 
 As you work more with the shell, you will want to customise it and build tools and commands of your own. Before we look at shell scripting, we'll take a look at how the shell is configured, different ways a shell can run, and effective ways to manage your shell configuration.
 
-#### Chapter 25 - Configuring the Shell
-
-interactive vs non interactive shells - running a shell script is a good example because it is non interactive (i.e. no aliases, no history, etc)
-
+## Chapter 25 - Configuring the Shell
 
 There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
+
+interactive vs non interactive shells - running a shell script is a good example because it is non interactive (i.e. no aliases, no history, etc)
 
 In this chapter we'll see the various different configuration files used, introduce the `chsh` command, the `SHELL` environment variable, and see how to manage configuration using `set`.
 
@@ -256,21 +266,21 @@ set -x	set -o xtrace	Print command traces before executing command.
 
 https://mywiki.wooledge.org/glob
 
-#### Chapter 18 - Customising your Command Prompt
+## Chapter 18 - Customising your Command Prompt
 
 The shell command prompt can be configured to show you what you find most important. In this section we'll see how the command prompt can be configured, and take a look at some of the advanced options available.
 
 - configuring things like the default editor
 
-#### Chapter 19 - Managing Your Dotfiles
+## Chapter 19 - Managing Your Dotfiles
 
 As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. In this chapter we'll see how to manage your configuration - and 'dotfiles' - as a GitHub repository. We'll also see how this can be used to share ideas and look at some great examples.
 
-#### Chapter 21 - Getting to Grips with Git
+## Chapter 21 - Getting to Grips with Git
 
 If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell.In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories.
 
-#### Chapter 24 - How to avoid scripting!
+## Chapter 24 - How to avoid scripting!
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
@@ -279,45 +289,37 @@ Note: When to use the shell:
 - When we need a shell function, e.g show options
 - When we want to execute programs (this is often not safe in code)
 
-#### Chapter X - Testing Shell Scripts with Docker
+## Chapter X - Testing Shell Scripts with Docker
 
 TODO
 
-### Interlude - The Unix Philosophy
-
-We've already introduced a lot of commands. It turns out that the idea of small, focused commands which do one thing and one thing only is very fundamental to how Linux and Unix systems are designed. The idea of having a large number of simple tools, which can be composed together to perform complex operations is called "The Unix Philosophy". Understanding this philosophy can help you understand why certain choices have been made with the shell and Linux tooling, and help you understand your system better.
-
-### Interlude - The Linux and Shell Family Tree
-
-There are lots of different flavours of Linux and Unix, and lots of different shells. This interlude takes a quick look at the Linux and Unix family tree, and the different shells which have evolved over time.
-
-### Part 6 - Advanced Techniques
+# Part 6 - Advanced Techniques
 
 The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
 
-#### Understanding Shell Expansions
+## Understanding Shell Expansions
 
 https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
 
-#### Chapter 26 - Managing Multiple Programming Languages with Make
+## Chapter 26 - Managing Multiple Programming Languages with Make
 
 GNU Make can be a powerful tool for anyone who uses multiple programming languages, or wants to make it easier to allow people to use their projects. In this chapter we'll look at some common patterns which we can use `make` for to make our lives easier when working with different programming languages and platforms.
 
-#### Chapter 27 - The Power of Terminal Editors
+## Chapter 27 - The Power of Terminal Editors
 
 If you are already in the shell, then you might find it convenient to edit code and files directly from the shell. Getting familiar with some of the capabilities of Vim or Emacs can open up a whole new world for how you work with text in the shell.
 
-#### Chapter 28 - The Multiplexer
+## Chapter 28 - The Multiplexer
 
 If you are regularly using a shell, then learning how to use a terminal multiplexer like `screen` or `tmux` can greatly improve your productivity. In this chapter we'll see how terminal multiplexers work and brush the surface of what they can do.
 
-#### Chapter 29 - Writing Tools that Follow The Unix Philosophy
+## Chapter 29 - Writing Tools that Follow The Unix Philosophy
 
 To finish the book, we'll look at how you can write tools which integrate seamlessly into the shell. We'll see how tooling and patterns have evolved, and some suggestions for how to write tools which others can use easily. We'll look at some of the similarities and patterns in very popular tools like `aws`, `kubectl` and `gcp`.
 
 We'll look at how to appropriate use `stdin`, `stdout` and `stderr` to build programs which are 'pipeline friendly'.
 
-### Interlude - The Future
+# Interlude - The Future
 
 The shell, in particular the Bourne-Again Shell has been popular for many years. But what does the future hold? With the advent of the Linux Subsystem for Windows, new shells like Nushell, and the latest version of MacOS switching from Bash to Z-Shell, we finish off by looking at some of the trends which might shape how we use shells in the future.
 
@@ -325,40 +327,35 @@ Notes:
 
 - Future terminal: https://github.com/wez/wezterm
 
-#### Introduction
+# Part 7 - The Missing Chapters
 
-This is not a book about Bash. It's not a book about shell programming. It's a book about how to use a keyboard as the main way to work with a computer, and become incredibly efficient doing so. That means we'll cover a lot of Bash and shell topics, but we'll also look at how linux works. But this is not a book about systems adminstration. We won't see how to set up a mailserver, but we will understand _why_ linux systems work as they do, in a more fundamental way, which will help us save time and optimise our work, whether we're programming, administering systems, exploring or hobbying, working with data science or even just doing general purpose computing.
-
-### Part 7 - The Missing Chapters
-
-#### Chapter X - Talking to other machines with the Secure Shell
+## Chapter X - Talking to other machines with the Secure Shell
 
 One of the main reasons you might use a shell is to operate a machine remotely. In these cases it's often the case that the *only* way to interact with these machines is via the shell, as they don't have a graphical user interface installed. In this chapter we'll look at how the secure shell, `ssh` works, and how to configure it for maximum convenience and efficiency.
 
-
-#### Chapter X - The Missing Tools: jq, yq and xq
+## Chapter X - The Missing Tools: jq, yq and xq
 
 Sometimes you might find yourself battling with the shell text manipulation tools to manipulate JSON, YAML or XML. The `jq`, `yq` and `xq` tools can save you a lot of time, and might just be the missing tools you need to add to your toolkit.
 
 In this chapter we'll see how to install these tools and perform common tasks with them.
 
-#### Chapter X - Built Text Manipulation Programs?
+## Chapter X - Build Text Manipulation Programs?
 
 Could do a small chapter on how to build a text manipulation program which simply edits a line of `stdin`, then pipe it into other commands?
 
-### Part X - Linux Essentials
+# Part X - Linux Essentials
 
-#### What is Linux?
+## What is Linux?
 
 Unix, Linux, BSD,
 
 Great read: http://www.linfo.org/linuxdef.html
 
-#### Environment Variables
+## Environment Variables
 
 How environment variables work, how they are accessed in a shell.
 
-#### Processes
+## Processes
 
 Signals, process tree, permissions, process id.
 
@@ -368,11 +365,11 @@ Signals, process tree, permissions, process id.
   2. Ctrl C - TODO
   3. Ctrl D - Chapter X
 
-#### Users, Groups and Permissions
+## Users, Groups and Permissions
 
 Users, whoami, chmod, etc
 
-#### The Linux Filesystem Hierarchy Standard
+## The Linux Filesystem Hierarchy Standard
 
 The standard files / folders.
 
@@ -382,7 +379,7 @@ Good resources:
 
 - https://unix.stackexchange.com/questions/8656/usr-bin-vs-usr-local-bin-on-linux
 
-#### Everything is a File
+## Everything is a File
 
 You may have heard this Unix concept, but what does it mean and why does it matter?
 
@@ -401,27 +398,29 @@ Note: This should cover things like:
 
 Link to this from clipboard chapter, pipelines chapter, others which use special files
 
-#### Git
+## Git
 
 This may as well be an entire part, with 5 chapters, why not.
 
-### Appendixes
+# Appendixes
 
-#### Appendix 1: Shell Shortcuts
+## Appendix 1: Shell Shortcuts
 
 (This is the cheat sheet from 'fly on the command line'.)
 
-#### Appendix 2: Shell Parameter Expansion
+## Appendix 2: Shell Parameter Expansion
 
 Show the order of shell parameter expansion and an example of each one. This would actually be good as a pull-out reference.
 
-#### Appendix 3: Find Cheat Sheet
+## Appendix 3: Find Cheat Sheet
 
 A cheat sheet for the `find` command
 
-#### Appendix 4: Essential Manpages
+## Appendix 4: Essential Manpages
 
 There are a few manual pages that can be really useful to know about, this guide has a quick reference to them.
+
+# Bugs, Ideas, Gaps
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
@@ -505,7 +504,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: Nice date tricks: https://linux.101hacks.com/date-manipulation/past-date-and-time/
 - todo: `lsof` for open ports https://linux.101hacks.com/monitoring-performance/lsof-command-examples/
 
-## More Useful Reading
+# More Useful Reading
 
 http://samrowe.com/wordpress/advancing-in-the-bash-shell/
 http://www.linfo.org/shell.html
@@ -534,19 +533,19 @@ $ tty
 echo "Groovy" > /dev/ttys031
 ```
 
-## Good Scripts to write as exercises
+# Good Scripts to write as exercises
 
 - `recent` - a better version of `history`, which deduplicates and sorts based on the most commonly used items
 - `quickman` - a quick link to the most common man pages
 - `options` - show and interactively toggle options
 
-## Does it make sense to have 'golden rules'?
+# Does it make sense to have 'golden rules'?
 
 Such as:
 
 - Everything is a file
 
-## Posters!
+# Posters!
 
 Could some of these things be posters? The shell navigation poster, the pipelines poster? Show input, output, err and maybe 30 commands?
 
