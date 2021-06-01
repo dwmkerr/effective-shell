@@ -8,9 +8,6 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 
 * [Introduction](#introduction)
 * [Installing the Samples](#installing-the-samples)
-* [Sharing](#sharing)
-* [The Pitch](#the-pitch)
-    * [Publishers](#publishers)
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
     * [Updating the Theme](#updating-the-theme)
@@ -36,33 +33,6 @@ Or can also manually download them using from any of these locations:
 
 - [https://effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
 - [https://effective-shell.com/downloads/effective-shell-playground.tar.gz](https://effective-shell.com/downloads/effective-shell-playground.tar.gz)
-
-## Sharing
-
-I tend to use the following hashtags when sharing:
-
-```
-#effectiveshell #shell #linux #bash #devops #hacking #coding #programming
-```
-
-## The Pitch
-
-This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primarily a book about how to work more effectively with command line interfaces and shells in general.
-
-Possible titles:
-
-**Darkscreen**: 30 ways to use shells and terminals to be more effective developer or operator.\
-**Effective Shell**: 30 ways to use shells and terminals to be more effective.\
-**Command the Shell**: 30 ways to be more effective with software.
-
-### Publishers
-
-Books which I've found exciting, which I think could be examples of how this book might be developed:
-
-- [Effective C++: 55 Specific Ways to Improve Your Programs and Designs](https://www.amazon.com/Effective-Specific-Improve-Programs-Designs/dp/0321334876)
-- [Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14](https://www.amazon.com/Effective-Modern-Specific-Ways-Improve/dp/1491903996)
-- [3D Graphics Programming: Games & Beyond](https://www.amazon.com/3D-Graphics-Programming-Games-Beyond/dp/0672319292/)
-- [How Linux Works, 2nd Edition](https://nostarch.com/howlinuxworks2)
 
 ## The Website
 

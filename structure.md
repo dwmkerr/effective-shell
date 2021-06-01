@@ -4,6 +4,7 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc GFM -->
 
+    * [The Pitch](#the-pitch)
     * [Potential Titles](#potential-titles)
     * [Foreword by Steve Bourne](#foreword-by-steve-bourne)
     * [Introduction](#introduction)
@@ -75,10 +76,20 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc -->
 
+### The Pitch
+
+This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primarily a book about how to work more effectively with command line interfaces and shells in general.
+
 ### Potential Titles
 
-- Effective Shell
-- Darkscreen: Specific techniques to be more effective in the shell
+- **Effective Shell**
+- **Effective Shell** - Essential techniques for the modern technologist
+- **Effective Shell** - Essential techniques for software engineers, data scientists, DevSecOps experts and all modern technologist
+- **Darkscreen**: Specific techniques to be more effective in the shell
+- **Darkscreen**: 30 ways to use shells and terminals to be more effective developer or operator.
+- **Effective Shell**: 30 ways to use shells and terminals to be more effective.
+- **Command the Shell**: 30 ways to be more effective with software.
+
 
 ### Foreword by Steve Bourne
 
