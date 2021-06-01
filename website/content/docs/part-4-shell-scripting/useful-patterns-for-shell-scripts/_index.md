@@ -510,6 +510,65 @@ The second reason is that multiple parameters are not handled consistently acros
 
 However, on many Unix distributions only one parameter is passed. This would mean that the `-e` parameter would be silently ignored, which would be very confusing for the reader.
 
+## Complex Logic in Shell Scripts
+
+The shell is amazing. Considering how long it has been around, it has in many ways changed remarkably little in the last few decades. This is a testament to the genius of the design of Unix systems and the shell in general.
+
+However, the shell is _not_ generally going to be the best choice for any kind of complex logic or work. Shell scripts are great for automating simple tasks, creating utilities to help you out, but come with many challenges. The syntax can be confusing, making scripts work across multiple systems can be challenging, and there are not many features to help you write robust code.
+
+Perhaps the biggest anti-pattern in shell scripts is to simply let them get to large and do too much with them. There comes a certain point where you will almost certainly create a more portable, performant and maintainable solution to your problem using a dedicated programming language like Python (which is available on almost all systems) or one of the many other languages available.
+
+This is a topic we discuss in detail in the [Chapter 24 - How to avoid shell scripting]({{< relref "/docs/work-in-progress" >}}), but for now I would just say that as soon as your script starts to get longer than a page, or takes more than a few minutes to reason about, then you might be reaching the point that a programming language could be a better option.
+
+## Scripts without Shebangs
+
+You might find shell scripts that do not have a shebang at the top. This is something that you should avoid. The shebang gives you a way to be very explicit about _what_ shell is required to run your script.
+
+For example, if I see a shebang like this:
+
+```sh
+#!/usr/bin/env sh
+```
+
+Then my assumption would be that this script can run on _any_ Posix compliant shell, i.e. it is as compatible as possible. However, if I see this:
+
+```sh
+#!/usr/bin/env bash
+```
+
+Then the assumption would be that this script is Bash-specific and uses "Bash-isms", such as the `if [[ conditional ]]` construct. Finally, if I was to see a shebang like this:
+
+```sh
+#!/usr/bin/env zsh
+```
+
+Then I would expect that this script has been explicitly written to be used with Z-Shell.
+
+If you do not include a shebang in a script, then the behaviour can be ambiguous. For example, at the time of writing, if you run a shell script without a shebang from a Bash shell, then the script will be run using a new instance of Bash. However, if you run a shell script without a shebang from Z-Shell then Z-Shell will use `sh` from your path. But depending on your system, `sh` may be a symlink to `dash`, or `bash`, or another shell.
+
+Scripts that do not have shebangs are inherently ambiguous and will run using different shells depending on the shell used to execute the script as well as the operating system.
+
+If you want to experiment and see what shell runs a script, create a script such as the _~/effective-shell/scripts/nobang.sh_ script that looks like this:
+
+```sh
+# nobang: This script shows an anti-pattern - not using a shebang in a shell
+# script. It shows the process tree to for the shell that runs the script:
+pstree $$
+```
+
+If I run this script from MacOS, the output below is shown:
+
+```
+$ ~/effective-shell/scripts/nobang.sh
+-+= 57919 dwmkerr sh ~/effective-shell/scripts/nobang.sh
+ \-+- 57920 dwmkerr pstree 57919
+   \--- 57921 root ps -axwwo user,pid,ppid,pgid,command
+```
+
+Although I ran the script from a Z-Shell session, it was executed with `sh`, which is the Bourne Shell (version 3 on my system).
+
+The only time you should omit the shebang is if you expect the script to be _sourced_ - we will see sourcing in the next part of the book.
+
 # Summary
 
 In this chapter we saw an assortment of common patterns that can be useful when building shell scripts. In the next part of the book we're going to look at how you can customise your shell and environment to build your own toolkit!

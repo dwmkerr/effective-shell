@@ -248,7 +248,9 @@ There are lots of different flavours of Linux and Unix, and lots of different sh
 
 # Part 4 - Building Your Toolkit
 
-As you work more with the shell, you will want to customise it and build tools and commands of your own. Before we look at shell scripting, we'll take a look at how the shell is configured, different ways a shell can run, and effective ways to manage your shell configuration.
+We've now seen many of the core features and some of the more advanced capabilities of the shell. In this part of the book are are going to look at how the shell is configured, different ways a shell can run, and effective ways to manage your shell configuration.
+
+The goal of this part of the book is to equip you with the knowledge and techniques you need to build your own toolkit that you can grow over time, enabling you to manage your shell configuration across many machines, keep track of scripts and functions, and know how to customise the shell to suit the work you are doing.
 
 ## Chapter 25 - Configuring the Shell
 

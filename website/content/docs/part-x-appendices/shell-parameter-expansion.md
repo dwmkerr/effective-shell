@@ -1,5 +1,6 @@
 | Variable           | Description                                                                                   |
 |--------------------|-----------------------------------------------------------------------------------------------|
+| `$$`               | This is the process ID of the script itself.                                                  |
 | `$0`               | The first parameter to the shell, which is typically the path of the shell itself.            |
 | `$1`               | The first parameter                                                                           |
 | `$2`               | The second parameter                                                                          |

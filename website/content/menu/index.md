@@ -31,4 +31,6 @@ bookMenuLevels: 1
    - [Loops and working with Files and Folders]({{< relref "/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders" >}})
    - [Functions, Parameters and Error Handling]({{< relref "/docs/part-4-shell-scripting/functions-parameters-and-error-handling" >}})
    - [Useful Patterns for Shell Scripts]({{< relref "/docs/part-4-shell-scripting/useful-patterns-for-shell-scripts" >}})
+ - [**Part 5 - Building Your Toolkit**]({{< relref "/docs/part-5-building-your-toolkit" >}})
+   - [Configuring the Shell]({{< relref "/docs/part-5-building-your-toolkit/configuring-the-shell" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})
