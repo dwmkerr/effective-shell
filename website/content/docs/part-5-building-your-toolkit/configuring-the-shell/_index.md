@@ -8,6 +8,10 @@ todo: history control https://linux.101hacks.com/command-line-history/histcontro
 todo: https://linux.101hacks.com/bash-scripting/execution-sequence-of-bash-files/
 
 
+- todo: using `grep` in an `if` statement (with the `-q` flag). example: my dotfiles project uses this trick to decide whether to add the profile file
+
+
+
 interactive vs non interactive shells - running a shell script is a good example because it is non interactive (i.e. no aliases, no history, etc)
 
 - Why we don't echo in config - imagine shell scripts like `common` echoing stuff out

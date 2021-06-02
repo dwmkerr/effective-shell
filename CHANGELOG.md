@@ -1,5 +1,19 @@
 # Changelog
 
+### [0.9.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.0...v0.9.1) (2021-06-02)
+
+
+### Bug Fixes
+
+* fix the mailchimp script location ([18b0c4b](https://www.github.com/dwmkerr/effective-shell/commit/18b0c4b8d29bd8ac6d0dfde9c5d503b15630f601))
+
+## [0.9.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.8.1...v0.9.0) (2021-06-02)
+
+
+### Features
+
+* add mailchimp link so that we can simplify the 'sign up for news' ([f05b273](https://www.github.com/dwmkerr/effective-shell/commit/f05b273e45f616166e7444ce12d757ea1a8a94cd))
+
 ### [0.8.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.8.0...v0.8.1) (2021-05-30)
 
 

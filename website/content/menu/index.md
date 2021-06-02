@@ -27,7 +27,7 @@ bookMenuLevels: 1
  - [**Part 4 - Shell Scripting**]({{< relref "/docs/part-4-shell-scripting" >}})
    - [Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}})
    - [Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}})
-   - [Mastering the If Statement]({{< relref "/docs/part-4-shell-scripting/mastering-the-if-statement" >}})
+   - [Mastering Conditional Logic]({{< relref "/docs/part-4-shell-scripting/mastering-conditional-logic" >}})
    - [Loops and working with Files and Folders]({{< relref "/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders" >}})
    - [Functions, Parameters and Error Handling]({{< relref "/docs/part-4-shell-scripting/functions-parameters-and-error-handling" >}})
    - [Useful Patterns for Shell Scripts]({{< relref "/docs/part-4-shell-scripting/useful-patterns-for-shell-scripts" >}})

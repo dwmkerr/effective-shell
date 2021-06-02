@@ -32,7 +32,7 @@ This document contains the proposed structure of the book. It is still work in p
 * [Part 4 - Shell Scripting](#part-4---shell-scripting)
     * [Chapter 18 - Shell Script Fundamentals](#chapter-18---shell-script-fundamentals)
     * [Chapter 19 - Variables, Reading Input, and Mathematics](#chapter-19---variables-reading-input-and-mathematics)
-    * [Chapter 20 - Mastering the If Statement](#chapter-20---mastering-the-if-statement)
+    * [Chapter 20 - Mastering Conditional Logic](#chapter-20---mastering-conditional-logic)
     * [Chapter 21 - Loops and working with Files and Folders](#chapter-21---loops-and-working-with-files-and-folders)
     * [Chapter 22 - Functions, Parameters and Error Handling](#chapter-22---functions-parameters-and-error-handling)
     * [Chapter 23 - Useful Patterns for Shell Scripts](#chapter-23---useful-patterns-for-shell-scripts)
@@ -226,9 +226,9 @@ First we're going to look at how to write shell scripts as well as the different
 
 We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
 
-## Chapter 20 - Mastering the If Statement
+## Chapter 20 - Mastering Conditional Logic
 
-In this chapter we'll introduce the _if statement_ - this is a crucial feature of the shell as it allows us to create perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
+In this chapter we'll introduce the 'conditional logic', a set of powerful features that allow us to run operations only when certain conditions are met. We'll look at the _if statement_ and the different ways we can evaluate conditions. We'll also look at more sophisticated conditional constructs such as the _case statement_ and the _select statement_, and how to 'chain' commands based on conditions.
 
 ## Chapter 21 - Loops and working with Files and Folders
 
@@ -462,8 +462,6 @@ This section contains the things which have been pulled out of chapters as they 
 - [ ] Add `tree` to the Chapter 'Moving Around'.
 - [ ] A good example of commands/binaries challenges with dotfiles is shown when trying to use `nvm` in a makefile (`nvm` is a sourced command, so not present in non-interactive shells)
 - manipulating text: a good example might be 'build a table of all executables': http://localhost:1313/docs/part-2-core-skills/10-understanding-commands/#executables---programs
-- tricks: this is a nice trick `$(cd <dir> && do_stuff)` - this allows you to run a command in a subshell in a particularly directory. Given that it spawns a subshell there's no need to change _back_ to the directory you were in.
-- env vars: the ${!env_var_name} trick: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-expansion_002c-parameter - useful for the `get_env_var_or_fail` function.
 - question: should we have a chapter on regular expressions
 - idea: installing GNU utils on a Mac - https://unix.stackexchange.com/questions/284162/install-gnu-command
   Note that this allows us to use _standard_ command line sequences like:
@@ -480,14 +478,11 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: a good example of what we can use text transformation for - add 'comments' to a CSV file which start with `#` and then strip them with `grep`.
 - note: it would be really good to have a 'stream-wise' understanding of how text processing works. For example, if `cat` a file into a tool which I have built, do I get the input linewise or filewise?
 - idea: `getopt` as a potential trick for command line programs, just like `readline`.
-- todo: make sure we include bash variable assignment: https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash
-- todo: using `grep` in an `if` statement (with the `-q` flag). example: my dotfiles project uses this trick to decide whether to add the profile file
 - todo: using `history` shows starts next to some commands - why?
 - todo: aliases - a good example is `alias sed='sed -E`
-- keredocs: really good example here:
+- heredocs: really good example here:
   https://linuxize.com/post/bash-heredoc/
   refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
-- todo: variable indirection, e.g. `${!env_var_name}`
 - best practices: refer to files with `./` when they are relative. It makes it explicit that we are using a path, not a function, alias or anything else. It can also make it easier to grep paths.
 - maybe: `ls -1` is kind of cool - one file per line
 - showing aliases `alias | grep git push`
@@ -497,7 +492,6 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: chapter 7 talks about control characters (specifically, ^D), maybe we put this in the 'processes' section?
 - todo: slice and dice: add count option (-c) for `uniq` and numeric (-n) for `sort` as we use these commands in the shell script essentials chapter
 - todo: we need to show the `ln` command. It is used in the shell script essentials chapter.
-- todo: chained commands: `git pull && git checkout`, chained OR, OR true
 - todo: more portable sed:
       -	sed -i '' 's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
     +	perl -i -pe's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html

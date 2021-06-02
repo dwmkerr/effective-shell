@@ -193,64 +193,6 @@ Some other things that you might want to be aware of for the trap command are:
 - You can reset a trap by running `trap - SIGINT`, this will remove any trap handler
 - You can test your traps by sending a signal explicitly to your script with `kill -s SIGINT`, providing the name of the signal
 
-# Case Statements
-
-If you find yourself writing overly complex 'if statements', you might use a _case statement_<!--index--> to simplify your code.
-
-A case statement is a bit like an 'if statement'. The structure is as follows:
-
-```
-case <expression> in
-    pattern1)
-        <pattern1-commands>
-        ;;
-    pattern2 | pattern3)
-        <pattern2and3-commands>
-        ;;
-    *)
-        <default-commands>
-        ;;
-esac
-```
-
-Typically you will provide the 'case' statement a variable and use it to check against a number of values. Here's a common example you'll see - checking to see whether a response is 'yes' or 'no':
-
-```sh
-read -p "Yes or no: " response
-case "${response}" in
-    y | Y | yes | ok)
-        echo "You have confirmed"
-        ;;
-    n | N | no)
-        echo "You have denied"
-        ;;
-    *)
-        echo "'${response}' is not a valid response"
-        ;;
-esac
-```
-
-The example above shows very simple text patterns, but any text pattern can be used:
-
-```sh
-read -p "Yes or no: " response
-case "${response}" in
-    [yY]*)
-        echo "You have (probably) confirmed"
-        ;;
-    [nN]*)
-        echo "You have (probably) denied"
-        ;;
-    *)
-        echo "'${response}' is not a valid response"
-    ;;
-esac
-```
-
-In this example the first pattern is `[yY]*` which means either the 'y' or 'Y' character followed by zero or more characters, this will match things like 'yes' 'YES' or 'yay'. We have a similar pattern for the negative response.
-
-The case statement can look quite complex, I often think that even if it takes more lines to write the logic using 'if statements' it will be more readable, but this is common pattern nonetheless and good to know about!
-
 # Handling Options
 
 You can use the `getopts` (_parse option arguments_) command to process the arguments for a script or function 
@@ -481,6 +423,57 @@ fi
 Note that when we're using the `command` command, we silence error output and standard output. This is required because otherwise we would see an error message written to the screen if the command doesn't exit or would see the details of the command if it does exist.
 
 The _~/effective-shell/scripts/common.sh_ script checks to see whether certain GNU versions of tools are installed when running on OSX. You can refer to this script for an example of checking for the presence of commands.
+
+# Using 'Select' to Show a Menu
+
+The `select` compound command<!--index--> prints a menu and allows the user to make a selection. It is not part of the Posix standard, but is available in Bash and most Bash-like shells.
+
+Here's how we could ask a user to select their favourite fruit from a list:
+
+```sh
+select fruit in Apple Banana Cherry Durian
+do
+    echo "You chose: $fruit"
+    echo "This is item number: $REPLY"
+done
+```
+
+If we run these commands we will see output like the below:
+
+```
+1) Apple
+2) Banana
+3) Cherry
+4) Durian
+#? 1
+You chose: Apple
+This is item number: 1
+#? 3
+You chose: Cherry
+This is item number: 3
+#? 4
+You chose: Durian
+This is item number: 4
+#? ^D
+```
+
+Notice that `select` will run just like an infinite loop - after the statements in the select body are run, the selection is offered again. The user can either end transmission with the `^D` character or press `^C` to quit.
+
+You will normally see the `select` used with a `case` statement to process the selection. This is something you may come across in scripts so is useful to be aware of.
+
+# Running Commands in Subshells
+
+You will often see a nice little trick that allows you to change the current directory for a specific command, without affecting the current directory for the shell.
+
+Here's how this trick will look:
+
+```sh
+(mkdir -p ~/new-project; cd ~/new-project; touch README.md)
+```
+
+The brackets around the statements mean that these commands are run in a sub-shell. Because they run in a sub-shell, they change the directory in the sub-shell only, not the current shell. This means we don't need to change _back_ to the previous directory after the commands have completed.
+
+This sequence of commands would create a new folder (we use `mkdir -p` so that if the folder exists the command does not fail), then change to the folder, then create a new file called _README.md_.
 
 # Anti-Patterns
 
