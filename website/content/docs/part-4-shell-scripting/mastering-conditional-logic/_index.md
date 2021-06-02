@@ -1,12 +1,12 @@
 ---
-title: "Mastering the If Statement"
-slug: "mastering-the-if-statement"
+title: "Mastering Conditional Logic"
+slug: "mastering-conditional-logic"
 weight: 20
 ---
 
-# Chapter 20 - Mastering the If Statement
+# Chapter 20 - Mastering Conditional Logic
 
-In this chapter we'll introduce the _if statement_ - a crucial feature of the shell that allows us to perform operations only when certain conditions are met. First we'll look at the basics of how the statement is used and then look at some more advanced scenarios.
+In this chapter we'll introduce the 'conditional logic', a set of powerful features that allow us to run operations only when certain conditions are met. We'll look at the _if statement_ and the different ways we can evaluate conditions. We'll also look at more sophisticated conditional constructs such as the _case statement_ and the _select statement_, and how to 'chain' commands based on conditions.
 
 Let's get right into it!
 
@@ -269,7 +269,7 @@ Some people prefer to use single brackets so that their script is more portable,
 
 Whether you use single or double brackets will partly be down to preference and whether it is more important in your use case to have portability or whether it is more important to have the more 'correct' behaviour.
 
-# Using Regexes in a Conditional Expression
+## Using Regexes in a Conditional Expression
 
 When you use the double square brackets conditional expression syntax you can use the `=~` operator to test for a regular expression. This can be extremely useful. If you need a reminder on how regular expressions work check [Chapter 13 - Regex Essentials]({{< relref "/docs/part-3-manipulating-text/regex-essentials" >}}).
 
@@ -308,6 +308,114 @@ Your shell binary is: bash
 ```
 
 The `$BASH_REMATCH` variable is an array - the first result value in the array is the entire match, each subsequent value in the array is the result of each capture group in the expression. Double check [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a reminder on how arrays work in Bash.
+
+# Chaining Commands
+
+You can 'chain' commands together in the shell, this allows you to run a command based on the result of a previous command.
+
+Let's take a look at how this would work:
+
+```sh
+mkdir -p ~/backups && cd ~/backups
+```
+
+In this case we have chained two commands together using the `&&` operator. The shell will only run the second command if the first command succeeds. It _evaluates_ the result of the first command - if it is successful, then it evaluates the second command. It does this because we are trying to evaluate the combination of both commands. Or, if we were to write this in pseudo-code:
+
+```
+does (command1 and command2) succeed?
+```
+
+If `command` fails, the shell doesn't need to evaluate the second command - because we know the overall result must be false, because one of the commands has already failed.
+
+Contrast this to the `||` operator:
+
+```sh
+[ -d ~/backups ] || mkdir ~/backups
+```
+
+In this case we evaluate the second command _only_ if the first command fails. Let's look at the pseudo code:
+
+```
+does (command1 or command2) succeed?
+```
+
+If the first command succeeds, the shell doesn't need to evaluate the second command, so it is doesn't. However, if the first command fails, the shell does have to evaluate the second command, to see if either of them succeed.
+
+In summary, here's how command chaining works:
+
+```sh
+# Run command1, if it succeeds run command2.
+command1 && command2
+
+# Run command1, if it does not succeed run command2.
+command1 || command2
+```
+
+You will see this syntax a lot in shell scrips as it is very succinct. It can also be very useful when using the shell interactively. For example, it is almost second nature for me to write the following commands:
+
+```sh
+make build && make deploy
+```
+
+Here I am using the `make` (_build programs_) command. If the 'build' step for a project fails, I want to run the 'deploy' step. But I _don't_ want to run the 'deploy' step if the 'build' step fails!
+
+# Case Statements
+
+If you find yourself writing overly complex 'if statements', you might use a _case statement_<!--index--> to simplify your code.
+
+A case statement is a bit like an 'if statement'. The structure is as follows:
+
+```
+case <expression> in
+    pattern1)
+        <pattern1-commands>
+        ;;
+    pattern2 | pattern3)
+        <pattern2and3-commands>
+        ;;
+    *)
+        <default-commands>
+        ;;
+esac
+```
+
+Typically you will provide the 'case' statement a variable and use it to check against a number of values. Here's a common example you'll see - checking to see whether a response is 'yes' or 'no':
+
+```sh
+read -p "Yes or no: " response
+case "${response}" in
+    y | Y | yes | ok)
+        echo "You have confirmed"
+        ;;
+    n | N | no)
+        echo "You have denied"
+        ;;
+    *)
+        echo "'${response}' is not a valid response"
+        ;;
+esac
+```
+
+The example above shows very simple text patterns, but any text pattern can be used:
+
+```sh
+read -p "Yes or no: " response
+case "${response}" in
+    [yY]*)
+        echo "You have (probably) confirmed"
+        ;;
+    [nN]*)
+        echo "You have (probably) denied"
+        ;;
+    *)
+        echo "'${response}' is not a valid response"
+    ;;
+esac
+```
+
+In this example the first pattern is `[yY]*` which means either the 'y' or 'Y' character followed by zero or more characters, this will match things like 'yes' 'YES' or 'yay'. We have a similar pattern for the negative response.
+
+The case statement can look quite complex, I often think that even if it takes more lines to write the logic using 'if statements' it will be more readable, but this is common pattern nonetheless and good to know about!
 
 # Updating the 'Common' Command
 
@@ -404,3 +512,4 @@ Note that in this command we use the `-f` flag to force the creation of the syml
 
 In this chapter we looked at the If statement - an extremely important statement that allows us to perform conditional logic. In the next chapter we will look at another crucial logical feature of the shell - loops.
 
+You can find most of the documentation for conditional logic in the manual, just run `man bash` and search for `GRAMMAR`.
