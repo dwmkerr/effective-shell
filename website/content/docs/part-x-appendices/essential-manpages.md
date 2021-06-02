@@ -9,3 +9,5 @@ As an appendix, or printed reference, list of the top ten manpages?
 - `man getopt`
 - `man XXX` show signal commands (`Ctrl+V` etc)
 - `man bash` search for `ARITHMETIC\ EVALUATION` to find how arithmetic operators work in bash
+
+- `man bash` search `GRAMMAR` for pipelines, if statements, conditionals, loops, lists and so on
