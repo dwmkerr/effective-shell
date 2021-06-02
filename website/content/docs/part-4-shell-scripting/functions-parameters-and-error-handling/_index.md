@@ -393,7 +393,7 @@ The `return` (_return from shell function_)<!--index--> command causes a functio
 
 This is something that often causes confusion in shell scripts. The reason is that in most programming languages, you would use a 'return' statement to return the result of a function. But in the shell, when we return, we set the _status code_ of the function.
 
-What is a status code? We actually touched on this in [Chapter 20 - Mastering the If Statement]({{< relref "/docs/part-4-shell-scripting/mastering-the-if-statement" >}}). When a command runs, we expect it to return a _status code_ of 'zero' to indicate success. Any non-zero status code is used to specify an _error code_.
+What is a status code? We actually touched on this in [Chapter 20 - Mastering the If Statement]({{< relref "/docs/part-4-shell-scripting/mastering-conditional-logic" >}}). When a command runs, we expect it to return a _status code_ of 'zero' to indicate success. Any non-zero status code is used to specify an _error code_.
 
 Let's see how we could re-write the _command_exists_ function to set a status code:
 
