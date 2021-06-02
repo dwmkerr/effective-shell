@@ -14,7 +14,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 * [Versioning](#versioning)
 * [Copyright & Licensing](#copyright--licensing)
 * [Thanks!](#thanks)
-* [TODO](#todo)
+* [Refactoring Todo](#refactoring-todo)
 
 <!-- vim-markdown-toc -->
 
@@ -101,6 +101,7 @@ Thanks to the following people who have helped with reviews, comments, suggestio
 - Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal, Peter Mondlock, Samantha Baldwin for the useful comments and suggestions
 - [Ogus Ismail](https://stackoverflow.com/users/10248678/oguz-ismail) for helping me understand some of the [nuances of word splitting and filename expansion](https://stackoverflow.com/questions/67648392/how-can-i-confirm-whether-whitespace-or-special-characters-are-escaped-in-a-wild)
 
-## TODO
+## Refactoring Todo
 
 - [ ] Book icon attribution in a 'thanks' page in the document
+- [ ] Mailchimp signup script link (see the `partials/html-head` link)
