@@ -14,6 +14,8 @@ todo: https://linux.101hacks.com/bash-scripting/execution-sequence-of-bash-files
 
 interactive vs non interactive shells - running a shell script is a good example because it is non interactive (i.e. no aliases, no history, etc)
 
+https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell
+
 - Why we don't echo in config - imagine shell scripts like `common` echoing stuff out
 
 ## Useful reading
