@@ -552,10 +552,12 @@ pstree $$
 If I run this script from MacOS, the output below is shown:
 
 ```
-$ ~/effective-shell/scripts/nobang.sh
--+= 57919 dwmkerr sh ~/effective-shell/scripts/nobang.sh
- \-+- 57920 dwmkerr pstree 57919
-   \--- 57921 root ps -axwwo user,pid,ppid,pgid,command
+-+= 00001 root /sbin/launchd
+ \-+= 07995 dwmkerr tmux
+   \-+= 31195 dwmkerr /bin/zsh
+     \-+= 49833 dwmkerr sh ./effective-shell-playground/script
+       \-+- 49834 dwmkerr pstree -p 49833
+         \--- 49835 root ps -axwwo user,pid,ppid,pgid,command
 ```
 
 Although I ran the script from a Z-Shell session, it was executed with `sh`, which is the Bourne Shell (version 3 on my system).

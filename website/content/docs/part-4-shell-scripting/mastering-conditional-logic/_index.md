@@ -325,7 +325,7 @@ In this case we have chained two commands together using the `&&` operator. The 
 does (command1 and command2) succeed?
 ```
 
-If `command` fails, the shell doesn't need to evaluate the second command - because we know the overall result must be false, because one of the commands has already failed.
+If `command` fails, the shell doesn't need to evaluate the second command - the overall result _must_ be false, as the first command has already failed.
 
 Contrast this to the `||` operator:
 
