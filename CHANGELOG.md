@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.9.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.1...v0.9.2) (2021-06-02)
+
+
+### Bug Fixes
+
+* cleanup of 'mastering conditional logic' chapter ([72f931e](https://www.github.com/dwmkerr/effective-shell/commit/72f931e05ece679a997971f7c0a9e137e91adae1))
+* fix broken link to conditional logic chapter ([fd0ffba](https://www.github.com/dwmkerr/effective-shell/commit/fd0ffba408892fcf094909cd02a84829b16bfaf7))
+
 ### [0.9.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.0...v0.9.1) (2021-06-02)
 
 
