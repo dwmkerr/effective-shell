@@ -8,6 +8,7 @@
 | `rmdir`    |             |
 | `cd`    |             |
 | `cd`    |             |
+- `pstree -p $$` | Show the process tree for the current shell process. |
 
 - ls
 - grep
@@ -29,3 +30,4 @@
 
 
 - pwd -P (physical, shows symlinks)
+

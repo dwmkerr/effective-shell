@@ -39,8 +39,8 @@ This document contains the proposed structure of the book. It is still work in p
 * [Interlude - The Shell Family Tree](#interlude---the-shell-family-tree)
 * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
     * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
-    * [Chapter 18 - Customising your Command Prompt](#chapter-18---customising-your-command-prompt)
-    * [Chapter 19 - Managing Your Dotfiles](#chapter-19---managing-your-dotfiles)
+    * [Chapter 26 - Customising your Command Prompt](#chapter-26---customising-your-command-prompt)
+    * [Chapter 27 - Managing Your Dotfiles](#chapter-27---managing-your-dotfiles)
     * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
     * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
     * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
@@ -76,6 +76,7 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc -->
 
+There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
 # The Pitch
 
 This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primarily a book about how to work more effectively with command line interfaces and shells in general.
@@ -256,25 +257,13 @@ The goal of this part of the book is to equip you with the knowledge and techniq
 
 There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
 
-interactive vs non interactive shells - running a shell script is a good example because it is non interactive (i.e. no aliases, no history, etc)
-
-In this chapter we'll see the various different configuration files used, introduce the `chsh` command, the `SHELL` environment variable, and see how to manage configuration using `set`.
-
-NOTE: `setopt` - extended globbing as a better way for file matching vs `find` (especially in loops)
-
-set -f	set -o noglob	Disable file name generation using metacharacters (globbing).
-set -v	set -o verbose	Prints shell input lines as they are read.
-set -x	set -o xtrace	Print command traces before executing command.
-
-https://mywiki.wooledge.org/glob
-
-## Chapter 18 - Customising your Command Prompt
+## Chapter 26 - Customising your Command Prompt
 
 The shell command prompt can be configured to show you what you find most important. In this section we'll see how the command prompt can be configured, and take a look at some of the advanced options available.
 
 - configuring things like the default editor
 
-## Chapter 19 - Managing Your Dotfiles
+## Chapter 27 - Managing Your Dotfiles
 
 As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. In this chapter we'll see how to manage your configuration - and 'dotfiles' - as a GitHub repository. We'll also see how this can be used to share ideas and look at some great examples.
 
@@ -499,6 +488,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: Nice `tr` trick: `tr a-z A-Z` for uppercase
 - todo: Nice date tricks: https://linux.101hacks.com/date-manipulation/past-date-and-time/
 - todo: `lsof` for open ports https://linux.101hacks.com/monitoring-performance/lsof-command-examples/
+- todo: excellent reference for common shell operations: https://devhints.io/bash
 
 # More Useful Reading
 

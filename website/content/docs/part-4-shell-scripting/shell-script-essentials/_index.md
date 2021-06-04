@@ -10,13 +10,13 @@ First we're going to look at how to write shell scripts as well as the different
 
 These will be essential techniques to have as a foundation for building your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about using the `env` command in shebangs.
 
-## What is a Shell Script?
+# What is a Shell Script?
 
 A shell script is just a text file which contains a set of commands. As soon as you find yourself repeating the same sequence of commands in a shell, it might be worth saving these commands to a file and running the file instead.
 
 Saving your commands to a file has a number of benefits. It saves time - you don't need to type the commands out each time you want to run them! You can use your favourite editor to build the script file, and you can add 'comments' to describe what you are trying to achieve (which will make it far easier to update the script over time). Files can also easily be shared - meaning you can copy these scripts to other machines or share them with others who might find them useful.
 
-## Creating a Basic Shell Script
+# Creating a Basic Shell Script
 
 Let's create a simple shell script that shows us our most commonly used shell commands.
 
@@ -24,7 +24,7 @@ Almost every command that is needed to build the script has been discussed in th
 
 As we go through this section of the book we're going to extend this script and make it more useful!
 
-### The 'common' Command
+## The 'common' Command
 
 We're going to create a new command, called 'common', that shows the most commonly used shell commands.
 
@@ -37,7 +37,7 @@ We should be able to do this using techniques we've seen so far. We'll do it lik
 
 Let's get started!
 
-### Creating a Simple Script
+## Creating a Simple Script
 
 It's going to take some trial and error to get our commands right. So let's start by creating a shell script, which we'll run again and again.
 
@@ -62,7 +62,7 @@ The `touch` command creates an empty file with the given name. Finally, I open t
 
 Before we build the script, let's quickly talk about _comments_.
 
-## Comments<!--index..>
+# Comments<!--index..>
 
 The shell ignores any text which follows a `#` hash symbol. Whether this is text you type into a shell, or text in a shell script, the shell will ignore the content.
 
@@ -102,7 +102,7 @@ If you _don't_ come from a programming background you might think that many of t
 
 Now that we've discussed comments, we'll build our `common.v1.sh` shell script.
 
-## Building and Testing the Script
+# Building and Testing the Script
 
 Add the following commands to the `common.v1.sh` file:
 
@@ -152,7 +152,7 @@ You can see my most common commands are short aliases for Git commands (the ones
 
 We now have a basic shell script. Let's look at a few different ways we can run the script.
 
-## Multi-line Commands
+# Multi-line Commands
 
 You can use the `\` backslash character to create a 'continuation' that tells the shell it needs to join lines up. This allows you to break long commands into multiple lines.
 
@@ -172,7 +172,7 @@ This will probably look very familiar to anyone with a background in functional 
 
 Be careful when you split lines up - the continuation character _must_ be the last character on the line. If you add something after it (such as a comment) then the command will fail.
 
-## Running a Shell Script
+# Running a Shell Script
 
 There are a few different ways we can run shell scripts.
 
@@ -200,7 +200,7 @@ There is a problem with this approach though. How this file is executed is going
 
 We want to avoid any ambiguity and be explicit about _what_ program should run our script. We can do this using a special construct called a _shebang_.
 
-## Using Shebangs
+# Using Shebangs
 
 A _shebang_ is a special set of symbols at the beginning of a file that tells the system what program should be used to run the file.
 
@@ -244,7 +244,7 @@ What about Node.js? Easy!
 console.log("Hello from Node.js");
 ```
 
-### Shebangs - Dealing with Paths
+## Shebangs - Dealing with Paths
 
 When we use a shebang we need to provide the full path the executable that will be used to run the script.
 
@@ -294,7 +294,77 @@ puts 'Hello from Ruby'
 
 Using a shebang to specify the exact command to run, and then using the `env` command to allow the `$PATH` to be searched is generally the safest and most portable way to specify how a shell script should run.
 
-## Installing Your Script
+# Sourcing Shell Scripts
+
+We have discussed how to _run_ shell scripts. You can also use the _source_ (_execute commands from a file_) command<!--index--> to load the contents of a file into the _current_ shell.
+
+Remember that when we run a shell script, a new shell is created as a child process of the current shell. This means that if you change something in the environment, such as a variable, it will not affect the environment of the shell that ran the script.
+
+Let's see an example. We'll create a script called _set_editor.sh_ that sets the `EDITOR` environment variable to `nano`. The script's contents are below (can can also find it in the samples at _~/effective-shell/scripts/set_editor.sh_):
+
+```sh
+EDITOR=nano
+echo "Editor changed to: $EDITOR"
+```
+
+Let's run this script and see what editor looks like before and after:
+
+```
+$ echo $EDITOR
+vim
+$ ~/effective-shell/scripts/set_editor.sh
+Editor changed to: nano
+$ echo $EDITOR
+vim
+```
+
+Notice that although we changed the `EDITOR` environment variable in our script, the change has not persisted in the current shell. This is because each shell (and in fact, each process) gets its own _copy_ of the environment.
+
+If we want to run the commands in the file in the context of the current shell, we can use the `source` command to load the file:
+
+```
+$ echo $EDITOR
+vim
+$ source ~/effective-shell/scripts/set_editor.sh
+Editor changed to: nano
+$ echo $EDITOR
+nano
+```
+
+Our existing environment has been changed. When we use `source`, the commands in the file are executed in the current shell, rather than in a new shell.
+
+We can see this even more clearly if we use the _showpstree.sh_ file:
+
+```
+$ ~/effective-shell/scripts/show-info.sh
+bash
+  └─sh /home/ubuntu/effective-shell/scripts/showpstree.sh
+    └─pstree -l -a -s 2240
+```
+
+This script shows the current 'process tree', using the `pstree` (_show process tree_) command. We can see that the `pstree` command was run as a child of the `sh` program. This program was run with the script path, by the shell I was using, `bash`. This is a nice visualisation of what is going on - our `bash` shell has run the _showpstree.sh_ script in a child shell.
+
+If we source the same file, we'll see that we do _not_ create a new shell:
+
+```
+$ source ~/effective-shell/scripts/show-info.sh
+bash
+  └─pstree -l -a -s 2169
+```
+
+## Dot Sourcing<!--index-->
+
+There is a slightly more concise syntax that can be used to source a script - the _dot sourcing_ notation. When the shell sees a `.` dot character, it will source the file that follows:
+
+```
+$ . ~/effective-shell/scripts/show-info.sh
+bash
+  └─pstree -l -a -s 2169
+```
+
+You may encounter this syntax as you look at things like shell configuration files, which we discuss in [Chapter 24 - Configuring the Shell]({{< relref "/docs/part-5-building-your-toolkit/configuring-the-shell" >}}).
+
+# Installing Your Script
 
 Before we finish with our shell script fundamentals, we'll take a look at one final commonly used pattern to run shell scripts - installing them as a local binary.
 

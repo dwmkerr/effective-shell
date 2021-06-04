@@ -134,7 +134,7 @@ cleanup () {
 }
 
 # Cleanup on interrupt or terminate signals and on exit.
-trap "cleanup" SIGINT SIGTERM EXIT
+trap "cleanup" INT TERM EXIT
 
 # Download the samples.
 curl --fail --compressed -q -s "${source}" -o "${tmp_tar}"
@@ -143,7 +143,7 @@ curl --fail --compressed -q -s "${source}" -o "${tmp_tar}"
 tar -xzf "${tmp_tar}" -C "${tmp_dir}"
 ```
 
-In this script we have defined a function called 'cleanup'. We then use the `trap` command to ensure that we call the function if `SIGINT` is sent, `SIGTERM` is sent or when the script exits. This is very useful in scripts that can take a while. This script downloads the effective shell samples from the internet. If the user is having connectivity issues then this might take a while and they may end up aborting the script. If they do so in this case we will still clean up the temporary folder we created.
+In this script we have defined a function called 'cleanup'. We then use the `trap` command to ensure that we call the function if `INT` is sent, `TERM` is sent or when the script exits. This is very useful in scripts that can take a while. This script downloads the effective shell samples from the internet. If the user is having connectivity issues then this might take a while and they may end up aborting the script. If they do so in this case we will still clean up the temporary folder we created.
 
 Traps provide a very convenient way to handle things like cleanup, provide more diagnostic information or even disable a user from interrupting your script. In the example below we force the user to press Ctrl+C twice if they want to interrupt the script:
 
@@ -161,7 +161,7 @@ on_interrupt() {
     fi
 }
 
-trap on_interrupt SIGINT
+trap on_interrupt INT
 
 total_time=0
 while true; do
@@ -187,11 +187,11 @@ Long operation: 12 seconds elapsed
 
 Some other things that you might want to be aware of for the trap command are:
 
-- The `SIG` at the beginning of the name of a signal is optional, and a signal number can also be used - this means that `SIGINT`, `INT` and `2` are all equivalent options for `trap`
+- The `SIG` at the beginning of the name of a signal is optional but not supported in all shells, and a signal number can also be used - this means that `SIGINT`, `INT` and `2` are all equivalent options for `trap`, but `INT` is the most portable and easiest to read!
 - You can list the signals available with `trap -l` or `kill -l` - but remember that special conditions such as `EXIT` and `RETURN` are not listed, you can find these with `help trap`
-- You can stop a signal from being processed with `trap "" SIGINT` - this means that no command will be executed when we receive a `SIGINT`
-- You can reset a trap by running `trap - SIGINT`, this will remove any trap handler
-- You can test your traps by sending a signal explicitly to your script with `kill -s SIGINT`, providing the name of the signal
+- You can stop a signal from being processed with `trap "" INT` - this means that no command will be executed when we receive a `INT`
+- You can reset a trap by running `trap - INT`, this will remove any trap handler
+- You can test your traps by sending a signal explicitly to your script with `kill -s INT`, providing the name of the signal
 
 # Handling Options
 
