@@ -415,6 +415,7 @@ There are a few manual pages that can be really useful to know about, this guide
 
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
+- todo(variables): the `export` command
 - introduction: Note that we are going to use `#` to indicate comments
 - introduction: Note that we are going to use `...` to indicate cropped output
 - chapter: useful tools: fzf, ag, ack, ripgrep?

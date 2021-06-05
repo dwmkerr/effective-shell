@@ -3,17 +3,19 @@ title: "Configuring the Shell"
 weight: 24
 ---
 
-There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
+# Chapter 24 - Configuring the Shell
+
+There are a number of different ways to configure your shell. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration with options.
 
 # The Shell Configuration File
 
 There are a number of different files that the shell uses for configuration, and we're going to see all of them in this chapter. However, the file we will use most often is the _~/.bashrc_ file.
 
-When you log into a machine using the shell, or start a shell program in a terminal emulator like the Gnome Terminal or Konsole, you are running an _interactive shell_. An interactive shell is one that is connected to your keyboard and screen. We're going to see interactive shells in detail as we go through this chapter.
+When you log into a machine using the shell, or start a shell program in a terminal emulator like the Gnome Terminal or Konsole, you are running an _interactive shell_. An interactive shell is one that is connected to your keyboard and screen.
 
 When an interactive shell starts, one of the operations it performs is to run all of the commands in the file _~/.bashrc_. This is one of the 'shell startup' files.
 
-The 'RC' in the file name stands for 'run commands' (sometimes people will also use 'run configuration'). This is a convention from the early days of Unix. Many tools on Unix and Linux have files that end in 'rc' which are loaded when a program starts up. For example, the _~/.vimrc_ run commands file is loaded by the `vim` program when it starts.
+The 'RC' in the file name stands for 'run commands' (sometimes people will also refer to this as 'run configuration'). This is a convention from the early days of Unix. Many tools on Unix and Linux have files that end in 'rc' that are loaded when a program starts up. For example, the _~/.vimrc_ run commands file is loaded by the `vim` program when it starts.
 
 The _~/.bashrc_ file is in your home directory - this means that it is your personal Bash configuration file. There is also a file that is normally at _/etc/bash.bashrc_ that is used to configure Bash for all users.
 
@@ -21,12 +23,10 @@ Again - this is a common convention for Unix and Linux systems - there is a 'glo
 
 {{< hint info >}}
 **Z-Shell**
-The `zsh` shell uses a _~/.zshrc_ file for per-user configuration and _/etc/zsh/zshrc_ for global configuration. The paths are different but the concepts are the same. Other shells may use different paths as well - you should be able to find the paths in their documentation.
+The `zsh` shell uses a _~/.zshrc_ file for per-user configuration and _/etc/zsh/zshrc_ for global configuration. The paths are different but the concepts are the same. Other shells may use different paths as well - you should be able to find the paths in their manual pages.
 {{< /hint >}}
 
 ## The Default Configuration File
-
-Different operating systems have different commands set by default in their shell configuration files, but there will be a lot of similarities.
 
 Let's take a look at some of the commands that are in the _~/.bashrc_ on a clean Ubuntu 20 installation (if you want to know how to set up a free Ubuntu 20 machine check [Appendix - Setting Up a Linux Virtual Machine]({{< relref "/docs/work-in-progress" >}}).
 
@@ -60,9 +60,9 @@ alias l='ls -CF'
 # ...
 ```
 
-The first section of the script checks the current shell parameters (which are stored in the special `$-` variable) to see whether the `i` (_interactive_) parameter is present. If it is not present, the `return` command runs.
 
-It's very important to understand that this file is _sourced_ by the shell - so we have to use `return` if we want to stop processing it. If we used `exit` instead then the shell would close, which is definitely not what we want!
+It's very important to understand that this file is _sourced_ by the shell - so we have to use `return` if we want to stop processing it. If we used `exit` instead then the shell would close, which is definitely not what we want! If you need a reminder on sourcing, check [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}}).
+
 
 The next section of the file sets up some of the configuration for the history features of the shell. Some variables are set, such as `HISTSIZE` (the number of commands to store in the history), we also set some options using the `shopt` (_set shell option_ flag).
 
@@ -134,6 +134,8 @@ shopt -s autocd
 
 In this example we use the `shopt` (_set shell option_) command to set the `autocd` option. This option allows you to enter the name of a directory as if it was a command, when you press 'enter' the shell will `cd` into the directory.
 
+You can set an option using the `-s` (_set option_) flag and unset an option with the `-u` (_unset option_) flag.
+
 You can list the options available to set by running `shopt -p`, or searching the `man bash` page for `shopt`. Some of the most useful options are:
 
 | Option        | Description                                                                                     |
@@ -157,18 +159,18 @@ The command prompt is the information that is shown to the left of the caret in 
 dwmkerr@ip-172-31-28-144:~/effective-shell$
 ```
 
-This command prompt is made up of the following parts:
+This command prompt in this example is made up of the following parts:
 
 - `ubuntu` - the name of the current user
 - `ip-172-31-28-144` - the hostname of the machine
 - `~/effective-shell` - the current directory
 - `$` - an indicator showing that we are using Bash (this will be `#` if we are a super user)
 
-The structure and format of the command prompt can be configured using the `PS1` variable, this is a large enough topic that the whole of the next chapter is dedicated to customising the command prompt.
+The structure and format of the command prompt can be configured using the `PS1` variable. This is a large enough topic that the whole of the next chapter is dedicated to customising the command prompt.
 
 ### Source Files
 
-Another common pattern for the _~/.bashrc_ file is to simply source another file.
+Another common pattern for the _~/.bashrc_ file is to simply `source` another file.
 
 For example, you might want to create a set of common functions that you keep in a file called _shell-functions.sh_. You could source this file as part of your shell configuration:
 
@@ -206,6 +208,8 @@ mkdir -p "${temp_path}"
 # Now that we've created the folder, make a symlink to it in our homedir.
 ln -sf "${temp_path}" "${HOME}/today" 
 ```
+
+If I add this code to my _~/.bashrc_ file then whenever I start a new shell, a folder will be created with today's date in the _/tmp/_ directory, and a link will be created to this folder at _~/today_. This provides a convenient way to have a temporary working folder for the day. You can then go back and refer to old temporary folders if you need to.
 
 ### Configuration Tips
 
@@ -251,9 +255,17 @@ When we type commands into our shell, we're using an interactive shell.
 
 ## Non-Interactive Shells
 
-Any shell that does not have its standard input, output and error streams attached to a terminal is generally called a _non-interactive shell_<!--index-->. You might wonder why you would ever have a shell that isn't connected to the keyboard and display, given that the shell is a tool for interfacing with your computer, so let's see some examples.
+Any shell that does not have its standard input, output and error streams attached to a terminal is generally called a _non-interactive shell_<!--index-->.
 
-The most common example we've seen so far for non interactive shells are the shells that run shell scripts! Let's run the _showpstree.sh_ script to show the process tree for the current process:
+The most common example we've seen so far for non interactive shells are the shells that run shell scripts! Let's run the _showpstree.sh_ script from the samples to show the process tree for the current process. This script shows the process tree for the shell process it is running in and looks like this:
+
+```sh
+# GNU pstree; use the long form (-l) show the command line (-a) and the
+# details for a specific process (-s).
+pstree -a -s $$
+```
+
+Here's the output when we run this script:
 
 ```
 ~$ ./effective-shell/scripts/showpstree.sh
@@ -272,7 +284,22 @@ The output will look different depending on what system you are using, but the k
 - `sh ./effective-shell/scripts/showpstree.sh` - this is a _non-interactive shell_ that is running our shell script
 - `bash` - this is the _interactive shell_ that we used to invoke our shell script
 
-When you run a shell script, it runs in a _non-interactive_ shell. This is really important to remember! The same applies if we use a shell script in a _cronjob_, or as a part of system startup. Shell scripts are run in non-interactive shells. This means that anything you define in _~/.bashrc_ will not be loaded, so don't try and use aliases or other customisations that you have made.
+When you run a shell script, it runs in a _non-interactive_ shell. This is really important to remember! Shell scripts are run in non-interactive shells. This means that anything you define in _~/.bashrc_ will not be loaded, so don't try and use aliases or other customisations that you have made.
+
+In fact, on many distributions you will see the following lines in the default _~/.bashrc_:
+
+```sh
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+```
+
+
+The first section of the script checks the current shell parameters (which are stored in the special `$-` variable) to see whether the `i` (_interactive_) parameter is present. If it is not present, the `return` command runs. This check for the shell parameters ensures that even if a non-interactive shell does load the run commands file for some reason, it stops reading it right away.
+
+If you need a refresher on how the `case` statement works, check [Chapter 20 - Mastering Conditional Logic]({{< relref "/docs/part-4-shell-scripting/mastering-conditional-logic" >}}).
 
 Another way to show a non-interactive shell in action is to simply invoke the shell program with a specified command from the command like:
 
@@ -283,7 +310,7 @@ $ sh -c "echo $((5 + 5))"
 
 In this example we started the `sh` (_shell_) program and provided a command via the `-c` (_command_) flag. This starts a non-interactive shell.
 
-Why do non-interactive shells not load the configuration file? There are two reasons. The first is that it doesn't make sense for scripts to rely on user-level customisations, if one user has an alias and refers to it in a script, then the script will not run for another user unless they have the same alias. The second reason is for performance - when using a shell to run a script the shell can start much more quickly if it doesn't need to load configuration or customisations.
+Why do non-interactive shells not load the configuration file? There are two reasons. The first is that it doesn't make sense for scripts to rely on user-level customisations. If one user has an alias and refers to it in a script, then the script will not run for another user unless they have the same alias. The second reason is for performance - when using a shell to run a script the shell can start much more quickly if it doesn't need to load configuration or customisations.
 
 ## Login Shells
 
@@ -314,18 +341,18 @@ Here we can see that the parameter that the shell was started with was `-bash`. 
 
 Login shells are _normally_ interactive shells, but it is possible to run a non-interactive login shell (it's just quite an unusual thing to do).
 
-Why is there a difference between login shells and non-login shells? The reasons are nowadays essentially historic. In the early days of Unix, executing any commands could be time consuming. The login shell would perform the most essential configuration only once when a user logs in and all subsequent shell processes could start more quickly as they would inherit the login configuration and then load the user specific configuration.
+In the early days of Unix, executing any commands could be time consuming. The login shell would perform the most essential configuration only once when a user logs in and all subsequent shell processes could start more quickly as they would inherit the login configuration and then load the user specific configuration.
 
 # Shell Startup Files
 
-When the shell starts, it reads a set of _startup files_. These files are shell scripts that are _sourced_ by the shell. A script that is sourced is loaded into the _current_ shell process, rather than running in a new shell process. If you need a reminder on sourcing, check [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}}).
+When the shell starts, it reads a set of _startup files_. These files are shell scripts that are _sourced_ by the shell. A script that is sourced is loaded into the _current_ shell process, rather than running in a new shell process.
 
 For many people, the various different files that are loaded can cause confusion. But as long as you understand the different types of shells that exist, it is actually quite straightforward to understand the process.
 
 When a _login_ shell starts, the following steps are taken:
 
 - The shell attempts to load the _profile file_
-- The _profile file_ will normally load the _run commands_
+- The _profile file_ will normally load the _run commands_ file
 
 When an _interactive_ shell starts, the following steps are taken:
 
@@ -376,9 +403,9 @@ If you need to load a startup file for a non-interactive shell, you can set the 
 
 Before the advent of the graphical user interface, almost all shell processes would be children of a login shell, as you had to use a login shell to access the system.
 
-For modern systems that use a desktop environment such as Gnome or KDE, the desktop manager process normally loads the `/etc/profile` file. This means that when you open a terminal program use as the Gnome Terminal or Konsole, the shell is a child of a process which has loaded the profile. This means that even if you don't use a login shell to access a system, you can normally be sure that the profile will have been loaded.
+For modern systems that use a desktop environment such as Gnome or KDE, the desktop manager process normally loads the `/etc/profile` file. This means that when you open a terminal program use as the Gnome Terminal or Konsole, the shell is a child of a process which has loaded the profile. Even if you don't use a login shell to access a system, you can normally be sure that the profile will have been loaded by the desktop manager.
 
-Different distributions and operating systems may handle this in slightly different ways, for example on MacOS when you run the Terminal program it actually starts a login shell[^2]. Again, this means that you can be sure that the profile has been loaded (which in turn will load the RC files).
+Different distributions and operating systems may handle this in slightly different ways. For example, on MacOS when you run the Terminal program it actually starts a login shell[^2]. Again, this means that you can be sure that the profile has been loaded (which in turn will load the RC files).
 
 # Summary
 
