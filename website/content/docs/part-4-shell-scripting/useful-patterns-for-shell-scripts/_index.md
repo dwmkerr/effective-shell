@@ -134,7 +134,7 @@ cleanup () {
 }
 
 # Cleanup on interrupt or terminate signals and on exit.
-trap "cleanup" SIGINT SIGTERM EXIT
+trap "cleanup" INT TERM EXIT
 
 # Download the samples.
 curl --fail --compressed -q -s "${source}" -o "${tmp_tar}"
@@ -143,7 +143,7 @@ curl --fail --compressed -q -s "${source}" -o "${tmp_tar}"
 tar -xzf "${tmp_tar}" -C "${tmp_dir}"
 ```
 
-In this script we have defined a function called 'cleanup'. We then use the `trap` command to ensure that we call the function if `SIGINT` is sent, `SIGTERM` is sent or when the script exits. This is very useful in scripts that can take a while. This script downloads the effective shell samples from the internet. If the user is having connectivity issues then this might take a while and they may end up aborting the script. If they do so in this case we will still clean up the temporary folder we created.
+In this script we have defined a function called 'cleanup'. We then use the `trap` command to ensure that we call the function if `INT` is sent, `TERM` is sent or when the script exits. This is very useful in scripts that can take a while. This script downloads the effective shell samples from the internet. If the user is having connectivity issues then this might take a while and they may end up aborting the script. If they do so in this case we will still clean up the temporary folder we created.
 
 Traps provide a very convenient way to handle things like cleanup, provide more diagnostic information or even disable a user from interrupting your script. In the example below we force the user to press Ctrl+C twice if they want to interrupt the script:
 
@@ -161,7 +161,7 @@ on_interrupt() {
     fi
 }
 
-trap on_interrupt SIGINT
+trap on_interrupt INT
 
 total_time=0
 while true; do
@@ -187,11 +187,11 @@ Long operation: 12 seconds elapsed
 
 Some other things that you might want to be aware of for the trap command are:
 
-- The `SIG` at the beginning of the name of a signal is optional, and a signal number can also be used - this means that `SIGINT`, `INT` and `2` are all equivalent options for `trap`
+- The `SIG` at the beginning of the name of a signal is optional but not supported in all shells, and a signal number can also be used - this means that `SIGINT`, `INT` and `2` are all equivalent options for `trap`, but `INT` is the most portable and easiest to read!
 - You can list the signals available with `trap -l` or `kill -l` - but remember that special conditions such as `EXIT` and `RETURN` are not listed, you can find these with `help trap`
-- You can stop a signal from being processed with `trap "" SIGINT` - this means that no command will be executed when we receive a `SIGINT`
-- You can reset a trap by running `trap - SIGINT`, this will remove any trap handler
-- You can test your traps by sending a signal explicitly to your script with `kill -s SIGINT`, providing the name of the signal
+- You can stop a signal from being processed with `trap "" INT` - this means that no command will be executed when we receive a `INT`
+- You can reset a trap by running `trap - INT`, this will remove any trap handler
+- You can test your traps by sending a signal explicitly to your script with `kill -s INT`, providing the name of the signal
 
 # Handling Options
 
@@ -502,6 +502,67 @@ The second reason is that multiple parameters are not handled consistently acros
 ```
 
 However, on many Unix distributions only one parameter is passed. This would mean that the `-e` parameter would be silently ignored, which would be very confusing for the reader.
+
+## Complex Logic in Shell Scripts
+
+The shell is amazing. Considering how long it has been around, it has in many ways changed remarkably little in the last few decades. This is a testament to the genius of the design of Unix systems and the shell in general.
+
+However, the shell is _not_ generally going to be the best choice for any kind of complex logic or work. Shell scripts are great for automating simple tasks, creating utilities to help you out, but come with many challenges. The syntax can be confusing, making scripts work across multiple systems can be challenging, and there are not many features to help you write robust code.
+
+Perhaps the biggest anti-pattern in shell scripts is to simply let them get to large and do too much with them. There comes a certain point where you will almost certainly create a more portable, performant and maintainable solution to your problem using a dedicated programming language like Python (which is available on almost all systems) or one of the many other languages available.
+
+This is a topic we discuss in detail in the [Chapter 24 - How to avoid shell scripting]({{< relref "/docs/work-in-progress" >}}), but for now I would just say that as soon as your script starts to get longer than a page, or takes more than a few minutes to reason about, then you might be reaching the point that a programming language could be a better option.
+
+## Scripts without Shebangs
+
+You might find shell scripts that do not have a shebang at the top. This is something that you should avoid. The shebang gives you a way to be very explicit about _what_ shell is required to run your script.
+
+For example, if I see a shebang like this:
+
+```sh
+#!/usr/bin/env sh
+```
+
+Then my assumption would be that this script can run on _any_ Posix compliant shell, i.e. it is as compatible as possible. However, if I see this:
+
+```sh
+#!/usr/bin/env bash
+```
+
+Then the assumption would be that this script is Bash-specific and uses "Bash-isms", such as the `if [[ conditional ]]` construct. Finally, if I was to see a shebang like this:
+
+```sh
+#!/usr/bin/env zsh
+```
+
+Then I would expect that this script has been explicitly written to be used with Z-Shell.
+
+If you do not include a shebang in a script, then the behaviour can be ambiguous. For example, at the time of writing, if you run a shell script without a shebang from a Bash shell, then the script will be run using a new instance of Bash. However, if you run a shell script without a shebang from Z-Shell then Z-Shell will use `sh` from your path. But depending on your system, `sh` may be a symlink to `dash`, or `bash`, or another shell.
+
+Scripts that do not have shebangs are inherently ambiguous and will run using different shells depending on the shell used to execute the script as well as the operating system.
+
+If you want to experiment and see what shell runs a script, create a script such as the _~/effective-shell/scripts/nobang.sh_ script that looks like this:
+
+```sh
+# nobang: This script shows an anti-pattern - not using a shebang in a shell
+# script. It shows the process tree to for the shell that runs the script:
+pstree $$
+```
+
+If I run this script from MacOS, the output below is shown:
+
+```
+-+= 00001 root /sbin/launchd
+ \-+= 07995 dwmkerr tmux
+   \-+= 31195 dwmkerr /bin/zsh
+     \-+= 49833 dwmkerr sh ./effective-shell-playground/script
+       \-+- 49834 dwmkerr pstree -p 49833
+         \--- 49835 root ps -axwwo user,pid,ppid,pgid,command
+```
+
+Although I ran the script from a Z-Shell session, it was executed with `sh`, which is the Bourne Shell (version 3 on my system).
+
+The only time you should omit the shebang is if you expect the script to be _sourced_ - we will see sourcing in the next part of the book.
 
 # Summary
 
