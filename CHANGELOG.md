@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.2...v0.10.0) (2021-06-05)
+
+
+### Features
+
+* chapter configuring the shell ([#125](https://www.github.com/dwmkerr/effective-shell/issues/125)) ([9687a4f](https://www.github.com/dwmkerr/effective-shell/commit/9687a4f7a8902242c2429b955d3d894844f44814))
+
 ### [0.9.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.1...v0.9.2) (2021-06-02)
 
 
