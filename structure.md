@@ -39,7 +39,7 @@ This document contains the proposed structure of the book. It is still work in p
 * [Interlude - The Shell Family Tree](#interlude---the-shell-family-tree)
 * [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
     * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
-    * [Chapter 26 - Customising your Command Prompt](#chapter-26---customising-your-command-prompt)
+    * [Chapter 26 - Customising Your Command Prompt](#chapter-26---customising-your-command-prompt)
     * [Chapter 27 - Managing Your Dotfiles](#chapter-27---managing-your-dotfiles)
     * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
     * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
@@ -76,7 +76,6 @@ This document contains the proposed structure of the book. It is still work in p
 
 <!-- vim-markdown-toc -->
 
-There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
 # The Pitch
 
 This is _not_ a book about Shell Programming. There are many excellent Shell Programming books (see below). This is about general terminal and shell skills which will make you effective with many day to day tasks. Some shell programming is covered, but this is primarily a book about how to work more effectively with command line interfaces and shells in general.
@@ -91,7 +90,6 @@ This is _not_ a book about Shell Programming. There are many excellent Shell Pro
 - **Effective Shell**: 30 ways to use shells and terminals to be more effective.
 - **Command the Shell**: 30 ways to be more effective with software.
 
-
 # Foreword by Steve Bourne
 
 For some, the text based interface to a computer might seem archaic in this day and age. However, the skills required to work with a computer shell might have never been in such high demand, or so relevant. In the introduction we cover just why the shell is more and more relevant for professionals and hobbyists, and why investing in your time learning about this topic could be a really smart move.
@@ -105,7 +103,6 @@ We'll look at what a shell is, and why it can be so useful to learn about.
 We'll also talk about why we are emphasising how things work on Linux, rather than MacOS or Windows, and explain how for Windows and Mac users you will still be able to use the material.
 
 This is not a book about Bash. It's not a book about shell programming. It's a book about how to use a keyboard as the main way to work with a computer, and become incredibly efficient doing so. That means we'll cover a lot of Bash and shell topics, but we'll also look at how linux works. But this is not a book about systems adminstration. We won't see how to set up a mailserver, but we will understand _why_ linux systems work as they do, in a more fundamental way, which will help us save time and optimise our work, whether we're programming, administering systems, exploring or hobbying, working with data science or even just doing general purpose computing.
-
 
 # Chapter 1 - Getting Started
 
@@ -257,11 +254,9 @@ The goal of this part of the book is to equip you with the knowledge and techniq
 
 There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
 
-## Chapter 26 - Customising your Command Prompt
+## Chapter 26 - Customising Your Command Prompt
 
 The shell command prompt can be configured to show you what you find most important. In this section we'll see how the command prompt can be configured, and take a look at some of the advanced options available.
-
-- configuring things like the default editor
 
 ## Chapter 27 - Managing Your Dotfiles
 
@@ -419,7 +414,7 @@ This section contains the things which have been pulled out of chapters as they 
 - introduction: Note that we are going to use `#` to indicate comments
 - introduction: Note that we are going to use `...` to indicate cropped output
 - chapter: useful tools: fzf, ag, ack, ripgrep?
-
+- todo: cronjobs, maybe as part of shell scripts?
 - structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
 - todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
 - todo: getting help - what is the `zsh` equivalent of `help`?
