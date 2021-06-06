@@ -416,6 +416,7 @@ This section contains the things which have been pulled out of chapters as they 
 - chapter: useful tools: fzf, ag, ack, ripgrep?
 - todo: cronjobs, maybe as part of shell scripts?
 - structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
+- todo: advanced topic - supporting bash auto-completion. The `set-ps1` function would be a good one to use as an example
 - todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
 - todo: getting help - what is the `zsh` equivalent of `help`?
 - `find` was in 'managing files
