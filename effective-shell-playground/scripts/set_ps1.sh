@@ -192,7 +192,6 @@ _to_zsh() {
     # \V     the release of bash, version + patch level (e.g., 2.00.0)
     # \W     the basename of the current working directory, with $HOME abbreviated with a tilde
     # \#     the command number of this command
-    # \$     if the effective UID is 0, a #, otherwise a $
 
     # Remove the non-printing characters sequences as Z-Shell doesn't need them.
     # Then replace Bash special characters with Z-Shell special characters.
@@ -201,6 +200,10 @@ _to_zsh() {
     # is the beginning of a unicode character. This took quite a while to work
     # out. I have left the replacement of '\u' to '%n' in the 'sed' call below
     # but it not needed as the shell expansion below handles it.
+    # Note that before we replace '\$' with '%#', we replace '\$(' temporarily
+    # to SHELL_EXPAND, otherwise things like '\$(_my_func)' would be transformed
+    # to '%#(_my_func)', i.e. we need to replace the prompt special character
+    # but not escaped shell functions.
     local zsh_ps1="$(echo ${1/\\u/%n} | sed \
         -e 's/\\\[//g' \
         -e 's/\\\]//g' \
@@ -215,6 +218,9 @@ _to_zsh() {
         -e 's/\\\@/%@/g' \
         -e 's/\\\w/%~/g' \
         -e 's/\\\!/%!/g' \
+        -e 's/\\\$(/SHELL_EXPAND/g' \
+        -e 's/\\\$/%#/g' \
+        -e 's/SHELL_EXPAND/\\\$(/g' \
         )"
 
     # Print the sequence. Note that we need to escape the % symbol.
