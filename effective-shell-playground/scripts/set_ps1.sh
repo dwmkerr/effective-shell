@@ -80,13 +80,6 @@ set_ps1() {
     # \[     begin a sequence of non-printing characters, which could be used to embed a terminal control sequence into the prompt
     # \]     end a sequence of non-printing characters
 
-    # TODO: themes as an associative array
-    # TODO: Git shortcuts
-    # TODO: Show git stash count
-    # TODO: Underline main branch
-    # TODO: newline at the beginning only if we are not on line 0
-    # TODO: bash auto-complete
-
     # Depending on the name of the theme provided, set the prompt.
     case $1 in
         debian)
@@ -106,46 +99,17 @@ set_ps1() {
         ;;
 
         git)
-            # A style that shows some git information.
-
-            # Build a string that shows:
-            # - The branch (underlined if 'main') in green
-            # - A red exclamation if there are any local changes not committed
-            # - An indicator of the number of stashed items, if any.
-            _git_info() {
-                # Local copies of the colours for this function.
-                local fg_red=$(tput setaf 1)
-                local fg_green=$(tput setaf 2)
-                local fg_yellow=$(tput setaf 3)
-                local bold=$(tput bold)
-                local start_underline=$(tput smul)
-                local stop_underline=$(tput rmul)
-                local reset=$(tput sgr0)
-                # Git details.
-                local git_branch_name="$(git branch --show-current)"
-                local git_any_local_changes="$(git status --porcelain=v1 2>/dev/null)"
-                local git_stash_count="$(git rev-list --walk-reflogs --count \
-                    refs/stash -- 2>/dev/null)" # Ignore error when no stashes
-                local git_info=""
-                if [ "${git_branch_name}" = "main" ]; then
-                    git_info="${bold}${fg_green}${start_underline}${git_branch_name}${reset}"
-                else
-                    git_info="${bold}${fg_green}${git_branch_name}${reset}"
-                fi
-                if ! [ -z "${git_any_local_changes}" ]; then
-                    # Note that we have to be careful to put the exclamation mark
-                    # in single quotes so that it is not expanded to the last command!
-                    git_info="${git_info} ${bold}${fg_red}"'!'"${reset}"
-                fi
-                if [ "${git_stash_count:-0}" -gt 0 ]; then
-                    git_info="${git_info} ${bold}${fg_yellow}${git_stash_count} in stash${reset}"
-                fi
-                printf "${git_info}"
-            }
-
-            # Now show a Debian style prompt with the git info above it.
+            # A Debian style prompt with the git info above it.
             PS1="\$(_git_info)\n\\[${bold}${fg_green}\]\u@\h:\[${fg_blue}\]\w\[${fg_white}\]\\$\[${reset}\] "
         ;;
+
+        dwmkerr)
+            # The current folder, up to 3 items shown, the git info, then the prompt.
+            # Starts with a leading newline to space out commands.
+            PS1="\n\[${bold}${fg_blue}\$(_pwd_max_folders 3)${reset}\] \$(_git_info)\n\[${bold}${fg_white}\]\\$\[${reset}\] "
+        ;;
+
+
         # Add your own themes here!
 
         *)
@@ -156,4 +120,50 @@ set_ps1() {
     esac
 }
 
-set_ps1 debian
+# Build a string that shows:
+# - The branch (underlined if 'main') in green
+# - A red exclamation if there are any local changes not committed
+# - An indicator of the number of stashed items, if any.
+_git_info() {
+    # Don't write anything if we're not in a folder tracked by git.
+    if ! [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" == "true" ]
+    then
+        return
+    fi
+
+    # Local copies of the colours for this function.
+    local fg_red=$(tput setaf 1)
+    local fg_green=$(tput setaf 2)
+    local fg_yellow=$(tput setaf 3)
+    local start_underline=$(tput smul)
+    local stop_underline=$(tput rmul)
+    local reset=$(tput sgr0)
+    # Git details.
+    local git_branch_name="$(git branch --show-current)"
+    local git_any_local_changes="$(git status --porcelain=v1 2>/dev/null)"
+    local git_stash_count="$(git rev-list --walk-reflogs --count \
+        refs/stash -- 2>/dev/null)" # Ignore error when no stashes
+    local git_info=""
+    if [ "${git_branch_name}" = "main" ]; then
+        git_info="${fg_green}${start_underline}${git_branch_name}${reset}"
+    else
+        git_info="${fg_green}${git_branch_name}${reset}"
+    fi
+    if ! [ -z "${git_any_local_changes}" ]; then
+        # Note that we have to be careful to put the exclamation mark
+        # in single quotes so that it is not expanded to the last command!
+        git_info="${git_info} ${fg_red}"'!'"${reset}"
+    fi
+    if [ "${git_stash_count:-0}" -gt 0 ]; then
+        git_info="${git_info} ${fg_yellow}${git_stash_count} in stash${reset}"
+    fi
+    printf "${git_info}"
+}
+
+# Show the pwd, limited to a certain number of folders.
+_pwd_max_folders() {
+    max_folders="$1"
+    # Write the PWD, replace the home path with a tilde, then cut out the last
+    # of the directories, up to the max folders value.
+    echo "${PWD/#$HOME/'~'}" | rev | cut -d'/' -f1-${max_folders} | rev
+}

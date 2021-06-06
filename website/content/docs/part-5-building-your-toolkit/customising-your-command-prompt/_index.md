@@ -376,15 +376,17 @@ For example, one 'theme' I often use is below:
 ```sh
 git)
     # A style that shows some git information.
-    local git_branch_name="$(git branch --show-current)"
-    local git_any_local_changes="$(git status --porcelain=v1 2>/dev/null)"
-    local git_stash_count="$(git rev-list --walk-reflogs --count refs/stash)"
 
     # Build a string that shows:
     # - The branch (underlined if 'main') in green
     # - A red exclamation if there are any local changes not committed
     # - An indicator of the number of stashed items, if any.
     _git_info() {
+        # Git details.
+        local git_branch_name="$(git branch --show-current)"
+        local git_any_local_changes="$(git status --porcelain=v1 2>/dev/null)"
+        local git_stash_count="$(git rev-list --walk-reflogs --count \
+            refs/stash -- 2>/dev/null)" # Ignore error when no stashes
         local git_info=""
         if [ "${git_branch_name}" = "main" ]; then
             git_info="${bold}${fg_green}${start_underline}${git_branch_name}${reset}"
@@ -396,14 +398,14 @@ git)
             # in single quotes so that it is not expanded to the last command!
             git_info="${git_info} ${bold}${fg_red}"'!'"${reset}"
         fi
-        if [ "${git_stash_count}" -gt 0 ]; then
+        if [ "${git_stash_count:-0}" -gt 0 ]; then
             git_info="${git_info} ${bold}${fg_yellow}${git_stash_count} in stash${reset}"
         fi
         printf "${git_info}"
     }
 
     # Now show a Debian style prompt with the git info above it.
-    PS1="${git_info}\n\\[${bold}${fg_green}\]\u@\h:\[${fg_blue}\]\w\[${fg_white}\]\\$\[${reset}\] "
+    PS1="\$(_git_info)\n\\[${bold}${fg_green}\]\u@\h:\[${fg_blue}\]\w\[${fg_white}\]\\$\[${reset}\] "
 ;;
 ```
 
@@ -415,6 +417,8 @@ dwmkerr@effective-shell-ubuntu-20:~/repos/github/dwmkerr/effective-shell$
 ```
 
 My prompt is now spread across two lines - the first shows me the branch I am on, a red exclamation point if I have made changes but not saved them, and the number of items I have in my 'stash'. The second line shows the standard Debian prompt.
+
+The code shown above has been slightly simplified to make it more readable, you can see the exact version in the samples.
 
 You can use the _~/effective-shell/scripts/set_ps1.sh_ file to build your own 'themes' and easily change between them in the shell.
 
