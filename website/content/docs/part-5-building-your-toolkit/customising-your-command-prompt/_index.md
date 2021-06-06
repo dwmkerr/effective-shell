@@ -518,6 +518,5 @@ To find all of the information on how to control the command prompt in the manua
 
 # TODO
 
-- The git prompt is not updated each time
 - Doesn't work on z-shell
 - Need to proof

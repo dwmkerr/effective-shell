@@ -100,13 +100,13 @@ set_ps1() {
 
         git)
             # A Debian style prompt with the git info above it.
-            PS1="\$(_git_info)\n\\[${bold}${fg_green}\]\u@\h:\[${fg_blue}\]\w\[${fg_white}\]\\$\[${reset}\] "
+            PS1="\$(_git_info)"$'\n'"\\[${bold}${fg_green}\]\u@\h:\[${fg_blue}\]\w\[${fg_white}\]\\$\[${reset}\] "
         ;;
 
         dwmkerr)
             # The current folder, up to 3 items shown, the git info, then the prompt.
             # Starts with a leading newline to space out commands.
-            PS1="\n\[${bold}${fg_blue}\$(_pwd_max_folders 3)${reset}\] \$(_git_info)\n\[${bold}${fg_white}\]\\$\[${reset}\] "
+            PS1=$'\n'"\[${bold}${fg_blue}\$(_pwd_max_folders 3)${reset}\] \$(_git_info)"$'\n'"\[${bold}${fg_white}\]\\$\[${reset}\] "
         ;;
 
 
@@ -118,6 +118,9 @@ set_ps1() {
         ;; 
 
     esac
+
+    # If we are in Z-Shell convert the PS1 to use Z-Shell format.
+    [ -n "$ZSH_VERSION" ] && PS1=$(_to_zsh "$PS1")
 }
 
 # Build a string that shows:
@@ -162,8 +165,46 @@ _git_info() {
 
 # Show the pwd, limited to a certain number of folders.
 _pwd_max_folders() {
-    max_folders="$1"
+    local max_folders="$1"
     # Write the PWD, replace the home path with a tilde, then cut out the last
     # of the directories, up to the max folders value.
     echo "${PWD/#$HOME/'~'}" | rev | cut -d'/' -f1-${max_folders} | rev
+}
+
+# Convert a Bash PS1 string to a ZSH PS1 string.
+_to_zsh() {
+    # Note that the following sequences are not supported as they don't have
+    # an Z-Shell equivalent. Mappings have been worked out from this document:
+    #   https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Prompt-Expansion
+    #
+    # \l     the basename of the shell's terminal device name
+    # \s     the name of the shell, the basename of $0 (the portion following the final slash)
+    # \T     the current time in 12-hour HH:MM:SS format
+    # \v     the version of bash (e.g., 2.00)
+    # \V     the release of bash, version + patch level (e.g., 2.00.0)
+    # \W     the basename of the current working directory, with $HOME abbreviated with a tilde
+    # \#     the command number of this command
+    # \$     if the effective UID is 0, a #, otherwise a $
+
+    # Remove the non-printing characters sequences as Z-Shell doesn't need them.
+    # Then replace Bash special characters with Z-Shell special characters.
+    local zsh_ps1="$(echo $1 | sed \
+        -e 's/\\\[//g' \
+        -e 's/\\\]//g' \
+        -e 's/\\\d/%w/g' \
+        -e 's/\\\D/%D/g' \
+        -e 's/\\\u/%n/g' \
+        -e 's/\\\h/%m/g' \
+        -e 's/\\\H/%M/g' \
+        -e 's/\\\j/%j/g' \
+        -e 's/\\\t/%*/g' \
+        -e 's/\\\A/%T/g' \
+        -e 's/\\\@/%@/g' \
+        -e 's/\\\w/%~/g' \
+        -e 's/\\\!/%!/g' \
+        )"
+
+    # Print the sequence. Note that we need to escape the % symbol.
+    local zsh_ps1_escaped=$(echo "${zsh_ps1}" | sed 's/%/%%/g')
+    printf "${zsh_ps1_escaped}"
 }
