@@ -486,6 +486,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: Nice date tricks: https://linux.101hacks.com/date-manipulation/past-date-and-time/
 - todo: `lsof` for open ports https://linux.101hacks.com/monitoring-performance/lsof-command-examples/
 - todo: excellent reference for common shell operations: https://devhints.io/bash
+- todo: dotfiles: could be nice to show how you could put a shell script as a static page on your dotfiles repo to allow you to curl it in one go
 
 # More Useful Reading
 

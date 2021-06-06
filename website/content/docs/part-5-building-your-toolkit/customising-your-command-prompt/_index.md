@@ -219,7 +219,7 @@ dwmkerr@effective-shell-ubuntu-20:~$ PS1='-Ready?---> '
 We don't need to limit ourselves to the special sequences we've seen so far in this chapter - we can run any commands we like to build a command prompt. For example, we could use the use the `ls` (_list directory contents_) and `wc` (_count lines and works_) commands to count the number of files and folders in the current directory and show that in the prompt:
 
 ```sh
-PS1="$(ls -al | wc -l) \\$ "
+PS1="$(ls -al | wc -l | tr -d '[:space:]') \\$ "
 ```
 
 When I run this command, my prompt will look something like this:
@@ -228,7 +228,34 @@ When I run this command, my prompt will look something like this:
 32 $
 ```
 
-We have used the `$()` notation to run a sub-shell that lists the contents of the current directory and then pipes them to `wc -l`, which counts the number of lines. To use the `$()` notation, or any shell variable, we have to use double quotes in the string, otherwise the shell will write out those characters literally. And because we are using double quotes, we need an extra backslash before the `$` character to escape it, so that the shell doesn't try to treat it as a variable.
+We have used the `$()` notation to run a sub-shell that lists the contents of the current directory and then pipes them to `wc -l`, which counts the number of lines. Finally we pipe the result into `tr -d '[:space:]` to remove the whitespace around the line count.
+
+To use the `$()` notation, or any shell variable, we have to use double quotes in the string, otherwise the shell will write out those characters literally. And because we are using double quotes, we need an extra backslash before the `$` character to escape it, so that the shell doesn't try to treat it as a variable.
+
+However - there's a subtle bug in this `PS1` configuration! Let's see what happens when we change directories:
+
+```
+32 $ cd effective-shell/
+32 $ touch newfile-{1..10}
+32 $ 
+```
+
+In the session above I changed to the _effective-shell_ directory. But the count is still showing as `32`. This is suspicious. After creating ten new files with `touch newfile-{1..10}` the count still shows `32`.
+
+The reason for this is that `32` was the number of files and folders in the current directory _at the time the `PS1` variable was set_. We changed the `PS1` variable once - what we really need to do is have the prompt count the files each time the prompt is shown.
+
+Fortunately, there is a special syntax for this! We just put a `\` backslash character in front of the `$` dollar symbol for the sub-shell:
+
+```sh
+PS1="\$(ls -al | wc -l | tr -d '[:space:]') \\$ "
+```
+
+The backslash before the sub-shell tells the shell that it should evaluate the sub-shell _each time_ the prompt is shown:
+
+```
+32 $ touch newfile-{1..10}
+42 $
+```
 
 This is where the real power of the `PS1` variable comes into play. Because we set it using the shell itself, we can run _any_ commands that we find useful and integrate their output into our command prompt.
 
@@ -357,20 +384,23 @@ git)
     # - The branch (underlined if 'main') in green
     # - A red exclamation if there are any local changes not committed
     # - An indicator of the number of stashed items, if any.
-    local git_info=""
-    if [ "${git_branch_name}" = "main" ]; then
-        git_info="${bold}${fg_green}${start_underline}${git_branch_name}${reset}"
-    else
-        git_info="${bold}${fg_green}${git_branch_name}${reset}"
-    fi
-    if ! [ -z "${git_any_local_changes}" ]; then
-        # Note that we have to be careful to put the exclamation mark
-        # in single quotes so that it is not expanded to the last command!
-        git_info="${git_info} ${bold}${fg_red}"'!'"${reset}"
-    fi
-    if [ "${git_stash_count}" -gt 0 ]; then
-        git_info="${git_info} ${bold}${fg_yellow}${git_stash_count} in stash${reset}"
-    fi
+    _git_info() {
+        local git_info=""
+        if [ "${git_branch_name}" = "main" ]; then
+            git_info="${bold}${fg_green}${start_underline}${git_branch_name}${reset}"
+        else
+            git_info="${bold}${fg_green}${git_branch_name}${reset}"
+        fi
+        if ! [ -z "${git_any_local_changes}" ]; then
+            # Note that we have to be careful to put the exclamation mark
+            # in single quotes so that it is not expanded to the last command!
+            git_info="${git_info} ${bold}${fg_red}"'!'"${reset}"
+        fi
+        if [ "${git_stash_count}" -gt 0 ]; then
+            git_info="${git_info} ${bold}${fg_yellow}${git_stash_count} in stash${reset}"
+        fi
+        printf "${git_info}"
+    }
 
     # Now show a Debian style prompt with the git info above it.
     PS1="${git_info}\n\\[${bold}${fg_green}\]\u@\h:\[${fg_blue}\]\w\[${fg_white}\]\\$\[${reset}\] "
@@ -481,3 +511,9 @@ In this chapter we looked at how you can customise the command prompt with the `
 We've now seen quite a few ways to configure the shell, in the next chapter we'll look at some sensible practices that you can use to organise your shell configuration files.
 
 To find all of the information on how to control the command prompt in the manual, run `man bash` and search for `^PROMPTING`.
+
+# TODO
+
+- The git prompt is not updated each time
+- Doesn't work on z-shell
+- Need to proof
