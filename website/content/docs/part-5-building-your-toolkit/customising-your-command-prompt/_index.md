@@ -92,6 +92,13 @@ The special characters that the shell uses are listed below:
 
 Some of these sequences are reasonably self-explanatory, some are a little more complex. Let's use some of them now to see how we can customise the prompt.
 
+{{< hint info >}}
+**Z-Shell**
+The `zsh` shell uses different sequences. However, I suggest that you follow this chapter through to understand how Bash-like shells work and then you can apply the same techniques using Z-Shell, the documentation links are at the end of the chapter.
+
+Later on in this chapter we will introduce a function to help set the prompt, this function automatically converts to the prompt into Z-Shell format if needed. So the techniques you learn here should still be able to be used in Z-Shell.
+{{< /hint >}}
+
 To change the prompt, all we need to do is set the `PS1` variable. Let's start by changing the prompt so that it shows the date, time and the `$` or `#` prompt symbol:
 
 ```
@@ -351,10 +358,20 @@ After this we use a `case` statement to set the `PS1` variable based on the valu
             PS1="${_original_ps1}"
         ;; 
     esac
+
+    # If we are in Z-Shell convert the PS1 to use Z-Shell format.
+    [ -n "$ZSH_VERSION" ] && PS1=$(_to_zsh "$PS1")
 }
 ```
 
 In this code we check the first parameter of the function `$1`. If it matches the string `debian` we set the `PS1` variable to a format that is similar to what is used by Debian Linux distributions. If it matches the string `datetime` we set `PS1` to a prompt that shows the current date and time. If any other value is used, we reset the `PS1` variable back to its original value. Finally, we use the `}` to complete the definition of the function.
+
+{{< hint info >}}
+**Z-Shell**
+The `zsh` shell differs considerably from Bash and Bash-like shells in how it handles the `PS1` variable. There is no need for the `\[` or `\]` sequences, there are built in color variables such as `$fg[red]` for 'red' and the special sequences such as `\u` for the username are not used (there are similar sequences such as `%n`).
+
+The `set_ps1` function in the samples converts the `PS1` string to Z-Shell format if it is running in Z-Shell. However, this conversion is not perfect as some of the sequences shown in this chapter do not have an equivalent in Z-Shell. If you want to customise a Z-Shell prompt you can check the manual page `man zshmisc` and search for `PROMPT\ SEQUENCES`.
+{{< /hint >}}
 
 Notice how much easier it is to specify the values for the `PS1` string when we have the colours and formatting defined in variables! We still need to wrap the formatting characters with `\[` and `\]` to make sure that the shell knows how long the command prompt is, but this is _far_ easier to read than the samples we saw before where we provide the ANSI Escape Sequences.
 
@@ -514,9 +531,8 @@ In this chapter we looked at how you can customise the command prompt with the `
 
 We've now seen quite a few ways to configure the shell, in the next chapter we'll look at some sensible practices that you can use to organise your shell configuration files.
 
-To find all of the information on how to control the command prompt in the manual, run `man bash` and search for `^PROMPTING`.
+To find all of the information on how to control the command prompt in the manual, run `man bash` and search for `^PROMPTING`. For Z-Shell, run `man zshmisc` and search for `PROMPT\ SEQUENCES`.
 
 # TODO
 
-- Doesn't work on z-shell
 - Need to proof

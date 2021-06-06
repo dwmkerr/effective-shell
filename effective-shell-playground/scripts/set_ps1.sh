@@ -82,6 +82,14 @@ set_ps1() {
 
     # Depending on the name of the theme provided, set the prompt.
     case $1 in
+        basic)
+            # Debian/Ubuntu style:
+            #   \u@\h - username@host
+            #   \w - working directory
+            #   \$ - prompt
+            PS1="\u@\h:\w\\$ "
+        ;;
+
         debian)
             # Debian/Ubuntu style:
             #   \u@\h - username@host (bold/green)
@@ -188,7 +196,12 @@ _to_zsh() {
 
     # Remove the non-printing characters sequences as Z-Shell doesn't need them.
     # Then replace Bash special characters with Z-Shell special characters.
-    local zsh_ps1="$(echo $1 | sed \
+    # Before we echo out the PS1 value, we need to replace '\u' with '%n'. If we
+    # don't do this here with shell parameter expansion, then 'echo' thinks '\u'
+    # is the beginning of a unicode character. This took quite a while to work
+    # out. I have left the replacement of '\u' to '%n' in the 'sed' call below
+    # but it not needed as the shell expansion below handles it.
+    local zsh_ps1="$(echo ${1/\\u/%n} | sed \
         -e 's/\\\[//g' \
         -e 's/\\\]//g' \
         -e 's/\\\d/%w/g' \
