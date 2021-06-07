@@ -14,3 +14,14 @@ As an appendix, or printed reference, list of the top ten manpages?
 - `man bash` search for `^INVOCATION` to find details on startup and the startup files that are read
 - `man bash` search for `^[ ]+shopt` to find descriptions of shell options
 
+Essential Bash Manpages
+
+| Manpage    | Search       | Description                             |
+|------------|--------------|-----------------------------------------|
+| `man bash` | `^PROMPTING` | Details on how to set the `PS1` prompt. |
+
+Essential Z-Shell Manpages
+
+| Manpage       | Search              | Description                             |
+|---------------|---------------------|-----------------------------------------|
+| `man zshmisc` | `PROMPT\ SEQUENCES` | Details on how to set the `PS1` prompt. |

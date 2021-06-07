@@ -8,6 +8,7 @@ This style guide may be useful when proofing, writing or reviewing changes.
 * [Common Mistakes](#common-mistakes)
 * [Hyphenations](#hyphenations)
 * [Info](#info)
+* [Downloading the Samples](#downloading-the-samples)
 
 <!-- vim-markdown-toc -->
 
@@ -72,4 +73,17 @@ stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
 This is documented at:
 
 https://themes.gohugo.io//theme/hugo-book/docs/shortcodes/hints/
+
+## Downloading the Samples
+
+As a quick reference, the snippet below can be used to show the 'downloading the samples' instructions:
+
+{{< hint info >}}
+**Downloading the Samples**
+Run the following commands in your shell to download the samples:
+
+```sh
+curl effective.sh | sh
+```
+{{< /hint >}}
 

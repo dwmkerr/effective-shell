@@ -33,4 +33,5 @@ bookMenuLevels: 1
    - [Useful Patterns for Shell Scripts]({{< relref "/docs/part-4-shell-scripting/useful-patterns-for-shell-scripts" >}})
  - [**Part 5 - Building Your Toolkit**]({{< relref "/docs/part-5-building-your-toolkit" >}})
    - [Configuring the Shell]({{< relref "/docs/part-5-building-your-toolkit/configuring-the-shell" >}})
+   - [Customising Your Command Prompt]({{< relref "/docs/part-5-building-your-toolkit/customising-your-command-prompt" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})
