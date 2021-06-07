@@ -1,6 +1,8 @@
 ## Chapter 26 - Customising Your Command Prompt
 
-The shell has a large number of options available that you can use to customise the _command prompt_ - the text shown in front of your cursor as you type commands. In this chapter we will look at how you can change the command prompt to show the information that you would like to see. We will also create a script that allows us to set our own command prompt 'theme' from a list that we can extend over time.
+The shell has a large number of options available that you can use to customise the _command prompt_ - the text shown in front of your cursor as you type commands. In this chapter we will look at how you can change the command prompt to show the information that you would like to see.
+
+We will also create a script that allows us to set our own command prompt 'theme' from a list that we can extend over time. This script will also handle the differences between Bash-like shells and Z-Shell for us, allowing us to have a consistent command prompt across different types of shells!
 
 # The Command Prompt
 
@@ -32,7 +34,7 @@ If we change to the 'super' user we can see that the username changes to `root` 
 
 ```
 dwmkerr@effective-shell-ununtu-20:~/effective-shell$ sudo su
-root@effective-shell-ununtu-20:/home/ubuntu/effective-shell#
+root@effective-shell-ununtu-20:/home/dwmkerr/effective-shell#
 ```
 
 The `#` symbol is a useful reminder that we are the root user. It is important to be careful when running commands as the root user as we could easily break things by changing system files.
@@ -41,7 +43,7 @@ So out-of-the box on most systems our command prompt shows a number of useful fi
 
 # Customising the Command Prompt
 
-The structure of the command prompt is specified in the `PS1`<!--index--> shell variable. This stands for 'prompt string 1'. The shell uses this variable to write out the command prompt.
+The structure of the command prompt is specified in the `PS1`<!--index--> shell variable. This stands for 'Prompt String 1'. The shell uses this variable to write out the command prompt.
 
 We can see the contents of this variable by using `echo` or `printf` to write it to the screen:
 
@@ -55,6 +57,17 @@ This looks extremely complicated - but don't worry, by the time we've finished t
 The easiest way to see how these special prompt strings work is to start using them, so let's get started and customise our prompt.
 
 ## The Prompt String
+
+You can set your own prompt string by setting the `PS1` variable:
+
+```
+dwmkerr@effective-shell-ubuntu-20:~/effective-shell$ PS1="---> "
+--->
+```
+
+The shell will use the contents of the `PS1` variable to display the prompt. We can use plan text as shown above, but there's also a lot more that we can do to customise this prompt!
+
+## Special Characters
 
 When the shell reads the `PS1` variable, it allows certain special characters to be specified. These characters can be used to customise how the prompt string looks.
 
@@ -94,7 +107,7 @@ Some of these sequences are reasonably self-explanatory, some are a little more 
 
 {{< hint info >}}
 **Z-Shell**
-The `zsh` shell uses different sequences. However, I suggest that you follow this chapter through to understand how Bash-like shells work and then you can apply the same techniques using Z-Shell, the documentation links are at the end of the chapter.
+The `zsh` shell uses different sequences. However, I suggest that you follow this chapter through to understand how Bash-like shells work and then you can apply the same techniques using Z-Shell. The Z-Shell documentation links are at the end of the chapter.
 
 Later on in this chapter we will introduce a function to help set the prompt, this function automatically converts to the prompt into Z-Shell format if needed. So the techniques you learn here should still be able to be used in Z-Shell.
 {{< /hint >}}
@@ -138,7 +151,7 @@ dwmkerr@effective-shell-ubuntu-20:~/effective-shell$ echo $PS1
 
 Some of these characters we might now be able to recognise, such as `\u` for the username and `\h` for the host. The characters that start with the sequence `\033` are _ANSI color codes_. ANSI stands for _American National Standards Institute_, an organisation that was set up to attempt to set common standards for computing platforms.
 
-In the early days of Unix, each vendor developed their own special characters that could be used to control the visual formatting of output. These characters would vary from platform to platform, which made trying to create scripts or functionality that worked across multiple platforms complex. To deal with this, the ANSI organisation defined a common set of standard codes that could be printed to a terminal to control the visual style of the output.
+In the early days of Unix, each vendor developed their own special characters that could be used to control the visual formatting of output. These characters would vary from platform to platform, which made trying to create scripts or functionality that worked across multiple platforms complex. To deal with this, the ANSI organisation defined a common set of codes that could be printed to a terminal to control the visual style of the output.
 
 To tell a terminal that we want to use a special sequence to control the formatting or output of text, we can use these _ANSI Escape Sequences_. First we write out the characters `\033` or `\e`. This is the sequence that represents the 'escape' key. The first version is the 'escape' key code written in 'octal' format (octal is a format where numbers are written in base eight, rather than base ten). The second sequence is an alternative way of writing the 'escape' key.
 
@@ -200,9 +213,10 @@ With our new knowledge of how to use ANSI Escape Sequences to set the format of 
 
 ```
 dwmkerr@effective-shell-ubuntu-20:~/effective-shell$ PS1='\033[34m\u \033[32m\W \033[37m\$ '
-$ PS1='\033[34m\u \033[32m\W \033[37m\$ \033[0m'
 dwmkerr effective-shell $
 ```
+
+The prompt above will be shown in color on modern terminals.
 
 There is one snag to this. If you set your prompt in this way and press the 'up' and 'down' keys to cycle through previously entered commands, you might see that your shell prompt gets overwritten. The reason for this is that we need to tell the shell that colour and formatting sequences are 'non-printing' characters - the sequences don't actually produce written text in the terminal.
 
@@ -220,7 +234,7 @@ When we set the `PS1` variable, we are simply setting it to a string. This strin
 
 ```
 dwmkerr@effective-shell-ubuntu-20:~$ PS1='-Ready?---> '
---->
+-Ready?---> 
 ```
 
 We don't need to limit ourselves to the special sequences we've seen so far in this chapter - we can run any commands we like to build a command prompt. For example, we could use the use the `ls` (_list directory contents_) and `wc` (_count lines and works_) commands to count the number of files and folders in the current directory and show that in the prompt:
@@ -237,7 +251,7 @@ When I run this command, my prompt will look something like this:
 
 We have used the `$()` notation to run a sub-shell that lists the contents of the current directory and then pipes them to `wc -l`, which counts the number of lines. Finally we pipe the result into `tr -d '[:space:]` to remove the whitespace around the line count.
 
-To use the `$()` notation, or any shell variable, we have to use double quotes in the string, otherwise the shell will write out those characters literally. And because we are using double quotes, we need an extra backslash before the `$` character to escape it, so that the shell doesn't try to treat it as a variable.
+To use the `$()` notation, or any shell variable, we have to use double quotes in the string, otherwise the shell will write out those characters literally. And because we are using double quotes, we need an extra backslash before last `\$` character to escape it, so that the shell doesn't try to treat it as a variable.
 
 However - there's a subtle bug in this `PS1` configuration! Let's see what happens when we change directories:
 
@@ -276,6 +290,7 @@ There is a script in the Effective Shell samples at _~/effective-shell/scripts/s
 
 {{< hint info >}}
 **Downloading the Samples**
+
 Run the following commands in your shell to download the samples:
 
 ```sh
@@ -364,11 +379,16 @@ After this we use a `case` statement to set the `PS1` variable based on the valu
 }
 ```
 
-In this code we check the first parameter of the function `$1`. If it matches the string `debian` we set the `PS1` variable to a format that is similar to what is used by Debian Linux distributions. If it matches the string `datetime` we set `PS1` to a prompt that shows the current date and time. If any other value is used, we reset the `PS1` variable back to its original value. Finally, we use the `}` to complete the definition of the function.
+In this code we check the first parameter of the function `$1`. If it matches the string `debian` we set the `PS1` variable to a format that is similar to what is used by Debian Linux distributions. If it matches the string `datetime` we set `PS1` to a prompt that shows the current date and time. If any other value is used, we reset the `PS1` variable back to its original value.
+
+Before we complete the function, we check to see if `ZSH_VERSION` is set - this is to check whether we are in a `zsh` shell. If we are, then we use the `_to_zsh` function to convert the `PS1` string into the format used by Z-Shell.
+
+Finally, we use the `}` to complete the definition of the function.
 
 {{< hint info >}}
 **Z-Shell**
-The `zsh` shell differs considerably from Bash and Bash-like shells in how it handles the `PS1` variable. There is no need for the `\[` or `\]` sequences, there are built in color variables such as `$fg[red]` for 'red' and the special sequences such as `\u` for the username are not used (there are similar sequences such as `%n`).
+
+The `zsh` shell differs considerably from Bash and Bash-like shells in how it handles the `PS1` variable. There is no need for the `\[` or `\]` sequences, there are built in color variables such as `$fg[red]` for 'red' and the special sequences are different (for example, rather than `\u` for username, Z-Shell uses `%n`).
 
 The `set_ps1` function in the samples converts the `PS1` string to Z-Shell format if it is running in Z-Shell. However, this conversion is not perfect as some of the sequences shown in this chapter do not have an equivalent in Z-Shell. If you want to customise a Z-Shell prompt you can check the manual page `man zshmisc` and search for `PROMPT\ SEQUENCES`.
 {{< /hint >}}
@@ -382,8 +402,7 @@ $
 dwmkerr@effective-shell-ubuntu-20:~$ source ~/effective-shell/scripts/set_ps1.sh
 dwmkerr@effective-shell-ubuntu-20:~$ set_ps1 datetime
 2021-06-06 04:10 PM $ set_ps1 debian
-dwmkerr@effective-shell-ubuntu-20:~$ set_ps1
-dwmkerr@effective-shell-ubuntu-20:~$ set_ps1
+dwmkerr@effective-shell-ubuntu-20:~$ 
 ```
 
 This script has a placeholder in the `case` statement for you to add your own 'themes' that you want to be able to use in your shell.
@@ -445,7 +464,15 @@ If you want to always `source` this file into your shell on startup, just add th
 source "~/effective-shell/scripts/set_ps1.sh"
 ```
 
-In the next chapter we will look at some sensible ways we can organise files like this so that we can manage them over time and not lose track of them.
+You could also set the default `PS1` variable immediately after sourcing the script if you like:
+
+```sh
+# Source the set_ps1 function and set our 'theme' to Debian.
+source "~/effective-shell/scripts/set_ps1.sh"
+set_ps1 "debian"
+```
+
+In the next chapter we will look at some sensible ways we can organise files like the _set_ps1.sh_ script and the _~/.bashrc_ file so that we can easily manage our customisations and share them across different machines.
 
 # Additional Prompt Configuration
 
@@ -453,7 +480,7 @@ There are some other variables that you might want to use to configure your prom
 
 | Variable         | Description                                                                                           |
 |------------------|-------------------------------------------------------------------------------------------------------|
-| `PS2`            | This is shown when performing 'continuation' and is normally set to `>`                               |
+| `PS2`            | This is shown when performing 'continuation' and is normally set to `>`.                              |
 | `PS3`            | This is shown when the `select` command is used and is normally not set, so the default `#?` is used. |
 | `PS4`            | This is shown when tracing with `set -x` and is normally set to `+`.                                  |
 | `PROMPT_DIRTRIM` | This can be set to limit the number of directories shown with using `\w` or `\W` in your prompt.      |
@@ -479,6 +506,7 @@ The `>` symbol is shown when we press 'enter' after entering a `\` backslash sym
 `PS3` allows you to specify the prompt used by the `select` command:
 
 ```
+$ PS3="Your choice? : "
 $ select fruit in Apples Pears; do echo "$fruit"; done
 1) Apples
 2) Pears
@@ -523,7 +551,21 @@ A common use for the `PROMPT_COMMAND` is to save and reload the shell command hi
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 ```
 
+In this example, we used the `history` (_display or manipulate history list_) command three times. First with `-a` to append the lines from the current session to the history file, then `-c` to clear the shell history in the session, then `-r` to reload it.
+
 For many shells the history of commands is only updated when the shell is closed, this change means that even if the shell is terminated unexpectedly, each command we have executed will still have been written to the history.
+
+# Z-Shell and Oh-My-Zsh
+
+Z-Shell does not use the same sequences to format the prompt-string variables. However, the _set_ps1.sh_ script included in the Effective Shell samples will convert the Bash-style `PS1` variable into Z-Shell formatted prompt strings automatically.
+
+For Z-Shell users, you might also consider the very popular "Oh-My-Zsh" project. This is a collection of themes and plugins that add many more aliases, functions, autocompletions and more to the shell. One of the most popular features of "Oh-My-Zsh" is its large collection of themes that customise how the prompt looks.
+
+However, just like with most things in computing, I would strongly recommend that you learn how the fundamentals work as they are described in this chapter before using "Oh-My-Zsh" themes. This will help you understand how things like "Oh-My-Zsh" actually work under the hood.
+
+You might also realise that you don't need to install an additional package to get the styling you want. For example, my own shell prompt includes information on Git, the working directory (trimmed to only show up to three entries), but only requires a few lines of of setup and works consistently in Bash-like shells _and_ Z-Shell.
+
+Enjoy playing around with the prompt customisation! It can be a lot of fun and the options are almost limitless!
 
 # Summary
 
@@ -532,7 +574,3 @@ In this chapter we looked at how you can customise the command prompt with the `
 We've now seen quite a few ways to configure the shell, in the next chapter we'll look at some sensible practices that you can use to organise your shell configuration files.
 
 To find all of the information on how to control the command prompt in the manual, run `man bash` and search for `^PROMPTING`. For Z-Shell, run `man zshmisc` and search for `PROMPT\ SEQUENCES`.
-
-# TODO
-
-- Need to proof
