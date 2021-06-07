@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.10.0...v0.11.0) (2021-06-07)
+
+
+### Features
+
+* chapter 'customise your command prompt' ([#127](https://www.github.com/dwmkerr/effective-shell/issues/127)) ([f068d22](https://www.github.com/dwmkerr/effective-shell/commit/f068d225b42480363ac9ee25582a99c38bc1ee66))
+
 ## [0.10.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.2...v0.10.0) (2021-06-05)
 
 
