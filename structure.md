@@ -37,15 +37,15 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 22 - Functions, Parameters and Error Handling](#chapter-22---functions-parameters-and-error-handling)
     * [Chapter 23 - Useful Patterns for Shell Scripts](#chapter-23---useful-patterns-for-shell-scripts)
 * [Interlude - The Shell Family Tree](#interlude---the-shell-family-tree)
-* [Part 4 - Building Your Toolkit](#part-4---building-your-toolkit)
+* [Part 5 - Building Your Toolkit](#part-5---building-your-toolkit)
     * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
     * [Chapter 26 - Customising Your Command Prompt](#chapter-26---customising-your-command-prompt)
     * [Chapter 27 - Managing Your Dotfiles](#chapter-27---managing-your-dotfiles)
-    * [Chapter 21 - Getting to Grips with Git](#chapter-21---getting-to-grips-with-git)
-    * [Chapter 24 - How to avoid scripting!](#chapter-24---how-to-avoid-scripting)
-    * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
+    * [Chapter 28 - Getting to Grips with Git - Sharing Your Dotfiles](#chapter-28---getting-to-grips-with-git---sharing-your-dotfiles)
+    * [Chapter 29 - How to avoid scripting!](#chapter-29---how-to-avoid-scripting)
 * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
     * [Understanding Shell Expansions](#understanding-shell-expansions)
+    * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
     * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
     * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
     * [Chapter 28 - The Multiplexer](#chapter-28---the-multiplexer)
@@ -244,7 +244,7 @@ To close this the section on shell script we're going to look at some common pat
 
 There are lots of different flavours of Linux and Unix, and lots of different shells. This interlude takes a quick look at the Linux and Unix family tree, and the different shells which have evolved over time.
 
-# Part 4 - Building Your Toolkit
+# Part 5 - Building Your Toolkit
 
 We've now seen many of the core features and some of the more advanced capabilities of the shell. In this part of the book are are going to look at how the shell is configured, different ways a shell can run, and effective ways to manage your shell configuration.
 
@@ -256,28 +256,26 @@ There are a number of different ways to configure your shell, and some options w
 
 ## Chapter 26 - Customising Your Command Prompt
 
-The shell command prompt can be configured to show you what you find most important. In this section we'll see how the command prompt can be configured, and take a look at some of the advanced options available.
+The shell has a large number of options available that you can use to customise the _command prompt_ - the text shown in front of your cursor as you type commands. In this chapter we will look at how you can change the command prompt to show the information that you would like to see.
+
+We will also create a script that allows us to set our own command prompt 'theme' from a list that we can extend over time. This script will also handle the differences between Bash-like shells and Z-Shell for us, allowing us to have a consistent command prompt across different types of shells!
 
 ## Chapter 27 - Managing Your Dotfiles
 
-As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. In this chapter we'll see how to manage your configuration - and 'dotfiles' - as a GitHub repository. We'll also see how this can be used to share ideas and look at some great examples.
+As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. Configuration files are often called 'dotfiles'. In this chapter we'll see how to manage your configuration - and 'dotfiles' - in a way that allows you to easily manage changes over time and build up a library of scripts and features for your preferred shell. We'll also look at how we can use your 'dotfiles' across different shells.
 
-## Chapter 21 - Getting to Grips with Git
+## Chapter 28 - Getting to Grips with Git - Sharing Your Dotfiles
 
-If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell.In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories.
+If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell. In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories. We'll then take our 'dotfiles' from the previous chapter and turn them into a Git repository, so that we can quickly set up any environment with our preferred shell settings!
 
-## Chapter 24 - How to avoid scripting!
+## Chapter 29 - How to avoid scripting!
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
 Note: When to use the shell:
-- Universal compatability such as for installing ruby, node, nvm etc
+- Universal compatibility such as for installing ruby, node, nvm etc (the set_ps1 script is an example)
 - When we need a shell function, e.g show options
 - When we want to execute programs (this is often not safe in code)
-
-## Chapter X - Testing Shell Scripts with Docker
-
-TODO
 
 # Part 6 - Advanced Techniques
 
@@ -286,6 +284,12 @@ The more time you spend in the shell, the more effective you may well find yours
 ## Understanding Shell Expansions
 
 https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
+
+## Chapter X - Testing Shell Scripts with Docker
+
+TODO: quickly using docker to setup clean environments
+TODO: testing different shells such as zsh easily
+TODO: testing different distributions, such as Fedora, CentOS, arch, etc.
 
 ## Chapter 26 - Managing Multiple Programming Languages with Make
 
@@ -318,6 +322,8 @@ Notes:
 ## Chapter X - Talking to other machines with the Secure Shell
 
 One of the main reasons you might use a shell is to operate a machine remotely. In these cases it's often the case that the *only* way to interact with these machines is via the shell, as they don't have a graphical user interface installed. In this chapter we'll look at how the secure shell, `ssh` works, and how to configure it for maximum convenience and efficiency.
+
+Note: Could also talk about other tools such as `telnet` using simple HTTP as an example, checking your IP, `curl`, `netcat` and the core tools that are useful.
 
 ## Chapter X - The Missing Tools: jq, yq and xq
 
@@ -411,6 +417,8 @@ There are a few manual pages that can be really useful to know about, this guide
 This section contains the things which have been pulled out of chapters as they made them too big, or don't fit in a chapter yet:
 
 - todo(variables): the `export` command
+- todo(pipelines): we have not documented `&>` redirection (note that this is a Bash-ism and should not be used)
+- todo(useful script patterns): bash 'safe-mode', i.e. pipefail, -e, etc
 - introduction: Note that we are going to use `#` to indicate comments
 - introduction: Note that we are going to use `...` to indicate cropped output
 - chapter: useful tools: fzf, ag, ack, ripgrep?
@@ -460,12 +468,11 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: We have not yet introduced the `touch` command
 - note: We need a chapter on GNU, POSIX, BSD, Unix and Linux
 - note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`. Note that `aws s3` uses `-` to indicate `stdin`
-- todo: we really should look at symlinks, e.g. `ln -s $(pwd) ~/effective-shell` 
+- todo: we really should look at symlinks, e.g. `ln -s $(pwd) ~/effective-shell` how to remember `ln -s`, just remember cp! Tweet and share
 - todo: a good example of what we can use text transformation for - add 'comments' to a CSV file which start with `#` and then strip them with `grep`.
 - note: it would be really good to have a 'stream-wise' understanding of how text processing works. For example, if `cat` a file into a tool which I have built, do I get the input linewise or filewise?
 - idea: `getopt` as a potential trick for command line programs, just like `readline`.
-- todo: using `history` shows starts next to some commands - why?
-- todo: aliases - a good example is `alias sed='sed -E`
+- todo: using `history` shows stars next to some commands - why?
 - heredocs: really good example here:
   https://linuxize.com/post/bash-heredoc/
   refer to chapter 14 - we might want a heredoc with dollar signs, e.g. when building templates. This would require us to use the `<<-` form.
