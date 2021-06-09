@@ -4,9 +4,9 @@ The shell has a large number of options available that you can use to customise 
 
 We will also create a script that allows us to set our own command prompt 'theme' from a list that we can extend over time. This script will also handle the differences between Bash-like shells and Z-Shell for us, allowing us to have a consistent command prompt across different types of shells!
 
-# The Command Prompt
+# The Command Prompt<!--index-->
 
-The _command prompt_<!--index--> is the text that is shown to the left of your cursor to show that the shell is waiting for you to type a command. Each distribution comes with its own configuration for the command prompt, but the default is often similar to the one shown below:
+The _command prompt_ is the text that is shown to the left of your cursor to show that the shell is waiting for you to type a command. Each distribution comes with its own configuration for the command prompt, but the default is often similar to the one shown below:
 
 ```
 dwmkerr@effective-shell-ubuntu-20:~$
