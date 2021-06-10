@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.11.1...v0.12.0) (2021-06-10)
+
+
+### Features
+
+* chapter 27 - managing your dotfiles ([3b70fb4](https://www.github.com/dwmkerr/effective-shell/commit/3b70fb4b97b1933302a0870fce382de4ef6f216e))
+
 ### [0.11.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.11.0...v0.11.1) (2021-06-09)
 
 
