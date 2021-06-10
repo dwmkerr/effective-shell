@@ -12,7 +12,7 @@ Remember that although this chapter focuses on patterns that are useful in scrip
 
 # Debugging Shell Scripts
 
-You can use the `set` (_set option_) command to set the _trace option_<!--index-->. This option is incredibly useful for debugging shell scripts. When the trace option is set, the shell will write out each statement before it is evaluated.
+You can use the `set` (_set option_) command to set the _trace option_.<!--index--> This option is incredibly useful for debugging shell scripts. When the trace option is set, the shell will write out each statement before it is evaluated.
 
 Let's see just how useful this is with an example!
 
