@@ -5,7 +5,9 @@ weight: 27
 
 # Chapter 27 - Managing Your Dotfiles
 
-As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. Configuration files are often called 'dotfiles'. In this chapter we'll see how to manage your configuration - and 'dotfiles' - in a way that allows you to easily manage changes over time and build up a library of scripts and features for your preferred shell. We'll also look at how we can use your 'dotfiles' across different shells.
+As you build up more and more customisations for your shell and environment, it becomes important to find a way to manage these changes and files effectively.
+
+Configuration files are often called 'dotfiles'. In this chapter we'll see how to manage your configuration - and 'dotfiles' - in a way that allows you to easily manage changes over time and build up a library of scripts and features for your preferred shell. We'll also look at how we can use your 'dotfiles' across different shells.
 
 {{< hint info >}}
 **Z-Shell**
@@ -27,17 +29,17 @@ curl effective.sh | sh
 
 # Dotfiles
 
-Any file or folder on your system that starts with a `.` dot symbol is a 'dotfile'. On many systems dotfiles are hidden by default. This means that they will not show up if you commands like `ls`, unless you provide the `-a` (_show all files and folders_) flag. In desktop environments such as Gnome, KDE and MacOS X dotfiles are also hidden by default.
+Any file or folder on your system that starts with a `.` dot symbol is a 'dotfile'. On many systems dotfiles are hidden by default. This means that they will not show up if you run commands like `ls`, unless you provide flags such as `-a` (_show all files and folders_) flag. In desktop environments such as Gnome, KDE and MacOS X dotfiles are also hidden by default.
 
 Dotfiles are often used 'behind the scenes' as configuration files or system files. This is why they are hidden by default - 'normal' users shouldn't have to worry about them or their contents.
 
-In general, you will see dotfiles mostly in your `HOME` directory. They have a dot to mark them as hidden to distinguish them from your personal files and folders. When there are configuration files that are _outside_ your home directory, the dot is normally not used, because it is clear from the _folder_ that the file is in that it is a configuration file.
+You will mostly see dotfiles in your `HOME` directory. They have a dot to mark them as hidden to distinguish them from your personal files and folders. When there are configuration files that are _outside_ your home directory, the dot is normally not used, because it is clear from the folder that the file is in that the file is in that it is a configuration file.
 
 As an example, a user's personal Bash configuration is stored in _~/.bashrc_, but the global Bash configuration applied to _all_ users is stored in _/etc/bash.bashrc_. The second configuration file does not need a dot in front of it - the _/etc_ folder is where configuration is kept so there is no need to differentiate it from other files like a user's personal files.
 
 Nowadays, when a user say "my dotfiles", they typically mean their _configuration_ files that are kept in their home directory. In a sense, your dotfiles are a bit like your personal settings for your computer. On a desktop environment your settings might be things like your theme or wallpaper. For a shell user, you settings will be files like _~/.bashrc_ for your shell configuration, _~/.ssh/config_ for your SSH configuration and so on.
 
-As you work with a computer, you will likely change the dotfiles over time to suit your preferences. Let's take a look at some sensible ways to organise and structure your dotfiles so that you can easily see what is your personal configuration, rather than what is the default configuration provided by the system, and easily manage these configurations.
+You will likely change the dotfiles over time to suit your preferences. Let's take a look at some sensible ways to organise and structure your dotfiles so that you can easily see what is your personal configuration, rather than what is the default configuration provided by the system, and easily manage these configurations.
 
 # The Default Shell Dotfile
 
@@ -140,7 +142,7 @@ More aliases are added as shortcuts for useful commands. We also are sourcing th
 
 There will likely be a number of other configuration commands that are set in the file, such as setting up the 'auto-completion' feature of Bash.
 
-Now we could add our own customisations to this file, and many people will do so. However it might be better to keep our changes in our own configuration file. This allows us to differentiate between the 'out-of-the-box' configuration and our own personal changes. Let's see how to do that.
+We could add our own customisations to this file, and many people will do so. However it might be better to keep our changes in our own configuration file. This allows us to differentiate between the 'out-of-the-box' configuration and our own personal changes. Let's see how to do that.
 
 # Creating a Dotfiles Folder
 
@@ -170,7 +172,7 @@ touch ~/dotfiles/shell.sh
 
 You can call this file whatever you like, it really comes down to preferences. But here are a few points about the name I have suggested:
 
-- I have not put a dot in front of the name! This is because _within_ the _~/dotfiles_ folder I don't actually want this file to be hidden - if I am looking in the _~/dotfiles_ folder I can be pretty sure it is because I want to see the files
+- I have not put a dot in front of the name! This is because _within_ the _~/dotfiles_ folder I don't actually want this file to be hidden - if I am looking in the _~/dotfiles_ folder I want to see this file
 - I have not used the _name_ of a shell program in this file - this is because I will make this file work with _any_ shell that I regularly use - so whether I am using `zsh`, `bash` or `sh`, this file should still be able to be loaded
 - I have put _.sh_ at the end of the file name - this is not really needed or even common in the world of Linux or Unix, but does make it immediately clear to the reader (or any program that opens the file) that it is a shell script
 
@@ -200,7 +202,9 @@ VISUAL=nano
 EDITOR=nano
 ```
 
-There are two variables are are used by the shell and command line programs to run an editor. The first, and original, variable was `EDITOR`. This was originally often a _line mode_ editor - i.e. a text editor that doesn't take up the whole screen. This was useful in the days of serial terminal interfaces. The `VISUAL` variable was used to specify the editor that could be used for 'full screen' terminal editing. In general you should only have to set `VISUAL`, but we've set both here to play it safe.
+There are two variables are are used by the shell and command line programs to run an editor. The first, and original, variable was `EDITOR`. This was originally often a _line mode_ editor - i.e. a text editor that doesn't take up the whole screen. This was useful in the days of printed output, before screens were used. The `VISUAL` variable was used to specify the editor that could be used for 'full screen' terminal editing. Some programs use `EDITOR` and some use `VISUAL` so it is best to set both.
+
+I have used the `nano` editor in this example as it available on many distributions and is a little easier than `vi` or `emacs`, but you can use whatever you like. For my personal dotfiles I use `vi`.
 
 At this stage you can start to go a bit over the top - for example here's an alternative way to set the editor:
 
@@ -220,7 +224,9 @@ done
 unset editor preferred_editors
 ```
 
-In this method we specify an array of editors, go through each one, check to see if it exists[2], and if it does set it, otherwise we look for the next in the list. This is completely over the top and unnecessary! But the great thing about your dotfiles is - they're yours! If you want to do this, that's absolutely fine. If you want to check to see if Sublime Text is installed and use that, or Visual Studio Code, then that's not a problem - it's your personal configuration so do what works for you!
+In this method we specify an array of editors, go through each one, check to see if it exists[^2], and if it does set it, otherwise we look for the next in the list. This is completely over the top and unnecessary! But the great thing about your dotfiles is - they're yours! If you want to do this, that's absolutely fine. If you want to check to see if Sublime Text is installed and use that, or Visual Studio Code, then that's not a problem - it's your personal configuration so do what works for you!
+
+You'll notice that in the _~/effective-shell/dotfiles/shell.sh_ folder I `unset` every shell variable after I use it. This is just to clean up after myself and try to leave the environment as pristine as possible after sourcing the file.
 
 Now let's set some sensible settings for working with folders:
 
@@ -313,14 +319,9 @@ This is a great way to verify that the script works as expected, before we actua
 
 # Sourcing the Shell Dotfile
 
-Now that we have a working shell dotfile, we can source it as part of our shell startup. All we need to do is add the following lines to our _~/.bashrc_ (or for Z-Shell, _~/.zshrc_ file):
+Now that we have a working shell dotfile, we can source it as part of our shell startup.
 
-```sh
-# Source our shell configuration if it exists.
-[ -r ~/.shell.sh ] && source ~/.shell.sh
-```
-
-This command uses the `-r` (_does file exist and is it readable_) test to check whether we have a _~/.shell.sh_ file and if it exists, sources it.
+Rather than having our shell startup file know about our _~/dotfiles_ folder, we will create a symlink to th shell script from our home directory:
 
 Finally, we can create a symlink in our home directory that points to our _~/dotfiles/shell.sh_ file and we are good to go!
 
@@ -330,11 +331,20 @@ $ ln -sf "$HOME/dotfiles/shell.sh" "$HOME/.shell.sh"
 
 Note that in this example we used the `ln -sf` command to create a symlink, the `-s` flag ensures we create a normal symlink (rather than a 'hard' link) and the `-f` flag forces the creation of the link by overwriting any link that already exists.
 
+Now all we need to do is add the following lines to our _~/.bashrc_ (or for Z-Shell, _~/.zshrc_ file):
+
+```sh
+# Source our shell configuration if it exists.
+[ -r ~/.shell.sh ] && source ~/.shell.sh
+```
+
+This command uses the `-r` (_does file exist and is it readable_) test to check whether we have a _~/.shell.sh_ file and if it exists, sources it.
+
 We're going to make a couple more changes and then bring this all together by creating one final script that sets performs the steps above for us. If this is enough dotfile configuration for you, then feel free to stop now, if you'd like to go deeper we'll look at loading additional files.
 
 # Sourcing Files from a Folder
 
-A common pattern with Linux and Unix systems is to allow _multiple_ configuration files to be stored in a folder. A common convention is to have a folder with the letters `.d` at the end, to differentiate between a single configuration file and a configuration folder.
+A common pattern with Linux and Unix systems is to allow _multiple_ configuration files to be stored in a folder. A convention is to have a folder with the letters `.d` at the end, to differentiate between a single configuration file and a configuration folder.
 
 This pattern became popular over the years as individual configuration files became larger and more complex, and operators wanted to be able to spread their configuration across multiple files.
 
@@ -395,17 +405,19 @@ $ ln -sf "$HOME/dotfiles/shell.d" "$HOME/.shell.d"
 
 At this stage we've now successfully created a _dotfiles_ folder to store our configuration, symlinks in our `$HOME` directory that point to our dotfiles and we have also updated our _~/.bashrc_ or _~/.zshrc_ to load our shell configuration.
 
-If you want to see the new links you've created you can run the `ls` command just like this:
+If you want to see the new links you've created you can run the `ls` command just like so (I've abbreviated the output to make it more readable):
 
 ```
 $ ls -al ~ | grep shell
-lrwxr-xr-x    1 dwmkerr  dwmkerr      52 Jun  9 23:36 .shell.d -> /home/dwmkerr/dotfiles/shell.d
-lrwxr-xr-x    1 dwmkerr  dwmkerr      32 Jun  9 23:36 .shell.sh -> /home/dwmkerr/dotfiles/shell.sh
+lrwxr-xr-x    dwmkerr  .shell.d -> /home/dwmkerr/dotfiles/shell.d
+lrwxr-xr-x    dwmkerr  .shell.sh -> /home/dwmkerr/dotfiles/shell.sh
 ```
 
 # A Dotfile Install Script
 
-It is the work of a moment to create a script that installs the dotfiles from their folder for the local user's shell!
+The manual steps we performed to setup the links for our dotfiles can be easily run using a shell script. 
+
+The script below shows how we can easily setup the links to the dotfiles, and source the appropriate files from our shell configuration:
 
 ```sh
 #!/usr/bin/env sh
@@ -421,7 +433,7 @@ ln -sf "$PWD/shell.d" "$HOME/.shell.d"
 config_files=(~/.bashrc ~/.zshrc)
 for config_file in ${config_files[@]}; do
     # Skip config files that don't exist.
-    ! [ -r ~/.bashrc ] && continue
+    [ -r "${config_file}" ] || continue
 
     # If we don't have the 'source ~/.shell.d' line in our config, add it.
     source_command="[ -r ~/.shell.sh ] && source ~/.shell.sh"
@@ -434,6 +446,8 @@ done
 
 This script creates the symlinks to our dotfiles and loops through a set of shell configuration files, adding a line to source the _~/.shell.sh_ in the configuration file if it doesn't exist.
 
+Note how we use the `grep -q` command to search through the shell configuration file to see if the line that sources our dotfile exists. The `grep` command returns `0` if it finds a result and `1` otherwise, meaning we can easily use it in an 'if' statement
+
 This script can be run from the dotfiles folder like so:
 
 ```
@@ -444,7 +458,7 @@ $ ./install.sh
 
 And that is it - we now have a _~/dotfiles_ folder with our configuration, a sensible set of options for the shell, and the ability to quickly configure our dotfiles for different shells.
 
-The dotfiles that we have a created are available in the _~/effective-shell/dotfiles_ folder from the samples.
+The dotfiles that we have a created are available in the _~/effective-shell/dotfiles_ folder from the samples. The install script shown above is also in that folder.
 
 # Summary
 
