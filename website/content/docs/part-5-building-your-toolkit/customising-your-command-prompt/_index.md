@@ -1,3 +1,8 @@
+---
+title: "Customising Your Command Prompt"
+weight: 26
+---
+
 # Chapter 26 - Customising Your Command Prompt
 
 The shell has a large number of options available that you can use to customise the _command prompt_ - the text shown in front of your cursor as you type commands. In this chapter we will look at how you can change the command prompt to show the information that you would like to see.

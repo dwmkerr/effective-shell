@@ -193,7 +193,7 @@ _to_zsh() {
     # \W     the basename of the current working directory, with $HOME abbreviated with a tilde
     # \#     the command number of this command
 
-    # Replace Bash special characters with Z-Shell special characters.
+    # Then replace Bash special characters with Z-Shell special characters.
     # Before we echo out the PS1 value, we need to replace '\u' with '%n'. If we
     # don't do this here with shell parameter expansion, then 'echo' thinks '\u'
     # is the beginning of a unicode character. This took quite a while to work

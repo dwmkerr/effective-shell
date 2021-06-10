@@ -407,6 +407,73 @@ For modern systems that use a desktop environment such as Gnome or KDE, the desk
 
 Different distributions and operating systems may handle this in slightly different ways. For example, on MacOS when you run the Terminal program it actually starts a login shell[^2]. Again, this means that you can be sure that the profile has been loaded (which in turn will load the RC files).
 
+# Changing Your Shell
+
+You can see the shell that is currently set as the default shell for a user by checking the _/etc/passwd_ file. Here's how I could see what shell is used when the `dwmkerr` user logs in:
+
+```
+$ grep 'dwmkerr' /etc/passwd
+dwmkerr:x:1001:1001:Dave Kerr,,,:/home/dwmkerr:/bin/bash
+```
+
+The _/etc/passwd_ file keeps track of the local user accounts on the system. The final item on a line is the shell that is used for the user. When a user logs in, their shell is set in the `SHELL` environment variable, we can write this value out with the `echo` command:
+
+```
+$ echo "My shell is: $SHELL"
+My shell is: /bin/bash
+```
+
+There are a few ways that you can change your shell. However, before you change your shell, you need to make sure that the shell you want to use is listed in the 'available shells' file. This file is kept at _/etc/shells_:
+
+```
+$ cat /etc/shells
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/bin/dash
+/usr/bin/dash
+/usr/bin/tmux
+```
+
+If the shell you want to use is _not_ listed in _/etc/shells_ you will need to add it to the list.
+
+Once you have installed the shell you want to use and added it to the _/etc/shells_ list you can run the `chsh` (_change shell_)<!--index--> command to change the shell for a given user:
+
+```
+$ chsh -s /bin/sh dwmkerr
+```
+
+The `-s` (_shell_) parameter is used to specify the shell path. After this we provide the name of the user we are changing the shell for. On many systems users are allowed to change their own shell as long as it is in the _/etc/shells_ list. To change the shell for _another_ user, or to use a shell that is _not_ in the _/etc/shells_ list the `chsh` command will need to be run as a super-user.
+
+You can also change the shell for a user by editing the _/etc/passwd_ file.
+
+Changing your shell is an advanced topic - if you prefer to use another shell you could also simply start the shell from your login shell, for example by running `sh` from your Bash shell session.
+
+As an end-to-end example, here's how you would install `zsh` and set it for the current user on a Debian based system:
+
+```sh
+# Elevate privileges to super-user.
+sudo su
+
+# Update the apt databases and install 'zsh'.
+apt update -y
+apt install zsh
+
+# Add 'zsh' to the list of shell.
+echo "/bin/zsh" >> /etc/shells
+
+# Return to normal user mode.
+exit
+
+# Change the current user's shell to 'zsh'.
+chsh -s "/bin/zsh" $USER
+```
+
+Be careful when changing your shell - if you get this wrong then you may inadvertently lock yourself out of your account, if logging in trys to start a shell that is not properly configured. Always test that the new shell works before you set it!
+
 # Summary
 
 In this chapter we saw how to customise shell configuration with the _~/.bashrc_ file. We also looked in detail at the differences between login and non-login shells, interactive and non-interactive shells, and how these different shells load startup files.

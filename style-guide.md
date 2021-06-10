@@ -9,6 +9,7 @@ This style guide may be useful when proofing, writing or reviewing changes.
 * [Hyphenations](#hyphenations)
 * [Info](#info)
 * [Downloading the Samples](#downloading-the-samples)
+* [Z-Shell Hint](#z-shell-hint)
 
 <!-- vim-markdown-toc -->
 
@@ -80,10 +81,21 @@ As a quick reference, the snippet below can be used to show the 'downloading the
 
 {{< hint info >}}
 **Downloading the Samples**
-Run the following commands in your shell to download the samples:
+
+Run the following command in your shell to download the samples:
 
 ```sh
 curl effective.sh | sh
 ```
+{{< /hint >}}
+
+## Z-Shell Hint
+
+{{< hint info >}}
+**Z-Shell**
+
+The `zsh` shell differs considerably from Bash and Bash-like shells in how it handles the `PS1` variable. There is no need for the `\[` or `\]` sequences, there are built in color variables such as `$fg[red]` for 'red' and the special sequences are different (for example, rather than `\u` for username, Z-Shell uses `%n`).
+
+The `set_ps1` function in the samples converts the `PS1` string to Z-Shell format if it is running in Z-Shell. However, this conversion is not perfect as some of the sequences shown in this chapter do not have an equivalent in Z-Shell. If you want to customise a Z-Shell prompt you can check the manual page `man zshmisc` and search for `PROMPT\ SEQUENCES`.
 {{< /hint >}}
 
