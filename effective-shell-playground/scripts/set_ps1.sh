@@ -193,7 +193,6 @@ _to_zsh() {
     # \W     the basename of the current working directory, with $HOME abbreviated with a tilde
     # \#     the command number of this command
 
-    # Remove the non-printing characters sequences as Z-Shell doesn't need them.
     # Then replace Bash special characters with Z-Shell special characters.
     # Before we echo out the PS1 value, we need to replace '\u' with '%n'. If we
     # don't do this here with shell parameter expansion, then 'echo' thinks '\u'
@@ -205,8 +204,8 @@ _to_zsh() {
     # to '%#(_my_func)', i.e. we need to replace the prompt special character
     # but not escaped shell functions.
     local zsh_ps1="$(echo ${1/\\u/%n} | sed \
-        -e 's/\\\[//g' \
-        -e 's/\\\]//g' \
+        -e 's/\\\[/%{/g' \
+        -e 's/\\\]/%}/g' \
         -e 's/\\\d/%w/g' \
         -e 's/\\\D/%D/g' \
         -e 's/\\\u/%n/g' \

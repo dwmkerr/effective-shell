@@ -18,9 +18,10 @@ for file in $@; do
     section=$(basename $(dirname $(dirname "$file")))
 
     # Rip out the title from the frontmatter.
-    title=$(cat $file |\
-        grep 'title: ' |\
-        sed -E 's/.*title:[[:space:]]*["]?([^"]*)["]?$/\1/')
+    title=$(cat $file \
+        | grep 'title: ' \
+        | head -n 1 \
+        | sed -E 's/.*title:[[:space:]]*["]?([^"]*)["]?$/\1/')
 
     # Get the wordcount.
     wc=$(wc -w < "$file" | tr -d ' ')

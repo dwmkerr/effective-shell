@@ -82,7 +82,7 @@ As a quick reference, the snippet below can be used to show the 'downloading the
 {{< hint info >}}
 **Downloading the Samples**
 
-Run the following commands in your shell to download the samples:
+Run the following command in your shell to download the samples:
 
 ```sh
 curl effective.sh | sh

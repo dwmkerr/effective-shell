@@ -18,7 +18,7 @@ In this chapter we will be creating some files and folders, if you just want to 
 {{< hint info >}}
 **Downloading the Samples**
 
-Run the following commands in your shell to download the samples:
+Run the following command in your shell to download the samples:
 
 ```sh
 curl effective.sh | sh
@@ -451,13 +451,6 @@ The dotfiles that we have a created are available in the _~/effective-shell/dotf
 In this chapter we looked at some sensible configuration settings for shells. We also looked at how to keep our settings separated from the system provided configuration file. We also saw how to manage our configuration files and folders in a 'dotfiles' folder. Finally, we created a simple script to 'install' our dotfiles for the local user.
 
 In the next chapter we'll introduce Git - a version control tool we can use to manage changes to files like the 'dotfiles' easily over time. We can also use this tool to share our dotfiles across many machines.
-
-todo: introduce `chsh` and show how our configuration can still work
-todo: In this chapter we'll see the various different configuration files used, introduce the `chsh` command, the `SHELL` environment variable, and see how to manage configuration using `set`.
-todo: using `grep` in an `if` statement (with the `-q` flag). example: my dotfiles project uses this trick to decide whether to add the profile file
-todo: test each of the `cd` options for tab completion
-todo: test tab completion for `CDPATH`
-todo: fix my `~/.bashrc` and test test test
 
 [^1]: If you are curious, the `debian_chroot` variable is set when you are running as a user that has run the `chroot` (_change root_) command. The `chroot` command allows you to create an isolated file system tree. This lets you run programs in what is sometimes called a 'jail', which is a little like a container. `chroot` is an advanced topic and out of the scope of this book, but the `debian_chroot` command in the `PS1` variable is used to help make it clear when running a shell if you are in a 'changed root' environment.
 [^2]: For a reminder on how to check whether a command is available, see _Checking for Installed Programs_ in [Chapter 23 - Useful Patterns for Shell Scripts]({{< relref "/docs/part-4-shell-scripting/useful-patterns-for-shell-scripts" >}}).
