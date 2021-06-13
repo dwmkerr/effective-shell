@@ -41,7 +41,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
     * [Chapter 26 - Customising Your Command Prompt](#chapter-26---customising-your-command-prompt)
     * [Chapter 27 - Managing Your Dotfiles](#chapter-27---managing-your-dotfiles)
-    * [Chapter 28 - Getting to Grips with Git - Sharing Your Dotfiles](#chapter-28---getting-to-grips-with-git---sharing-your-dotfiles)
+    * [Chapter 28 - Getting to Grips with Git and Sharing Your Dotfiles](#chapter-28---getting-to-grips-with-git-and-sharing-your-dotfiles)
     * [Chapter 29 - How to avoid scripting!](#chapter-29---how-to-avoid-scripting)
 * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
     * [Understanding Shell Expansions](#understanding-shell-expansions)
@@ -264,7 +264,7 @@ We will also create a script that allows us to set our own command prompt 'theme
 
 As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. Configuration files are often called 'dotfiles'. In this chapter we'll see how to manage your configuration - and 'dotfiles' - in a way that allows you to easily manage changes over time and build up a library of scripts and features for your preferred shell. We'll also look at how we can use your 'dotfiles' across different shells.
 
-## Chapter 28 - Getting to Grips with Git - Sharing Your Dotfiles
+## Chapter 28 - Getting to Grips with Git and Sharing Your Dotfiles
 
 If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell. In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories. We'll then take our 'dotfiles' from the previous chapter and turn them into a Git repository, so that we can quickly set up any environment with our preferred shell settings!
 
@@ -425,6 +425,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: cronjobs, maybe as part of shell scripts?
 - structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
 - todo: advanced topic - supporting bash auto-completion. The `set-ps1` function would be a good one to use as an example
+- todo: useful patterns: allowing 'ctrl+c' to cancel read - run it in a subshell (e.g. `choice=$(read choice; echo ${choice})`)
 - todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
 - todo: getting help - what is the `zsh` equivalent of `help`?
 - `find` was in 'managing files

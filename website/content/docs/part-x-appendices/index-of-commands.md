@@ -16,6 +16,7 @@
 | `useradd -m name`       | Add user with the name `name`. `-m` creates a home directory `name`. |
 | `passwd name`           | Set the password for user `name`.                                    |
 | `userdel name`          | Remove user with the name `name`.                                    |
+| `usermod -aG sudo name`| Make `name` a sudoer. |
 
 - ls
 - grep
