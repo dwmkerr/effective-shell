@@ -176,7 +176,7 @@ _pwd_max_folders() {
     local max_folders="$1"
     # Write the PWD, replace the home path with a tilde, then cut out the last
     # of the directories, up to the max folders value.
-    echo "${PWD/#$HOME/'~'}" | rev | cut -d'/' -f1-${max_folders} | rev
+    echo "${PWD/#$HOME/~}" | rev | cut -d'/' -f1-${max_folders} | rev
 }
 
 # Convert a Bash PS1 string to a ZSH PS1 string.
