@@ -338,6 +338,329 @@ If you want to create a branch, but don't want to switch to it, you can run `git
 
 # Merging
 
+You can use the `git merge` (_join two or more branches_) command<!--index--> to take the changes from one branch and bring them into another.
+
+We can merge the changes from our _aliases_ branch into the _main_ branch of the repository by first checking out the branch we want to merge into, and then running `git merge`:
+
+```
+$ git checkout main
+$ git merge aliases
+Updating d7e1bb9..b9ae0ad
+Fast-forward
+ shell.d/git_aliases.sh | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 shell.d/git_aliases.sh
+```
+
+When we run the `git merge` command Git tells us what _type_ of merge it has performed. In this case we have a _fast forward_ <!--index-->merge, which is the most simple type of merge. When Git tries to merge the two branches, it sees that each of the commits on the _aliases_ branch can be applied sequentially to the _main_ branch:
+
+![Diagram showing how Git prepares for a 'fast forwards' merge](./images/git-merge-prepare-fast-forwards.png)
+
+One the merge is complete, our branches look like this:
+
+![Diagram showing a fast forward merge result](./images/git-merge-fast-forwards.png)
+
+The _main_ branch and _aliases_ branch contain the exact same set of commits.
+
+Let's look at a more common merge scenario - merging branches that have diverged.
+
+## Merging Diverged Branches
+
+Let's create set of commits that show a case where we our branches have _diverged_ - the branches both have their own new commits:
+
+```
+$ git checkout -b more_aliases
+$ touch ./shell.d/bash_aliases.sh
+$ git add .
+$ git commit -m "add a file to store 'bash' aliases"
+$ touch ./shell.d/zsh_aliases.sh
+$ git add .
+$ git commit -m "add a file to store 'zsh' aliases"
+```
+
+This snippet checks out a new branch called _more_aliases_ and adds two new empty files, as two separate commits. Now we'll go back to our _main_ branch and change a file:
+
+```
+$ git checkout main
+$ echo 'alias gm="git merge"' >> ./shell.d/git_aliases.sh
+$ git commit -a -m "add the 'gm' alias for 'git merge'"
+```
+
+I have added a new alias to the _shell.d/git_aliases.sh_ file. By adding the `-a` (_all changes_) flag to the `git commit` command I was able to add the changes to the index and commit them with a single command.
+
+Our branches now look like this:
+
+![A diagram showing two diverged branches](./images/git-diverged-branches.png)
+
+Let's merge the _more_aliases_ branch into the _main_ branch:
+
+```
+$ git merge more_aliases
+```
+
+Our editor opens up with a request for a commit message:
+
+```
+  GNU nano 2.0.6 File: ...rr/dotfiles/.git/MERGE_MSG
+
+Merge branch 'more_aliases'
+# Please enter a commit message to explain why this merge is n$
+# especially if it merges an updated upstream into a topic bra$
+#
+# Lines starting with '#' will be ignored, and an empty messag$
+# the commit.
+
+
+
+
+
+
+
+
+
+                       [ Read 6 lines ]
+^G Get Hel^O WriteOu^R Read Fi^Y Prev Pa^K Cut Tex^C Cur Pos
+^X Exit   ^J Justify^W Where I^V Next Pa^U UnCut T^T To Spell
+```
+
+Git is going to create a new commit on the _main_ branch that brings in the changes from the _bash_aliases_ branch. Because a new commit is going to be created, Git asks us to provide a message. The default message simply explains that this commit merges the branch named _more_aliases_.
+
+You can change the message or leave it as is. Save the file when you have entered the message and the output below will be shown:
+
+```
+$ git merge more_aliases
+Merge made by the 'recursive' strategy.
+ shell.d/bash_aliases.sh | 0
+ shell.d/zsh_aliases.sh  | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 shell.d/bash_aliases.sh
+ create mode 100644 shell.d/zsh_aliases.sh
+```
+
+Git now tells us that we have made a _recursive_ merge and our branches will look like this:
+
+![Diagram showing the results of a recursive merge of two diverged branches](./images/git-merge-recursive.png)
+
+At this stage both the _main_ branch and the _more_aliases_ branch have the full set of changes that we made to _both_ of the branches. Git merged the two branches together and created a new commit that joins them.
+
+## The Git Log
+
+In the diagrams we've shown we've given each commit a number. Now in reality Git doesn't use a number for commits. Git uses a _SHA_, which is a hash. This is large sequence of letters and numbers that uniquely identify each commit.
+
+You can use the `git log` (_show commit logs_) command<!--index--> to see the log of commits and their SHAs:
+
+```
+$ git log
+commit 138b40418d5658bc64421e7bcf2680c8339f8350 (HEAD)
+Merge: a95bd90 a51ae1a
+Author: Dave Kerr <dwmkerr@gmail.com>
+Date:   Tue Jun 15 21:00:28 2021 +0800
+
+    Merge branch 'more_aliases'
+
+commit a95bd90e3656b2e55b8708193d387c80c282a6ad
+Author: Dave Kerr <dwmkerr@gmail.com>
+Date:   Tue Jun 15 21:00:22 2021 +0800
+
+    add the 'gm' alias for 'git merge'
+
+commit a51ae1aa42432c2f391ca782c1c20b3793c232ab (more_aliases)
+Author: Dave Kerr <dwmkerr@gmail.com>
+Date:   Tue Jun 15 20:53:01 2021 +0800
+
+    add a file to store 'zsh' aliases
+```
+
+You can see that the log shows each of the commits, the branch the commit was on, the message, the date and so on.
+
+If you want to see a more compact log you can use the `--oneline` (_show one line per commit_) flag:
+
+```
+$ git log --oneline
+138b404 (HEAD) Merge branch 'more_aliases'
+a95bd90 add the 'gm' alias for 'git merge'
+a51ae1a (more_aliases) add a file to store 'zsh' aliases
+63ea74f add a file to store 'bash' aliases
+b9ae0ad (aliases) add alias 'gcm' for 'git checkout main'
+f61369d add alias 'gs' for 'git status'
+d7e1bb9 add the 'shell.d' folder
+01e7a10 add the 'install' and 'shell' scripts
+```
+
+When you run this command yourself it will be a little easier to read as the output uses different colours for the SHAs and the branch names.
+
+We can even see a 'graph' view, showing the branches we have made and when they branched off and were merged back. To do this, pass the `--graph` (_show commit graph_) flag:
+
+```
+$ git log --oneline --graph
+*   138b404 (HEAD) Merge branch 'more_aliases'
+| \
+| * a51ae1a (more_aliases) add a file to store 'zsh' aliases
+| * 63ea74f add a file to store 'bash' aliases
+* | a95bd90 add the 'gm' alias for 'git merge'
+|/
+* b9ae0ad (aliases) add alias 'gcm' for 'git checkout main'
+* f61369d add alias 'gs' for 'git status'
+* d7e1bb9 add the 'shell.d' folder
+* 01e7a10 add the 'install' and 'shell' scripts
+```
+
+Each commit is shown with an `*` asterisk symbol - we can also see when we created the _more_aliases_ branch and when we merged it back in.
+
+The Git log is very useful to help you understand the changes that have happened in the repository.
+
+## Merge Conflicts
+
+One of the most important features of any version control system is the ability to manage _conflicts_. Conflicts occur when a set of changes are made that cannot be merged without some kind of manual intervention to decide _which_ of the changes are correct.
+
+Here are a few common scenarios that might lead to merge conflicts:
+
+- In one branch a file is deleted and in another branch the file is changed - when we merge should we delete the file or keep the version with the changes?
+- In one branch a file is edited and in another branch the _same_ part of the file is edited in a different way - which edit should we keep? Should we keep both?
+- In one branch we add content to the end of a file and in another branch we add different content - which of these changes should come first?
+
+A lot of the time you can avoid conflicts by making sure that you don't keep branches for too long - if other people are merging changes into the _main_ branch while you are working on another branch, you are _drifting_ from the main branch. You should either regularly update your branch with the changes in _main_ or merge your changes into _main_.
+
+There are many different ways for version control systems to manage conflicts. Let's see how Git does it by creating a conflict.
+
+First, we will create a branch that adds a new alias to the _git_aliases.sh_ file:
+
+```
+$ git checkout -b glog_alias
+$ echo 'alias glog="git log --graph --oneline"' >> ./shell.d/git_aliases.sh
+$ git commit -a -m "add the 'glog' alias"
+```
+
+Now we'll go back to the _main_ branch and add another alias:
+
+```
+$ git checkout main
+$ echo 'alias glog="git log"' >> ./shell.d/git_aliases.sh
+$ git commit -a -m "add the 'glog' alias"
+```
+
+We've changed the same file in two branches - if we try to merge we will get a conflict:
+
+```
+$ git merge glog_alias
+
+Auto-merging shell.d/git_aliases.sh
+CONFLICT (content): Merge conflict in shell.d/git_aliases.sh
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+When Git cannot automatically consolidate the changes into a single merge commit, it aborts the merge process. No new commits have been made - the conflicted files with their changes and in the _index_. We have to now manually fix these files.
+
+Let's see what the status shows:
+
+```
+$ git status
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   shell.d/git_aliases.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Git is telling us that we are currently in the process of trying to fix a merge conflict. It is telling us that we need to fix the _shell.d/git_aliases.sh_ file, then use `git add` to stage the changes and commit the result.
+
+To resolve the conflict, we need to edit the file. If you open the file in an editor it will look like this:
+
+```
+alias gs="git status"
+alias gcm="git checkout main"
+alias gm="git merge"
+<<<<<<< HEAD
+alias glog="git log"
+=======
+alias glog="git log --graph --oneline"
+>>>>>>> glog_alias
+```
+
+Many modern editors will immediately recognise the sequence of symbols that Git uses to indicate conflicts and highlight them. The `<<<<<< HEAD` line indicates the changes in the current branch, the `=======` is a separator, and the `>>>>>> glog_alias` line indicates that everything since the `=======` line is the changes in the _glog_alias_ branch.
+
+We can see why Git has not been able to merge these changes - each branch has a new line and Git doesn't know which one is correct. So rather than make an assumption (such as the most recent change should 'win'), Git is asking us to choose.
+
+In your editor, update the file to look like this:
+
+```
+alias gs="git status"
+alias gcm="git checkout main"
+alias gm="git merge"
+alias glog="git log --graph --oneline"
+```
+
+We have chosen the version of the `glog` alias that was in the _glog_alias_ branch. But you could choose either - or replace the content with a new line. You can make any changes you like - just be sure to remove the lines that start with `<<<`, `===` and `>>>`.
+
+We can now use `git add` to mark the file as resolved, and run `git commit`:
+
+```
+$ git add shell.d/git_aliases.sh
+```
+
+The editor will open showing a sensible commit message:
+
+```
+  GNU nano 2.0.6 File: ...tfiles/.git/COMMIT_EDITMSG
+
+Merge branch 'glog_alias'
+
+# Conflicts:
+#       shell.d/git_aliases.sh
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please run
+#       git update-ref -d MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines star$
+# with '#' will be ignored, and an empty message aborts the co$
+#
+# On branch main
+                       [ Read 20 lines ]
+^G Get Hel^O WriteOu^R Read Fi^Y Prev Pa^K Cut Tex^C Cur Pos
+^X Exit   ^J Justify^W Where I^V Next Pa^U UnCut T^T To Spell
+```
+
+The message is just like the earlier merge commit message, but the comments show a little more information (the files that were conflicted). Save the file and close the editor to complete the commit.
+
+Our Git log will now show this new merge commit:
+
+```
+$ git log --graph --oneline
+*   2532277 (HEAD -> main) Merge branch 'glog_alias'
+|\
+| * a8cbb15 (glog_alias) add the 'glog' alias
+* | 31548e4 add the 'glog' alias
+|/
+*   138b404 Merge branch 'more_aliases'
+|\
+| * a51ae1a (more_aliases) add a file to store 'zsh' aliases
+| * 63ea74f add a file to store 'bash' aliases
+* | a95bd90 add the 'gm' alias for 'git merge'
+|/
+* b9ae0ad (aliases) add alias 'gcm' for 'git checkout main'
+* f61369d add alias 'gs' for 'git status'
+* d7e1bb9 add the 'shell.d' folder
+* 01e7a10 add the 'install' and 'shell' scripts
+```
+
+Dealing with conflicts can be extremely complicated. We have only scratched the surface here, but there is a wealth of information online if you'd like to go deeper.
+
+## Other Merge Strategies
+
+Git has a number of merge strategies that can be used to combine the changes across branches. Going into them is beyond the scope of this book. However, it is useful to know that you have a lot of functionality to control how branches are merged available to you if you want to explore further.
+
+There are merge strategies that allow you to try and create a single, coherent history between two branches, rather than creating a merge commit, the are options to 'squash' all of the commits from one branch into another and more.
+
+I would suggest that as you become more familiar with the basics of how Git works, you get a little deeper on this topic - searching online for "Git Merge Strategies" will bring up many articles going into detail.
+
 # Checkout Tricks
 
 # Handling Deletes and Renames
@@ -352,6 +675,14 @@ If you want to create a branch, but don't want to switch to it, you can run `git
 
 # Pulling
 
+## Git Tips
+
+- Avoid long lived branches
+- Pull the main branch into your branch regularly
+- Remember that squashing causes history issues
+- Use Checkout to explore
+- Don't forget to fetch
+
 # Advanced
 
 Merge strategies
@@ -359,10 +690,7 @@ Diffs
 Logs
 Head (`git checkout HEAD~1` twice - see what happens)
 
-
-
-
-
+todo: we are already using _getting to grips_ for the `grep` chapter, so we need a better name
 
 # Summary
 
