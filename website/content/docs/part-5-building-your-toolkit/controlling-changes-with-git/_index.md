@@ -1048,6 +1048,8 @@ Spend some time getting familiar with the core Git commands that we have introdu
 
 # Tips for working with Git and GitHub
 
+# The git branch in the PS1
+
 # An Overview of the Git Commands
 
 TODO
@@ -1068,6 +1070,9 @@ Merge strategies
 Diffs
 Logs
 Head (`git checkout HEAD~1` twice - see what happens)
+- Consider a topic on 'advanced' git that goes into interactive patch, aliases, etc
+- Consider splitting this topic into two
+- Add 'the secure shell' to the 'advanced' part, note that the skills are not advanced but the virtual machine setup can be
 
 todo: we are already using _getting to grips_ for the `grep` chapter, so we need a better name
 
