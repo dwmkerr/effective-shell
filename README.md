@@ -34,6 +34,8 @@ Or can also manually download them using from any of these locations:
 - [https://effective-shell.com/downloads/effective-shell-samples.zip](https://effective-shell.com/downloads/effective-shell-samples.zip)
 - [https://effective-shell.com/downloads/effective-shell-samples.tar.gz](https://effective-shell.com/downloads/effective-shell-samples.tar.gz)
 
+The one-line shell installer is hosted at [github.com/dwmkerr/effective-shell-installer](https://github.com/dwmkerr/effective-shell-installer)
+
 ## The Website
 
 The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell.com). This is done using [Hugo](https://gohugo.io/).
