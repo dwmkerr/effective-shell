@@ -19,7 +19,7 @@ serve:
 build:
 	mkdir -p website/static/downloads
 	./scripts/build-samples.sh
-	cp ./artifacts/effective-shell-samples.* ./website/static/downloads
+	cp ./artifacts/effective-shell-samples.zip ./artifacts/effective-shell-samples.tar.gz ./website/static/downloads
 	cd website && hugo --minify
 	test -e ./website/static/downloads/effective-shell-samples.zip
 	test -e ./website/static/downloads/effective-shell-samples.tar.gz
