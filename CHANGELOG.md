@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.12.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.12.0...v0.12.1) (2021-06-19)
+
+
+### Bug Fixes
+
+* remove single quotes around tilde in set_ps1 ([ffa93c2](https://www.github.com/dwmkerr/effective-shell/commit/ffa93c2d296ab716bf33906ac15c1f2305528a2c))
+
 ## [0.12.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.11.1...v0.12.0) (2021-06-10)
 
 
