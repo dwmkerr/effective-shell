@@ -441,7 +441,7 @@ This section contains the things which have been pulled out of chapters as they 
 - `df` to find out free space, or also how to find out how much space a folder takes up
 - `open` and similar commands which are used to interface with the host _graphical_ shell
 - **Error Codes** and **set -e** are tacitly referred to in the `stderr` sections of the 'thinking in pipelines' chapter, we will need to have a reference
-- chapter 4: instead of creating the aliases directly, we should have a `setup-copy-and-paste.sh` script in the playground which sets up these commands as a one liner, then the user can just call the script.
+- chapter 4: instead of creating the aliases directly, we should have a `setup-copy-and-paste.sh` script in the `sample` which sets up these commands as a one liner, then the user can just call the script.
 - streams: Introduce the concept of streams
 - streams: when I pipe from dev/random how do I not run out of memory?
 - streams: why are some things linewise (compare `cat` to `sort` to `uniq`)

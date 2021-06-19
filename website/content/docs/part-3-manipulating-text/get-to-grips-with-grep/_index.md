@@ -195,7 +195,7 @@ grep -i err
 
 The `-i` flag makes the search case-insensitive. This makes this a very quick way to scan through a file for any text which matches the letters `err` - making it a very quick way to find _errors_ in log files.
 
-You can try this out by using some of the log files in the `logs` folder of the playground. Here's how you can try it out:
+You can try this out by using some of the log files in the `logs` folder of the samples. Here's how you can try it out:
 
 <pre>
 grep -i err ~/effective-shell/logs/web-server-logs.txt
