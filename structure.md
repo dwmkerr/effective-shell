@@ -43,9 +43,9 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 27 - Managing Your Dotfiles](#chapter-27---managing-your-dotfiles)
     * [Chapter 28 - Controlling Changes with Git](#chapter-28---controlling-changes-with-git)
     * [Chapter 29 - Managing Remote Git Repositories and Sharing Your Dotfiles](#chapter-29---managing-remote-git-repositories-and-sharing-your-dotfiles)
-    * [Chapter 30 - How to avoid scripting!](#chapter-30---how-to-avoid-scripting)
 * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
-    * [Understanding Shell Expansions](#understanding-shell-expansions)
+    * [Chapter 30 - Understanding Shell Expansions](#chapter-30---understanding-shell-expansions)
+    * [Chapter 30 - How to avoid scripting!](#chapter-30---how-to-avoid-scripting)
     * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
     * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
     * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
@@ -273,6 +273,14 @@ If you are working with text, code, or other types of content, Git can be a powe
 
 In this chapter we'll take a look at how to take a local Git repository, like the one created in the previous chapter and upload it to a remote repository. We'll use the popular "GitHub" site to host our repository. We'll see how we can manage remote changes and use GitHub to share our dotfiles, so that we can quickly setup any machine with our personal configuration.
 
+# Part 6 - Advanced Techniques
+
+The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
+
+## Chapter 30 - Understanding Shell Expansions
+
+https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
+
 ## Chapter 30 - How to avoid scripting!
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
@@ -281,14 +289,6 @@ Note: When to use the shell:
 - Universal compatibility such as for installing ruby, node, nvm etc (the set_ps1 script is an example)
 - When we need a shell function, e.g show options
 - When we want to execute programs (this is often not safe in code)
-
-# Part 6 - Advanced Techniques
-
-The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
-
-## Understanding Shell Expansions
-
-https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
 
 ## Chapter X - Testing Shell Scripts with Docker
 
