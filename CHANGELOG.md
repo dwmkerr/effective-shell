@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.13.0...v0.14.0) (2021-06-19)
+
+
+### Features
+
+* include 'repositories' in samples ([8aa34cf](https://www.github.com/dwmkerr/effective-shell/commit/8aa34cfc706991402eee79bc4b658d2c5825e595))
+
 ## [0.13.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.12.0...v0.13.0) (2021-06-19)
 
 
