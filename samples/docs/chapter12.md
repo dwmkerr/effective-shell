@@ -451,7 +451,7 @@ stringData:
 EOF
 ```
 
-The first line is using a 'heredoc' to write multiple lines of text to a file. We see heredocs in detail in a later chapter. The file is also in the playground at `templates/secret.template.yaml`.
+The first line is using a 'heredoc' to write multiple lines of text to a file. We see heredocs in detail in a later chapter. The file is also in the samples at `~/effective-shell/templates/secret.template.yaml`.
 
 Now let's apply our substitution:
 

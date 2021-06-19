@@ -11,17 +11,18 @@ setup:
 serve:
 	cd website && hugo server --baseURL "http://localhost/" --buildDrafts -v --debug
 
-# Build the site.
-# We also create a zip and tar.gz of the playground/samples folder for quick
-# downloads for the user. We put the current version in the playground folder
-# as well for reference.
+# Build the site, including the downloads directory. This requires that we also
+# run the 'build-samples.sh' script to zip and tar the effective shell samples.
+# The build recipe also tests that the samples files are created in the downloads
+# folder as if we don't have them we should definitely not deploy.
 .PHONY: build
 build:
 	mkdir -p website/static/downloads
-	cp version.txt ./effective-shell-playground/.version.txt
-	zip -r website/static/downloads/effective-shell-playground.zip ./effective-shell-playground
-	tar czf website/static/downloads/effective-shell-playground.tar.gz -C ./effective-shell-playground .
+	./scripts/build-samples.sh
+	cp ./artifacts/effective-shell-samples.* ./website/static/downloads
 	cd website && hugo --minify
+	test -e ./website/static/downloads/effective-shell-samples.zip
+	test -e ./website/static/downloads/effective-shell-samples.tar.gz
 
 # Create the summary structure in word format, easier to share.
 .PHONY: structure

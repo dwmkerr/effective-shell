@@ -91,7 +91,7 @@ Looking at some real programs in action will hopefully make this clearer!
 Do you remember the `cat` command? It's the one which writes the contents of a file to the screen. For example:
 
 ```
-$ cat ~/playground/text/simpsons-characters.txt
+$ cat ~/effective-shell/text/simpsons-characters.txt
 Artie Ziff
 Kirk Van Houten
 Timothy Lovejoy
@@ -111,7 +111,7 @@ Helen Lovejoy
 We saw in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-1-transitioning-to-the-shell/clipboard-gymnastics" >}}) that we could **pipe** the output of this command into the `sort` command to order it and then into the `uniq` command to remove duplicates, like this:
 
 ```
-$ cat ~/playground/text/simpsons-characters.txt | sort | uniq
+$ cat ~/effective-shell/text/simpsons-characters.txt | sort | uniq
 Agnes Skinner
 Artie Ziff
 Cletus Spuckler
@@ -163,7 +163,7 @@ We've already seen a few examples of using `cat` to write a file to `stdout`.
 A lot of the time we don't need to use `cat` many programs accept the path of a file as a parameter, meaning we can just tell the program to open the file directly. For example, we could count the number of lines in a file like this:
 
 ```
-$ cat ~/playground/text/simpsons-characters.txt | wc -l
+$ cat ~/effective-shell/text/simpsons-characters.txt | wc -l
 
       14
 ```
@@ -171,8 +171,8 @@ $ cat ~/playground/text/simpsons-characters.txt | wc -l
 Or more simply, like this:
 
 ```
-$ wc -l ~/playground/text/simpsons-characters.txt
-      14 /Users/dwmkerr/playground/text/simpsons-characters.txt
+$ wc -l ~/effective-shell/text/simpsons-characters.txt
+      14 /Users/dwmkerr/effective-shell/text/simpsons-characters.txt
 ```
 
 In this case, we've passed the file path as an argument to the `wc` (_word, line, character and byte count_) program. But be aware - not all programs use the same convention or parameter names!
@@ -290,9 +290,9 @@ In this case, the output of our program becomes the input of the next one in the
 We haven't actually seen `stderr` in action yet. Let's see how it works.
 
 ```
-$ mkdir ~/playground/new-folder
-$ mkdir ~/playground/new-folder
-mkdir: /Users/dwmkerr/playground/new-folder: File exists
+$ mkdir ~/effective-shell/new-folder
+$ mkdir ~/effective-shell/new-folder
+mkdir: /home/dwmkerr/effective-shell/new-folder: File exists
 ```
 
 In the first call to `mkdir`, the folder is created successfully. In the second call, we get an error. Now let's try and use this output and make it louder - making all of the text uppercase.
@@ -307,8 +307,8 @@ BE QUIET, THIS IS A LIBRARY!
 Now let's use it to shout out our error message:
 
 ```
-$ mkdir ~/playground/new-folder | tr '[:lower:]' '[:upper:]'
-mkdir: /Users/dwmkerr/playground/new-folder: File exists
+$ mkdir ~/effective-shell/new-folder | tr '[:lower:]' '[:upper:]'
+mkdir: /home/dwmkerr/effective-shell/new-folder: File exists
 ```
 
 In this case the output has not been made uppercase. What's going on?
@@ -322,7 +322,7 @@ When we are in the shell, the shell automatically writes the `stderr` stream to 
 The command we ran before:
 
 ```
-mkdir ~/playground/new-folder | tr '[:lower:]' '[:upper:]'
+mkdir ~/effective-shell/new-folder | tr '[:lower:]' '[:upper:]'
 ```
 
 Actually looks like this:
@@ -379,8 +379,8 @@ The interesting thing is that the descriptors in my program start from `3` and g
 So to make our error message go through the `tr` command, we can redirect `stderr` to `stdout`, which means the error message will go to `stdout` and then be piped to `tr`:
 
 ```
-$ mkdir ~/playground/new-folder 2>&1 | tr '[:lower:]' '[:upper:]'
-MKDIR: /USERS/DWMKERR/PLAYGROUND/NEW-FOLDER: FILE EXISTS
+$ mkdir ~/effective-shell/new-folder 2>&1 | tr '[:lower:]' '[:upper:]'
+MKDIR: /HOME/DWMKERR/PLAYGROUND/NEW-FOLDER: FILE EXISTS
 ```
 
 Visually, what is happening is this:
@@ -402,7 +402,7 @@ What would happen is that the shell would write `stderr` to a _new file_ with th
 Before, we redirected to `&2`, which is 'the file with descriptor `2`. We can also use a similar trick to redirect to any arbitrary file:
 
 ```sh
-mkdir ~/playground/new-folder 2>./errors.txt
+mkdir ~/effective-shell/new-folder 2>./errors.txt
 ```
 
 This command just redirects all of the errors (remember, `2` is `stderr`) to a file called `./errors.txt`.
@@ -414,7 +414,7 @@ This is quite a common trick - run the program, but log the errors to a file for
 What if we just don't want to see the errors at all? Well there's a special file called `/dev/null` which we can use for this. When we write to this file, the operating system just discards the input. In fact, it exists for just this kind of purpose!
 
 ```
-mkdir ~/playground/new-folder 2>/dev/null
+mkdir ~/effective-shell/new-folder 2>/dev/null
 ```
 
 This just redirects all errors to the black hole of `/dev/null` - we won't see them on the screen or anywhere else. This is a common way to 'silence' errors[^3] in shell commands.
@@ -428,7 +428,7 @@ So if we can redirect, can we append too?
 Yes! Just like we did with `stdout`, there's nothing stopping us _appending_ to a file:
 
 ```
-mkdir ~/playground/new-folder 2>>./all-errors.log
+mkdir ~/effective-shell/new-folder 2>>./all-errors.log
 ```
 
 Just like before, we use `>>` which means _append_ (rather than _overwrite or create_).
@@ -466,7 +466,7 @@ This can be tough to remember so it's worth trying it out[^4]. There are many va
 This is a long chapter, but I can't talk about pipelines without briefly mentioning the T pipe. Check out this command:
 
 ```sh
-cat ~/playground/text/simpsons-characters.txt | sort | tee sorted.txt | uniq | grep '^A'
+cat ~/effective-shell/text/simpsons-characters.txt | sort | tee sorted.txt | uniq | grep '^A'
 ```
 
 This command sorts the list of Simpsons characters, removes duplicates and filters down to ones which start with the letter `A`. And it has the `tee` command in the middle. What does this do?
