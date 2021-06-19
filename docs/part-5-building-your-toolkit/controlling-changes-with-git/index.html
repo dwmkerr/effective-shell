@@ -1,0 +1,363 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Controlling Changes with Git"><meta property="og:title" content="Controlling Changes with Git"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://effective-shell.com/docs/part-5-building-your-toolkit/controlling-changes-with-git/"><title>Controlling Changes with Git | Effective Shell</title><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.f8520695a602b532b093067e25561bfe6fa10ca8c25171b97142acf58fa8f13c.css integrity="sha256-+FIGlaYCtTKwkwZ+JVYb/m+hDKjCUXG5cUKs9Y+o8Tw="><script defer src=/en.search.min.8fc22b7b7d14b37c67765c8b147abc36c27365000c6ee193b79c500a06609f28.js integrity="sha256-j8Ire30Us3xndlyLFHq8NsJzZQAMbuGTt5xQCgZgnyg="></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-155335600-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=alternate type=application/rss+xml href=https://effective-shell.com/docs/part-5-building-your-toolkit/controlling-changes-with-git/index.xml title="Effective Shell"><script id=mcjs>!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/eac1a082b6db34d40aaff2caf/a2aaca5a8358c2e12d3f43f1a.js");</script></head><body><input type=checkbox class=hidden id=menu-control><main class="flex container"><aside class="book-menu fixed"><nav><h2 class=book-brand><a href=https://effective-shell.com/><span>Effective Shell</span></a></h2><h2 class=book-subtitle><span>By Dave Kerr</span></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64><div class="book-search-spinner spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/introduction/><strong>Introduction</strong></a></li><li><a href=/docs/getting-started/><strong>Getting Started</strong></a></li><li><a href=/docs/part-1-transitioning-to-the-shell/><strong>Part 1 - Transitioning to the Shell</strong></a><ul><li><a href=/docs/part-1-transitioning-to-the-shell/navigating-your-system/>Navigating Your System</a></li><li><a href=/docs/part-1-transitioning-to-the-shell/managing-your-files/>Managing Your Files</a></li><li><a href=/docs/part-1-transitioning-to-the-shell/clipboard-gymnastics/>Clipboard Gymnastics</a></li><li><a href=/docs/part-1-transitioning-to-the-shell/getting-help/>Getting Help</a></li><li><a href=/docs/part-1-transitioning-to-the-shell/the-renaissance-of-the-shell/>The Renaissance of the Shell</a></li></ul></li><li><a href=/docs/part-2-core-skills/><strong>Part 2 - Core Skills</strong></a><ul><li><a href=/docs/part-2-core-skills/thinking-in-pipelines/>Thinking in Pipelines</a></li><li><a href=/docs/part-2-core-skills/fly-on-the-command-line/>Fly on the Command Line</a></li><li><a href=/docs/part-2-core-skills/job-control/>Job Control</a></li><li><a href=/docs/part-2-core-skills/understanding-commands/>Understanding Commands</a></li><li><a href=/docs/part-2-core-skills/finding-files/>Finding Files</a></li><li><a href=/docs/part-2-core-skills/what-is-a-shell/>What is a Shell?</a></li></ul></li><li><a href=/docs/part-3-manipulating-text/><strong>Part 3 - Manipulating Text</strong></a><ul><li><a href=/docs/part-3-manipulating-text/regex-essentials/>Regex Essentials</a></li><li><a href=/docs/part-3-manipulating-text/get-to-grips-with-grep/>Get to Grips with Grep</a></li><li><a href=/docs/part-3-manipulating-text/slice-and-dice-text/>Slice and Dice Text</a></li><li><a href=/docs/part-3-manipulating-text/advanced-text-manipulation/>Advanced Text Manipulation with Sed</a></li><li><a href=/docs/part-3-manipulating-text/build-commands-on-the-fly/>Build Commands on the Fly with Xargs</a></li></ul></li><li><a href=/docs/part-4-shell-scripting/><strong>Part 4 - Shell Scripting</strong></a><ul><li><a href=/docs/part-4-shell-scripting/shell-script-essentials/>Shell Script Essentials</a></li><li><a href=/docs/part-4-shell-scripting/variables-reading-input-and-mathematics/>Variables, Reading Input, and Mathematics</a></li><li><a href=/docs/part-4-shell-scripting/mastering-conditional-logic/>Mastering Conditional Logic</a></li><li><a href=/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders/>Loops and working with Files and Folders</a></li><li><a href=/docs/part-4-shell-scripting/functions-parameters-and-error-handling/>Functions, Parameters and Error Handling</a></li><li><a href=/docs/part-4-shell-scripting/useful-patterns-for-shell-scripts/>Useful Patterns for Shell Scripts</a></li></ul></li><li><a href=/docs/part-5-building-your-toolkit/><strong>Part 5 - Building Your Toolkit</strong></a><ul><li><a href=/docs/part-5-building-your-toolkit/configuring-the-shell/>Configuring the Shell</a></li><li><a href=/docs/part-5-building-your-toolkit/customising-your-command-prompt/>Customising Your Command Prompt</a></li><li><a href=/docs/part-5-building-your-toolkit/managing-your-dotfiles/>Managing Your Dotfiles</a></li><li><a href=/docs/part-5-building-your-toolkit/controlling-changes-with-git/ class=active>Controlling Changes with Git</a></li></ul></li><li><a href=/docs/work-in-progress/><strong>Work in Progress</strong></a></li></ul></nav><script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script></aside><div class=book-page><header class="flex align-center justify-between book-header"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Controlling Changes with Git</strong></header><article class=markdown><h1 id=chapter-28---controlling-changes-with-git>Chapter 28 - Controlling Changes with Git</h1><p>Git is an extremely popular version control tool. You can use Git to track changes to text, code, or any type of files you might be working with. Many popular projects use Git as a tool to manage changes, allow others to contribute and collaborate, and to publish their projects.</p><p>In this chapter we'll look at the most common operations for Git to allow us to quickly and easily work with Git repositories. We'll learn Git on the command line by taking our &lsquo;dotfiles&rsquo; folder (a simple set of shell configuration files) and showing how we can track and manage changes.</p><p>Being able to use Git from the command line is essential to being an effective shell user. In this chapter we'll look at setting up a local Git repository - in the next chapter we'll see how to share it online with the popular GitHub website.</p><h1 id=what-is-git>What is Git</h1><p>Any files or folders that we work with over time, such as our &lsquo;dotfiles&rsquo; (i.e. our personal configuration files) will change. Sometimes new files get added, old files get deleted, files get changed, things get moved around and so on.</p><p>Git is a <em>version control system</em> that allows you to track changes to files and folders. This means that you can maintain a history of all of the changes that have been made, when they were made, who made them and why. You can also maintain multiple &lsquo;branches&rsquo; of your files and folders - these branches can be used as working environments where you can make changes, without affecting the current &lsquo;main&rsquo; set of files.</p><p>Git was written by Linus Torvalds (the creator of Linux) in 2006. &ldquo;Git&rdquo; is slang for an annoying person - Linus joked that he always names projects after himself, first Linux and now Git. There were many version control systems around before Git, such as <em>CVS</em> (Concurrent Version System) and <em>SVN</em> (Subversion, an system similar to CVS but with some improvements). There were also a number of proprietary and commercial solutions.</p><p>In recent years Git has become without a doubt the most popular version control system globally, and many highly popular software collaboration systems such as GitHub, GitLab and BitBucket use Git as their underlying version control system, adding additional features on top.</p><h1 id=creating-a-git-repository>Creating a Git Repository</h1><p>All of the information about a set of files or folders that you are tracking the changes for is stored in a <em>Git repository</em>. We can create a Git repository by running the <code>git init</code> (<em>initialise Git repository</em>) command.</p><p>Let's see this in action be creating a Git repository to track changes to our &lsquo;dotfiles&rsquo; folder. Our &lsquo;dotfiles&rsquo; folder is a folder where we keep simple shell configuration - you can read about how to create a folder like this in <a href=/docs/part-5-building-your-toolkit/managing-your-dotfiles/>Chapter 27 - Managing Your Dotfiles</a> or you can download the Effective Shell samples to get a copy of the &lsquo;dotfiles&rsquo; folder.</p><blockquote class="book-hint info"><p><strong>Downloading the Samples</strong></p><p>Run the following command in your shell to download the samples:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>curl effective.sh | sh
+</code></pre></div></blockquote><p>If you have installed the samples, you can copy the <em>~/effective-shell/dotfiles</em> folder to your home directory - this is where we will create our Git repository and start using the Git commands:</p><pre><code>$ cp -r ~/effective-shell/dotfiles ~/dotfiles
+$ cd ~/dotfiles
+</code></pre><p>We have created the <em>~/dotfiles</em> folder in our home directory from the samples and moved into it.</p><p>Now we will initialise a Git repository with the <code>git init</code> command, and choose a &lsquo;branch&rsquo; name with the <code>git checkout</code> command:</p><pre><code>$ git init
+Initialized empty Git repository in /home/dwmkerr/dotfiles/.git/
+$ git checkout -b main
+</code></pre><p>We'll see the <code>git checkout</code> command in detail soon. For now it is enough to know that we have initialised a new Git repository and chosen the name of our &lsquo;main&rsquo; branch.</p><blockquote class="book-hint info"><p><strong>Initialising a Git Repository with a Branch Name</strong></p><p>If you are using Git 2.2 or later, you can initialise a repository and set the branch name with a single command:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ git init -b main
+</code></pre></div><p>If you see the error message <em>error: unknown switch &lsquo;b&rsquo;</em> then this means that you are using a version of Git that does not have the <code>-b</code> (<em>initial branch name</em>) flag (any version of Git lower than 2.2).</p></blockquote><h1 id=adding-and-resetting-changes-to-the-index>Adding and Resetting Changes to the Index</h1><p>We now have an empty Git repository. We can use the <code>git status</code> (<em>show the working tree status</em>) command to show some information on the files in the <em>working tree</em>. The working tree is the folder that we are using Git to track changes for, in our case <em>~/dotfiles</em>:</p><pre><code>$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        install.sh
+        shell.d/
+        shell.sh
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre><p>The first thing that <code>git status</code> tells us is the name of the <em>branch</em> we are on. We'll look at branches in detail shortly. The next thing we see is that there are no <em>commits</em> - commits are sets of changes that we track. Finally, git is telling us that there are three files that are &lsquo;untracked&rsquo;. These are the <em>install.sh</em> and <em>shell.sh</em> files as well as the <em>shell.d</em> folder.</p><p>If we are going to use Git to track changes to these file, we need to add them to the repository. We can do that with the <em>git add</em> (<em>add file contents to index</em>) command:</p><pre><code>$ git add .
+</code></pre><p>The <code>git add</code> command takes a list of file paths. We have used the special <em>dot</em> folder to represent the entire current directory. Let's take a look at the status again:</p><pre><code>$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+        new file:   install.sh
+        new file:   shell.d/set_ps1.sh
+        new file:   shell.sh
+</code></pre><p>Git is now telling us that we have three new files which are ready to be <em>committed</em>. At the moment these files are in the <em>index</em>. The index, or staging area, is the set of changes that we are preparing to commit. These changes are not yet stored in the repository. When we add files to the index we are &lsquo;staging&rsquo; changes. When we remove changes from the index, we are &lsquo;unstaging&rsquo; changes.</p><p>Think of the index as a working area where we can build up a set of changes that we would later like to record in the repository. We could add more files to the index before we actually save them to the repository in a commit.</p><p>If we were to visualise what we've done so far, it would look like this:</p><p><img src=./images/git-add.png alt="Diagram: A diagram showing how the &lsquo;git add&rsquo; command tells Git to track changes to items in the working tree and adds them to the index"></p><p>Our <em>working tree</em> is the folder associated with our Git repository, this is the <em>~/dotfiles</em> folder. Our <em>index</em> is initially empty. When we run the <code>git add</code> command, we have told Git we want to add three files to the repository. Our &lsquo;staging area&rsquo; has three files in it. Our Git repository does not have any commits recorded yet.</p><p>What if we realised that we don't want to add one of these files to the repository? To remove a file from the index we can use the <code>git reset</code> (<em>reset changes</em>) command. Let's reset the <em>~/dotfiles/shell.d/set_ps1.sh</em> file and check the status:</p><pre><code>$ git reset shell.d/set_ps1.sh
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+        new file:   install.sh
+        new file:   shell.sh
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        shell.d/
+</code></pre><p>The <code>git reset</code> command has removed a change from the index - telling Git that we don't want to &lsquo;stage&rsquo; one of the files. Git now tells us there are two files in the index and one that is not tracked.</p><p>Here's how we can visualise the changes we've made:</p><p><img src=./images/git-reset.png alt="Diagram: The &lsquo;git reset&rsquo; command removes items from the index"></p><p>You can also reset changes by using the <code>git rm --cached</code> (<em>remove changes from index</em>) command. However, I think this is a little harder to work with as you have to remember to use the <code>--cached</code> flag to tell Git that you are removing from the index and not the repository. We'll see the <code>git rm</code> command a little later in the chapter.</p><p>Remember - at this stage we have not changed a single file! Nothing we have done has changed the content of any of the files in the working tree, and the only thing that has changed in the Git repository is the &lsquo;index&rsquo; - the current set of files that we are &lsquo;staging&rsquo;.</p><p>Now let's look at how we can commit our changes with the <code>git commit</code> command.</p><h1 id=committing-changes>Committing Changes</h1><p>Once we are happy with the set of changes in the index, we can use the <code>git commit</code> (<em>record changes to the repository</em>) command.</p><p>Now run the <code>git commit</code> command:</p><pre><code>$ git commit 
+</code></pre><p>At this stage your shell editor will open up, with the text shown below:</p><pre><code>
+# Please enter the commit message for your changes. Lines staring
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+#
+# Initial commit
+#
+# Changes to be committed:
+#       new file:   install.sh
+#       new file:   shell.sh
+#
+# Untracked files:
+#       shell.d/
+#
+</code></pre><p>The reason you shell editor opens is that the <code>git commit</code> command would like you to provide a message describing your changes. Type a short description, such as:</p><pre><code>add the 'install' and 'shell' scripts
+# Please enter the commit message for your changes. Lines staring
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+#
+# Initial commit
+#
+# Changes to be committed:
+#       new file:   install.sh
+#       new file:   shell.sh
+#
+# Untracked files:
+#       shell.d/
+#
+</code></pre><p>Note that below the cursor there is some information that starts with the <code>#</code> hash symbol. This is provided as a convenience - Git is telling you the status of the index. Anything that starts with a hash symbol is a comment and will not be stored in the commit message.</p><p>Save the file by pressing Ctrl+W and close the editor with Ctrl+X (these are the commands for the <code>nano</code> editor, if you are using a different editor use whatever commands are needed to save and close).</p><p>When the editor closes you'll see a confirmation below the <code>git commit</code> command:</p><pre><code>$ git commit
+[main (root-commit) 01e7a10] add the 'install' and 'shell' scripts
+ 2 files changed, 90 insertions(+)
+ create mode 100755 install.sh
+ create mode 100644 shell.sh
+</code></pre><p>This message tells us that two files have changed and 90 lines have been added. It also lists the files we have added. At this point we have created our first commit. We can visualise the process we have gone through like this:</p><p><img src=./images/git-commit.png alt="Diagram showing how &lsquo;git commit&rsquo; commits changes to the repository"></p><p>We &lsquo;staged&rsquo; a set of changes and then &lsquo;committed&rsquo; these changes. We now have a single commit in our repository. Our files are <em>still</em> unchanged, but our Git repository now has a single commit in it that tracks the two files we added.</p><p>Let's run <code>git status</code> again:</p><pre><code>$ git status
+On branch main
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        shell.d/
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre><p>The <code>git status</code> command tells us we're still on the &lsquo;main&rsquo; branch, and that there is one file which is not tracked. Let's create a second commit by adding this file. When you run the <code>git commit</code> command below, enter a message to describe the commit:</p><pre><code>$ git add .
+$ git commit
+[main d7e1bb9] add the 'shell.d' folder
+ 1 file changed, 228 insertions(+)
+ create mode 100644 shell.d/set_ps1.sh
+</code></pre><p>We have now created a second commit - our timeline will look like this:</p><p><img src=./images/git-commit-number-2.png alt="Diagram showing our second git commit"></p><p>If we run the <code>git status</code> command one last time we will see that everything in the working tree is tracked in Git:</p><pre><code>$ git status
+On branch main
+nothing to commit, working tree clean
+</code></pre><p>The concepts of the &lsquo;index&rsquo;, the &lsquo;working tree&rsquo; and the Git repository itself can take a bit of getting used to! If you have not used Git before and this seems like a lot to take on board, don't worry, people often find Git quite hard at first. As you use it more this will all become familiar and make more sense.</p><h2 id=commit-messages>Commit Messages</h2><p>You can use any text you like for a commit message. However, there are a couple of things that you should bear in mind:</p><ol><li>Try to keep the first line to 50 characters or less. This is known as the &lsquo;subject&rsquo; line - keeping this short will make it easier to look through the log of changes later and see what each commit means.</li><li>If you want to add more detail, leave a blank line after the subject line and then include as much text as you like. Common convention is to wrap the text at 80 characters so that it will fit in a typical shell window.</li></ol><p>There are many articles available online that suggest conventions for how to write your commit messages. You can explore these as you get more familiar with Git. The only convention I would strongly recommend that you follow is to make sure that your Git message makes sense - it should describe what the change is and ideally why you have made it. It is easy to forget why changes were made after time has passed - writing good commit messages will save you a lot of time in the long run and also make it easier for others to work with your repository!</p><p>Now let's take a look at how we can work on changes to our files with <em>branches</em>.</p><h1 id=creating-branches>Creating Branches</h1><p>The commits that we have made so far have been on a &lsquo;branch&rsquo; named &lsquo;main&rsquo;. We can create new &lsquo;branches&rsquo; and put commits on them to allow us to make a series of changes that are isolated from each other.</p><p>We can create branches using the <code>git branch</code> (<em>list, create or delete branches</em>) or <code>git checkout</code> (<em>switch branches or restore working tree</em>) command. To show these features in action, we'll create a new branch called <em>aliases</em> and add some files to it:</p><pre><code>$ git checkout -b aliases
+Switched to a new branch 'aliases'
+$ git status
+On branch aliases
+nothing to commit, working tree clean
+</code></pre><p>We have used the <code>git checkout</code> command to &lsquo;switch&rsquo; to another branch. The <code>-b</code> (<em>new branch</em>) option tells Git that we want to create a new branch. The <code>git status</code> command now shows the new branch name when we run it.</p><p>Let's create a new file which includes an alias for the <code>git status</code> command, then let's see what <code>git status</code> tells us about the status of the working tree:</p><pre><code>$ echo 'alias gs=&quot;git status&quot;' &gt;&gt; ./shell.d/git_aliases.sh
+$ git status
+On branch aliases
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        shell.d/git_aliases.sh
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre><p>Excellent - we have a new file and Git knows that it is not currently tracked. Let's stage this file and then commit it:</p><pre><code>$ git add .
+$ git commit -m &quot;add alias 'gs' for 'git status'&quot;
+
+[aliases f61369d] add alias 'gs' for 'git status'
+ 1 file changed, 1 insertion(+)
+ create mode 100644 shell.d/git_aliases.sh
+</code></pre><p>In the example above I used the <code>-m</code> (<em>commit message</em>) parameter for the <code>git commit</code> command, this means my editor will not open up as we've already provided a commit message.</p><p>We now have a series of commits that looks like this:</p><p><img src=./images/git-checkout-b.png alt="Diagram showing how &lsquo;git checkout -b&rsquo; creates a new branch"></p><p>Our new <em>~/dotfiles/shell.d/git_aliases.sh</em> file has been committed to the <em>aliases</em> branch.</p><p>We can switch back to the <em>main</em> branch at any time with <code>git checkout</code>:</p><pre><code>$ git checkout main
+Switched to branch 'main'
+$ tree
+.
+├── install.sh
+├── shell.d
+│   └── set_ps1.sh
+└── shell.sh
+</code></pre><p>When we switch back to the <em>main</em> branch and look our our working tree we can see that the <em>git_aliases.sh</em> file is not present. This is very cool - by passing the name of the branch we want to switch to as the parameter to the <code>git checkout</code> command we can switch branches. If we are on the <em>main</em> branch we don't see the <em>git_aliases.sh</em> file, because the commit that added is was not on the <em>main</em> branch. To go back to the <em>aliases</em> branch we can just checkout again:</p><pre><code>$ git checkout aliases
+Switched to branch 'aliases'
+$ tree
+.
+├── install.sh
+├── shell.d
+│   ├── git_aliases.sh
+│   └── set_ps1.sh
+└── shell.sh
+</code></pre><p>As a nice little tip, you can always go back to the <em>last</em> branch you were on by running <code>git checkout -</code> just like you can use <code>cd -</code> to change to the last directory you visited! The dash character is a shortcut for the last branch you were on.</p><p>Let's add another alias to the file and create another commit:</p><pre><code>$ echo 'alias gcm=&quot;git checkout main&quot;' &gt;&gt; ./shell.d/git_aliases.sh
+$ git add .
+$ git commit -m &quot;add alias 'gcm' for 'git checkout main'&quot;
+[aliases b9ae0ad] add alias 'gcm' for 'git checkout main'
+ 1 file changed, 1 insertion(+)
+</code></pre><p>Our branches will now look like this:</p><p><img src=./images/git-commit-on-aliases.png alt="Diagram showing two commits on the &lsquo;aliases&rsquo; branch"></p><p>You can create as many branches as you like - just remember that when you run <code>git checkout -b</code>, you branch from the <em>current</em> branch (and in fact, the current <em>HEAD</em>, which we will see a little later).</p><p>If you want to create a branch, but don't want to switch to it, you can run <code>git branch &lt;new_branch_name></code>. This command will create a branch from your current position, but will not move to it.</p><h1 id=merging>Merging</h1><p>You can use the <code>git merge</code> (<em>join two or more branches</em>) command to take the changes from one branch and bring them into another.</p><p>We can merge the changes from our <em>aliases</em> branch into the <em>main</em> branch of the repository by first checking out the branch we want to merge into, and then running <code>git merge</code>:</p><pre><code>$ git checkout main
+$ git merge aliases
+Updating d7e1bb9..b9ae0ad
+Fast-forward
+ shell.d/git_aliases.sh | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 shell.d/git_aliases.sh
+</code></pre><p>When we run the <code>git merge</code> command Git tells us what <em>type</em> of merge it has performed. In this case we have a <em>fast forward</em> merge, which is the most simple type of merge. When Git tries to merge the two branches, it sees that each of the commits on the <em>aliases</em> branch can be applied sequentially to the <em>main</em> branch:</p><p><img src=./images/git-merge-prepare-fast-forwards.png alt="Diagram showing how Git prepares for a &lsquo;fast forwards&rsquo; merge"></p><p>One the merge is complete, our branches look like this:</p><p><img src=./images/git-merge-fast-forwards.png alt="Diagram showing a fast forward merge result"></p><p>The <em>main</em> branch and <em>aliases</em> branch contain the exact same set of commits.</p><p>Let's look at a more common merge scenario - merging branches that have diverged.</p><h2 id=merging-diverged-branches>Merging Diverged Branches</h2><p>Let's create set of commits that show a case where we our branches have <em>diverged</em> - the branches both have their own new commits:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># Create a branch called &#39;more_aliases&#39;, add a file to it, then commit.</span>
+git checkout -b more_aliases
+touch ./shell.d/bash_aliases.sh
+git add .
+git commit -m <span style=color:#e6db74>&#34;add a file to store &#39;bash&#39; aliases&#34;</span>
+
+<span style=color:#75715e># Create another file, add it, then commit.</span>
+touch ./shell.d/zsh_aliases.sh
+git add .
+git commit -m <span style=color:#e6db74>&#34;add a file to store &#39;zsh&#39; aliases&#34;</span>
+</code></pre></div><p>This snippet checks out a new branch called <em>more_aliases</em> and adds two new empty files, as two separate commits. Now we'll go back to our <em>main</em> branch and change a file:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># Go back to the &#39;main&#39; branch, add and commit another file.</span>
+git checkout main
+echo <span style=color:#e6db74>&#39;alias gm=&#34;git merge&#34;&#39;</span> &gt;&gt; ./shell.d/git_aliases.sh
+git commit -a -m <span style=color:#e6db74>&#34;add the &#39;gm&#39; alias for &#39;git merge&#39;&#34;</span>
+</code></pre></div><p>I have added a new alias to the <em>shell.d/git_aliases.sh</em> file. By adding the <code>-a</code> (<em>all changes</em>) flag to the <code>git commit</code> command I was able to add the changes to the index and commit them with a single command.</p><p>Our branches now look like this:</p><p><img src=./images/git-diverged-branches.png alt="A diagram showing two diverged branches"></p><p>Let's merge the <em>more_aliases</em> branch into the <em>main</em> branch:</p><pre><code>$ git merge more_aliases
+</code></pre><p>At this point your shell editor will open up with a request for a commit message:</p><pre><code>Merge branch 'more_aliases'
+# Please enter a commit message to explain why this merge is needed
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message will abort
+# the commit.
+</code></pre><p>Git is going to create a new commit on the <em>main</em> branch that brings in the changes from the <em>bash_aliases</em> branch. Because a new commit is going to be created, Git asks us to provide a message. The default message simply explains that this commit merges the branch named <em>more_aliases</em>.</p><p>You can change the message or leave it as is. Save the file when you have entered the message and the output below will be shown:</p><pre><code>$ git merge more_aliases
+Merge made by the 'recursive' strategy.
+ shell.d/bash_aliases.sh | 0
+ shell.d/zsh_aliases.sh  | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 shell.d/bash_aliases.sh
+ create mode 100644 shell.d/zsh_aliases.sh
+</code></pre><p>Git now tells us that we have made a <em>recursive</em> merge and our branches will look like this:</p><p><img src=./images/git-merge-recursive.png alt="Diagram showing the results of a recursive merge of two diverged branches"></p><p>At this stage both the <em>main</em> branch and the <em>more_aliases</em> branch have the full set of changes that we made to <em>both</em> of the branches. Git merged the two branches together and created a new commit that joins them.</p><h2 id=the-git-log>The Git Log</h2><p>In the diagrams we've shown we've given each commit a number. This was just to make things easier to read - Git doesn't use a number for commits. Git uses a <em>SHA</em>, which is a hash. A hash is a sequence of letters and numbers that uniquely identify each commit.</p><p>You can use the <code>git log</code> (<em>show commit logs</em>) command to see the log of commits and their SHAs:</p><pre><code>$ git log
+commit 138b40418d5658bc64421e7bcf2680c8339f8350 (HEAD)
+Merge: a95bd90 a51ae1a
+Author: Dave Kerr &lt;dwmkerr@gmail.com&gt;
+Date:   Tue Jun 15 21:00:28 2021 +0800
+
+    Merge branch 'more_aliases'
+
+commit a95bd90e3656b2e55b8708193d387c80c282a6ad
+Author: Dave Kerr &lt;dwmkerr@gmail.com&gt;
+Date:   Tue Jun 15 21:00:22 2021 +0800
+
+    add the 'gm' alias for 'git merge'
+
+commit a51ae1aa42432c2f391ca782c1c20b3793c232ab (more_aliases)
+Author: Dave Kerr &lt;dwmkerr@gmail.com&gt;
+Date:   Tue Jun 15 20:53:01 2021 +0800
+
+    add a file to store 'zsh' aliases
+</code></pre><p>You can see that the log shows each of the commits, the branch the commit was on, the message, the date and so on.</p><p>If you want to see a more compact log you can use the <code>--oneline</code> (<em>show one line per commit</em>) flag:</p><pre><code>$ git log --oneline
+138b404 (HEAD) Merge branch 'more_aliases'
+a95bd90 add the 'gm' alias for 'git merge'
+a51ae1a (more_aliases) add a file to store 'zsh' aliases
+63ea74f add a file to store 'bash' aliases
+b9ae0ad (aliases) add alias 'gcm' for 'git checkout main'
+f61369d add alias 'gs' for 'git status'
+d7e1bb9 add the 'shell.d' folder
+01e7a10 add the 'install' and 'shell' scripts
+</code></pre><p>When you run this command yourself it will be a little easier to read as the output uses different colours for the SHAs and the branch names.</p><p>We can even see a &lsquo;graph&rsquo; view, showing the branches we have made and when they branched off and were merged back. To do this, pass the <code>--graph</code> (<em>show commit graph</em>) flag:</p><pre><code>$ git log --oneline --graph
+*   138b404 (HEAD) Merge branch 'more_aliases'
+| \
+| * a51ae1a (more_aliases) add a file to store 'zsh' aliases
+| * 63ea74f add a file to store 'bash' aliases
+* | a95bd90 add the 'gm' alias for 'git merge'
+|/
+* b9ae0ad (aliases) add alias 'gcm' for 'git checkout main'
+* f61369d add alias 'gs' for 'git status'
+* d7e1bb9 add the 'shell.d' folder
+* 01e7a10 add the 'install' and 'shell' scripts
+</code></pre><p>Each commit is shown with an <code>*</code> asterisk symbol - we can also see when we created the <em>more_aliases</em> branch and when we merged it back in.</p><p>The Git log is very useful to help you understand the changes that have happened in the repository.</p><h2 id=merge-conflicts>Merge Conflicts</h2><p>One of the most important features of any version control system is the ability to manage <em>conflicts</em>. Conflicts occur when a set of changes are made that cannot be merged without some kind of manual intervention to decide <em>which</em> of the changes are correct.</p><p>Here are a few common scenarios that might lead to merge conflicts:</p><ul><li>In one branch a file is deleted and in another branch the file is changed - when we merge should we delete the file or keep the version with the changes?</li><li>In one branch a file is edited and in another branch the <em>same</em> part of the file is edited in a different way - which edit should we keep? Should we keep both?</li><li>In one branch we add content to the end of a file and in another branch we add different content - which of these changes should come first?</li></ul><p>A lot of the time you can avoid conflicts by making sure that you don't keep branches for too long - if other people are merging changes into the <em>main</em> branch while you are working on another branch, you are <em>drifting</em> from the main branch. You should either regularly update your branch with the changes in <em>main</em> or merge your changes into <em>main</em>.</p><p>There are many different ways for version control systems to manage conflicts. Let's see how Git does it by creating a conflict.</p><p>First, we will create a branch that adds a new alias to the <em>git_aliases.sh</em> file:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># Create a &#39;glog_alias&#39; branch and commit a file.</span>
+git checkout -b glog_alias
+echo <span style=color:#e6db74>&#39;alias glog=&#34;git log --graph --oneline&#34;&#39;</span> &gt;&gt; ./shell.d/git_aliases.sh
+git commit -a -m <span style=color:#e6db74>&#34;add the &#39;glog&#39; alias&#34;</span>
+</code></pre></div><p>Now we'll go back to the <em>main</em> branch and add another alias:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># Go back to &#39;main&#39; and commit a change to the same file as the last one.</span>
+git checkout main
+echo <span style=color:#e6db74>&#39;alias glog=&#34;git log&#34;&#39;</span> &gt;&gt; ./shell.d/git_aliases.sh
+git commit -a -m <span style=color:#e6db74>&#34;add the &#39;glog&#39; alias&#34;</span>
+</code></pre></div><p>We've changed the same file in two branches - if we try to merge we will get a conflict:</p><pre><code>$ git merge glog_alias
+
+Auto-merging shell.d/git_aliases.sh
+CONFLICT (content): Merge conflict in shell.d/git_aliases.sh
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre><p>When Git cannot automatically consolidate the changes into a single merge commit, it aborts the merge process. No new commits have been made - the conflicted files with their changes are in the <em>index</em>. We have to now manually fix these files.</p><p>Let's see what the status shows:</p><pre><code>$ git status
+On branch main
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+  (use &quot;git merge --abort&quot; to abort the merge)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+        both modified:   shell.d/git_aliases.sh
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre><p>Git is telling us that we are currently in the process of trying to fix a merge conflict. It is telling us that we need to fix the <em>shell.d/git_aliases.sh</em> file, then use <code>git add</code> to stage the changes and commit the result.</p><p>To resolve the conflict, we need to edit the file. If you open the file in an editor it will look like this:</p><pre><code>alias gs=&quot;git status&quot;
+alias gcm=&quot;git checkout main&quot;
+alias gm=&quot;git merge&quot;
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+alias glog=&quot;git log&quot;
+=======
+alias glog=&quot;git log --graph --oneline&quot;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; glog_alias
+</code></pre><p>Many modern editors will immediately recognise the sequence of symbols that Git uses to indicate conflicts and highlight them. The <code>&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> line indicates the changes in the current branch, the <code>=======</code> line is a separator, and the <code>>>>>>> glog_alias</code> line indicates that everything since the <code>=======</code> line is the changes in the <em>glog_alias</em> branch.</p><p>We can see why Git has not been able to merge these changes - each branch has a new line and Git doesn't know which one is correct. So rather than make an assumption (such as the most recent change should &lsquo;win&rsquo;), Git is asking us to choose.</p><p>In your editor, update the file to look like this:</p><pre><code>alias gs=&quot;git status&quot;
+alias gcm=&quot;git checkout main&quot;
+alias gm=&quot;git merge&quot;
+alias glog=&quot;git log --graph --oneline&quot;
+</code></pre><p>We have chosen the version of the <code>glog</code> alias that was in the <em>glog_alias</em> branch. But you could choose either - or replace the content with a new line. You can make any changes you like - just be sure to remove the lines that start with <code>&lt;&lt;&lt;</code>, <code>===</code> and <code>>>></code>. We don't even have to use the changes from one of the branches - we could remove the lines or add completely new ones. We change the file to make sure that the merged result makes sense.</p><p>In the example above we deleted one of the <code>glog</code> aliases, but we could have also just changed the name of one of them:</p><pre><code>alias gs=&quot;git status&quot;
+alias gcm=&quot;git checkout main&quot;
+alias gm=&quot;git merge&quot;
+alias glog=&quot;git log&quot;
+alias ggraph=&quot;git log --graph --oneline&quot;
+</code></pre><p>We can now use <code>git add</code> to mark the file as resolved, and run <code>git commit</code>:</p><pre><code>$ git add shell.d/git_aliases.sh
+</code></pre><p>The editor will open showing a sensible commit message:</p><pre><code>Merge branch 'glog_alias'
+
+# Conflicts:
+#       shell.d/git_aliases.sh
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please run
+#       git update-ref -d MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+</code></pre><p>The message is just like the earlier merge commit message, but the comments show a little more information (the files that were conflicted). Save the file and close the editor to complete the commit.</p><p>Our Git log will now show this new merge commit:</p><pre><code>$ git log --graph --oneline
+*   2532277 (HEAD -&gt; main) Merge branch 'glog_alias'
+|\
+| * a8cbb15 (glog_alias) add the 'glog' alias
+* | 31548e4 add the 'glog' alias
+|/
+*   138b404 Merge branch 'more_aliases'
+|\
+| * a51ae1a (more_aliases) add a file to store 'zsh' aliases
+| * 63ea74f add a file to store 'bash' aliases
+* | a95bd90 add the 'gm' alias for 'git merge'
+|/
+* b9ae0ad (aliases) add alias 'gcm' for 'git checkout main'
+* f61369d add alias 'gs' for 'git status'
+* d7e1bb9 add the 'shell.d' folder
+* 01e7a10 add the 'install' and 'shell' scripts
+</code></pre><p>Dealing with conflicts can be extremely complicated. We have only scratched the surface here, but there is a wealth of information online if you'd like to go deeper.</p><h2 id=other-merge-strategies>Other Merge Strategies</h2><p>Git has a number of merge strategies that can be used to combine the changes across branches. Going into them is beyond the scope of this book. However, it is useful to know that you have a lot of functionality to control how branches are merged available to you if you want to explore further.</p><p>There are merge strategies that allow you to try and create a single, coherent history between two branches, rather than creating a merge commit, there are options to &lsquo;squash&rsquo; all of the commits from one branch into another and more.</p><p>I would suggest that as you become more familiar with the basics of how Git works, you get a little deeper on this topic - searching online for &ldquo;Git Merge Strategies&rdquo; will bring up many articles going into detail.</p><h1 id=deleting-and-renaming-files>Deleting and Renaming Files</h1><p>It is quite simple to remove files from your Git Repository. You can either ask Git to remove the file for you, or just delete the file yourself and then tell Git that you have removed it.</p><p>Let's see both ways in action. First we'll use the <code>git rm</code> (<em>remove files from the working tree and index</em>) command:</p><pre><code>$ git rm install.sh
+rm 'install.sh'
+</code></pre><p>The <code>git rm</code> command removes the file from your working tree and stages the deletion. We can see that the file is staged for deletion if we run <code>git status</code>:</p><pre><code>$ git status
+On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+        deleted:    install.sh
+</code></pre><p>The deletion is only in the <em>index</em> at this stage - we need to run <code>git commit</code> to commit the deletion.</p><p>If we want to restore the file, we can use <code>git checkout</code> to get the file back from Git:</p><pre><code>$ git checkout HEAD install.sh
+</code></pre><p>We use <code>HEAD</code> to tell Git what commit we want to checkout the file from - head means the current commit we are on (which is the most recent commit on <em>main</em>).</p><p>Another common way to delete a file is to simply remove it from the file-system:</p><pre><code>$ rm install.sh
+$ git status
+On branch main
+Changes not staged for commit:
+  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        deleted:    install.sh
+</code></pre><p>At this point Git knows the file is missing, but the deletion is not yet <em>staged</em> - because we haven't explicitly told Git that we want to remove this file as part of the commit we are creating. To confirm that we want to remove the file we can use:</p><pre><code>$ git rm install.sh
+</code></pre><p>We could also run <code>git add install.sh</code> - think of this like saying &lsquo;stage my change to <em>index.sh</em>&rsquo; - we are <em>adding</em> a change to the <em>index</em>. I often just run <code>git add .</code> to add all of my changes (including deletions) to the stage. At this point we can make any other changes we like, stage them, and then commit.</p><p>Let's restore the file:</p><pre><code>$ git reset .
+Unstaged changes after reset:
+D       install.sh
+$ git checkout .
+Updated 1 path from the index
+</code></pre><p>This is another way to restore the file - first we reset all of the changes to the index with <code>git reset .</code>, then we checkout all of the files in the current commit with <code>git checkout .</code>. But be careful with this method - it will also reset any other changes you have made. I prefer the <code>git checkout HEAD &lt;file_path></code> method as it is more explicit and only restores one file.</p><p>What about if we rename a file? Let's rename the install file and see what the status is:</p><pre><code>$ mv install.sh install_dotfiles.sh
+Changes not staged for commit:
+  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        deleted:    install.sh
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        install_dotfiles.sh
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre><p>We've renamed the file, but when we run <code>git status</code> it is telling us that the file is missing, and there is a new untracked file. But Git is smart enough to know when we move a file - if we run <code>git add .</code> to add all changes in the working tree to the index, Git will recognise that we have not deleted and added a file, but instead renamed it:</p><pre><code>$ git add .
+$ git status
+On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+        renamed:    install.sh -&gt; install_dotfiles.sh
+</code></pre><p>Let's restore the file by renaming it back to what it was and adding these changes:</p><pre><code>$ mv install_dotfiles.sh install.sh
+$ git add .
+$ git status
+On branch main
+nothing to commit, working tree clean
+</code></pre><p>We can also use the <code>git mv</code> (<em>move or rename a file</em>) command to move or rename a file and stage the changes in one go:</p><pre><code>$ git mv install.sh install_dotfiles.sh
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+        renamed:    install.sh -&gt; install_dotfiles.sh
+</code></pre><p>We can also restore the changes by using <code>git mv</code>:</p><pre><code>$ git mv install_dotfiles.sh install.sh
+$ git status
+On branch main
+nothing to commit, working tree clean
+</code></pre><p>These commands work equally well with folders, or lists of files and folders.</p><h1 id=restoring-your-working-tree>Restoring Your Working Tree</h1><p>We've already seen how the <code>git checkout</code> command can be used to switch branches. We can also use the <code>git checkout</code> command to restore our working tree to a certain point in our commit history. This is extremely useful if you want to see how your files looked at an earlier point in time, or restore your files to a previous state.</p><p>Let's take a quick look at our Git log so far.</p><pre><code>$ git log --graph --oneline
+*   2532277 (HEAD -&gt; main) Merge branch 'glog_alias'
+|\
+| * a8cbb15 (glog_alias) add the 'glog' alias
+* | 31548e4 add the 'glog' alias
+|/
+*   138b404 Merge branch 'more_aliases'
+|\
+| * a51ae1a (more_aliases) add a file to store 'zsh' aliases
+| * 63ea74f add a file to store 'bash' aliases
+* | a95bd90 add the 'gm' alias for 'git merge'
+|/
+* b9ae0ad (aliases) add alias 'gcm' for 'git checkout main'
+* f61369d add alias 'gs' for 'git status'
+* d7e1bb9 add the 'shell.d' folder
+* 01e7a10 add the 'install' and 'shell' scripts
+</code></pre><p>The Git log is showing the first seven digits of the SHA for each commit. We can checkout any commit by providing its SHA. We don't need to provide the entire SHA (which is good, because they are normally quite long), we only need to provide enough letters to uniquely identify the commit, so normally four or five digits is plenty.</p><p>Notice that the most recent commit is marked with the text <code>HEAD</code>. The <em>HEAD</em> is where Git is currently &lsquo;pointing&rsquo; to - we will see how to move the head shortly (the term <em>HEAD</em> also refers to the most recent commit of a branch).</p><p>At the moment we can visualise our Git log, with the commits, branches and HEAD like so:</p><p><img src=./images/git-log-showing-head.png alt="Diagram showing our Git log with HEAD indicated"></p><p>We can restore the working tree to the state of any of the commits by running <code>git checkout &lt;commit_sha></code>:</p><pre><code>$ git checkout f61369d
+Note: switching to 'f61369d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+</code></pre><p>This snippet moved our HEAD to the third commit in our repository. If you look at the files in your working tree you'll see that they are in exact state that they were when we made our third commit. Visually, we have moved the HEAD as shown below:</p><p><img src=./images/git-checkout-detached-head.png alt="Diagram showing a detached HEAD"></p><p>The warning that says we are in a &lsquo;detached HEAD&rsquo; state is telling us that our current position in the history is not at the &lsquo;tip&rsquo; of a branch - this means we cannot create a new commit without first starting a new branch.</p><p>If we want to move back to the &lsquo;tip&rsquo; of our main branch (or any other branch), we can use <code>git checkout &lt;branch_name></code>:</p><pre><code>$ git checkout main
+</code></pre><p>This moves us back to the &lsquo;tip&rsquo; of the main branch.</p><p>Git has a very convenient syntax we can use to move backwards. We can specify a branch name, a SHA or &lsquo;HEAD&rsquo;, use a <code>~</code> tilde character, and then provide the number of commits we want to move &lsquo;backwards&rsquo;:</p><pre><code>$ git checkout HEAD~1
+</code></pre><p>This command moves the &lsquo;head&rsquo; backwards one commit. This is useful if you realise you have made a mistake with your commit or recent commits and want to go backwards.</p><p>Remember - whenever you run <code>git checkout &lt;branch_name></code> Git moves the HEAD to the tip of the branch by default.</p><h1 id=summary>Summary</h1><p>In this chapter we looked at some of the core concepts behind Git - the repository, the working tree and the index. We saw how to stage and unstage changes, commit changes, create branches, merge branches, deal with conflicts and remove and rename files.</p><p>In the next chapter we will look at how to work with &lsquo;remote&rsquo; repositories - this will allow us to push our changes up to a location on the internet and share these changes with other users, or to download these changes to other machines we might work on.</p><p>We've introduced a lot of commands in this chapter - you can use this table as a quick reference:</p><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git init</code></td><td>Initialise a new Git Repository.</td></tr><tr><td><code>git status</code></td><td>Show the status of the working tree and index.</td></tr><tr><td><code>git add &lt;files></code></td><td>Stage <code>files</code> - you can use patterns and wildcards.</td></tr><tr><td><code>git reset &lt;files></code></td><td>Unstage <code>files</code> - you can use patterns and wildcards.</td></tr><tr><td><code>git rm --cached &lt;files></code></td><td>Unstage <code>files</code> - you can use patterns and wildcards.</td></tr><tr><td><code>git commit</code></td><td>Create a commit from the current index - the shell editor will open for the commit message.</td></tr><tr><td><code>git commit -m 'message'</code></td><td>Create a commit with message <code>message</code>.</td></tr><tr><td><code>git commit -a</code></td><td>Stage and commit all changes in the working tree.</td></tr><tr><td><code>git checkout &lt;branch></code></td><td>Checkout a branch called <code>branch</code>.</td></tr><tr><td><code>git checkout -b branch</code></td><td>Create and checkout a new branch called <code>branch</code>.</td></tr><tr><td><code>git branch &lt;name></code></td><td>Create a branch called <code>name</code> but do not check it out.</td></tr><tr><td><code>git branch -m &lt;new_name></code></td><td>Change the current branch name to <code>new_name</code>.</td></tr><tr><td><code>git merge &lt;branch></code></td><td>Merge the branch named <code>branch</code> into the current branch.</td></tr><tr><td><code>git log</code></td><td>Show the log of commits.</td></tr><tr><td><code>git log --oneline --branch</code></td><td>Show the log of commits, one line per commit, with the branch graph.</td></tr><tr><td><code>git rm &lt;files></code></td><td>Stage the removal of <code>files</code> from the repostiry - you can use patterns and wildcards.</td></tr><tr><td><code>git mv &lt;source> &lt;destination></code></td><td>Stage the movement of <code>source</code> to <code>destination</code>.</td></tr><tr><td><code>git checkout 8342bec</code></td><td>Checkout a commit with SHA <code>834bec</code>.</td></tr><tr><td><code>git checkout HEAD~1</code></td><td>Move the current HEAD back one commit.</td></tr><tr><td><code>git checkout &lt;branch>~3</code></td><td>Checkout <code>branch</code>, move back three commits from the tip.</td></tr></tbody></table></article><div class="book-footer justify-between"><div><a class="flex align-center" href=https://github.com/dwmkerr/effective-shell/commit/864c580996ec9dce2ae822902118bed678ea110c title="Last modified by Dave Kerr | Jun 19, 2021" target=_blank><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>Jun 19, 2021</span></a></div><div><a class="flex align-center" href=https://github.com/dwmkerr/effective-shell/edit/master/website/content/docs/part-5-building-your-toolkit/controlling-changes-with-git/_index.md target=_blank><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
+var d=document,s=d.createElement('script');s.async=true;s.src='//'+"effective-shell"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a><p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, Dave Kerr</p></div><aside class="book-toc levels-3 fixed"><nav id=TableOfContents><ul><li><a href=#chapter-28---controlling-changes-with-git>Chapter 28 - Controlling Changes with Git</a></li><li><a href=#what-is-git>What is Git</a></li><li><a href=#creating-a-git-repository>Creating a Git Repository</a></li><li><a href=#adding-and-resetting-changes-to-the-index>Adding and Resetting Changes to the Index</a></li><li><a href=#committing-changes>Committing Changes</a><ul><li><a href=#commit-messages>Commit Messages</a></li></ul></li><li><a href=#creating-branches>Creating Branches</a></li><li><a href=#merging>Merging</a><ul><li><a href=#merging-diverged-branches>Merging Diverged Branches</a></li><li><a href=#the-git-log>The Git Log</a></li><li><a href=#merge-conflicts>Merge Conflicts</a></li><li><a href=#other-merge-strategies>Other Merge Strategies</a></li></ul></li><li><a href=#deleting-and-renaming-files>Deleting and Renaming Files</a></li><li><a href=#restoring-your-working-tree>Restoring Your Working Tree</a></li><li><a href=#summary>Summary</a></li></ul></nav></aside></main></body></html>
