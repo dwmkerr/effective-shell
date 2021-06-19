@@ -35,4 +35,5 @@ bookMenuLevels: 1
    - [Configuring the Shell]({{< relref "/docs/part-5-building-your-toolkit/configuring-the-shell" >}})
    - [Customising Your Command Prompt]({{< relref "/docs/part-5-building-your-toolkit/customising-your-command-prompt" >}})
    - [Managing Your Dotfiles]({{< relref "/docs/part-5-building-your-toolkit/managing-your-dotfiles" >}})
+   - [Controlling Changes with Git]({{< relref "/docs/part-5-building-your-toolkit/controlling-changes-with-git" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})
