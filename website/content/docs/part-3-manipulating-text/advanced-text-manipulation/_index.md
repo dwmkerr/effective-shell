@@ -21,19 +21,14 @@ Seeing `sed` commands can be a little intimidating - they can look complex! But 
 Rather than dissecting each and every option or flag and every nuance of the program, I'm going to try and show some real world examples of how you can use `sed`. This will allow us to see the functionality in easier to digest chunks. It also keeps things practical! Let's dive in and look at some common tasks and how we can solve them with `sed`.
 
 {{< hint info >}}
-**Running the Samples**
+**Downloading the Samples**
 
-Each of these samples assumes you are in the `effective-shell` samples folder. If you don't have this folder, just run:
+Run the following command in your shell to download the samples:
 
+```sh
+curl effective.sh | sh
 ```
-mkdir -p ~/effective-shell
-curl -s -L https://effective-shell.com/downloads/effective-shell-playground.tar.gz | tar -xzf - -C ~/effective-shell
-cd ~/effective-shell
-```
-
-This command will download and extract the samples folder in your home directory an then set it as your working directory.
 {{< /hint >}}
-
 
 ## Replacing Text
 
@@ -576,7 +571,7 @@ stringData:
 EOF
 ```
 
-The first line is using a 'heredoc' to write multiple lines of text to a file. We see heredocs in detail in a later chapter. The file is also in the playground at `templates/secret.template.yaml`.
+The first line is using a 'heredoc' to write multiple lines of text to a file. We see heredocs in detail in a later chapter. The file is also in the samples at `effective-shell/templates/secret.template.yaml`.
 
 Now let's apply our substitution:
 

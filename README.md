@@ -31,8 +31,10 @@ curl effective.sh | sh
 
 Or can also manually download them using from any of these locations:
 
-- [https://effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
-- [https://effective-shell.com/downloads/effective-shell-playground.tar.gz](https://effective-shell.com/downloads/effective-shell-playground.tar.gz)
+- [https://effective-shell.com/downloads/effective-shell-samples.zip](https://effective-shell.com/downloads/effective-shell-samples.zip)
+- [https://effective-shell.com/downloads/effective-shell-samples.tar.gz](https://effective-shell.com/downloads/effective-shell-samples.tar.gz)
+
+The one-line shell installer is hosted at [github.com/dwmkerr/effective-shell-installer](https://github.com/dwmkerr/effective-shell-installer)
 
 ## The Website
 
@@ -67,10 +69,11 @@ make build
 
 The built site is generated at `./website/public`.
 
-Note that the [`effective-shell-playground`](./effective-shell-playground) folder is automatically zipped up and added to the website, meaning it can be downloaded directly from:
+Note that the [`samples`](./samples) folder is automatically zipped up and added to the website, meaning it can be downloaded directly from:
 
 ```
-https://effective-shell.com/downloads/effective-shell-playground.zip
+https://effective-shell.com/downloads/effective-shell-samples.zip
+https://effective-shell.com/downloads/effective-shell-samples.tar.gz
 ```
 
 ### Updating the Theme

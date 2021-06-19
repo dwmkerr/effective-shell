@@ -122,7 +122,7 @@ Here's an example of how a `trap` can be set to cleanup a temporary folder when 
 
 ```sh
 # Create a temporary folder for the effective shell download.
-source="https://effective-shell.com/downloads/effective-shell-playground.tar.gz"
+source="https://effective-shell.com/downloads/effective-shell-samples.tar.gz"
 tmp_dir=$(mktemp -d 2>/dev/null || mktemp -d -t 'effective-shell')
 tmp_tar="${tmp_dir}/effective-shell.tar.gz"
 
@@ -555,7 +555,7 @@ If I run this script from MacOS, the output below is shown:
 -+= 00001 root /sbin/launchd
  \-+= 07995 dwmkerr tmux
    \-+= 31195 dwmkerr /bin/zsh
-     \-+= 49833 dwmkerr sh ./effective-shell-playground/script
+     \-+= 49833 dwmkerr sh ./samples/script/nobang.sh
        \-+- 49834 dwmkerr pstree -p 49833
          \--- 49835 root ps -axwwo user,pid,ppid,pgid,command
 ```

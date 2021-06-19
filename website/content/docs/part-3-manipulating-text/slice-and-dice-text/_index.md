@@ -365,7 +365,7 @@ At first glance this doesn't seem very useful - but there's a nice trick we can 
 ```
 $ pwd | rev | cut -d\ -f 1 | rev
 
-effective-shell-playground
+effective-shell
 ```
 
 Here we take the current working directory, reverse it, cut the first field, then reverse it again. Here's what's happening at each stage:

@@ -35,7 +35,19 @@ python -m SimpleHTTPServer 3000
 
 In fact, this is so useful that I normally _alias_ this command, so that I can just type `serve`. We'll see aliases in a later chapter.
 
-Make sure you have the playground folder downloaded, then run the following commands to open the webpage:
+Make sure you have the samples folder downloaded.
+
+{{< hint info >}}
+**Downloading the Samples**
+
+Run the following command in your shell to download the samples:
+
+```sh
+curl effective.sh | sh
+```
+{{< /hint >}}
+
+Now run the following commands to open the webpage:
 
 ```
 $ cd ~/effective-shell/websites/simple

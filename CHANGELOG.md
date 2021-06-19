@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.14.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.13.0...v0.14.0) (2021-06-19)
+
+
+### Features
+
+* include 'repositories' in samples ([8aa34cf](https://www.github.com/dwmkerr/effective-shell/commit/8aa34cfc706991402eee79bc4b658d2c5825e595))
+
+## [0.13.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.12.0...v0.13.0) (2021-06-19)
+
+
+### Features
+
+* controlling changes with git chapter ([5e656d4](https://www.github.com/dwmkerr/effective-shell/commit/5e656d4c119ffb71e9729baee006e79d8c5a0860))
+
+
+### Bug Fixes
+
+* remove single quotes around tilde in set_ps1 ([ffa93c2](https://www.github.com/dwmkerr/effective-shell/commit/ffa93c2d296ab716bf33906ac15c1f2305528a2c))
+
 ## [0.12.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.11.1...v0.12.0) (2021-06-10)
 
 

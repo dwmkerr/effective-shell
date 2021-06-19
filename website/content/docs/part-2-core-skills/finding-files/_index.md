@@ -13,17 +13,13 @@ Searching through a system to find files or folders can be complex and time cons
 The `find` (search for files) command is used to search for files and folders and to perform operations on the results. Let's see it in action by running it in the `~/effective-shell` folder.
 
 {{< hint info >}}
-**Running the Samples**
+**Downloading the Samples**
 
-Each of these samples assumes you are in the `effective-shell` samples folder. If you don't have this folder, just run:
+Run the following command in your shell to download the samples:
 
+```sh
+curl effective.sh | sh
 ```
-mkdir -p ~/effective-shell
-curl -s -L https://effective-shell.com/downloads/effective-shell-playground.tar.gz | tar -xzf - -C ~/effective-shell
-cd ~/effective-shell
-```
-
-This command will download and extract the samples folder in your home directory and then set it as your working directory.
 {{< /hint >}}
 
 Let's set the current working directory to the `effective-shell` folder and run the `find` command:
