@@ -41,10 +41,11 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
     * [Chapter 26 - Customising Your Command Prompt](#chapter-26---customising-your-command-prompt)
     * [Chapter 27 - Managing Your Dotfiles](#chapter-27---managing-your-dotfiles)
-    * [Chapter 28 - Getting to Grips with Git - Sharing Your Dotfiles](#chapter-28---getting-to-grips-with-git---sharing-your-dotfiles)
-    * [Chapter 29 - How to avoid scripting!](#chapter-29---how-to-avoid-scripting)
+    * [Chapter 28 - Controlling Changes with Git](#chapter-28---controlling-changes-with-git)
+    * [Chapter 29 - Managing Remote Git Repositories and Sharing Your Dotfiles](#chapter-29---managing-remote-git-repositories-and-sharing-your-dotfiles)
 * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
-    * [Understanding Shell Expansions](#understanding-shell-expansions)
+    * [Chapter 30 - Understanding Shell Expansions](#chapter-30---understanding-shell-expansions)
+    * [Chapter 30 - How to avoid scripting!](#chapter-30---how-to-avoid-scripting)
     * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
     * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
     * [Chapter 27 - The Power of Terminal Editors](#chapter-27---the-power-of-terminal-editors)
@@ -264,11 +265,23 @@ We will also create a script that allows us to set our own command prompt 'theme
 
 As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. Configuration files are often called 'dotfiles'. In this chapter we'll see how to manage your configuration - and 'dotfiles' - in a way that allows you to easily manage changes over time and build up a library of scripts and features for your preferred shell. We'll also look at how we can use your 'dotfiles' across different shells.
 
-## Chapter 28 - Getting to Grips with Git - Sharing Your Dotfiles
+## Chapter 28 - Controlling Changes with Git
 
-If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell. In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories. We'll then take our 'dotfiles' from the previous chapter and turn them into a Git repository, so that we can quickly set up any environment with our preferred shell settings!
+If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell. In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories.
 
-## Chapter 29 - How to avoid scripting!
+## Chapter 29 - Managing Remote Git Repositories and Sharing Your Dotfiles
+
+In this chapter we'll take a look at how to take a local Git repository, like the one created in the previous chapter and upload it to a remote repository. We'll use the popular "GitHub" site to host our repository. We'll see how we can manage remote changes and use GitHub to share our dotfiles, so that we can quickly setup any machine with our personal configuration.
+
+# Part 6 - Advanced Techniques
+
+The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
+
+## Chapter 30 - Understanding Shell Expansions
+
+https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
+
+## Chapter 30 - How to avoid scripting!
 
 The shell is powerful, but can be complex. There are times when jumping into a shell script can make a task more complex than it needs to be. In this chapter we'll briefly look at some alternatives to shell scripting, from simple python and ruby scripts, to basic C programming. We'll also get an understanding of how to compile programs we've downloaded, which can be a common requirement on Linux systems.
 
@@ -276,14 +289,6 @@ Note: When to use the shell:
 - Universal compatibility such as for installing ruby, node, nvm etc (the set_ps1 script is an example)
 - When we need a shell function, e.g show options
 - When we want to execute programs (this is often not safe in code)
-
-# Part 6 - Advanced Techniques
-
-The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
-
-## Understanding Shell Expansions
-
-https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
 
 ## Chapter X - Testing Shell Scripts with Docker
 
@@ -425,6 +430,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: cronjobs, maybe as part of shell scripts?
 - structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
 - todo: advanced topic - supporting bash auto-completion. The `set-ps1` function would be a good one to use as an example
+- todo: useful patterns: allowing 'ctrl+c' to cancel read - run it in a subshell (e.g. `choice=$(read choice; echo ${choice})`)
 - todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
 - todo: getting help - what is the `zsh` equivalent of `help`?
 - `find` was in 'managing files
