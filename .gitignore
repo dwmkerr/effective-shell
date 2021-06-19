@@ -4,3 +4,4 @@ website/public
 # Folders which might be created by IDEs or other editing tools.
 .idea/
 .DS_Store
+statistics.csv
