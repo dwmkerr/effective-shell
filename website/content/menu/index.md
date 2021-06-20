@@ -36,4 +36,5 @@ bookMenuLevels: 1
    - [Customising Your Command Prompt]({{< relref "/docs/part-5-building-your-toolkit/customising-your-command-prompt" >}})
    - [Managing Your Dotfiles]({{< relref "/docs/part-5-building-your-toolkit/managing-your-dotfiles" >}})
    - [Controlling Changes with Git]({{< relref "/docs/part-5-building-your-toolkit/controlling-changes-with-git" >}})
+   - [Managing Remote Git Repositories and Sharing Your Dotfiles]({{< relref "/docs/part-5-building-your-toolkit/managing-remote-git-repositories" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})
