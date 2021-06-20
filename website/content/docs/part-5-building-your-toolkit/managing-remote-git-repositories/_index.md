@@ -408,6 +408,7 @@ Spend some time getting familiar with the core Git commands that we have introdu
 - Interactive Staging: You can interactively stage files, parts of files (called 'hunks') or even individual lines directly from the shell, this can be invaluable when making sure that exactly the right changes are going into the index.
 - Patch staging or checkout: I probably use the `git add -p` command to 'patch' changes dozens of times a day, this is my preferred mechanism of reviewing my changes as I stage them.
 - Merge Strategies: Understanding how 'squashing' works (and its drawbacks) can be very useful when working with branches. Merge strategies are a useful topic to go deeper on.
+- Rebasing: Rebasing can be used as a merge strategy but can also help in other scenarios, I would definitely recommend learning about rebasing if you have multiple people working on a repository, it can save a lot of trouble when integrating complex changes.
 - Commit and Tag signing: Great for security sensitive users, you can use special keys to 'sign' your commits and improve the security of your repositories.
 - [GitHub Flow](https://guides.github.com/introduction/flow/): A common workflow used with GitHub projects.
 
