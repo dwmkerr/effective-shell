@@ -241,8 +241,6 @@ Hosting your dotfiles on GitHub is a very convenient way of making your dotfiles
 
 If you search online for 'dotfiles', you will find many articles and users who have shared their dotfiles online, you can look over these for inspiration!
 
-# TODO: PROOFED UP TO HERE
-
 # Forking and Pull Requests
 
 Forking and Pull Requests are features offered by popular Git hosting services like GitHub, BitBucket and GitLab. They are not actually Git features, but have become so widely used that you are likely to come across the terminology when working with online Git repositories.
@@ -259,22 +257,75 @@ Choose the 'fork' option and GitHub will create a copy of the repository in your
 
 If you have made changes to a fork, you can then open a _Pull Request_. A pull request is a request to merge a set of changes from one branch into another, or from one fork into the original repository. So if you were to improve upon the dotfiles that you forked, and wanted to share your changes back, you could open a pull request to do so.
 
-Typically when a pull request is opened, the project maintainer will then review the changes, make suggestions or discuss the proposal, and then either merge the pull request or reject it.
+Typically when a pull request is opened, the project maintainer will then review the changes, make suggestions or discuss the proposal, and then either merge the pull request or reject it. In the screenshot below I am opening a pull request from my clone of the dorfile repository to the original dotfiles repository, this pull requests adds an uninstall script to the repository. A maintainer of the target repository will then review the changes:
 
-This model of forking and pull requests is really just a nice user interface on top of the underlying capabilities Git has to track remotes and manage branches. But services like GitHub offer functionality to discuss changes, run arbitrary pipelines project maintainers might create to test the code and so on.
+![Screenshot of a pull request being opened](./images/github-open-pull-request.png)
+
+This model of forking and pull requests is really just a nice user interface on top of the underlying capabilities Git has to track remotes and manage branches. Services like GitHub offer functionality to discuss changes, run arbitrary pipelines project maintainers might create to test the code and so on.
 
 GitHub has become a remarkably popular site for people to collaborate on projects together. At the time of writing the `microsoft/vscode` repository, which is the popular Visual Studio Code open-source editor, has had contributions from more than 19,000 individual contributors!
+
+# A Script to Open a Pull Request
+
+When you push a branch to a remote on GitHub, GitLab, BitBucket and a number of other Git services providers, a message is shown in the command prompt with a link to open a Pull Request:
+
+```
+$ git push -u origin fix/fix-shell-configuration
+...
+remote:
+remote: Create a pull request for 'fix/fix-shell-configuration' on GitHub by visiting:
+remote:      https://github.com/dwmkerr/dotfiles/pull/new/fix/fix-shell-configuration
+...
+```
+
+We can write a shell function that runs the `git push` command, reads its output, and then if it finds a web address, open it in a browser. In fact, the dotfiles repository at [github.com/effective-shell/dotfiles](https://github.com/effective-shell/dotfiles) has exactly this function - just run the command `gpr` to open a pull request!
+
+This function is actually quite straightforward - the code for it is below (with some of the comments and code to colour the output removed for legibility):
+
+```sh
+gpr() {
+    # Get the current branch name, or use 'HEAD' if we cannot get it.
+    branch=$(git symbolic-ref -q HEAD)
+    branch=${branch##refs/heads/}
+    branch=${branch:-HEAD}
+
+    # Pushing take a little while, so let the user know we're working.
+    printf "Opening pull request for ${branch}...\n"
+
+    # Push to origin, grabbing the output but then echoing it back.
+    push_output=`git push origin -u ${branch} 2>&1`
+    printf "\n${push_output}"
+
+    # If there's anything which starts with http, it's a good guess it'll be a
+    # link to GitHub/GitLab/Whatever. So open the first link found.
+    link=$(echo ${push_output} | grep -o 'http.*' | head -n1 | sed -e 's/[[:space:]]*$//')
+    if [ ${link} ]; then
+        printf "\nOpening: ${GREEN}${link}${RESET}..."
+        python -mwebbrowser ${link}
+    fi
+}
+```
+
+This snippet first gets the name of the current branch, or `HEAD` if we cannot work the name out. When then run the `git push origin` command, and record the output of the command into a variable.
+
+Once the push command has completed, we write its output to the screen, and search for the first hyperlink, using `grep` and `sed`, then use `python` to open the link in a browser.
+
+I use the `gpr` function many times per day and it has been a real time-saver!
 
 # Showing Git Information in the Command Prompt
 
 In [Chapter 26 - Customising Your Command Prompt]({{< relref "/docs/part-5-building-your-toolkit/customising-your-command-prompt" >}}) we saw how to customise the command prompt by setting the `PS1` variable. As you start using Git more you might find it convenient to show some information about the repository in your prompt.
 
-As an example, while I am writing this chapter, my command prompt looks like this (only in colour!):
+As an example, while I am writing this chapter, my command prompt looks like this:
 
 ```
 github/dwmkerr/effective-shell feat/managing-git-remotes ! 1 in stash
 $
 ```
+
+This is easier to see in the screenshot below as it shows the colour:
+
+![Screenshot showing my PS1 line in with Git information in colour](./images/ps1-with-git-information.png)
 
 I spread my prompt over two lines and leave the prompt indicator as the only thing on the line where I type. This means my cursor does not become too indented. My command prompt shows the following information:
 
@@ -344,7 +395,7 @@ We have only seen the absolute basics of Git in this chapter. Git is an amazingl
 
 Many users will use a graphical tool to work with Git - this is perfectly fine if it works for you. But to be an _effective shell_ user you should really spend the time getting familiar with the core Git commands using the command-line.
 
-Git can sometimes seem overwhelming to people and has a reputation for being complex. This is a somewhat unfair reputation - version control of files is itself an inherently complex topic. No matter what tool you use, there will always be the challenges of managing changes across environments, dealing with conflicts, integrating work and so on. The basic Git functionality is _incredibly_ good at making 99% of this work simple and straightforward, and Git gives you the tools to make the other 1% at least manageable.
+Git can sometimes seem overwhelming to people and has a reputation for being complex. This is somewhat unfair - version control of files is itself an inherently complex topic. No matter what tool you use, there will always be the challenges of managing changes across environments, dealing with conflicts, integrating work and so on. The basic Git functionality is _incredibly_ good at making 99% of this work simple and straightforward, and Git gives you the tools to make the other 1% at least manageable.
 
 Spend some time getting familiar with the core Git commands that we have introduced in this chapter. As you find yourself becoming more familiar, here are the next set of topics I would recommend learning about:
 
@@ -355,7 +406,8 @@ Spend some time getting familiar with the core Git commands that we have introdu
 - Stashes: If you want to save your changes, but they are currently not ready to be committed (perhaps because they are only partially complete), you can use the `git stash` command to store working tree changes. This lets you store the changes away, then checkout other branches, then restore the changes later when you are ready.
 - Git Clean: The `git clean` command is very useful to help you remove unneeded files from your working tree.
 - Interactive Staging: You can interactively stage files, parts of files (called 'hunks') or even individual lines directly from the shell, this can be invaluable when making sure that exactly the right changes are going into the index.
-- Merge Strategies: Understanding how 'squashing' works (and its drawbacks) can be very useful when working with branches. Merge strategies in general are a useful topic to go deeper on.
+- Patch staging or checkout: I probably use the `git add -p` command to 'patch' changes dozens of times a day, this is my preferred mechanism of reviewing my changes as I stage them.
+- Merge Strategies: Understanding how 'squashing' works (and its drawbacks) can be very useful when working with branches. Merge strategies are a useful topic to go deeper on.
 - Commit and Tag signing: Great for security sensitive users, you can use special keys to 'sign' your commits and improve the security of your repositories.
 
 There are numerous articles and online books on Git - I also recommend the excellent book "Pro Git" by Scott Chacon and Ben Straub.
@@ -370,11 +422,13 @@ As a reminder, the core concepts are:
 
 | Concept           | Description                                                                         |
 |-------------------|-------------------------------------------------------------------------------------|
-| `git init`        | Creates a local repository.                                                         |
-| `git clone`       | Downloads a remote repository.                                                      |
 | The Working Tree  | The folder you are working in and tracking change to.                               |
 | The Index         | The 'staging' area for building commits.                                            |
 | The Repository    | The full set of all commits, branches and metadata.                                 |
+| A Fork            | A copy of an entire repository, including its history and all branches.             |
+| A Pull Request    | A proposal to merge one branch into another, or a branch in a fork to the upstream. |
+| `git init`        | Creates a local repository.                                                         |
+| `git clone`       | Downloads a remote repository.                                                      |
 | `git add`         | Stage a change from the working tree to the index.                                  |
 | `git reset`       | Unstage a change from the index.                                                    |
 | `git commit`      | Create a new commit.                                                                |
@@ -384,8 +438,6 @@ As a reminder, the core concepts are:
 | `git push`        | Push changes to an upstream branch.                                                 |
 | `git fetch`       | Retrieve information about changes to a remote.                                     |
 | `git pull`        | Download and merge changes from a remote.                                           |
-| A Fork            | A copy of an entire repository, including its history and all branches.             |
-| A Pull Request    | A proposal to merge one branch into another, or a branch in a fork to the upstream. |
 
 # Summary
 
