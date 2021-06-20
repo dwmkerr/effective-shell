@@ -409,6 +409,7 @@ Spend some time getting familiar with the core Git commands that we have introdu
 - Patch staging or checkout: I probably use the `git add -p` command to 'patch' changes dozens of times a day, this is my preferred mechanism of reviewing my changes as I stage them.
 - Merge Strategies: Understanding how 'squashing' works (and its drawbacks) can be very useful when working with branches. Merge strategies are a useful topic to go deeper on.
 - Commit and Tag signing: Great for security sensitive users, you can use special keys to 'sign' your commits and improve the security of your repositories.
+- [GitHub Flow](https://guides.github.com/introduction/flow/): A common workflow used with GitHub projects.
 
 There are numerous articles and online books on Git - I also recommend the excellent book "Pro Git" by Scott Chacon and Ben Straub.
 
