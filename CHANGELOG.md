@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.15.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.14.0...v0.15.0) (2021-06-20)
+
+
+### Features
+
+* managing remote git repositories ([bb6703f](https://www.github.com/dwmkerr/effective-shell/commit/bb6703fbdf6d997ef737bf97a589ba1eb9f1a6ac))
+
+
+### Bug Fixes
+
+* add note on rebasing to git remotes ([b6ebb1b](https://www.github.com/dwmkerr/effective-shell/commit/b6ebb1b0bd0d553dd67087313e2dc9d476082358))
+
 ## [0.14.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.13.0...v0.14.0) (2021-06-19)
 
 
