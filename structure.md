@@ -58,12 +58,11 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter X - Build Text Manipulation Programs?](#chapter-x---build-text-manipulation-programs)
 * [Part X - Linux Essentials](#part-x---linux-essentials)
     * [What is Linux?](#what-is-linux)
-    * [Environment Variables](#environment-variables)
     * [Processes](#processes)
+    * [Environment Variables](#environment-variables)
     * [Users, Groups and Permissions](#users-groups-and-permissions)
     * [The Linux Filesystem Hierarchy Standard](#the-linux-filesystem-hierarchy-standard)
     * [Everything is a File](#everything-is-a-file)
-    * [Git](#git)
 * [Appendixes](#appendixes)
     * [Appendix 1: Shell Shortcuts](#appendix-1-shell-shortcuts)
     * [Appendix 2: Shell Parameter Expansion](#appendix-2-shell-parameter-expansion)
@@ -304,6 +303,8 @@ GNU Make can be a powerful tool for anyone who uses multiple programming languag
 
 If you are already in the shell, then you might find it convenient to edit code and files directly from the shell. Getting familiar with some of the capabilities of Vim or Emacs can open up a whole new world for how you work with text in the shell.
 
+Note: using vi as the command line editor for Git would this be a good way to start?
+
 ## Chapter 28 - The Multiplexer
 
 If you are regularly using a shell, then learning how to use a terminal multiplexer like `screen` or `tmux` can greatly improve your productivity. In this chapter we'll see how terminal multiplexers work and brush the surface of what they can do.
@@ -342,25 +343,35 @@ Could do a small chapter on how to build a text manipulation program which simpl
 
 # Part X - Linux Essentials
 
+This is an optional introduction to Linux and some of the core concepts.
+
+What is Linux?
+Processes and Startup
+Environment Variables
+The Linux Filesystem Hierarchy
+Everything is a File
+
 ## What is Linux?
 
 Unix, Linux, BSD,
 
 Great read: http://www.linfo.org/linuxdef.html
 
-## Environment Variables
-
-How environment variables work, how they are accessed in a shell.
-
 ## Processes
 
-Signals, process tree, permissions, process id.
+Signals, process tree, permissions, process id, startup (init.d/system.d)
 
 - bug: in chapter 9 (job control) we mention signals are in a later chapter, but not sure where this should be yet.
 - todo: signals - we definitely need to discuss them and also talk about how shells capture them, scripts handle them and how we must write programs which handle them.
   1. Ctrl Z - Chapter 8
   2. Ctrl C - TODO
   3. Ctrl D - Chapter X
+
+## Environment Variables
+
+Suggestion: we put environment variables in the processes section.
+
+How environment variables work, how they are accessed in a shell.
 
 ## Users, Groups and Permissions
 
@@ -395,9 +406,7 @@ Note: This should cover things like:
 
 Link to this from clipboard chapter, pipelines chapter, others which use special files
 
-## Git
-
-This may as well be an entire part, with 5 chapters, why not.
+The 'LFHS' chapter could merge into this.
 
 # Appendixes
 
