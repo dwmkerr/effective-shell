@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.16.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.15.0...v0.16.0) (2021-06-22)
+
+
+### Features
+
+* `set -ixon` in shell config so we can use Ctrl+S search ([f865598](https://www.github.com/dwmkerr/effective-shell/commit/f865598d74bc9a7c250614c85275219c838e8ff0))
+* wordcount script adds an estimated reading time ([8553e0a](https://www.github.com/dwmkerr/effective-shell/commit/8553e0a49072d92adaea2bee44433ea1a9ebd71d))
+
 ## [0.15.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.14.0...v0.15.0) (2021-06-20)
 
 
