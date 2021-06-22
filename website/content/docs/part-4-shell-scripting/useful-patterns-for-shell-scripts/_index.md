@@ -10,6 +10,47 @@ To close this the section on shell scripting we're going to look at some common 
 
 Remember that although this chapter focuses on patterns that are useful in scripts, you can apply these patterns in any shell session. This means you might find this chapter useful even if you are not expecting to write scripts, just as a way to understand some more advanced shell techniques.
 
+# Ensuring Exit on Failure
+
+By default, shell scripts will continue to execute if a command fails. This behaviour makes sense when running an interactive shell - we don't want the shell to close if a command fails. For a shell script however, continuing after an error has occurred is most likely going to lead to unexpected behaviour.
+
+There are two options that you will often see set at the top of a script:
+
+```sh
+set -e
+set -o pipefail
+```
+
+The first option ensures that the shell script will abort if a command fails.
+
+The second option ensures that if a command that is part of a pipeline fails, then the shell script fails. Even when the `set -e` option is set, only the final command in a pipeline will cause the script to exit if it fails.
+
+Here's an example showing why these options are useful:
+
+```sh
+# Create the effective shell folder.
+mkdir -p ~/effective-shell
+
+# Download and untar the effective shell samples.
+samples_uri='https://https://effective-shell.com/downloads/effective-shell-samples.tar.gz'
+$ sudo wget -c "${samples_uri}" -O - | tar -xz -C ~/effective-shell
+```
+
+If we don't include the `set -e` option, then if the `mkdir -p` command fails, the script will continue to run. We will then attempt to download and untar a file into a folder that does not exist. Why would `mkdir -p` fail? Although `mkdir -p` succeeds even if the folder exists, it will still fail if there is a file in the location specified, or there are not permissions to create the folder and so on. So even commands that you assume should run successfully you have to be careful with.
+
+In the second part of this snippet, we use the `wget` (_web get_) command to download the samples and pipe the results to `tar` to extract them. If we have _only_ set `set -e`, then if `wget` fails (for example if the address is wrong or we are offline) then the shell will not abort the script and continue trying to run the subsequent commands, which are not going to work as expected.
+
+If you have a command that you expect may fail, but want to continue execution even if it does fail, then use the `||` operator:
+
+```sh
+# Remove the shell configuration.
+rm "$HOME/.shell.sh" || true
+```
+
+In this case I have used a conditional operator, as described in [Chapter 20 - Mastering Conditional Logic]({{< relref "/docs/part-4-shell-scripting/mastering-conditional-logic" >}}), to ensure that even if the `rm` command fails for some reason, the overall result of the statement will be true and the script will not exit.
+
+Check Chapter [Chapter 22 - Functions, Parameters and Error Handling]({{< relref "/docs/part-4-shell-scripting/functions-parameters-and-error-handling" >}}) if you need a refresher on the `set -e` or `set -o pipefail` commands.
+
 # Debugging Shell Scripts
 
 You can use the `set` (_set option_) command to set the _trace option_.<!--index--> This option is incredibly useful for debugging shell scripts. When the trace option is set, the shell will write out each statement before it is evaluated.
@@ -74,6 +115,19 @@ Name of home folder is dwmkerr
 ```
 
 Notice that each subshell command is shown with an additional plus as it gets more nested. The nested commands are shown in the order that they are evaluated.
+
+I often start my shell scripts with a snippet like this:
+
+```sh
+# Fail on errors in commands or in pipelines.
+set -e
+set -o pipefail
+
+# Uncomment the below if you want to enable tracing to debug the script.
+# set -x
+```
+
+This combines the first two patterns we've seen - failing on errors and having the option to trace a script.
 
 # Checking for Existing Variables or Functions
 
