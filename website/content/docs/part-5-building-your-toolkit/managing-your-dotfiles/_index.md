@@ -228,6 +228,16 @@ In this method we specify an array of editors, go through each one, check to see
 
 You'll notice that in the _~/effective-shell/dotfiles/shell.sh_ folder I `unset` every shell variable after I use it. This is just to clean up after myself and try to leave the environment as pristine as possible after sourcing the file.
 
+Another useful option to set is `stty -ixon`:
+
+```sh
+# Allow us to use Ctrl+S to perform forward search, by disabling the start and
+# stop output control signals, which are not needed on modern systems.
+stty -ixon
+```
+
+This command tells the terminal driver that we don't need to control transmission with the Ctrl+Q and Ctrl+S commands, meaning we can instead use Ctrl+S to perform a forward search.
+
 Now let's set some sensible settings for working with folders:
 
 ```sh

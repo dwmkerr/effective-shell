@@ -37,6 +37,10 @@ VISUAL=vi
 # done
 # unset editor preferred_editors
 
+# Allow us to use Ctrl+S to perform forward search, by disabling the start and
+# stop output control signals, which are not needed on modern systems.
+stty -ixon
+
 # Set a shell option but don't fail if it doesn't exist!
 safe_set() { shopt -s "$1" >/dev/null 2>&1 || true; }
 
