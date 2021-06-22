@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.16.0...v0.17.0) (2021-06-22)
+
+
+### Features
+
+* add missing shell script essential (set -e) ([fdc15de](https://www.github.com/dwmkerr/effective-shell/commit/fdc15de5d545b902481a2d5a538dd2afadf3d275))
+
 ## [0.16.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.15.0...v0.16.0) (2021-06-22)
 
 
