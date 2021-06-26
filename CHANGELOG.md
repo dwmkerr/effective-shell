@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.17.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.17.0...v0.17.1) (2021-06-26)
+
+
+### Bug Fixes
+
+* fix typo in chapter 16 and missing sample file ([2ab7e89](https://www.github.com/dwmkerr/effective-shell/commit/2ab7e8954ddd5fbe123caf0971bee3257416c12c))
+
 ## [0.17.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.16.0...v0.17.0) (2021-06-22)
 
 
