@@ -382,7 +382,7 @@ Let's look at another example. Here we have some `yaml` content, a set of keys a
 
 ```
 title: "Advanced Text Manipulation"
-slug: advanced-text-manipulaton
+slug: advanced-text-manipulation
 weight: 14
 ```
 
@@ -393,7 +393,7 @@ First, let's see if we can extract the keys:
 <pre>
 $ grep -E '[^:]+:' ~/effective-shell/docs/chapter12.md
 <strong>title</strong>: "Advanced Text Manipulation"
-<strong>slug</strong>: advanced-text-manipulaton
+<strong>slug</strong>: advanced-text-manipulation
 <strong>weight</strong>: 14
 <strong>Let's say we have a script which is used to backup some local files to an Amazon S3 bucket. We can see a script like this here:
 We could use the `sed` command to change the S3 bucket. For example, if we wanted to change the `settings` text to `dotfiles` we could run the command below:
@@ -411,7 +411,7 @@ We can improve on it by telling it to not include spaces before the colon, and b
 <pre>
 % grep -E '^[^: ]+:' ~/effective-shell/docs/chapter12.md
 <strong>title</strong>: "Advanced Text Manipulation"
-<strong>slug</strong>: advanced-text-manipulaton
+<strong>slug</strong>: advanced-text-manipulation
 <strong>weight</strong>: 14
 <strong>"2","94","Avengers</strong>: Endgame (2019)","531"
 </pre>
@@ -421,7 +421,7 @@ Much better. The pattern now starts with `^` meaning 'start of line', and the ty
 <pre>
 $ grep -E '^[^: "]+:' ~/effective-shell/docs/chapter12.md
 <strong>title</strong>: "Advanced Text Manipulation"
-<strong>slug</strong>: advanced-text-manipulaton
+<strong>slug</strong>: advanced-text-manipulation
 <strong>weight</strong>: 14
 </pre>
 
@@ -440,7 +440,7 @@ Now let's start using this pattern in `sed`. Let's print all lines which match t
 ```
 $ sed -E -n '/^[^: "]+:/p' ~/effective-shell/docs/chapter12.md
 title: "Advanced Text Manipulation"
-slug: advanced-text-manipulaton
+slug: advanced-text-manipulation
 weight: 14
 ```
 
@@ -452,7 +452,7 @@ Now let's actually quote the result. To do that, we need to find lines where the
 
 ```
 $ sed -E -n '/^[^: "]+: +[^"]+$/p' ~/effective-shell/docs/chapter12.md
-slug: advanced-text-manipulaton
+slug: advanced-text-manipulation
 weight: 14
 ```
 
@@ -477,7 +477,7 @@ We could just as easily show the value:
 
 ```
 $ sed -E -n 's/(^[^: "]+:)( +[^"]+$)/Value is "\2"/p' ~/effective-shell/docs/chapter12.md
-Value is " advanced-text-manipulaton"
+Value is " advanced-text-manipulation"
 Value is " 14"
 ```
 
@@ -485,7 +485,7 @@ Here we're printing the second capture group. Now you might have noticed that in
 
 ```
 $ sed -E -n 's/(^[^: "]+)(: +)([^"]+$)/Key "\1", Value "\3", Separator "\2"/p' ~/effective-shell/docs/chapter12.md
-Key "slug", Value "advanced-text-manipulaton", Separator ": "
+Key "slug", Value "advanced-text-manipulation", Separator ": "
 Key "weight", Value "14", Separator ": "
 ```
 
@@ -495,7 +495,7 @@ Let's finally tie it together - add quotes around unquoted values:
 
 ```
 $ sed -E -n 's/(^[^: "]+)(: +)([^"]+$)/\1\2"\3"/p' ~/effective-shell/docs/chapter12.md
-slug: "advanced-text-manipulaton"
+slug: "advanced-text-manipulation"
 weight: "14"
 ```
 
@@ -513,7 +513,7 @@ Let's peep at the top of the file we created to see if it looks right:
 $ head -n 10 updated.md
 ---
 title: "Advanced Text Manipulation"
-slug: "advanced-text-manipulaton"
+slug: "advanced-text-manipulation"
 weight: "15"
 ---
 
@@ -528,7 +528,7 @@ This is just scratching the surface - but even with these basic tools, there is 
 
 ```
 $ sed -E -n '/(^[^: "]+:)( +[^"0-9]+$)/p' ~/effective-shell/docs/chapter12.md
-slug: advanced-text-manipulaton
+slug: advanced-text-manipulation
 ```
 
 All we've done is changed the value pattern from `[^"]` (anything except quotes) to `[^0-9]` (anything except quotes and digits).
