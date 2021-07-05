@@ -10,9 +10,50 @@ To close this the section on shell scripting we're going to look at some common 
 
 Remember that although this chapter focuses on patterns that are useful in scripts, you can apply these patterns in any shell session. This means you might find this chapter useful even if you are not expecting to write scripts, just as a way to understand some more advanced shell techniques.
 
+# Ensuring Exit on Failure
+
+By default, shell scripts will continue to execute if a command fails. This behaviour makes sense when running an interactive shell - we don't want the shell to close if a command fails. For a shell script however, continuing after an error has occurred is most likely going to lead to unexpected behaviour.
+
+There are two options that you will often see set at the top of a script:
+
+```sh
+set -e
+set -o pipefail
+```
+
+The first option ensures that the shell script will abort if a command fails.
+
+The second option ensures that if a command that is part of a pipeline fails, then the shell script fails. Even when the `set -e` option is set, only the final command in a pipeline will cause the script to exit if it fails.
+
+Here's an example showing why these options are useful:
+
+```sh
+# Create the effective shell folder.
+mkdir -p ~/effective-shell
+
+# Download and untar the effective shell samples.
+samples_uri='https://https://effective-shell.com/downloads/effective-shell-samples.tar.gz'
+$ sudo wget -c "${samples_uri}" -O - | tar -xz -C ~/effective-shell
+```
+
+If we don't include the `set -e` option, then if the `mkdir -p` command fails, the script will continue to run. We will then attempt to download and untar a file into a folder that does not exist. Why would `mkdir -p` fail? Although `mkdir -p` succeeds even if the folder exists, it will still fail if there is a file in the location specified, or there are not permissions to create the folder and so on. So even commands that you assume should run successfully you have to be careful with.
+
+In the second part of this snippet, we use the `wget` (_web get_) command to download the samples and pipe the results to `tar` to extract them. If we have _only_ set `set -e`, then if `wget` fails (for example if the address is wrong or we are offline) then the shell will not abort the script and continue trying to run the subsequent commands, which are not going to work as expected.
+
+If you have a command that you expect may fail, but want to continue execution even if it does fail, then use the `||` operator:
+
+```sh
+# Remove the shell configuration.
+rm "$HOME/.shell.sh" || true
+```
+
+In this case I have used a conditional operator, as described in [Chapter 20 - Mastering Conditional Logic]({{< relref "/docs/part-4-shell-scripting/mastering-conditional-logic" >}}), to ensure that even if the `rm` command fails for some reason, the overall result of the statement will be true and the script will not exit.
+
+Check Chapter [Chapter 22 - Functions, Parameters and Error Handling]({{< relref "/docs/part-4-shell-scripting/functions-parameters-and-error-handling" >}}) if you need a refresher on the `set -e` or `set -o pipefail` commands.
+
 # Debugging Shell Scripts
 
-You can use the `set` (_set option_) command to set the _trace option_<!--index-->. This option is incredibly useful for debugging shell scripts. When the trace option is set, the shell will write out each statement before it is evaluated.
+You can use the `set` (_set option_) command to set the _trace option_.<!--index--> This option is incredibly useful for debugging shell scripts. When the trace option is set, the shell will write out each statement before it is evaluated.
 
 Let's see just how useful this is with an example!
 
@@ -75,6 +116,19 @@ Name of home folder is dwmkerr
 
 Notice that each subshell command is shown with an additional plus as it gets more nested. The nested commands are shown in the order that they are evaluated.
 
+I often start my shell scripts with a snippet like this:
+
+```sh
+# Fail on errors in commands or in pipelines.
+set -e
+set -o pipefail
+
+# Uncomment the below if you want to enable tracing to debug the script.
+# set -x
+```
+
+This combines the first two patterns we've seen - failing on errors and having the option to trace a script.
+
 # Checking for Existing Variables or Functions
 
 The `declare` (_set variable values and attributes_)<!--index--> command can be used to explicitly declare that we are creating a variable. We saw in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) that sometimes this command is required - if we want to create an associative array for example.
@@ -122,7 +176,7 @@ Here's an example of how a `trap` can be set to cleanup a temporary folder when 
 
 ```sh
 # Create a temporary folder for the effective shell download.
-source="https://effective-shell.com/downloads/effective-shell-playground.tar.gz"
+source="https://effective-shell.com/downloads/effective-shell-samples.tar.gz"
 tmp_dir=$(mktemp -d 2>/dev/null || mktemp -d -t 'effective-shell')
 tmp_tar="${tmp_dir}/effective-shell.tar.gz"
 
@@ -134,7 +188,7 @@ cleanup () {
 }
 
 # Cleanup on interrupt or terminate signals and on exit.
-trap "cleanup" SIGINT SIGTERM EXIT
+trap "cleanup" INT TERM EXIT
 
 # Download the samples.
 curl --fail --compressed -q -s "${source}" -o "${tmp_tar}"
@@ -143,7 +197,7 @@ curl --fail --compressed -q -s "${source}" -o "${tmp_tar}"
 tar -xzf "${tmp_tar}" -C "${tmp_dir}"
 ```
 
-In this script we have defined a function called 'cleanup'. We then use the `trap` command to ensure that we call the function if `SIGINT` is sent, `SIGTERM` is sent or when the script exits. This is very useful in scripts that can take a while. This script downloads the effective shell samples from the internet. If the user is having connectivity issues then this might take a while and they may end up aborting the script. If they do so in this case we will still clean up the temporary folder we created.
+In this script we have defined a function called 'cleanup'. We then use the `trap` command to ensure that we call the function if `INT` is sent, `TERM` is sent or when the script exits. This is very useful in scripts that can take a while. This script downloads the effective shell samples from the internet. If the user is having connectivity issues then this might take a while and they may end up aborting the script. If they do so in this case we will still clean up the temporary folder we created.
 
 Traps provide a very convenient way to handle things like cleanup, provide more diagnostic information or even disable a user from interrupting your script. In the example below we force the user to press Ctrl+C twice if they want to interrupt the script:
 
@@ -161,7 +215,7 @@ on_interrupt() {
     fi
 }
 
-trap on_interrupt SIGINT
+trap on_interrupt INT
 
 total_time=0
 while true; do
@@ -187,69 +241,11 @@ Long operation: 12 seconds elapsed
 
 Some other things that you might want to be aware of for the trap command are:
 
-- The `SIG` at the beginning of the name of a signal is optional, and a signal number can also be used - this means that `SIGINT`, `INT` and `2` are all equivalent options for `trap`
+- The `SIG` at the beginning of the name of a signal is optional but not supported in all shells, and a signal number can also be used - this means that `SIGINT`, `INT` and `2` are all equivalent options for `trap`, but `INT` is the most portable and easiest to read!
 - You can list the signals available with `trap -l` or `kill -l` - but remember that special conditions such as `EXIT` and `RETURN` are not listed, you can find these with `help trap`
-- You can stop a signal from being processed with `trap "" SIGINT` - this means that no command will be executed when we receive a `SIGINT`
-- You can reset a trap by running `trap - SIGINT`, this will remove any trap handler
-- You can test your traps by sending a signal explicitly to your script with `kill -s SIGINT`, providing the name of the signal
-
-# Case Statements
-
-If you find yourself writing overly complex 'if statements', you might use a _case statement_<!--index--> to simplify your code.
-
-A case statement is a bit like an 'if statement'. The structure is as follows:
-
-```
-case <expression> in
-    pattern1)
-        <pattern1-commands>
-        ;;
-    pattern2 | pattern3)
-        <pattern2and3-commands>
-        ;;
-    *)
-        <default-commands>
-        ;;
-esac
-```
-
-Typically you will provide the 'case' statement a variable and use it to check against a number of values. Here's a common example you'll see - checking to see whether a response is 'yes' or 'no':
-
-```sh
-read -p "Yes or no: " response
-case "${response}" in
-    y | Y | yes | ok)
-        echo "You have confirmed"
-        ;;
-    n | N | no)
-        echo "You have denied"
-        ;;
-    *)
-        echo "'${response}' is not a valid response"
-        ;;
-esac
-```
-
-The example above shows very simple text patterns, but any text pattern can be used:
-
-```sh
-read -p "Yes or no: " response
-case "${response}" in
-    [yY]*)
-        echo "You have (probably) confirmed"
-        ;;
-    [nN]*)
-        echo "You have (probably) denied"
-        ;;
-    *)
-        echo "'${response}' is not a valid response"
-    ;;
-esac
-```
-
-In this example the first pattern is `[yY]*` which means either the 'y' or 'Y' character followed by zero or more characters, this will match things like 'yes' 'YES' or 'yay'. We have a similar pattern for the negative response.
-
-The case statement can look quite complex, I often think that even if it takes more lines to write the logic using 'if statements' it will be more readable, but this is common pattern nonetheless and good to know about!
+- You can stop a signal from being processed with `trap "" INT` - this means that no command will be executed when we receive a `INT`
+- You can reset a trap by running `trap - INT`, this will remove any trap handler
+- You can test your traps by sending a signal explicitly to your script with `kill -s INT`, providing the name of the signal
 
 # Handling Options
 
@@ -482,6 +478,57 @@ Note that when we're using the `command` command, we silence error output and st
 
 The _~/effective-shell/scripts/common.sh_ script checks to see whether certain GNU versions of tools are installed when running on OSX. You can refer to this script for an example of checking for the presence of commands.
 
+# Using 'Select' to Show a Menu
+
+The `select` compound command<!--index--> prints a menu and allows the user to make a selection. It is not part of the Posix standard, but is available in Bash and most Bash-like shells.
+
+Here's how we could ask a user to select their favourite fruit from a list:
+
+```sh
+select fruit in Apple Banana Cherry Durian
+do
+    echo "You chose: $fruit"
+    echo "This is item number: $REPLY"
+done
+```
+
+If we run these commands we will see output like the below:
+
+```
+1) Apple
+2) Banana
+3) Cherry
+4) Durian
+#? 1
+You chose: Apple
+This is item number: 1
+#? 3
+You chose: Cherry
+This is item number: 3
+#? 4
+You chose: Durian
+This is item number: 4
+#? ^D
+```
+
+Notice that `select` will run just like an infinite loop - after the statements in the select body are run, the selection is offered again. The user can either end transmission with the `^D` character or press `^C` to quit.
+
+You will normally see the `select` used with a `case` statement to process the selection. This is something you may come across in scripts so is useful to be aware of.
+
+# Running Commands in Subshells
+
+You will often see a nice little trick that allows you to change the current directory for a specific command, without affecting the current directory for the shell.
+
+Here's how this trick will look:
+
+```sh
+(mkdir -p ~/new-project; cd ~/new-project; touch README.md)
+```
+
+The brackets around the statements mean that these commands are run in a sub-shell. Because they run in a sub-shell, they change the directory in the sub-shell only, not the current shell. This means we don't need to change _back_ to the previous directory after the commands have completed.
+
+This sequence of commands would create a new folder (we use `mkdir -p` so that if the folder exists the command does not fail), then change to the folder, then create a new file called _README.md_.
+
 # Anti-Patterns
 
 Anti-patterns are techniques that you may see but should be avoided. I have noted a few here as you will likely see them in your travels and should know why they are problematic.
@@ -509,6 +556,67 @@ The second reason is that multiple parameters are not handled consistently acros
 ```
 
 However, on many Unix distributions only one parameter is passed. This would mean that the `-e` parameter would be silently ignored, which would be very confusing for the reader.
+
+## Complex Logic in Shell Scripts
+
+The shell is amazing. Considering how long it has been around, it has in many ways changed remarkably little in the last few decades. This is a testament to the genius of the design of Unix systems and the shell in general.
+
+However, the shell is _not_ generally going to be the best choice for any kind of complex logic or work. Shell scripts are great for automating simple tasks, creating utilities to help you out, but come with many challenges. The syntax can be confusing, making scripts work across multiple systems can be challenging, and there are not many features to help you write robust code.
+
+Perhaps the biggest anti-pattern in shell scripts is to simply let them get to large and do too much with them. There comes a certain point where you will almost certainly create a more portable, performant and maintainable solution to your problem using a dedicated programming language like Python (which is available on almost all systems) or one of the many other languages available.
+
+This is a topic we discuss in detail in the [Chapter 24 - How to avoid shell scripting]({{< relref "/docs/work-in-progress" >}}), but for now I would just say that as soon as your script starts to get longer than a page, or takes more than a few minutes to reason about, then you might be reaching the point that a programming language could be a better option.
+
+## Scripts without Shebangs
+
+You might find shell scripts that do not have a shebang at the top. This is something that you should avoid. The shebang gives you a way to be very explicit about _what_ shell is required to run your script.
+
+For example, if I see a shebang like this:
+
+```sh
+#!/usr/bin/env sh
+```
+
+Then my assumption would be that this script can run on _any_ Posix compliant shell, i.e. it is as compatible as possible. However, if I see this:
+
+```sh
+#!/usr/bin/env bash
+```
+
+Then the assumption would be that this script is Bash-specific and uses "Bash-isms", such as the `if [[ conditional ]]` construct. Finally, if I was to see a shebang like this:
+
+```sh
+#!/usr/bin/env zsh
+```
+
+Then I would expect that this script has been explicitly written to be used with Z-Shell.
+
+If you do not include a shebang in a script, then the behaviour can be ambiguous. For example, at the time of writing, if you run a shell script without a shebang from a Bash shell, then the script will be run using a new instance of Bash. However, if you run a shell script without a shebang from Z-Shell then Z-Shell will use `sh` from your path. But depending on your system, `sh` may be a symlink to `dash`, or `bash`, or another shell.
+
+Scripts that do not have shebangs are inherently ambiguous and will run using different shells depending on the shell used to execute the script as well as the operating system.
+
+If you want to experiment and see what shell runs a script, create a script such as the _~/effective-shell/scripts/nobang.sh_ script that looks like this:
+
+```sh
+# nobang: This script shows an anti-pattern - not using a shebang in a shell
+# script. It shows the process tree to for the shell that runs the script:
+pstree $$
+```
+
+If I run this script from MacOS, the output below is shown:
+
+```
+-+= 00001 root /sbin/launchd
+ \-+= 07995 dwmkerr tmux
+   \-+= 31195 dwmkerr /bin/zsh
+     \-+= 49833 dwmkerr sh ./samples/script/nobang.sh
+       \-+- 49834 dwmkerr pstree -p 49833
+         \--- 49835 root ps -axwwo user,pid,ppid,pgid,command
+```
+
+Although I ran the script from a Z-Shell session, it was executed with `sh`, which is the Bourne Shell (version 3 on my system).
+
+The only time you should omit the shebang is if you expect the script to be _sourced_ - we will see sourcing in the next part of the book.
 
 # Summary
 

@@ -4,6 +4,10 @@
 
 Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com).
 
+If you find this book useful, please do consider sponsoring me to help support my open-source work!
+
+<iframe src="https://github.com/sponsors/dwmkerr/button" title="Sponsor dwmkerr" height="35" width="116" style="border: 0;"></iframe>
+
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
@@ -32,8 +36,10 @@ curl effective.sh | sh
 
 Or can also manually download them using from any of these locations:
 
-- [https://effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
-- [https://effective-shell.com/downloads/effective-shell-playground.tar.gz](https://effective-shell.com/downloads/effective-shell-playground.tar.gz)
+- [https://effective-shell.com/downloads/effective-shell-samples.zip](https://effective-shell.com/downloads/effective-shell-samples.zip)
+- [https://effective-shell.com/downloads/effective-shell-samples.tar.gz](https://effective-shell.com/downloads/effective-shell-samples.tar.gz)
+
+The one-line shell installer is hosted at [github.com/dwmkerr/effective-shell-installer](https://github.com/dwmkerr/effective-shell-installer)
 
 ## The Website
 
@@ -68,10 +74,11 @@ make build
 
 The built site is generated at `./website/public`.
 
-Note that the [`effective-shell-playground`](./effective-shell-playground) folder is automatically zipped up and added to the website, meaning it can be downloaded directly from:
+Note that the [`samples`](./samples) folder is automatically zipped up and added to the website, meaning it can be downloaded directly from:
 
 ```
-https://effective-shell.com/downloads/effective-shell-playground.zip
+https://effective-shell.com/downloads/effective-shell-samples.zip
+https://effective-shell.com/downloads/effective-shell-samples.tar.gz
 ```
 
 ### Updating the Theme
@@ -98,7 +105,7 @@ Book icons made by [Freepik](https://www.freepik.com) from [www.flaticon.com](ht
 
 Thanks to the following people who have helped with reviews, comments, suggestions.
 
-- Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal, Peter Mondlock, Samantha Baldwin for the useful comments and suggestions
+- Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal, Peter Mondlock, Samantha Baldwin, Niklas Schmuecker for the useful comments and suggestions
 - [Ogus Ismail](https://stackoverflow.com/users/10248678/oguz-ismail) for helping me understand some of the [nuances of word splitting and filename expansion](https://stackoverflow.com/questions/67648392/how-can-i-confirm-whether-whitespace-or-special-characters-are-escaped-in-a-wild)
 
 ## Refactoring Todo

@@ -16,6 +16,10 @@ To get started, jump over to the [Introduction]({{< relref "/docs/introduction" 
 
 To setup your computer to follow along with the chapters, check the [Getting Started]({{< relref "/docs/getting-started" >}}) guide.
 
+If you find this book useful, please consider sponsoring me to support my open source work:
+
+<iframe src="https://github.com/sponsors/dwmkerr/button" title="Sponsor dwmkerr" height="35" width="116" style="border: 0;"></iframe>
+
 If you would like to get email updates when new chapters are published, please do provide your email below. I won't be using it for anything beyond updates to the book.
 
 <!-- Begin Mailchimp Signup Form -->

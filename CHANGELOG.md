@@ -1,5 +1,108 @@
 # Changelog
 
+### [0.17.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.17.0...v0.17.1) (2021-06-26)
+
+
+### Bug Fixes
+
+* fix typo in chapter 16 and missing sample file ([2ab7e89](https://www.github.com/dwmkerr/effective-shell/commit/2ab7e8954ddd5fbe123caf0971bee3257416c12c))
+
+## [0.17.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.16.0...v0.17.0) (2021-06-22)
+
+
+### Features
+
+* add missing shell script essential (set -e) ([fdc15de](https://www.github.com/dwmkerr/effective-shell/commit/fdc15de5d545b902481a2d5a538dd2afadf3d275))
+
+## [0.16.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.15.0...v0.16.0) (2021-06-22)
+
+
+### Features
+
+* `set -ixon` in shell config so we can use Ctrl+S search ([f865598](https://www.github.com/dwmkerr/effective-shell/commit/f865598d74bc9a7c250614c85275219c838e8ff0))
+* wordcount script adds an estimated reading time ([8553e0a](https://www.github.com/dwmkerr/effective-shell/commit/8553e0a49072d92adaea2bee44433ea1a9ebd71d))
+
+## [0.15.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.14.0...v0.15.0) (2021-06-20)
+
+
+### Features
+
+* managing remote git repositories ([bb6703f](https://www.github.com/dwmkerr/effective-shell/commit/bb6703fbdf6d997ef737bf97a589ba1eb9f1a6ac))
+
+
+### Bug Fixes
+
+* add note on rebasing to git remotes ([b6ebb1b](https://www.github.com/dwmkerr/effective-shell/commit/b6ebb1b0bd0d553dd67087313e2dc9d476082358))
+
+## [0.14.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.13.0...v0.14.0) (2021-06-19)
+
+
+### Features
+
+* include 'repositories' in samples ([8aa34cf](https://www.github.com/dwmkerr/effective-shell/commit/8aa34cfc706991402eee79bc4b658d2c5825e595))
+
+## [0.13.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.12.0...v0.13.0) (2021-06-19)
+
+
+### Features
+
+* controlling changes with git chapter ([5e656d4](https://www.github.com/dwmkerr/effective-shell/commit/5e656d4c119ffb71e9729baee006e79d8c5a0860))
+
+
+### Bug Fixes
+
+* remove single quotes around tilde in set_ps1 ([ffa93c2](https://www.github.com/dwmkerr/effective-shell/commit/ffa93c2d296ab716bf33906ac15c1f2305528a2c))
+
+## [0.12.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.11.1...v0.12.0) (2021-06-10)
+
+
+### Features
+
+* chapter 27 - managing your dotfiles ([3b70fb4](https://www.github.com/dwmkerr/effective-shell/commit/3b70fb4b97b1933302a0870fce382de4ef6f216e))
+
+### [0.11.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.11.0...v0.11.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* correctly convert bash non-printing delimiters to zsh ([ae13151](https://www.github.com/dwmkerr/effective-shell/commit/ae131516af648a9413c84e79f05583169bff1b5b))
+
+## [0.11.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.10.0...v0.11.0) (2021-06-07)
+
+
+### Features
+
+* chapter 'customise your command prompt' ([#127](https://www.github.com/dwmkerr/effective-shell/issues/127)) ([f068d22](https://www.github.com/dwmkerr/effective-shell/commit/f068d225b42480363ac9ee25582a99c38bc1ee66))
+
+## [0.10.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.2...v0.10.0) (2021-06-05)
+
+
+### Features
+
+* chapter configuring the shell ([#125](https://www.github.com/dwmkerr/effective-shell/issues/125)) ([9687a4f](https://www.github.com/dwmkerr/effective-shell/commit/9687a4f7a8902242c2429b955d3d894844f44814))
+
+### [0.9.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.1...v0.9.2) (2021-06-02)
+
+
+### Bug Fixes
+
+* cleanup of 'mastering conditional logic' chapter ([72f931e](https://www.github.com/dwmkerr/effective-shell/commit/72f931e05ece679a997971f7c0a9e137e91adae1))
+* fix broken link to conditional logic chapter ([fd0ffba](https://www.github.com/dwmkerr/effective-shell/commit/fd0ffba408892fcf094909cd02a84829b16bfaf7))
+
+### [0.9.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.9.0...v0.9.1) (2021-06-02)
+
+
+### Bug Fixes
+
+* fix the mailchimp script location ([18b0c4b](https://www.github.com/dwmkerr/effective-shell/commit/18b0c4b8d29bd8ac6d0dfde9c5d503b15630f601))
+
+## [0.9.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.8.1...v0.9.0) (2021-06-02)
+
+
+### Features
+
+* add mailchimp link so that we can simplify the 'sign up for news' ([f05b273](https://www.github.com/dwmkerr/effective-shell/commit/f05b273e45f616166e7444ce12d757ea1a8a94cd))
+
 ### [0.8.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.8.0...v0.8.1) (2021-05-30)
 
 

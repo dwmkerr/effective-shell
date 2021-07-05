@@ -16,9 +16,9 @@ This chapter will introduce the `wget`, `unzip`, `cp`, `mv`, `rm`, `mkdir`, `rmd
 
 Before we start copying, deleting, moving and renaming files, we should create a 'playground' area we can work in. We don't want to test all of this on our own personal files until we know exactly what we're doing! 
 
-To help with this, I've created a zipped up folder which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://effective-shell.com) website, right here:
+To help with this, I've created a zipped up 'samples' which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://effective-shell.com) website, right here:
 
-[effective-shell.com/downloads/effective-shell-playground.zip](https://effective-shell.com/downloads/effective-shell-playground.zip)
+[effective-shell.com/downloads/effective-shell-samples.zip](https://effective-shell.com/downloads/effective-shell-samples.zip)
 
 We *could* open up a web browser, download the file, unzip it and then start from there, but this book is all about how to deal with every day tasks in your shell, so let's skip the browser and do it in the shell instead!
 
@@ -30,7 +30,7 @@ First, we'll move to our home directory, then download the file.
 
 ```sh
 cd
-wget https://effective-shell.com/downloads/effective-shell-playground.zip
+wget https://effective-shell.com/downloads/effective-shell-samples.zip
 ```
 
 You'll see something like this:
@@ -45,7 +45,7 @@ As an example, if were not in the home folder, but wanted to download there, we'
 
 ```sh
 cd
-wget -O ~/playground.zip https://effective-shell.com/downloads/effective-shell-playground.zip
+wget -O ~/playground.zip https://effective-shell.com/downloads/effective-shell-samples.zip
 ```
 
 Now that we've downloaded the file, let's look at our home directory now, with a quick call to `ls ~`:
@@ -59,7 +59,7 @@ Cool - we have the zip file downloaded! Now we need to work out how to unzip it 
 One of the interesting things you can do in a shell is ask it to tell you more about a file. This can be useful if we've got a file, and we're not sure what it might be. Let's try it out now:
 
 ```sh
-file ~/effective-shell-playground.zip
+file ~/effective-shell-samples.zip
 ```
 
 <img alt="Screenshot: file" src="images/file.png" width="800px" />
@@ -73,7 +73,7 @@ Right now we have a zip file. We need to extract it, unpack the files so that we
 Run the command:
 
 ```sh
-unzip ~/effective-shell-playground.zip
+unzip ~/effective-shell-samples.zip
 ```
 
 Now let's look at what we've got with the `ls` command:
@@ -89,8 +89,8 @@ Now that we've downloaded and unzipped the file, we don't need the zipped versio
 The `rm` (_Remove_) command can be used to delete a file. If we run:
 
 ```sh
-rm ~/effective-shell-playground.zip
-ls | grep playground
+rm ~/effective-shell-samples.zip
+ls | grep samples
 ```
 
 Then we'll see the following:
@@ -106,7 +106,7 @@ However one thing it _will_ do to try and help you not make mistakes is let you 
 Run the following command to try and delete the unzipped folder:
 
 ```sh
-rm ~/effective-shell-playground
+rm ~/effective-shell-samples
 ```
 
 <img alt="Screenshot: rm error directory" src="images/rm-error-directory.png" width="800px" />
@@ -117,7 +117,7 @@ Now we can get around this by adding the `-r` flag, which means 'recursive' - i.
 
 # Examining the Contents of a Folder
 
-Let's take a look at what is in the playground. By the way, the output you see on your computer might have a few more files in it as I might have added some after writing this article!
+Let's take a look at what is in the samples. By the way, the output you see on your computer might have a few more files in it as I might have added some after writing this article!
 
 In a graphical user interface, we'd open the folders and look at the files. In the shell, we can use the `tree` command to show the contents of a folder.
 
@@ -134,7 +134,7 @@ Using a non-universal command is generally _not_ our goal in this book, but in t
 Try it out with:
 
 ```sh
-tree ~/effective-shell-playground
+tree ~/effective-shell-samples
 ```
 
 <img alt="Screenshot: tree" src="images/tree.png" width="800px" />
@@ -142,7 +142,7 @@ tree ~/effective-shell-playground
 The `tree` command shows you all of the folders and files in a location. If we are unsure what one of the files is, we can ask the shell to give us more info. For example, I could find out more about the `loas-gch.JPG` file by running:
 
 ```sh
-file ~/effective-shell-playground/pictures/loas-gch.JPG
+file ~/effective-shell-samples/pictures/loas-gch.JPG
 ```
 
 <img alt="Screenshot: file info for JPEG file" src="images/file-jpeg-info.png" width="800px" />
@@ -154,13 +154,13 @@ Note that the `file` command is already showing it is a bit more clever. It know
 Let's say we really love that photo, and we want to make a copy of it. We can do that easily by using the `cp` (_Copy) command:
 
 ```sh
-cp ~/effective-shell-playground/pictures/laos-gch.JPG ~/effective-shell-playground/pictures/laos-gch-copy.JPG
+cp ~/effective-shell-samples/pictures/laos-gch.JPG ~/effective-shell-playground/pictures/laos-gch-copy.JPG
 ```
 
 This makes a copy of the file - if you are not sure if it has worked, just run:
 
 ```sh
-tree ~/effective-shell-playground
+tree ~/effective-shell-samples
 ```
 
 <img alt="Screenshot: cp command" src="images/cp.png" width="800px" />
@@ -169,10 +169,10 @@ We can see we've made a copy.
 
 # Saving Some Keystrokes
 
-Wow, it's painful putting `~/effective-shell-playground` before everything! From [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/navigating-your-system" >}}) we already know how to change directory, so let's do that now:
+Wow, it's painful putting `~/effective-shell-samples` before everything! From [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/navigating-your-system" >}}) we already know how to change directory, so let's do that now:
 
 ```sh
-cd ~/effective-shell-playground
+cd ~/effective-shell-samples
 ```
 
 Remember - `cd` is _change directory_. Excellent - until we tell our shell otherwise, this our new working directory.

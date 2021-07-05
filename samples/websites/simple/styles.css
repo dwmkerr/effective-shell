@@ -1,0 +1,93 @@
+/* core.css */
+/* lean and simple css reset, based on Tantek Celik's reset - see comments below. */
+/* (c) 2004-2010 Tantek Çelik. Some Rights Reserved. http://tantek.com */
+/* This style sheet is licensed under a Creative Commons License.      */
+/*             http://creativecommons.org/licenses/by/2.0              */
+
+/* Purpose: undo some of the default styling of common browsers        */
+
+
+:link,:visited,ins { text-decoration:none }
+nav ul,nav ol { list-style:none }
+dl,ul,ol,li,
+h1,h2,h3,h4,h5,h6,
+html,body,pre,p,blockquote,
+form,fieldset,input,label
+{ margin:0; padding:0 }
+abbr, img, object,
+a img,:link img,:visited img,
+a object,:link object,:visited object
+{ border:0 }
+address,abbr { font-style:normal }
+iframe:not(.auto-link) { display:none ! important; visibility:hidden ! important; margin-left: -10000px ! important  }
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #005580;
+  text-decoration: underline;
+}
+
+/* Custom styles... */
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333333;
+}
+
+header {
+    padding: 40px;
+}
+
+section {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 20px;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 40px;
+}
+
+h1 {
+  font-size: 38.5px;
+}
+
+h2 {
+  font-size: 31.5px;
+}
+
+h3 {
+  font-size: 24.5px;
+}
+
+h4 {
+  font-size: 17.5px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 11.9px;
+}

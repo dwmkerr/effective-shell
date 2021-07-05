@@ -9,7 +9,7 @@
 #   ./scripts/wordcount.sh ./website/content/docs/section*/**/_index.md > statistics.csv
 
 # Write out the CSV column titles.
-echo -e '"Path","Section","Title","Wordcount","Pagecount"'
+echo -e '"Path","Section","Title","Wordcount","Pagecount","Reading Time"'
 
 # Go through each file we'll get statistics for.
 for file in $@; do
@@ -18,9 +18,10 @@ for file in $@; do
     section=$(basename $(dirname $(dirname "$file")))
 
     # Rip out the title from the frontmatter.
-    title=$(cat $file |\
-        grep 'title: ' |\
-        sed -E 's/.*title:[[:space:]]*["]?([^"]*)["]?$/\1/')
+    title=$(cat $file \
+        | grep 'title: ' \
+        | head -n 1 \
+        | sed -E 's/.*title:[[:space:]]*["]?([^"]*)["]?$/\1/')
 
     # Get the wordcount.
     wc=$(wc -w < "$file" | tr -d ' ')
@@ -28,7 +29,11 @@ for file in $@; do
     # Get the pagecount.
     pc=$(( (wc/500) + 1 ))
 
+    # Estimate the reading time. Apparently the average adults reads between
+    # 200-250 works per miunte.
+    rt=$(( (wc/250) + 1 ))
+
     # Write the results as a line of CSV.
-    echo -e "\"$file\",\"$section\",\"$title\",\"$wc\",\"$pc\""
+    echo -e "\"$file\",\"$section\",\"$title\",\"$wc\",\"$pc\",\"$rt\""
 
 done

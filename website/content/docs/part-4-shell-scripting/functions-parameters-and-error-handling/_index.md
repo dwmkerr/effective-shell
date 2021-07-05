@@ -393,7 +393,7 @@ The `return` (_return from shell function_)<!--index--> command causes a functio
 
 This is something that often causes confusion in shell scripts. The reason is that in most programming languages, you would use a 'return' statement to return the result of a function. But in the shell, when we return, we set the _status code_ of the function.
 
-What is a status code? We actually touched on this in [Chapter 20 - Mastering the If Statement]({{< relref "/docs/part-4-shell-scripting/mastering-the-if-statement" >}}). When a command runs, we expect it to return a _status code_ of 'zero' to indicate success. Any non-zero status code is used to specify an _error code_.
+What is a status code? We actually touched on this in [Chapter 20 - Mastering the If Statement]({{< relref "/docs/part-4-shell-scripting/mastering-conditional-logic" >}}). When a command runs, we expect it to return a _status code_ of 'zero' to indicate success. Any non-zero status code is used to specify an _error code_.
 
 Let's see how we could re-write the _command_exists_ function to set a status code:
 
@@ -518,6 +518,36 @@ mkdir: /tmp/2021-05-28: Not a directory
 ```
 
 In this case the script stopped running as soon as there was a failure - after the `mkdir` command failed.
+
+One thing to be aware of is that the `set -e` option only affects the _final_ command of a pipeline. This means that if you have a pipeline such as the below:
+
+```
+grep '[:space:]*#' ~/effective-shell/scripts/common.sh | tr 'a-z' 'A-Z'
+```
+
+Then the script will still run if the `grep` command fails. To ensure that the shell terminates if a command in a pipeline fails we must set the `pipefail` option:
+
+```sh
+set -o pipefail
+```
+
+If you set your scripts up so that they fail on errors (and this is probably something you should always do), then remember to make sure that commands that you expect _might_ fail are properly handled.
+
+For example, if we want to delete a file in script but don't want to stop if the deletion fails for some reason, we could use an `if` block to 'catch' the error and show a warning:
+
+```sh
+if ! [ rm ~/my-file.text ]; then
+    echo "warning: unable to delete file"
+fi
+```
+
+Another option would be to use a conditional expression:
+
+```sh
+rm ~/my-file.txt || true
+```
+
+This expression always evaluates to 'true' so will not stop the script if an error occurs when running the `rm` command.
 
 # The Function Keyword
 

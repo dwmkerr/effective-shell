@@ -123,10 +123,10 @@ And we'll see something like this:
 
 ![Screenshot: pbpaste in action](./images/pbpaste.png)
 
-Copying is just as straightforward. If you have downloaded the Effective Shell 'playground' folder you can see we have a list of characters from "The Simpsons" in the file `playground/text/simpsons-characters.txt`. Now we _could_ use the `cat` command to show the contents of the file, and then manually select the text and copy it. Even easier though is to just _pipe_ the contents of the file to the `pbcopy` command:
+Copying is just as straightforward. If you have downloaded the Effective Shell 'samples' folder you can see we have a list of characters from "The Simpsons" in the file `effective-shell/text/simpsons-characters.txt`. Now we _could_ use the `cat` command to show the contents of the file, and then manually select the text and copy it. Even easier though is to just _pipe_ the contents of the file to the `pbcopy` command:
 
 ```sh
-cat ~/playground/text/simpsons-characters.txt | pbcopy
+cat ~/effective-shell/text/simpsons-characters.txt | pbcopy
 ```
 
 The output will look similar to the below (I've included the output of `cat` for reference as well):
@@ -162,7 +162,7 @@ Because we can _pipe_ the contents of the clipboard to other programs, that mean
 Let's take another look at the list of characters we have in the `~/plaground/text/simpsons-characters.txt` file:
 
 ```sh
-$ cat ~/playground/text/simpsons-characters.txt
+$ cat ~/effective-shell/text/simpsons-characters.txt
 Artie Ziff
 Kirk Van Houten
 Timothy Lovejoy
@@ -182,7 +182,7 @@ Helen Lovejoy
 We can easily take this text, sort it and then directly copy the results:
 
 ```sh
-$ cat ~/playground/text/simpsons-characters.txt | sort | pbcopy
+$ cat ~/effective-shell/text/simpsons-characters.txt | sort | pbcopy
 ```
 
 The contents of the clipboard will now contain:

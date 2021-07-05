@@ -1,6 +1,11 @@
 # The 'website/public' directory is an artifact created during the build process.
 website/public
 
+# The 'artifacts' directory is where we keep any build artifacts. As they are
+# built from the repo code we don't need to track them.
+artifacts/
+
 # Folders which might be created by IDEs or other editing tools.
 .idea/
 .DS_Store
+statistics.csv

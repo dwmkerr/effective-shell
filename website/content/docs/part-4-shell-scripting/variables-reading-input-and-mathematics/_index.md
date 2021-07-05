@@ -379,10 +379,28 @@ echo ${message^^}
 
 **Make Lowercase**
 
+The `${var,,}` operator returns the value of `var` with the text transformed to lowercase:
+
 ```sh
 message="DON'T SHOUT"
 echo ${message,,}
 # Prints: don't shout
+```
+
+**Variable Indirection**
+
+The `${!var_name}` operator returns the value of the variable with the name in specified in the `var_name` variable. This is useful if you want to get the value of a variable but don't know the name of the variable:
+
+```sh
+read -p "Enter a variable name: " var_name
+echo "The value of '${var_name}' is: ${!var_name}"
+```
+
+The output of this snippet would look like this:
+
+```
+$ Enter a variable name: SHELL
+The value of 'SHELL' is: /bin/bash
 ```
 
 Notice the similarity to the Array operators such as `${#array[@]}` to get the length of an array.
