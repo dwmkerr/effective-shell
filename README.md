@@ -18,6 +18,7 @@ If you find this book useful, please do consider sponsoring me to help support m
 * [Versioning](#versioning)
 * [Copyright & Licensing](#copyright--licensing)
 * [Thanks!](#thanks)
+* [Refactoring Todo](#refactoring-todo)
 
 <!-- vim-markdown-toc -->
 
@@ -100,7 +101,14 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 ## Thanks!
 
+Book icons made by [Freepik](https://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com/).
+
 Thanks to the following people who have helped with reviews, comments, suggestions.
 
 - Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal, Peter Mondlock, Samantha Baldwin, Niklas Schmuecker for the useful comments and suggestions
 - [Ogus Ismail](https://stackoverflow.com/users/10248678/oguz-ismail) for helping me understand some of the [nuances of word splitting and filename expansion](https://stackoverflow.com/questions/67648392/how-can-i-confirm-whether-whitespace-or-special-characters-are-escaped-in-a-wild)
+
+## Refactoring Todo
+
+- [ ] Book icon attribution in a 'thanks' page in the document
+- [ ] Mailchimp signup script link (see the `partials/html-head` link)
