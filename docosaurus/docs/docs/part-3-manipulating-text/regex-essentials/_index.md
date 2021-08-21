@@ -4,7 +4,17 @@ slug: "regex-essentials"
 weight: 13
 ---
 
+import { MDXProvider } from '@mdx-js/react';
+
 # Chapter 13 - Regex Essentials
+
+
+
+<MDXProvider disableParentContext={true}>
+<pre>
+this is a pre tag <strong>here is <span style={{color: 'red'}}>strong</span> text</strong>
+</pre>
+</MDXProvider>
 
 Many of the tools we're going to introduce in this part of the book support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text.
 
@@ -107,19 +117,30 @@ Let's change number of characters before and after the ampersand to be 'between 
 
 Previously we used the `*` ampersand quantifier (which means 'any number of times'). Now we'll use the `+` plus quantifier (which means 'at least one time'). Let's see how it looks:
 
+<MDXProvider disableParentContext={true}>
 <pre>
-.+@.+
-
-<strong>dave@effective-shell.com</strong>
-<strong>dave@effective-shell</strong>
-<strong>to: dave@effective-shell.com</strong>
-<strong>dave@effective-shell.com &lt;Dave Kerr&gt;</strong>
-test123.effective-shell.com
-@yahoo.com
-dave@
-<strong>whatever123@😂.com</strong>
-<strong>dave@kerr@effective.shell.com</strong>
+.+@.+<br />
+<br />
+<strong>dave@effective-shell.com</strong><br />
+<strong>dave@effective-shell</strong><br />
+<strong>to: dave@effective-shell.com</strong><br />
+<strong>dave@effective-shell.com &lt;Dave Kerr&gt;</strong><br />
+test123.effective-shell.com<br />
+@yahoo.com<br />
+dave@<br />
+<strong>whatever123@😂.com</strong><br />
+<strong>dave@kerr@effective.shell.com</strong><br />
 </pre>
+</MDXProvider>
+
+---
+
+<MDXProvider disableParentContext={true}>
+<pre>
+this is a pre tag <strong>here is <span style={{color: 'red'}}>strong</span> text</strong>
+</pre>
+</MDXProvider>
+
 
 This is better - we've eliminated some invalid addresses, _test123.effective-shell.com_, _@yahoo.com_ and _dave@_.
 
