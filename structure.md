@@ -510,6 +510,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: excellent reference for common shell operations: https://devhints.io/bash
 - todo: dotfiles: could be nice to show how you could put a shell script as a static page on your dotfiles repo to allow you to curl it in one go
 - todo: reading list Julia Evans: bite size command lines bite size Linux
+- todo: history - the start next to a history item means the line has been edited, see `man history`
 
 
 # More Useful Reading
