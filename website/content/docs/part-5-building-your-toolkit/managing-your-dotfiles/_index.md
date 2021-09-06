@@ -1,9 +1,9 @@
 ---
 title: "Managing your Dotfiles"
-weight: 27
+weight: 26
 ---
 
-# Chapter 27 - Managing Your Dotfiles
+# Chapter 26 - Managing Your Dotfiles
 
 As you build up more and more customisations for your shell and environment, it becomes important to find a way to manage these changes and files effectively.
 

@@ -38,11 +38,11 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 23 - Useful Patterns for Shell Scripts](#chapter-23---useful-patterns-for-shell-scripts)
 * [Interlude - The Shell Family Tree](#interlude---the-shell-family-tree)
 * [Part 5 - Building Your Toolkit](#part-5---building-your-toolkit)
-    * [Chapter 25 - Configuring the Shell](#chapter-25---configuring-the-shell)
-    * [Chapter 26 - Customising Your Command Prompt](#chapter-26---customising-your-command-prompt)
-    * [Chapter 27 - Managing Your Dotfiles](#chapter-27---managing-your-dotfiles)
-    * [Chapter 28 - Controlling Changes with Git](#chapter-28---controlling-changes-with-git)
-    * [Chapter 29 - Managing Remote Git Repositories and Sharing Your Dotfiles](#chapter-29---managing-remote-git-repositories-and-sharing-your-dotfiles)
+    * [Chapter 24 - Configuring the Shell](#chapter-24---configuring-the-shell)
+    * [Chapter 25 - Customising Your Command Prompt](#chapter-25---customising-your-command-prompt)
+    * [Chapter 26 - Managing Your Dotfiles](#chapter-26---managing-your-dotfiles)
+    * [Chapter 27 - Controlling Changes with Git](#chapter-27---controlling-changes-with-git)
+    * [Chapter 28 - Managing Remote Git Repositories and Sharing Your Dotfiles](#chapter-28---managing-remote-git-repositories-and-sharing-your-dotfiles)
 * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
     * [Chapter 30 - Understanding Shell Expansions](#chapter-30---understanding-shell-expansions)
     * [Chapter 30 - How to avoid scripting!](#chapter-30---how-to-avoid-scripting)
@@ -250,25 +250,25 @@ We've now seen many of the core features and some of the more advanced capabilit
 
 The goal of this part of the book is to equip you with the knowledge and techniques you need to build your own toolkit that you can grow over time, enabling you to manage your shell configuration across many machines, keep track of scripts and functions, and know how to customise the shell to suit the work you are doing.
 
-## Chapter 25 - Configuring the Shell
+## Chapter 24 - Configuring the Shell
 
 There are a number of different ways to configure your shell, and some options which can change how it operates. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration. We'll also see some of the shell options available which can change how the shell works.
 
-## Chapter 26 - Customising Your Command Prompt
+## Chapter 25 - Customising Your Command Prompt
 
 The shell has a large number of options available that you can use to customise the _command prompt_ - the text shown in front of your cursor as you type commands. In this chapter we will look at how you can change the command prompt to show the information that you would like to see.
 
 We will also create a script that allows us to set our own command prompt 'theme' from a list that we can extend over time. This script will also handle the differences between Bash-like shells and Z-Shell for us, allowing us to have a consistent command prompt across different types of shells!
 
-## Chapter 27 - Managing Your Dotfiles
+## Chapter 26 - Managing Your Dotfiles
 
 As you customise your shell and environment, it becomes more and more important to manage this customisation effectively and track changes to it. Configuration files are often called 'dotfiles'. In this chapter we'll see how to manage your configuration - and 'dotfiles' - in a way that allows you to easily manage changes over time and build up a library of scripts and features for your preferred shell. We'll also look at how we can use your 'dotfiles' across different shells.
 
-## Chapter 28 - Controlling Changes with Git
+## Chapter 27 - Controlling Changes with Git
 
 If you are working with text, code, or other types of content, Git can be a powerful tool to manage changes and collaboration. People have sometimes found it hard to get to grips with in the shell. In this chapter we'll look at the most common operations for git, and how to use things like interactive commands to allow us to quickly and easily work with git repositories.
 
-## Chapter 29 - Managing Remote Git Repositories and Sharing Your Dotfiles
+## Chapter 28 - Managing Remote Git Repositories and Sharing Your Dotfiles
 
 In this chapter we'll take a look at how to take a local Git repository, like the one created in the previous chapter and upload it to a remote repository. We'll use the popular "GitHub" site to host our repository. We'll see how we can manage remote changes and use GitHub to share our dotfiles, so that we can quickly setup any machine with our personal configuration.
 
@@ -511,7 +511,7 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: dotfiles: could be nice to show how you could put a shell script as a static page on your dotfiles repo to allow you to curl it in one go
 - todo: reading list Julia Evans: bite size command lines bite size Linux
 - todo: history - the start next to a history item means the line has been edited, see `man history`
-
+- todo: add the 'watch' command, this is super super useful
 
 # More Useful Reading
 

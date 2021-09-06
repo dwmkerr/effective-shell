@@ -1,9 +1,9 @@
 ---
 title: "Managing Remote Git Repositories and Sharing Your Dotfiles"
-weight: 29
+weight: 28
 ---
 
-# Chapter 29 - Managing Remote Git Repositories and Sharing Your Dotfiles
+# Chapter 28 - Managing Remote Git Repositories and Sharing Your Dotfiles
 
 In this chapter we'll take a look at how to take a local Git repository, like the one created in the previous chapter, and upload it to a remote repository.
 

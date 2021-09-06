@@ -1,9 +1,9 @@
 ---
 title: "Controlling Changes with Git"
-weight: 28
+weight: 27
 ---
 
-# Chapter 28 - Controlling Changes with Git
+# Chapter 27 - Controlling Changes with Git
 
 Git is an extremely popular version control tool. You can use Git to track changes to text, code, or any type of files you might be working with. Many popular projects use Git as a tool to manage changes, allow others to contribute and collaborate, and to publish their projects.
 
