@@ -44,7 +44,7 @@ This document contains the proposed structure of the book. It is still work in p
     * [Chapter 27 - Controlling Changes with Git](#chapter-27---controlling-changes-with-git)
     * [Chapter 28 - Managing Remote Git Repositories and Sharing Your Dotfiles](#chapter-28---managing-remote-git-repositories-and-sharing-your-dotfiles)
 * [Part 6 - Advanced Techniques](#part-6---advanced-techniques)
-    * [Chapter 30 - Understanding Shell Expansions](#chapter-30---understanding-shell-expansions)
+    * [Chapter 29 - Understanding Shell Expansion](#chapter-29---understanding-shell-expansion)
     * [Chapter 30 - How to avoid scripting!](#chapter-30---how-to-avoid-scripting)
     * [Chapter X - Testing Shell Scripts with Docker](#chapter-x---testing-shell-scripts-with-docker)
     * [Chapter 26 - Managing Multiple Programming Languages with Make](#chapter-26---managing-multiple-programming-languages-with-make)
@@ -274,9 +274,11 @@ In this chapter we'll take a look at how to take a local Git repository, like th
 
 # Part 6 - Advanced Techniques
 
-The more time you spend in the shell, the more effective you may well find yourself. If you are benefiting from your shell chops, this section contains suggestions for deeper topics to look into, which can take you even further.
+At this stage you are well on your way to shell mastery. Each of the chapters in this section goes introduces either an advanced technique to help you be more effective in the shell, or goes considerably deeper into one of the topics that we have already covered so that you can really understand the fundamentals.
 
-## Chapter 30 - Understanding Shell Expansions
+Depending on the kind of work you do in the shell, you might find some chapters more useful than others. For example, if you are a software developer you might find the chapter on 'Makefiles' of particular interest, and if you administer remote systems, you should definitely read up on 'Multiplexers'. Feel free to dip into this section of the book in the order that suits you or that you find the most interesting!
+
+## Chapter 29 - Understanding Shell Expansion
 
 https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
 
