@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.17.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.17.1...v0.17.2) (2021-09-06)
+
+
+### Bug Fixes
+
+* correct ordering of chapter 24 onwards ([006d05e](https://www.github.com/dwmkerr/effective-shell/commit/006d05e425bf64722898d29ac00478428cb45c2b))
+* correct the slug for part 5 ([7dcb97f](https://www.github.com/dwmkerr/effective-shell/commit/7dcb97f0cc2abf2ce79072a8222b793189736925))
+
 ### [0.17.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.17.0...v0.17.1) (2021-06-26)
 
 
