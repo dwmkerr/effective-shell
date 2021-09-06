@@ -1,6 +1,6 @@
 ---
-title: "Part 4 - Building Your Toolkit"
-slug: "part-4-building-your-toolkit"
+title: "Part 5 - Building Your Toolkit"
+slug: "part-5-building-your-toolkit"
 bookDisableComments: true
 ---
 
