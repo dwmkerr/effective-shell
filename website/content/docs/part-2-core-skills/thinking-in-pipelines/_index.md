@@ -26,7 +26,7 @@ We can easily see this in action by just running `sort` in a shell. Start the `s
 
 ```
 $ sort
-ogs
+Dogs
 chase
 cats
 and
