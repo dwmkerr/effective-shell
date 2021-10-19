@@ -38,4 +38,5 @@ bookMenuLevels: 1
    - [Controlling Changes with Git]({{< relref "/docs/part-5-building-your-toolkit/controlling-changes-with-git" >}})
    - [Managing Remote Git Repositories and Sharing Your Dotfiles]({{< relref "/docs/part-5-building-your-toolkit/managing-remote-git-repositories" >}})
  - [**Part 6 - Advanced Techniques**]({{< relref "/docs/part-6-advanced-techniques" >}})
+   - [Understanding Shell Expansion]({{< relref "/docs/part-6-advanced-techniques/understanding-shell-expansion" >}})
  - [**Work in Progress**]({{< relref "/docs/work-in-progress" >}})
