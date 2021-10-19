@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.17.2...v0.18.0) (2021-10-19)
+
+
+### Features
+
+* chapter 29 - understanding shell expansion ([70b3068](https://www.github.com/dwmkerr/effective-shell/commit/70b30681a0422f6ac6063c8cf60f1c6b924dce3b))
+
 ### [0.17.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.17.1...v0.17.2) (2021-09-06)
 
 
