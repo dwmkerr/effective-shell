@@ -280,7 +280,11 @@ Depending on the kind of work you do in the shell, you might find some chapters 
 
 ## Chapter 29 - Understanding Shell Expansion
 
-https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html#Shell-Expansions
+When you are working with the shell there are a number of techniques that you can use to take simple commands and make more useful. For example, if we wanted to create three files, we could run `touch file1 file2 file3`, or we could use 'brace expansion' and just run `touch file{1..3}`. Another example would be to delete all files that have names that start with `file` - like this `rm file*`, this is wildcard expansion.
+
+Collectively, these features are called 'Shell Expansion'. I think that introducing the entire set of features that make up shell expansion in one go can be a bit overwhelming, but now that we are in the advanced chapters it makes sense to understand exactly what shell expansion is, when it occurs, when it doesn't and how understanding it can make you a more effective user.
+
+There are seven types of expansion that occur in the shell - in this chapter we'll look at each in detail and then see how they work together.
 
 ## Chapter 30 - How to avoid scripting!
 
@@ -442,7 +446,6 @@ This section contains the things which have been pulled out of chapters as they 
 - structure: the `sed` chapter is too big, let's extract all of the regular expressions descriptions to its own chapter
 - todo: advanced topic - supporting bash auto-completion. The `set-ps1` function would be a good one to use as an example
 - todo: useful patterns: allowing 'ctrl+c' to cancel read - run it in a subshell (e.g. `choice=$(read choice; echo ${choice})`)
-- todo: wildcards is not sufficiently covered in chapter 2 or chapter 3, perhaps we need a short dedicated chapter on it? Also, what is the manpage for wildcards (e.g. what is the equivalent of `man re_pattern` (bash and zsh)
 - todo: getting help - what is the `zsh` equivalent of `help`?
 - `find` was in 'managing files
 - `globs` was in 'managing files
@@ -481,7 +484,6 @@ This section contains the things which have been pulled out of chapters as they 
   ```
   note: it's really important to understand that GNU have *tried* to make tools mac compatable, see for example the manpage for `find`, in particular the `-d` option, which explicitly states that they've added it for OSX etc.
 - note: POSIX: we should talk about options/flags/arguments/structure
-- todo: Shell Brace Expansion (e.g. `touch file{1..100}.txt`, see `man bash /Brace`
 - todo: We have not yet introduced the `touch` command
 - note: We need a chapter on GNU, POSIX, BSD, Unix and Linux
 - note: writing good programs - always provide an option for `stdin`, even if it something explicit like `-f -`. Note that `aws s3` uses `-` to indicate `stdin`
@@ -549,6 +551,7 @@ echo "Groovy" > /dev/ttys031
 - `recent` - a better version of `history`, which deduplicates and sorts based on the most commonly used items
 - `quickman` - a quick link to the most common man pages
 - `options` - show and interactively toggle options
+- `phonetic` - take a sequence of letters/numbers and spell it out using NATO phonetic alphabet
 
 # Does it make sense to have 'golden rules'?
 
