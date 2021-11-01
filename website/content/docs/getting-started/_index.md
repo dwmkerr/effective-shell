@@ -357,7 +357,7 @@ ls Movies Applications
 
 There's not much in either. You might wonder why _Applications_ is so empty - that's because we're looking at the applications _only installed for the current user_, because we are in the user's home directory. To see the applications for _everyone_ we'd need to use the folder where applications are kept for _all_ users.
 
-We can do this by running `ls /Appliciations`:
+We can do this by running `ls /Applications`:
 
 ![Screenshot: List global applications](./images/ls-applications.png)
 

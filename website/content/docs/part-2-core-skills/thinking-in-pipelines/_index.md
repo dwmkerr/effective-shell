@@ -26,7 +26,7 @@ We can easily see this in action by just running `sort` in a shell. Start the `s
 
 ```
 $ sort
-ogs
+Dogs
 chase
 cats
 and
@@ -154,7 +154,7 @@ $ echo "I am in the $PWD folder" | sed 's/folder/directory/'
 I am in the /Users/dwmkerr/repos/github/dwmkerr/effective-shell directory
 ```
 
-Here we've just used `echo` to write out message including a variable and then used the `sed` (_stream editor_) program to replace the word `folder` with `directory`. We'll get a lot of practice with `sd` as we go through this book!
+Here we've just used `echo` to write out message including a variable and then used the `sed` (_stream editor_) program to replace the word `folder` with `directory`. We'll get a lot of practice with `sed` as we go through this book!
 
 **Files**
 
