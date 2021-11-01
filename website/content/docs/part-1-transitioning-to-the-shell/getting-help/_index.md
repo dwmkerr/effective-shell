@@ -129,7 +129,7 @@ You'll often see tools referred to in manpages with numbers after them. Take a l
 
 ![Screenshot of numbers](./images/numbers.png)
 
-The number is the manual **Section Number**. The different sections of the manual are documented be found on most Unix-like systems in `man`'s documentation, which you can check by running `man man`[^1]. Here's what you'd get on Ubuntu 16:
+The number is the manual **Section Number**. The different sections of the manual are documented and can be found on most Unix-like systems in `man`'s documentation, which you can check by running `man man`[^1]. Here's what you'd get on Ubuntu 16:
 
 - **Section 1** - Executable programs or shell commands
 - **Section 2** - System calls (functions provided by the kernel)
