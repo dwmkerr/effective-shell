@@ -7,11 +7,10 @@ description: Introduction.  The contents of this book can be useful for a surpri
 
 # Introduction
 
-This book is for anyone who is interested in computing, and wants to learn more about the exciting, but sometimes daunting world of "The Shell"!
+The shell is the basic interface for controlling a computer with just a keyboard. 
+It consists of a [read, evaluate, print](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)  loop in which the user is queried for instructions interactively. People use it for managing computers, writing software, doing data science, or even writing books like I am doing! Here's what the shell looks like:
 
-The shell is the basic interface for controlling a computer with just a keyboard. People use it for managing computers, writing software, doing data science, or even writing books like I am doing! Here's what the shell looks like:
-
-<img alt="The Shell" width="600px" src="images/the-shell.png" />
+<a href="images/the-shell.png"><img alt="The Shell" width="600px" src="images/the-shell.png" /></a>
 
 If you are already thinking "no, this looks too geeky for me!" then think again, for almost anyone who uses a computer, or is interested in computing, this book will introduce what the shell is, how it works, and how to use it effectively.
 
