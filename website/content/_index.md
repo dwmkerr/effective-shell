@@ -6,10 +6,9 @@ bookDisableComments: true
 
 ## Effective Shell
 
-This book is for anyone who is interested in computing, and wants to learn more about the exciting, but sometimes daunting world of "The Shell"!
+This book is for anyone who is interested in computing, and wants to learn more about the exciting, but sometimes daunting world of _The Shell!_
 
 For the newcomer, you'll learn what a shell is, how to use it on your system, and then how to become more effective everyday by integrating the shell into your work.
-
 For the experienced professional, there are chapters which go into advanced topics and introduce real-world ways to be more effective with your usage.
 
 To get started, jump over to the [Introduction]({{< relref "/docs/introduction" >}}) page from the menu or the left, whichever chapter sounds the most appealing!
