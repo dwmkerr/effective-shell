@@ -426,13 +426,13 @@ Here's an example of where I might use `uniq` - getting all unique error message
 ```
 $ cut -c 27- ~/effective-shell/logs/web-server-logs.txt | grep error | sort | uniq
 
-error - Unhandled error EACCES trying to read '../../../website/public/docs/part-1-transitioning-to-the-shell/5-getting-help/index.html', returning a 500
+error - Unhandled error EACCES trying to read '../../../website/public/docs/part-1-getting-started/5-getting-help/index.html', returning a 500
 error - Unhandled error EACCES trying to read '../../../website/public/svg/calendar.svg', returning a 500
 error - Unhandled error EACCES trying to read '../../../website/public/svg/edit.svg', returning a 500
 info - Request: GET /docs/1-getting-started/images/ls-applications-windows-error.png
-info - Request: GET /docs/part-1-transitioning-to-the-shell/3-managing-your-files/images/rm-error-directory.png
+info - Request: GET /docs/part-1-getting-started/3-managing-your-files/images/rm-error-directory.png
 info - Serving file '../../../website/public/docs/1-getting-started/images/ls-applications-windows-error.png'...
-info - Serving file '../../../website/public/docs/part-1-transitioning-to-the-shell/3-managing-your-files/images/rm-error-directory.png'...
+info - Serving file '../../../website/public/docs/part-1-getting-started/3-managing-your-files/images/rm-error-directory.png'...
 ```
 
 Let's break this down:
@@ -446,7 +446,7 @@ This is a powerful technique - if we had thousands of errors in the file, this w
 
 # Don't Forget Your Pager!
 
-In [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/getting-help" >}}) we talked about the _pager_ - the program your shell uses to make it easier to look through larger text files, giving the option to move backwards and forwards a page at a time (or searching and so on). Don't forget to use your pager when you are working with text. When you are trying to build a pipeline and want to see intermediate results (perhaps _before_ you use `head` or `tail`) then you can use the pager to avoid filling your screen and terminal with too much text.
+In [Chapter 5 - Getting Help]({{< relref "/docs/part-1-getting-started/getting-help" >}}) we talked about the _pager_ - the program your shell uses to make it easier to look through larger text files, giving the option to move backwards and forwards a page at a time (or searching and so on). Don't forget to use your pager when you are working with text. When you are trying to build a pipeline and want to see intermediate results (perhaps _before_ you use `head` or `tail`) then you can use the pager to avoid filling your screen and terminal with too much text.
 
 For example, when looking at the sorted list of films, I might run this:
 

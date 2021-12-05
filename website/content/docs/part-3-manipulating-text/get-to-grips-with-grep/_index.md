@@ -48,7 +48,7 @@ $ tldr grep
   Supports simple patterns and regular expressions.
 ```
 
-That is indeed a little more concise. By the way, if you are not familiar with how you can get help on commands, check out [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/getting-help" >}}). As the manual pages indicate, `grep` is used to match patterns in files. More advanced users will most likely know exactly what this means, but a more simple description is just:
+That is indeed a little more concise. By the way, if you are not familiar with how you can get help on commands, check out [Chapter 5 - Getting Help]({{< relref "/docs/part-1-getting-started/getting-help" >}}). As the manual pages indicate, `grep` is used to match patterns in files. More advanced users will most likely know exactly what this means, but a more simple description is just:
 
 > Grep lets you search for text or filter text.
 

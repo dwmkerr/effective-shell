@@ -167,7 +167,7 @@ Builtins will vary from shell to shell, but many shells are 'Bash-like' - meanin
 
 https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
 
-As should be familiar from [Chapter 5 - Getting Help]({{< relref "/docs/part-1-transitioning-to-the-shell/getting-help" >}}), you can get help for builtins:
+As should be familiar from [Chapter 5 - Getting Help]({{< relref "/docs/part-1-getting-started/getting-help" >}}), you can get help for builtins:
 
 ```sh
 $ man source     # source is a builtin

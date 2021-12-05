@@ -108,7 +108,7 @@ Absolute paths _always_ start with a slash. That's how the system knows it is an
 If I have an absolute path, I know _exactly_ where the file or folder is. Let's compare this to a _relative path_. Below is the _relative path_ in my shell for the file I'm writing right now:
 
 ```
-website/content/docs/part-1-transitioning-to-the-shell
+website/content/docs/part-1-getting-started
 ```
 
 This path is _relative_ to my current working directory in the shell. This means that this path only makes sense if you use it from a specific directory. If I am in my `Pictures` folder, and I want to move to the `2020-photos` folder, I could do it in two ways. The first is with an absolute path:
