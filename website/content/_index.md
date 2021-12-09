@@ -13,7 +13,7 @@ For the experienced professional, there are chapters which go into advanced topi
 
 To get started, jump over to the [Introduction]({{< relref "/docs/introduction" >}}) page from the menu or the left, whichever chapter sounds the most appealing!
 
-To setup your computer to follow along with the chapters, check the [Getting Started]({{< relref "/docs/part-1-getting-started" >}}) guide.
+To set up your computer to follow along with the chapters, check the [Getting Started]({{< relref "/docs/part-1-getting-started" >}}) guide.
 
 If you find this book useful, please consider sponsoring me to support my open source work:
 
