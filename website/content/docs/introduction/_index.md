@@ -14,9 +14,6 @@ Here's what the shell looks like:
 
 <a href="images/the-shell.png"><img alt="The Shell" width="600px" src="images/the-shell.png" /></a>
 
-The goal of this book is to be a collection of small, self-contained tutorials on how to use the shell more effectively. 
-You can go through it sequentially or just pick and choose the sections which seem most interesting.
-
 All of the content of this book is designed to be suitable to work with Microsoft Windows, Mac OS and Linux. 
 So no matter what system you are running, you should be able to follow along. 
 We will focus primarily on 'Linux Like' environments, which hopefully will give you the skills which you can apply most widely. 

@@ -5,6 +5,7 @@ bookMenuLevels: 1
 
  - [**Introduction**]({{< relref "/docs/introduction" >}})
  - [**Part 1 - Getting Started**]({{< relref "/docs/part-1-getting-started" >}})
+   - [What is the Shell?]({{< relref "/docs/part-1-getting-started/what-is-the-shell" >}})
    - [Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell" >}})
    - [Navigating Your System]({{< relref "/docs/part-1-getting-started/navigating-your-system" >}})
    - [Managing Your Files]({{< relref "/docs/part-1-getting-started/managing-your-files" >}})
