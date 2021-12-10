@@ -72,7 +72,7 @@ You can read more about this story and some of the fascinating history of the ea
 
 # Searching Through Text
 
-If you've been working through this book, you've probably entered quite a few commands in the shell. Most shells keep a history of the commands you type. Under the hood, when you use the up and down keys to look through commands you entered earlier, or use the `Ctrl-R` shortcut to _search_ through earlier commands, your shell is looking through this file. If these tricks are not familiar, check [Chapter 9 - Fly on the Command Line]({{< relref "/docs/part-3-getting-faster/fly-on-the-command-line" >}}).
+If you've been working through this book, you've probably entered quite a few commands in the shell. Most shells keep a history of the commands you type. Under the hood, when you use the up and down keys to look through commands you entered earlier, or use the `Ctrl-R` shortcut to _search_ through earlier commands, your shell is looking through this file. If these tricks are not familiar, check [Chapter 9 - Fly on the Command Line]({{< relref "/docs/part-4-getting-faster/fly-on-the-command-line" >}}).
 
 The file which keeps the history can vary from shell to shell. For example, on my system, my history for Bash is in the file `~/.bash_history`. But most 'Bash-like' shells provide a built-in environment variable which let's you find the path of the shell history. Let's at this file:
 

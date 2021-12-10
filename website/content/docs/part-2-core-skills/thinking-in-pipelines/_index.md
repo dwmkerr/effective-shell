@@ -108,7 +108,7 @@ Agnes Skinner
 Helen Lovejoy
 ```
 
-We saw in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-3-getting-faster/clipboard-gymnastics" >}}) that we could **pipe** the output of this command into the `sort` command to order it and then into the `uniq` command to remove duplicates, like this:
+We saw in [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-4-getting-faster/clipboard-gymnastics" >}}) that we could **pipe** the output of this command into the `sort` command to order it and then into the `uniq` command to remove duplicates, like this:
 
 ```
 $ cat ~/effective-shell/text/simpsons-characters.txt | sort | uniq
@@ -191,7 +191,7 @@ The `<` operator redirects the standard input of a program to come from the give
 
 **The Clipboard**
 
-In [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-3-getting-faster/clipboard-gymnastics" >}}) we saw a trick to remove formatting from text in the clipboard. Here's a similar trick to reverse the contents of the clipboard:
+In [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-4-getting-faster/clipboard-gymnastics" >}}) we saw a trick to remove formatting from text in the clipboard. Here's a similar trick to reverse the contents of the clipboard:
 
 ```
 $ pbpaste | rev | pbcopy
@@ -544,7 +544,7 @@ When these chapters are published I'll update the links here. If you want to be 
 **Footnotes**
 
 [^1]: Technically there is another layer here, which is the `tty`. You can see this by running `tty` in the shell. We'll more about this in the [Interlude - What is a Shell](#TODO) section.
-[^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-3-getting-faster/clipboard-gymnastics" >}}) for how to do this on a Linux or Windows machine.
+[^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-4-getting-faster/clipboard-gymnastics" >}}) for how to do this on a Linux or Windows machine.
 [^3]: Although always use tricks like this with caution! If we had a _different_ error, perhaps one we really do want to know about, we would lose the message in this case.
 [^4]: There is a very detailed explanation of this behaviour at https://linuxnewbieguide.org/21-and-understanding-other-shell-scripts-idioms/.
 [^5]: With the correct options, `sed` could likely do this in a single operation, but I'd probably spend a lot longer Googling the right options for it!

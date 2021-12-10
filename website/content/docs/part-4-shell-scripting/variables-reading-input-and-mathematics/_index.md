@@ -407,7 +407,7 @@ Notice the similarity to the Array operators such as `${#array[@]}` to get the l
 
 There are a number of other operators that exist. They allow you to extract parts of a string, apply regular expressions, manipulate the case and perform a number of complex operations. I would avoid these techniques if possible as they are fairly specific to Bash and likely will be confusing to readers. Some of these substitutions are not available in older versions of Bash.
 
-If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-4-manipulating-text" >}}).
+If you need to manipulate text I would recommend that you use the techniques described in [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}}).
 
 It is generally enough to know that if you see special symbols inside a `${variable}` expression then the writer is performing some kind of string manipulation. Hopefully they have included a comment that describes what they are doing to make it easier to follow!
 
