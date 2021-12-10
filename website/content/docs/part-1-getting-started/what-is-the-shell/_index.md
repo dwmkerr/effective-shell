@@ -6,7 +6,8 @@ weight: 1
 
 # Chapter 1 - What is the Shell?
 
-When we talk about "The Shell", we're normally referring to the simple, text-based interface which is used to control a computer or a program.
+When we talk about "The Shell", we're referring to a text-based interface which is used to control a computer.
+A shell takes in typed commands and executes them. 
 
 Here's what it looks like on Windows:
 
@@ -26,18 +27,13 @@ And here's what it looks like on Fedora, a popular Linux distribution:
 <img src="images/linux-shell.png" width="800px" />
 </a>
 
-The shell is the program that takes in typed commands and executes them. 
 
-Why would you want to do this? There are a few reasons!
+It might come as a surprise that _many_ technical computer users (programmers, data scientists, systems administrators etc) spend a lot of time using an interface which looks like it's from the sixties.
+Why would someone choose to use such an interface?
 
-Firstly, using the shell can help you learn more about the internals of how your computer can work. 
-This can be really helpful if you are technology professional or work with computers.
-
-Secondly, there are some scenarios where you _have_ to use a shell. Not every program or system can be operated with a _Graphical User Interface_, which is the visual point-and-click interface you are probably using now. Some lower-level programs do not have such interfaces, and many computers do not either.
-
-Finally, there are some scenarios where it can be _more efficient_ to use the shell. Operations which might be time consuming or repetitive to perform using the user interface might be much faster to perform in a shell. You can also write _shell scripts_ to automate these kinds of operations.
-
-In the next section you'll learn how to startup the shell on your computer. Once this is done you are ready to continue with the book.
+- Typing is _fast_: A skilled shell user can manipulate a system at dazzling speeds just using a keyboard. Typing commands is generally _much_ faster than exploring through user interfaces with a mouse
+- Shells are _programmable_: Users will often being programming as they work in a shell, creating scripts to automate time-consuming or repetitive processes
+- Shells are _portable_: A shell can be used to interface to almost any type of computer, from a mainframe to a Raspberry Pi, in a very similar way.
 
 ---
 

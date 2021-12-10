@@ -6,7 +6,9 @@ weight: 5
 
 # Chapter 5 - Getting Help
 
-In the earlier chapters I've introduced quite a few commands. Having to remember all of these commands and their parameters would be very hard. Fortunately there are built-in capabilities in the shell to help.
+In the earlier chapters I've introduced quite a few commands. 
+Having to remember all of these commands and their parameters would be very hard. 
+Fortunately there are built-in capabilities in the shell to help.
 
 In this chapter I'll show you how to quickly get help when working with tools in the shell, without disrupting your flow!
 

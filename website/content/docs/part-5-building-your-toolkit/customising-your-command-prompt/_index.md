@@ -139,7 +139,7 @@ Sun Jun 06 04:43 AM $ PS1='[\j] (\#) \$ '
 [3] (7) $
 ```
 
-In this example we've used the `\j` (current job) sequence, and surrounded it with square brackets. Then we used `#` (command number), surrounded by parentheses, then the `\$` shell prompt. I also started some background jobs, that just run the `sleep` (_wait for a number of seconds_) command, so that we can see that the number of jobs is changing. If you need a refresher on jobs, check [Chapter 9 -Job Control]({{< relref "/docs/part-2-core-skills/job-control" >}}).
+In this example we've used the `\j` (current job) sequence, and surrounded it with square brackets. Then we used `#` (command number), surrounded by parentheses, then the `\$` shell prompt. I also started some background jobs, that just run the `sleep` (_wait for a number of seconds_) command, so that we can see that the number of jobs is changing. If you need a refresher on jobs, check [Chapter 9 -Job Control]({{< relref "/docs/part-3-getting-faster/job-control" >}}).
 
 Note that we are using single quotes when specifying the value of the `PS1`. If we didn't use single quotes, then the shell would see the dollar symbol and think that we were trying to use a variable. For a reminder on how quoting works, check [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}).
 

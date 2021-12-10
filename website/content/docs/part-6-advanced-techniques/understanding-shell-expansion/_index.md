@@ -299,7 +299,7 @@ echo "Goodbye Dave"
 
 There are actually a number of options available for Pattern Replacement that can control things like the number of replacements that are performed and how arrays are treated. I would recommend not using overly complex replacements using these types of expressions though - instead use a command like `tr` or `sed` to make it very explicit what is going on - the built-in shell parameter replacement can be quite complex for the reader to parse and can also vary from shell to shell.
 
-For suggestions on alternative ways to manipulate text check [Chapter 15 - Slice and Dice Text]({{< relref "/docs/part-3-manipulating-text/slice-and-dice-text" >}}) or [Chapter 16 - Advanced Text Manipulation with Sed]({{< relref "/docs/part-3-manipulating-text/advanced-text-manipulation" >}})
+For suggestions on alternative ways to manipulate text check [Chapter 15 - Slice and Dice Text]({{< relref "/docs/part-4-manipulating-text/slice-and-dice-text" >}}) or [Chapter 16 - Advanced Text Manipulation with Sed]({{< relref "/docs/part-4-manipulating-text/advanced-text-manipulation" >}})
 
 **Lowercase or Uppercase**
 
