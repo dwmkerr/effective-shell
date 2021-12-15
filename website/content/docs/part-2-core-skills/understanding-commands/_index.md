@@ -4,7 +4,7 @@ slug: "understanding-commands"
 weight: 10
 ---
 
-# Chapter 10 - Understanding Commands
+# Chapter 6 - Understanding Commands
 
 In this chapter, we'll take a look at the various different types of shell commands that exist and how this can affect your work. Commands are far more subtle than you might think and in this chapter we'll look at some of the nuances of commands and the practical consequences for your work.
 

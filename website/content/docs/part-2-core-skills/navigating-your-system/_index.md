@@ -4,7 +4,7 @@ slug: "navigating-your-system"
 weight: 2
 ---
 
-# Chapter 2 - Navigating Your System
+# Chapter 5 - Navigating Your System
 
 Switching from a graphical user interface to the shell can take some getting used to. First we'll take a look at how to navigate your system using the shell, and get information on files and folders in the system.
 

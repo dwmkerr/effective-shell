@@ -572,7 +572,7 @@ do
 
 In this script we first check to see whether the file or folder exists by using the `-e` test. If the file or folder doesn't exist then we skip through the loop. You can see more examples of this pattern in [Chapter 21 - Loops and working with Files and Folders]({{< relref "/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders" >}}).
 
-Pathname expansion has limitations - if you need a more sophisticated way to search for a set of files, check [Chapter 11 - Finding Files]({{< relref "/docs/part-2-core-skills/finding-files" >}}).
+Pathname expansion has limitations - if you need a more sophisticated way to search for a set of files, check [Chapter 11 - Finding Files]({{< relref "/docs/part-4-getting-faster/finding-files" >}}).
 
 # Summary
 

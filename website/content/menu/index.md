@@ -14,7 +14,6 @@ bookMenuLevels: 1
    - [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
    - [Managing Your Files]({{< relref "/docs/part-2-core-skills/managing-your-files" >}})
    - [Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}})
-   - [Finding Files]({{< relref "/docs/part-2-core-skills/finding-files" >}})
    - [Interlude - Computer in a Nutshell]({{< relref "/docs/part-2-core-skills/computer-in-a-nutshell" >}})
  - [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}})
    - [Regex Essentials]({{< relref "/docs/part-3-manipulating-text/regex-essentials" >}})
@@ -24,6 +23,7 @@ bookMenuLevels: 1
    - [Build Commands on the Fly with Xargs]({{< relref "/docs/part-3-manipulating-text/build-commands-on-the-fly" >}})
 
  - [**Part 4 - Getting Faster**]({{< relref "/docs/part-4-getting-faster" >}})
+   - [Finding Files]({{< relref "/docs/part-4-getting-faster/finding-files" >}})
    - [Clipboard Gymnastics]({{< relref "/docs/part-4-getting-faster/clipboard-gymnastics" >}})
    - [Fly on the Command Line]({{< relref "/docs/part-4-getting-faster/fly-on-the-command-line" >}})
    - [Job Control]({{< relref "/docs/part-4-getting-faster/job-control" >}})

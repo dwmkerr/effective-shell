@@ -4,7 +4,7 @@ slug: "getting-help"
 weight: 5
 ---
 
-# Chapter 5 - Getting Help
+# Chapter 4 - Getting Help
 
 In the earlier chapters I've introduced quite a few commands. 
 Having to remember all of these commands and their parameters would be very hard. 
