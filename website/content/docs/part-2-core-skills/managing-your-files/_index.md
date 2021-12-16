@@ -4,7 +4,7 @@ slug: "managing-your-files"
 weight: 3
 ---
 
-# Chapter 3 - Managing Your Files
+# Chapter 7 - Managing Your Files
 
 Downloading, unzipping, copying, moving, renaming and deleting files in a graphical user interface is normally fairly intuitive. Now we'll learn how to perform the same operations in a shell. Once you can organise your files, you are well on your way to being able to use the shell more effectively for day to day tasks.
 
