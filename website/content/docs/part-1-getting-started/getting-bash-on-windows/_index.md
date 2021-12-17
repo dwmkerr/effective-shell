@@ -4,19 +4,32 @@ slug: "getting-started"
 weight: 1
 ---
 
-# Chapter 3 - Configuring the Shell
+# Chapter 3 - Getting Bash on Windows 
 
-Shells can vary enormously between different systems. In general, Linux systems tend to use the `Bash` shell and require little configuration. Apple's MacOS operating system is actually based on BSD Unix, and under the hood is somewhat different to most Linux systems. Microsoft Windows is a completely unrelated operating system and operates in a fundamentally different way to both of them.
+Shells can vary enormously between different systems.
+In general, Linux systems tend to use the `bash` shell and require little configuration. 
 
-In this book, we assume that you are using a "Linux-like" system, something which operates like a modern Linux distribution. This is a deliberate choice. If you become comfortable using a Linux-like shell, you can generally apply the techniques we'll show to MacOS with no difficulties. For Windows, the techniques are not necessarily transferable immediately, but still valuable to know. Windows is actually being updated at the time of writing to provide a Linux-like shell interface as part of the core operating system (this is known as the [Windows Subsystem Linux](https://docs.microsoft.com/en-us/windows/wsl). As time progresses it will be easier to run commands using the techniques in this book natively, but for now we'll have to tweak a few things.
+Apple's MacOS operating system is actually based on BSD Unix, and under the hood is somewhat different to Linux. 
+These days, MacOS ships with `zsh`, a shell intended to be backwards-compatible with Bash.
+Microsoft Windows is a completely unrelated operating system and operates in a fundamentally different way to both of them.
 
-In this section we'll make sure that we are running with a setup which is close to Linux, and aim to set the latest version of our shell to the popular "Bash" program. If you are familiar with Bash but prefer to use another shell, that is fine, most of the book will work with any modern shell. However, if you are not sure what shell you should be using, I would recommend you follow the guides below to setup the most popular shell at its latest version.
+In this book, we assume that you are using a "Linux-like" system, something which operates like a modern Linux distribution. 
+This is a deliberate choice:
+If you become comfortable using a Linux-like shell, you can generally apply the techniques we'll show to MacOS with no difficulties. 
+For Windows, the techniques are not necessarily transferable immediately, but still valuable to know. 
 
-Once this is done then we are ready to get into the book properly!
+Windows is actually being updated at the time of writing to provide a Linux-like shell interface as part of the core operating system (this is known as the [Windows Subsystem Linux](https://docs.microsoft.com/en-us/windows/wsl). 
+As time progresses it will be easier to run commands using the techniques in this book natively, but for now we'll have to tweak a few things.
+
+In this section we'll make sure that we are running with a setup which is close to Linux, and aim to set the latest version of our shell to the popular "Bash". 
+If you are familiar with Bash but prefer to use another shell, that is fine, most of the book will work with any modern shell. 
+However, if you are not sure what shell you should be using, I would recommend you follow the guides below to setup the most popular shell at its latest version.
+
+Once this is done, we will be ready to get into the book properly!
 
 ## Microsoft Windows
 
-Windows is not anything like Linux under the hood. So to get a shell working, we have three options:
+Windows is not anything like Linux under the hood. So, to get `Bash` working, we have three options:
 
 1. Use a tool which provides common Linux tools which have been written to work with Windows
 2. Use a "virtual machine" running Linux

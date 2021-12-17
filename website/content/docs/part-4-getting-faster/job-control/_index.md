@@ -274,7 +274,7 @@ You might find that jobs are useful, or you might find that they are not. Either
 | `kill %1`   | Terminate job number 1.                                    |
 | `wait %1`   | Block until job number 1 exits.                            |
 
-If you want to find out more about the gory details of jobs, the best place to start is the [Bash Manual - Job Control Section](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control), or the 'Job Control' section of your preferred shell's manual. On Bash you can find this by using `man bash` and searching for the text `JOB CONTROL`. You can find out more about how to get help in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-getting-started/getting-help" >}})
+If you want to find out more about the gory details of jobs, the best place to start is the [Bash Manual - Job Control Section](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control), or the 'Job Control' section of your preferred shell's manual. On Bash you can find this by using `man bash` and searching for the text `JOB CONTROL`. You can find out more about how to get help in [Part 3 - Getting Help]({{< relref "/docs/part-3-getting-help" >}})
 
 ---
 

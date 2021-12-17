@@ -17,6 +17,8 @@ For example, we can view the system's memory statistics:
 $ less /proc/meminfo
 ```
 
+The `less` program simply reads a file into memory, then prints it to the terminal one page at a time.
+
 ## Basic Controls 
 
 You can scroll up and down through the content with the arrow keys. 
@@ -29,14 +31,14 @@ Some other controls are:
 - `u` - Scroll up half a page
 - `h` - Display help
 
-And to quite, use `q`.
+And to quit, use `q`.
 - `q` - Quit
 
 ## Searching 
 It's very handy to be able to locate some particular text within a file.
 To do so, type a forward-slash `/`, followed by the search text, followed by the
 enter key.
-Then, use `n` to jump to the next occurence
+Then, `n` will jump you to the next occurence
 - `/<search>` - Search for text
 - `n` - When searching, find the next occurrence
 - `N` - When searching, find the previous occurrence
@@ -46,7 +48,6 @@ Then, use `n` to jump to the next occurence
 ## Other pagers and `PAGER` Environment Variable
 
 The `$PAGER` environment variable is used to tell the shell what program to use for paging. 
-A few more details can be found with the `man man` command.
 There are alternative pagers available (on many Unix-y systems you'll have `less`, `more` and `most`) but in general you'll normally get what you need with `less`.
 
 If you are interested, you can actually see what your pager is with the command below:

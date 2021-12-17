@@ -249,7 +249,14 @@ You'll see something like this:
 
 This long list of files would be hard to search through if it was printed directly to the shell, but in the pager we can use the `d` and `u` keys to go _down_ and _up_, or the `/` and `?` keys to search forwards or backwards.
 
-Piping into your pager is a really useful trick - you can read more about pagers in [Chapter 5 - Getting Help]({{< relref "/docs/part-1-getting-started/getting-help" >}}).
+Piping into your pager is a really useful trick.
+You can pipe any text into your pager - try this:
+
+```sh
+ls -al /usr/bin | less
+```
+
+This lists the contents of the `/usr/bin` folder, piping the output to `less` so we can easily scroll through it.
 
 **File**
 
@@ -461,6 +468,16 @@ This will work. Breaking it down:
 
 This can be tough to remember so it's worth trying it out[^4]. There are many variations you can play with and we'll see more as we go through the book.
 
+You can put any text content into your pager - try this:
+
+```sh
+ls -al /usr/bin | less
+```
+
+This lists the contents of the `/usr/bin` folder, piping the output to `less` so we can easily scroll through it.
+
+
+
 # One Last Trick - The T Pipe
 
 This is a long chapter, but I can't talk about pipelines without briefly mentioning the T pipe. Check out this command:
@@ -529,6 +546,7 @@ We also briefly saw some commands:
 - `wc` can count words or lines of text
 - `tee` takes the input stream and sends it straight to the output, but also to a file (like a T-pipe in plumbing)
 - `grep` can filter lines
+
 
 These programs can do a lot more and are workhorses we'll see in more detail through the book.
 

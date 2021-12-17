@@ -7,14 +7,21 @@ bookMenuLevels: 1
  - [**Part 1 - Getting Started**]({{< relref "/docs/part-1-getting-started" >}})
    - [What is the Shell?]({{< relref "/docs/part-1-getting-started/what-is-the-shell" >}})
    - [Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell" >}})
-   - [Configuring the Shell]({{< relref "/docs/part-1-getting-started/configuring-the-shell" >}})
-   - [Getting Help]({{< relref "/docs/part-1-getting-started/getting-help" >}})
+   - [Getting Bash on Windows]({{< relref "/docs/part-1-getting-started/getting-bash-on-windows" >}})
+
  - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
    - [Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}})
    - [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
    - [Managing Your Files]({{< relref "/docs/part-2-core-skills/managing-your-files" >}})
+   - [Viewing a File]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}})
    - [Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}})
    - [Interlude - Computer in a Nutshell]({{< relref "/docs/part-2-core-skills/computer-in-a-nutshell" >}})
+
+ - [**Part 3 - Getting Help**]({{< relref "/docs/part-3-getting-help" >}})
+   - [The Man Pages]({{< relref "/docs/part-3-getting-help/man-pages" >}})
+   - [Manual Sections]({{< relref "/docs/part-3-getting-help/manual-sections" >}})
+   - [Other Sources]({{< relref "/docs/part-3-getting-help/other-sources" >}})
+
  - [**Part 3 - Manipulating Text**]({{< relref "/docs/part-3-manipulating-text" >}})
    - [Regex Essentials]({{< relref "/docs/part-3-manipulating-text/regex-essentials" >}})
    - [Get to Grips with Grep]({{< relref "/docs/part-3-manipulating-text/get-to-grips-with-grep" >}})
