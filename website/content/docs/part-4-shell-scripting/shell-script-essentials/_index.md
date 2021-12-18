@@ -4,6 +4,14 @@ slug: "shell-script-essentials"
 weight: 18
 ---
 
+<!-- 
+Comments:
+
+
+Note that when you see shell commands, everything which starts with a hash symbol is a comment. These comments are just for readability, you don't need to include them. But if you are saving your own shell snippets (or "scripts"), then you might find comments a useful way to remind yourself of what you are hoping to achieve with the commands, or to make the script more readable.
+-->
+
+
 # Chapter 18 - Shell Script Essentials
 
 First we're going to look at how to write shell scripts as well as the different ways to execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run.

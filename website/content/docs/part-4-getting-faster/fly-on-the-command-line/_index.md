@@ -4,6 +4,47 @@ slug: "fly-on-the-command-line"
 weight: 8
 ---
 
+<!--
+# Pushing and Popping the Working Directory
+
+One thing we might want to do is quickly move from one location to another, then go back again. Let's say for example I am working in on this chapter, but I want to check my downloads. One way to do this is with this `pushd` command:
+
+```sh
+pushd ~/Downloads
+ls
+popd
+```
+
+After I've checked my downloads, I can run `popd` to go back to where I was:
+
+<img alt="Screenshot: pushd and popd" src="images/pushd-popd.png" width="800px" />
+
+The `pushd` command 'pushes' a new working directory onto a stack - moving you there. The `popd` command 'pops' the working directory off the top of the stack. A stack is a structure often used in computers; we can actually push lots of different files to the working directory stack.
+
+Why is it called a stack? Well, the reason is that if we were to visualise the structure, it might look like a stack of plates or similar. Here's how `pushd` and `popd` would look if we were to visualise it:
+
+<img alt="Screenshot: pushd popd stack" src="images/pushd-popd-stack.png" width="800px" />
+
+These commands can be useful if you need to move to other locations but want to be able to quickly go back to where you were before afterwards.
+
+# Going Back
+
+One last trick which can save time is the following command:
+
+```sh
+cd -
+```
+
+This is a special parameter for `cd` which tells it to _go back_ to the last location you moved to. Here's how it might look if you use it:
+
+<img alt="Screenshot: cd dash" src="images/cd-dash.png" width="800px" />
+
+This can only be used to go back to the last directory. If you need to be able to go backwards multiple times or through a history of directories, you might need to use `pushd` and `popd` instead.
+
+
+
+-->
+
 # Chapter 8 - Fly on the Command Line
 
 This is my favourite chapter of the book! The tricks I picked up on rapidly moving around in the command line have saved me an enormous amount of time over the years.
