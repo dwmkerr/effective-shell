@@ -1,6 +1,6 @@
 ---
-title: "Getting Started"
-slug: "getting-started"
+title: "Getting Bash on Windows"
+slug: "getting-bash-on-windows"
 weight: 1
 ---
 
