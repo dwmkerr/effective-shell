@@ -6,7 +6,7 @@ bookDisableComments: true
 
 ## Part 2 - Core Skill
 
-In the first part of this book we look at the shell from the perspective of someone who is familiar with a graphical user interface. We studied how to transition from a GUI to the shell, introducing the 'shell way' of performing tasks which you might have previously performed using a GUI.
+In the first part, we looked at the shell from the perspective of someone who is familiar with a graphical user interface. We studied how to transition from a GUI to the shell, introducing the 'shell way' of performing tasks which you might have previously performed using a GUI.
 
 In this section, we'll look at core shell skills. These skills are fundamental to how the shell works, and fundamental to using it effectively. Even if you are familiar with the concepts in each chapter, I would still recommend skimming these sections to make sure there is nothing you have missed.
 
