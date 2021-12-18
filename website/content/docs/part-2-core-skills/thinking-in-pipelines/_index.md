@@ -4,7 +4,7 @@ slug: "thinking-in-pipelines"
 weight: 7
 ---
 
-# Chapter 7 - Thinking in Pipelines
+# Chapter 9 - Thinking in Pipelines
 
 Understanding the concept of _pipelines_ in the shell, as well as how input and output work for command line programs is critical to be able to use the shell effectively.
 

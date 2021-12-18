@@ -8,7 +8,7 @@ weight: 1
 
 If you have never used the shell before, then this is where we'll start. We're not going to go into lots of detail, there's plenty of that later on in book. Instead we'll do a quick crash course on the basics. If you have not used the shell before this'll give you a chance to see how it works.
 
-Start by opening your shell. This is covered in [Opening the Shell](../3-opening-the-shell/_index.md). Your shell should be _Bash_ - if this doesn't sound familiar, then make sure you have followed the instructions in [Configuring the Shell](../4-configuring-the-shell/_index.md).
+Start by opening your shell. This is covered in [Opening the Shell](../opening-the-shell). Your shell should be _Bash_ - if this doesn't sound familiar, then make sure you have followed the instructions in [Getting Bash on Windows](../getting-bash-on-windows).
 
 You should see your terminal program running your shell. You can see what the _version_ is of your shell by running:
 

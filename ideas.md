@@ -3,6 +3,9 @@
 
 Scattered Notes for chapters, things I'd like to cover, etc.
 
+- cd, ls covered in part-2-getting-started/getting-your-bearings
+    or, /moving-around
+
 - Who am I, What am I running? uname, whoami, $SHELL etc
 - Managing Performance: top, kill, signals and disk usage
 
