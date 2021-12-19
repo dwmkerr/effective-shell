@@ -15,7 +15,7 @@ We can tell the shell to print the current working directory with the `pwd` comm
 
 You should see something like this:
 
-<img alt="Screenshot: pwd" src="images/pwd.png" width="800px" />
+<a href="images/pwd.png"><img alt="Screenshot: pwd" src="images/pwd.png" width="800px" /></a>
 
 The `pwd` command shows the full path of the directory that you are currently in. 
 
@@ -24,19 +24,17 @@ The `pwd` command shows the full path of the directory that you are currently in
 In the graphical user interface, we can see all files and folders in the current directory. 
 In the shell, we don't see this content, but we can tell the shell to print it with the `ls` command.  
 
-You should see something like this:
+It'll look something like this:
 
-<img alt="Screenshot: ls" src="images/ls.png" width="800px" />
+<a href="images/ls.png"><img alt="Screenshot: ls" src="images/ls.png" width="800px" /></a>
 
 
-The `ls` command _lists_ the contents of a directory.  By default, it prints the files and directories of the shell's current directory.
+The `ls` command _lists_ the contents of a given directory.  By default, it prints the files and directories of the shell's current directory.
 
 ## Changing the Directory
 
 In a graphical user interface, you move to a different directory by clicking on it.
-In the shell, we run the `cd` command. 
-
-Try it out with:
+In the shell, we run the `cd` command:
 
 ```sh
 cd Pictures
@@ -45,23 +43,27 @@ ls
 
 On my system, we'll see the following output:
 
-<img alt="Screenshot: cd" src="images/cd.png" width="800px" />
+<a href="images/cd.png"><img alt="Screenshot: cd" src="images/cd.png" width="800px" /></a>
 
-The `cd` command is the _Change Directory_ command. You might see a pattern here - shell commands often are very short (to make it easier to type them quickly) and are often made up of the first letters of the description of the command (`pwd` for _Print Working Directory_, `cd` for _Change Directory_).
+_cd_ stands for _Change Directory._ You might see a pattern here - shell commands often are very short (to make it easier to type them quickly) and are often made up of the first letters of the description of the command (`pwd` for _Print Working Directory_, `cd` for _Change Directory_).
 
-Now that you know what the `cd` command does, you should be able to move around to different folders. At this stage, it's important to talk a little bit about how _paths_ work in systems.
+Now that you know what the `cd` command does, you should be able to move around to different folders. At this stage, it's important to talk a little bit about how paths work in Linux-like environments.
 
 # Understanding Paths
 
-In Linux, Windows and MacOS (and most other operating systems), _paths_ are the 'addresses' of files or folders.
+In Linux, Windows and MacOS (and most other operating systems), _paths_ are the "addresses" of files or folders.
+There are two types of paths, _absolute_ and _relative_. 
+An absolute path is one which gives the exact location of a file. 
+On Windows, absolute paths start with a drive letter.
+On Linux-like operating systems, absolute paths start with a slash, `/`. 
 
-There are two types of paths - _Absolute Paths_ and _Relative Paths_. An absolute path is one which gives the exact location of a file. For example, on my computer, the absolute path to the folder I am writing this book in is:
+For example, on my computer, the absolute path to the folder I am writing this book in is:
 
 ```
 /Users/dwmkerr/repos/github/dwmkerr/effective-shell
 ```
 
-Absolute paths _always_ start with a slash. That's how the system knows it is an absolute path. The `/` is the _root_ of the file system - basically it's the folder which _everything_ else lives in.
+The `/` is the _root_ of the file system&mdash; basically, it's the folder which _everything_ else lives in.
 
 If I have an absolute path, I know _exactly_ where the file or folder is. Let's compare this to a _relative path_. Below is the _relative path_ in my shell for the file I'm writing right now:
 
@@ -69,7 +71,12 @@ If I have an absolute path, I know _exactly_ where the file or folder is. Let's 
 website/content/docs/part-1-getting-started
 ```
 
-This path is _relative_ to my current working directory in the shell. This means that this path only makes sense if you use it from a specific directory. If I am in my `Pictures` folder, and I want to move to the `2020-photos` folder, I could do it in two ways. The first is with an absolute path:
+Since this path does not begin with a slash, it is taken
+relative to the shell's current working directory. 
+This means that this path only makes sense if you use it from a specific directory. 
+
+If I am in my `Pictures` folder, and I want to move to the `2020-photos` folder, I could do it in two ways. 
+The first is with an absolute path:
 
 ```sh
 cd /Users/dwmkerr/Pictures/2020-photos
@@ -81,7 +88,7 @@ The second is with a relative path:
 cd 2020-photos
 ```
 
-In short - relative paths are often useful if you want to move to something _within the current directory_ and absolute paths are useful if you need to move to _somewhere completely different_.
+When navigating the filesystem, you will typically use relative paths.
 
 # The Special Dot and Dot Dot Folders
 
@@ -177,9 +184,12 @@ In this chapter we introduced the following:
 - The `pwd` (_print working directory_) command shows the current working directory
 - The `ls` (_list_) command shows the contents of the current directory or a given directory
 - The `cd` (_change directory_) changes the current working directory
-- Absolute paths are paths which specify the exact location of a file or folder...
-- ...Relative paths are paths which are relative to the current directory
+- Absolute paths specify the exact location of a file or folder
+- ...Relative paths are relative to the current working directory
 - The `.` special folder means 'this folder'
 - The `..` special folder means 'the parent folder'
 - The `~` special folder is the 'home directory'
 - You can run `cd` at any time to quickly go to your home directory
+
+- Relative paths are useful if you want to move to something _within the current directory_ 
+- Absolute paths are useful if you need to move to _somewhere completely different_.
