@@ -12,18 +12,18 @@ bookMenuLevels: 1
 
  - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
    - [Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}})
-   - [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
    - [Managing Your Files]({{< relref "/docs/part-2-core-skills/managing-your-files" >}})
    - [Viewing a File]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}})
-   - [Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}})
-   - [Interlude - Computer in a Nutshell]({{< relref "/docs/part-2-core-skills/computer-in-a-nutshell" >}})
+   - [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
 
  - [**Part 3 - Getting Help**]({{< relref "/docs/part-3-getting-help" >}})
    - [The Man Pages]({{< relref "/docs/part-3-getting-help/man-pages" >}})
    - [Manual Sections]({{< relref "/docs/part-3-getting-help/manual-sections" >}})
    - [Other Sources]({{< relref "/docs/part-3-getting-help/other-sources" >}})
+   - [Interlude - Computer in a Nutshell]({{< relref "/docs/part-3-getting-help/computer-in-a-nutshell" >}})
 
  - [**Part 4 - Manipulating Text**]({{< relref "/docs/part-4-manipulating-text" >}})
+   - [Thinking in Pipelines]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}})
    - [Regex Essentials]({{< relref "/docs/part-4-manipulating-text/regex-essentials" >}})
    - [Get to Grips with Grep]({{< relref "/docs/part-4-manipulating-text/get-to-grips-with-grep" >}})
    - [Slice and Dice Text]({{< relref "/docs/part-4-manipulating-text/slice-and-dice-text" >}})

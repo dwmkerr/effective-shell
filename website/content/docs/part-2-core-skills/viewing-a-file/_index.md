@@ -4,7 +4,7 @@ slug: "viewing-a-file"
 weight: 5
 ---
 
-# Chapter 8 - Viewing a File
+# Chapter 7 - Viewing a File
 
 In this chapter I'll show you how to look through the contents of a file through the terminal alone. 
 To do so, we'll use what's called a *paging utility*&mdash; a program that displays one screenful (page) of a file at a time.

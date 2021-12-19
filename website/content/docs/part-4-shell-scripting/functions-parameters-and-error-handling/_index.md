@@ -372,7 +372,7 @@ Result is: touch is hashed (/usr/bin/touch)
 This is not a well written function, we'll look at a better way to write it next. But it shows an important challenge to be aware of - when `type` is used to find out whether a command exists it returns success if the command exists but also writes to _stdout_.
 
 
-In [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}}) we saw that we can send the output of a command to the 'null' device to silence its output. We can use this trick in our functions to stop commands from 'polluting' our result:
+In [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}}) we saw that we can send the output of a command to the 'null' device to silence its output. We can use this trick in our functions to stop commands from 'polluting' our result:
 T
 
 ```sh

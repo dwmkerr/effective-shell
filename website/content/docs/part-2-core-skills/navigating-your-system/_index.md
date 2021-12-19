@@ -169,13 +169,11 @@ This would show something like this:
 
 <img alt="Screenshot: echo home" src="images/echo-home.png" width="800px" />
 
-One useful trick - running `cd` without any parameters will always take you home! So to go home, just run:
+One useful trick: Running `cd` without any parameters will always take you home! So to go home, just run:
 
 ```sh
 cd
 ```
-
-Now that we know about relative paths, absolute paths, and the special dot and dot dot folders, and the home directory we can continue learning how to navigate the shell!
 
 # Summary
 
@@ -186,10 +184,7 @@ In this chapter we introduced the following:
 - The `cd` (_change directory_) changes the current working directory
 - Absolute paths specify the exact location of a file or folder
 - ...Relative paths are relative to the current working directory
-- The `.` special folder means 'this folder'
-- The `..` special folder means 'the parent folder'
-- The `~` special folder is the 'home directory'
+- The `.` special folder means "this folder"
+- The `..` special folder means "the parent folder"
+- The `~` special folder is the "home directory"
 - You can run `cd` at any time to quickly go to your home directory
-
-- Relative paths are useful if you want to move to something _within the current directory_ 
-- Absolute paths are useful if you need to move to _somewhere completely different_.

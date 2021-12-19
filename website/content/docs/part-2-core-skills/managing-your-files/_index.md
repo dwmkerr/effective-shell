@@ -4,11 +4,10 @@ slug: "managing-your-files"
 weight: 3
 ---
 
-# Chapter 7 - Managing Your Files
+# Chapter 6 - Managing Your Files
 
 Downloading, unzipping, copying, moving, renaming and deleting files in a graphical user interface is normally fairly intuitive. Now we'll learn how to perform the same operations in a shell. Once you can organise your files, you are well on your way to being able to use the shell more effectively for day to day tasks.
 
-Now that we know how to organise the files in our computer, we'll take a look at how to download files, create new files, preview the contents of files, open files, copy, move and delete files.
 
 This chapter will introduce the `wget`, `unzip`, `cp`, `mv`, `rm`, `mkdir`, `rmdir`, `cat` and `zip` commands. We'll also briefly look at _wildcards_ and _redirection_.
 
@@ -16,17 +15,17 @@ This chapter will introduce the `wget`, `unzip`, `cp`, `mv`, `rm`, `mkdir`, `rmd
 
 Before we start copying, deleting, moving and renaming files, we should create a 'playground' area we can work in. We don't want to test all of this on our own personal files until we know exactly what we're doing! 
 
-To help with this, I've created a zipped up 'samples' which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://effective-shell.com) website, right here:
+To help with this, I've created a zipped up 'samples' file which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://effective-shell.com) website, right here:
 
 [effective-shell.com/downloads/effective-shell-samples.zip](https://effective-shell.com/downloads/effective-shell-samples.zip)
 
 We *could* open up a web browser, download the file, unzip it and then start from there, but this book is all about how to deal with every day tasks in your shell, so let's skip the browser and do it in the shell instead!
 
-Open your shell - if you've not yet got set up with your shell, that's OK, just check [Chapter 1 - Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell " >}}).
+Open your shell - if you've not yet got set up with your shell, that's OK, just check [Chapter 2 - Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell " >}}).
 
-Now that you have your shell open, we can run the `wget` command (_Web Get_) to download the zip file. Let's download it to our Home folder. If you are not sure what the Home folder is, check [Chapter 2- Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}}).
+Now that you have your shell open, we can run the `wget` (_Web Get_) command to download the zip file. Let's download it to our Home folder. If you are not sure what the Home folder is, check [Chapter 5 - Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}}).
 
-First, we'll move to our home directory, then download the file.
+We'll move to our home directory first, then download the file.
 
 ```sh
 cd
@@ -38,15 +37,6 @@ You'll see something like this:
 <img alt="Screenshot: wget" src="images/wget.png" width="800px" />
 
 When you call the `wget` command, you can give it any web address and it'll download it to your current folder. It also shows the progress of the download interactively (particularly useful if it's a big file!).
-
-As an aside, if we were not in our home folder when we called the `wget` command, we'd download the file to wherever we are currently working in. If we wanted to be explicit about where we download the file, we can use the `-O` (_Output File_) flag to say explicitly where we want to download the file.
-
-As an example, if were not in the home folder, but wanted to download there, we'd just call:
-
-```sh
-cd
-wget -O ~/playground.zip https://effective-shell.com/downloads/effective-shell-samples.zip
-```
 
 Now that we've downloaded the file, let's look at our home directory now, with a quick call to `ls ~`:
 
@@ -127,7 +117,7 @@ Now the `tree` command is _not_ installed by default on all systems. So if you a
 brew install tree
 ```
 
-If you are on Linux, you will likely already have it. If you don't, use your distributions package manager to get it (e.g. `apt-get install -y tree`).
+If you are on Linux, you will likely already have it. If you don't, use your distributions package manager to get it (e.g. `apt install tree`).
 
 Using a non-universal command is generally _not_ our goal in this book, but in these early stages while we are transitioning from the graphical user interface, the `tree` command can be really helpful. Later on we'll see how to use the more universal `find` command to give a similar output.
 

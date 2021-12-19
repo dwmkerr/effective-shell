@@ -106,7 +106,7 @@ nvim perfor<strong>man</strong>ce.md
 
 Here I can see all of the commands I have recently entered which have the text `man` in them. Note that the text which matches is highlighted and shown in bold.
 
-Now what if you a different shell, or forget where the history file lives? A nice trick here is to use the `history` command. This command prints out the history, as well as the line number. The `history` command writes to `stdout`. If we don't give `grep` a source file, it will simply search through `stdin`. Just as we learnt in [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}}) this means we can just `grep` the output of the `history` command!
+Now what if you a different shell, or forget where the history file lives? A nice trick here is to use the `history` command. This command prints out the history, as well as the line number. The `history` command writes to `stdout`. If we don't give `grep` a source file, it will simply search through `stdin`. Just as we learnt in [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}}) this means we can just `grep` the output of the `history` command!
 
 Here's how that would work:
 
@@ -201,7 +201,7 @@ You can try this out by using some of the log files in the `logs` folder of the 
 grep -i err ~/effective-shell/logs/web-server-logs.txt
 
 ...
-2020-11-29T12:50:30.594Z: info - Serving file '../../../website/public/docs/part-2-core-skills/7-thinking-in-pipelines/images/diagram-std<strong>err</strong>-redirect.png'...
+2020-11-29T12:50:30.594Z: info - Serving file '../../../website/public/docs/part-4-manipulating-text/thinking-in-pipelines/images/diagram-std<strong>err</strong>-redirect.png'...
 2020-11-29T12:50:31.827Z: <strong>err</strong>or - Unhandled <strong>err</strong>or EACCES trying to read '../../../website/public/svg/calendar.svg', returning a 500
 2020-11-29T12:50:31.827Z: <strong>err</strong>or - Unhandled <strong>err</strong>or EACCES trying to read '../../../website/public/svg/calendar.svg', returning a 500
 2020-11-29T12:50:31.827Z: <strong>err</strong>or - Unhandled <strong>err</strong>or EACCES trying to read '../../../website/public/svg/calendar.svg', returning a 500

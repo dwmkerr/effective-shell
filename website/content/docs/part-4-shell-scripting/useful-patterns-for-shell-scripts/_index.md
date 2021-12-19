@@ -390,7 +390,7 @@ else
 fi
 ```
 
-You will see `-t 1` in a number of scripts as a way to check whether the output is going to a terminal device. The `-t` test returns success if the provided file descriptor is associated with a terminal device. The file descriptor '1' is the descriptor for the _stdout_ stream (if this is unfamiliar, check [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-2-core-skills/thinking-in-pipelines" >}})).
+You will see `-t 1` in a number of scripts as a way to check whether the output is going to a terminal device. The `-t` test returns success if the provided file descriptor is associated with a terminal device. The file descriptor '1' is the descriptor for the _stdout_ stream (if this is unfamiliar, check [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}})).
 
 Here's how we could use the test in our rainbow function:
 
