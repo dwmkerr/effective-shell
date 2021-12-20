@@ -5,7 +5,7 @@ bookMenuLevels: 1
 
  - [**Introduction**]({{< relref "/docs/introduction" >}})
  - [**Part 1 - Getting Started**]({{< relref "/docs/part-1-getting-started" >}})
-   - [What is the Shell?]({{relref . "docs/part-1-getting-started/what-is-the-shell"}})
+   - [What is the Shell?]({{< relref "docs/part-1-getting-started/what-is-the-shell" >}})
    - [Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell" >}})
    - [Getting Bash on Windows]({{< relref "/docs/part-1-getting-started/getting-bash-on-windows" >}})
    - [Quick Demo of the Shell]({{< relref "/docs/part-1-getting-started/quick-demo-of-the-shell" >}})
