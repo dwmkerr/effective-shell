@@ -6,18 +6,24 @@ weight: 5
 
 # Chapter 7 - Viewing a File
 
-In this chapter I'll show you how to look through the contents of a file through the terminal alone. 
+In this chapter, I'll show you how to look through the contents of a file through the terminal. 
 To do so, we'll use what's called a *paging utility*&mdash; a program that displays one screenful (page) of a file at a time.
 On most systems, the default paging utility is the 
 [`less`](https://www.greenwoodsoftware.com/less/) program. 
 
-For example, we can view the system's memory statistics:
+
+In [Chapter 6]({{< relref "/docs/part-2-core-skills/managing-your-files" >}}) we downloaded a playground of files and unzipped them, so now we can start to play with them.
+We'll start by `cd`'ing into the `text` folder, then viewing a file:
 
 ```sh
-$ less /proc/meminfo
+$ cd effective-shell-playground
+$ cd text
+$ less chapter-1.md
 ```
 
-The `less` program simply reads a file into memory, then prints it to the terminal one page at a time.
+You should see:
+
+<img alt="Screenshot: less" src="images/less-chapter-1.png" width="800px" />
 
 ## Basic Controls 
 
@@ -47,7 +53,6 @@ Then, `n` will jump you to the next occurence
 
 ## Other pagers and `PAGER` Environment Variable
 
-The `$PAGER` environment variable is used to tell the shell what program to use for paging. 
 There are alternative pagers available (on many Unix-y systems you'll have `less`, `more` and `most`) but in general you'll normally get what you need with `less`.
 
 If you are interested, you can actually see what your pager is with the command below:

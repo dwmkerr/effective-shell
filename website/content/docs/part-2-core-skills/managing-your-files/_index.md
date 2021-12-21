@@ -19,13 +19,11 @@ To help with this, I've created a zipped up 'samples' file which has a lot of fi
 
 [effective-shell.com/downloads/effective-shell-samples.zip](https://effective-shell.com/downloads/effective-shell-samples.zip)
 
-We *could* open up a web browser, download the file, unzip it and then start from there, but this book is all about how to deal with every day tasks in your shell, so let's skip the browser and do it in the shell instead!
+We *could* open up a web browser, download the file, unzip it and then start from there, but this book is all about how to deal with everyday tasks in your shell, so let's skip the browser and do it in the shell instead!
 
-Open your shell - if you've not yet got set up with your shell, that's OK, just check [Chapter 2 - Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell " >}}).
+Open your shell&mdash; If you're not sure how to do that, it's OK, just check [Chapter 2 - Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell " >}}).
 
-Now that you have your shell open, we can run the `wget` (_Web Get_) command to download the zip file. Let's download it to our Home folder. If you are not sure what the Home folder is, check [Chapter 5 - Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}}).
-
-We'll move to our home directory first, then download the file.
+Now that you have your shell open, we can run the `wget` (_Web Get_) command to download the zip file. Let's download it to our Home folder: 
 
 ```sh
 cd
@@ -38,7 +36,7 @@ You'll see something like this:
 
 When you call the `wget` command, you can give it any web address and it'll download it to your current folder. It also shows the progress of the download interactively (particularly useful if it's a big file!).
 
-Now that we've downloaded the file, let's look at our home directory now, with a quick call to `ls ~`:
+Now that we've downloaded the file, let's look at our home directory with a quick call to `ls`:
 
 <img alt="Screenshot: ls home" src="images/ls-home.png" width="800px" />
 
@@ -46,7 +44,7 @@ Cool - we have the zip file downloaded! Now we need to work out how to unzip it 
 
 # Finding out about files
 
-One of the interesting things you can do in a shell is ask it to tell you more about a file. This can be useful if we've got a file, and we're not sure what it might be. Let's try it out now:
+One of the interesting things you can do in a shell is ask it to tell you more about a file, using the `file` command. This can be useful if you've got something, but aren't sure what it might be. Let's try it out now:
 
 ```sh
 file ~/effective-shell-samples.zip
@@ -58,7 +56,7 @@ The `file` command is showing us we have a zip file - now it's time to unzip it!
 
 # Extracting the Zip
 
-Right now we have a zip file. We need to extract it, unpack the files so that we can play with them. Again, in a system with a graphical user interface, this is easy, generally you just double click on it. But we're going to use the shell for this!
+Right now we have a zip file. We need to extract it&mdash; Unpack the files so that we can play with them. Again, in a system with a graphical user interface, this is easy, generally you just right click on it. But we're going to use the shell for this!
 
 Run the command:
 
@@ -89,7 +87,7 @@ Then we'll see the following:
 
 Notice that the zip file is gone - just the folder is left.
 
-By the way - be really careful with the `rm` command. Unlike in a graphical interface, it won't put files you delete into a recycle bin, they are blatted forever! In a later chapter we'll see some ways to change this behaviour for your local machine, but always remember `rm` is a little risky!
+By the way - be really careful with the `rm` command. Unlike in a graphical interface, it won't put files you delete into a recycle bin, they are blatted forever! In a later chapter we'll see some ways to change this behaviour for your local machine, but always remember, `rm` is a little risky!
 
 However one thing it _will_ do to try and help you not make mistakes is let you know if you are trying to delete a _folder_, not a file.
 
@@ -107,9 +105,7 @@ Now we can get around this by adding the `-r` flag, which means 'recursive' - i.
 
 # Examining the Contents of a Folder
 
-Let's take a look at what is in the samples. By the way, the output you see on your computer might have a few more files in it as I might have added some after writing this article!
-
-In a graphical user interface, we'd open the folders and look at the files. In the shell, we can use the `tree` command to show the contents of a folder.
+Let's take a look at what is in the samples. In a graphical user interface, we'd open the folders and look at the files. In the shell, we can use the `tree` command to show the contents of a folder.
 
 Now the `tree` command is _not_ installed by default on all systems. So if you are on a Mac, run:
 
@@ -117,7 +113,7 @@ Now the `tree` command is _not_ installed by default on all systems. So if you a
 brew install tree
 ```
 
-If you are on Linux, you will likely already have it. If you don't, use your distributions package manager to get it (e.g. `apt install tree`).
+If you are on Linux, you will likely already have it. If not, use your distributions package manager to get it (e.g. `apt install tree`).
 
 Using a non-universal command is generally _not_ our goal in this book, but in these early stages while we are transitioning from the graphical user interface, the `tree` command can be really helpful. Later on we'll see how to use the more universal `find` command to give a similar output.
 
