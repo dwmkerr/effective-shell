@@ -9,6 +9,54 @@ Comments:
 
 
 Note that when you see shell commands, everything which starts with a hash symbol is a comment. These comments are just for readability, you don't need to include them. But if you are saving your own shell snippets (or "scripts"), then you might find comments a useful way to remind yourself of what you are hoping to achieve with the commands, or to make the script more readable.
+
+
+## Executables - Scripts
+
+Imagine we create a text file called `dog` in the local folder that looks like this:
+
+```sh
+#!/bin/sh
+echo "🐶 woof 🐶"
+```
+
+This is a shell script (you've heard this before, but we'll see a _lot_ more of these as we go through the book!). We mentioned that _executables_ are any files which have the _executable_ bit set. Let's actually do this, using the `chmod` (_change file modes_) command:
+
+```sh
+$ ls -l dog
+-rw-r--r-- 1 dwmkerr staff 32 Oct  8 22:44 dog
+$ chmod +x dog
+$ ls -l dog
+-rwxr-xr-x 1 dwmkerr staff 32 Oct  8 22:44 dog
+```
+
+I've used `ls -l dog` to show the file permissions of `dog` before and after the `chmod +x dog`[^2] command. We can see that there are some new `x`'s in the first section. These are saying that the file is now _executable_ by all users.
+
+Now that we have made the file executable we can run this just like any other program - as long as we tell the shell to look for programs in the current directory:
+
+```sh
+$ PATH="." dog
+🐶 woof 🐶
+```
+
+By the way - don't do this! Adding the special `.` directory to the path is generally not a safe or sensible thing to do, this is just a demonstration of how it works. More common would be to run the program by specifying the path to the file, like so:
+
+```sh
+$ ./dog
+🐶 woof 🐶
+```
+
+Another option would just be to move it to a standard location that the shell already checks for programs:
+
+```sh
+$ mv dog /usr/local/bin
+$ dog
+🐶 woof 🐶
+```
+
+If a file starts with `#!` (the 'shebang'), then the system will try to run the contents of the file with the program specified in the shebang.
+We will look at shebangs in greater detail in a later chapter. But the key takeaway here is that we can also have _executable scripts_ as commands.
+
 -->
 
 

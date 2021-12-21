@@ -6,6 +6,8 @@ weight: 10
 
 <!--
 
+EXAMPLE FOR OPTIONS:
+
 There are a lot of options for the `ls` command. In [Part 3](../../part-3-getting-help) we'll see how to find out the options for commands. For now, let's look at one of the most common options `-l`. This tells `ls` to show the _long_:
 
 ```sh
@@ -17,150 +19,99 @@ ls -l
 A little like the 'details' view in a graphical user interface, this list view shows us more details, such as who owns the file or folder, when it was modified, and more. Again, we'll see more details on this later.
 
 
+In summary, avoid anything that starts with '`w`'! These are legacy commands, generally needed only when working on older Unix machines. `type` or `command`  should be used instead.
+
 -->
 
 # Chapter 8 - Understanding Commands
 
-In this chapter, we'll take a look at the various different types of shell commands that exist and how this can affect your work. Commands are far more subtle than you might think and in this chapter we'll look at some of the nuances of commands and the practical consequences for your work.
-
-By the end of this chapter, you might even be able to make sense of the horrifying and perfectly syntactically valid code below:
-
-```sh
-which $(where $(what $(whence $(whereis who))))
-```
+In this chapter, we'll take a look at the various different types of shell commands that exist and how their differences can affect your work. 
+Commands are far more subtle than you might think and in this chapter we'll look at some of their nuances.
 
 # What Are Commands?
 
 This is _really_ important to understand! A _command_ in a shell is something you execute. It might take parameters. Generally it'll have a form like this:
 
 ```sh
-command param1 param2
+command [param1 param2 ...]
 ```
 
 We've already seen many commands during this series:
 
-```sh
-ls              # Show the contents of the current directory
-cd ~            # Move to the user's home
-cat file.txt    # Output the contents of 'file.txt' to stdout
-```
+- `ls` - Show the contents of a directory
+- `cd` - Change directories
+- `pwd` - Print the current directory
+- `wget` - Download a file from the web
+- `less` - View the contents of a file
 
-But to be an effective shell user, you must understand that not all commands are created equal. The differences between the types of commands will affect how you use them.
+But to be an effective shell user, you must understand that not all commands are created equal. 
+The differences between the types of commands will affect how you use them.
 
 # The Different Types of Commands
 
 There are *four* types of commands in most shells:
 
 1. Executables
-2. "Built-Ins" (which we'll just call _builtins_ from now on)
+2. Shell Builtins 
 3. Functions
 4. Aliases
 
 Each is different and has its own quirks. Let's quickly dig in and see a bit more.
 
-## Executables - Programs
+## Executables 
 
-Executables are just files with the 'executable' bit set[^1]. If I execute the `cat` command, the shell will search for an executable named `cat` in my `$PATH`. If it finds it, it will run the program.
+Executables are simply programs that are external to the shell,
+stored on the system as separate files.
+These files have their _executable_ bit set, which explains the name.
 
-```
-$ cat file.txt
-This is a simple text file
-```
+Most commands fall into this category&mdash;
+The `less` command, for example, is an executable.  
 
-What is `$PATH`? `$PATH` is the standard environment variable used to define _where_ the shell should search for programs. If we temporarily _empty_ this variable, the shell won't find the command:
+We can check with the `type` command, which prints the kind of command:
 
 ```sh
-$ PATH="" cat file.txt
-bash: cat: No such file or directory
+$ type less
+less is /usr/bin/less
+
+$ file /usr/bin/less
+/usr/bin/less: ELF 64-bit LSB pie executable, 
+x86-64, version 1 (SYSV), dynamically linked, 
+[...]
 ```
 
-Normally your `$PATH` variable will include the standard locations for Linux programs - folders such as `/bin`, `/sbin`, `/usr/bin` and so on[^2].
-
-If you were to print the variable, you'd see a bunch of paths (they are separated by colons; I've put them on separate lines for readability):
+When called, the shell must look up the appropriate file,
+then execute it.
+Some standard locations of executables are:
 
 ```
-/usr/local/bin
-/usr/bin
 /bin
-/usr/sbin
+/usr/bin
 /sbin
+/usr/sbin
+/usr/local/bin
 ```
 
-The shell will start with the _earlier_ locations and move to the later ones. This allows _local_ flavours of tools to be installed for users, which will take precedence over _general_ versions of tools.
-
-There will likely be other locations too - you might see Java folders, package manager folders and so on.
-
-## Executables - Scripts
-
-Imagine we create a text file called `dog` in the local folder that looks like this:
-
-```sh
-#!/bin/sh
-echo "🐶 woof 🐶"
-```
-
-This is a shell script (you've heard this before, but we'll see a _lot_ more of these as we go through the book!). We mentioned that _executables_ are any files which have the _executable_ bit set. Let's actually do this, using the `chmod` (_change file modes_) command:
-
-```sh
-$ ls -l dog
--rw-r--r-- 1 dwmkerr staff 32 Oct  8 22:44 dog
-$ chmod +x dog
-$ ls -l dog
--rwxr-xr-x 1 dwmkerr staff 32 Oct  8 22:44 dog
-```
-
-I've used `ls -l dog` to show the file permissions of `dog` before and after the `chmod +x dog`[^3] command. We can see that there are some new `x`'s in the first section. These are saying that the file is now _executable_ by all users.
-
-Now that we have made the file executable we can run this just like any other program - as long as we tell the shell to look for programs in the current directory:
-
-```sh
-$ PATH="." dog
-🐶 woof 🐶
-```
-
-By the way - don't do this! Adding the special `.` directory to the path is generally not a safe or sensible thing to do, this is just a demonstration of how it works. More common would be to run the program by specifying the path to the file, like so:
-
-```sh
-$ ./dog
-🐶 woof 🐶
-```
-
-Another option would just be to move it to a standard location that the shell already checks for programs:
-
-```sh
-$ mv dog /usr/local/bin
-$ dog
-🐶 woof 🐶
-```
-
-Executables don't _have_ to be compiled program code, they can be scripts. If a file starts with `#!` (the 'shebang'), then the system will try to run the contents of the file with the program specified in the shebang.
-
-We will look at shebangs in greater detail in a later chapter. But the key takeaway here is that we can also have _executable scripts_ as commands.
+Executables don't _have_ to be compiled program code, they can be scripts. 
+However, both binary executables and interpretted scripts
+behave exactly the same when called as a command.
 
 ## Builtins
 
-OK, so we've seen executables. What about a command like this?
-
-```sh
-local V="hello" echo $V
-```
-
-You will not find the `local` executable anywhere on your system. It is a _builtin_ - a special command built directly into the shell program.
-
-Builtins are often highly specific to your shell. They might be used for programming (`local` for example is used to declare a locally scoped variable), or they might be for very shell-specific features.
+A _builtin_ is a command within the shell itself, and are therefore shell-specific.
+[Nushell](https://www.nushell.sh/), for example, defines `ls` to be a builtin, 
+whereas on Bash and Z-shell (and most other shells),
+`ls` is an external command.
 
 This is where we need to take note. As soon as you are running a builtin, you are potentially using a feature that is specific to _your_ shell, rather than a program that is shared across the system and can be run by _any_ shell.
-
-Trying to programmatically execute `local` as a process will fail - there is no executable with that name; it is purely a shell construct.
 
 So how do we know if a command is a builtin? The preferred method is to use the `type` command:
 
 ```sh
-$ type local
-local is a shell builtin
+$ type cd
+cd is a shell builtin
 ```
 
-The `type` command (which is _itself_ a builtin!) can tell you the exact type of shell command.
+The `type` command (which is _itself_ a builtin!) tells you the exact type of shell command.
 
 Interestingly, you might be using more builtins than you think. `echo` is a program, but most of the time you are not executing it when you are in a shell:
 
@@ -172,13 +123,14 @@ echo is /bin/echo
 
 By using the `-a` flag on `type` to show _all_ commands that match the name, we see that `echo` is actually both a builtin _and_ a program.
 
-Many simple programs have builtin versions. The shell can execute them much faster.
+Many simple programs have builtin versions: The shell can execute them much faster.
 
-Some commands are a builtin so that they can function in a sensible manner. For example, `cd` command changes the current directory - if we executed it as a process, it would change only the directory for the `cd` process itself, not the shell, making it much less useful.
+Some commands are shell builtins because they have to be, like `cd`.
+Other builtins exist because they can be executed faster.
 
 Echo is builtin because the shell can run much more quickly by not actually running a program if it has its own built in implementation.
 
-Builtins will vary from shell to shell, but many shells are 'Bash-like' - meaning they will have a set very similar to the Bash builtins, which you can see here:
+but many shells are 'Bash-like' - meaning they will have a set very similar to the Bash builtins, which you can see here:
 
 https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
 
@@ -207,6 +159,10 @@ source: source filename [arguments]
 ```
 
 But remember: `help` is a builtin; you might not find it in all shells (you won't find it in `zsh`, for example). This highlights again the challenges of builtins.
+
+
+
+
 
 ## Functions
 
@@ -329,7 +285,7 @@ $ which -a vi
 /usr/bin/vi
 ```
 
-`which` originated in `csh`. It remains on many systems for compatibility but in general should be avoided due to potentially odd behaviour[^4].
+`which` originated in `csh`. It remains on many systems for compatibility but in general should be avoided due to potentially odd behaviour[^3].
 
 ## `whence`
 
@@ -395,16 +351,17 @@ ls is /bin/ls
 
 **Summary**
 
-In summary, avoid anything that starts with '`w`'! These are legacy commands, generally needed only when working on older Unix machines. `type` or `command`  should be used instead.
+In this chapter, we examined the different classes of commands.
+
+- Builtins vary from shell to shell
+- `type` - Report a command type
 
 ---
 
 **Footnotes**
 
-[^1]: We will cover permissions and modes in later chapters.
+[^1]: Why these names and locations? It's a long story. The best place to start if you are interested is the [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard).
 
-[^2]: Why these names and locations? It's a long story. The best place to start if you are interested is the [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard).
+[^2]: `chmod` changes the mode of a file; `+x` means 'add the executable bit'. This tells the operating system the file can be executed.
 
-[^3]: `chmod` changes the mode of a file; `+x` means 'add the executable bit'. This tells the operating system the file can be executed.
-
-[^4]: [Stack Exchange: Why not use “which”? What to use then?](https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then)
+[^3]: [Stack Exchange: Why not use “which”? What to use then?](https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then)

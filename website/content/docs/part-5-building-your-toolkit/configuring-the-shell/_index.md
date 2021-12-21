@@ -3,6 +3,23 @@ title: "Configuring the Shell"
 weight: 24
 ---
 
+<!--
+
+PATH:
+
+What is `$PATH`? `$PATH` is the standard environment variable used to define _where_ the shell should search for programs. If we temporarily _empty_ this variable, the shell won't find the command:
+
+Normally your `$PATH` variable will include the standard locations for Linux programs - folders such as `/bin`, `/sbin`, `/usr/bin` and so on[^1].
+If you were to print the variable, you'd see a bunch of paths (they are separated by colons; I've put them on separate lines for readability):
+
+
+The shell will start with the _earlier_ locations and move to the later ones. This allows _local_ flavours of tools to be installed for users, which will take precedence over _general_ versions of tools.
+
+There will likely be other locations too - you might see Java folders, package manager folders and so on.
+
+-->
+
+
 # Chapter 24 - Configuring the Shell
 
 There are a number of different ways to configure your shell. In this chapter we'll take a look at the different configuration files for the shell and how they work, and how you can change your shell configuration with options.
