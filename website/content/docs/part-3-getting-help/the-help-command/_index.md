@@ -5,39 +5,6 @@ weight: 5
 ---
 
 # Chapter 11 - The `help` Command 
-
-
-As should be familiar from [Part 3 - Getting Help]({{< relref "/docs/part-3-getting-help" >}}), you can get help for builtins:
-
-```sh
-$ man source     # source is a builtin
-BUILTIN(1)                BSD General Commands Manual               BUILTIN(1)
-
-NAME
-     builtin, !, %, # ...snip...
-
-SYNOPSIS
-     builtin [-options] [args ...]
-```
-
-However, the manual will _not_ show information on specific builtins, which is a pain. Your shell _might_ have an option to show more details - for example, in Bash you can use `help`:
-
-```sh
-$ help source
-source: source filename [arguments]
-    Read and execute commands from FILENAME and return.  The pathnames
-    in $PATH are used to find the directory containing FILENAME.  If any
-    ARGUMENTS are supplied, they become the positional parameters when
-    FILENAME is executed.
-```
-
-But remember: `help` is a builtin; you might not find it in all shells (you won't find it in `zsh`, for example). This highlights again the challenges of builtins.
-
-
-There'll be many circumstances where you'll need to open a browser to search for help. 
-But there's also a wealth of information available within the command line itself.
-Looking up parameters, checking how to run commands, C library documentation, or even useful information like ASCII charts are all available directly in the shell, through the online manual pages.
-
 ## Getting help on a command
 
 The most basic way to get help on a command is with `man`. Here's an example:

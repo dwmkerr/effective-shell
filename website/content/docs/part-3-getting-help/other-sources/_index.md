@@ -6,6 +6,27 @@ weight: 5
 
 # Chapter 13 - Other Sources of Help 
 
+## The `help` Command
+
+The `help` command is a [shell builtin]({{<relref "/docs/part-2-core-skills/understanding-commands">}}) that offers help on the shell itself.  
+
+For example, the Bash builtin `source` reads and executes the contents of a file in \*this\* shell's context:
+
+```sh
+$ help source
+source: source filename [arguments]
+    Read and execute commands from FILENAME and return.  The pathnames
+    in $PATH are used to find the directory containing FILENAME.  If any
+    ARGUMENTS are supplied, they become the positional parameters when
+    FILENAME is executed.
+
+    [...]
+```
+
+But remember: `help` is a builtin; you might not find it in all shells (you won't find it in `zsh`, for example). This highlights again the challenges of builtins.
+
+## `tldr`
+
 In general for this book I'm trying to avoid suggesting too many non-standard tools which don't come pre-installed on systems. However, this one is just too good to miss!
 
 Let's say I need to find and replace some text in a file. I know I can do this with the `sed` command, but have forgotten the syntax. So I run `man sed`:

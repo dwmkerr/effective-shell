@@ -4,7 +4,7 @@ slug: "computer-in-a-nutshell"
 weight: 12
 ---
 
-# Chapter 10 - Interlude - A Computer in a Nutshell
+# Chapter 14 - Interlude - A Computer in a Nutshell
 
 The diagram below shows a simplified view of a typical computer:
 

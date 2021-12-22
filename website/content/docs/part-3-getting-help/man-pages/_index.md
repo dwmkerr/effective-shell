@@ -43,40 +43,7 @@ These manuals should contain all command line options and details of how to use 
 
 You can scroll up and down through the content with the arrow keys. 
 This scrolling capability actually is not part of `man` - 
-it is available because the information is presented in the [shell pager]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}}). A pager is a tool for looking through content which might not easily fit on a screen.
-
-There are alternative pagers available (on many Unix-y systems you'll have `less`, `more` and `most`) but in general you'll normally get what you need with `less`.
-
-# The Alternative - Help
-
-Sometimes you'll look something up in the manual and get the 'builtins' page. For example:
-
-```sh
-$ man cd
-BUILTIN(1)                BSD General Commands Manual               BUILTIN(1)
-
-NAME
-     builtin, !, %, ., :, @, {, }, alias, alloc, bg, bind, bindkey, break,
-     breaksw, builtins, case, cd, chdir, command, complete, continue,
-
-# (I've skipped the bulk of the output to save space!)
-```
-
-This happens when the command you are looking up is not actually a program with a manual page, but a built-in shell command. Most shells have a way get help on such commands - `bash` for example has `help`:
-
-```sh
-$ help cd
-cd: cd [-L|[-P [-e]] [-@]] [dir]
-    Change the shell working directory.
-
-    Change the current directory to DIR.  The default DIR is the value of the
-    HOME shell variable.
-
-# (I've skipped the bulk of the output to save space!)
-```
-
-This is all I'll say about `help` for now. We visit it again in [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}), 
-where we talk more about built-in commands. For now we'll go back to the `man` command, which works across all shells as it is a Linux feature rather than a shell specific feature!
+it is available because the information is presented in the [shell pager]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}}), usually, `less`.
 
 ## Getting the Index of Manual Section
 
@@ -126,7 +93,4 @@ You can also use the `apropos` or `whatis` commands to search through the manual
 In this chapter we looked at some of the ways we can get help. To quickly summarise:
 
 - The `man` tool can be used to look at the manual page for a topic
-
-# Footnotes
-
-[^1]: Dash is a paid product. Full disclosure - I don't get any money from them or anyone else to write about anything, all content is 100% based on my experiences. I don't run ads on my site either.
+- These manual pages contain detailed information about their respective topic.
