@@ -99,8 +99,7 @@ behave exactly the same when called as a command.
 
 A _builtin_ is a command within the shell itself, and are therefore shell-specific.
 [Nushell](https://www.nushell.sh/), for example, defines `ls` to be a builtin, 
-whereas on Bash and Z-shell (and most other shells),
-`ls` is an external command.
+whereas on Bash and Z-shell (and most other shells), `ls` is an external command.
 
 This is where we need to take note. As soon as you are running a builtin, you are potentially using a feature that is specific to _your_ shell, rather than a program that is shared across the system and can be run by _any_ shell.
 
@@ -112,7 +111,6 @@ cd is a shell builtin
 ```
 
 The `type` command (which is _itself_ a builtin!) tells you the exact type of shell command.
-
 Interestingly, you might be using more builtins than you think. `echo` is a program, but most of the time you are not executing it when you are in a shell:
 
 ```sh
@@ -121,55 +119,30 @@ echo is a shell builtin
 echo is /bin/echo
 ```
 
-By using the `-a` flag on `type` to show _all_ commands that match the name, we see that `echo` is actually both a builtin _and_ a program.
+Unless you specify the command `/bin/echo`, you are using Bash's 
+builtin `echo`.
+Many simple programs have builtin versions. 
+Echo is builtin because the shell can run much more quickly by not actually running a different program.
+Other commands are shell builtins because they have to be, like `cd`.
 
-Many simple programs have builtin versions: The shell can execute them much faster.
-
-Some commands are shell builtins because they have to be, like `cd`.
-Other builtins exist because they can be executed faster.
-
-Echo is builtin because the shell can run much more quickly by not actually running a program if it has its own built in implementation.
-
-but many shells are 'Bash-like' - meaning they will have a set very similar to the Bash builtins, which you can see here:
+Many shells are 'Bash-like', meaning their builtins will be very similar to the Bash builtins, which you can see here:
 
 https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
 
-As should be familiar from [Part 3 - Getting Help]({{< relref "/docs/part-3-getting-help" >}}), you can get help for builtins:
-
-```sh
-$ man source     # source is a builtin
-BUILTIN(1)                BSD General Commands Manual               BUILTIN(1)
-
-NAME
-     builtin, !, %, # ...snip...
-
-SYNOPSIS
-     builtin [-options] [args ...]
-```
-
-However, the manual will _not_ show information on specific builtins, which is a pain. Your shell _might_ have an option to show more details - for example, in Bash you can use `help`:
-
-```sh
-$ help source
-source: source filename [arguments]
-    Read and execute commands from FILENAME and return.  The pathnames
-    in $PATH are used to find the directory containing FILENAME.  If any
-    ARGUMENTS are supplied, they become the positional parameters when
-    FILENAME is executed.
-```
-
-But remember: `help` is a builtin; you might not find it in all shells (you won't find it in `zsh`, for example). This highlights again the challenges of builtins.
-
-
-
-
+Incidentally, `type` is part of the Unix standard, and will be present (as a builtin) within most shells. 
+As we've already seen, it will identify the type of command as well as the location of an executable.
 
 ## Functions
 
-You can define your own shell functions. We will see a lot more of this later, but let's show a quick example for now:
+Most shells permit the user to define commands of their own.
+Technically, they are just a way to group commands together; however,
+they may also contain quite sophisticated logic.
+We will see a lot more of this later, but let's show a quick example for now:
 
 ```sh
-$ restart-shell () { exec -l $SHELL }
+$ restart-shell() { 
+> exec -l $SHELL 
+> }
 ```
 
 This snippet creates a function that restarts the shell (quite useful if you are messing with shell configuration files or think you might have irreversibly goofed up your current session).
@@ -191,7 +164,7 @@ restart-shell ()
 }
 ```
 
-Functions are one of the most powerful shell constructs we will see; they are extremely useful for building sophisticated logic. We're going to see them in a lot more detail later, but for now it is enough to know that they exist, and can run logic, and are run as commands.
+Functions are one of the most powerful constructs shells offer: They are extremely useful for building sophisticated logic. We're going to see them in a lot more detail later, but for now it is enough to know that they are user-defined, and are ran as commands.
 
 ## Aliases
 
@@ -205,7 +178,7 @@ ls is an alias for ls -G
 ls is /bin/ls
 ```
 
-I make sure that when I use the `ls` command, the shell always expands it to `ls -G`, which colours the output.
+Whenever I use the `ls` command, the shell expands it to `ls -G`, which colours the output.
 
 We can quickly define aliases to save on keystrokes. For example:
 
@@ -215,25 +188,20 @@ $ alias k='kubectl'
 
 From this point on, I can use the `k` alias as shorthand for the `kubectl` command.
 
-Aliases are far less sophisticated than functions. Think of them as keystroke savers and nothing more, and you won't go far wrong.
+Aliases are far less sophisticated than functions. Think of them as keystroke savers and nothing more.
 
 # The Key Takeaways
 
 So we now hopefully have a greater understanding of the variety of shell commands. Not all commands are executables, not all of the commands we _think_ are executables necessarily are, and some commands might be more sophisticated.
 
+
 As a shell user, the key things to remember are:
 
 1. Executables are programs your system can use; your shell just calls out to them.
-2. Builtins are _very_ shell-specific and usually control the shell itself
+2. Builtins are _very_ shell-specific and can manipulate the shell itself
 3. Functions are powerful ways to write logic but will normally be shell-specific.
 4. Aliases are conveniences for human operators, but only in the context of an interactive shell.
-
-To find out how a command is implemented, just use the `type -a` command:
-
-```sh
-$ type -a cat
-cat is /bin/cat
-```
+5. Use the `type` command to assert a command's type.
 
 # More than You Need to Know
 
@@ -285,7 +253,7 @@ $ which -a vi
 /usr/bin/vi
 ```
 
-`which` originated in `csh`. It remains on many systems for compatibility but in general should be avoided due to potentially odd behaviour[^3].
+`which` originated in `csh`. It remains on many systems for compatibility but in general should be avoided due to potentially odd behaviour[^1].
 
 ## `whence`
 
@@ -310,11 +278,11 @@ However, `type` should be preferred, as it is more standard.
 
 ## `whereis`
 
-`whereis` is available on some systems and generally operates the same as `which`, searching paths for an executable:
+`whereis` is available in the `util-linux` package, and prints the man-page location of the command, in addition to the binary's location:
 
 ```sh
 % whereis ls
-/bin/ls
+ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz /usr/share/man/man1p/ls.1p.gz
 ```
 
 Again, `type` should be preferred for compatibility.
@@ -349,19 +317,8 @@ This command can also be used to only search for paths:
 ls is /bin/ls
 ```
 
-**Summary**
-
-In this chapter, we examined the different classes of commands.
-
-- Builtins vary from shell to shell
-- `type` - Report a command type
-
 ---
 
 **Footnotes**
 
-[^1]: Why these names and locations? It's a long story. The best place to start if you are interested is the [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard).
-
-[^2]: `chmod` changes the mode of a file; `+x` means 'add the executable bit'. This tells the operating system the file can be executed.
-
-[^3]: [Stack Exchange: Why not use “which”? What to use then?](https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then)
+[^1]: [Stack Exchange: Why not use “which”? What to use then?](https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then)
