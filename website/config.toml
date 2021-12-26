@@ -34,8 +34,7 @@ disqusShortname = "effective-shell"
 [params]
   # Set the subtitle to the author name.
   Subtitle = '''
-  By Dave Kerr 
-  and Josh Timmons'''
+  By Dave Kerr'''
 
   # (Optional, default 6) Set how many table of contents levels to be showed on page.
   # Use false to hide ToC, note that 0 will default to 6 (https://gohugo.io/functions/default/)
