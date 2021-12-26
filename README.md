@@ -2,27 +2,6 @@
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
-Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com).
-
-If you find this book useful, please do consider sponsoring me to help support my open-source work!
-
-<iframe src="https://github.com/sponsors/dwmkerr/button" title="Sponsor dwmkerr" height="35" width="116" style="border: 0;"></iframe>
-
-<!-- vim-markdown-toc GFM -->
-
-* [Introduction](#introduction)
-* [Installing the Samples](#installing-the-samples)
-* [The Website](#the-website)
-    * [Building the Website](#building-the-website)
-    * [Updating the Theme](#updating-the-theme)
-* [Versioning](#versioning)
-* [Copyright & Licensing](#copyright--licensing)
-* [Thanks!](#thanks)
-
-<!-- vim-markdown-toc -->
-
-## Introduction
-
 This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book.
 
 ## Installing the Samples
