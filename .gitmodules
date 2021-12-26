@@ -5,3 +5,6 @@
 	path = website/themes/dwmkerr-hugo-book
 	url = https://github.com/dwmkerr/hugo-book.git
 	branch = master
+[submodule "website/themes/hugo-book"]
+	path = website/themes/hugo-book
+	url = https://github.com/alex-shpak/hugo-book
