@@ -243,7 +243,7 @@ The `continue` statement 'skips' the current item in the loop and moves to the n
 
 If the files that you are trying to loop through are too complex to match with a shell pattern, you can use the `find` command to search for files, then loop through the results.
 
-If you are not familiar with the `find` command, check [Chapter 11 - Finding Files]({{< relref "/docs/part-4-getting-faster/finding-files" >}}).
+If you are not familiar with the `find` command, check [Chapter 11 - Finding Files]({{< relref "/docs/part-5-getting-faster/finding-files" >}}).
 
 Let's use the `find` command to run a loop that prints every symlink in the user's home directory. But before we run the loop we'll create a symlink with a space - this will cause some interesting output in our script:
 

@@ -30,11 +30,12 @@ bookMenuLevels: 1
    - [Advanced Text Manipulation with Sed]({{< relref "/docs/part-4-manipulating-text/advanced-text-manipulation" >}})
    - [Build Commands on the Fly with Xargs]({{< relref "/docs/part-4-manipulating-text/build-commands-on-the-fly" >}})
 
- - [**Part 5 - Getting Faster**]({{< relref "/docs/part-4-getting-faster" >}})
-   - [Finding Files]({{< relref "/docs/part-4-getting-faster/finding-files" >}})
-   - [Clipboard Gymnastics]({{< relref "/docs/part-4-getting-faster/clipboard-gymnastics" >}})
-   - [Fly on the Command Line]({{< relref "/docs/part-4-getting-faster/fly-on-the-command-line" >}})
-   - [Job Control]({{< relref "/docs/part-4-getting-faster/job-control" >}})
+ - [**Part 5 - Getting Faster**]({{< relref "/docs/part-5-getting-faster" >}})
+   - [Finding Files]({{< relref "/docs/part-5-getting-faster/finding-files" >}})
+   - [Clipboard Gymnastics]({{< relref "/docs/part-5-getting-faster/clipboard-gymnastics" >}})
+   - [Fly on the Command Line]({{< relref "/docs/part-5-getting-faster/fly-on-the-command-line" >}})
+   - [Job Control]({{< relref "/docs/part-5-getting-faster/job-control" >}})
+
  - [**Part 4 - Shell Scripting**]({{< relref "/docs/part-4-shell-scripting" >}})
    - [Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}})
    - [Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}})
