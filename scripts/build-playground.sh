@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-# build-samples.sh
+# build-playground.sh
 #
-# This file builds the 'samples' folder. Means it will:
+# This file builds the 'playground' zip file. It will:
 # 
 # 1. Copy all of the files from 'samples'
 # 2. Add the .version.txt file to the samples
@@ -42,8 +42,4 @@ mkdir -p ./artifacts/samples/repositories
 )
 
 # Zip up and tar up the samples
-zip -r ./artifacts/samples.zip ./artifacts/samples
-tar czf ./artifacts/samples.tar.gz -C ./artifacts/samples .
-
-	# mkdir -p website/static/downloads
-	# cd website && hugo --minify
+zip -r ./artifacts/playground.zip ./artifacts/samples

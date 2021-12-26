@@ -17,13 +17,10 @@ serve:
 # folder as if we don't have them we should definitely not deploy.
 .PHONY: build
 build:
-	mkdir -p website/static/downloads
-	./scripts/build-samples.sh
-	cp ./artifacts/samples.zip  ./website/static/downloads/effective-shell-samples.zip
-	cp ./artifacts/samples.tar.gz ./website/static/downloads/effective-shell-samples.tar.gz
+	./scripts/build-playground.sh
+	cp ./artifacts/playground.zip  ./website/playground.zip
 	cd website && hugo --minify
-	test -e ./website/static/downloads/effective-shell-samples.zip
-	test -e ./website/static/downloads/effective-shell-samples.tar.gz
+	test -e ./website/playground.zip
 
 # Create the summary structure in word format, easier to share.
 .PHONY: structure
