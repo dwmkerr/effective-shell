@@ -10,14 +10,12 @@ Perhaps the easiest way to start to understand how to use the shell is to learn 
 
 ## The Working Directory
 
-When we open a folder in a graphical user interface, we are always viewing the contents of a folder, or directory. When you open the shell, the same applies - we are always sitting in a specific directory.
+When we open a folder in a graphical user interface, we are always viewing the contents of a folder, or *directory.* When you open the shell, the same applies - we are always sitting in a specific directory.
 We can tell the shell to print the current working directory with the `pwd` command.
 
 You should see something like this:
 
 <a href="images/pwd.png"><img alt="Screenshot: pwd" src="images/pwd.png" width="800px" /></a>
-
-The `pwd` command shows the full path of the directory that you are currently in. 
 
 ## Listing the Contents of the Working Directory
 
@@ -100,9 +98,9 @@ ls -al pictures
 
 You should see something like this:
 
-<img alt="Screenshot: Special Dot Folders" src="images/special-dot-folders.png" width="800px" />
+<a href="images/special-dot-folders.png"><img alt="Screenshot: Special Dot Folders" src="images/special-dot-folders.png" width="800px" /></a>
 
-This picture highlights two special folders - `.` and `..`. These are special folders which exist in _every_ folder in the system.
+This picture highlights two special folders - `.` and `..`. These special folders exist in _every_ folder in the system.
 
 The first folder, `.`, represents the folder it is in. Why would this be useful? Well, sometimes we just want a quick way to say the equivalent of "right here" in a command. For example, if I wanted to copy the current folder to a backup folder, I could do this:
 
@@ -110,7 +108,7 @@ The first folder, `.`, represents the folder it is in. Why would this be useful?
 cp . /backup
 ```
 
-The `cp` command is the _Copy_ command, and we'll see it in the next chapter. But the key thing to note is that we can use `.` to tell the command to copy the folder we are in right now.
+The `cp` command is the _Copy_ command, and we'll see it in a later chapter. But the key thing to note is that we can use `.` to tell the command to copy the folder we are in right now.
 
 The `..` folder means _the parent folder_. You can use this to "go up" to the parent folder, for example:
 
@@ -121,9 +119,9 @@ ls .
 
 Would give:
 
-<img alt="Screenshot: cd dot dot" src="images/cd-dot-dot.png" width="800px" />
+<a href="cd-dot-dot-.png"><img alt="Screenshot: cd dot dot" src="images/cd-dot-dot.png" width="800px" /></a>
 
-Note that we've used `cd ..` to _change directory to the parent folder_ then `ls` to _list the contents of the current folder_. We could also just have used `ls` on its own as it defaults to the current folder.
+Here we've used `cd ..` to _change directory to the parent folder_ then `ls` to _list the contents of the current folder_. We could also just have used `ls` on its own as it defaults to the current folder.
 
 The `..` folder can be helpful if you need to navigate to a location which is outside of your current folder. For example, if I am in the `pictures` folder and I want to move to the `scripts` folder, I can just use:
 

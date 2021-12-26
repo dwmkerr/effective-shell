@@ -54,22 +54,6 @@ file ~/effective-shell-samples.zip
 
 The `file` command is showing us we have a zip file - now it's time to unzip it!
 
-# Extracting the Zip
-
-Right now we have a zip file. We need to extract it&mdash; Unpack the files so that we can play with them. Again, in a system with a graphical user interface, this is easy, generally you just right click on it. But we're going to use the shell for this!
-
-Run the command:
-
-```sh
-unzip ~/effective-shell-samples.zip
-```
-
-Now let's look at what we've got with the `ls` command:
-
-<img alt="Screenshot: unzip" src="images/unzip.png" width="800px" />
-
-Excellent - we've now got a _folder_ which contains all of the files in the zip archive.
-
 # Deleting Files
 
 Now that we've downloaded and unzipped the file, we don't need the zipped version any more. So let's delete this file.

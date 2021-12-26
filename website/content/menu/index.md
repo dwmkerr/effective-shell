@@ -8,7 +8,8 @@ bookMenuLevels: 1
    - [What is the Shell?]({{< relref "docs/part-1-getting-started/what-is-the-shell" >}})
    - [Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell" >}})
    - [Getting Bash on Windows]({{< relref "/docs/part-1-getting-started/getting-bash-on-windows" >}})
-   - [Quick Demo of the Shell]({{< relref "/docs/part-1-getting-started/quick-demo-of-the-shell" >}})
+   - [Creating a Playground]({{< relref "/docs/part-1-getting-started/creating-a-playground" >}})
+   - [Demo of the Shell]({{< relref "/docs/part-1-getting-started/quick-demo-of-the-shell" >}})
 
  - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
    - [Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}})
