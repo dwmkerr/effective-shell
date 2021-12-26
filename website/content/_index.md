@@ -23,6 +23,6 @@ This book is also open source! The code is on [https://github.com/josh-59/effect
 
 If you find this book useful, please consider sponsoring me to support my open source work:
 
-<iframe src="https://github.com/sponsors/dwmkerr/button" title="Sponsor dwmkerr" height="35" width="116" style="border: 0;"></iframe>
+<center><iframe src="https://github.com/sponsors/dwmkerr/button" title="Sponsor dwmkerr" height="35" width="116" style="border: 0;"></iframe></center>
 
 
