@@ -18,9 +18,10 @@ serve:
 .PHONY: build
 build:
 	./scripts/build-playground.sh
-	cp ./artifacts/playground.zip  ./website/playground.zip
+	mkdir -p ./website/public
+	cp ./artifacts/playground.zip  ./website/public/playground.zip
 	cd website && hugo --minify
-	test -e ./website/playground.zip
+	test -e ./website/public/playground.zip
 
 # Create the summary structure in word format, easier to share.
 .PHONY: structure
