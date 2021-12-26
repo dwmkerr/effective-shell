@@ -21,7 +21,7 @@ disableKinds = ['taxonomy', 'taxonomyTerm']
 theme = "hugo-book"
 
 # Set the disqus shortname for the site.
-disqusShortname = "effective-shell"
+# disqusShortname = "effective-shell"
 
 # Needed for mermaid/katex shortcodes
 [markup]
