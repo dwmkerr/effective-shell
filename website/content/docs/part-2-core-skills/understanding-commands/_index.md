@@ -23,7 +23,7 @@ In summary, avoid anything that starts with '`w`'! These are legacy commands, ge
 
 -->
 
-# Chapter 8 - Understanding Commands
+# Interlude - Understanding Commands
 
 In this chapter, we'll take a look at the various different types of shell commands that exist and how their differences can affect your work. 
 Commands are far more subtle than you might think and in this chapter we'll look at some of their nuances.

@@ -12,9 +12,9 @@ bookMenuLevels: 1
 
  - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
    - [Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}})
-   - [Managing Your Files]({{< relref "/docs/part-2-core-skills/managing-your-files" >}})
    - [Viewing a File]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}})
-   - [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
+   - [Managing Your Files]({{< relref "/docs/part-2-core-skills/managing-your-files" >}})
+   - [Interlude - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
 
  - [**Part 3 - Getting Help**]({{< relref "/docs/part-3-getting-help" >}})
    - [The Man Pages]({{< relref "/docs/part-3-getting-help/man-pages" >}})

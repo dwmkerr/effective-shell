@@ -1,6 +1,6 @@
-baseURL = "https://effective-shell.com/"
+baseURL = "https://josh-59.github.io/effective-shell/"
 languageCode = "en-us"
-title = "Effective Shell"
+title = "Effective Shell with fish"
 
 # (Optional) Set Google Analytics if you use it to track your website.
 # Always put it on the top of the configuration file, otherwise it won't work

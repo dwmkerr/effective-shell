@@ -4,7 +4,7 @@ type: docs
 bookDisableComments: true
 ---
 
-## Effective Shell
+## Effective Shell with `fish`
 
 This book is for anyone who is interested in computing, and wants to learn more about the exciting, but sometimes daunting, world of _The Shell!_
 
