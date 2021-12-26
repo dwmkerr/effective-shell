@@ -10,7 +10,7 @@ Before we start copying, deleting, moving and renaming files, we should create a
 
 To help with this, I've created a zipped up 'samples' file which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://josh-59.github.io/effective-shell/) website, right here:
 
-[https://josh-59.github.io/effective-shell/playground.zip]([https://josh-59.github.io/effective-shell/playground.zip)
+[https://josh-59.github.io/effective-shell/playground.zip](https://josh-59.github.io/effective-shell/playground.zip)
 
 We *could* open up a web browser, download the file, unzip it and then start from there, but this book is all about how to deal with everyday tasks in your shell, so let's skip the browser and do it in the shell instead!
 
