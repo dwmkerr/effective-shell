@@ -57,7 +57,7 @@ The _for loop_ is closed with the `done` keyword. Here we can also see an incons
 
 ## For Loops - Arrays
 
-In [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) we saw how to create arrays. We can easily loop through the items in an array with a for loop. Here's an example:
+In [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}) we saw how to create arrays. We can easily loop through the items in an array with a for loop. Here's an example:
 
 ```sh
 days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")
@@ -555,7 +555,7 @@ When you run this script you will see something like this:
 Random Number: 364272371462227929
 ```
 
-Note that we've used the string-length parameter expansion function to get the length of the `random_number_` variable here. If this is not familiar, check [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}).
+Note that we've used the string-length parameter expansion function to get the length of the `random_number_` variable here. If this is not familiar, check [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}).
 
 In general I would recommend using while loops rather than until loops. While loops are going to be more familiar to readers as they exist in many programming languages - until loops are a little more rare. And you can easily turn any until loop into a while loop by simply inverting the test commands you are running.
 
@@ -656,11 +656,11 @@ for word in "$sentence"; do echo "$word"; done
 Here are some words
 ```
 
-The reason for this has been touched on in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) and also partly in this chapter.
+The reason for this has been touched on in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}) and also partly in this chapter.
 
 In the first example the loop iterates over the `$sentence` variable. Note that this variable is _not_ quoted. This means that it follows the standard rules for 'expansion' in the shell. This means that as well as all of the usual features such as wildcard expansion, _word expansion_ will occur.
 
-In the second example, the loop iterates over the `"$sentence"` variable. Note that this variable _is_ quoted. As we saw in [Chapter 19]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) quoting a variable means that it is treated literally, expect for parameter expansion.
+In the second example, the loop iterates over the `"$sentence"` variable. Note that this variable _is_ quoted. As we saw in [Chapter 19]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}) quoting a variable means that it is treated literally, expect for parameter expansion.
 
 This means that in most circumstances you probably want to quote your variables - otherwise the shell is going to perform word splitting on them. But if you _do_ want expansion and splitting to occur, then you should _not_ quote text. For example, if we run the following we see invalid output:
 
@@ -816,6 +816,6 @@ Word: one two three
 
 If you want to use more Posix-like functionality then you can set the `SH_WORD_SPLIT` parameter. You can find out more about this parameter by running `man zsh` and searching for `SH_WORD_SPLIT`.
 
-[^1]: If we had put quotes around the wildcard text it would _not_ be expanded - check the section on 'Quoting' in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a refresher on this.
-[^2]: ANSI C Quoting is described in the 'Quoting' section in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}})
+[^1]: If we had put quotes around the wildcard text it would _not_ be expanded - check the section on 'Quoting' in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a refresher on this.
+[^2]: ANSI C Quoting is described in the 'Quoting' section in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}})
 [^2]: There is a good reason for this. Would you prefer `ls *.nothing-here` to show a warning that _*.nothing-here_ doesn't exist or show the result of `ls` - which lists the current directory! This is discussed in more detail on this Stack Overflow thread: https://unix.stackexchange.com/questions/204803/why-is-nullglob-not-default

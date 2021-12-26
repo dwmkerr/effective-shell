@@ -91,7 +91,7 @@ Tilde expansion is very simple!
 
 When the dollar symbol `$` is used, this indicates that the shell is going to perform _parameter expansion_, which expands variables or the parameters of a script. It can also be used to indicate _command substitution_ or _arithmetic expansion_ - which we will see once we've looked at parameter expansion.
 
-A lot of these expansions are covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) but I have included each of the available expansions here for reference.
+A lot of these expansions are covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}) but I have included each of the available expansions here for reference.
 
 In it's most simple form, parameter expansion simple replaces the name of a variable or parameter with its value:
 
@@ -299,7 +299,7 @@ echo "Goodbye Dave"
 
 There are actually a number of options available for Pattern Replacement that can control things like the number of replacements that are performed and how arrays are treated. I would recommend not using overly complex replacements using these types of expressions though - instead use a command like `tr` or `sed` to make it very explicit what is going on - the built-in shell parameter replacement can be quite complex for the reader to parse and can also vary from shell to shell.
 
-For suggestions on alternative ways to manipulate text check [Chapter 15 - Slice and Dice Text]({{< relref "/docs/part-4-manipulating-text/slice-and-dice-text" >}}) or [Chapter 16 - Advanced Text Manipulation with Sed]({{< relref "/docs/part-4-manipulating-text/advanced-text-manipulation" >}})
+For suggestions on alternative ways to manipulate text check [Chapter 15 - Slice and Dice Text]({{< relref "/docs/part-4-manipulating-text/slice-and-dice-text" >}}) or [Chapter 16 - Advanced Text Manipulation with Sed]({{< relref "/docs/part-8-advanced-techniques/advanced-text-manipulation" >}})
 
 **Lowercase or Uppercase**
 
@@ -335,7 +335,7 @@ The output of this script is:
 
 This can be very useful if you are writing scripts that will work with arbitrary of variable parameter names.
 
-You can see more examples of how parameter expansion works, and in particular how to use parameter expansion with the parameters to functions or scripts in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}).
+You can see more examples of how parameter expansion works, and in particular how to use parameter expansion with the parameters to functions or scripts in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}).
 
 ## Command Substitution
 
@@ -375,7 +375,7 @@ echo "The result of 23*4 is: $((23*4))"
 echo "The result of 23*4 is: 92"
 ```
 
-Arithmetic expansion is covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}).
+Arithmetic expansion is covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}).
 
 ## Word Splitting
 
@@ -570,7 +570,7 @@ for file in ~/effective-shell/*.txt
 do
 ```
 
-In this script we first check to see whether the file or folder exists by using the `-e` test. If the file or folder doesn't exist then we skip through the loop. You can see more examples of this pattern in [Chapter 21 - Loops and working with Files and Folders]({{< relref "/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders" >}}).
+In this script we first check to see whether the file or folder exists by using the `-e` test. If the file or folder doesn't exist then we skip through the loop. You can see more examples of this pattern in [Chapter 21 - Loops and working with Files and Folders]({{< relref "/docs/part-6-shell-scripting/loops-and-working-with-files-and-folders" >}}).
 
 Pathname expansion has limitations - if you need a more sophisticated way to search for a set of files, check [Chapter 11 - Finding Files]({{< relref "/docs/part-5-getting-faster/finding-files" >}}).
 

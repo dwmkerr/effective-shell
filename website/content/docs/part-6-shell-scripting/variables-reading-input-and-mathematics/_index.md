@@ -309,7 +309,7 @@ We do not use quotes around a variable or a value if we want the shell to shell 
 - Parameter and variable expansion `echo $SHELL` is expanded to `echo /usr/bin/sh` (note that this expansion also occurs with double quotes)
 - Command substitution: `echo $(date)` is expanded to echo the results of the `date` command (this also occurs with double quotes)
 - Arithmetic expansion: `square=$((4 * 4))` has the value `4 * 4` evaluated mathematically (we see this at the end of this chapter)
-- Word splitting: this is a more complex topic discussed in [Chapter 21 - Loops and working with Files and Folders]({{< relref "/docs/part-4-shell-scripting/loops-and-working-with-files-and-folders" >}})
+- Word splitting: this is a more complex topic discussed in [Chapter 21 - Loops and working with Files and Folders]({{< relref "/docs/part-6-shell-scripting/loops-and-working-with-files-and-folders" >}})
 - Pathname expansion: `ls *.txt` is expanded to all filename that match the wildcard pattern `*.txt`
 
 We are going to see more detail on Shell Expansion as we continue through this part of the book. There is also a detailed explanation in the final section of the book and an appendix with a quick reference.

@@ -47,9 +47,9 @@ If you have a command that you expect may fail, but want to continue execution e
 rm "$HOME/.shell.sh" || true
 ```
 
-In this case I have used a conditional operator, as described in [Chapter 20 - Mastering Conditional Logic]({{< relref "/docs/part-4-shell-scripting/mastering-conditional-logic" >}}), to ensure that even if the `rm` command fails for some reason, the overall result of the statement will be true and the script will not exit.
+In this case I have used a conditional operator, as described in [Chapter 20 - Mastering Conditional Logic]({{< relref "/docs/part-6-shell-scripting/mastering-conditional-logic" >}}), to ensure that even if the `rm` command fails for some reason, the overall result of the statement will be true and the script will not exit.
 
-Check Chapter [Chapter 22 - Functions, Parameters and Error Handling]({{< relref "/docs/part-4-shell-scripting/functions-parameters-and-error-handling" >}}) if you need a refresher on the `set -e` or `set -o pipefail` commands.
+Check Chapter [Chapter 22 - Functions, Parameters and Error Handling]({{< relref "/docs/part-6-shell-scripting/functions-parameters-and-error-handling" >}}) if you need a refresher on the `set -e` or `set -o pipefail` commands.
 
 # Debugging Shell Scripts
 
@@ -131,7 +131,7 @@ This combines the first two patterns we've seen - failing on errors and having t
 
 # Checking for Existing Variables or Functions
 
-The `declare` (_set variable values and attributes_)<!--index--> command can be used to explicitly declare that we are creating a variable. We saw in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) that sometimes this command is required - if we want to create an associative array for example.
+The `declare` (_set variable values and attributes_)<!--index--> command can be used to explicitly declare that we are creating a variable. We saw in [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}) that sometimes this command is required - if we want to create an associative array for example.
 
 There are a number of options for the 'declare' command, but one that is particularly useful is the `-p` (_display attributes and value_) option. This can be used to show all of the variables of a certain type.
 
@@ -547,7 +547,7 @@ It is possible to specify the arguments to the program that is used to execute t
 
 I include this pattern because it is possible you will see it in other scripts, but please do not do this. There are a two particular reasons that it is risky.
 
-The first is that pattern requires that you know the path to the shell. As we saw in [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}}), we should use the `#!/usr/bin/env` program so that we search the `$PATH` for the shell rather than assuming that we know the location of the shell program.
+The first is that pattern requires that you know the path to the shell. As we saw in [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-6-shell-scripting/shell-script-essentials" >}}), we should use the `#!/usr/bin/env` program so that we search the `$PATH` for the shell rather than assuming that we know the location of the shell program.
 
 The second reason is that multiple parameters are not handled consistently across operating systems. For example, on some Unix systems the following shebang will run `bash` with the `-e` parameter:
 

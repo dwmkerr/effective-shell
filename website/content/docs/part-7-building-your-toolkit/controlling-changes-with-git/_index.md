@@ -25,7 +25,7 @@ In recent years Git has become without a doubt the most popular version control 
 
 All of the information about a set of files or folders that you are tracking the changes for is stored in a _Git repository_. We can create a Git repository by running the `git init` (_initialise Git repository_)<!--index--> command.
 
-Let's see this in action be creating a Git repository to track changes to our 'dotfiles' folder. Our 'dotfiles' folder is a folder where we keep simple shell configuration - you can read about how to create a folder like this in [Chapter 27 - Managing Your Dotfiles]({{< relref "/docs/part-5-building-your-toolkit/managing-your-dotfiles" >}}) or you can download the Effective Shell samples to get a copy of the 'dotfiles' folder.
+Let's see this in action be creating a Git repository to track changes to our 'dotfiles' folder. Our 'dotfiles' folder is a folder where we keep simple shell configuration - you can read about how to create a folder like this in [Chapter 27 - Managing Your Dotfiles]({{< relref "/docs/part-7-building-your-toolkit/managing-your-dotfiles" >}}) or you can download the Effective Shell samples to get a copy of the 'dotfiles' folder.
 
 {{< hint info >}}
 **Downloading the Samples**

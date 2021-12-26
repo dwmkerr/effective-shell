@@ -133,7 +133,7 @@ else
 fi
 ```
 
-In this case we used the `-e` (_file or folder exists_) operator to check whether a file or folder exists in the location _/usr/local/bin/common_. The 'common' command is the command we created in [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-4-shell-scripting/shell-script-essentials" >}}).
+In this case we used the `-e` (_file or folder exists_) operator to check whether a file or folder exists in the location _/usr/local/bin/common_. The 'common' command is the command we created in [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-6-shell-scripting/shell-script-essentials" >}}).
 
 Now if you run the script and you don't have the 'common' command installed you will see the following output:
 
@@ -307,7 +307,7 @@ On my machine this script shows the following output:
 Your shell binary is: bash
 ```
 
-The `$BASH_REMATCH` variable is an array - the first result value in the array is the entire match, each subsequent value in the array is the result of each capture group in the expression. Double check [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-4-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a reminder on how arrays work in Bash.
+The `$BASH_REMATCH` variable is an array - the first result value in the array is the entire match, each subsequent value in the array is the result of each capture group in the expression. Double check [Chapter 19 - Variables, Reading Input, and Mathematics]({{< relref "/docs/part-6-shell-scripting/variables-reading-input-and-mathematics" >}}) if you need a reminder on how arrays work in Bash.
 
 # Chaining Commands
 

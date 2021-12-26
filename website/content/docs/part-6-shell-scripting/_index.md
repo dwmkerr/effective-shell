@@ -1,6 +1,6 @@
 ---
-title: "Part 4 - Shell Scripting"
-slug: "part-4-shell-scripting"
+title: "Part 6 - Shell Scripting"
+slug: "part-6-shell-scripting"
 bookDisableComments: true
 ---
 

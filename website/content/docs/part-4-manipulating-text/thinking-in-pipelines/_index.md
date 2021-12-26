@@ -4,7 +4,7 @@ slug: "thinking-in-pipelines"
 weight: 7
 ---
 
-# Chapter 9 - Thinking in Pipelines
+# Chapter 15 - Thinking in Pipelines
 
 Understanding the concept of _pipelines_ in the shell, as well as how input and output work for command line programs is critical to be able to use the shell effectively.
 
@@ -61,9 +61,7 @@ Every program has access to three 'special' files, `stdin`, `stdout` and `stderr
 - `stdout` is short for 'standard output' - it's where _many_ programs write their output to
 - `stderr` is short for 'standard error' -  it's where _some_ programs write error messages to
 
-Why do I say 'many' and 'some'? Well the reason is that while this is _convention_, it is not adhered to universally. Anyone who writes a program is free to choose how they read input and write output, so some programs might not follow these conventions. In Chapter 29 we'll look at how to write tools which follow these conventions, as well as others which are useful.
-
-Each of these files has a special number which is shown in grey in the diagram. This is known as the _file descriptor_ and we'll see it later on. Each of these files also has a special location in the system which you can access directly - you can see these files by running `ls -al /dev/std*`:
+Each of these files has a number assigned to it (shown in grey in the diagram). This is known as the _file descriptor_ and we'll see it later on. Each of these files also has a special location in the system which you can access directly - you can see these files by running `ls -al /dev/std*`:
 
 ```
 $ ls -al /dev/std*

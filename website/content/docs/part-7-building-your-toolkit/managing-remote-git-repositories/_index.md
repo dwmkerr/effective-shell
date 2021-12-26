@@ -314,7 +314,7 @@ I use the `gpr` function many times per day and it has been a real time-saver!
 
 # Showing Git Information in the Command Prompt
 
-In [Chapter 26 - Customising Your Command Prompt]({{< relref "/docs/part-5-building-your-toolkit/customising-your-command-prompt" >}}) we saw how to customise the command prompt by setting the `PS1` variable. As you start using Git more you might find it convenient to show some information about the repository in your prompt.
+In [Chapter 26 - Customising Your Command Prompt]({{< relref "/docs/part-7-building-your-toolkit/customising-your-command-prompt" >}}) we saw how to customise the command prompt by setting the `PS1` variable. As you start using Git more you might find it convenient to show some information about the repository in your prompt.
 
 As an example, while I am writing this chapter, my command prompt looks like this:
 
