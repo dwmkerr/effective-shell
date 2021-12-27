@@ -7,7 +7,6 @@ weight: 1
 # Chapter 2 - Opening the Shell 
 
 Now let's actually learn how to open the shell on your computer.
-
 Once we've done this, we might need to make some configuration changes so that we get it to behave in a way which as consistent with _other_ shells as possible - we'll get to that in the next chapter.
 
 ## Microsoft Windows

@@ -446,7 +446,7 @@ This is a powerful technique - if we had thousands of errors in the file, this w
 
 # Don't Forget Your Pager!
 
-In [Chapter 5 - Viewing a File]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}}) we talked about the _pager_ - the program your shell uses to make it easier to look through larger text files, giving the option to move backwards and forwards a page at a time (or searching and so on). Don't forget to use your pager when you are working with text. When you are trying to build a pipeline and want to see intermediate results (perhaps _before_ you use `head` or `tail`) then you can use the pager to avoid filling your screen and terminal with too much text.
+In [Chapter 5 - Viewing Files and Directories]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}}) we talked about the _pager_ - the program your shell uses to make it easier to look through larger text files, giving the option to move backwards and forwards a page at a time (or searching and so on). Don't forget to use your pager when you are working with text. When you are trying to build a pipeline and want to see intermediate results (perhaps _before_ you use `head` or `tail`) then you can use the pager to avoid filling your screen and terminal with too much text.
 
 For example, when looking at the sorted list of films, I might run this:
 

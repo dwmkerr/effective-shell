@@ -43,7 +43,7 @@ These manuals should contain all command line options and details of how to use 
 
 You can scroll up and down through the content with the arrow keys. 
 This scrolling capability actually is not part of `man` - 
-it is available because the information is presented in the [shell pager]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}}), usually, `less`.
+it is available because the information is presented in the [shell pager]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}}), usually, `less`.
 
 ## Getting the Index of Manual Section
 

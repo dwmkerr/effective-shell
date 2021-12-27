@@ -38,7 +38,7 @@ These manuals should contain all command line options and details of how to use 
 
 You can scroll up and down through the content with the arrow keys. 
 This scrolling capability actually is not part of `man` - 
-it is available because the information is presented in the [shell pager]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}}). A pager is a tool for looking through content which might not easily fit on a screen.
+it is available because the information is presented in the [shell pager]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}}). A pager is a tool for looking through content which might not easily fit on a screen.
 
 There are alternative pagers available (on many Unix-y systems you'll have `less`, `more` and `most`) but in general you'll normally get what you need with `less`.
 

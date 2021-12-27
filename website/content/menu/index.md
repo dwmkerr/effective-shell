@@ -3,17 +3,15 @@ headless: true
 bookMenuLevels: 1
 ---
 
- - [**Introduction**]({{< relref "/docs/introduction" >}})
  - [**Part 1 - Getting Started**]({{< relref "/docs/part-1-getting-started" >}})
    - [What is the Shell?]({{< relref "docs/part-1-getting-started/what-is-the-shell" >}})
    - [Opening the Shell]({{< relref "/docs/part-1-getting-started/opening-the-shell" >}})
    - [Getting Bash on Windows]({{< relref "/docs/part-1-getting-started/getting-bash-on-windows" >}})
    - [Creating a Playground]({{< relref "/docs/part-1-getting-started/creating-a-playground" >}})
-   - [Demo of the Shell]({{< relref "/docs/part-1-getting-started/quick-demo-of-the-shell" >}})
 
  - [**Part 2 - Core Skills**]({{< relref "/docs/part-2-core-skills" >}})
    - [Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}})
-   - [Viewing a File]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}})
+   - [Viewing Files and Directories]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}})
    - [Managing Your Files]({{< relref "/docs/part-2-core-skills/managing-your-files" >}})
    - [Interlude - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
 

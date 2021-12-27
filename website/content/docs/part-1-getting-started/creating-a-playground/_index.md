@@ -8,7 +8,7 @@ weight: 3
 
 Before we start copying, deleting, moving and renaming files, we should create a 'playground' area we can work in. We don't want to test all of this on our own personal files until we know exactly what we're doing! 
 
-To help with this, I've created a zipped up 'samples' file which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://josh-59.github.io/effective-shell/) website, right here:
+To help with this, I've created a zipped-up 'samples' file which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://josh-59.github.io/effective-shell/) website, right here:
 
 [https://josh-59.github.io/effective-shell/playground.zip](https://josh-59.github.io/effective-shell/playground.zip)
 
@@ -42,7 +42,7 @@ Right now we have a zip file. We need to extract it&mdash; Unpack the files so t
 Run the command:
 
 ```sh
-unzip ~/effective-shell-samples.zip
+unzip ~/playground.zip
 ```
 
 Now let's look at what we've got with the `ls` command:
@@ -50,5 +50,3 @@ Now let's look at what we've got with the `ls` command:
 <img alt="Screenshot: unzip" src="images/unzip.png" width="800px" />
 
 Excellent - we've now got a _folder_ which contains all of the files in the zip archive.
-
-

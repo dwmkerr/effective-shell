@@ -19,27 +19,27 @@ set -x
 
 # First, trash the samples folder if it exists in the artifacts folder. Then
 # create a new folder based on the current samples.
-[ -d ./artifacts/samples ] && rm -rf ./artifacts/samples
+[ -d ./artifacts/playground ] && rm -rf ./artifacts/playground
 mkdir -p ./artifacts
-cp -r ./samples ./artifacts
+cp -r ./playground ./artifacts
 
 # Copy over the version identifier.
-cp version.txt ./artifacts/samples/.version.txt
+cp version.txt ./artifacts/playground/.version.txt
 
 # Clone our sample repositories. If we have repositories that should not have
 # remotes (i.e. for the chapter on getting started with git, where we work with
 # a local repository only) we just remove the remote.
-mkdir -p ./artifacts/samples/repositories
-(   cd ./artifacts/samples/repositories \
+mkdir -p ./artifacts/playground/repositories
+(   cd ./artifacts/playground/repositories \
     && git clone git://github.com/effective-shell/chapter-27-dotfiles \
     && cd chapter-27-dotfiles \
     && git remote remove origin \
 )
-(   cd ./artifacts/samples/repositories \
+(   cd ./artifacts/playground/repositories \
     && git clone git://github.com/effective-shell/chapter-28-dotfiles \
     && cd chapter-28-dotfiles \
     && git remote remove origin \
 )
 
-# Zip up and tar up the samples
-zip -r ./artifacts/playground.zip ./artifacts/samples
+# Zip up the samples
+cd artifacts && zip -r ./playground.zip ./playground

@@ -12,7 +12,7 @@ We've seen variables a few times in our journey so far. In this chapter we'll lo
 
 _Variables_ are places where the system, the shell, or shell users like ourselves can store data.
 
-We've already seen variables a few times in this book. For example in [Chapter 5 - Viewing a File]({{< relref "/docs/part-2-core-skills/viewing-a-file" >}}) we saw the `$PAGER` variable that is used to specify what pager program should be used in the shell.
+We've already seen variables a few times in this book. For example in [Chapter 5 - Viewing Files and Directories]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}}) we saw the `$PAGER` variable that is used to specify what pager program should be used in the shell.
 
 When we want to use a variable in the shell, we use the `$` dollar symbol to specify the variable name:
 

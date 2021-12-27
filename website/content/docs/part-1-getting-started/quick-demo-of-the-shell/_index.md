@@ -18,7 +18,7 @@ bash --version
 
 ![Screenshot: Bash Version](./images/bash-version.png)
 
-Let's quickly dissect this. We have run the `bash` _command_. A command can be a program on your computer, or it can be something built into the shell. We'll look at this in a lot more detail later, but for now it's important to understand that a lot of what you will be doing is running commands.
+Let's quickly dissect this. We have run the `bash` _command_. A command can be a program on your computer, or it can be something built into the shell. We'll look at this in a lot more detail later, but for now it's important to understand that the crux of shells is running commands.
 
 The `--version` text is a _parameter_. Parameters affect how commands work. This is actually easier to see with an example.
 
