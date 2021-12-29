@@ -24,6 +24,9 @@ jobs:
       - name: Build
         run: cd website && hugo --minify 
 
+      - name: Create Playground
+        run: ./scripts/build-playground.sh && cp ./artifacts/playground.zip ./website/public/playground.zip
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
