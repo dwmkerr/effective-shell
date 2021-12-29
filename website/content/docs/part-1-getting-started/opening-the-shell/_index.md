@@ -11,8 +11,7 @@ Once we've done this, we might need to make some configuration changes so that w
 
 ## Microsoft Windows
 
-There are a number of shell programs on Microsoft Windows. We'll be using the basic shell which is pre-installed, which is called the "Command Prompt".
-
+There are a number of shell programs on Microsoft Windows. The one most commonly used is called the "Command Prompt".
 To open the command prompt, start by clicking the start button on the bottom left hand side of the screen, and type `command prompt`. Open the Command Prompt program:
 
 <img alt="Screenshot: Search for Command Prompt" src="images/windows-search-command-prompt.png" width="800px" />
@@ -29,11 +28,9 @@ If you are using a Mac, then you just need to run the "Terminal" program to open
 
 <img alt="Screenshot: Search for Terminal" src="images/osx-search-terminal.png" width="800px" />
 
-Once the program has opened, type `whoami` then hit the Return key. The `whoami` program will show the username of the logged in user:
+Once the program has opened, type `whoami` then hit the Return key: 
 
 <img alt="Screenshot: whoami on OSX" src="images/osx-shell-whoami.png" width="800px" />
-
-That's it! In the next section we'll make some minor configuration changes to keep things consistent with the samples in the book.
 
 ## Linux / Unix
 

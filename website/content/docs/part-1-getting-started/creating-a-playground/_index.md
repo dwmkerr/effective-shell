@@ -4,6 +4,13 @@ slug: "creating-a-playground"
 weight: 3
 ---
 
+<!--
+
+Note that if you are on Windows, you will have to
+[install wget](http://gnuwin32.sourceforge.net/packages/wget.htm).
+
+-->
+
 # Chapter 4 - Creating a Playground
 
 Before we start copying, deleting, moving and renaming files, we should create a 'playground' area we can work in. We don't want to test all of this on our own personal files until we know exactly what we're doing! 
@@ -11,6 +18,8 @@ Before we start copying, deleting, moving and renaming files, we should create a
 To help with this, I've created a zipped-up 'samples' file which has a lot of files in it which we can use to play with. Now the file itself is available on the [effective-shell.com](https://josh-59.github.io/effective-shell/) website, right here:
 
 [https://josh-59.github.io/effective-shell/playground.zip](https://josh-59.github.io/effective-shell/playground.zip)
+
+## Downloading the file
 
 We *could* open up a web browser, download the file, unzip it and then start from there, but this book is all about how to deal with everyday tasks in your shell, so let's skip the browser and do it in the shell instead!
 
@@ -22,6 +31,7 @@ Now that you have your shell open, we can run the `wget` (_Web Get_ ) command to
 cd
 wget https://josh-59.github.io/effective-shell/playground.zip
 ```
+
 
 You'll see something like this:
 
