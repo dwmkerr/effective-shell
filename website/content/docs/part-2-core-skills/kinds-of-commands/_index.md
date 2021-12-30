@@ -1,34 +1,15 @@
 ---
-title: "Understanding Commands"
-slug: "understanding-commands"
+title: "Kinds of Commands"
+slug: "kinds-of-commands"
 weight: 10
 ---
 
-<!--
-
-EXAMPLE FOR OPTIONS:
-
-There are a lot of options for the `ls` command. In [Part 3](../../part-3-getting-help) we'll see how to find out the options for commands. For now, let's look at one of the most common options `-l`. This tells `ls` to show the _long_:
-
-```sh
-ls -l
-```
-
-<img alt="Screenshot: ls -l" src="images/ls-l.png" width="800px" />
-
-A little like the 'details' view in a graphical user interface, this list view shows us more details, such as who owns the file or folder, when it was modified, and more. Again, we'll see more details on this later.
-
-
-In summary, avoid anything that starts with '`w`'! These are legacy commands, generally needed only when working on older Unix machines. `type` or `command`  should be used instead.
-
--->
-
-# Interlude - Understanding Commands
+# Chapter 7 - Kinds of Commands
 
 In this chapter, we'll take a look at the various different types of shell commands that exist and how their differences can affect your work. 
 Commands are far more subtle than you might think and in this chapter we'll look at some of their nuances.
 
-# What Are Commands?
+## What Are Commands?
 
 This is _really_ important to understand! A _command_ in a shell is something you execute. It might take parameters. Generally it'll have a form like this:
 
@@ -41,7 +22,7 @@ We've already seen many commands during this series:
 - `ls` - Show the contents of a directory
 - `cd` - Change directories
 - `pwd` - Print the current directory
-- `wget` - Download a file from the web
+- `wget` - Get a file from the web
 - `less` - View the contents of a file
 
 But to be an effective shell user, you must understand that not all commands are created equal. 
@@ -114,20 +95,15 @@ The `type` command (which is _itself_ a builtin!) tells you the exact type of sh
 Interestingly, you might be using more builtins than you think. `echo` is a program, but most of the time you are not executing it when you are in a shell:
 
 ```sh
-$ type -a echo
+$ type echo
 echo is a shell builtin
-echo is /bin/echo
 ```
 
-Unless you specify the command `/bin/echo`, you are using Bash's 
+Unless you specify `/bin/echo`, you are using Bash's 
 builtin `echo`.
 Many simple programs have builtin versions. 
 Echo is builtin because the shell can run much more quickly by not actually running a different program.
 Other commands are shell builtins because they have to be, like `cd`.
-
-Many shells are 'Bash-like', meaning their builtins will be very similar to the Bash builtins, which you can see here:
-
-https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html
 
 Incidentally, `type` is part of the Unix standard, and will be present (as a builtin) within most shells. 
 As we've already seen, it will identify the type of command as well as the location of an executable.
@@ -164,13 +140,9 @@ restart-shell ()
 }
 ```
 
-Functions are one of the most powerful constructs shells offer: They are extremely useful for building sophisticated logic. We're going to see them in a lot more detail later, but for now it is enough to know that they are user-defined, and are ran as commands.
-
 ## Aliases
 
-An alias is just a shortcut. Type in a certain set of characters, and the shell will replace them with the value defined in the alias.
-
-Some common commands are actually already aliases - for example, in my `zsh` shell, the `ls` command is an alias:
+An alias is just a shortcut. Type in a certain set of characters, and the shell will replace them with the value defined in the alias. Some common commands are actually already aliases - for example, in my `zsh` shell, the `ls` command is an alias:
 
 ```sh
 % type -a ls
@@ -187,25 +159,23 @@ $ alias k='kubectl'
 ```
 
 From this point on, I can use the `k` alias as shorthand for the `kubectl` command.
-
 Aliases are far less sophisticated than functions. Think of them as keystroke savers and nothing more.
 
 # The Key Takeaways
 
-So we now hopefully have a greater understanding of the variety of shell commands. Not all commands are executables, not all of the commands we _think_ are executables necessarily are, and some commands might be more sophisticated.
-
+So we now hopefully have a greater understanding of the variety of shell commands. 
 
 As a shell user, the key things to remember are:
 
 1. Executables are programs your system can use; your shell just calls out to them.
-2. Builtins are _very_ shell-specific and can manipulate the shell itself
+2. Builtins are shell-specific and can manipulate the shell itself
 3. Functions are powerful ways to write logic but will normally be shell-specific.
 4. Aliases are conveniences for human operators, but only in the context of an interactive shell.
 5. Use the `type` command to assert a command's type.
 
 # More than You Need to Know
 
-OK, for the masochistic few, you might be wondering about all of the other commands and utilities you may have seen that can tell you about programs and commands:
+OK, you might be wondering about all of the *other* commands and utilities you may have seen that can tell you about programs and commands:
 
 - `what`
 - `whatis`
@@ -245,7 +215,7 @@ But I can't imagine it will be a regularly used tool by most users.
 
 ## `which`
 
-`which` will search your `$PATH` to see whether an executable can be found. With the `-a` flag, it will show all results.
+`which` is an executable that will search your `$PATH` to see whether an executable can be found. With the `-a` flag, it will show all results.
 
 ```sh
 $ which -a vi
@@ -254,6 +224,7 @@ $ which -a vi
 ```
 
 `which` originated in `csh`. It remains on many systems for compatibility but in general should be avoided due to potentially odd behaviour[^1].
+Note that the man-page recommends wrapping `which` in a function.
 
 ## `whence`
 
@@ -266,7 +237,7 @@ $ which -a vi
 
 ## `where`
 
-This is a shell builtin that can provide information on commands, similar to `type`:
+This is a `zsh` shell builtin that can provide information on commands, similar to `type`:
 
 ```sh
 % where ls
@@ -278,7 +249,8 @@ However, `type` should be preferred, as it is more standard.
 
 ## `whereis`
 
-`whereis` is available in the `util-linux` package, and prints the man-page location of the command, in addition to the binary's location:
+`whereis` is available in the `util-linux` package, and 
+prints the man-page location of the command, in addition to the binary's location:
 
 ```sh
 % whereis ls
@@ -310,7 +282,7 @@ ls is an alias for ls -G
 ls is /bin/ls
 ```
 
-This command can also be used to only search for paths:
+This command can also be used to only search for paths: 
 
 ```sh
 % type -p ls

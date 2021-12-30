@@ -466,7 +466,7 @@ The _~/effective-shell/scripts/common.sh_ script checks to see whether the opera
 
 # Checking for Installed Programs
 
-As we saw in [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}) there are many different ways to determine whether a command is available. The most correct and portable way to test to see whether a command is available is to use the `command -v` command as shown below:
+As we saw in [Chapter 10 - Kinds of Commands]({{< relref "/docs/part-2-core-skills/kinds-of-commands" >}}) there are many different ways to determine whether a command is available. The most correct and portable way to test to see whether a command is available is to use the `command -v` command as shown below:
 
 ```sh
 if ! command -v "curl" >/dev/null 2>&1; then

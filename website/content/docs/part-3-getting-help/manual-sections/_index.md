@@ -10,7 +10,7 @@ You'll often see tools referred to in manpages with numbers after them. Take a l
 
 ![Screenshot of numbers](./images/numbers.png)
 
-The number is the manual **Section Number**. The different sections of the manual are documented and can be found on most Unix-like systems in `man`'s documentation, which you can check by running `man man`[^1]. Here's what you'd get on Ubuntu 16:
+The number in parenthesis is the **Section Number**. The sections of the manual are more or less standardized: 
 
 - **Section 1** - Executable programs or shell commands
 - **Section 2** - System calls (functions provided by the kernel)
@@ -23,14 +23,15 @@ The number is the manual **Section Number**. The different sections of the manua
 - **Section 9** - Kernel routines (Non standard)
 
 Not all of these explanations will be entirely clear to everyone, so we'll go through the sections in detail shortly.
+You can also get more information about the sections themselves by opening up the `intro` page. 
 
 If you want to, you can specifically choose *which* section of the manual you are looking in by using:
 
-```
-man <section> <search>
+```sh
+man <section> <page>
 ```
 
-You can also get more information about the sections themselves by opening up the `intro` page. For example:
+For example:
 
 ```
 $ man 1 intro
@@ -73,7 +74,7 @@ DESCRIPTION
 
 ## Section 2: System Calls
 
-You'll probably not use this section unless you are doing systems programming[^2]. This section contains info on the available Linux Kernel system calls. For example, running `man 2 chown` gives:
+You'll probably not use this section unless you are doing systems programming[^1]. This section contains info on the available Linux Kernel system calls. For example, running `man 2 chown` gives:
 
 ```
 CHOWN(2)                    BSD System Calls Manual                   CHOWN(2)
@@ -265,6 +266,5 @@ In this chapter we looked at some of the ways we can get help. To quickly summar
 
 # Footnotes
 
-[^1]: Weirdly satisfying to run.
-[^2]: Which it is always fun to try if you get the chance, and a great way to learn more about the fundamentals of the operating system.
+[^1]: Which it is always fun to try if you get the chance, and a great way to learn more about the fundamentals of the operating system.
 

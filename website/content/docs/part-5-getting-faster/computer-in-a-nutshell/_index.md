@@ -134,13 +134,13 @@ Shell command prompts can be customised, so they will often look different from 
 
 <img width="600px" alt="Image: Customised oh-my-zsh" src="images/image-ohmyzsh.jpg" />
 
-*(Source: https://ohmyz.sh/)
+\*(Source: https://ohmyz.sh/)
 
 ### Shell Commands and Different Shells
 
 A lot of the 'commands' in a shell, such as `cat` (which shows the contents of a file), are actually just simple programs, which will interface with the kernel. No matter what shell you use, these commands will behave the same way, because really all you are doing is calling another program.
 
-Some commands, such as `cd` (change directory), are built into the shell. Some commands are functions that have been defined, or aliases to other commands (for more details on commands, see [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})). Commands will often differ between shells.
+Some commands, such as `cd` (change directory), are built into the shell. Some commands are functions that have been defined, or aliases to other commands (for more details on commands, see [Chapter 10 - Kinds of Commands]({{< relref "/docs/part-2-core-skills/kinds-of-commands" >}})). Commands will often differ between shells.
 
 Not all shells are created equal - anyone can write a shell program, maybe creating a simple interface to the computer or a highly complex one with many features. In fact, a later article in this series will look at the genealogy of the most common shells.
 

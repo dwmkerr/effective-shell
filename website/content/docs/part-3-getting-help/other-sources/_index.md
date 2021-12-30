@@ -8,9 +8,9 @@ weight: 5
 
 ## The `help` Command
 
-The `help` command is a [shell builtin]({{<relref "/docs/part-2-core-skills/understanding-commands">}}) that offers help on the shell itself.  
+The `help` command is a shell builtin that offers help on the shell itself.  
 
-For example, the Bash builtin `source` reads and executes the contents of a file in \*this\* shell's context:
+For example, the Bash builtin `source` reads and executes the contents of a file in \*this\* shell's context.  For more detail, we can use `help`:
 
 ```sh
 $ help source
@@ -23,7 +23,7 @@ source: source filename [arguments]
     [...]
 ```
 
-But remember: `help` is a builtin; you might not find it in all shells (you won't find it in `zsh`, for example). This highlights again the challenges of builtins.
+But remember: `help` is a [builtin]({{<relref "/docs/part-2-core-skills/kinds-of-commands">}}); you might not find it in all shells (you won't find it in `zsh`, for example). This highlights again the challenges of builtins.
 
 ## `tldr`
 
@@ -41,9 +41,8 @@ Now let's compare this to the output from `tldr` (which is short for "Too Long, 
 
 The first example is exactly what I'm looking for. Now for any more detail than a few basic examples, I'm going to have to go to the manual, but for the basics this is great.
 
-You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`. It's open source and community maintained. You will need Node.js installed to install the tool, the instructions are available online.
-
-I'd recommend `tldr` as a first-call for checking to see how to use a command.
+You can install the [`tldr`](https://github.com/tldr-pages/tldr) tool with `npm install -g tldr`, or possibly through your package manager. 
+It's open source and community maintained. 
 
 # The Online Cheatsheet
 

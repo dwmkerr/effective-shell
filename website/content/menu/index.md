@@ -13,7 +13,7 @@ bookMenuLevels: 1
    - [Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}})
    - [Viewing Files and Directories]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}})
    - [Managing Your Files]({{< relref "/docs/part-2-core-skills/managing-your-files" >}})
-   - [Interlude - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}})
+   - [Kinds of Commands]({{< relref "/docs/part-2-core-skills/kinds-of-commands" >}})
 
  - [**Part 3 - Getting Help**]({{< relref "/docs/part-3-getting-help" >}})
    - [The Man Pages]({{< relref "/docs/part-3-getting-help/man-pages" >}})

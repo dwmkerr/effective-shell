@@ -2,28 +2,27 @@
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
-This repository contains all of the content for the [Effective Shell](josh-59.github.io/effective-shell/) online book.
+This repository contains all of the content for the [Effective Shell](https://josh-59.github.io/effective-shell/) online book.
 
 ## Installing the Samples
 
-You can install the samples into your `~/effective-shell` folder with this command:
+You can download and extract the samples into `~/playground` with these commands:
 
 ```sh
-curl effective.sh | sh
+wget https://josh-59.github.io/effective-shell/playground.zip
+unzip playground.zip
 ```
 
-Or can also manually download them using from any of these locations:
+Or can also manually download them from any of these locations:
 
-- [https://effective-shell.com/downloads/effective-shell-samples.zip](https://effective-shell.com/downloads/effective-shell-samples.zip)
-- [https://effective-shell.com/downloads/effective-shell-samples.tar.gz](https://effective-shell.com/downloads/effective-shell-samples.tar.gz)
-
-The one-line shell installer is hosted at [github.com/dwmkerr/effective-shell-installer](https://github.com/dwmkerr/effective-shell-installer)
+- [https://josh-59.github.io/effective-shell/playground.zip](https://josh-59.github.io/effective-shell/playground.zip)
 
 ## The Website
 
 The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell.com). This is done using [Hugo](https://gohugo.io/).
 
-This section contains information on how to built, use and edit the site. To help you quickly edit the site, some tips are below:
+This section contains information on how to build, use and edit the site. 
+To help you quickly edit the site, some tips are below:
 
 - The main _content_ is at [website/content/docs/](website/content/docs/)
 - The menu structure is defined at [website/content/menu/index.md](website/content/menu/index.md).
@@ -61,13 +60,13 @@ https://effective-shell.com/downloads/effective-shell-samples.tar.gz
 
 ### Updating the Theme
 
-The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo-book) theme, which is a fork of [alex-shpak](https://github.com/alex-shpak/hugo-book).
+The site uses the [alex-shpak](https://github.com/alex-shpak/hugo-book) Hugo Book theme.
 
 ## Versioning
 
 The version of the site and the code is defined in the [`version.txt`](./version.txt) file. This makes it reasonably straightforward to script actions which require the version.
 
-Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
+Releasing is managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
 
 ## Copyright & Licensing
 

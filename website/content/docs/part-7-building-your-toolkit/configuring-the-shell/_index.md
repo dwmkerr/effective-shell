@@ -113,7 +113,7 @@ alias k='kubectl'
 alias gocode='cd ~/repos/github/dwmkerr'
 ```
 
-If you are not familiar with aliases, check [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}).
+If you are not familiar with aliases, check [Chapter 10 - Kinds of Commands]({{< relref "/docs/part-2-core-skills/kinds-of-commands" >}}).
 
 ### Functions
 

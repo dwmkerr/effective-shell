@@ -246,7 +246,7 @@ The next way we can run a script it is make it 'executable'. This means we chang
 chmod +x ~/scripts/common.v1.sh
 ```
 
-If the `chmod` command looks unfamiliar then check the [Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}) chapter. Now that the file has been made executable, we can simply enter the path to the file and run it, as if it was any other command:
+If the `chmod` command looks unfamiliar then check the [Kinds of Commands]({{< relref "/docs/part-2-core-skills/kinds-of-commands" >}}) chapter. Now that the file has been made executable, we can simply enter the path to the file and run it, as if it was any other command:
 
 ```
 ~/scripts/common.v1.sh

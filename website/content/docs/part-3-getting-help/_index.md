@@ -5,7 +5,5 @@ bookDisableComments: true
 ---
 
 ## Part 3 - Getting  Help
-If you are trying to be more effective when using the shell, it is crucial to know how to quickly look things up.
-In this chapter, I'll show you how to quickly get help when working with tools in the shell, without disrupting your flow!
-
-
+There'll be many circumstances where you'll need to open a browser to search for help. But there's also a wealth of information available within the command line itself.
+Looking up parameters, checking how to run commands, C library documentation, or even useful information like ASCII charts are all available directly in the shell, through the online manual pages.
