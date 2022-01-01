@@ -94,7 +94,7 @@ tree playground | less
 
 The `tree` command shows you all of the folders and files in a location. 
 Since there is more text than can fit on a page, we are 
-[piping]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}})
+[piping]({{< relref "/docs/part-4-redirection-and-pipes/pipelines-in-action" >}})
 its output into `less`, the paging utility!
 
 # Summary

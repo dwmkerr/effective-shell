@@ -271,7 +271,7 @@ Whether you use single or double brackets will partly be down to preference and 
 
 ## Using Regexes in a Conditional Expression
 
-When you use the double square brackets conditional expression syntax you can use the `=~` operator to test for a regular expression. This can be extremely useful. If you need a reminder on how regular expressions work check [Chapter 13 - Regex Essentials]({{< relref "/docs/part-4-manipulating-text/regex-essentials" >}}).
+When you use the double square brackets conditional expression syntax you can use the `=~` operator to test for a regular expression. This can be extremely useful. If you need a reminder on how regular expressions work check [Chapter 13 - Regex Essentials]({{< relref "/docs/part-5-manipulating-text/regex-essentials" >}}).
 
 In the example below we check to see if the user's shell is 'zsh' by seeing whether the path of the shell ends with the text `zsh`:
 

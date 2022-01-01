@@ -1,7 +1,7 @@
 ---
 title: Effective Shell
 type: docs
-bookDisableComments: true
+next: part-1-getting-started/what-is-the-shell
 ---
 
 ## Effective Shell 

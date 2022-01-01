@@ -45,7 +45,7 @@ In this chapter we'll be using the `find` (_find files and folders_) command a l
 
 {{< /hint >}}
 
-The `find` command has outputted a list of files, now we want to use the `rm` (_remove file_) command to delete each one. Let's just _pipe_ the list of files to the `rm` command, check [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}}) if you need a reminder of how piping works:
+The `find` command has outputted a list of files, now we want to use the `rm` (_remove file_) command to delete each one. Let's just _pipe_ the list of files to the `rm` command; check [Chapter 13 - Pipelines in Action]({{< relref "/docs/part-4-redirection-and-pipes/pipelines-in-action/" >}}) if you need a reminder of how piping works:
 
 ```
 $ find . -empty | rm

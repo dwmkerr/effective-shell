@@ -113,7 +113,7 @@ So what else does a shell do? Most of the features are related to helping human 
 
 - Quickly enter commands, see the history of commands and quickly restructure commands (see [Chapter 8 - Fly on the Command Line]({{< relref "/docs/part-5-getting-faster/fly-on-the-command-line" >}}))
 - Navigate through the file system, moving from folder to folder (see [Chapter 1- Navigating Your System]({{< relref "/docs/part-2-core-skills/navigating-your-system" >}})), which makes it easier for an operator to navigate the file system
-- Chain the output of commands together - for example, taking the output of one basic program, such as the `tree` program we saw, and writing it to a file (see [Chapter 7 - Thinking in Pipelines]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}}))
+- Chain the output of commands together - for example, taking the output of one basic program, such as the `tree` program we saw, and writing it to a file (see [Part 4 - Redirection and Pipes]({{< relref "/docs/part-4-redirection-and-pipes/" >}}))
 - Offer a programming language, allowing the operator to perform more complicated tasks
 
 And a lot more! In fact, that's what the whole book is about - how to get the most from these powerful programs, particularly for those who use them regularly.

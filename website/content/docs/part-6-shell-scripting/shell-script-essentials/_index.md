@@ -179,7 +179,7 @@ This is a short script, but there is quite a lot going on. Let's look at it blow
 5. Then we sort _numerically_ and in reverse - the highest count first
 6. Finally, we limit the results to the first ten items
 
-If you need a refresher on the shell history, `sort` or `uniq` the check the [Slice and Dice Text]({{< relref "/docs/part-4-manipulating-text/slice-and-dice-text" >}}) chapter. If the `sed` command doesn't look familiar then check the [Advanced Text Manipulation with Sed]({{< relref "/docs/part-8-advanced-techniques/advanced-text-manipulation" >}}) chapter.
+If you need a refresher on the shell history, `sort` or `uniq` the check the [Slice and Dice Text]({{< relref "/docs/part-5-manipulating-text/slice-and-dice-text" >}}) chapter. If the `sed` command doesn't look familiar then check the [Advanced Text Manipulation with Sed]({{< relref "/docs/part-8-advanced-techniques/advanced-text-manipulation" >}}) chapter.
 
 If you want to see a more detailed breakdown of how the script works, check [Appendix - How the Script Works](#appendix-how-the-script-works). But this is not necessary for you to follow the content in this chapter.
 

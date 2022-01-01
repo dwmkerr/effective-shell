@@ -11,7 +11,10 @@ Commands are far more subtle than you might think and in this chapter we'll look
 
 ## What Are Commands?
 
-This is _really_ important to understand! A _command_ in a shell is something you execute. It might take parameters. Generally it'll have a form like this:
+This is _really_ important to understand! 
+A _command_ in a shell is something you execute. 
+It might take parameters. 
+Generally, it'll have a form like this:
 
 ```sh
 command [param1 param2 ...]
@@ -183,7 +186,6 @@ OK, you might be wondering about all of the *other* commands and utilities you m
 - `whence`
 - `where`
 - `whereis`
-- `command`
 - `type`
 
 A _lot_ of these are legacy and should be avoided, but for completeness sake, we'll go through them.
@@ -210,8 +212,6 @@ $ whatis bash
 bash(1)                  - GNU Bourne-Again SHell
 bashbug(1)               - report a bug in bash
 ```
-
-But I can't imagine it will be a regularly used tool by most users.
 
 ## `which`
 
@@ -258,19 +258,6 @@ ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz /usr/share/man/man1p/ls.1p.gz
 ```
 
 Again, `type` should be preferred for compatibility.
-
-## `command`
-
-`command` is defined in the POSIX standard, so should be expected to be present on most modern systems. Without arguments, it simply executes a command. With the `-v` argument, you get a fairly machine-readable or processable response; with the `-V` argument, you get a more human readable response:
-
-```sh
-% command -v ls
-alias ls='ls -G'
-% command -V ls
-ls is an alias for ls -G
-```
-
-`command` can be useful in scripts, as we will see in later chapters.
 
 ## `type`
 

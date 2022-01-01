@@ -204,7 +204,7 @@ Timothy Lovejoy
 Timothy Lovejoy
 ```
 
-The `sort` command has lots of different options but the defaults work fine for this case. We can see we've got quite a few duplicates - now we can move onto how we'd handle that.
+The `sort` command has lots of different options, but the defaults work fine for this case. We can see we've got quite a few duplicates - now we can move onto how we'd handle that.
 
 # Manipulating Text
 

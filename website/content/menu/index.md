@@ -21,12 +21,17 @@ bookMenuLevels: 1
    - [Other Sources]({{< relref "/docs/part-3-getting-help/other-sources" >}})
    - [Interlude - Computer in a Nutshell]({{< relref "/docs/part-3-getting-help/computer-in-a-nutshell" >}})
 
- - [**Part 4 - Manipulating Text**]({{< relref "/docs/part-4-manipulating-text" >}})
-   - [Thinking in Pipelines]({{< relref "/docs/part-4-manipulating-text/thinking-in-pipelines" >}})
-   - [Regex Essentials]({{< relref "/docs/part-4-manipulating-text/regex-essentials" >}})
-   - [Get to Grips with Grep]({{< relref "/docs/part-4-manipulating-text/get-to-grips-with-grep" >}})
-   - [Slice and Dice Text]({{< relref "/docs/part-4-manipulating-text/slice-and-dice-text" >}})
-   - [Interlude - Editing Text with Vim]({{< relref "/docs/part-4-manipulating-text/editing-text" >}})
+ - [**Part 4 - Redirection and Pipes**]({{< relref "/docs/part-4-redirection-and-pipes" >}})
+   - [The Standard File Descriptors]({{< relref "/docs/part-4-redirection-and-pipes/standard-file-descriptors" >}})
+   - [Pipelines in Action]({{< relref "/docs/part-4-redirection-and-pipes/pipelines-in-action" >}})
+   - [Redirection]({{< relref "/docs/part-4-redirection-and-pipes/redirection" >}})
+   - [Common Patterns]({{< relref "/docs/part-4-redirection-and-pipes/common-patterns" >}})
+
+ - [**Part 5 - Maniuplating Text**]({{< relref "/docs/part-5-manipulating-text" >}})
+   - [Regex Essentials]({{< relref "/docs/part-5-manipulating-text/regex-essentials" >}})
+   - [Get to Grips with Grep]({{< relref "/docs/part-5-manipulating-text/get-to-grips-with-grep" >}})
+   - [Slice and Dice Text]({{< relref "/docs/part-5-manipulating-text/slice-and-dice-text" >}})
+   - [Interlude - Editing Text with Vim]({{< relref "/docs/part-5-manipulating-text/editing-text" >}})
 
  - [**Part 5 - Getting Faster**]({{< relref "/docs/part-5-getting-faster" >}})
    - [Finding Files]({{< relref "/docs/part-5-getting-faster/finding-files" >}})

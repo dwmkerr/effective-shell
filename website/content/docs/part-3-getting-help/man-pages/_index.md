@@ -50,7 +50,8 @@ It prints a simple one-line summary of commands, system calls and library functi
 
 The number in parenthesis indicates the manual section number of the page. We'll get to that in the next chapter.
 
-While useful for orientating oneself, the `whatis` command does not offer a great deal of detail.  For that, we'll have to look at the manual pages themselves.
+While useful for orientating oneself, the `whatis` command does not offer a great deal of detail.  
+For that, we'll have to look into the manual pages themselves.
 
 ## `man`
 
@@ -69,6 +70,8 @@ gives:
 You can scroll up and down through the content with `j` and `k`, or the arrow keys. 
 This scrolling capability actually is not part of `man` - 
 it is available because the information is presented in the [shell pager]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}}), usually, `less`.
+
+Anyways, each manual page is broken down into sections, such as `NAME`, `SYNOPSIS`, etc. The manual system is standard across \*nix systems, as are these commands.
 
 ## `apropos`
 
