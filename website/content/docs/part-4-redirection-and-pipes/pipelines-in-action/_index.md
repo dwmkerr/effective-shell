@@ -4,7 +4,7 @@ slug: "pipelines-in-action"
 weight: 7
 ---
 
-# Chapter XX - Pipelines in Action
+# Chapter 15 - Pipelines in Action
 
 Do you remember the `cat` command? It's the one which writes the contents of a file to the screen. For example:
 
@@ -64,7 +64,7 @@ Just the day before I wrote this chapter, I had to find out how many unique data
 cat data.dat | sort | uniq | grep -v '^#' | wc -l
 ```
 
-I didn't have to find a special program which does exactly what I needed[^5] - I just incrementally built a pipeline. Each section I added one by one, writing to the screen each time, until I had it working. The thought process was:
+I didn't have to find a special program which does exactly what I needed - I just incrementally built a pipeline. Each section I added one by one, writing to the screen each time, until I had it working. The thought process was:
 
 - `cat data.dat` - OK, first I need to write out the file
 - `sort` - now I can sort it, that'll put all the blank lines together
@@ -78,13 +78,9 @@ Of course, as things get more complex you might want to build scripts, or use a 
 
 # Summary
 
-We'll see pipelines again and again. The standard streams, redirection, pipelines and all of the tricks we've introduced in this chapter are fundamental not only to using the shell effectively, but really understanding how computer programs work.
-
-Don't be worried if this feels like a lot to take in - we'll see more and more examples in later chapters which will help reinforce these concepts. If you find yourself struggling later you might want to quickly review this chapter, because we introduced a lot!
-
 In this chapter we looked at:
 
-- We can _pipe_ the output of one program to the input of another with the pipe `|` symbol 
+- The _pipe_ operator `|` connects the output of one program to the input of another
 
 We also briefly saw some commands:
 

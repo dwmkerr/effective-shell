@@ -40,7 +40,7 @@ When you are running programs in a shell, the shell attaches your keyboard to th
 
 <center><img src="./images/diagram-shell-keyboard-terminal.png" alt="Diagram: Shell, Keyboard, Terminal" width="640px" /></center>
 
-This means when we're in a shell, we can type on the keyboard, which goes to the input of the program and then as the program outputs information and errors they show up on the screen.
+This means when we're in a shell, we can type on the keyboard, which goes to the input of the program and then as the program outputs information and errors, they show up on the screen.
 
 We can already see the beginnings of a **pipeline** here. There's a clear flow of data from the keyboard, through the `stdin` file, through the program, then through the output files, then to the display.
 

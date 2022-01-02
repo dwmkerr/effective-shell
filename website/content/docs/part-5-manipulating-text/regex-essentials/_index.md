@@ -6,7 +6,7 @@ weight: 13
 
 # Chapter 13 - Regex Essentials
 
-Many of the tools we're going to introduce in this part of the book support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text.
+Many of the tools we've introduced in this part support _regular expressions_ or regexes - a sophisticated language which allows us to describe different patterns of text.
 
 Before we look at how to use regular expressions in the shell, it is important to understand some of the basic regular expression concepts and techniques. This chapter covers the essentials - if you are already familiar with regular expressions feel free to skip to the next chapter.
 

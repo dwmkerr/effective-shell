@@ -1,11 +1,12 @@
 ---
-title: "Part 2 - Thinking in Pipelines"
-slug: "part-2-thinking-in-pipelines"
+title: "Part 5 - Manipulating Text"
+slug: "part-5-manipulating-text"
 bookDisableComments: true
 ---
 
-## Part 3 - Thinking in Pipelines
+## Part 5 - Manipulating Text
 
-In this chapter, we'll look at the ways programs handle input and output, and some of the key techniques that can be used to work with text.  
-Then we'll look at how we can chain multiple commands together with pipelines. 
-Hopefully, by the time you have completed this section, you will have a great understanding of the tools available to you and how to apply them to the task at hand.
+In this part, we're going to look at some of the ways to search and filter text, then some of the basic commands to _manipulate_ text. 
+There is a whole raft of commands and options available.
+We'll start with the basics and move onto some of the more sophisticated commands later on.
+

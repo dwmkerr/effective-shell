@@ -7,10 +7,9 @@ weight: 15
 # Chapter 15 - Slice and Dice Text
 
 In [Chapter 14]({{< relref "/docs/part-5-manipulating-text/get-to-grips-with-grep" >}}) we looked at how to use the `grep` command to search through text and filter text. In this chapter we're going to look at some of the basic commands which we can use to _manipulate_ text. There are a whole raft of commands and options available.
-
 We'll start with the basics and move onto some of the more sophisticated commands in the next chapter.
 
-# Heads and Tails
+## Heads and Tails
 
 The commands `head` and `tail` are very simple but incredibly useful.
 
@@ -113,7 +112,7 @@ Here I've taken the `head` of the file (otherwise the output gets quite difficul
 
 We're going to use `head` and `tail` quite a lot when working with text. These are two crucial tools which can really speed up your work.
 
-# Replacing Text 
+## Replacing Text 
 
 The next tool we'll look at is `tr` (_translate characters_). This program is very simple. My most common use for `tr` is to perform a simple substitution of characters.
 
@@ -188,7 +187,7 @@ In this case we are transforming characters in the `lower` class (lowercase char
 
 On Linux systems you can find more about character classes with `man 7 regex`. I am not going to go deeper into character classes at this stage. They provide a simple way to specify things like digits, alphabetic characters and so on, but there are other ways to do this (with _extended regexes_) which I think are likely to be more useful to learn about instead.
 
-# How to Cut
+## How to Cut
 
 The next command is one which I've used far more than I expected. The `cut` command _splits_ a line of text, using a given delimiter. Let's see some examples:
 
@@ -350,36 +349,7 @@ $ tail -n 3 ~/effective-shell/data/top100.csv | cut -d',' -f 2,3
 
 There's a surprising amount you can do with the `cut` tool. As we introduce more complex tools later on, like `sed` and `awk`, we'll see other ways to accomplish the same goals, but I often find that by filtering down the content with `grep` first I can `cut` my way to what I need without having to use more complex tools.
 
-# A Trick with Rev
-
-There is a very simple command called `rev` which reverses the given input. For example:
-
-```
-$ echo "A nut for a jar of tuna" | rev
-
-anut fo raj a rof tun A
-```
-
-At first glance this doesn't seem very useful - but there's a nice trick we can do with this:
-
-```
-$ pwd | rev | cut -d\ -f 1 | rev
-
-effective-shell
-```
-
-Here we take the current working directory, reverse it, cut the first field, then reverse it again. Here's what's happening at each stage:
-
-```
-pwd              /Users/dwmkerr/effective-shell
-rev              llehs-evitceffe/rrekmwd/sresU/
-cut -d'/' -f 1   llehs-evitceffe
-rev              effective-shell
-```
-
-This is a neat trick to rip all of the text from the _final_ occurrence of a character. You might not use it very often but it's an interesting reminder that you can often do more than you think by chaining together simple commands into a pipeline!
-
-# Sort and Unique
+## Sort and Unique
 
 Two other commands which can be really helpful are `sort` and `uniq`. Let's see `sort` first:
 
@@ -444,7 +414,7 @@ Let's break this down:
 
 This is a powerful technique - if we had thousands of errors in the file, this would make sure we only see _distinct_ errors, rather than showing _every_ error.
 
-# Don't Forget Your Pager!
+## Don't Forget Your Pager!
 
 In [Chapter 5 - Viewing Files and Directories]({{< relref "/docs/part-2-core-skills/viewing-files-and-directories" >}}) we talked about the _pager_ - the program your shell uses to make it easier to look through larger text files, giving the option to move backwards and forwards a page at a time (or searching and so on). Don't forget to use your pager when you are working with text. When you are trying to build a pipeline and want to see intermediate results (perhaps _before_ you use `head` or `tail`) then you can use the pager to avoid filling your screen and terminal with too much text.
 

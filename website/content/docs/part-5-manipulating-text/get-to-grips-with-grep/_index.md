@@ -10,20 +10,22 @@ The `grep` tool is a real workhorse for shell users - once you've learned how to
 
 As with the other tools we'll introduce in this chapter, we'll also look at when `grep` is the right tool for the job and when we should consider other options.
 
-# What is Grep
+## What is Grep
 
 A quick call to `whatis` offers a summary:
 
 ![whatis-grep](./images/whatis-grep.png)
 
-Grep searches a file (or optionally, `stdin`) for lines matching a pattern, and prints them (to `stdout`).  
+Grep searches a file (or optionally, `stdin`) for lines matching a pattern, and prints them to `stdout`.
 It is *very* useful for sorting through lines of text.
 
-That's it. You can search in files, but you are not _limited_ to searching in files. And you can search for _literal_ text, such as the word 'error', or you can search for _patterns_. _Patterns_ in this case means _regular expressions_ - expressions which allow you to be more specific in how you search (such as looking for a set of 16 numbers in a row, like a credit card number, or any text which looks like an email address). You can also do the opposite - filtering out parts of text.
+That's it. You can search in files, but you are not _limited_ to searching in files. And you can search for _literal_ text, such as the word 'error', or you can search for _patterns_. _Patterns_ in this case means _regular expressions_ - expressions which allow you to be more specific in how you search (such as looking for a set of 16 numbers in a row, like a credit card number, or any text which looks like an email address). 
 
-We'll use `grep` to search through text. Let's get straight into it!
+With the `-v` switch, you can also do the opposite, and filter out parts of text.
 
-# Why Grep?
+Let's get straight into it!
+
+## Why "grep"?
 
 Why the odd name? Grep is such a commonly used tool that the name has become a verb amongst technologists (people will often suggest you _grep_ for something in files).
 
@@ -35,11 +37,11 @@ g/re/p
 
 This command ran on all lines (`g`, for _global_), applied a regular expression (`re`, for _regular expression_) and then printed (`p` for _print_) the results. A colleague of Ken Thompson, one of the early innovators and inventors in the Unix world, needed to edit a large file - a file which was too large to fit in `ed`. Ken wrote the `grep` program overnight to allow the file's text to be filtered - and the results passed to the `ed` editor!
 
-You can read more about this story and some of the fascinating history of the early days of Unix in a [great interview with Brian Kerninghan](https://www.youtube.com/watch?v=NTfOnGZUZDk&feature=emb_title) from Computerphile[^1].
+You can read more about this story and some of the fascinating history of the early days of Unix in a [great interview with Brian Kerninghan](https://www.youtube.com/watch?v=NTfOnGZUZDk&feature=emb_title) from Computerphile.
 
 # Searching Through Text
 
-If you've been working through this book, you've probably entered quite a few commands in the shell. Most shells keep a history of the commands you type. Under the hood, when you use the up and down keys to look through commands you entered earlier, or use the `Ctrl-R` shortcut to _search_ through earlier commands, your shell is looking through this file. If these tricks are not familiar, check [Chapter 9 - Fly on the Command Line]({{< relref "/docs/part-5-getting-faster/fly-on-the-command-line" >}}).
+If you've been working through this book, you've probably entered quite a few commands in the shell. Most shells keep a history of the commands you type. Under the hood, when you use the up and down keys to look through commands you entered earlier, or use the `Ctrl-R` shortcut to _search_ through earlier commands, your shell is looking through this file. If these tricks are not familiar, check [Chapter 9 - Fly on the Command Line]({{< relref "/docs/part-6-getting-faster/fly-on-the-command-line" >}}).
 
 The file which keeps the history can vary from shell to shell. For example, on my system, my history for Bash is in the file `~/.bash_history`. But most 'Bash-like' shells provide a built-in environment variable which let's you find the path of the shell history. Let's at this file:
 
@@ -338,9 +340,3 @@ Here's a summary of what we've covered:
 - Include the filename and line number with the `-Hn` flags
 - V for invert! Use the `-v` flag to invert the search, or filter out matches
 - `grep` works great in pipelines! Use it to search or filter when working with _other_ commands
-
----
-
-**Footnotes**
-
-[^1]: See the interview at: https://www.youtube.com/watch?v=NTfOnGZUZDk&feature=emb_title

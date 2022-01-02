@@ -1,5 +1,5 @@
 ---
-title: "Introduction to The Standard File Descriptors"
+title: "Redirecting Stdin"
 slug: "standard-file-descriptors"
 weight: 7
 ---
@@ -14,7 +14,7 @@ This list is by no means exhaustive, in fact with a bit of tinkering you can mak
 
 These examples will use some new programs to transform the output - don't worry about the details of them, each will be described as we go through the book!
 
-**The Shell**
+## The Shell
 
 You might just use code in the shell as input, for example:
 
@@ -25,7 +25,7 @@ I am in the /Users/dwmkerr/repos/github/dwmkerr/effective-shell directory
 
 Here we've just used `echo` to write out message including a variable and then used the `sed` (_stream editor_) program to replace the word `folder` with `directory`. We'll get a lot of practice with `sed` as we go through this book!
 
-**Files**
+## Files
 
 We've already seen a few examples of using `cat` to write a file to `stdout`.
 
@@ -58,9 +58,9 @@ What's going on here?  Remember we mentioned that `stdin` is a special stream wh
 
 The `<` operator redirects the standard input of a program to come from the given file. We could also have written `cat /dev/stdin | rev`. Or just enter `rev` and type in the input we want to reverse!
 
-**The Clipboard**
+## The Clipboard
 
-In [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-5-getting-faster/clipboard-gymnastics" >}}) we saw a trick to remove formatting from text in the clipboard. Here's a similar trick to reverse the contents of the clipboard:
+In [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-6-getting-faster/clipboard-gymnastics" >}}) we saw a trick to remove formatting from text in the clipboard. Here's a similar trick to reverse the contents of the clipboard:
 
 ```
 $ pbpaste | rev | pbcopy
@@ -68,9 +68,10 @@ $ pbpaste | rev | pbcopy
 
 This pipeline pastes the contents of the clipboard to `stdout`, which is piped to `rev` (reversing the text) and then pipes the output to `pbcopy`, which copies the results to the clipboard[^2].
 
-**Filtered Input**
+## Filtered Input
 
-This is a trick a friend shared with me. He works with data scientists and whenever he shows them this command they love it!
+This is a trick a friend shared with me. 
+He works with data scientists and whenever he shows them this command they love it!
 
 ```
 $ head -n 100 100GBFile.csv > 100linefile.csv
@@ -86,82 +87,11 @@ $ grep -C 5 error /var/log/mylogfile.txt | less
 
 We'll see all of these commands as we go through the book, but this very cool trick uses the `grep` (_file pattern searcher_) command to search for the text `error` in the file `/var/log/mylogfile.txt`, shows five lines of _context_ (`-C 5`), which are the lines before and after the match, then puts the result into your pager! We'll see the pager just below. We'll do a lot of `grep`-ing as we go through the book so don't worry if this looks a little confusing for now.
 
-**Many More!**
+## Many More!
 
 We've only scratched the surface - almost any program will write to the standard output, meaning it can be the input for any pipeline you can imagine!
 
-# Common Patterns - Standard Output
-
-Now let's look at some of the things we can do with the standard output:
-
-<img src="./images/diagram-output-examples.png" alt="Diagram: Output Examples" width="1024px" />
-
-Some of these outputs are things we've seen before, but let's do a quick revision.
-
-**Display**
-
-This is what we've been doing a lot of so far.  When you are working with the shell _interactively_ this makes a lot of sense.
-
-If you have jobs which run in the _background_ (or on a timer, such as backup jobs which run nightly), you might not actually have a terminal attached to the program to see the output, in which case you'll likely write to a file.
-
-What about if you have a _lot_ of output? It can be quite inconvenient to have to scroll through the terminal (or impossible, depending on the system you are on). In this case use a _pager_. A pager is a program which makes it possible to interactively _page_ through output in the shell, scrolling up and down, searching and so on.
-
-Try this out as an example:
-
-```sh
-ls /usr/bin /usr/local/bin /usr/sbin | less
-```
-
-You'll see something like this:
-
-<img src="./images/screenshot-less.png" alt="Screenshot: Less Example" width="800px" />
-
-This long list of files would be hard to search through if it was printed directly to the shell, but in the pager we can use the `d` and `u` keys to go _down_ and _up_, or the `/` and `?` keys to search forwards or backwards.
-
-Piping into your pager is a really useful trick.
-You can pipe any text into your pager - try this:
-
-```sh
-ls -al /usr/bin | less
-```
-
-This lists the contents of the `/usr/bin` folder, piping the output to `less` so we can easily scroll through it.
-
-**File**
-
-The shell has a built in operator which will pipe the standard output of a program and write it to a file. It is the `>` or _redirection_ operator:
-
-```
-$ echo "Here's some data" > some_file.txt
-```
-
-It's as easy as that! Note that this will _overwrite_ anything already in the file.
-
-**Append**
-
-What if you don't want to overwrite a file, but instead just add a new line? The `>>` or _append redirection_ operator:
-
-```
-$ echo "Tuesday was good" >> diary.txt
-$ echo "Wednesday was better!" >> diary.txt
-$ echo "Thursday suuucks" >> diary.txt
-$ cat diary.txt
-Tuesday was good
-Wednesday was better!
-Thursday suuucks
-```
-
-This example writes each line in turn to the `diary.txt` file, appending the text to the end of the file (and creating it if it doesn't already exist).
-
-Appending to a file is extremely useful for circumstances where you might want to build or update a log of events over time.
-
-**Pipe**
-
-This is what we've spent most of this chapter looking at - to simply pipe the standard output to the standard input of another program!
-
-In this case, the output of our program becomes the input of the next one in the pipeline.
-
-# Common Patterns - Standard Error
+# Standard Error
 
 We haven't actually seen `stderr` in action yet. Let's see how it works.
 
@@ -215,7 +145,7 @@ Now this might be the **ah-ha!** moment if you have done some shell scripting be
 
 Let's take a quick look at some of these options.
 
-**To Standard Output**
+## To Standard Output
 
 If we want to be able to pipe the error message to another command, we can use another redirection trick - we can redirect `stderr` to `stdout`.
 
@@ -273,7 +203,7 @@ cat some-file-that-might-not-exist 2>1
 
 What would happen is that the shell would write `stderr` to a _new file_ with the name `1`! Why don't we need an ampersand _before_ the `>` symbol, only for the file descriptor afterwards? This is just because the shell only supports redirecting file descriptors, so an additional ampersand would be superfluous. 
 
-**To a File**
+## To a File
 
 Before, we redirected to `&2`, which is 'the file with descriptor `2`. We can also use a similar trick to redirect to any arbitrary file:
 
@@ -285,21 +215,7 @@ This command just redirects all of the errors (remember, `2` is `stderr`) to a f
 
 This is quite a common trick - run the program, but log the errors to a file for later review.
 
-**To Nowhere**
-
-What if we just don't want to see the errors at all? Well there's a special file called `/dev/null` which we can use for this. When we write to this file, the operating system just discards the input. In fact, it exists for just this kind of purpose!
-
-```
-mkdir ~/effective-shell/new-folder 2>/dev/null
-```
-
-This just redirects all errors to the black hole of `/dev/null` - we won't see them on the screen or anywhere else. This is a common way to 'silence' errors[^3] in shell commands.
-
-Notice how we're starting to see patterns? This is just redirection, the same tricks we saw for `stdout`, but we're explicitly redirecting `stderr` (file descriptor `2`). If we don't tell the shell _what_ to redirect, it assumes `stdout` by default.
-
-So if we can redirect, can we append too?
-
-**Append**
+## Append
 
 Yes! Just like we did with `stdout`, there's nothing stopping us _appending_ to a file:
 
@@ -344,46 +260,6 @@ ls -al /usr/bin | less
 ```
 
 This lists the contents of the `/usr/bin` folder, piping the output to `less` so we can easily scroll through it.
-
-
-
-# One Last Trick - The T Pipe
-
-This is a long chapter, but I can't talk about pipelines without briefly mentioning the T pipe. Check out this command:
-
-```sh
-cat ~/effective-shell/text/simpsons-characters.txt | sort | tee sorted.txt | uniq | grep '^A'
-```
-
-This command sorts the list of Simpsons characters, removes duplicates and filters down to ones which start with the letter `A`. And it has the `tee` command in the middle. What does this do?
-
-Well the `tee` command is like a T-pipe in plumbing - it lets the stream of data go in two directions! The `sorted.txt` file contains the sets of characters _after_ the sort operation, but before the unique and filter operation. Visually, it does this:
-
-<img src="./images/diagram-tee.png" alt="Diagram: Tee" width="1024px" />
-
-As soon as you visualise a T-pipe it's easy to remember this useful command! You might use it in more complex pipelines or other scenarios to write things to a file which would otherwise go straight to another program or just the display.
-
-# Thinking in Pipelines
-
-Once you get comfortable with pipelines, a whole world of possibilities open up.
-
-Just the day before I wrote this chapter, I had to find out how many unique data points were in a data file, which also included empty lines and comments, it took less than a minute to quickly build this:
-
-```sh
-cat data.dat | sort | uniq | grep -v '^#' | wc -l
-```
-
-I didn't have to find a special program which does exactly what I needed[^5] - I just incrementally built a pipeline. Each section I added one by one, writing to the screen each time, until I had it working. The thought process was:
-
-- `cat data.dat` - OK, first I need to write out the file
-- `sort` - now I can sort it, that'll put all the blank lines together
-- `uniq` - this'll remove all of those _duplicate_ blank lines, although it still leaves one blank one at the top!
-- `grep -v '^#'` - this should get rid of all the lines which start with `#`
-- `wc -l` - this'll count the number of lines I'm left with
-
-Now there's probably better ways, and this has an oddity which is that if there are blank lines it'll remove all but one of them (although that would be quick to fix), but it gave me my quick and dirty answer in less than a minute.
-
-Of course, as things get more complex you might want to build scripts, or use a programming language, or other methods, but this _Unix Philosophy_ (which we'll talk about more as we continue) of having lots of small, simple programs which we can chain together can be immensely powerful.
 
 # Summary
 
@@ -431,7 +307,7 @@ When these chapters are published I'll update the links here. If you want to be 
 **Footnotes**
 
 [^1]: Technically there is another layer here, which is the `tty`. You can see this by running `tty` in the shell. We'll more about this in the [Interlude - What is a Shell](#TODO) section.
-[^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-5-getting-faster/clipboard-gymnastics" >}}) for how to do this on a Linux or Windows machine.
+[^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast]({{< relref "/docs/part-6-getting-faster/clipboard-gymnastics" >}}) for how to do this on a Linux or Windows machine.
 [^3]: Although always use tricks like this with caution! If we had a _different_ error, perhaps one we really do want to know about, we would lose the message in this case.
 [^4]: There is a very detailed explanation of this behaviour at https://linuxnewbieguide.org/21-and-understanding-other-shell-scripts-idioms/.
 [^5]: With the correct options, `sed` could likely do this in a single operation, but I'd probably spend a lot longer Googling the right options for it!
