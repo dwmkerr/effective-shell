@@ -41,7 +41,7 @@ file5.txt
 {{< hint info >}}
 **A refresher on Finding Files**
 
-In this chapter we'll be using the `find` (_find files and folders_) command a lot - if you need a refresher, check [Chapter 11 - Finding Files]({{< relref "/docs/part-6-getting-faster/finding-files" >}}).
+In this chapter we'll be using the `find` (_find files and folders_) command a lot - if you need a refresher, check [Chapter 11 - Finding Files]({{< relref "/docs/part-5-getting-faster/finding-files" >}}).
 
 {{< /hint >}}
 
@@ -125,7 +125,7 @@ $ find . -type f -print0 | xargs -0 -t rm
 rm './chapter 1.md' './chapter 2.md' './chapter 3.md' 
 ```
 
-In [Chapter 11 - Finding Files]({{< relref "/docs/part-6-getting-faster/finding-files" >}}) we saw that the _default_ action of the `find` command is `-print`, which writes out the path of each item found. The `-print0` action is very similar - but it instead it writes out each item followed by a special 'null' character[^1].
+In [Chapter 11 - Finding Files]({{< relref "/docs/part-5-getting-faster/finding-files" >}}) we saw that the _default_ action of the `find` command is `-print`, which writes out the path of each item found. The `-print0` action is very similar - but it instead it writes out each item followed by a special 'null' character[^1].
 
 Now that we've told `find` to end each result with a special 'null' character, we just tell `xargs` that the 'null' character is what separates each line of input. We do this with the `-0` (_use NUL as separators_) option.
 
@@ -285,7 +285,7 @@ ls /home/dwmkerr/.pyenv/shims ?...n
 ls /home/dwmkerr/.nvm/versions/node/v14.15.1/bin ?...n
 ```
 
-The `$PATH` environment variable holds all of the folders the shell will search in for binaries - and each folder is separated by a `:` colon character (you can read more about `$PATH` in [Chapter 10 - Understanding Commands]({{< relref "/docs/part-6-getting-faster/finding-files" >}}).
+The `$PATH` environment variable holds all of the folders the shell will search in for binaries - and each folder is separated by a `:` colon character (you can read more about `$PATH` in [Chapter 10 - Understanding Commands]({{< relref "/docs/part-5-getting-faster/finding-files" >}}).
 
 We use the `-d` (_delimiter_) parameter to tell `xargs` that each argument in the input is separated with a colon. We also use the `-L 1` and `-p` parameters to process this input one folder at a time and ask the user if they want to see the contents of the folder.
 

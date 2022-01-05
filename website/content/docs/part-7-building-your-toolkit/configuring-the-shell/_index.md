@@ -78,7 +78,7 @@ alias l='ls -CF'
 ```
 
 
-It's very important to understand that this file is _sourced_ by the shell - so we have to use `return` if we want to stop processing it. If we used `exit` instead then the shell would close, which is definitely not what we want! If you need a reminder on sourcing, check [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-6-shell-scripting/shell-script-essentials" >}}).
+It's very important to understand that this file is _sourced_ by the shell - so we have to use `return` if we want to stop processing it. If we used `exit` instead then the shell would close, which is definitely not what we want! If you need a reminder on sourcing, check [Chapter 18 - Shell Script Essentials]({{< relref "/docs/part-7-shell-scripting/shell-script-essentials" >}}).
 
 
 The next section of the file sets up some of the configuration for the history features of the shell. Some variables are set, such as `HISTSIZE` (the number of commands to store in the history), we also set some options using the `shopt` (_set shell option_ flag).
@@ -138,7 +138,7 @@ function revcut {
 }
 ```
 
-You can find out more about functions in [Chapter 22 - Functions, Parameters and Error Handling]({{< relref "/docs/part-6-shell-scripting/functions-parameters-and-error-handling" >}}).
+You can find out more about functions in [Chapter 22 - Functions, Parameters and Error Handling]({{< relref "/docs/part-7-shell-scripting/functions-parameters-and-error-handling" >}}).
 
 ### Shell Options
 
@@ -316,7 +316,7 @@ esac
 
 The first section of the script checks the current shell parameters (which are stored in the special `$-` variable) to see whether the `i` (_interactive_) parameter is present. If it is not present, the `return` command runs. This check for the shell parameters ensures that even if a non-interactive shell does load the run commands file for some reason, it stops reading it right away.
 
-If you need a refresher on how the `case` statement works, check [Chapter 20 - Mastering Conditional Logic]({{< relref "/docs/part-6-shell-scripting/mastering-conditional-logic" >}}).
+If you need a refresher on how the `case` statement works, check [Chapter 20 - Mastering Conditional Logic]({{< relref "/docs/part-7-shell-scripting/mastering-conditional-logic" >}}).
 
 Another way to show a non-interactive shell in action is to simply invoke the shell program with a specified command from the command like:
 

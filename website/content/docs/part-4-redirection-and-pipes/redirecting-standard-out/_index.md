@@ -78,8 +78,6 @@ Well the `tee` command is like a T-pipe in plumbing - it lets the stream of data
 
 As soon as you visualise a T-pipe it's easy to remember this useful command! You might use it in more complex pipelines or other scenarios to write things to a file which would otherwise go straight to another program or just the display.
 
-
-
 # Summary
 
 In this chapter we looked at the redirection operators:

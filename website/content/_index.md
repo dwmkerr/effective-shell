@@ -15,8 +15,8 @@ For the experienced professional, there are chapters which go into advanced topi
 The goal of this book is to offer a collection of small, self-contained tutorials on how to use the shell more effectively.
 You can go through it sequentially, or pick and choose the sections which seem most interesting.
 
-This book is also open source! The code is on [https://github.com/josh-59/effective-shell](https://github.com/josh-59/effective-shell). Feel free to use the 'Comments' section at the bottom of each page to discuss the content, or even [open a pull request](https://github.com/josh-59/effective-shell/pulls) to propose changes.
-
+This book is also open source! The code is on [Github](https://github.com/josh-59/effective-shell). 
+Feel free to open a pull request to propose changes.
 If you find this book useful, please consider sponsoring me to support my open source work:
 
 <center><iframe src="https://github.com/sponsors/dwmkerr/button" title="Sponsor dwmkerr" height="35" width="116" style="border: 0;"></iframe></center>
