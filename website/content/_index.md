@@ -5,7 +5,7 @@ next: part-1-getting-started/what-is-the-shell
 ---
 
 ## Effective Shell 
-#### By Dave Kerr <br>Edited and Revised by Josh Timmons
+#### By Dave Kerr 
 
 This book is for anyone who is interested in computing, and wants to learn more about the exciting, but sometimes daunting, world of _The Shell!_
 
