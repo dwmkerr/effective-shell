@@ -14,6 +14,7 @@ If you find this book useful, please do consider [sponsoring me](https://github.
     * [Building the Website](#building-the-website)
     * [Updating the Theme](#updating-the-theme)
 * [Versioning](#versioning)
+* [Contributing](#contributing)
 * [Copyright & Licensing](#copyright--licensing)
 * [Thanks!](#thanks)
 
@@ -87,6 +88,10 @@ The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo
 The version of the site and the code is defined in the [`version.txt`](./version.txt) file. This makes it reasonably straightforward to script actions which require the version.
 
 Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
+
+## Contributing
+
+Please carefully read the [Contributing Guide](./.github/contributing.md) before working on changes.
 
 ## Copyright & Licensing
 
