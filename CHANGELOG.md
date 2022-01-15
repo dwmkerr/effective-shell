@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.18.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.18.0...v0.18.1) (2022-01-15)
+
+
+### Bug Fixes
+
+* contributor guide path fix ([6133cf7](https://www.github.com/dwmkerr/effective-shell/commit/6133cf74d0be78133b46d829bf7961a6070179eb))
+
 ## [0.18.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.17.2...v0.18.0) (2021-10-19)
 
 
