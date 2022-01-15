@@ -4,9 +4,7 @@
 
 Text, samples and references for my 'Effective Shell' series. This website is hosted at [effective-shell.com](https://effective-shell.com).
 
-If you find this book useful, please do consider sponsoring me to help support my open-source work!
-
-<iframe src="https://github.com/sponsors/dwmkerr/button" title="Sponsor dwmkerr" height="35" width="116" style="border: 0;"></iframe>
+If you find this book useful, please do consider [sponsoring me](https://github.com/sponsors/dwmkerr) to help support my open-source work!
 
 <!-- vim-markdown-toc GFM -->
 
