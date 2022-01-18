@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.18.1...v0.19.0) (2022-01-18)
+
+
+### Features
+
+* test docusaurus build ([f05241c](https://www.github.com/dwmkerr/effective-shell/commit/f05241c444e1638c82c03a6aff320cb5be96a086))
+
 ### [0.18.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.18.0...v0.18.1) (2022-01-15)
 
 
