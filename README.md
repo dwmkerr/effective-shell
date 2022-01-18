@@ -16,6 +16,9 @@ If you find this book useful, please do consider [sponsoring me](https://github.
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [Copyright & Licensing](#copyright--licensing)
+* [Transitioning to Docusaurus](#transitioning-to-docusaurus)
+    * [Transformations](#transformations)
+    * [Task List](#task-list)
 * [Thanks!](#thanks)
 
 <!-- vim-markdown-toc -->
@@ -100,6 +103,58 @@ All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue
 [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+
+## Transitioning to Docusaurus
+
+The folder (`./effective-shell`)[./effective-shell] contains a work-in-progress refactor of the website to use the [Docusaurus](https://docusaurus.io/) static site generator.
+
+The build currently deploys side-by-side with the existing site, deploying to a subfolder named `effective-shell`:
+
+https://effective-shell.com/effective-shell
+
+### Transformations
+
+To transform image tags to suit Docusaurus, from:
+
+```html
+<img alt="Screenshot: Cygwin Setup" src="images/cygwin-8.png" width="400px" />
+```
+
+to:
+
+```jsx
+<img alt="Screenshot: Cygwin Setup" src="images/cygwin-8.png" width="400px" />
+```
+
+Use this pattern in Visual Studio Code (regex search and replace):
+
+| Search             | Replace                               |
+|--------------------|---------------------------------------|
+| `src="images(.*?)"` | `src={require('./images$1').default}` |
+
+### Task List
+
+This is a short-and-sweet task list for the refactoring process.
+
+- [x] Mailchimp signup form
+- [x] Google Analytics
+- [x] Merge index and introduction pages
+- [x] Getting Started Page
+- [x] Part 1
+- [ ] Build
+- [ ] Deploy
+- [ ] Test deployment
+- [ ] Ensure that google analytics integration is working.
+- [ ] Part 2
+- [ ] Part 3
+- [ ] Part 4
+- [ ] Part 5
+- [ ] Part 6
+- [ ] Replace `version.txt` to `package.json`
+- [ ] Remove old files
+- [ ] Build
+- [ ] Deploy
+- [ ] Test deployment
 
 ## Thanks!
 
