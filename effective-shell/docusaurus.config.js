@@ -14,7 +14,8 @@ const config = {
   title: title,
   tagline: 'Essential techniques for the modern technologist',
   url: 'https://effective-shell.com',
-  baseUrl: '/',
+  //  Temporarily serve from a subfolder while testing.
+  baseUrl: '/effective-shell/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'error',
   favicon: 'img/favicon.png',
