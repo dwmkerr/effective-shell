@@ -24,6 +24,7 @@ build:
 	cd website && hugo --minify
 	test -e ./website/static/downloads/effective-shell-samples.zip
 	test -e ./website/static/downloads/effective-shell-samples.tar.gz
+	cd effective-shell && npm ci && npm run build && cp -r ./build/. ../website/public/effective-shell
 
 # Create the summary structure in word format, easier to share.
 .PHONY: structure
