@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.19.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.19.0...v0.19.1) (2022-01-18)
+
+
+### Bug Fixes
+
+* baseurl for docusaurus in subfolder ([5f65fad](https://www.github.com/dwmkerr/effective-shell/commit/5f65fad14ae34ee5e07bffc7cbebf2cc79f18b5f))
+
 ## [0.19.0](https://www.github.com/dwmkerr/effective-shell/compare/v0.18.1...v0.19.0) (2022-01-18)
 
 
