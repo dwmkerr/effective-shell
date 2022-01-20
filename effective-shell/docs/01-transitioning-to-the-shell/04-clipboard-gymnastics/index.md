@@ -1,7 +1,7 @@
 ---
 title: 'Becoming a Clipboard Gymnast'
-slug: 'become-a-clipboard-gymnast'
 id: '04-become-a-clipboard-gymnast'
+slug: '/part-1-transitioning-to-the-shell/become-a-clipboard-gymnast/'
 ---
 
 For those who are new to the shell, we've covered a lot. In this chapter we'll slow down the pace of new commands a bit and instead focus on a core skill which you will already be familiar with from Graphical User Interfaces - using the clipboard.

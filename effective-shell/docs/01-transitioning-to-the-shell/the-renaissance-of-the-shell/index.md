@@ -1,7 +1,7 @@
 ---
 title: 'The Renaissance of the Shell'
-slug: 'the-renaissance-of-the-shell'
 id: '06-the-renaissance-of-the-shell'
+slug: '/part-1-transitioning-to-the-shell/the-renaissance-of-the-shell/'
 ---
 
 This is the first of the "interludes" which end each section of the book. They don't teach any specific skills but instead give a little flavour and background about the world of the shell, Linux and modern computing.

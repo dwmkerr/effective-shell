@@ -1,7 +1,7 @@
 ---
 title: 'Navigating Your System'
-slug: 'navigating-your-system'
 id: '02-navigating-your-system'
+slug: '/part-1-transitioning-to-the-shell/navigating-your-system/'
 ---
 
 Switching from a graphical user interface to the shell can take some getting used to. First we'll take a look at how to navigate your system using the shell, and get information on files and folders in the system.

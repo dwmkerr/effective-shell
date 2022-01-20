@@ -1,7 +1,7 @@
 ---
 title: 'Getting Help'
-slug: 'getting-help'
 id: '05-getting-help'
+slug: '/part-1-transitioning-to-the-shell/getting-help/'
 ---
 
 In the earlier chapters I've introduced quite a few commands. Having to remember all of these commands and their parameters would be very hard. Fortunately there are built-in capabilities in the shell to help.
