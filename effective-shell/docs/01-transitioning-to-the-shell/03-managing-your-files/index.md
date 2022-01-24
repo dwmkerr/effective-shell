@@ -1,7 +1,7 @@
 ---
 title: 'Managing Your Files'
-slug: 'managing-your-files'
 id: '03-managing-your-files'
+slug: '/part-1-transitioning-to-the-shell/managing-your-files/'
 ---
 
 Downloading, unzipping, copying, moving, renaming and deleting files in a graphical user interface is normally fairly intuitive. Now we'll learn how to perform the same operations in a shell. Once you can organise your files, you are well on your way to being able to use the shell more effectively for day to day tasks.
@@ -20,9 +20,9 @@ To help with this, I've created a zipped up 'samples' which has a lot of files i
 
 We *could* open up a web browser, download the file, unzip it and then start from there, but this book is all about how to deal with every day tasks in your shell, so let's skip the browser and do it in the shell instead!
 
-Open your shell - if you've not yet got set up with your shell, that's OK, just check [Chapter 1 - Getting Started]({{< relref "/docs/getting-started" >}}).
+Open your shell - if you've not yet got set up with your shell, that's OK, just check [Chapter 1 - Getting Started](../01-getting-started/index.md).
 
-Now that you have your shell open, we can run the `wget` command (_Web Get_) to download the zip file. Let's download it to our Home folder. If you are not sure what the Home folder is, check [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/navigating-your-system" >}}).
+Now that you have your shell open, we can run the `wget` command (_Web Get_) to download the zip file. Let's download it to our Home folder. If you are not sure what the Home folder is, check [Chapter 2- Navigating Your System](../02-navigating-your-system/index.md).
 
 First, we'll move to our home directory, then download the file.
 
@@ -167,7 +167,7 @@ We can see we've made a copy.
 
 ## Saving Some Keystrokes
 
-Wow, it's painful putting `~/effective-shell-samples` before everything! From [Chapter 2- Navigating Your System]({{< relref "/docs/part-1-transitioning-to-the-shell/navigating-your-system" >}}) we already know how to change directory, so let's do that now:
+Wow, it's painful putting `~/effective-shell-samples` before everything! From [Chapter 2- Navigating Your System](../02-navigating-your-system/index.md) we already know how to change directory, so let's do that now:
 
 ```sh
 cd ~/effective-shell-samples

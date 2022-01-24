@@ -141,9 +141,10 @@ This is a short-and-sweet task list for the refactoring process.
 - [x] Merge index and introduction pages
 - [x] Getting Started Page
 - [x] Part 1
-- [ ] Build
-- [ ] Deploy
-- [ ] Test deployment
+- [x] Build
+- [x] Deploy
+- [x] Test deployment
+- [ ] Fix relref links
 - [ ] Ensure that google analytics integration is working.
 - [ ] Part 2
 - [ ] Part 3
@@ -155,6 +156,7 @@ This is a short-and-sweet task list for the refactoring process.
 - [ ] Build
 - [ ] Deploy
 - [ ] Test deployment
+- [ ] Remap google analytics routes (i.e. remove `/docs/`
 
 ## Thanks!
 

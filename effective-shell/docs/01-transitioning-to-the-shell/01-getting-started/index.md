@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started'
-slug: 'getting-started'
 id: '01-getting-started'
+slug: '/part-1-transitioning-to-the-shell/getting-started/'
 ---
 
 This section is for those who are completely new to this topic. In this section we'll introduce just what the shell is, who this book is useful for, and what you can expect to learn.
