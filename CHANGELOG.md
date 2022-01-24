@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.19.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.19.1...v0.19.2) (2022-01-24)
+
+
+### Bug Fixes
+
+* fixup relative paths for docusaurus and slugs ([23c37e9](https://www.github.com/dwmkerr/effective-shell/commit/23c37e9b812a8682776b0b63f500bd6b13aeba84))
+
 ### [0.19.1](https://www.github.com/dwmkerr/effective-shell/compare/v0.19.0...v0.19.1) (2022-01-18)
 
 
