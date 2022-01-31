@@ -1,6 +1,5 @@
 ---
 title: 'The Renaissance of the Shell'
-id: '06-the-renaissance-of-the-shell'
 slug: '/part-1-transitioning-to-the-shell/the-renaissance-of-the-shell/'
 ---
 
@@ -36,8 +35,6 @@ It is perhaps this democratisation which has led to a startlingly diverse world 
 
 
 "C", and later, "C++" were the go-to languages for systems programming (sometimes backed up by assembly language). This was the language which kernels and compilers were written in.
-
-"Java" become the 'general purpose' language of choice for applications which had to run on many systems. "Basic" and later "C#" were the standards for Windows platform development. PHP was a staple for web development.
 
 Alongside these giants were the workhorses for specific use cases. Erlang was (and is) a language which is highly popular in the telecommunications industry, where high availability and reliability were paramount. COBOL was the language for the financial industry, where mission critical systems ran on mainframes (and many still do).
 

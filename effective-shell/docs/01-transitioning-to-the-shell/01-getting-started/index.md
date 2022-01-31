@@ -1,6 +1,5 @@
 ---
 title: 'Getting Started'
-id: '01-getting-started'
 slug: '/part-1-transitioning-to-the-shell/getting-started/'
 ---
 
@@ -249,7 +248,7 @@ First, follow the instructions online to install [Homebrew](https://brew.sh/):
 
 In most cases, this will require opening the terminal programming and running a snippet which looks like this:
 
-```sh
+```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -257,7 +256,7 @@ However, this might have changed since the time of writing so do [check the webs
 
 Once this has installed, install Bash by running the following command in the shell:
 
-```sh
+```bash
 brew install bash
 ```
 
@@ -289,7 +288,7 @@ Start by opening your shell. This is covered in [Opening the Shell](#Opening-The
 
 You should see your terminal program running your shell. You can see what the _version_ is of your shell by running:
 
-```sh
+```bash
 bash --version
 ```
 
@@ -303,13 +302,13 @@ Let's move to the _home_ folder. On most computers your home folder is your pers
 
 Let's switch to the home folder by running the following command:
 
-```sh
+```bash
 cd ~
 ```
 
 Once you've done that, run the `pwd` command:
 
-```sh
+```bash
 pwd
 ```
 
@@ -317,7 +316,7 @@ pwd
 
 So what has happened here? The first command:
 
-```sh
+```bash
 cd ~
 ```
 
@@ -327,7 +326,7 @@ Finally, we ran the `pwd` command. This command is short for _print working dire
 
 Let's take another look at a command. Run the following in your shell:
 
-```sh
+```bash
 ls
 ```
 
@@ -337,7 +336,7 @@ The `ls` command is short for _list directory contents_ - it shows you everythin
 
 We can pass different parameters to `ls`. The main parameter is the location of the folder we'd like to list the contents of. So if we wanted to see what was in the `Music` folder, we'd just run:
 
-```sh
+```bash
 ls Music
 ```
 
@@ -347,7 +346,7 @@ Not much to see here:
 
 Many commands actually allow us to pass multiple parameters. For example, we could list the contents of my Movies and my personal applications:
 
-```sh
+```bash
 ls Movies Applications
 ```
 
@@ -373,7 +372,7 @@ The error above shows what happens when we miss the quotation marks.
 
 Now we can take a look at how a _flag_ would work. A flag is a parameter which changes how a command works. Flags normally start with a hyphen. Let's say we wanted to know the _size_ of the files in the folder. We do this by using the `-lh` pass the parameter, which is short for _long list, human readable_:
 
-```sh
+```bash
 ls -lh Downloads/*.jpg
 ```
 
@@ -395,7 +394,7 @@ Now let's look at one more command.
 
 The 'echo' command is used to write out a message in the shell. Here's an example of how it works:
 
-```sh
+```bash
 echo "Hello Shell!"
 ```
 
@@ -405,7 +404,7 @@ This command writes out the text `Hello Shell!`:
 
 Why would we do this? One of the most common reasons would be to _see_ what the shell thinks a certain value is. For example, try this command:
 
-```sh
+```bash
 echo "My home directory is at: $HOME"
 ```
 
@@ -433,7 +432,7 @@ Here we map the shell commands to the visual interface's equivalents:
 
 As a final trick, lets see how we open a file or folder.  Let's say I want to open one of the photos in my Downloads folder. Here's how I can do it:
 
-```sh
+```bash
 cd ~/Downloads
 open himalayas.jpg
 ```
