@@ -118,7 +118,7 @@ cd: cd [-L|[-P [-e]] [-@]] [dir]
 # (I've skipped the bulk of the output to save space!)
 ```
 
-This is all I'll say about `help` for now. We visit it again in [Chapter 10 - Understanding Commands](../../part-2-core-skills/understanding-commands'), where we talk more about built-in commands. For now we'll go back to the `man` command, which works across all shells as it is a Linux feature rather than a shell specific feature!
+This is all I'll say about `help` for now. We visit it again in [Chapter 10 - Understanding Commands](../../02-core-skills/10-understanding-commands/index'), where we talk more about built-in commands. For now we'll go back to the `man` command, which works across all shells as it is a Linux feature rather than a shell specific feature!
 
 ### Manual Sections
 

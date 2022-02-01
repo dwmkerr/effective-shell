@@ -81,7 +81,7 @@ We have a problem. The `python` process is still running - it's serving the webs
 
 In the example above, I try to run `vi`, but nothing is happening. Standard input is not being read by the server and not being interpreted by the shell.
 
-I have to kill the server by hitting `Ctrl+C`. This sends a `SIGINT` signal (which tells the command to stop). We saw signals briefly in [Chapter 4 - Becoming a Clipboard Gymnast](../../part-1-transitioning-to-the-shell/clipboard-gymnastics) and we'll see more of them in as we continue. Now I need to clear my screen to get rid of all of the error messages, then start again.
+I have to kill the server by hitting `Ctrl+C`. This sends a `SIGINT` signal (which tells the command to stop). We saw signals briefly in [Chapter 4 - Becoming a Clipboard Gymnast](../../01-transitioning-to-the-shell/04-clipboard-gymnastics) and we'll see more of them in as we continue. Now I need to clear my screen to get rid of all of the error messages, then start again.
 
 This is obviously not optimal. Let's look at some solutions.
 
