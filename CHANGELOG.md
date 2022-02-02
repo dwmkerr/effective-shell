@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.19.3](https://www.github.com/dwmkerr/effective-shell/compare/v0.19.2...v0.19.3) (2022-02-02)
+
+
+### Bug Fixes
+
+* fix link configuration ([a146d89](https://www.github.com/dwmkerr/effective-shell/commit/a146d8996231a04b1d17e0b45a451854cb2e2a11))
+* upgrade to docusaurus beta 15, which allows for fix of styled code ([5d5adfc](https://www.github.com/dwmkerr/effective-shell/commit/5d5adfcc8d124777a5affd559ef2439bfb76fd61))
+
 ### [0.19.2](https://www.github.com/dwmkerr/effective-shell/compare/v0.19.1...v0.19.2) (2022-01-24)
 
 
