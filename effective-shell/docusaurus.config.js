@@ -16,7 +16,7 @@ const config = {
   url: 'https://effective-shell.com',
   //  Temporarily serve from a subfolder while testing.
   baseUrl: '/effective-shell/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'error',
   favicon: 'img/favicon.png',
   organizationName: organizationName,

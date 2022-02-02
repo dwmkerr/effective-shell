@@ -1,6 +1,5 @@
 ---
 title: 'Getting Help'
-id: '05-getting-help'
 slug: '/part-1-transitioning-to-the-shell/getting-help/'
 ---
 
@@ -74,7 +73,7 @@ There are *many* other commands, but the set above is normally what I find mysel
 
 If you are interested, you can actually see what your pager is with the command below:
 
-```sh
+```bash
 $ echo $PAGER
 less
 ```
@@ -83,7 +82,7 @@ The `$PAGER` environment variable is used to tell the shell what program to use 
 
 You can put any text content into your pager - try this:
 
-```sh
+```bash
 ls -al /usr/bin | less
 ```
 
@@ -95,7 +94,7 @@ There are alternative pagers available (on many Unix-y systems you'll have `less
 
 Sometimes you'll look something up in the manual and get the 'builtins' page. For example:
 
-```sh
+```bash
 $ man cd
 BUILTIN(1)                BSD General Commands Manual               BUILTIN(1)
 
@@ -108,7 +107,7 @@ NAME
 
 This happens when the command you are looking up is not actually a program with a manual page, but a built-in shell command. Most shells have a way get help on such commands - `bash` for example has `help`:
 
-```sh
+```bash
 $ help cd
 cd: cd [-L|[-P [-e]] [-@]] [dir]
     Change the shell working directory.
@@ -119,7 +118,7 @@ cd: cd [-L|[-P [-e]] [-@]] [dir]
 # (I've skipped the bulk of the output to save space!)
 ```
 
-This is all I'll say about `help` for now. We visit it again in [Chapter 10 - Understanding Commands]({{< relref "/docs/part-2-core-skills/understanding-commands" >}}, where we talk more about built-in commands. For now we'll go back to the `man` command, which works across all shells as it is a Linux feature rather than a shell specific feature!
+This is all I'll say about `help` for now. We visit it again in [Chapter 10 - Understanding Commands](../../02-core-skills/10-understanding-commands/index'), where we talk more about built-in commands. For now we'll go back to the `man` command, which works across all shells as it is a Linux feature rather than a shell specific feature!
 
 ### Manual Sections
 
@@ -443,7 +442,7 @@ One final resource which I think is worth sharing is the website [www.cheat.sh](
 
 These sheets cover almost all of the tools you will encounter, programming languages and more. But the real beauty of the tool is how it integrates into the shell. To see what I mean, just run the following command:
 
-```sh
+```bash
 $ curl cht.sh
 ```
 
@@ -457,7 +456,7 @@ The Cheat.sh site aggregates many data sources - including `tldr`! This means we
 
 This online cheatsheet is a wonderful resource. As well as guides for specific tools, there are entire courses on programming languages. You can even use it to search for the answers to questions, these features are powered by Stack Overflow. For example:
 
-```sh
+```bash
 $ curl cht.sh/"How do I copy a folder in bash?"
 ```
 

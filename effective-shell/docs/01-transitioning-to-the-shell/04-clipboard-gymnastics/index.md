@@ -1,6 +1,5 @@
 ---
 title: 'Becoming a Clipboard Gymnast'
-id: '04-become-a-clipboard-gymnast'
 slug: '/part-1-transitioning-to-the-shell/become-a-clipboard-gymnast/'
 ---
 
@@ -72,7 +71,7 @@ To make things easier for the reader I'm going to assume you have created the `p
 
 Assuming you are using WSL, you will need to run the following two commands. By the time this book is published there _may_ be a cleaner way, but for now this is a workaround for some limitations on the WSL system:
 
-```sh
+```bash
 alias pbcopy='clip.exe'
 alias pbpaste="powershell.exe -command 'Get-Clipboard' | tr -d '\r' | head -n -1"
 ```
@@ -83,7 +82,7 @@ Don't worry about how these commands work - by the time you've gone through the 
 
 Hopefully if you are Linux user the commands below will seem familiar. They install the `xclip` program and create shortcuts to copy and paste. You absolutely don't need to do this if you prefer to call `xclip` directly, these commands are just setup so that across all platforms the tutorial looks the same.
 
-```sh
+```bash
 sudo apt install -y xclip
 alias pbcopy="xclip -selection c"
 alias pbpaste="xclip -selection c -o"
@@ -113,7 +112,7 @@ Artie Ziff
 
 Then I can paste it into the shell with the following command:
 
-```sh
+```bash
 pbpaste
 ```
 
@@ -123,7 +122,7 @@ And we'll see something like this:
 
 Copying is just as straightforward. If you have downloaded the Effective Shell 'samples' folder you can see we have a list of characters from "The Simpsons" in the file `effective-shell/text/simpsons-characters.txt`. Now we _could_ use the `cat` command to show the contents of the file, and then manually select the text and copy it. Even easier though is to just _pipe_ the contents of the file to the `pbcopy` command:
 
-```sh
+```bash
 cat ~/effective-shell/text/simpsons-characters.txt | pbcopy
 ```
 
@@ -159,7 +158,7 @@ Because we can _pipe_ the contents of the clipboard to other programs, that mean
 
 Let's take another look at the list of characters we have in the `~/plaground/text/simpsons-characters.txt` file:
 
-```sh
+```bash
 $ cat ~/effective-shell/text/simpsons-characters.txt
 Artie Ziff
 Kirk Van Houten
@@ -179,13 +178,13 @@ Helen Lovejoy
 
 We can easily take this text, sort it and then directly copy the results:
 
-```sh
+```bash
 $ cat ~/effective-shell/text/simpsons-characters.txt | sort | pbcopy
 ```
 
 The contents of the clipboard will now contain:
 
-```sh
+```bash
 Agnes Skinner
 Artie Ziff
 Artie Ziff
@@ -328,7 +327,7 @@ Now you don't need to remember all of these commands. We'll be going into them i
 
 In fact - if you are on a Linux system, try running:
 
-```sh
+```bash
 cat /dev/clipboard
 ```
 

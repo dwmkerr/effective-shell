@@ -128,9 +128,13 @@ to:
 
 Use this pattern in Visual Studio Code (regex search and replace):
 
-| Search             | Replace                               |
-|--------------------|---------------------------------------|
-| `src="images(.*?)"` | `src={require('./images$1').default}` |
+| Search                                         | Replace                               |
+|------------------------------------------------|---------------------------------------|
+| `src="[\./]*images(.*?)"`                      | `src={require('./images$1').default}` |
+| `\{\{<[ ]*relref "\/docs\/(.*?)"[ ]*>[ ]*\}\}` | `../../$1`                            |
+| `\{\{< hint info >\}\}\n\*\*(.*?)\*\*`         | `:::tip $1\n`                         |
+| `\{\{< /hint >\}\}`                            | `\n:::`                               |
+| `<Three backticks>`                            | `<Three backticks>bash`               |
 
 ### Task List
 
@@ -144,13 +148,19 @@ This is a short-and-sweet task list for the refactoring process.
 - [x] Build
 - [x] Deploy
 - [x] Test deployment
+- [x] Fix hints
+- [ ] Part 2, migrate and preview
+- [ ] Part 3, migrate and preview
+- [ ] Part 4, migrate and preview
+- [ ] Part 5, migrate and preview
+- [ ] Part 6, migrate and preview
+- [ ] Create a really nice animation: https://starship.rs/ also look at a yes no question, 'become a shell expert' or something
+- [ ] Fixup table of contents
+- [ ] Fixup appendix/todo/missing chapters
 - [ ] Fix relref links
+- [ ] Fix TODOs
+- [ ] Test grep styling and relrefs
 - [ ] Ensure that google analytics integration is working.
-- [ ] Part 2
-- [ ] Part 3
-- [ ] Part 4
-- [ ] Part 5
-- [ ] Part 6
 - [ ] Replace `version.txt` to `package.json`
 - [ ] Remove old files
 - [ ] Build

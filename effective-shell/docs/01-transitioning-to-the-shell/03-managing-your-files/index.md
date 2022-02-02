@@ -1,6 +1,5 @@
 ---
 title: 'Managing Your Files'
-id: '03-managing-your-files'
 slug: '/part-1-transitioning-to-the-shell/managing-your-files/'
 ---
 
@@ -26,7 +25,7 @@ Now that you have your shell open, we can run the `wget` command (_Web Get_) to 
 
 First, we'll move to our home directory, then download the file.
 
-```sh
+```bash
 cd
 wget https://effective-shell.com/downloads/effective-shell-samples.zip
 ```
@@ -41,7 +40,7 @@ As an aside, if we were not in our home folder when we called the `wget` command
 
 As an example, if were not in the home folder, but wanted to download there, we'd just call:
 
-```sh
+```bash
 cd
 wget -O ~/playground.zip https://effective-shell.com/downloads/effective-shell-samples.zip
 ```
@@ -56,7 +55,7 @@ Cool - we have the zip file downloaded! Now we need to work out how to unzip it 
 
 One of the interesting things you can do in a shell is ask it to tell you more about a file. This can be useful if we've got a file, and we're not sure what it might be. Let's try it out now:
 
-```sh
+```bash
 file ~/effective-shell-samples.zip
 ```
 
@@ -70,7 +69,7 @@ Right now we have a zip file. We need to extract it, unpack the files so that we
 
 Run the command:
 
-```sh
+```bash
 unzip ~/effective-shell-samples.zip
 ```
 
@@ -86,7 +85,7 @@ Now that we've downloaded and unzipped the file, we don't need the zipped versio
 
 The `rm` (_Remove_) command can be used to delete a file. If we run:
 
-```sh
+```bash
 rm ~/effective-shell-samples.zip
 ls | grep samples
 ```
@@ -103,7 +102,7 @@ However one thing it _will_ do to try and help you not make mistakes is let you 
 
 Run the following command to try and delete the unzipped folder:
 
-```sh
+```bash
 rm ~/effective-shell-samples
 ```
 
@@ -121,7 +120,7 @@ In a graphical user interface, we'd open the folders and look at the files. In t
 
 Now the `tree` command is _not_ installed by default on all systems. So if you are on a Mac, run:
 
-```sh
+```bash
 brew install tree
 ```
 
@@ -131,7 +130,7 @@ Using a non-universal command is generally _not_ our goal in this book, but in t
 
 Try it out with:
 
-```sh
+```bash
 tree ~/effective-shell-samples
 ```
 
@@ -139,7 +138,7 @@ tree ~/effective-shell-samples
 
 The `tree` command shows you all of the folders and files in a location. If we are unsure what one of the files is, we can ask the shell to give us more info. For example, I could find out more about the `loas-gch.JPG` file by running:
 
-```sh
+```bash
 file ~/effective-shell-samples/pictures/loas-gch.JPG
 ```
 
@@ -151,13 +150,13 @@ Note that the `file` command is already showing it is a bit more clever. It know
 
 Let's say we really love that photo, and we want to make a copy of it. We can do that easily by using the `cp` (_Copy) command:
 
-```sh
+```bash
 cp ~/effective-shell-samples/pictures/laos-gch.JPG ~/effective-shell-playground/pictures/laos-gch-copy.JPG
 ```
 
 This makes a copy of the file - if you are not sure if it has worked, just run:
 
-```sh
+```bash
 tree ~/effective-shell-samples
 ```
 
@@ -169,7 +168,7 @@ We can see we've made a copy.
 
 Wow, it's painful putting `~/effective-shell-samples` before everything! From [Chapter 2- Navigating Your System](../02-navigating-your-system/index.md) we already know how to change directory, so let's do that now:
 
-```sh
+```bash
 cd ~/effective-shell-samples
 ```
 
@@ -183,7 +182,7 @@ To do this, we use the `mv` (_Move_) command. When it comes down to it, moving a
 
 Rename the copy we made of the photo by running:
 
-```sh
+```bash
 mv pictures/loas-gch-copy.JPG pictures/loas-gch-copy.jpeg
 ```
 
@@ -201,7 +200,7 @@ Probably the first thing we'd do in a graphical environment is create a new fold
 
 Run the commands:
 
-```sh
+```bash
 mkdir photos
 tree
 ```
@@ -214,7 +213,7 @@ We've use the `mkdir` command, which is short for _Make Directory_. This is how 
 
 Now let's say we wanted to be _really_ organised, and create a photos folder by year and topic, perhaps `2019/outdoors/pictures`. In a graphical user interface, we'd have to create each folder one at a time. In the shell, it's easy!
 
-```sh
+```bash
 mkdir -p 2019/outdoors/pictures
 tree
 ```
@@ -238,7 +237,7 @@ cp pictures/* photos/2019/outdoor/climbing
 Here's how it works for 
 Now we need to copy over our files from the `pictures` folder to the `2019/outdoor/photos` folder. We'll use exactly the command we used before to copy a file - `cp`:
 
-```sh
+```bash
 $ cp pictures/* photos/2019/outdoors/climbing/
 
 $ tree photos
@@ -263,7 +262,7 @@ Here we've used the _wildcard_ symbol, which is `*`, to say "everything in the f
 
 Now that we have our more organise `2019/outdoors/photos` folder, we don't need the `photos` folder we created. So let's delete it! Remember how `rm` removes a file, and `mkdir` creates a folder? Well `rmdir` will remove a folder!
 
-```sh
+```bash
 rmdir photos
 tree
 ```
@@ -272,7 +271,7 @@ tree
 
 As an important sidenote, just how `rm` doesn't move files to your recycle bin, so you cannot undo the operation, `rmdir` works the same way. So if we try to remove a directory which has things in it, such as the `pictures` directory, it will fail:
 
-```sh
+```bash
 rmdir pictures
 ```
 
@@ -284,7 +283,7 @@ In this case, it is actually easier to just call `rm -r pictures`. Why is that? 
 
 Run `tree` and you'll see we have a `quotes` folder:
 
-```sh
+```bash
 tree
 ```
 
@@ -292,7 +291,7 @@ tree
 
 We're going to use the `cat` (_Concatenate_) command to look at the Ursula Le Guin quote. Run the following command:
 
-```sh
+```bash
 cat quotes/ursula-le-guin.txt
 ```
 
@@ -306,7 +305,7 @@ We'll see a _lot_ more about how this works later, and how you can then take tha
 
 First, let's just `cat` the whole folder:
 
-```sh
+```bash
 cat quotes/*
 ```
 
@@ -318,7 +317,7 @@ Notice how the output from all of the files has been _concatenated together_ int
 
 As one last trick, let's use this output but instead of showing it on the screen, put it into a single `all-quotes.txt` file:
 
-```sh
+```bash
 cat quotes/* > quotes/all-quotes.txt
 tree
 cat quotes/all-quotes.txt
@@ -336,7 +335,7 @@ Let' say that we want to zip up the new `2019/outdoors/pictures` folder. We've a
 
 Run the command below:
 
-```sh
+```bash
 zip -r 2019-outdoor-pictures.zip 2019
 ```
 

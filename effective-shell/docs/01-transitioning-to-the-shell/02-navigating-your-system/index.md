@@ -1,6 +1,5 @@
 ---
 title: 'Navigating Your System'
-id: '02-navigating-your-system'
 slug: '/part-1-transitioning-to-the-shell/navigating-your-system/'
 ---
 
@@ -14,7 +13,7 @@ If these commands far familiar to you then feel free to jump to the next chapter
 
 Perhaps the easiest way to start to understand how to navigate your system using the shell is to use a graphical interface as an illustration of how we often navigate. Open your shell, and enter the following command:
 
-```sh
+```bash
 pwd
 ```
 
@@ -32,7 +31,7 @@ An environment variable is just a bit of data that you can access from your shel
 
 Try the following command:
 
-```sh
+```bash
 echo "My current working directory is: $PWD"
 ```
 
@@ -46,7 +45,7 @@ The dollar symbol is used to tell the shell we want to use the `PWD` variable, n
 
 In the graphical user interface, we can also see the files and folders in the current directory. In the shell, we don't see this content. But we can show the contents of the current working directory with the following command:
 
-```sh
+```bash
 ls
 ```
 
@@ -58,7 +57,7 @@ The `ls` command is the _List Directory Contents_ command. It will show the cont
 
 There are a lot of options for the `ls` command. In [Chapter 5](#TODO) we'll see how to find out the options for commands. For now, let's look at one of the most common options `-l`. This shows the contents as a list:
 
-```sh
+```bash
 ls -l
 ```
 
@@ -72,7 +71,7 @@ In a graphical user interface, you move to a different directory by clicking on 
 
 In the shell, you run the `cd` command. Try it out with:
 
-```sh
+```bash
 # Move to the pictures directory...
 cd Pictures
 
@@ -111,13 +110,13 @@ website/content/docs/part-1-transitioning-to-the-shell
 
 This path is _relative_ to my current working directory in the shell. This means that this path only makes sense if you use it from a specific directory. If I am in my `Pictures` folder, and I want to move to the `2020-photos` folder, I could do it in two ways. The first is with an absolute path:
 
-```sh
+```bash
 cd /Users/dwmkerr/Pictures/2020-photos
 ```
 
 The second is with a relative path:
 
-```sh
+```bash
 cd 2020-photos
 ```
 
@@ -127,7 +126,7 @@ In short - relative paths are often useful if you want to move to something _wit
 
 As you experiment with these commands, you might have noticed that  every folder contains two other folders, one with the name `.` and one with the name `..`. Run `ls -al` on the `pictures` folder to see an example:
 
-```sh
+```bash
 ls -al pictures
 ```
 
@@ -139,7 +138,7 @@ This picture highlights two special folders - `.` and `..`. These are special fo
 
 The first folder, `.`, represents the folder it is in. Why would this be useful? Well, sometimes we just want a quick way to say the equivalent of "right here" in a command. For example, if I wanted to copy the current folder to a backup folder, I could do this:
 
-```sh
+```bash
 cp . /backup
 ```
 
@@ -147,7 +146,7 @@ The `cp` command is the _Copy_ command, and we'll see it in the next chapter. Bu
 
 The `..` folder means _the parent folder_. You can use this to "go up" to the parent folder, for example:
 
-```sh
+```bash
 cd ..
 ls .
 ```
@@ -160,7 +159,7 @@ Note that we've used `cd ..` to _change directory to the parent folder_ then `ls
 
 The `..` folder can be helpful if you need to navigate to a location which is outside of your current folder. For example, if I am in the `pictures` folder and I want to move to the `scripts` folder, I can just use:
 
-```sh
+```bash
 cd ../scripts
 ls
 ```
@@ -175,7 +174,7 @@ There is one more special part of the file system we have to know about. That is
 
 This directory can always be accessed through the `~` character. For example, no matter where I am in the system, I can run the following command to move to my home directory and show the contents:
 
-```sh
+```bash
 cd ~
 ls
 ```
@@ -186,7 +185,7 @@ This would show something like this:
 
 This makes moving around your home directory very easy. For example, on a Mac, to go to your pictures folder from anywhere, you can always just run:
 
-```sh
+```bash
 cd ~/Pictures
 ```
 
@@ -194,7 +193,7 @@ Your home directory on most computers will be where you keep your documents, pic
 
 You can also see the home directory by using the special `HOME` environment variable:
 
-```sh
+```bash
 echo "My home directory is: $HOME"
 ```
 
@@ -204,7 +203,7 @@ This would show something like this:
 
 One useful trick - running `cd` without any parameters will always take you home! So to go home, just run:
 
-```sh
+```bash
 cd
 ```
 
@@ -214,7 +213,7 @@ Now that we know about relative paths, absolute paths, and the special dot and d
 
 One thing we might want to do is quickly move from one location to another, then go back again. Let's say for example I am working in on this chapter, but I want to check my downloads. One way to do this is with this `pushd` command:
 
-```sh
+```bash
 pushd ~/Downloads
 ls
 popd
@@ -236,7 +235,7 @@ These commands can be useful if you need to move to other locations but want to 
 
 One last trick which can save time is the following command:
 
-```sh
+```bash
 cd -
 ```
 
