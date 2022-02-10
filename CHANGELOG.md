@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.19.4](https://github.com/dwmkerr/effective-shell/compare/v0.19.3...v0.19.4) (2022-02-10)
+
+
+### Bug Fixes
+
+* use latest release please action ([31fe154](https://github.com/dwmkerr/effective-shell/commit/31fe154b46702cd8b34fbe2b71be6e2f54558281))
+
 ### [0.19.3](https://www.github.com/dwmkerr/effective-shell/compare/v0.19.2...v0.19.3) (2022-02-02)
 
 
