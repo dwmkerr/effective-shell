@@ -1,7 +1,0 @@
-[submodule "website/themes/book"]
-	path = website/themes/book
-	url = https://github.com/alex-shpak/hugo-book
-[submodule "website/themes/dwmkerr-hugo-book"]
-	path = website/themes/dwmkerr-hugo-book
-	url = https://github.com/dwmkerr/hugo-book.git
-	branch = master
