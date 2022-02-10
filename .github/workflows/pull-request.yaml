@@ -4,20 +4,11 @@ name: Validate Pull Request
 on: [pull_request]
 
 jobs:
-  validte-pull-request:
+  validate-pull-request:
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        submodules: true
-
-    # Setup Hugo so we're ready to run the build.
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: '0.61.0'
-        extended: true
 
     # Run the build - this will fail if there are broken links etc.
     - name: Build

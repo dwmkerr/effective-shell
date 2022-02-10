@@ -24,7 +24,7 @@ mkdir -p ./artifacts
 cp -r ./samples ./artifacts
 
 # Copy over the version identifier.
-cp version.txt ./artifacts/samples/.version.txt
+cp package.json ./artifacts/samples/.package.json
 
 # Clone our sample repositories. If we have repositories that should not have
 # remotes (i.e. for the chapter on getting started with git, where we work with
@@ -44,6 +44,3 @@ mkdir -p ./artifacts/samples/repositories
 # Zip up and tar up the samples
 zip -r ./artifacts/samples.zip ./artifacts/samples
 tar czf ./artifacts/samples.tar.gz -C ./artifacts/samples .
-
-	# mkdir -p website/static/downloads
-	# cd website && hugo --minify

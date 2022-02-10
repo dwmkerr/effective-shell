@@ -12,7 +12,6 @@ If you find this book useful, please do consider [sponsoring me](https://github.
 * [Installing the Samples](#installing-the-samples)
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
-    * [Updating the Theme](#updating-the-theme)
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [Copyright & Licensing](#copyright--licensing)
@@ -44,16 +43,14 @@ The one-line shell installer is hosted at [github.com/dwmkerr/effective-shell-in
 
 ## The Website
 
-The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell.com). This is done using [Hugo](https://gohugo.io/).
+The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell.com). This site is generated using [Docusaurus](https://docusaurus.io).
 
 This section contains information on how to built, use and edit the site. To help you quickly edit the site, some tips are below:
 
-- The main _content_ is at [website/content/docs/](website/content/docs/)
-- The menu structure is defined at [website/content/menu/index.md](website/content/menu/index.md).
+- The book content is at [./docs/](./docs/)
+- The menu structure is defined at [sidebars.js](sidebars.js).
 
 ### Building the Website
-
-This website is built with [Hugo](https://gohugo.io/). It is very easy to setup and run locally.
 
 To setup dependencies, run:
 
@@ -82,13 +79,9 @@ https://effective-shell.com/downloads/effective-shell-samples.zip
 https://effective-shell.com/downloads/effective-shell-samples.tar.gz
 ```
 
-### Updating the Theme
-
-The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo-book) theme, which is a fork of [alex-shpak](https://github.com/alex-shpak/hugo-book).
-
 ## Versioning
 
-The version of the site and the code is defined in the [`version.txt`](./version.txt) file. This makes it reasonably straightforward to script actions which require the version.
+The version of the site and the code is defined in the [`package.json`](./package.json) file.
 
 Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
 
@@ -149,24 +142,23 @@ This is a short-and-sweet task list for the refactoring process.
 - [x] Deploy
 - [x] Test deployment
 - [x] Fix hints
-- [ ] Part 2, migrate and preview
-- [ ] Part 3, migrate and preview
-- [ ] Part 4, migrate and preview
-- [ ] Part 5, migrate and preview
-- [ ] Part 6, migrate and preview
-- [ ] Create a really nice animation: https://starship.rs/ also look at a yes no question, 'become a shell expert' or something
-- [ ] Fixup table of contents
-- [ ] Fixup appendix/todo/missing chapters
-- [ ] Fix relref links
-- [ ] Fix TODOs
-- [ ] Test grep styling and relrefs
-- [ ] Ensure that google analytics integration is working.
-- [ ] Replace `version.txt` to `package.json`
-- [ ] Remove old files
-- [ ] Build
-- [ ] Deploy
+- [x] Part 2, migrate and preview
+- [x] Part 3, migrate and preview
+- [x] Part 4, migrate and preview
+- [x] Part 5, migrate and preview
+- [x] Part 6, migrate and preview
+- [x] Create a really nice animation: https://starship.rs/ also look at a yes no question, 'become a shell expert' or something
+- [x] Fixup table of contents
+- [x] Fixup appendix/todo/missing chapters
+- [x] Fix relref links
+- [x] Fix TODOs
+- [x] Test grep styling and relrefs
+- [x] Ensure that google analytics integration is working.
+- [x] Replace `version.txt` to `package.json`
+- [x] Remove old files
+- [x] Build
+- [x] Deploy
 - [ ] Test deployment
-- [ ] Remap google analytics routes (i.e. remove `/docs/`
 
 ## Thanks!
 

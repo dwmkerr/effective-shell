@@ -25,14 +25,6 @@ jobs:
         uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
 
-      # Setup Hugo so we can build the site.
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.61.0'
-          extended: true
-        if: ${{ steps.release.outputs.release_created }}
-
       # Run the build - this will fail if there are broken links etc.
       - name: Build
         run: make build
@@ -43,5 +35,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: ./website/public
+          folder: ./build
         if: ${{ steps.release.outputs.release_created }}
