@@ -67,7 +67,7 @@ To build the site, run:
 make build
 ```
 
-The built site is generated at `./website/public`.
+The built site is generated at `./build`.
 
 Note that the [`samples`](./samples) folder is automatically zipped up and added to the website, meaning it can be downloaded directly from:
 
