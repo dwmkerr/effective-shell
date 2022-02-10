@@ -44,16 +44,14 @@ The one-line shell installer is hosted at [github.com/dwmkerr/effective-shell-in
 
 ## The Website
 
-The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell.com). This is done using [Hugo](https://gohugo.io/).
+The content in this repository is built into a static site available at [effective-shell.com](https://effective-shell.com). This site is generated using [Docusaurus](https://docusaurus.io).
 
 This section contains information on how to built, use and edit the site. To help you quickly edit the site, some tips are below:
 
-- The main _content_ is at [website/content/docs/](website/content/docs/)
-- The menu structure is defined at [website/content/menu/index.md](website/content/menu/index.md).
+- The book content is at [./docs/](./docs/)
+- The menu structure is defined at [sidebars.js](sidebars.js).
 
 ### Building the Website
-
-This website is built with [Hugo](https://gohugo.io/). It is very easy to setup and run locally.
 
 To setup dependencies, run:
 
@@ -149,19 +147,19 @@ This is a short-and-sweet task list for the refactoring process.
 - [x] Deploy
 - [x] Test deployment
 - [x] Fix hints
-- [ ] Part 2, migrate and preview
-- [ ] Part 3, migrate and preview
-- [ ] Part 4, migrate and preview
-- [ ] Part 5, migrate and preview
-- [ ] Part 6, migrate and preview
-- [ ] Create a really nice animation: https://starship.rs/ also look at a yes no question, 'become a shell expert' or something
-- [ ] Fixup table of contents
-- [ ] Fixup appendix/todo/missing chapters
-- [ ] Fix relref links
-- [ ] Fix TODOs
-- [ ] Test grep styling and relrefs
-- [ ] Ensure that google analytics integration is working.
-- [ ] Replace `version.txt` to `package.json`
+- [x] Part 2, migrate and preview
+- [x] Part 3, migrate and preview
+- [x] Part 4, migrate and preview
+- [x] Part 5, migrate and preview
+- [x] Part 6, migrate and preview
+- [x] Create a really nice animation: https://starship.rs/ also look at a yes no question, 'become a shell expert' or something
+- [x] Fixup table of contents
+- [x] Fixup appendix/todo/missing chapters
+- [x] Fix relref links
+- [x] Fix TODOs
+- [x] Test grep styling and relrefs
+- [x] Ensure that google analytics integration is working.
+- [x] Replace `version.txt` to `package.json`
 - [ ] Remove old files
 - [ ] Build
 - [ ] Deploy

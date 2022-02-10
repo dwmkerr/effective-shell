@@ -1,0 +1,97 @@
+---
+title: Reading List
+slug: reading-list
+draft: true
+date: "2020-01-16"
+description: Great books and articles you might enjoy if you like this book!
+weight: 0
+---
+# Reading List
+
+{{< hint warning >}}
+**Work In Progress**
+This section is currently work in progress and not ready for publication.
+
+:::
+
+Some great books and articles for specific topics are listed below.
+
+## Great Online Resources
+
+These resources are available online and are particularly useful.
+
+### The Missing Semester of Your CS Education
+
+The introduction in the site says it better than I could!
+
+Classes teach you all about advanced topics within CS, from operating systems to machine learning, but there's one critical subject that's rarely covered, and is instead left to students to figure out on their own: proficiency with their tools. We’ll teach you how to master the command-line, use a powerful text editor, use fancy features of version control systems, and much more!
+
+https://missing.csail.mit.edu/
+
+Thanks to [Lennart R. Wilke](https://www.linkedin.com/in/lrwilke/) for sharing this with me!
+
+### [Maarten Billemont - Bash Guide](http://mywiki.wooledge.org/BashGuide)
+
+This is an excellent and very detailed resource on bash. It goes into a lot of detail on how things are implemented and is a great resource to find all of the low level details you might be interested in. There is also a more modern version being currently drafted at [https://guide.bash.academy/](https://guide.bash.academy/).
+
+## Great Books
+
+### [Shell Scripting by Jason Cannon](https://www.amazon.com/Shell-Scripting-Automate-Command-Programming-ebook/dp/B015FZAXU6)
+
+Short and sweet, this is a good book for absolute shell scripting beginners.
+
+### [Wicked Cool Shell Scripts - Dave Taylor & Brandon Perry](https://nostarch.com/wcss2)
+
+Ideal for systems administrators and power users who can benefit from automating processes across many platforms. This book contains a lot of tips on how to standardise the behaviour of programs across Linux and Unix systems. If you find yourself regularly shell scripting and want to start to build a library of your own scripts to run across machines, this is a great book to read. It will be particularly useful for anyone who faces challenges on incompatibilities and inconsistencies between programs on different systems.
+
+### [Practical Vim: Edit Text at the Speed of Thought, Drew Niel](https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980)
+
+Absolutely the best book I've read on Vim, perfect for users of all levels. Written by Drew Niel, who is the author of the amazing [Vimcasts](http://vimcasts.org/) series.
+
+### [Joshua Levy - The Art of the Command Line](https://github.com/jlevy/the-art-of-command-line)
+
+This is a wonderful repository, which aims to help you "Master the command line, in one page". This page is full of useful resources and is a superb reference for users from novice all the way to advanced!
+
+## Great Videos
+
+### The UNIX Operating System
+
+This is a fascinating video from the late 60s - you might be amazed at how much of the stuff you see here is still fundamental to how we work with computers today. The shell, pipelines, the file system and more:
+
+[![Screenshot: The Unix Operating System](./images/atat-the-unix-operating-system.png)](https://www.youtube.com/watch?v=tc4ROCJYbm0)
+
+### The Mother of All Demos
+
+Another fascinating video from the late 60s - see the mouse, hypertext, word processing and more:
+
+[![Screenshot: The Mother of all Demos](./images/the-mother-of-all-demos.png)](https://www.youtube.com/watch?v=yJDv-zdhzMY)
+
+### Where Grep Came From - Computerphile
+
+Professor Brian Kerninghan explains where the `grep` tool came from:
+
+[![Screenshot: YouTube Where Grep Came From](./images/youtube-where-grep-came-from.png)](https://www.youtube.com/watch?v=NTfOnGZUZDk)
+
+## Advanced
+
+- [The #! magic, details about the shebang/hash-bang mechanism on various Unix flavours
+](https://www.in-ulm.de/~mascheck/various/shebang) - Excellent article on the internals of how different Unix platforms handle shebangs.
+
+## Research
+
+The following articles and links were particularly useful when writing this book:
+
+Great source of shell tricks and tips:
+
+- https://twitter.com/krisnova/status/1109618657305333761?s=11
+- Useful Linux commands: https://www.thegeekstuff.com/2010/11/50-linux-commands/
+
+## TODO
+
+Books I'm reading as part of the research for this book.
+
+- [ ] How Linux Works, 2nd Edition: What Every Superuser Should Know - Brian Ward
+- [ ] Wicked Cool Shell Scripts, 2nd Edition: 101 Scripts for Linux, OS X, and UNIX Systems - Dave Taylor
+- [ ] The Linux Command Line: A Complete Introduction - William E. Shotts Jr.
+- [ ] [Modern Vim: Craft Your Development Environment with Vim 8 and Neovim, Drew Niel](https://pragprog.com/book/modvim/modern-vim)
+- [ ] [Serious Cryptography: A Practical Introduction to Modern Encryption by Jean-Philippe Aumasson](https://smile.amazon.com/Serious-Cryptography-Practical-Introduction-Encryption/dp/1593278268/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)
