@@ -295,6 +295,11 @@ Note: When to use the shell:
 - When we need a shell function, e.g show options
 - When we want to execute programs (this is often not safe in code)
 
+Old notes:
+- When to *not* script: diving into C, Python, Ruby, Node
+- How to write shell programs: Recognising `stdin` as input, silencing output, writing to stdout/stderr, modern syntax (`command verb` such as `k8s` and `s3`).
+
+
 ## Chapter X - Testing Shell Scripts with Docker
 
 TODO: quickly using docker to setup clean environments
@@ -363,6 +368,10 @@ Unix, Linux, BSD,
 
 Great read: http://www.linfo.org/linuxdef.html
 
+The Linux Filesystem, The Posix Standard and the GNU Project
+
+If you are using different systems, one of the first things you might want to do as you build your toolkit is to make different tools on different platforms run in a consistent way. To help you understand how different systems will operate, in this chapter we'll take a look at the Linux Filesystem, the Posix standard and the GNU project. We'll also see some tricks on how to try and make tools from different platforms behave in a more consistent way.
+
 ## Processes
 
 Signals, process tree, permissions, process id, startup (init.d/system.d)
@@ -392,6 +401,10 @@ The standard files / folders.
 Good resources:
 
 - https://unix.stackexchange.com/questions/8656/usr-bin-vs-usr-local-bin-on-linux
+
+Old notes:
+
+- The core parts of the linux filesystem (`/var/, /sbin/ etc`)
 
 ## Everything is a File
 
@@ -520,6 +533,21 @@ This section contains the things which have been pulled out of chapters as they 
 - todo: shell expansion: we should be able to just hit Esc Ctrl+E to expand https://unix.stackexchange.com/questions/584370/how-can-i-expand-and-edit-the-result-of-a-command-substitution-in-bash#:~:text=shell%2Dexpand%2Dline%20(M%2DC%2De,%3A%20Ctrl%20%2B%20Esc%20%2B%20e%20 but this is not working on my mac
 - todo: shell expansion: include a sample for each of the parameter expansion expressions
 - todo: shell expansion: fix up paths to use effective shell folder, rather than the `downloads` folder
+- todo: posix - Being compliant: `brew install coreutils`: see also Wicked Shell Scripts #100
+- todo: Unit Testing with Tap
+- todo: Who am I, What am I running? uname, whoami, $SHELL etc
+- todo: Managing Performance: top, kill, signals and disk usage
+- todo: Key files in the system `/etc/passwd`
+- todo: Workhorses: `fmt`, `awk`, `bc`, `sed`, `cut`, `grep`, `cron`, `make`
+- todo: Terminal Multiplexing: `screen` and `tmux`
+- todo: Understand logging (syslog, `logger` etc)
+- todo: Moving Files - `scp`, `aws s3`, `xcopy` etc
+- todo: Internal Variables (https://www.tldp.org/LDP/abs/html/internalvariables.html#PROCCID)
+- todo: Heredocs
+- todo: The history of shells, a shell family tree
+- todo: Quick aliases (e.g. `D` for ISO8601 date)
+- todo: Watching (e.g. `watch k get pods`)
+- todo: Supercharging autocomplete
 
 
 
