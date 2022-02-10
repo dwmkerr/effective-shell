@@ -12,7 +12,6 @@ If you find this book useful, please do consider [sponsoring me](https://github.
 * [Installing the Samples](#installing-the-samples)
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
-    * [Updating the Theme](#updating-the-theme)
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [Copyright & Licensing](#copyright--licensing)
@@ -80,13 +79,9 @@ https://effective-shell.com/downloads/effective-shell-samples.zip
 https://effective-shell.com/downloads/effective-shell-samples.tar.gz
 ```
 
-### Updating the Theme
-
-The site uses the [github.com/dwmkerr/hugo-book](https://github.com/dwmkerr/hugo-book) theme, which is a fork of [alex-shpak](https://github.com/alex-shpak/hugo-book).
-
 ## Versioning
 
-The version of the site and the code is defined in the [`version.txt`](./version.txt) file. This makes it reasonably straightforward to script actions which require the version.
+The version of the site and the code is defined in the [`package.json`](./package.json) file.
 
 Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
 
@@ -160,11 +155,10 @@ This is a short-and-sweet task list for the refactoring process.
 - [x] Test grep styling and relrefs
 - [x] Ensure that google analytics integration is working.
 - [x] Replace `version.txt` to `package.json`
-- [ ] Remove old files
-- [ ] Build
-- [ ] Deploy
+- [x] Remove old files
+- [x] Build
+- [x] Deploy
 - [ ] Test deployment
-- [ ] Remap google analytics routes (i.e. remove `/docs/`
 
 ## Thanks!
 
