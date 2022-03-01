@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.20.2](https://github.com/dwmkerr/effective-shell/compare/v0.20.1...v0.20.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* try alternative tracking id ([93da82a](https://github.com/dwmkerr/effective-shell/commit/93da82a5152828bea2745f2af6d0939218d0f4d5))
+
 ### [0.20.1](https://github.com/dwmkerr/effective-shell/compare/v0.20.0...v0.20.1) (2022-03-01)
 
 
