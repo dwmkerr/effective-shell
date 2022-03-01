@@ -41,7 +41,7 @@ const config = {
           customCss: [require.resolve( 'react-mailchimp-email-signup-form/dist/esm/index.css')],
         },
         gtag: {
-          trackingID: 'UA-155335600-1',
+          trackingID: '305363322',
           anonymizeIP: true,
         },
       }),
