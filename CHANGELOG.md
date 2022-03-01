@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.0](https://github.com/dwmkerr/effective-shell/compare/v0.19.4...v0.20.0) (2022-03-01)
+
+
+### Features
+
+* upgrade from google analytics to gtag ([9275e76](https://github.com/dwmkerr/effective-shell/commit/9275e7645d23479153650256eb662d7e8ab6ece4))
+
 ### [0.19.4](https://github.com/dwmkerr/effective-shell/compare/v0.19.3...v0.19.4) (2022-02-10)
 
 
