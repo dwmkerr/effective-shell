@@ -40,7 +40,7 @@ const config = {
           //  it is imported here.
           customCss: [require.resolve( 'react-mailchimp-email-signup-form/dist/esm/index.css')],
         },
-        googleAnalytics: {
+        gtag: {
           trackingID: 'UA-155335600-1',
           anonymizeIP: true,
         },
