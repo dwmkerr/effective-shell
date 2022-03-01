@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.20.1](https://github.com/dwmkerr/effective-shell/compare/v0.20.0...v0.20.1) (2022-03-01)
+
+
+### Bug Fixes
+
+* update to new gtag id ([403b648](https://github.com/dwmkerr/effective-shell/commit/403b648410654d135c536617f7d3fd86370fcdb2))
+
 ## [0.20.0](https://github.com/dwmkerr/effective-shell/compare/v0.19.4...v0.20.0) (2022-03-01)
 
 
