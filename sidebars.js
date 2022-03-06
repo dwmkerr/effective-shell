@@ -80,6 +80,7 @@ const sidebars = {
       link: { type: 'doc', id: 'advanced-techniques/index'},
       items: [
         'advanced-techniques/understanding-shell-expansion/index',
+        'advanced-techniques/how-to-avoid-scripting/index',
       ]
     },
   ],
