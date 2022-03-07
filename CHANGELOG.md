@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.0](https://github.com/dwmkerr/effective-shell/compare/v0.20.2...v0.21.0) (2022-03-07)
+
+
+### Features
+
+* chapter 30 - how to avoid shell scripting ([1c2b019](https://github.com/dwmkerr/effective-shell/commit/1c2b0199243770e9090e38f7a6f02c76260e229d))
+
 ### [0.20.2](https://github.com/dwmkerr/effective-shell/compare/v0.20.1...v0.20.2) (2022-03-01)
 
 
