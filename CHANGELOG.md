@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.21.1](https://github.com/dwmkerr/effective-shell/compare/v0.21.0...v0.21.1) (2022-03-07)
+
+
+### Bug Fixes
+
+* add missing proofing changes for chapter 30 ([156dfcf](https://github.com/dwmkerr/effective-shell/commit/156dfcf264959d83dad5b2e44578e436907b91c0))
+
 ## [0.21.0](https://github.com/dwmkerr/effective-shell/compare/v0.20.2...v0.21.0) (2022-03-07)
 
 
