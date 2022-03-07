@@ -15,16 +15,12 @@ while True:
         continue
 
     # Add the word to our list of lookups, and strip any whitespace from the
-    # beginning and end of it. For now, we don't have a defintition.
+    # beginning and end of it. For now, we don't have a definition.
     word = word.strip()
-    found = False
     definition = ''
 
     # Write the result.
-    if found:
-        print("{} - {}".format(word, definition))
-    else:
-        print("Failed to find a defintition for '{}'".format(word))
+    print("{} - {}".format(word, definition))
 
 # Because we didn't actually define the words, exit with an error code.
 sys.exit(1)

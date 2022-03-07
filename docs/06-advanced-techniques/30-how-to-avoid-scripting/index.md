@@ -46,7 +46,7 @@ When we are writing a tool that is aimed at shell users, it makes sense to follo
 
 - **Being able to read from standard input** - this allows us to pipe inputs from _other_ tools into our programs (see [Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) for more on this), we also want to read and process line-by-line, in case the input is very large
 - **Being able to write to standard output** - this sounds obvious, but it means making sure that our output can be read by a human operator, but also ideally be processed by other tools such as `cut`, `sed`, `rev` and so on, it also means thinking about how colour will or will not be used in output, and avoiding superfluous output that might make it harder to process the output (such as titles, version numbers and so on)
-- **Being able to specify options using sensibly defined flags** - there are many common conventions for how flags or parameters work in tools, using these patterns (rather than inventing our own) will make our tool easier to use. For example, having an `-h` flag to show help is a very common convetion
+- **Being able to specify options using sensibly defined flags** - there are many common conventions for how flags or parameters work in tools, using these patterns (rather than inventing our own) will make our tool easier to use. For example, having an `-h` flag to show help is a very common convention
 - **Being able to run on different systems** - shell users are used to being able to use tools like `grep`, `sed` and so on in a similar way across platforms, a well-written tool will do the same
 - **Handling errors using shell idioms** - shell-friendly tools use `0` as a status code to indicate success, and define error codes in their documentation, so that people using the tools know how to handle exceptional circumstances
 
@@ -58,7 +58,7 @@ There are many other conventions and ideas that could be added, but these are so
 
 As an example of how to write a shell-friendly tool, we're going to create a simple program that takes a list of words and provides a definition loaded from the online dictionary [Wiktionary](https://wiktionary.org/).
 
-This is a good example of a tool that would be overly complex to write with a shell script. We need to handle input, parse and process it, make HTTP requests to download pages from the internet, parse and process those requests, format the output, and provide some options for the user on how the output looks. A highly experienced shell scripter would likely be able to create this tool with a shell script without breaking a sweat, but it would likely be quite hard for a less experienced user to follow. Python is easy to write and read, has a wealth of online learning resources, and is available on almost any platform.
+This is a good example of a tool that would be overly complex to write with a shell script. We need to handle input, parse and process it, make HTTP requests to download pages from the internet, parse and process those requests, format the output, and provide some options for the user on how the output looks. A highly experienced shell programmer would likely be able to create this tool with a shell script without breaking a sweat, but it would likely be quite hard for a less experienced user to follow. Python is easy to write and read, has a wealth of online learning resources, and is available on almost any platform.
 
 Our requirements for the tool will be quite simple:
 
@@ -75,50 +75,27 @@ That's OK! All of the chapters in the section 'Advanced Techniques' will likely 
 
 :::
 
-OK - let's get started.
+Each of the files you'll see in this section are in the `~/effective-shell/programs/lookup` folder.
 
-### The Structure of the Program
+:::tip Downloading the Samples
 
-Normally when I am writing a simple program, I start by creating a structure, just using code comments, which let's me plan how the program will work and then acts as a template for me to develop against.
-
-So let's start by creating a new Python file in our `scripts` folder and open it in our favourite code editor.
+Run the following command in your shell to download the samples:
 
 ```bash
-touch ~/effective-shell/scripts/lookup.py
+curl effective.sh | sh
 ```
 
-Now we'll open the file and create the initial structure, using comments:
+:::
 
-```python title="lookup.py"
-# First, load the input from the user.
+OK - let's get started. 
 
-# Now read any parameters or options the user has set.
-
-# Split the input up into individual words.
-
-# Go through every word in our list...
-
-# ...download its definition...
-
-# ...if the definition doesn't exist, track this fact so that we can report
-# on it later...
-
-# ...if the definition does exist, parse it from the downloaded data to put it
-# into a more readable format.
-
-# Go through each word and its definition and output it to the user, given the
-# formatting options specified.
-```
-
-Once I have written the basic structure of the program, I tend to write enough code to have very simple working version, so that I can then quickly test it, add additional functionality, and incrementally improve the program.
-
-### Version 1 - Input, Processing, Output
+### Version 1 - Basic Structure
 
 Shell tools take input, process it and produce output. So let's take our structure and create a first cut. This first cut will not perform any processing - it'll just take the input and produce simple output. But it will give us a working starting point to incrementally add more features to.
 
 At this stage I'll share the code in the form of snippets - you can see the code as it evolves by looking in the `~/effective-shell/programs/lookup/` folder.
 
-```python title="lookup-part1.py"
+```python title="lookup-v1.py"
 import sys
 
 # Read standard input until there is nothing left to read.
@@ -136,16 +113,12 @@ while True:
         continue
 
     # Add the word to our list of lookups, and strip any whitespace from the
-    # beginning and end of it. For now, we don't have a defintition.
+    # beginning and end of it. For now, we don't have a definition.
     word = word.strip()
-    found = False
     definition = ''
 
     # Write the result.
-    if found:
-        print("{} - {}".format(word, definition))
-    else:
-        print("Failed to find a defintition for '{}'".format(word))
+    print("{} - {}".format(word, definition))
 
 # Because we didn't actually define the words, exit with an error code.
 sys.exit(1)
@@ -154,7 +127,7 @@ sys.exit(1)
 Let's test this out and then we'll dissect the code. First, we'll just run the program, type some words, then press `Ctrl D` to signal end-of-transmission (check [Thinking In Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) if you need a reminder on what 'end-of-transmission' means). You can also press `Ctrl C` to close the program.
 
 ```
-$ python3 ~/effective-shell/programs/lookup/lookup-part1.py
+$ python3 ~/effective-shell/programs/lookup/lookup-v1.py
 one
 Failed to find a defintition for 'one'
 two
@@ -168,7 +141,7 @@ The program successfully reads our input, and writes out a result for each word.
 We can also test that the program can receive input piped from a file:
 
 ```
-$ cat ~/effective-shell/data/words.txt | python3 ~/effective-shell/programs/lookup/lookup-part1.py
+$ cat ~/effective-shell/data/words.txt | python3 ~/effective-shell/programs/lookup/lookup-v1.py
 Failed to find a defintition for 'louche'
 Failed to find a defintition for 'liana'
 Failed to find a defintition for 'lieder'
@@ -204,17 +177,13 @@ Now we record the value of the word with the whitespace that might surround it s
 
 ```python
     word = word.strip()
-    found = False
     definition = ''
 ```
 
-If we found it then we write the word and its definition, if we didn't find it we show an error message.
+Now we write out the word and its definition:
 
 ```python
-    if found:
-        print("{} - {}".format(word, definition))
-    else:
-        print("Failed to find a definition for '{}'".format(word))
+    print("{} - {}".format(word, definition))
 ```
 
 Finally, we exit with a non-zero status code, meaning the program has failed. This is correct because we haven't actually successfully looked up any words!
@@ -225,15 +194,15 @@ sys.exit(1)
 
 Now let's look at actually downloading the definition.
 
-### Part 2 - Downloading the Definition
+### Version 2 - Downloading the Definition
 
 Now that we've got the list of words, we can try and download a definition of each one by using the excellent https://dictionaryapi.dev/ website. This site searches a number of online dictionaries, including Wiktionary.
 
-We will add a new function to the script. You can see the complete script in the file `~/effective-shell/programs/lookup/lookup-part2.py`.
+We will add a new function to the script. You can see the complete script in the file `~/effective-shell/programs/lookup/lookup-v1.py`.
 
 The new function downloads the definition of a word from the dictionaryapi.dev site:
 
-```python title="looup-part2.py"
+```python title="looup-v1.py"
 def search_for_word(word):
     # Encode the word for HTML.
     encoded_word = urllib.parse.quote(word.encode('utf8'))
@@ -266,6 +235,7 @@ def search_for_word(word):
 
     # Return the result.
     return first_definition
+
 def search_for_word(word):
     # Encode the word for HTML.
     encoded_word = urllib.parse.quote(word.encode('utf8'))
@@ -310,24 +280,20 @@ I'm not going to go through this blow-by-blow, it's a fairly rough and ready way
 
 With this new function, we can update the main loop of our program to look like this:
 
-```python title="lookup-part2.py"
+```python title="lookup-v2.py"
     # Strip whitespace from the word and find the definition.
     word = word.strip()
     stripped_word = word.strip()
     definition = search_for_word(stripped_word)
-    found = bool(definition),
 
     # Write the result.
-    if found:
-        print("{} - {}".format(word, definition))
-    else:
-        print("Failed to find a definition for '{}'".format(word))
+    print("{} - {}".format(word, definition))
 ```
 
 If we pass some test words into the program our output looks like this:
 
 ```
-$ cat ~/effective-shell/data/words.txt | python3 ~/effective-shell/programs/lookup/lookup-part2.py
+$ cat ~/effective-shell/data/words.txt | python3 ~/effective-shell/programs/lookup/lookup-v1.py
 louche - To make (an alcoholic beverage, e.g. absinthe or ouzo) cloudy by mixing it with water, due to the presence of anethole. This is known as the ouzo effect.
 liana - A climbing woody vine, usually tropical.
 lieder - An art song, sung in German and accompanied on the piano.
@@ -339,67 +305,142 @@ Ness - A promontory; a cape or headland. (Frequently used as a suffix in placena
 
 Pretty cool - our program can find a reasonable definition for most of the words in the test data set we have. Now let's look at cleaning up the output.
 
+### Version 3 - Formatting the Output
 
-TODO: add partial versions to samples
+Our program is working quite well, but we can improve on it by making the output a little friendlier to read. We can show the word in a different colour to the definition, separate the definition with a colon which will make it easier for us to process it with other tools, or even limit the length of the definition so that it fits on the screen.
 
-NOTE: linting, testing, etc
+We're also going to let the user provide a 'crop' value if they want to. This is a number that limits the length of the output each line, which could be useful if the user wants to fit the definitions on the screen without them spilling over to the next line.
+
+There is a special module in Python called `argparse` that helps you parse the arguments for a program, we'll use this to specify and parse the 'crop' argument:
+
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '-c', '--crop',
+    help='crop the output line length',
+    type=int,
+    nargs='?',
+    const=80,         # Default value if -c is supplied
+    default=None)     # Default value if -c is not supplied
+args = parser.parse_args()
+```
+
+The `argparse` module is very sophisticated, you can read more about it online if you'd like to discover more. But for now its enough to know that this code defines an optional argument named `crop`, that can be provided with a number, or without a number. We'll see it in action shortly.
+
+Next we'll add a function that writes a word and its definition in a nicer way:
+
+```python
+def write_definition(word, definition):
+    # Check if stdout is a terminal - if it is we'll colour the output.
+    is_terminal = sys.stdout.isatty()
+
+    # We will separate the word and the definition with a colon and space.
+    separator = ": "
+
+    # If the 'crop' argument is set, use it.
+    if args.crop:
+        output_length = len(word) + len(separator) + len(definition)
+        if output_length > args.crop:
+            # We need to chop some letters off the end of the definition, but
+            # leave space for '...' to indicate the output is cropped.
+            new_length = len(definition) - 3 - (output_length - args.crop)
+            definition = definition[:new_length] + '...'
+
+    # If we are in a terminal make the word green and the separator white.
+    if is_terminal:
+        word = "\033[92m" + word + "\033[0m"
+        separator = "\033[37m" + separator  + "\033[0m"
+
+    # Write out the word, separator and definition.
+    print(word + separator + definition)
+```
+
+This code first checks to see whether `stdout` is a terminal. This is useful because if we are in a terminal, we can show colour codes, but if the output is something like a file, we can skip the colour codes (which would look messy in the resulting file). Then we do some arithmetic if the `crop` argument is provided, shortening the definition if needed.
+
+The weird looking characters such as `/033[92m` are ANSI control codes to set the colour of the output - you can read all about them in [Useful Patterns for Shell Scripts](../../04-shell-scripting/23-useful-patterns-for-shell-scripts/index.md) in the section 'Colouring Output'.
+
+With this function added, and called in the right place in our program, we can now lookup definitions, have the output printed in colour, and specify a 'crop' value:
+
+```
+$ cat ./effective-shell/data/words.txt | python3 ./effective-shell/programs/lookup/lookup-v3.py -c 60
+louche: To make (an alcoholic beverage, e.g. absinthe or ...
+liana: A climbing woody vine, usually tropical.
+lieder: An art song, sung in German and accompanied on th...
+Manchu:
+Nankeen: A type of cotton cloth originally from Nanking i...
+naevi: A pigmented, raised or otherwise abnormal area on ...
+Ness: A promontory; a cape or headland. (Frequently used ...
+```
+
+The nice thing about using the `argparse` module is that our program _automatically_ gets a `--help` or `-h` option that can be used to provide instructions:
+
+```
+$ python3 ./samples/programs/lookup/lookup-v3.py -h
+usage: lookup-v3.py [-h] [-c [CROP]]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c [CROP], --crop [CROP]
+                        crop the output line length
+```
+
+We've really just scratched the surface of what can be done here. You can find this version of the program in `~/effective-shell/programs/lookup/lookup-v3.py`
+
+## Installing the Tool
+
+The great thing about a Python script like the one we have built is that it is standalone, and anyone can install it as tool on their system with very little effort.
+
+All we need to do is first tell the shell that if it encounters this script and is asked to execute it, it needs to use the `python3` program. We can do this by putting a shebang at the top of the file:
+
+```python title="lookup.py"
+#!/usr/bin/env python3
+
+# ...the rest of the code goes here, it's been omitted for brevity!
+```
+
+
+Now that we have a shebang, we can make the file executable using the `chmod` program and link to it from our personal `bin` folder:
+
+```sh
+chmod +x ~/effective-shell/programs/lookup/lookup.py
+ln -s ~/effective-shell/programs/lookup/lookup.py /usr/local/bin/lookup
+```
+
+If you need a reminder on shebangs, the `chmod` tool or the `ln` tool, check [Shell Script Essentials](../../04-shell-scripting/20-mastering-conditional-logic/index.md) and in particular the section 'Using Shebangs' and 'Installing Your Script'.
+
+Now that we have the tool in our local binaries folder, we can call it like so:
+
+```
+$ lookup -c -- effective shell
+effective: A soldier fit for duty
+shell: A hard external covering of an animal.
+```
+
+Note that the `lookup.py` script, which is the final version of the script, has some additional features which are described at the end of the chapter. One of these features is that we can just provide a word or list of words as positional arguments to the command. Note that the `--` in the command shown above is a 'separator' - this is the standard Linux pattern to indicate that the list of _flags_ is complete, and that what follows is the list of _positional parameters_. If we didn't have this, the tool would think that we are providing `effective` as the value of the `-c` flag. The `--` removes this ambiguity. Many Linux tools support this separator.
+
+## Improving the Lookup Program
+
+One of the fun things about coding is thinking about all of the exciting additional features you can add!
+
+The final version of the script, which is in the `~/effective-shell/programs/lookup/lookup.py` folder has a set of additional features that you might find useful to explore when building your own programs. These features are:
+
+| Feature                     | Description                                                                                                    |
+|-----------------------------|----------------------------------------------------------------------------------------------------------------|
+| Graceful handling of Ctrl+C | Ensure we close cleanly on Ctrl+C without a noisy error message. See `KeyboardInterrupt` in the code for this. |
+| More detailed help          | The help text has examples, see `argparse` in the code.                                                        |
+
+There are all sorts of other features you could add as a coding and learning exercise! Here are a few that I considered:
+
+- **A 'browse' flag** - this could open the user's browser to the full definition online
+- **Manpages** - an option to install a manpage for the tool, meaning that we can run `man lookup`
+- **Clearer interactive mode** - when stdin is a terminal, meaning the user is interactive, show a prompt and instructions
+- **A verbose flag** - a `--verbose` flag to show detailed error messages if they are encountered
 
 
 Note: When to use the shell:
 - Universal compatibility such as for installing ruby, node, nvm etc (the set_ps1 script is an example)
 - When we need a shell function, e.g show options
 - When we want to execute programs (this is often not safe in code)
-
-Old notes:
-- When to *not* script: diving into C, Python, Ruby, Node
-- How to write shell programs: Recognising `stdin` as input, silencing output, writing to stdout/stderr, modern syntax (`command verb` such as `k8s` and `s3`).
-
----
-
-Ideas
-
-rcut - too simple
-Folder Sizes - `du -hs your_directory`
-Largest files - `du -a /dir/ | sort -n -r | head -n 20`
-Find duplicate files - `find . ! -empty -type f -exec md5sum {} + | sort | uniq -w32 -dD`
-```
-
-```
-from lxml import html
-
-xm = html.fromstring(h)
-div = xm.xpath("//div[@class='main-content']")[0]
-print(div.text  + "".join(map(html.tostring, div.xpath("./*"))))
-```
-
-```
-# check if color
-if sys.stdout.isatty():
-    # You're running in a real terminal
-else:
-    # You're being piped or redirected
-```
-
-- HTML encode word
-- Error codes
-- Pipe in
-- Short flag
-- Link Flag
-- Open definition flag (i.e. in browser)
-- stdin include EOL EOT and cue
-- stdout
-- colorise output
-- manpage
-- shebang / store
-- dictionary (prog name)
-- short
-- fuzzy
-- shebang as a comment
-- when interative, use an empty line to end transmission
-- don't error if words are not found, just don't print them
-- debug flag to show error details
-- ctrl+C for line read and html
-
-TODO move everything except basic foratting to the final version which is not shown but included in the samples for reference
-
-

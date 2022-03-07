@@ -18,7 +18,6 @@ In this chapter we will be creating some files and folders, if you just want to 
 
 :::tip Downloading the Samples
 
-
 Run the following command in your shell to download the samples:
 
 ```bash
