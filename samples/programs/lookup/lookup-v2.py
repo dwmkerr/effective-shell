@@ -60,6 +60,3 @@ while True:
 
     # Write the result.
     print("{} - {}".format(word, definition))
-
-# Because we didn't actually define the words, exit with an error code.
-sys.exit(1)

@@ -1,5 +1,5 @@
 ---
-title: 'How to Avoid Scripting - Writing a Dictionary Lookup in Python'
+title: 'How to Avoid Scripting - A Dictionary Lookup in Python'
 slug: '/part-6-advanced-techniques/how-to-avoid-scripting/'
 chapterNumber: 30
 ---
@@ -22,11 +22,11 @@ But in general, as soon as a script gets to more than about a page of code, I te
 
 ## What are the alternatives?
 
-There are hundreds of programming languages that exist to help you solve technical problems. But not all of them are ideal as an alternative to a shell script. Some of the questions you might ask of a programming language which you are considering to use to solve a problem that you had previously considered a shell script would be:
+There are hundreds of programming languages that exist to help you solve technical problems. But not all of them are ideal as an alternative to a shell script. Some of the questions you might ask are:
 
 1. **Is the programming language going to be available on almost any machine?** Simple shell scripts run almost anywhere without having to install other tools - will the language give me this functionality?
 2. **Is the language designed for handling the kind of problem I want to solve?** Does it support console based input and output? Is it easy to write shell-style tools in this language?
-3. **Is the language simple and popular** So that others should be able to understand or adapt the script without too much intervention?
+3. **Is the language simple and popular?** Can others understand or adapt the script without too much intervention?
 
 Some languages jump to mind as good options for shell scripts:
 
@@ -50,19 +50,17 @@ When we are writing a tool that is aimed at shell users, it makes sense to follo
 - **Being able to run on different systems** - shell users are used to being able to use tools like `grep`, `sed` and so on in a similar way across platforms, a well-written tool will do the same
 - **Handling errors using shell idioms** - shell-friendly tools use `0` as a status code to indicate success, and define error codes in their documentation, so that people using the tools know how to handle exceptional circumstances
 
-**TODO more chapter links above?**
-
 There are many other conventions and ideas that could be added, but these are some of the fundamentals.
 
 ## Writing a Dictionary Lookup Tool in Python
 
-As an example of how to write a shell-friendly tool, we're going to create a simple program that takes a list of words and provides a definition loaded from the online dictionary [Wiktionary](https://wiktionary.org/).
+As an example of how to write a shell-friendly tool, we're going to create a simple program that takes a list of words and provides a definition loaded from the free and fantastic [Free Dictionary API](https://dictionaryapi.dev).
 
 This is a good example of a tool that would be overly complex to write with a shell script. We need to handle input, parse and process it, make HTTP requests to download pages from the internet, parse and process those requests, format the output, and provide some options for the user on how the output looks. A highly experienced shell programmer would likely be able to create this tool with a shell script without breaking a sweat, but it would likely be quite hard for a less experienced user to follow. Python is easy to write and read, has a wealth of online learning resources, and is available on almost any platform.
 
 Our requirements for the tool will be quite simple:
 
-1. Provide a set of words to be looked up
+1. Allow the user to provide a set of words to be looked up
 2. Download the definition of the words
 3. Write the words to standard output, with the option to format how this output looks
 4. Offer help to the user on how to use the tool
@@ -119,9 +117,6 @@ while True:
 
     # Write the result.
     print("{} - {}".format(word, definition))
-
-# Because we didn't actually define the words, exit with an error code.
-sys.exit(1)
 ```
 
 Let's test this out and then we'll dissect the code. First, we'll just run the program, type some words, then press `Ctrl D` to signal end-of-transmission (check [Thinking In Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) if you need a reminder on what 'end-of-transmission' means). You can also press `Ctrl C` to close the program.
@@ -129,11 +124,11 @@ Let's test this out and then we'll dissect the code. First, we'll just run the p
 ```
 $ python3 ~/effective-shell/programs/lookup/lookup-v1.py
 one
-Failed to find a defintition for 'one'
+one - {}
 two
-Failed to find a defintition for 'two'
+two -
 three
-Failed to find a defintition for 'three'
+three -
 ```
 
 The program successfully reads our input, and writes out a result for each word.
@@ -142,13 +137,13 @@ We can also test that the program can receive input piped from a file:
 
 ```
 $ cat ~/effective-shell/data/words.txt | python3 ~/effective-shell/programs/lookup/lookup-v1.py
-Failed to find a defintition for 'louche'
-Failed to find a defintition for 'liana'
-Failed to find a defintition for 'lieder'
-Failed to find a defintition for 'Manchu'
-Failed to find a defintition for 'Nankeen'
-Failed to find a defintition for 'naevi'
-Failed to find a defintition for 'Ness'
+louche -
+liana -
+lieder -
+Manchu -
+Nankeen -
+naevi -
+Ness -
 ```
 
 So we have a program that can read from standard input, either interactively or from a file. Let's break down the code section by section.
@@ -186,12 +181,6 @@ Now we write out the word and its definition:
     print("{} - {}".format(word, definition))
 ```
 
-Finally, we exit with a non-zero status code, meaning the program has failed. This is correct because we haven't actually successfully looked up any words!
-
-```python
-sys.exit(1)
-```
-
 Now let's look at actually downloading the definition.
 
 ### Version 2 - Downloading the Definition
@@ -202,7 +191,7 @@ We will add a new function to the script. You can see the complete script in the
 
 The new function downloads the definition of a word from the dictionaryapi.dev site:
 
-```python title="looup-v1.py"
+```python title="lookup-v1.py"
 def search_for_word(word):
     # Encode the word for HTML.
     encoded_word = urllib.parse.quote(word.encode('utf8'))
@@ -293,7 +282,7 @@ With this new function, we can update the main loop of our program to look like 
 If we pass some test words into the program our output looks like this:
 
 ```
-$ cat ~/effective-shell/data/words.txt | python3 ~/effective-shell/programs/lookup/lookup-v1.py
+$ cat ~/effective-shell/data/words.txt | python3 ~/effective-shell/programs/lookup/lookup-v2.py
 louche - To make (an alcoholic beverage, e.g. absinthe or ouzo) cloudy by mixing it with water, due to the presence of anethole. This is known as the ouzo effect.
 liana - A climbing woody vine, usually tropical.
 lieder - An art song, sung in German and accompanied on the piano.
@@ -311,8 +300,9 @@ Our program is working quite well, but we can improve on it by making the output
 
 We're also going to let the user provide a 'crop' value if they want to. This is a number that limits the length of the output each line, which could be useful if the user wants to fit the definitions on the screen without them spilling over to the next line.
 
-There is a special module in Python called `argparse` that helps you parse the arguments for a program, we'll use this to specify and parse the 'crop' argument:
+There is a special module in Python called `argparse` that helps you parse the arguments for a program, we'll use this to specify and parse the 'crop' argument.
 
+You can see the complete script in the file `~/effective-shell/programs/lookup/lookup-v3.py`.
 
 ```python
 import argparse
@@ -404,7 +394,7 @@ All we need to do is first tell the shell that if it encounters this script and 
 
 Now that we have a shebang, we can make the file executable using the `chmod` program and link to it from our personal `bin` folder:
 
-```sh
+```bash
 chmod +x ~/effective-shell/programs/lookup/lookup.py
 ln -s ~/effective-shell/programs/lookup/lookup.py /usr/local/bin/lookup
 ```
@@ -439,8 +429,6 @@ There are all sorts of other features you could add as a coding and learning exe
 - **Clearer interactive mode** - when stdin is a terminal, meaning the user is interactive, show a prompt and instructions
 - **A verbose flag** - a `--verbose` flag to show detailed error messages if they are encountered
 
+## Summary
 
-Note: When to use the shell:
-- Universal compatibility such as for installing ruby, node, nvm etc (the set_ps1 script is an example)
-- When we need a shell function, e.g show options
-- When we want to execute programs (this is often not safe in code)
+In this chapter we looked at alternatives to shell scripts and when we might consider them. We looked at what makes a tool 'shell-friendly'. We also looked at how we can use the highly popular Python language to write a simple but useful shell-friendly tool.
