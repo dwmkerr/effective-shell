@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.21.2](https://github.com/dwmkerr/effective-shell/compare/v0.21.1...v0.21.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* correct 'ampersand' to 'at symbol' ([b5d334c](https://github.com/dwmkerr/effective-shell/commit/b5d334c1a5fc0f2fbd459ccca989611b1e23eb0a))
+
 ### [0.21.1](https://github.com/dwmkerr/effective-shell/compare/v0.21.0...v0.21.1) (2022-03-07)
 
 
