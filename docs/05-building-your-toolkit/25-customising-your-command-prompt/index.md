@@ -20,7 +20,7 @@ This is the prompt on an Ubuntu virtual machine I have set up. If you want to se
 Let's take a look at each of the components that make up the prompt:
 
 - `dwmkerr` - The first thing that is shown is the name of the current user
-- `@` - Next we have an ampersand character that is used as a separator between the username field and the following field
+- `@` - Next we have an 'at symbol' character that is used as a separator between the username field and the following field
 - `effective-shell-ubuntu`: This is the _hostname_ of the machine
 - `:` - A colon separates the hostname from the next field
 - `~` - Next we have the current working directory
