@@ -10,7 +10,7 @@ In this chapter, we'll look at when you might want to _avoid_ shell scripting, w
 
 ## When should you avoid shell scripting?
 
-Shell scripts can be very powerful. As a quick and dirty way to solve a simple problem, they often cannot be beat. But there are reasons you might want to avoid using a shell script:
+Shell scripts can be very powerful. As a quick and dirty way to solve a simple problem, they often cannot be beat. When you combine bring in powerful tools that are built in on most systems such as `awk` (which can perform advanced text manipulation) they can be even more powerful. But there are reasons you might want to avoid using a shell script:
 
 1. If the problem you are solving is quite complex, the script will be large and hard to manage
 2. Shell scripts become hard for others to reason about when they become complex
@@ -36,7 +36,7 @@ Some languages jump to mind as good options for shell scripts:
 4. **NodeJS** - Node.js uses Javascript as its language, which is highly popular. It is event-driven, meaning it can be very fast. But the version installed across systems varies considerably, and this can cause headaches when sharing scripts.
 5. **Perl** - installed almost universally on any system, very powerful, but possibly less well known nowadays and therefore perhaps less likely to be understood by others.
 
-Now when you are writing _complex_ tools or programs, the criteria will change, you want to use a language and platform that really suits the problem you are solving, or is used already by the team you are working with. But in this chapter we're looking at alternatives to shell scripts to write shell like tools.
+Now when you are writing _complex_ tools or programs, the criteria will change, you want to use a language and platform that really suits the problem you are solving, or is used already by the team you are working with. But in this chapter we're looking at alternatives to shell scripts to write tool that work well when used in the shell.
 
 Given it's almost universal presence on systems, its huge (and increasing) popularity, and robust standard library (which allows you to use many features without having to have users download additional packages), Python is an excellent choice for writing shell friendly tools.
 
@@ -187,11 +187,11 @@ Now let's look at actually downloading the definition.
 
 Now that we've got the list of words, we can try and download a definition of each one by using the excellent https://dictionaryapi.dev/ website. This site searches a number of online dictionaries, including Wiktionary.
 
-We will add a new function to the script. You can see the complete script in the file `~/effective-shell/programs/lookup/lookup-v1.py`.
+We will add a new function to the script. You can see the complete script in the file `~/effective-shell/programs/lookup/lookup-v2.py`.
 
 The new function downloads the definition of a word from the dictionaryapi.dev site:
 
-```python title="lookup-v1.py"
+```python title="lookup-v2.py"
 def search_for_word(word):
     # Encode the word for HTML.
     encoded_word = urllib.parse.quote(word.encode('utf8'))
@@ -210,17 +210,10 @@ def search_for_word(word):
         if http_error.code == 404:
             return ''
         raise
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))
-        sys.exit(ERROR_HTTP)
         
     # Now try and parse the data.
-    try:
-        data = json.loads(raw_json_data)
-        first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to parse the definition of '{}'".format(word))
-        sys.exit(ERROR_PARSE)
+    data = json.loads(raw_json_data)
+    first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
 
     # Return the result.
     return first_definition
@@ -243,17 +236,10 @@ def search_for_word(word):
         if http_error.code == 404:
             return ''
         raise
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))
-        sys.exit(ERROR_HTTP)
         
     # Now try and parse the data.
-    try:
-        data = json.loads(raw_json_data)
-        first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to parse the definition of '{}'".format(word))
-        sys.exit(ERROR_PARSE)
+    data = json.loads(raw_json_data)
+    first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
 
     # Return the result.
     return first_definition
@@ -265,7 +251,6 @@ I'm not going to go through this blow-by-blow, it's a fairly rough and ready way
 2. Search for the word and download the result
 3. If the word is not found, return an empty result
 4. If the word is found, try and decode the definition and return it
-5. Close the program if there are errors we cannot recover from
 
 With this new function, we can update the main loop of our program to look like this:
 
@@ -391,7 +376,6 @@ All we need to do is first tell the shell that if it encounters this script and 
 # ...the rest of the code goes here, it's been omitted for brevity!
 ```
 
-
 Now that we have a shebang, we can make the file executable using the `chmod` program and link to it from our personal `bin` folder:
 
 ```bash
@@ -419,6 +403,7 @@ The final version of the script, which is in the `~/effective-shell/programs/loo
 
 | Feature                     | Description                                                                                                    |
 |-----------------------------|----------------------------------------------------------------------------------------------------------------|
+| More robust error handling  | There are exception handlers in the key places the program may fail.                                           |
 | Graceful handling of Ctrl+C | Ensure we close cleanly on Ctrl+C without a noisy error message. See `KeyboardInterrupt` in the code for this. |
 | More detailed help          | The help text has examples, see `argparse` in the code.                                                        |
 

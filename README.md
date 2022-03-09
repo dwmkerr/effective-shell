@@ -98,7 +98,7 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 Thanks to the following people who have helped with reviews, comments, suggestions.
 
-- Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal, Peter Mondlock, Samantha Baldwin, Niklas Schmuecker for the useful comments and suggestions
+- Andrew Bestbier, Thomas Neumann, Tam Nguyen, Rahul Maliakkal, Peter Mondlock, Samantha Baldwin, Niklas Schmuecker for the proofing, comments and suggestions
 - [Ogus Ismail](https://stackoverflow.com/users/10248678/oguz-ismail) for helping me understand some of the [nuances of word splitting and filename expansion](https://stackoverflow.com/questions/67648392/how-can-i-confirm-whether-whitespace-or-special-characters-are-escaped-in-a-wild)
 - [Josh Timmons](https://github.com/josh-59) for proof-reading and suggesting structural improvements as well as grammar and spelling fixes
 - [Joel Schwarzmann](https://github.com/datajoely) for proofing and adding content on the Python code in the 'How to avoid shell scripting' chapter
