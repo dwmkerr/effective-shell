@@ -46,7 +46,7 @@ When we are writing a tool that is aimed at shell users, it makes sense to follo
 
 - **Being able to read from standard input** - this allows us to pipe inputs from _other_ tools into our programs (see [Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) for more on this), we also want to read and process line-by-line, in case the input is very large
 - **Being able to write to standard output** - this sounds obvious, but it means making sure that our output can be read by a human operator, but also ideally be processed by other tools such as `cut`, `sed`, `rev` and so on, it also means thinking about how colour will or will not be used in output, and avoiding superfluous output that might make it harder to process the output (such as titles, version numbers and so on)
-- **Being able to specify options using sensibly defined flags** - there are many common conventions for how flags or parameters work in tools, using these patterns (rather than inventing our own) will make our tool easier to use. For example, having an `-h` flag to show help is a very common convention
+- **Being able to specify options using sensibly defined flags** - there are many common conventions for how flags or parameters work in tools, using these patterns (rather than inventing our own) will make our tool easier to use. For example, having an `-h` flag to show help is a very common convention[^1]
 - **Being able to run on different systems** - shell users are used to being able to use tools like `grep`, `sed` and so on in a similar way across platforms, a well-written tool will do the same
 - **Handling errors using shell idioms** - shell-friendly tools use `0` as a status code to indicate success, and define error codes in their documentation, so that people using the tools know how to handle exceptional circumstances
 
@@ -376,6 +376,8 @@ All we need to do is first tell the shell that if it encounters this script and 
 # ...the rest of the code goes here, it's been omitted for brevity!
 ```
 
+This shebang uses the `env` program to locate the `python3` program. This is important as `python3` might be installed in different locations on different systems. You can read more about how to use `env` in shebangs in the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md) under 'Using Shebangs'.
+
 Now that we have a shebang, we can make the file executable using the `chmod` program and link to it from our personal `bin` folder:
 
 ```bash
@@ -383,7 +385,7 @@ chmod +x ~/effective-shell/programs/lookup/lookup.py
 ln -s ~/effective-shell/programs/lookup/lookup.py /usr/local/bin/lookup
 ```
 
-If you need a reminder on shebangs, the `chmod` tool or the `ln` tool, check [Shell Script Essentials](../../04-shell-scripting/20-mastering-conditional-logic/index.md) and in particular the section 'Using Shebangs' and 'Installing Your Script'.
+If you need a reminder how to use the `chmod` tool and `ln` tool to install scripts, check the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md) under the section 'Installing Your Script'.
 
 Now that we have the tool in our local binaries folder, we can call it like so:
 
@@ -416,8 +418,10 @@ There are all sorts of other features you could add as a coding and learning exe
 - **Clearer interactive mode** - when stdin is a terminal, meaning the user is interactive, show a prompt and instructions
 - **A verbose flag** - a `--verbose` flag to show detailed error messages if they are encountered
 
-If you find yourself writing more complex command-line tools in Python, you might also explore the excellent [Click](https://click.palletsprojects.com/en/8.0.x/) Python package. This is a very popular package among Python developers and is used by a number of large and well-established projects. The [Typer](https://typer.tiangolo.com/) package is also worth exploring.
+If you find yourself writing more complex command-line tools in Python, you might also explore the excellent [Click](https://click.palletsprojects.com/en/8.0.x/) Python package. This is a very popular package among Python developers and is used by a number of large and well-established projects. The [Typer](https://typer.tiangolo.com/) package is also worth exploring. The `urllib` package I have used works, but it can be quite unweildy when dealing with more complex options - many developers will prefer alternative packages.
 
 ## Summary
 
 In this chapter we looked at alternatives to shell scripts and when we might consider them. We looked at what makes a tool 'shell-friendly'. We also looked at how we can use the highly popular Python language to write a simple but useful shell-friendly tool.
+
+[^1]: There is a detailed description of how options should be specified for GNU tools at http://www.gnu.org/prep/standards/html_node/Option-Table.html#Option-Table
