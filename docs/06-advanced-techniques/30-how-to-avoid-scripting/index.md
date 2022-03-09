@@ -393,7 +393,9 @@ effective: A soldier fit for duty
 shell: A hard external covering of an animal.
 ```
 
-Note that the `lookup.py` script, which is the final version of the script, has some additional features which are described at the end of the chapter. One of these features is that we can just provide a word or list of words as positional arguments to the command. Note that the `--` in the command shown above is a 'separator' - this is the standard Linux pattern to indicate that the list of _flags_ is complete, and that what follows is the list of _positional parameters_. If we didn't have this, the tool would think that we are providing `effective` as the value of the `-c` flag. The `--` removes this ambiguity. Many Linux tools support this separator.
+Note that the `lookup.py` script, which is the final version of the script, has some additional features which are described at the end of the chapter. One of these features is that we can just provide a word or list of words as positional arguments to the command.
+
+Note that the `--` in the command shown above is the 'end of options marker' - this is the standard Linux pattern to indicate that the list of _flags_ is complete, and that what follows is the list of _positional parameters_. If we didn't have this, the tool would think that we are providing `effective` as the value of the `-c` flag. The `--` removes this ambiguity. Many Linux tools support this separator, you can check `man bash` to find out more.
 
 ## Improving the Lookup Program
 
