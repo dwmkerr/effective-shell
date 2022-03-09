@@ -429,6 +429,8 @@ There are all sorts of other features you could add as a coding and learning exe
 - **Clearer interactive mode** - when stdin is a terminal, meaning the user is interactive, show a prompt and instructions
 - **A verbose flag** - a `--verbose` flag to show detailed error messages if they are encountered
 
+If you find yourself writing more complex command-line tools in Python, you might also explore the excellent [Click](https://click.palletsprojects.com/en/8.0.x/) Python package. This is a very popular package among Python developers and is used by a number of large and well-established projects. The [Typer](https://typer.tiangolo.com/) package is also worth exploring.
+
 ## Summary
 
 In this chapter we looked at alternatives to shell scripts and when we might consider them. We looked at what makes a tool 'shell-friendly'. We also looked at how we can use the highly popular Python language to write a simple but useful shell-friendly tool.
