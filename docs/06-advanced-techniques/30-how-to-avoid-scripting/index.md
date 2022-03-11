@@ -10,7 +10,7 @@ In this chapter, we'll look at when you might want to _avoid_ shell scripting, w
 
 ## When should you avoid shell scripting?
 
-Shell scripts can be very powerful. As a quick and dirty way to solve a simple problem, they often cannot be beat. But there are reasons you might want to avoid using a shell script:
+Shell scripts can be very powerful. As a quick and dirty way to solve a simple problem, they often cannot be beat. When you combine bring in powerful tools that are built in on most systems such as `awk` (which can perform advanced text manipulation) they can be even more powerful. But there are reasons you might want to avoid using a shell script:
 
 1. If the problem you are solving is quite complex, the script will be large and hard to manage
 2. Shell scripts become hard for others to reason about when they become complex
@@ -36,7 +36,7 @@ Some languages jump to mind as good options for shell scripts:
 4. **NodeJS** - Node.js uses Javascript as its language, which is highly popular. It is event-driven, meaning it can be very fast. But the version installed across systems varies considerably, and this can cause headaches when sharing scripts.
 5. **Perl** - installed almost universally on any system, very powerful, but possibly less well known nowadays and therefore perhaps less likely to be understood by others.
 
-Now when you are writing _complex_ tools or programs, the criteria will change, you want to use a language and platform that really suits the problem you are solving, or is used already by the team you are working with. But in this chapter we're looking at alternatives to shell scripts to write shell like tools.
+Now when you are writing _complex_ tools or programs, the criteria will change, you want to use a language and platform that really suits the problem you are solving, or is used already by the team you are working with. But in this chapter we're looking at alternatives to shell scripts to write tool that work well when used in the shell.
 
 Given it's almost universal presence on systems, its huge (and increasing) popularity, and robust standard library (which allows you to use many features without having to have users download additional packages), Python is an excellent choice for writing shell friendly tools.
 
@@ -46,7 +46,7 @@ When we are writing a tool that is aimed at shell users, it makes sense to follo
 
 - **Being able to read from standard input** - this allows us to pipe inputs from _other_ tools into our programs (see [Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) for more on this), we also want to read and process line-by-line, in case the input is very large
 - **Being able to write to standard output** - this sounds obvious, but it means making sure that our output can be read by a human operator, but also ideally be processed by other tools such as `cut`, `sed`, `rev` and so on, it also means thinking about how colour will or will not be used in output, and avoiding superfluous output that might make it harder to process the output (such as titles, version numbers and so on)
-- **Being able to specify options using sensibly defined flags** - there are many common conventions for how flags or parameters work in tools, using these patterns (rather than inventing our own) will make our tool easier to use. For example, having an `-h` flag to show help is a very common convention
+- **Being able to specify options using sensibly defined flags** - there are many common conventions for how flags or parameters work in tools, using these patterns (rather than inventing our own) will make our tool easier to use. For example, having an `-h` flag to show help is a very common convention[^1]
 - **Being able to run on different systems** - shell users are used to being able to use tools like `grep`, `sed` and so on in a similar way across platforms, a well-written tool will do the same
 - **Handling errors using shell idioms** - shell-friendly tools use `0` as a status code to indicate success, and define error codes in their documentation, so that people using the tools know how to handle exceptional circumstances
 
@@ -187,11 +187,11 @@ Now let's look at actually downloading the definition.
 
 Now that we've got the list of words, we can try and download a definition of each one by using the excellent https://dictionaryapi.dev/ website. This site searches a number of online dictionaries, including Wiktionary.
 
-We will add a new function to the script. You can see the complete script in the file `~/effective-shell/programs/lookup/lookup-v1.py`.
+We will add a new function to the script. You can see the complete script in the file `~/effective-shell/programs/lookup/lookup-v2.py`.
 
 The new function downloads the definition of a word from the dictionaryapi.dev site:
 
-```python title="lookup-v1.py"
+```python title="lookup-v2.py"
 def search_for_word(word):
     # Encode the word for HTML.
     encoded_word = urllib.parse.quote(word.encode('utf8'))
@@ -210,17 +210,10 @@ def search_for_word(word):
         if http_error.code == 404:
             return ''
         raise
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))
-        sys.exit(ERROR_HTTP)
         
     # Now try and parse the data.
-    try:
-        data = json.loads(raw_json_data)
-        first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to parse the definition of '{}'".format(word))
-        sys.exit(ERROR_PARSE)
+    data = json.loads(raw_json_data)
+    first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
 
     # Return the result.
     return first_definition
@@ -243,17 +236,10 @@ def search_for_word(word):
         if http_error.code == 404:
             return ''
         raise
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))
-        sys.exit(ERROR_HTTP)
         
     # Now try and parse the data.
-    try:
-        data = json.loads(raw_json_data)
-        first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to parse the definition of '{}'".format(word))
-        sys.exit(ERROR_PARSE)
+    data = json.loads(raw_json_data)
+    first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
 
     # Return the result.
     return first_definition
@@ -265,7 +251,6 @@ I'm not going to go through this blow-by-blow, it's a fairly rough and ready way
 2. Search for the word and download the result
 3. If the word is not found, return an empty result
 4. If the word is found, try and decode the definition and return it
-5. Close the program if there are errors we cannot recover from
 
 With this new function, we can update the main loop of our program to look like this:
 
@@ -391,6 +376,7 @@ All we need to do is first tell the shell that if it encounters this script and 
 # ...the rest of the code goes here, it's been omitted for brevity!
 ```
 
+This shebang uses the `env` program to locate the `python3` program. This is important as `python3` might be installed in different locations on different systems. You can read more about how to use `env` in shebangs in the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md) under 'Using Shebangs'.
 
 Now that we have a shebang, we can make the file executable using the `chmod` program and link to it from our personal `bin` folder:
 
@@ -399,7 +385,7 @@ chmod +x ~/effective-shell/programs/lookup/lookup.py
 ln -s ~/effective-shell/programs/lookup/lookup.py /usr/local/bin/lookup
 ```
 
-If you need a reminder on shebangs, the `chmod` tool or the `ln` tool, check [Shell Script Essentials](../../04-shell-scripting/20-mastering-conditional-logic/index.md) and in particular the section 'Using Shebangs' and 'Installing Your Script'.
+If you need a reminder how to use the `chmod` tool and `ln` tool to install scripts, check the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md) under the section 'Installing Your Script'.
 
 Now that we have the tool in our local binaries folder, we can call it like so:
 
@@ -409,7 +395,9 @@ effective: A soldier fit for duty
 shell: A hard external covering of an animal.
 ```
 
-Note that the `lookup.py` script, which is the final version of the script, has some additional features which are described at the end of the chapter. One of these features is that we can just provide a word or list of words as positional arguments to the command. Note that the `--` in the command shown above is a 'separator' - this is the standard Linux pattern to indicate that the list of _flags_ is complete, and that what follows is the list of _positional parameters_. If we didn't have this, the tool would think that we are providing `effective` as the value of the `-c` flag. The `--` removes this ambiguity. Many Linux tools support this separator.
+Note that the `lookup.py` script, which is the final version of the script, has some additional features which are described at the end of the chapter. One of these features is that we can just provide a word or list of words as positional arguments to the command.
+
+Note that the `--` in the command shown above is the 'end of options marker' - this is the standard Linux pattern to indicate that the list of _flags_ is complete, and that what follows is the list of _positional parameters_. If we didn't have this, the tool would think that we are providing `effective` as the value of the `-c` flag. The `--` removes this ambiguity. Many Linux tools support this separator, you can check `man bash` to find out more.
 
 ## Improving the Lookup Program
 
@@ -419,6 +407,7 @@ The final version of the script, which is in the `~/effective-shell/programs/loo
 
 | Feature                     | Description                                                                                                    |
 |-----------------------------|----------------------------------------------------------------------------------------------------------------|
+| More robust error handling  | There are exception handlers in the key places the program may fail.                                           |
 | Graceful handling of Ctrl+C | Ensure we close cleanly on Ctrl+C without a noisy error message. See `KeyboardInterrupt` in the code for this. |
 | More detailed help          | The help text has examples, see `argparse` in the code.                                                        |
 
@@ -429,6 +418,10 @@ There are all sorts of other features you could add as a coding and learning exe
 - **Clearer interactive mode** - when stdin is a terminal, meaning the user is interactive, show a prompt and instructions
 - **A verbose flag** - a `--verbose` flag to show detailed error messages if they are encountered
 
+If you find yourself writing more complex command-line tools in Python, you might also explore the excellent [Click](https://click.palletsprojects.com/en/8.0.x/) Python package. This is a very popular package among Python developers and is used by a number of large and well-established projects. The [Typer](https://typer.tiangolo.com/) package is also worth exploring. The `urllib` package I have used works, but it can be quite unweildy when dealing with more complex options - many developers will prefer alternative packages.
+
 ## Summary
 
 In this chapter we looked at alternatives to shell scripts and when we might consider them. We looked at what makes a tool 'shell-friendly'. We also looked at how we can use the highly popular Python language to write a simple but useful shell-friendly tool.
+
+[^1]: There is a detailed description of how options should be specified for GNU tools at http://www.gnu.org/prep/standards/html_node/Option-Table.html#Option-Table

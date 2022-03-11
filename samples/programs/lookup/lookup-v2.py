@@ -3,9 +3,6 @@ import urllib.request
 import urllib.parse
 import json
 
-ERROR_HTTP = 1
-ERROR_PARSE = 2
-
 def search_for_word(word):
     # Encode the word for HTML.
     encoded_word = urllib.parse.quote(word.encode('utf8'))
@@ -24,17 +21,10 @@ def search_for_word(word):
         if http_error.code == 404:
             return ''
         raise
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))
-        sys.exit(ERROR_HTTP)
         
     # Now try and parse the data.
-    try:
-        data = json.loads(raw_json_data)
-        first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to parse the definition of '{}'".format(word))
-        sys.exit(ERROR_PARSE)
+    data = json.loads(raw_json_data)
+    first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
 
     # Return the result.
     return first_definition
