@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "xiaoyou-elsie-jiang",
+      "name": "Xiaoyou \"Elsie\" Jiang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101381124?v=4",
+      "profile": "https://github.com/xiaoyou-elsie-jiang",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "effective-shell",
+  "projectOwner": "dwmkerr",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
