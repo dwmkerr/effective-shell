@@ -83,6 +83,13 @@ const sidebars = {
         'advanced-techniques/how-to-avoid-scripting/index',
       ]
     },
+    {
+      type: 'category',
+      label: 'Appendices',
+      items: [
+        'xx-appendices/thanks',
+      ]
+    },
   ],
 };
 

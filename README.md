@@ -1,4 +1,4 @@
-# effective-shell 
+ effective-shell 
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
