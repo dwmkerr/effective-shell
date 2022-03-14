@@ -60,7 +60,7 @@ This is a good example of a tool that would be overly complex to write with a sh
 
 Our requirements for the tool will be quite simple:
 
-1. Allow the user to provide a set of words to be looked up
+1. Allow the user to provide a set of words to be looked up as a text file or from standard input
 2. Download the definition of the words
 3. Write the words to standard output, with the option to format how this output looks
 4. Offer help to the user on how to use the tool
@@ -88,6 +88,23 @@ curl effective.sh | sh
 OK - let's get started. 
 
 ### Version 1 - Basic Structure
+
+First, let's check if Python is installed. There are two versions of Python that are commonly used. Python 3 is the current latest version and should be preferred. This is what we will use. Python 2 is still used by many people, and a lot of existing code is written in Python 2, but where possible Python 2 code should be upgraded to Python 3. Python 2 official went out of support in January 2020.
+
+Check Python 3 is installed by running:
+
+```
+% python3 --version
+Python 3.9.10
+```
+
+In general I would recommend that you explicitly make it clear you are using Python 3 by using the `python3` tool. On many systems the `python` tool points to `python3`, but it is safer to by explicit and use `python3`.
+
+:::tip If Python is not installed
+
+If you see a message such as `command not found: python3`, then you will need to install Python.
+
+:::
 
 Shell tools take input, process it and produce output. So let's take our structure and create a first cut. This first cut will not perform any processing - it'll just take the input and produce simple output. But it will give us a working starting point to incrementally add more features to.
 
@@ -124,7 +141,7 @@ Let's test this out and then we'll dissect the code. First, we'll just run the p
 ```
 $ python3 ~/effective-shell/programs/lookup/lookup-v1.py
 one
-one - {}
+one -
 two
 two -
 three
@@ -192,32 +209,6 @@ We will add a new function to the script. You can see the complete script in the
 The new function downloads the definition of a word from the dictionaryapi.dev site:
 
 ```python title="lookup-v2.py"
-def search_for_word(word):
-    # Encode the word for HTML.
-    encoded_word = urllib.parse.quote(word.encode('utf8'))
-
-    # Try and download the definition using the amazing dictionaryapi.dev site.
-    try:
-        url = "https://api.dictionaryapi.dev/api/v2/entries/en/{}".format(encoded_word)
-        response = urllib.request.urlopen(url)
-        if response.status == 404:
-            print("NOT FOUND")
-            sys.exit(1)
-        with urllib.request.urlopen(url) as response:
-            raw_json_data = response.read().decode('utf-8')
-    # If the word is not found, return an empty definition.
-    except urllib.error.HTTPError as http_error:
-        if http_error.code == 404:
-            return ''
-        raise
-        
-    # Now try and parse the data.
-    data = json.loads(raw_json_data)
-    first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
-
-    # Return the result.
-    return first_definition
-
 def search_for_word(word):
     # Encode the word for HTML.
     encoded_word = urllib.parse.quote(word.encode('utf8'))
@@ -364,7 +355,7 @@ optional arguments:
 
 We've really just scratched the surface of what can be done here. You can find this version of the program in `~/effective-shell/programs/lookup/lookup-v3.py`
 
-## Installing the Tool
+## Installing the Lookup Tool
 
 The great thing about a Python script like the one we have built is that it is standalone, and anyone can install it as tool on their system with very little effort.
 
