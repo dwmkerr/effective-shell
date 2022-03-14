@@ -105,6 +105,7 @@ Thanks to the following people who have helped with reviews, comments, suggestio
 - [Ogus Ismail](https://stackoverflow.com/users/10248678/oguz-ismail) for helping me understand some of the [nuances of word splitting and filename expansion](https://stackoverflow.com/questions/67648392/how-can-i-confirm-whether-whitespace-or-special-characters-are-escaped-in-a-wild)
 - [Josh Timmons](https://github.com/josh-59) for proof-reading and suggesting structural improvements as well as grammar and spelling fixes
 - [Joel Schwarzmann](https://github.com/datajoely) for proofing and adding content on the Python code in the 'How to avoid shell scripting' chapter
+- [Xiaoyou "Elsie" Jiang](https://github.com/xiaoyou-elsie-jiang) for proof-reading and improvements to Chapter 30
 
 ## Contributors ✨
 
