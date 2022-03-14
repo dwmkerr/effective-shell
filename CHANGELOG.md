@@ -1,5 +1,18 @@
 # Changelog
 
+### [0.21.3](https://github.com/dwmkerr/effective-shell/compare/v0.21.2...v0.21.3) (2022-03-14)
+
+
+### Documentation
+
+* add 'thanks' page ([f9d2df6](https://github.com/dwmkerr/effective-shell/commit/f9d2df69ef53a2233bbe1fde4aba0e4d649651d0))
+* chap 30 proof-reading comments from elsie ([57a753b](https://github.com/dwmkerr/effective-shell/commit/57a753bf6c0b4477af1eb50a834b279145ae6fe0))
+* create .all-contributorsrc [skip ci] ([580dd81](https://github.com/dwmkerr/effective-shell/commit/580dd81cb5347edc38240a28ca2e965484ac54cf))
+* more thanks ([d31c67b](https://github.com/dwmkerr/effective-shell/commit/d31c67b9e334d3d593449900c926566707ebb7fd))
+* more work on the reading list ([12a7d49](https://github.com/dwmkerr/effective-shell/commit/12a7d498f9065e8251b0c50f29cbc2512a77dd79))
+* suggestions for python cli packages ([#174](https://github.com/dwmkerr/effective-shell/issues/174)) ([9b99b88](https://github.com/dwmkerr/effective-shell/commit/9b99b88ef4e03d7a7ab5cdc7b00ba95db7a54156))
+* update README.md [skip ci] ([6e21fd5](https://github.com/dwmkerr/effective-shell/commit/6e21fd50bdf00ec42b07485c78a31f86fef16570))
+
 ### [0.21.2](https://github.com/dwmkerr/effective-shell/compare/v0.21.1...v0.21.2) (2022-03-08)
 
 
