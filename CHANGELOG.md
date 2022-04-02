@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.21.4](https://github.com/dwmkerr/effective-shell/compare/v0.21.3...v0.21.4) (2022-04-02)
+
+
+### Bug Fixes
+
+* correct the 'thinking in pipelines' address ([e0d84ae](https://github.com/dwmkerr/effective-shell/commit/e0d84ae597e420b6162445ee127270730a2535e1))
+
 ### [0.21.3](https://github.com/dwmkerr/effective-shell/compare/v0.21.2...v0.21.3) (2022-03-14)
 
 
