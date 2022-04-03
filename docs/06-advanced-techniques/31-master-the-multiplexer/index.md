@@ -89,11 +89,6 @@ import AsciinemaPlayer from '../../../src/components/AsciinemaPlayer/AsciinemaPl
 
 <AsciinemaPlayer style={{'width': '800px'}} src="/casts/483782.cast" poster="npt:0:23" autoPlay={true} preload={true} />
 
----
-
-
----
-
 4. Splits
 5. Tabs
 6. Sessions
@@ -107,8 +102,6 @@ In this chapter we looked at alternatives to shell scripts and when we might con
 [^1]: There is a detailed description of how options should be specified for GNU tools at http://www.gnu.org/prep/standards/html_node/Option-Table.html#Option-Table
 
 TODO
-
-
 TODO diagram
 
 Examples:
