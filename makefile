@@ -16,6 +16,7 @@ serve:
 # folder as if we don't have them we should definitely not deploy.
 .PHONY: build
 build:
+	npx tsc # test for typescript types...
 	mkdir -p ./static/downloads
 	./scripts/build-samples.sh
 	cp ./artifacts/samples.zip  ./static/downloads/effective-shell-samples.zip

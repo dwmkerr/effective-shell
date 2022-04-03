@@ -38,8 +38,11 @@ const config = {
         theme: {
           //  It looks like Docosaurus doesn't yet support directly importing
           //  this style in the EmailSignupForm component, so as a workaround
-          //  it is imported here.
-          customCss: [require.resolve( 'react-mailchimp-email-signup-form/dist/esm/index.css')],
+          //  it is imported here, along with other stylesheets we need.
+          customCss: [
+            require.resolve('react-mailchimp-email-signup-form/dist/esm/index.css'),
+            require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
+          ],
         },
         gtag: {
           trackingID: 'G-8HZFMZV9Z4',
