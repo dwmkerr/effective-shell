@@ -6,8 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const title = 'Effective Shell';
 const organizationName = 'dwmkerr';
-const projectName = 'dwmkerr';
-const editUrl = `https://github.com/${organizationName}/${projectName}/main`;
+const projectName = 'effective-shell';
+const githubRepoUrl = `https://github.com/${organizationName}/${projectName}/`
+const editUrl = `${githubRepoUrl}/edit/main/`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -64,6 +65,15 @@ const config = {
             docId: 'index',
             position: 'left',
             label: 'Home',
+          },
+          {
+            type: 'search',
+            position: 'right',
+          },
+          {
+            href: githubRepoUrl,
+            label: 'GitHub',
+            position: 'right',
           },
         ],
       },
