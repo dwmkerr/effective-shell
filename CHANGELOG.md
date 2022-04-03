@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.22.0](https://github.com/dwmkerr/effective-shell/compare/v0.21.4...v0.22.0) (2022-04-03)
+
+
+### Features
+
+* typescript support and AsciinemaPlayer component ([0e7001b](https://github.com/dwmkerr/effective-shell/commit/0e7001b7cd0c6ab06676a81f0da316b248cb8b1f))
+
+
+### Bug Fixes
+
+* correct the github edit url and missing repo link ([84f4651](https://github.com/dwmkerr/effective-shell/commit/84f4651bfef6f88d94adbf9d6e874545ecfa0d37))
+* ensure the `set_ps1` script is executable ([20dde3c](https://github.com/dwmkerr/effective-shell/commit/20dde3ca0f7a1839701b94f0cae96fbe37f89d49))
+
+### [0.21.4](https://github.com/dwmkerr/effective-shell/compare/v0.21.3...v0.21.4) (2022-04-02)
+
+
+### Bug Fixes
+
+* correct the 'thinking in pipelines' address ([e0d84ae](https://github.com/dwmkerr/effective-shell/commit/e0d84ae597e420b6162445ee127270730a2535e1))
+
 ### [0.21.3](https://github.com/dwmkerr/effective-shell/compare/v0.21.2...v0.21.3) (2022-03-14)
 
 

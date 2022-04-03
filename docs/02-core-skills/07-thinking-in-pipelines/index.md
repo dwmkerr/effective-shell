@@ -1,6 +1,6 @@
 ---
 title: 'Thinking in Pipelines'
-slug: '/part-2-core-skills/navigating-your-system/'
+slug: '/part-2-core-skills/thinking-in-pipelines/'
 ---
 
 Understanding the concept of _pipelines_ in the shell, as well as how input and output work for command line programs is critical to be able to use the shell effectively.

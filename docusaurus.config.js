@@ -6,8 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const title = 'Effective Shell';
 const organizationName = 'dwmkerr';
-const projectName = 'dwmkerr';
-const editUrl = `https://github.com/${organizationName}/${projectName}/main`;
+const projectName = 'effective-shell';
+const githubRepoUrl = `https://github.com/${organizationName}/${projectName}/`
+const editUrl = `${githubRepoUrl}/edit/main/`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,8 +38,11 @@ const config = {
         theme: {
           //  It looks like Docosaurus doesn't yet support directly importing
           //  this style in the EmailSignupForm component, so as a workaround
-          //  it is imported here.
-          customCss: [require.resolve( 'react-mailchimp-email-signup-form/dist/esm/index.css')],
+          //  it is imported here, along with other stylesheets we need.
+          customCss: [
+            require.resolve('react-mailchimp-email-signup-form/dist/esm/index.css'),
+            require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
+          ],
         },
         gtag: {
           trackingID: 'G-8HZFMZV9Z4',
@@ -64,6 +68,15 @@ const config = {
             docId: 'index',
             position: 'left',
             label: 'Home',
+          },
+          {
+            type: 'search',
+            position: 'right',
+          },
+          {
+            href: githubRepoUrl,
+            label: 'GitHub',
+            position: 'right',
           },
         ],
       },
