@@ -26,13 +26,13 @@ If I close my shell, the Tmux server is still running the sessions and I can re-
 
 It is not essential to know how to use a multiplexer. But knowing how to use one can certainly help you become a more effective shell user. Some of the key benefits to using a multiplexer are:
 
-**Persistence of Sessions**
-
-Your programs are run independently from your terminal. If your terminal crashes, or freezes, your programs still run. If you are working with a remote machine, then you can run a multiplexer on it to manage your programs. This means that if your connection to the machine is reset, the programs will not stop running. You can re-attach to the session at later point and pick up where you left off. Session management is incredibly useful - you'll wonder how you lived without it if you use the shell a lot.
-
 **Window Management**
 
 Much like modern 'tabbed interfaces', multiplexers can support multiple windows, tabs and panes within a window. This means you can arrange your workspace exactly how you want it. You can save the configuration of your windows and use it later. You can organise different windows into different sessions, allowing you to have many projects running at once, that you can quickly switch between, each one with a layout configured to suit your needs.
+
+**Persistence of Sessions**
+
+Your programs are run independently from your terminal. If your terminal crashes, or freezes, your programs still run. If you are working with a remote machine, then you can run a multiplexer on it to manage your programs. This means that if your connection to the machine is reset, the programs will not stop running. You can re-attach to the session at later point and pick up where you left off. Session management is incredibly useful - you'll wonder how you lived without it if you use the shell a lot.
 
 **Collaboration**
 
@@ -71,7 +71,13 @@ apt install -y tmux
 
 Now that Tmux is installed let's see what we can do with it.
 
-### Splitting Windows
+### The Leader
+
+One thing you'll notice when reading about Tmux and GNU screen is the _Leader_. The leader is a key combination that prefixes any commands for the multiplexer. We just this leader combination so that the multiplexer key bindings don't clash with any existing ones. Typically you will use the leader keys to tell the multiplexer you are about to enter a command, then strike the keys that correspond to the command.
+
+For Tmux, the default leader is `Ctrl + B`. For GNU screen it is `Ctrl + A`. You can easily remember these buy remembering that Tmux is a successor to GNU screen, so the leader key letter is one letter further in the alphabet!
+
+### Window Management
 
 Run the `tmux` program by entering the command below:
 
@@ -81,6 +87,8 @@ tmux
 
 We are now going to create some 'splits' - these will split our current window into separate panes. Each pane can run its own program. Let's take a look at a few commands for managing splits and panes.
 
+#### Creating Splits and Moving Between Splits
+
 We can create a _vertical split_ by pressing `Ctrl+B` followed by the `%` percent symbol. We can create a _horizontal split_ by pressing `Ctrl+B` followed by the `"` quotes symbol. Finally, to move between splits, press `Ctrl+B` followed by an arrow key.
 
 The short video demonstrates both types of split and moving between panes:
@@ -89,11 +97,41 @@ import AsciinemaPlayer from '../../../src/components/AsciinemaPlayer/AsciinemaPl
 
 <AsciinemaPlayer style={{'width': '800px'}} src="/casts/483782.cast" poster="npt:0:23" autoPlay={true} preload={true} />
 
+#### Zooming Panes
+
+You can 'zoom' a pane so that it takes up the entire window by moving to the pane you want to zoom and pressing `Ctrl+b z`. To 'unzoom' a pane, you can just move to another pane (even if it is hidden) or simply press `Ctrl+B z` again.
+
+This what it looks like when we zoom a pane:
+
+<AsciinemaPlayer style={{'width': '800px'}} src="/casts/484152.cast" poster="npt:0:23" autoPlay={true} preload={true} />
+
+#### Creating Windows and Moving Between Windows
+
+If you want to run a program in an entirely new window, use the `Ctrl+b c` command to create a window. To switch windows, press `Ctrl+b w` to choose from the list of available windows:
+
+<AsciinemaPlayer style={{'width': '800px'}} src="/casts/484161.cast" poster="npt:0:23" autoPlay={true} preload={true} />
+
+There are some other useful commands when working with windows:
+
+| Command    | Description                                                                        |
+|------------|------------------------------------------------------------------------------------|
+| `Ctrl+b n` | Move to the next window                                                            |
+| `Ctrl+b p` | Move to the previous window                                                        |
+| `Ctrl+c 0` | Select the window numbered '0' - use the number of any window from the status pane |
+| `Ctrl+c &` | Close the current window                                                           |
+| `Ctrl+c ,` | Rename the current window                                                          |
+
+The final command, rename window, is very useful if you have a lot of windows and want to give each one a descriptive name. Remember, Tmux is stateful so will remember these settings even if you detached and later re-attach (we'll see this in the next section).
+
+
+
 4. Splits
 5. Tabs
 6. Sessions
 7. Configuration
 8. Summary
+
+## Getting Help
 
 ## Summary
 
@@ -102,7 +140,8 @@ In this chapter we looked at alternatives to shell scripts and when we might con
 [^1]: There is a detailed description of how options should be specified for GNU tools at http://www.gnu.org/prep/standards/html_node/Option-Table.html#Option-Table
 
 TODO
-TODO diagram
+- diagram
+- resize panes
 
 Examples:
 
