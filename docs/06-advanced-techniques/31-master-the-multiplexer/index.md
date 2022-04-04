@@ -34,13 +34,13 @@ Much like modern 'tabbed interfaces', multiplexers can support multiple windows,
 
 Your programs are run independently from your terminal. If your terminal crashes, or freezes, your programs still run. If you are working with a remote machine, then you can run a multiplexer on it to manage your programs. This means that if your connection to the machine is reset, the programs will not stop running. You can re-attach to the session at later point and pick up where you left off. Session management is incredibly useful - you'll wonder how you lived without it if you use the shell a lot.
 
-**Collaboration**
-
-A multiplexer is a 'client-server' program. This means you as a user are a client and connect to a server that runs the multiplexer. But other users can connect as well - this means you can easily collaborate with other users, sharing your own work, connecting to theirs, or both working on a shared remote machine.
-
 **Configuration**
 
 Multiplexers offer many configuration options to allow you to customise how programs are run and interfaced with, allowing you to set up the ideal environment for you to be effective.
+
+**Collaboration**
+
+A multiplexer is a 'client-server' program. This means you as a user are a client and connect to a server that runs the multiplexer. But other users can connect as well - this means you can easily collaborate with other users, sharing your own work, connecting to theirs, or both working on a shared remote machine.
 
 We'll look at a few of the most immediately useful features of multiplexers in this chapter - this will only really be scratching the surface but should be enough to help you decide whether it is a topic you'll investigate further on your own and add to your toolkit.
 
@@ -123,26 +123,227 @@ There are some other useful commands when working with windows:
 
 The final command, rename window, is very useful if you have a lot of windows and want to give each one a descriptive name. Remember, Tmux is stateful so will remember these settings even if you detached and later re-attach (we'll see this in the next section).
 
+### Session Management
 
+Sessions in Tmux are a collection of independently managed windows. They are great for creating lots of 'projects' - each session can be a project with the appropriate windows for the work you are doing.
 
-4. Splits
-5. Tabs
-6. Sessions
-7. Configuration
-8. Summary
+Let's start Tmux, but name the session `effective-shell` by using the `tmux new -s effective-shell` command. Once we've done this, we'll create a couple of windows, then create a new session by using `Ctrl+b :`. This command opens the Tmux command pane which is shown at the bottom of the screen. This command pane allows us to run a Tmux command. When we do this, we don't need to put `tmux` at the beginning. Let's create a second session named `my-project`. We can now switch between sessions with `Ctrl+b s`. This opens the list of sessions and lets us select one using the arrow keys. Tmux gives us a preview of each session as we move the selection over them.
 
-## Getting Help
+The commands we will run are below. Remember, `^B` means 'Control B', i.e. hold the Ctrl key and press 'b':
+
+```
+# Create a new tmux session with the name 'effective shell'.
+tmux new -s effective-shell
+
+# Create a new Window.
+^B c
+
+# Enter tmux command mode.
+^B :
+
+# Create a second session.
+new -s my-project
+
+# Select from the list of sessions.
+^B s
+```
+
+We can see visually what this looks like below:
+
+<AsciinemaPlayer style={{'width': '800px'}} src="/casts/484171.cast" poster="npt:0:23" autoPlay={true} preload={true} />
+
+Sessions are extremely powerful for organising your work. Some useful commands for working with sessions are:
+
+| Command    | Description                   |
+|------------|-------------------------------|
+| `Ctrl+B :` | Enter command mode.           |
+| `Ctrl+B (` | Move to the previous session. |
+| `Ctrl+B )` | Move to the next session.     |
+| `Ctrl+B $` | Rename a session.             |
+| `Ctrl+B x` | Detach from a session.        |
+
+### Attaching and Detaching from Sessions
+
+The great thing about sessions is that we can set them up, then detach from them to do other work. The sessions will keep running and we can re-attach to them later. This means you can close your terminal and re-open it and programs will still run.
+
+If we are in the shell and want to open Tmux and attach to whatever was the last session, we can just run:
+
+```bash
+tmux attach
+```
+
+When we are in a Tmux session, we can detach from it by entering command mode with `Ctrl+B :` and using the `detach` command:
+
+```bash
+^B :
+detach
+```
+
+We could close our terminal at this point - the sessions are persisted by the Tmux server. Now if we re-open a terminal, we can re-attach with the same command as before:
+
+```bash
+tmux attach
+```
+
+A video of how this looks is below:
+
+<AsciinemaPlayer style={{'width': '800px'}} src="/casts/484178.cast" poster="npt:0:23" autoPlay={true} preload={true} />
+
+If you use Tmux a lot you might find you end up with lots of sessions - you can delete sessions by pressing `^B s` to show the session list, scroll to the session you want to delete and just press `x`. Tmux will ask for confirmation before it closes the session.
+
+Some useful shortcuts for sessions are:
+
+| Command                    | Description                                                |
+|----------------------------|------------------------------------------------------------|
+| `tmux attach`              | Attach to the last used session                            |
+| `tmux new -s name`         | Start a new `tmux` session named `name`                    |
+| `^B : new -s another-name` | Enter command mode, start session named `another-name`     |
+| `^B $`                     | Rename the current session                                 |
+| `^B s`                     | Show the session list. Close the selected session with `x` |
+| `^B )`                     | Move to next session                                       |
+| `^B (`                     | Move to the previous session                               |
+
+## Configuration
+
+Tmux's out-of-the-box configuration is normally going to be fine for everyday use. However, if you find yourself using Tmux a lot you might want to look at some of the configuration options available to help you fine-tune the program to suit your preferences.
+
+Tmux follows a very standard Unix-style configuration pattern - a dotfile is used to configure the program. If you are not familiar with dotifles, check [Chapter 26 - Managing Your Dotfiles](../../05-building-your-toolkit/26-managing-your-dotfiles/index.md) - this chapter also goes into detail on how you can version control and save your dotfiles as well as share them across many machines easily.
+
+To configure Tmux, create a file named `.tmux.conf` in your home directory:
+
+```bash
+touch ~/.tmux.conf
+```
+
+Now open this file in your preferred editor. As we have just created it there will be nothing in the file.
+
+There are a raft of configuration options available, you can check the manpages with `man tmux` to see details, or search for any of the excellent online guides on how to configure Tmux. I'll share what I think are some of the most useful configuration options for Tmux[^1].
+
+Let's add some configuration options, I'll explain each as we go along.
+
+**The Default Shell**
+
+The first thing I do is to tell Tmux to use my current shell program. This means if I am using Z-Shell, Tmux will open windows with Z-Shell. If I am using Bash, it will use Bash. It will also source my shell dotfiles, so that each window that is opened has the same PS1 and configuration as my standard shell.
+
+```bash
+# Set the default shell, and set the default command to use our shell (this
+# means we source things properly, show the correct PS1 etc).
+set -g default-shell ${SHELL}
+set -g default-command ${SHELL}
+```
+
+**Open windows in the Working Directory**
+
+By default when you create a new window with `^B c`, Tmux will set the working directory of the window to the home directory. In general I prefer to have the window open in my current working directory:
+
+```bash
+# Open new panes and splits in the same working directory.
+bind c new-window -c "#{pane_current_path}"
+```
+
+**Stable window names and sequential windows**
+
+Tmux will try to be smart and change the name of each window to the program it is currently running. This means window names change as you use them. I find this distracting, so disable the automatic renaming of windows - in general I rename a window as soon as I have opened it with `^B ,` and give it a descriptive name.
+
+I also set Tmux to start windows from number 1 rather than 0, and when windows are created or deleted ensure that Tmux re-numbers them so that they are sequential, without gaps. If you don't do this you'll rapidly find yourself running into windows with double-digit numbers which are harder to select (you can only use `^B <window-number` to select windows 0 through 9):
+
+```bash
+# Set the name of the window initially, but then don't let tmux change it.
+# The name can still be set at any time with Ctrl+B + ,
+set-option -g allow-rename off
+
+# Start windows and panes at 1.
+set -g base-index 1
+set -g pane-base-index 1
+
+# When we add/remove windows, renumber them in sequential order.
+set -g renumber-windows on
+```
+
+**Sensible Splitting Commands**
+
+I've always found `^B %` and `^B "` odd commands to split, and still to this day regularly mix them up. So I use `^B -` to make a vertical split and `^B |` t make a horizontal split. The direction of the bar, either the hyphen or vertical bar I find much easier as a way to remember what kind of split I'll be making!
+
+```bash
+# Split panes using | and -
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+```
+
+**Nested Session Leaders**
+
+I am almost never not in a Tmux session. This means that if I open a _nested_ session, for example by ssh-ing into a virtual machine that and running Tmux there, I have trouble sending commands to the nested Tmux - if I use `^b c` to open a new window for example, it'll open the window on my machine, not in the nested session. By using `bind-key v send-prefix` I can use `^b b` to send a command to the nested session. This might sound fiddly but we'll see how useful it is in the next section!
+
+```bash
+# Use ^b b to send the leader to a nested session. This means if you are
+# using tmux and then ssh into a tmux session (i.e. a nested session) you
+# can run commands in the nested session with ^B b <command>.
+bind-key b send-prefix
+```
+
+**Vim Mode!**
+
+I set a number of configuration options to help Tmux interface more seamlessly with Vim, and also use Vim directions rather than arrow keys to move around. This means I use `^B j` to go to the pane below, `^B l` to go to the pane to the right.
+
+I have also configured a number of keybindings to make resizing panes a little more intuitive to a Vim user, as well as keybindings for Vim style selection of text.
+
+These are more advanced options and only going to be of interest to Vim users however, so I'll let you explore them if you are interested in my dotfiles project at [github.com/dwmkerr/dotfiles](https://github.com/dwmkerr/dotfiles)
+
+### Advanced Configuration
+
+We have really only touched the most basic of configuration options. Tmux can be customised in almost any way imaginable.
+
+The visual style of the status bar, the colours, the information shown, all of these settings can be changed. There are also plugin-managers for Tmux to make it easier to install plugins that provide more advanced configurations.
+
+This is a more advanced topic and one I would only suggest exploring once you are familiar with 'vanilla' Tmux!
+
+## Collaboration
+
+So far we have run all of our sessions on our local machine. This is great for organising your local work. But you can run Tmux on another machine or server, then connect to it from your machine.
+
+This is another quite advanced topic, but to show just how powerful this can be, the video below demonstrates some of Tmux's features and how they can make working across many machines so much easier.
+
+In this video, the following actions are performed:
+
+1. We start a local Tmux session with `tmux`
+2. We split the window, giving us space to open a secure shell, using `^b %`
+3. In our new split, we ssh onto the box we created in [TODO](TODO ssh chapter)
+4. On this box, we start a new Tmux session
+5. In this Tmux session we start creating a new Python script
+6. Now we connect to this session from our local machine over ssh using `ssh -t effective-shell-aws-linux tmux attach`
+7. This attaches us to our session on the server - and we're in Vim ready to work on the script!
+8. To complete the demo, I connect from _another_ machine, my Macbook - and then edit the script live
+
+In this demo we have two separate machines connecting to our server, able to collaborate real-time on a Tmux session that will persist even if we shut down the machines we are connecting from. This just touches the surface of what is possible!
+
+<AsciinemaPlayer style={{'width': '800px'}} src="/casts/484227.cast" poster="npt:0:23" autoPlay={true} preload={true} />
+
+## Going Further with Tmux
+
+We've really only touched the surface of what Tmux can do. There are some truly incredible things you can do with a multiplexer like Tmux as you start to use it more. Selecting text from the shell without touching the mouse, seamless integration of Tmux splits and Vim splits, sending commands to multiple machines at once, using plugin managers to add advanced features, the list goes on.
+
+I'd highly recommend using Tmux as part of your standard workflow - get familiar with the basic features shown in this chapter and then as you start to find limitations and want to do more explore some of the great books and blog posts out there that go into more advanced features.
 
 ## Summary
 
-In this chapter we looked at alternatives to shell scripts and when we might consider them. We looked at what makes a tool 'shell-friendly'. We also looked at how we can use the highly popular Python language to write a simple but useful shell-friendly tool.
+In this chapter we introduced the concept of Terminal Multiplexers, in particular GNU screen and Tmux. We saw how to manage windows, panes and sessions. We learned how to configure Tmux to suit your personal working style. We also looked at how we can use Tmux to manage sessions on remote machines and even collaborate real time with other users.
 
-[^1]: There is a detailed description of how options should be specified for GNU tools at http://www.gnu.org/prep/standards/html_node/Option-Table.html#Option-Table
+## TODO
 
-TODO
+- Splits
+- Tabs
+- Sessions
+- Configuration
+- Summary
+- Getting help
 - diagram
 - resize panes
-
-Examples:
-
+- re-record by attaching
+- Use `^B` rather than Ctrl+B
+- keyboard selection
+- `^B w`
+- don't forget the binding
+- does local config move to the server?
 - Busting into git
+
+[^1]: You can find my complete set of dotfiles at [github.com/dwmkerr/dofiles](https://github.com/dwmkerr/dotfiles) if you would like to see how I configure other programs.
