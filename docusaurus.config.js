@@ -130,6 +130,10 @@ const config = {
         indexBlog: false, // we are not using the blog features.
       },
     ],
+    [
+      require.resolve('docusaurus-plugin-drawio'),
+      {}
+    ],
   ],
 };
 

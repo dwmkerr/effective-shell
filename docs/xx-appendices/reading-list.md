@@ -52,6 +52,12 @@ Absolutely the best book I've read on Vim, perfect for users of all levels. Writ
 
 This is a wonderful repository, which aims to help you "Master the command line, in one page". This page is full of useful resources and is a superb reference for users from novice all the way to advanced!
 
+### Security
+
+**Applied Cryptography: Protocols, Algorithms, and Source Code in C - Bruce Schneier**
+
+This is the absolute best book around on cryptography - from concepts, protocols all the way to advanced topics. There are code examples in C that allow you to really see how these concepts work in practice. This is an excellent book for someone who wants to learn about cryptography but also have the option to go deep into the topics that interest them.
+
 ## Great Videos
 
 ### The UNIX Operating System

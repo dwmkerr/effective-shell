@@ -81,6 +81,7 @@ const sidebars = {
       items: [
         'advanced-techniques/understanding-shell-expansion/index',
         'advanced-techniques/how-to-avoid-scripting/index',
+        'advanced-techniques/the-secure-shell/index',
         'advanced-techniques/master-the-multiplexer/index',
       ]
     },
