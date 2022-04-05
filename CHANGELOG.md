@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.0](https://github.com/dwmkerr/effective-shell/compare/v0.23.2...v0.24.0) (2022-04-05)
+
+
+### Features
+
+* chapter 31 - the secure shell ([#187](https://github.com/dwmkerr/effective-shell/issues/187)) ([f188b2c](https://github.com/dwmkerr/effective-shell/commit/f188b2c78e876563f76d5f73912825bf5e7a76f9))
+
 ### [0.23.2](https://github.com/dwmkerr/effective-shell/compare/v0.23.1...v0.23.2) (2022-04-05)
 
 
