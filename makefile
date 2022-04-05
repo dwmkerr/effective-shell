@@ -10,6 +10,11 @@ setup:
 serve:
 	npm start
 
+# Check typescript types.
+typescript-check:
+	npm install
+	npm run ts:check
+
 # Build the site, including the downloads directory. This requires that we also
 # run the 'build-samples.sh' script to zip and tar the effective shell samples.
 # The build recipe also tests that the samples files are created in the downloads

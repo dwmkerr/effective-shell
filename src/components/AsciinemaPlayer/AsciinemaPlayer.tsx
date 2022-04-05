@@ -4,7 +4,8 @@
 // Props to https://github.com/dunnkers
 
 import React, { useEffect, useRef } from 'react';
-import * as AsciinemaPlayerLibrary from 'asciinema-player';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 type AsciinemaPlayerProps = {
     src: string;
@@ -30,14 +31,26 @@ const AsciinemaPlayer: React.FC<AsciinemaPlayerProps> = ({
     style,
     ...asciinemaOptions
 }) => {
-    const ref = useRef<HTMLDivElement>(null);
+  return (
+    <BrowserOnly>
+      {
+        () => {
+          if (!ExecutionEnvironment.canUseDOM) {
+              return <div>ASCII Cinema Player Unavailable</div>;
+          }
+          const AsciinemaPlayerLibrary = require('asciinema-player');
+          const ref = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const currentRef = ref.current;
-        AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
-    }, [src]);
+          useEffect(() => {
+            const currentRef = ref.current;
+            AsciinemaPlayerLibrary.create(src, currentRef, asciinemaOptions);
+          }, [src]);
 
-    return <div ref={ref} style={style} />;
+          return <div ref={ref} style={style} />;
+        }
+      }
+    </BrowserOnly>
+  )
 };
 
 export default AsciinemaPlayer;
