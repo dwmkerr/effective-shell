@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.23.0](https://github.com/dwmkerr/effective-shell/compare/v0.22.0...v0.23.0) (2022-04-05)
+
+
+### Features
+
+* chapter 33 - master the multiplexer ([39ab6af](https://github.com/dwmkerr/effective-shell/commit/39ab6afe36addd888be09defb2af2bca1fe0294d))
+
+
+### Bug Fixes
+
+* correct use of dependencies rather than dev dependencies ([#183](https://github.com/dwmkerr/effective-shell/issues/183)) ([9af34db](https://github.com/dwmkerr/effective-shell/commit/9af34dbbf888c7afc6141b3de9e199f387ed2ac8))
+
 ## [0.22.0](https://github.com/dwmkerr/effective-shell/compare/v0.21.4...v0.22.0) (2022-04-03)
 
 
