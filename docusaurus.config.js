@@ -31,7 +31,16 @@ const config = {
         //  https://docusaurus.io/docs/docs-introduction#docs-only-mode
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+
+          //  We don't need the breadcrumbs as we don't have much nesting and
+          //  they distract from the core content at the top of each page.
+          breadcrumbs: false,
+          
+          //  Set the route base path - it doesn't need 'docs' or 'blog' as we
+          //  only have a single set of documents to show.
           routeBasePath: '/',
+
+          //  Set the edit URL to allow users to open pull requests easily.
           editUrl: editUrl,
         },
         blog: false,
