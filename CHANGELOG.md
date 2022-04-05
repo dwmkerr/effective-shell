@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.23.1](https://github.com/dwmkerr/effective-shell/compare/v0.23.0...v0.23.1) (2022-04-05)
+
+
+### Bug Fixes
+
+* correct build pipeline ([f9a225c](https://github.com/dwmkerr/effective-shell/commit/f9a225c6d68d8fbaafc6c502f1915c844c8bced6))
+
 ## [0.23.0](https://github.com/dwmkerr/effective-shell/compare/v0.22.0...v0.23.0) (2022-04-05)
 
 
