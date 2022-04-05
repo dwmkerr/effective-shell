@@ -24,6 +24,7 @@
     "@types/react": "^17.0.43",
     "asciinema-player": "^3.0.0-rc.1",
     "clsx": "^1.1.1",
+    "docusaurus-plugin-drawio": "^0.1.7",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

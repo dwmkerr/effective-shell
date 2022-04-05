@@ -349,6 +349,7 @@ A quick reference of command commands below:
 
 | Command                       | Description                                                                        |
 |-------------------------------|------------------------------------------------------------------------------------|
+| **Essential Tmux Commands**   |                                                                                    |
 | `tmux ls`                     | List sessions                                                                      |
 | `tmux new [-s name]`          | Start a new `tmux` (optionally with a session name)                                |
 | `tmux attach [-t name]`       | Attach to the last used session, or the target session with `-t`                   |
@@ -357,13 +358,13 @@ A quick reference of command commands below:
 | `^b d`                        | Detach from the current session                                                    |
 | `^b : new -s another-name`    | Enter command mode, start session named `another-name`                             |
 | `^b ?`                        | Show command help                                                                  |
-|-------------------------------|------------------------------------------------------------------------------------|
+| **Sessions*                   |                                                                                    |
 | `^b $`                        | Rename the current session                                                         |
 | `^b s`                        | Show the session list. Close the selected session with `x`                         |
 | `^b )`                        | Move to next session                                                               |
 | `^b (`                        | Move to the previous session                                                       |
 | `^b w`                        | Show all windows - this command also shows all sessions!                           |
-|-------------------------------|------------------------------------------------------------------------------------|
+| **Windows**                   |                                                                                    |
 | `^b n`                        | Move to the next window                                                            |
 | `^b p`                        | Move to the previous window                                                        |
 | `^b 0`                        | Select the window numbered '0' - use the number of any window from the status pane |
@@ -371,7 +372,7 @@ A quick reference of command commands below:
 | `^b ,`                        | Rename the current window                                                          |
 | `^b w`                        | Show the window navigator                                                          |
 | `^b $`                        | Kill the current window                                                            |
-|-------------------------------|------------------------------------------------------------------------------------|
+| **Splits and Panes**          |                                                                                    |  |
 | `^b %`                        | Create a horizontal split                                                          |
 | `^b "`                        | Create a vertical split                                                            |
 | `^b <arrow>`                  | Move to the pane in the direction of an arrow key                                  |
@@ -383,3 +384,12 @@ A quick reference of command commands below:
 In this chapter we introduced the concept of Terminal Multiplexers, in particular GNU screen and Tmux. We saw how to manage windows, panes and sessions. We learned how to configure Tmux to suit your personal working style. We also looked at how we can use Tmux to manage sessions on remote machines and even collaborate real time with other users.
 
 [^1]: You can find my complete set of dotfiles at [github.com/dwmkerr/dofiles](https://github.com/dwmkerr/dotfiles) if you would like to see how I configure other programs.
+
+## TODO
+
+```
+RequestTTY yes
+RemoteCommand screen -UDr
+```
+
+TODO update tmux info, so that we always open tmux in our ssh client
