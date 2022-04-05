@@ -56,19 +56,25 @@ This section contains information on how to built, use and edit the site. To hel
 
 To setup dependencies, run:
 
-```sh
+```bash
 make setup
+```
+
+To test that TypeScript types compile, run:
+
+```bash
+make typescript-check
 ```
 
 To serve the site locally, run:
 
-```sh
+```bash
 make serve
 ```
 
 To build the site, run:
 
-```sh
+```bash
 make build
 ```
 

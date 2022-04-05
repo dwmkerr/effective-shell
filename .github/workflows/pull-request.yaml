@@ -10,6 +10,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    # Check typescript compiles properly.
+    - name: Check TypeScript
+      run: make typescript-check
+
+    # Fixup Git URLs, see:
+    # https://stackoverflow.com/questions/70663523/the-unauthenticated-git-protocol-on-port-9418-is-no-longer-supported
+    - name: Fix up git URLs
+      run: echo -e '[url "https://github.com/"]\n  insteadOf = "git://github.com/"' >> ~/.gitconfig
+    
     # Run the build - this will fail if there are broken links etc.
     - name: Build
       run: make build
