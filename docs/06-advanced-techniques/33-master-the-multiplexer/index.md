@@ -1,7 +1,7 @@
 ---
 title: 'Master the Multiplexer'
 slug: '/part-6-advanced-techniques/master-the-multiplexer/'
-chapterNumber: 31
+chapterNumber: 33
 ---
 
 If you are regularly using a shell, then learning how to use a terminal multiplexer like `screen` or `tmux` can greatly improve your productivity. In this chapter we'll see how what a terminal multiplexer is, what it is used for, learn how to perform some common tasks and configure a multiplexer to make it even more useful.
@@ -111,17 +111,28 @@ If you want to run a program in an entirely new window, use the `Ctrl+b c` comma
 
 <AsciinemaPlayer style={{'width': '800px'}} src="/casts/484161.cast" poster="npt:0:23" autoPlay={true} preload={true} />
 
+#### Quickly Navigating Between Windows
+
+The `^B w` command shows all of the windows (and sessions!) for Tmux and let's you rapidly switch between them, this is extremely useful if you have a lot of windows!
+
+Here's how it looks in action - in this demo I have a few windows - notice that I've given them more clear names with `^B ,`, this also makes it easier to sort and manage your windows.
+
+<AsciinemaPlayer style={{'width': '800px'}} src="/casts/484350.cast" poster="npt:0:23" autoPlay={true} preload={true} />
+
+#### Quick Reference
+
 There are some other useful commands when working with windows:
 
-| Command    | Description                                                                        |
-|------------|------------------------------------------------------------------------------------|
-| `Ctrl+b n` | Move to the next window                                                            |
-| `Ctrl+b p` | Move to the previous window                                                        |
-| `Ctrl+c 0` | Select the window numbered '0' - use the number of any window from the status pane |
-| `Ctrl+c &` | Close the current window                                                           |
-| `Ctrl+c ,` | Rename the current window                                                          |
+| Command | Description                                                                        |
+|---------|------------------------------------------------------------------------------------|
+| `^b n`  | Move to the next window                                                            |
+| `^b p`  | Move to the previous window                                                        |
+| `^b 0`  | Select the window numbered '0' - use the number of any window from the status pane |
+| `^b &`  | Close the current window                                                           |
+| `^b ,`  | Rename the current window                                                          |
+| `^b w`  | Show the window navigator                                                          |
 
-The final command, rename window, is very useful if you have a lot of windows and want to give each one a descriptive name. Remember, Tmux is stateful so will remember these settings even if you detached and later re-attach (we'll see this in the next section).
+The 'rename window' is very useful if you have a lot of windows and want to give each one a descriptive name. Remember, Tmux is stateful so will remember these settings even if you detached and later re-attach (we'll see this in the next section).
 
 ### Session Management
 
@@ -151,16 +162,6 @@ new -s my-project
 We can see visually what this looks like below:
 
 <AsciinemaPlayer style={{'width': '800px'}} src="/casts/484171.cast" poster="npt:0:23" autoPlay={true} preload={true} />
-
-Sessions are extremely powerful for organising your work. Some useful commands for working with sessions are:
-
-| Command    | Description                   |
-|------------|-------------------------------|
-| `Ctrl+B :` | Enter command mode.           |
-| `Ctrl+B (` | Move to the previous session. |
-| `Ctrl+B )` | Move to the next session.     |
-| `Ctrl+B $` | Rename a session.             |
-| `Ctrl+B x` | Detach from a session.        |
 
 ### Attaching and Detaching from Sessions
 
@@ -193,15 +194,18 @@ If you use Tmux a lot you might find you end up with lots of sessions - you can 
 
 Some useful shortcuts for sessions are:
 
+Sessions are extremely powerful for organising your work. Some useful commands for working with sessions are:
+
 | Command                    | Description                                                |
 |----------------------------|------------------------------------------------------------|
 | `tmux attach`              | Attach to the last used session                            |
 | `tmux new -s name`         | Start a new `tmux` session named `name`                    |
-| `^B : new -s another-name` | Enter command mode, start session named `another-name`     |
-| `^B $`                     | Rename the current session                                 |
-| `^B s`                     | Show the session list. Close the selected session with `x` |
-| `^B )`                     | Move to next session                                       |
-| `^B (`                     | Move to the previous session                               |
+| `^b : new -s another-name` | Enter command mode, start session named `another-name`     |
+| `^b $`                     | Rename the current session                                 |
+| `^b s`                     | Show the session list. Close the selected session with `x` |
+| `^b )`                     | Move to next session                                       |
+| `^b (`                     | Move to the previous session                               |
+| `^b w`                     | Show all windows - this command also shows all sessions!   |
 
 ## Configuration
 
@@ -281,6 +285,17 @@ I am almost never not in a Tmux session. This means that if I open a _nested_ se
 bind-key b send-prefix
 ```
 
+**Mouse Support**
+
+If you have a mouse, which will normally be the case if you are working with your local machine, then you can enable the mouse for Tmux, allowing you to drag panes to resize them, select panes and windows with the mouse and so on.
+
+If you are feeling like you want to really get your 'mouseless' flow working - disable this option! It'll force you to learn the commands.
+
+```bash
+# Enable mouse mode (tmux 2.1 and above)
+set -g mouse on
+```
+
 **Vim Mode!**
 
 I set a number of configuration options to help Tmux interface more seamlessly with Vim, and also use Vim directions rather than arrow keys to move around. This means I use `^B j` to go to the pane below, `^B l` to go to the pane to the right.
@@ -322,28 +337,49 @@ In this demo we have two separate machines connecting to our server, able to col
 
 We've really only touched the surface of what Tmux can do. There are some truly incredible things you can do with a multiplexer like Tmux as you start to use it more. Selecting text from the shell without touching the mouse, seamless integration of Tmux splits and Vim splits, sending commands to multiple machines at once, using plugin managers to add advanced features, the list goes on.
 
+Tmux also lets you rapidly resize panes, break a pane into its own window or session, re-order panes, swap panes and so on. These commands are probably the next ones to start becoming familiar with! If you have enabled mouse mode you can also resize panes with the mouse if you have one available.
+
 I'd highly recommend using Tmux as part of your standard workflow - get familiar with the basic features shown in this chapter and then as you start to find limitations and want to do more explore some of the great books and blog posts out there that go into more advanced features.
+
+## Getting Help
+
+You can quickly see all of the Tmux commands by running `^b ?`.
+
+A quick reference of command commands below:
+
+| Command                       | Description                                                                        |
+|-------------------------------|------------------------------------------------------------------------------------|
+| `tmux ls`                     | List sessions                                                                      |
+| `tmux new [-s name]`          | Start a new `tmux` (optionally with a session name)                                |
+| `tmux attach [-t name]`       | Attach to the last used session, or the target session with `-t`                   |
+| `tmux kill-session [-t name]` | Kill a session named `name`                                                        |
+| `tmux kill-session -a`        | Kill all sessions _except_ the current session                                     |
+| `^b d`                        | Detach from the current session                                                    |
+| `^b : new -s another-name`    | Enter command mode, start session named `another-name`                             |
+| `^b ?`                        | Show command help                                                                  |
+|-------------------------------|------------------------------------------------------------------------------------|
+| `^b $`                        | Rename the current session                                                         |
+| `^b s`                        | Show the session list. Close the selected session with `x`                         |
+| `^b )`                        | Move to next session                                                               |
+| `^b (`                        | Move to the previous session                                                       |
+| `^b w`                        | Show all windows - this command also shows all sessions!                           |
+|-------------------------------|------------------------------------------------------------------------------------|
+| `^b n`                        | Move to the next window                                                            |
+| `^b p`                        | Move to the previous window                                                        |
+| `^b 0`                        | Select the window numbered '0' - use the number of any window from the status pane |
+| `^b &`                        | Close the current window                                                           |
+| `^b ,`                        | Rename the current window                                                          |
+| `^b w`                        | Show the window navigator                                                          |
+| `^b $`                        | Kill the current window                                                            |
+|-------------------------------|------------------------------------------------------------------------------------|
+| `^b %`                        | Create a horizontal split                                                          |
+| `^b "`                        | Create a vertical split                                                            |
+| `^b <arrow>`                  | Move to the pane in the direction of an arrow key                                  |
+| `^b z`                        | Zoom in or out of a pane                                                           |
+| `^b !`                        | Convert pane to window                                                             |
 
 ## Summary
 
 In this chapter we introduced the concept of Terminal Multiplexers, in particular GNU screen and Tmux. We saw how to manage windows, panes and sessions. We learned how to configure Tmux to suit your personal working style. We also looked at how we can use Tmux to manage sessions on remote machines and even collaborate real time with other users.
-
-## TODO
-
-- Splits
-- Tabs
-- Sessions
-- Configuration
-- Summary
-- Getting help
-- diagram
-- resize panes
-- re-record by attaching
-- Use `^B` rather than Ctrl+B
-- keyboard selection
-- `^B w`
-- don't forget the binding
-- does local config move to the server?
-- Busting into git
 
 [^1]: You can find my complete set of dotfiles at [github.com/dwmkerr/dofiles](https://github.com/dwmkerr/dotfiles) if you would like to see how I configure other programs.
