@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.23.2](https://github.com/dwmkerr/effective-shell/compare/v0.23.1...v0.23.2) (2022-04-05)
+
+
+### chore
+
+* release 0.23.2 ([f37a8ff](https://github.com/dwmkerr/effective-shell/commit/f37a8ff19b3504b3a715eab307797b5ffd72bc2c))
+
 ### [0.23.1](https://github.com/dwmkerr/effective-shell/compare/v0.23.0...v0.23.1) (2022-04-05)
 
 
