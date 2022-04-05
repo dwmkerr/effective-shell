@@ -36,6 +36,10 @@ jobs:
         run: echo -e '[url "https://github.com/"]\n  insteadOf = "git://github.com/"' >> ~/.gitconfig
         if: ${{ steps.release.outputs.release_created }}
 
+      # Check typescript compiles properly.
+      - name: Check TypeScript
+        run: make typescript-check
+
       # Run the build - this will fail if there are broken links etc.
       - name: Build
         run: make build
