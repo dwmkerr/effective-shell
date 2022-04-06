@@ -5,9 +5,8 @@
 # This file builds the 'samples' folder. Means it will:
 # 
 # 1. Copy all of the files from 'samples'
-# 2. Add the .version.txt file to the samples
-# 3. Clone the sample repositories, which are hosted at github.com/effective-shell
-# 4. Create a zip archive and tar.gz archive
+# 2. Clone the sample repositories, which are hosted at github.com/effective-shell
+# 3. Create a zip archive and tar.gz archive
 #
 # The samples will be created in the './artifacts' folder.
 

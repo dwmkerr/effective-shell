@@ -4,6 +4,9 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+//  Load our package so we can show metadata like the version.
+const package = require('./package.json');
+
 const title = 'Effective Shell';
 const organizationName = 'dwmkerr';
 const projectName = 'effective-shell';
@@ -115,7 +118,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Dave Kerr. Website built with Docusaurus.`,
+        copyright: `Effective Shell v${package.version}. Copyright © ${new Date().getFullYear()} Dave Kerr. Website built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
