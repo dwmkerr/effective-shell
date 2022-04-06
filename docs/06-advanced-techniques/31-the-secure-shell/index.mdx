@@ -353,21 +353,54 @@ scp -P 8022 effective-shell.com:~/downloads/backup.zip ~/backups
 - No username or credentials are specified, so the current user's name is used and any keys that are loaded in the SSH agent will be used to try and authenticate
 - We use a non-standard port, 8022, rather than the default port which is 22
 
-Let's use `scp` to copy our `lookup` program to our remote machine!
+Let's use `scp` to copy our `lookup` program to our remote machine:
 
 ```
-scp 
+$ scp ~/effective-shell/samples/programs/lookup/lookup.py effective-shell-aws-linux:~
+lookup.py                    100% 4485    10.5KB/s   00:00
+```
 
-- This uses the `-i` flag to specify a key
-- The source is a file called _output.zip_ on the local machine
-- The destination is a server with the hostname `myserver.com`, connecting with a user named `dwmkerr`, and putting the file in the user's home folder
+We have provided the path to the local file, and specified the server we want to copy the file to, as well as the location for the file (which is the home directory).
 
-Copy over script, install program, show output.
+Note that because we have created the alias `effective-shell-aws-linux` in our SSH config, we can use this alias for `scp` as well as `ssh`. Let's connect to the server now and run the script:
 
+```
+$ ssh effective-shell-aws-linux
+Last login: Tue Apr  5 19:03:00 2022 from bb116-15-249-218.singnet.com.sg
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-23-196 ~]$ ./lookup.py cryptography
+cryptography: The discipline concerned with communication security (eg, confidentiality of messages, integrity of messages, sender authentication, non-repudiation of messages, and many other related issues), regardless of the used medium such as pencil and paper or computers.
+```
+
+We can see that our lookup program has been copied to our server and we can run it to find a definition for the word 'cryptography'.
+
+Let's save this definition then close our connection to the server, then copy the definition back to our local machine:
+
+```
+[ec2-user@ip-172-31-23-196 ~]$ ./lookup.py cryptography > definition.txt
+[ec2-user@ip-172-31-23-196 ~]$ exit
+logout
+Connection to ec2-13-213-71-135.ap-southeast-1.compute.amazonaws.com closed.
+
+$ scp effective-shell-aws-linux:~/defintion.txt .
+definition.txt               100%  277     1.0KB/s   00:00
+
+$ cat definition.txt
+cryptography: The discipline concerned with communication security (eg, confidentiality of messages, integrity of messages, sender authentication, non-repudiation of messages, and many other related issues), regardless of the used medium such as pencil and paper or computers.
 TODO talk about openssh
+```
+
+That's all there is to it! Copying files and folders to and from remote machines is remarkably easy to do with `scp` once you know the basics of how `ssh` works.
+
+There are many other operations that you can perform with `scp`, you can read more about the tool with `man scp`.
 
 ## Summary
 
-In this chapter we discussed the SSH protocol, and how keys are used to protect connections to remote servers. We saw how to setup an AWS account, create a virtual machine with a given public key, connect to it with the `ssh` program, and configure SSH with an alias to make future connections faster. We also saw some of the challenges we can face with network connectivity - which we'll see techniques to handle in Chapter 33.
+In this chapter we discussed the SSH protocol, and how keys are used to protect connections to remote servers. We saw how to setup an AWS account, create a virtual machine with a given public key, connect to it with the `ssh` program, and configure SSH with an alias to make future connections faster. We also saw some of the challenges we can face with network connectivity - which we'll see techniques to handle in Chapter 33. Finally, we looked at how to copy files to and from remote machines.
 
 [^1]: This process is very useful to know about, it is called Diffie–Hellman key exchange. There are many great articles online that explain it in detail.
