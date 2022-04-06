@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.24.2](https://github.com/dwmkerr/effective-shell/compare/v0.24.1...v0.24.2) (2022-04-06)
+
+
+### Bug Fixes
+
+* remove stale version file, add version to footer ([1d7f14b](https://github.com/dwmkerr/effective-shell/commit/1d7f14b2a75b80136c83c50cec52ed4c79d420c8))
+
 ### [0.24.1](https://github.com/dwmkerr/effective-shell/compare/v0.24.0...v0.24.1) (2022-04-06)
 
 
