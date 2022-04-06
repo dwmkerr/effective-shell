@@ -6,17 +6,19 @@ chapterNumber: 33
 
 So far we have been using the shell to operate on our local machine. We can use _Secure Shell Protocol_, or _SSH_, to open a secure network connection to a remote machine and use the shell to work on that machine.
 
-In this chapter we'll look at how to setup the required credentials and keys to allow us to securely connect to a remote machine, how to create a virtual machine in the cloud and then how to connect to that machine from our local machine using the `ssh` program. We'll also look at how to configure `ssh` to make it even faster to work with!
+In this chapter we'll look at how to setup the required credentials and keys to allow us to securely connect to a remote machine, how to create a virtual machine in the cloud and then how to connect to that machine from our local machine using the `ssh` program. We'll also look at how to configure SSH to make it easier to work with!
 
 ## What is SSH?
 
-SSH is the _Secure Shell Protocol_. It is a protocol that has been used for decades as a way to establish a secure network to a remote machine, on your network or across the internet. The _program_ named `ssh` is the 'secure shell' - it is a program that helps you establish SSH connections, manage credentials, and open a shell on a remote machine.
+SSH is the _Secure Shell Protocol_. It is a protocol that has been used for decades as a way to establish a secure connection to a remote machine, on your network or across the internet. The _program_ named `ssh` is the 'secure shell' - it is a program that helps you establish SSH connections, manage credentials, and open a shell on a remote machine.
 
-When we use the secure shell, we use _asymmetric encryption_ to secure the communication between our machine and the target machine. Asymmetric encryption uses special 'keys', called 'public keys' and 'private keys' to manage authentication and secure data. This might be new to you if you are used to using simple authentication protocols such as username and password. But public/private key based security is _extremely_ secure and a great thing to know about! So let's start by looking at how public and private keys work and then create our own key pair which we will later use to secure our connections.
+When you connect to a remote machine, you will typically have to authenticate. It is possible to authenticate with a username and password. In most scenarios however you will have to use _Asymmetric Encryption_ to authenticate with the server.
+
+Asymmetric encryption uses special 'keys', called 'public keys' and 'private keys' to manage authentication and secure data. This might be new to you if you are used to using simple authentication protocols such as username and password. But public/private key based security is _extremely_ secure and a great thing to know about! So let's start by looking at how public and private keys work and then create our own key pair which we will later use to secure our connections.
 
 ## Public and Private Keys
 
-Asymmetric encryption is a complex subject, the low-level details are beyond the scope of this book[^1]. But we can certainly cover the basics!
+The details of Asymmetric encryption are a complex subject, the low-level details are beyond the scope of this book, we'll cover the only essential concepts and techniques in this chapter[^1].
 
 Before we look at asymmetric encryption, let's take a quick look at the challenges of symmetric encryption - which will help explain _why_ asymmetric encryption is preferred.
 
@@ -29,29 +31,29 @@ import symmetricEncryption from '!!raw-loader!./diagrams/symmetric-encryption.dr
 
 <Drawio content={symmetricEncryption} />
 
-The diagram above is a hugely simplified view, but essentially shows that when the users want to exchange a message they _both_ need to know the secret that is used to encrypt it.
+The diagram above is a hugely simplified view, but essentially shows that when the users want to exchange a message they _both_ need to know the secret - one user uses the secret to encrypt the message, the other uses the same secret to decrypt it.
 
 Now in reality there are ways to obscure and protect this secret somewhat, but no matter how many clever tricks are used, we are still in the situation where the recipient has sensitive data - the user's secret. This is actually quite problematic because it means if we don't trust this user, or their machine or environment, we might not want to share a secret.
 
 ### Asymmetric Encryption
 
-We we use asymmetric encryption, Alice first creates a 'keypair'. This is two files - a public key and a private key. Alice keeps the private key. She uses this to encrypt the message. Bob receives the public key - he can use this to decrypt the message:
+We we use asymmetric encryption, Alice first creates a 'key pair'. This is two files - a public key and a private key. Alice keeps the private key. She uses this to encrypt the message. Bob receives the public key - he can use this to decrypt the message:
 
 import asymmetricEncryption from '!!raw-loader!./diagrams/asymmetric-encryption.drawio';
 
 <Drawio content={asymmetricEncryption} />
 
-The fantastic thing about this mechanism is that _only Alice can encrypt messages_ - Bob can decrypt and read the messages, but cannot encrypt them on behalf of Alice. So Alice can keep her key safe. Her public key is not sensitive - it can only be used to verify that a message has come from Alice, decrypt the message and ensure the message has not been tampered with.
+The fantastic thing about this mechanism is that _only Alice can encrypt messages_ - Bob can decrypt and read the messages, but cannot encrypt them on behalf of Alice. So Alice can keep her key private. Her public key is not sensitive - it can only be used to verify that a message has come from Alice, decrypt the message and ensure the message has not been tampered with.
 
 Almost all modern day encryption is built on this mechanism - when you open a secure connection to a website, an exchange of keys is made between you and the server[^2].
 
 When we use the secure shell to communicate with a remote machine, we will give the remote machine our _public key_, and we will encrypt our communications with the _private key_. This is essential because _other users_ might have access to the remote machine - we don't want them seeing our sensitive data such as passwords or private keys.
 
-Let's look at how to create a keypair now.
+Let's look at how to create a key-pair now.
 
-## Creating a Keypair
+## Creating a Key Pair
 
-We can use the `ssh-keygen` (_OpenSSH authentication key utility_) to create a keypair. We are going to use this keypair to communicate with a server we will create on Amazon Web Services or AWS. AWS requires that we use a particular format known as _PEM_, so let's create a keypair in that format now. We will move to the _~/.ssh_ folder first, which is where users often store their SSH keys:
+We can use the `ssh-keygen` (_OpenSSH authentication key utility_)<!--index--> to create a key pair. We are going to use this key pair to communicate with a server we will create on Amazon Web Services or AWS. AWS requires that we use a particular format known as _PEM_, so let's create a key pair in that format now. We will move to the _~/.ssh_ folder first, which is where users often store their SSH keys:
 
 ```bash
 cd ~/.ssh
@@ -65,9 +67,10 @@ Generating public/private rsa key pair.
 Enter file in which to save the key (/home/dwmkerr/.ssh/id_rsa):
 ```
 
-I suggest that you use the default location which is the _~/.ssh_ folder, but name the key pair 'effective-shell':
+I suggest that you use the default location (the _~/.ssh_ folder), but name the key pair 'effective-shell':
 
 ```
+Enter file in which to save the key (/home/dwmkerr/.ssh/id_rsa): effective-shell
 Enter passphrase (empty for no passphrase):
 ```
 
@@ -106,11 +109,11 @@ effective-shell.pub
 
 The public key is the key with `.pub` at the end.
 
-Now let's create a new virtual machine in the cloud and provide it with our public key so that we can access it. To do this, we're going to set up a virtual machine on the AWS Free Tier - which means it shouldn't cost us anything to run.
+Now let's create a new virtual machine in the cloud and provide it with our public key so that we can access it. To do this, we're going to set up a virtual machine using Amazon Web Services - a popular cloud computing platform. We'll use the free tier, meaning this should not cost you any money!
 
 ## Setting up an AWS Account
 
-We're going to create a virtual machine in the cloud to connect to and test out `ssh`. We'll do this using Amazon Web Services, which is probably the most popular cloud services provider. If you already have an account you can skip this part of the chapter.
+We're going to create a virtual machine in the cloud to connect to and test out `ssh`. We'll do this using Amazon Web Services, which is probably the most popular cloud services provider. If you already have an account you can skip this part of the chapter. If not, we'll look at how to setup an account now.
 
 To sign up for an AWS account, open the site at:
 
@@ -120,27 +123,25 @@ Choose the 'Create Free Account' option:
 
 <img alt="Screenshot: Create Free Account" src={require('./images/create-free-account.png').default} width="800px" />
 
-When you sign up you will be asked to provide quite a few details, as well as credit card details. Make sure you select the "Basic Support Plan", which is free.
+When you sign up you will be asked to provide quite a few personal details, as well as credit card details. Make sure you select the "Basic Support Plan", which is free.
 
 :::caution Avoiding Credit Card Bills
 
-Amazon require your credit card details in case you access services that have costs associated with them. In this chapter we will be using 'free tier' services that have no costs, but be very careful if experimenting or playing with services on AWS - most of them are paid.
+Amazon requires your credit card details in case you use paid services. In this chapter we will be using 'free tier' services that have no costs, but be very careful if experimenting or playing with other services on AWS - most of them are will have some cost associated with their usage.
 
 The costs are generally low and there are safeguards in place to ensure you don't accidentally create expensive resources, but keep your AWS credentials _very_ safe. If someone has access to them they could run expensive services on your account.
 
 :::
 
-Once you have signed up successfully, you will see the 'congratulations' message. You can now press the button to go to the management console.
+Once you have signed up successfully, you will see the 'congratulations' message. You can now press the 'Go to the AWS Management Console' button to go to the management console.
 
 <img alt="Screenshot: Congratulations" src={require('./images/aws-congratulations.png').default} width="800px" />
 
-You will be asked for your password again.
-
-Congratulations - you now have an AWS account that you can use to run services in the cloud! Now let's create a virtual machine that we can connect to.
+You will be asked for your password again. Congratulations - you now have an AWS account that you can use to run services in the cloud! Now let's create a virtual machine that we can connect to.
 
 ## Creating a Virtual Machine on AWS
 
-Use the search bar in the AWS Management Console to search for 'EC2'. EC2 is the name AWS uses for it's virtual machine services.
+Use the search bar in the AWS Management Console to search for 'EC2'. EC2 is the name AWS uses for its virtual machine services.
 
 The first thing we are going to do is upload our public key to AWS so that it can be used when we create our virtual machine. Select the 'Key Pairs' option from the menu on the left or the dashboard:
 
@@ -159,7 +160,7 @@ Now that the key pair has been imported we can go back to the EC2 dashboard and 
 
 <img alt="Screenshot: Launch Instance" src={require('./images/aws-launch-instance.png').default} width="800px" />
 
-We are now going to go through a set of options to specify the details of the virtual machine AWS will create for us. I'm not going to cover all of the options, we're going to be creating a simple virtual machine with essentially what is the default configuration.
+We are now going to go through a set of options to specify the details of the virtual machine AWS will create for us.
 
 **Step 1: Choose an Amazon Machine Image (AMI)**
 
@@ -226,8 +227,7 @@ AWS is giving us some hints here about how to connect, it is even showing the sp
 From our own shell we will now run the `ssh` command to connect to our instance. To connect, using the details for my new virtual machine, I would run this command:
 
 ```bash
-ssh -i ~/.ssh/effective-shell \
-    ec2-user@ec2-13-213-71-135.ap-southeast-1.compute.amazonaws.com
+ssh -i ~/.ssh/effective-shell ec2-user@ec2-13-213-71-135.ap-southeast-1.compute.amazonaws.com
 ```
 
 You can see that we have provided three pieces of information:
@@ -269,6 +269,8 @@ We can see the current shell being used by checking the `SHELL` variable:
 /bin/bash
 ```
 
+We are now ready to run any commands that we like on this machine - at this point you might install programs, manipulate files and so on.
+
 When I want to disconnect, I can just run the `exit` command to close the connection to the virtual machine.
 
 Hopefully if you have followed this far, you also have access to a virtual machine to play with. Now let's look at some of the things we can do with the SSH to make accessing these machines even easier!
@@ -277,7 +279,7 @@ Hopefully if you have followed this far, you also have access to a virtual machi
 
 It can be difficult to remember the details such as the host name, location of the key and username of your virtual machines. One thing you can do to make it far easier to connect is to create an entry in your _SSH Config_ file that stores this information. This will let you connect much more quickly.
 
-To create an entry for my virtual machine, I would add the following text to the _~/.ssh/cnfig_ file:
+To create an entry for my virtual machine, I would add the following text to the _~/.ssh/config_ file:
 
 ``` title="~/.ssh/config"
 Host effective-shell-aws-linux
@@ -311,11 +313,58 @@ There are many other options available for the SSH config file, you can see them
 
 One thing that will soon become a pain if you are regularly SSH-ing into virtual machines is disconnections. This can occur when you lose network connectivity. You might not even notice that a disconnection has occurred - I find it is more common that the `ssh` session is simply frozen and not responding to any input at all.
 
-It is annoying when this happens - often the shell is so unresponsive that you cannot even free it by pressing `^D` or `^C`. There is actually an escape character that you can use to end a broken session, which is the `Enter` key, followed by `~` and then `.`. This is not particularly easy to remember.
+It is annoying when this happens - often the shell is so unresponsive that you cannot even free it by pressing `^D` or `^C`. There is actually an escape sequence that you can use to end a broken session, which is the `Enter` then `~` then `.`.
 
 In [Chapter 33 - Master the Multiplexer](../33-master-the-multiplexer/index.md) we'll look at some great ways to improve upon this, for now if you forget the Enter/Tidle/Dot escape sequence the easiest thing to do is to close your terminal program.
 
 When you disconnect from your SSH session, the commands you are running will be terminated. This is because your shell will send the 'hang up' signal. Again, this can be frustrating if you actually want to keep something running on the server. We'll also look at how to work around this behaviour in Chapter 33.
+
+## Transferring Files with SCP
+
+We can use the `scp` (_OpenSSH secure file copy_)<!--index--> program to copy files to and from any remote machine that we have access to.
+
+Let's see this in action by copying the `lookup` tool we created in [Chapter 30 - How to Avoid Scripting](../30-how-to-avoid-scripting/index.md) to our server. Then we'll run it, save some definitions, and copy them _back_ to our local machine.
+
+The format of the `scp` command is:
+
+```
+scp [parameters] <source> <destination>
+```
+
+We can provide `scp` with parameters, many of which are the same as the `ssh` command, such as `-i` for the _Identity File_.
+
+The source and destination are normally a pair of designations, one local, one remote. However, you can also copy between two remote machines.
+
+Some examples of how a command might look like are:
+
+```bash
+scp -i ~/.ssh/my-project.pem ~/project/output.zip dwmkerr@myserver.com:~
+```
+
+- This uses the `-i` flag to specify a key
+- The source is a file called _output.zip_ on the local machine
+- The destination is a server with the hostname `myserver.com`, connecting with a user named `dwmkerr`, and putting the file in the user's home folder
+
+```bash
+scp -P 8022 effective-shell.com:~/downloads/backup.zip ~/backups
+```
+
+- This copies the _downloads/backups_ folder to the local _~/backups_ folder
+- No username or credentials are specified, so the current user's name is used and any keys that are loaded in the SSH agent will be used to try and authenticate
+- We use a non-standard port, 8022, rather than the default port which is 22
+
+Let's use `scp` to copy our `lookup` program to our remote machine!
+
+```
+scp 
+
+- This uses the `-i` flag to specify a key
+- The source is a file called _output.zip_ on the local machine
+- The destination is a server with the hostname `myserver.com`, connecting with a user named `dwmkerr`, and putting the file in the user's home folder
+
+Copy over script, install program, show output.
+
+TODO talk about openssh
 
 ## Summary
 
