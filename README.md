@@ -19,6 +19,7 @@ If you find this book useful, please do consider [sponsoring me](https://github.
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [Copyright & Licensing](#copyright--licensing)
+* [ASCII Terminal Recordings](#ascii-terminal-recordings)
 * [Thanks!](#thanks)
 * [Contributors ✨](#contributors-)
 
@@ -104,6 +105,10 @@ All content is Copyright (©) Dave Kerr. Please get in touch by opening an issue
 [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+
+## ASCII Terminal Recordings
+
+All terminal recordings used in this project are built using the superb '[asciinema](https://asciinema.org/)' tool. Many thanks to Marcin Kulik for building such an excellent piece of software.
 
 ## Thanks!
 
