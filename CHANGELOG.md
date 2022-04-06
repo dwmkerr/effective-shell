@@ -1,5 +1,20 @@
 # Changelog
 
+### [0.24.1](https://github.com/dwmkerr/effective-shell/compare/v0.24.0...v0.24.1) (2022-04-06)
+
+
+### Documentation
+
+* add tobiasbueschel as a contributor for review ([#191](https://github.com/dwmkerr/effective-shell/issues/191)) ([8bf62a5](https://github.com/dwmkerr/effective-shell/commit/8bf62a54054febe179702066f43e156cce27fbc5))
+* credits for asciinema ([#190](https://github.com/dwmkerr/effective-shell/issues/190)) ([b1e1b0e](https://github.com/dwmkerr/effective-shell/commit/b1e1b0e669aed34d62e5f76c161b455b07abc5c3))
+
+## [0.24.0](https://github.com/dwmkerr/effective-shell/compare/v0.23.2...v0.24.0) (2022-04-05)
+
+
+### Features
+
+* chapter 31 - the secure shell ([#187](https://github.com/dwmkerr/effective-shell/issues/187)) ([f188b2c](https://github.com/dwmkerr/effective-shell/commit/f188b2c78e876563f76d5f73912825bf5e7a76f9))
+
 ### [0.23.2](https://github.com/dwmkerr/effective-shell/compare/v0.23.1...v0.23.2) (2022-04-05)
 
 
