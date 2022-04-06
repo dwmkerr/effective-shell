@@ -323,8 +323,6 @@ When you disconnect from your SSH session, the commands you are running will be 
 
 We can use the `scp` (_OpenSSH secure file copy_)<!--index--> program to copy files to and from any remote machine that we have access to.
 
-Let's see this in action by copying the `lookup` tool we created in [Chapter 30 - How to Avoid Scripting](../30-how-to-avoid-scripting/index.md) to our server. Then we'll run it, save some definitions, and copy them _back_ to our local machine.
-
 The format of the `scp` command is:
 
 ```
@@ -353,10 +351,13 @@ scp -P 8022 effective-shell.com:~/downloads/backup.zip ~/backups
 - No username or credentials are specified, so the current user's name is used and any keys that are loaded in the SSH agent will be used to try and authenticate
 - We use a non-standard port, 8022, rather than the default port which is 22
 
-Let's use `scp` to copy our `lookup` program to our remote machine:
+Let's see this in action by copying the `lookup` tool we created in [Chapter 30 - How to Avoid Scripting](../30-how-to-avoid-scripting/index.md) to our server. Then we'll run it, save some definitions, and copy them _back_ to our local machine.
+
+First we'll use `scp` to copy our `lookup` program to our remote machine:
 
 ```
-$ scp ~/effective-shell/samples/programs/lookup/lookup.py effective-shell-aws-linux:~
+$ cd ~/effective-shell/samples
+$ scp ./programs/lookup/lookup.py effective-shell-aws-linux:~
 lookup.py                    100% 4485    10.5KB/s   00:00
 ```
 
@@ -374,7 +375,10 @@ Last login: Tue Apr  5 19:03:00 2022 from bb116-15-249-218.singnet.com.sg
 
 https://aws.amazon.com/amazon-linux-2/
 [ec2-user@ip-172-31-23-196 ~]$ ./lookup.py cryptography
-cryptography: The discipline concerned with communication security (eg, confidentiality of messages, integrity of messages, sender authentication, non-repudiation of messages, and many other related issues), regardless of the used medium such as pencil and paper or computers.
+cryptography: The discipline concerned with communication security (eg, confiden
+tiality of messages, integrity of messages, sender authentication, non-repudiati
+on of messages, and many other related issues), regardless of the used medium su
+ch as pencil and paper or computers.
 ```
 
 We can see that our lookup program has been copied to our server and we can run it to find a definition for the word 'cryptography'.
@@ -391,8 +395,10 @@ $ scp effective-shell-aws-linux:~/defintion.txt .
 definition.txt               100%  277     1.0KB/s   00:00
 
 $ cat definition.txt
-cryptography: The discipline concerned with communication security (eg, confidentiality of messages, integrity of messages, sender authentication, non-repudiation of messages, and many other related issues), regardless of the used medium such as pencil and paper or computers.
-TODO talk about openssh
+cryptography: The discipline concerned with communication security (eg, confiden
+tiality of messages, integrity of messages, sender authentication, non-repudiati
+on of messages, and many other related issues), regardless of the used medium su
+ch as pencil and paper or computers.
 ```
 
 That's all there is to it! Copying files and folders to and from remote machines is remarkably easy to do with `scp` once you know the basics of how `ssh` works.
