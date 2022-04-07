@@ -12,7 +12,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "ts:check": "tsc"
+    "ts:check": "tsc --resolveJsonModule"
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^0.10.0",
