@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.24.3](https://github.com/dwmkerr/effective-shell/compare/v0.24.2...v0.24.3) (2022-04-07)
+
+
+### Bug Fixes
+
+* allow json import in tsc ([5f56d8c](https://github.com/dwmkerr/effective-shell/commit/5f56d8c314f062ea11cac76806def03a0dfad3c4))
+
 ### [0.24.2](https://github.com/dwmkerr/effective-shell/compare/v0.24.1...v0.24.2) (2022-04-06)
 
 
