@@ -1,0 +1,284 @@
+---
+title: 'The Power of Terminal Editors'
+slug: '/part-6-advanced-techniques/the-power-of-terminal-editors/'
+chapterNumber: 32
+---
+
+A Terminal Editor is a text editor that you can open directly in your terminal, normally from the shell. Many users find these editors hard to use, and some of them have a reputation for being highly complex.
+
+In this chapter we'll look at perhaps the most popular terminal editor - Vim. We'll see why we might want to use or, or at least become familiar with it, and show just a few features that might excite you enough to want to dive in and learn more!
+
+## What is a Terminal Editor
+
+A Terminal Editor is any text editor that is designed to run inside a terminal, often from a shell. This means it is designed to be used without a mouse, on a smaller screen, and on a system that might have no graphical user interface or windowing or desktop environment.
+
+Some of the most popular terminal editors you might have hard of are _GNU nano_, _Vim_ and _Emacs_. Let's take a look at why we might want to know how to use a terminal editor.
+
+## Why use a Terminal Editor?
+
+Many technologists will be familiar with Graphical Text Editors, such as [Visual Studio Code](https://code.visualstudio.com/), [Atom](https://atom.io/) and [Sublime](https://www.sublimetext.com/). Software engineers will likely be familiar with Integrated Development Environments such as [Visual Studio](https://visualstudio.microsoft.com/) or the JetBrains family of IDEs which include dedicated environments for many languages, such as [IntelliJ IDEA](https://www.jetbrains.com/idea/) for Java.
+
+So with such a selection of powerful and user-friendly text editing options available, why would you choose to use a Terminal Editor?
+
+There are many reason, but perhaps the most compelling one is that you will not always have a graphical environment available! If you are working on a remote server using the `ssh` tool as described in [Chapter 31 - The Secure Shell](../31-the-secure-shell/index.mdx), you will not have a desktop or windowed environment to run a graphical tool. The _only_ options available for you to edit text, code or scripts in such an environment are terminal editors - because the terminal is your only interface to the server.
+
+There are other times where you might not have easy access to a graphical environment - for example if you are editing a file in a Docker container using your terminal.
+
+For this reason alone it is useful to become familiar with at least one terminal editor. However, there are some other reasons I think are quite compelling:
+
+**Maintaining flow** - if you are working in a shell already and need to edit text, being able to quickly do so without leaving the shell, and ideally without even having to touch the mouse, will allow you to maintain your 'flow' while you work.
+
+**Speed of editing** - editors such as Vim and Emacs allow you to be _incredibly_ efficient at editing text, once you get over the initial learning curve. Vim in particular is designed to try and keep your fingers on the home row of the keyboard as much as possible to make it possible to manipulate text very quickly.
+
+**Customisation** - terminal editors can be customised to suit your working style - you can then manage your customisations through dotfiles that you share across environments as described in [Chapter 26 - Managing Your Dotfiles](../../05-building-your-toolkit/26-managing-your-dotfiles).
+
+**Improving Efficiency in Graphical Editors and other tools** - if you learn how to use Vim or Emacs and find yourself able to edit text very efficiently using their idioms, then you can install plugins in your graphical editors or IDEs, allowing you to edit text using the same commands. There are even browser plugins that let you navigate webpages using Vim style movement commands.
+
+All in all I believe it is extremely useful to get to grips with at least the basics of Vim - you will be more efficient when working with remote machines, when quickly editing text from the shell, and might even find it replaces your other tools for many tasks.
+
+## Introducing Vim
+
+We're going to learn the basics of the editor Vim in this chapter. I have chosen Vim as it has the reputation for being the most complex of the terminal text editors to work with, but actually with an hour or two of practice you'll find that it is quite straightforward to use for simple tasks.
+
+Vim is installed on most Linux distributions out of the box and is an extremely popular editor. But it has a style of editing, called _Modal Editing_ that can be a bit confusing at first.
+
+### What is Modal Editing?
+
+Vim is a _modal text editor_. This means that it runs in different 'modes' - and in each mode the keyboard has different functions. One of these modes is 'insert mode' - in this mode your keyboard is used just like with a normal text editor, as you type you edit the text on the screen. This is the mode that will be familiar to most users. But it is not Vim's only mode - or even the mode it will be in when you open it. So let's take a look at modal editing in action by opening Vim and performing some basic text editing operations.
+
+### Modal Editing in Action
+
+Before we go into the bulk of this chapter, which will be using Vim to create our own personal Vim Cheatsheet, let's just take a look at Vim's modal editing in action.
+
+First, we'll open Vim by running the `vi` command:
+
+```
+$ vi
+
+█
+~
+~
+~
+~
+~                              VIM - Vi IMproved
+~
+~                               version 8.2.4314
+~                           by Bram Moolenaar et al.
+~                      Modified by <bugzilla@redhat.com>
+~                 Vim is open source and freely distributable
+~
+~                        Help poor children in Uganda!
+~                type  :help iccf<Enter>       for information
+~
+~                type  :q<Enter>               to exit
+~                type  :help<Enter>  or  <F1>  for on-line help
+~                type  :help version8<Enter>   for version info
+~
+~
+~
+~
+~
+                                                              0,0-1         All 
+```
+
+When Vim is started, it either displays the file that it has been asked to open, or if no file has been provided it shows the welcome message above.
+
+Vim starts in **Command Mode**. This means that the keys on the keyboard are not used to enter text - they are used to enter commands. One command that is going to be useful is the 'insert' command, which tells vim to enter **Insert Mode**, before the cursor. The position of the cursor in the code block above is shown with a full-block `█` symbol.
+
+Let's insert some text. Enter the characters in the first column of the table below - the output should match what is shown on the right:
+
+| Keystrokes   | Output        |
+|--------------|---------------|
+| `i`          | `█`           |
+| `Hello Vim!` | `Hello Vim!█` |
+
+The `i` command tells Vim to enter **Insert Mode**. Insert mode is the mode that will be most familiar to you - when Vim is in insert mode your keystrokes enter text in the current file. When Vim is in insert mode it behaves more like a non-modal editor. We can enter some text as shown above.
+
+You might have noticed that when you entered insert mode Vim updated its status bar to show you what mode it is in:
+
+```
+Hello Vim!█
+~
+~
+~
+-- INSERT --                                                  1,11          All
+```
+
+If Vim is not in its default 'Command Mode', it will show you what mode you are in on the status line at the bottom of the screen.
+
+To return to Command Mode, press Control and 'C', or 'Escape'. In Vim's documentation a 'chord', which is more than one key pressed at the same time, is shown in angled brackets, to differentiate it from a 'sequence' which is a set of keystrokes pressed one after the other. Control and C is written as `<C-c>` in the documentation for Vim. We will use the same style to describe chords and sequences.
+
+Let's exit insert mode:
+
+| Keystrokes | Output       |
+|------------|--------------|
+| `<C-c>`    | `Hello Vim!` |
+
+You will notice that the `-- INSERT --` text in the status bar is no longer shown - meaning we are back in Command Mode.
+
+Let's exit Vim. When we are in Command Mode, the keystrokes when enter are used to manipulate text or move around. If we want to perform an administrative task, such as saving a file or calling another program, we use what is called an _Ex Command_. _Ex_ is short for 'execute'. When we press the colon `:` keystroke, we enter 'Ex Mode'. This mode is a bit like Insert Mode, but for writing commands:
+
+| Keystrokes | Output |
+|------------|--------|
+| `:`        | `:█`   |
+| `q!`       | `:q!█` |
+
+Ketstrokes we enter after entering Ex mode will show in the status line, showing the text for the command we are building. At this point the status bar for Vim will look like this:
+
+```
+Hello Vim!
+~                                                                               
+~                                                                               
+~                                                                               
+:q!█
+```
+
+Vim is showing us that our current command is `q!`. This command translates to 'quit without saving'. Press the Enter key to execute the command - Vim will now close.
+
+We have seen the basics of modal editing - showing Vim's Command Mode, Insert Mode and Ex Mode. We can also close Vim - which is famously a task that people who haven't used Vim before struggle with! Now let's start building our own Vim Cheat Sheet - using Vim - to show more of what it can do!
+
+## Building a Vim Cheat Sheet
+
+We're going to build a Vim Cheat Sheet - this will be a great way to show what Vim can do at the same time as documenting our learnings as we go along. You'll then be able to extend your personal Cheat Sheet over time with the commands that you find useful.
+
+Let's start by creating a folder to keep the cheat sheet in and initialing an empty Git Repostory in the folder so that we can track changes to the cheat sheet. If you need a reminder on how Git works, check [Chapter 27 - Controlling Changes with Git](../../05-building-your-toolkit/27-controlling-changes-with-git/index.md).
+
+First we'll create a new folder, move into it and then initialise an empty Git repository with the main branched named `main`:
+
+```
+$ mkdir ~/vim-cheatsheet`
+$ cd ~/vim-cheatsheet
+$ git init -b main
+Initialized empty Git repository in /home/dwmkerr/vim-cheatsheet/.git/
+```
+
+## Creating a File in Vim
+
+We now have a new repository ready to hold our cheatsheet. Let's open Vim and tell it that we want to work on a file named `cheatsheet.md`:
+
+```
+$ vi cheatsheet.md
+
+█
+~                                                                               
+~                                                                               
+"cheatsheet.md" [New]                                         0,0-1         All
+```
+
+The text we are editing in Vim is called a _buffer_. A buffer can be thought of as a view on a file - when we open a file we load the context into a buffer - it is this buffer that Vim shows. When we want to create a new file, we enter text in a new buffer and then save it when we are ready.
+
+Vim is showing us in the status line that we have a buffer named _cheatsheet.md_ and that this is a 'New' buffer - it has not been saved.
+
+The extension `md` at the end of the file is short for 'Markdown'. Markdown is a plain text format that is great for documentation. You write text as normal - you can also use some special characters such as Hash `#` to format things like headings, or dash `-` for bullets. Markdown will be rendered in a very reader-friendl way when we look at on things like GitHub.
+
+Let's enter insert mode, and create a title for our cheatsheet, then exit insert mode.
+
+| Keystrokes         | Output              |
+|--------------------|---------------------|
+| `i`                | `█`                 |
+| `# Vim Cheatsheet` | `# Vim Cheatsheet█` |
+| `<C-c>`            | `# Vim Cheatsheet`  |
+
+Now let's use the `w` (_write_) ex-mode command to save the file. Enter `:w<Enter>` - the Vim status line will to tell us it has written the buffer to disk:
+
+```
+# Vim Cheatsheet
+~
+~
+~
+"cheatsheet.md" [New] 1L, 17B written                         1,16          All
+```
+
+Exit Vim by entering `:q<Enter`. Let's add this new cheatsheet file to our repository:
+
+```
+$ git add cheatsheet.md
+```
+
+We're now going to commit this new file. Before we do so, let's tell our shell to use Vim as our text editor - we're going to use Vim to work with Git for the duration of this chapter. When you are more familiar with Vim, being able to to work with Git repositories and commands without leaving the shell and using Vim as the editor will start to feel extremely efficient:
+
+```
+$ export EDITOR=vi
+$ git commit
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: dwmkerr
+#
+# On branch main
+#
+# Initial commit
+#
+# Changes to be committed:
+#       new file:   cheatsheet.md
+#
+~
+~
+"~/vim-cheatsheet/.git/COMMIT_EDITMSG" 13L, 325B              1,0-1         All
+```
+
+Git has opened Vim to ask us to provide a commit message. Git has also provided some helpful information on the changes we are committing - it's told us that we have a new file called _cheatsheet.md_ in the commit. Let's use Vim to enter a commit message:
+
+| Keystrokes           | Output                |
+|----------------------|-----------------------|
+| `i`                  | `█`                   |
+| `add the cheatsheet` | `add the cheatsheet█` |
+| `<C-c>`              | `add the cheatsheet`  |
+
+Now type `:wq` to _write_ and _quit_ - Git will use the message we have provided for the commit:
+
+```
+ 1 file changed, 1 insertion(+)
+ create mode 100644 cheatsheet.md
+```
+
+We've used Vim to create the initial cheatsheet file as well as to quickly set the Git commit message - all without leaving our shell!
+
+### Visual Mode
+
+### Editing Files
+
+TODO: open a file. go into insert mode. edit text. leave insert mode. copy text. visual mode. exit vim.
+
+### TODO structuring this chapter
+
+    Let's create a markdown vim cheatsheet - it'll let us create and edit text, but also bust into git to commit things, append things, we could even use vim to edit the commandline.
+
+    So iteratively build the cheatsheet, vim commit messages, vim the commandline for more complex commands.
+
+    Fixup a command like git commit -m 'some long message with a mistake in it'
+
+    TODO  introduce markdown, show what it looks like rendered
+    use vim help command style, e.g <C-c>
+
+## Modes
+
+
+## Inserting Text
+
+## Motions
+
+## 
+
+## Example: edit the current prompt
+
+## Example: git commands
+
+If you are already in the shell, then you might find it convenient to edit code and files directly from the shell. Getting familiar with some of the capabilities of Vim or Emacs can open up a whole new world for how you work with text in the shell.
+
+Note: using vi as the command line editor for Git would this be a good way to start?
+
+Note: show how vim config works remotely
+
+## TODO
+
+- note that we will create a cheatsheet.
+- show an asciinema of what vim can do ;)
+- is a title with Vim in it better or will it turn people off?
+
+
+## Summary
+
+In this chapter we discussed 
