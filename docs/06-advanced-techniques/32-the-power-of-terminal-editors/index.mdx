@@ -221,30 +221,15 @@ $ git commit
 
 Git has opened Vim to ask us to provide a commit message. Git has also provided some helpful information on the changes we are committing - it's told us that we have a new file called _cheatsheet.md_ in the commit. Let's use Vim to enter a commit message:
 
+import Caret from '../../../src/components/Caret/Caret.tsx';
+
 | Keystrokes           | Output                |
 |----------------------|-----------------------|
-| `i`                  | `█`                   |
-| `add the cheatsheet` | `add the cheatsheet█` |
-| `<C-c>`              | `add the cheatsheet`  |
+|                      | <pre><Caret>V</Caret>im Cheatsheet<br /><br />## Vim Motions<br /><br />Vim motions are commands used to move the cursor. Essential motions are:</pre> | 
 
-Now type `:wq` to _write_ and _quit_ - Git will use the message we have provided for the commit:
-
-```
- 1 file changed, 1 insertion(+)
- create mode 100644 cheatsheet.md
-```
-
-We've used Vim to create the initial cheatsheet file as well as to quickly set the Git commit message - all without leaving our shell!
-
-### Visual Mode
-
-### Editing Files
-
-TODO: open a file. go into insert mode. edit text. leave insert mode. copy text. visual mode. exit vim.
+TODO check the practical vim book for this one.
 
 ### TODO structuring this chapter
-
-    Let's create a markdown vim cheatsheet - it'll let us create and edit text, but also bust into git to commit things, append things, we could even use vim to edit the commandline.
 
     So iteratively build the cheatsheet, vim commit messages, vim the commandline for more complex commands.
 
