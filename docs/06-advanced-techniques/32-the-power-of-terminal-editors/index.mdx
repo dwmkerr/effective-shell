@@ -221,13 +221,168 @@ $ git commit
 
 Git has opened Vim to ask us to provide a commit message. Git has also provided some helpful information on the changes we are committing - it's told us that we have a new file called _cheatsheet.md_ in the commit. Let's use Vim to enter a commit message:
 
+| Keystrokes           | Output                |
+|----------------------|-----------------------|
+| `i`                  | `█`                   |
+| `add the cheatsheet` | `add the cheatsheet█` |
+| `<C-c>`              | `add the cheatsheet`  |
+
+Now type `:wq` to _write_ and _quit_ - Git will use the message we have provided for the commit:
+
+```
+ 1 file changed, 1 insertion(+)
+ create mode 100644 cheatsheet.md
+```
+
+We've used Vim to create the initial cheatsheet file as well as to quickly set the Git commit message - all without leaving our shell!
+
+## Vim Motions and Movement Commands
+
+Vim commands that move the cursor are called 'Motions'. Understanding how motions work is essential to becoming effective at moving around Vim buffers.
+
+Let's open our cheatsheet in Vim:
+
+```
+$ vi cheatsheet.md
+```
+
+Now update the file so that it looks like the version below, this will give us some text to play with:
+
+```sh
+# Vim Cheatsheet
+
+## Vim Motions
+
+Vim motions are commands used to move the cursor.
+```
+
+Now that we have this text, let's see some of the motion commands in action.
+
+The table below shows what I think are the most essential Vim motions:
+
+| Motion | Usage                      | Motion | Usage                      |
+|--------|----------------------------|--------|----------------------------|
+| `gg`   | Go to beginning of buffer. | `h`    | Go left.                   |
+| `G`    | Go to end of buffer.       | `j`    | Go down.                   |
+| `0`    | Go to beginning of line.   | `k`    | Go up.                     |
+| `$`    | Go to end of line.         | `l`    | Go right.                  |
+| `w`    | Go forwards one word.      | `)`    | Go forwards one sentence.  |
+| `b`    | Go backwards one word.     | `(`    | Go backwards one sentence. |
+
+
+Let's see a few of these motions in action. Make sure to use `<C-c>` to exit Insert Mode and enter Command Mode before entering the keystrokes below:
+
 import Caret from '../../../src/components/Caret/Caret.tsx';
 
 | Keystrokes           | Output                |
 |----------------------|-----------------------|
-|                      | <pre><Caret>V</Caret>im Cheatsheet<br /><br />## Vim Motions<br /><br />Vim motions are commands used to move the cursor. Essential motions are:</pre> | 
+| `gg` | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
+| `l` | <pre>#<Caret> </Caret>Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
+| `h` | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
+| `j` | <pre># Vim Cheatsheet<br /><Caret> </Caret><br />## Vim Motions<br /></pre> |
+| `k` | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
 
-TODO check the practical vim book for this one.
+The first motion is `gg` - go to the beginning of the buffer.
+
+The next four motions are `hjkl` - move left, down, up and right. Vim uses these keys as they are all next to each other and on the home row for the right hand. Although it takes a little getting used to, once you use `hjkl` instead of arrow keys to move around you'll wonder how you lived without them - being able to navigate without moving your right hand from the home row let's you navigate text incredibly quickly.
+
+We can use the `0` and `$` motions to go to the beginning and end of a line:
+
+| Keystrokes           | Output                |
+|----------------------|-----------------------|
+| `0` | <pre><Caret>V</Caret>im Cheatsheet</pre> |
+| `$` | <pre>Vim Cheatshee<Caret>t</Caret></pre> |
+
+The `w` and `b` motions move backwards and forwards by one word:
+
+| Keystrokes           | Output                |
+|----------------------|-----------------------|
+| `gg` | <pre><Caret>V</Caret>im Cheatsheet</pre> |
+| `w` | <pre>Vim <Caret>C</Caret>heatsheet</pre> |
+| `b` | <pre><Caret>V</Caret>im Cheatsheet</pre> |
+
+## Vim Command Counts
+
+Many Vim commands can be provided with a 'count', which indicates how many times the command should be run. This makes motions far more flexible - instead of pressing `jjjjj` to move down five lines, we can just press `5j`.
+
+Let's see how the cursor moves when we add counts to motion commands:
+
+| Keystrokes | Output |
+|-|-|
+| `gg`        | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /><br />Vim motions are commands used to move the cursor.</pre> |
+| `4j`        | <pre># Vim Cheatsheet<br /><br />## Vim Motions<br /><br /><Caret>V</Caret>im motions are commands used to move the cursor.</pre> |
+| `3w`        | <pre># Vim Cheatsheet<br /><br />## Vim Motions<br /><br />Vim motions <Caret>a</Caret>re commands used to move the cursor.</pre> |
+
+## Vim Text Insert Commands
+
+Now that we know how to move the cursor with the movement commands, we can move to where we want to insert text and use the `i` command to enter Insert Mode. However, Vim has a set of commands that enter Insert Mode in specific positions - and these can save us moving around unnecessarily!
+
+The most essential 'enter insert mode' commands are:
+
+| Command | Description                                 |
+|---------|---------------------------------------------|
+| `i`     | Insert at cursor.                           |
+| `I`     | Insert beginning of current line.           |
+| `a`     | Append text after the cursor.               |
+| `A`     | Append text at the end of the current line. |
+| `o`     | Open a new line below the position.        |
+| `O`     | Open a new line above the current line.     |
+
+These commands make it much faster to quickly enter Insert Mode just where you like. Let's see some of them in action:
+
+| Keystrokes | Output |
+|-|-|
+| `gg`        | <pre><Caret>#</Caret> Vim Cheatsheet</pre> |
+| `o`        | <pre># Vim Cheatsheet<br /><Caret> </Caret></pre> |
+| `Hello<C-c>`        | <pre># Vim Cheatsheet<br />Hello<Caret> </Caret></pre> |
+| `I`        | <pre># Vim Cheatsheet<br /><Caret>H</Caret>ello</pre> |
+| `Welcome and <C-c>` | <pre># Vim Cheatsheet<br />Welcome and <Caret>H</Caret>ello</pre> |
+| `A` | <pre># Vim Cheatsheet<br />Welcome and Hell<Caret>o</Caret></pre> |
+| ` Vim!<C-c>` | <pre># Vim Cheatsheet<br />Welcome and Hello Vim<Caret>!</Caret></pre> |
+| `o<C-c>` | <pre># Vim Cheatsheet<br /><Caret> </Caret><br />Welcome and Hello Vim</pre> |
+
+We use the `<C-c>` chord to quickly go back into Command Mode when we have inserted text. This should start to become a habit as you use Vim - it is faster to enter small amounts of text, then go back to command mode and reposition the cursor, than to enter lots of text and use the arrow keys to move around in Insert Mode. There is also another benefit to short commands - it makes them easier to repeat with the _Dot Command_ which we'll look at shortly.
+
+Now that we have seen motions and text insert commands, let's look at some essential Vim operators.
+
+## Vim Operators
+
+A Vim operator is any command that can be applied to a range of text. We can combine _counts_, _motions_ and _operators_ to rapidly manipulate a specific part of the buffer.
+
+## The Dot Command
+
+TODO
+
+```sh
+# Vim Cheatsheet
+
+## Vim Motions
+
+Vim motions are commands used to move the cursor. Essential motions are:
+
+* `hjkl` - move the cursor left/down/up/right
+* `w` - forward one word
+* `b` - back one word
+* `(` - back one sentence
+* `)` - forwards one sentence
+* `0` - begining of line
+* `$` - end of line
+* `gg` - beginning of buffer
+* `G` - end of buffer
+
+Motions can take a `{count}` - this indicates how many motions we want to make, such as `3w` to move forwards three words.
+```
+
+Before we continue we should note that there are three new Markdown syntax features we have used:
+
+1. The `##` characters, which indicate a sub-heading
+2. The `*` character, which indicates an item in a bullet list (a dash `-` can also be used for this)
+3. The backtick `` ` `` character, which can surround text to indicate that it is code and should be rendered as such
+
+These simple formatting features will make the cheatsheet look excellent when it is viewed on GitHub or in a suitable editor - here's how it looks on GitHub at the moment:
+
+<img alt="Screenshot: Basic Markdown Rendered by GitHub" src={require('./images/markdown-basic.png').default} width="800px" />
+
 
 ### TODO structuring this chapter
 
@@ -238,20 +393,9 @@ TODO check the practical vim book for this one.
     TODO  introduce markdown, show what it looks like rendered
     use vim help command style, e.g <C-c>
 
-## Modes
-
-
-## Inserting Text
-
-## Motions
-
-## 
-
 ## Example: edit the current prompt
 
 ## Example: git commands
-
-If you are already in the shell, then you might find it convenient to edit code and files directly from the shell. Getting familiar with some of the capabilities of Vim or Emacs can open up a whole new world for how you work with text in the shell.
 
 Note: using vi as the command line editor for Git would this be a good way to start?
 
@@ -260,7 +404,7 @@ Note: show how vim config works remotely
 ## TODO
 
 - note that we will create a cheatsheet.
-- show an asciinema of what vim can do ;)
+- show an asciinema of what vim can do ;) - show how to turn the plain text into markdown
 - is a title with Vim in it better or will it turn people off?
 
 
