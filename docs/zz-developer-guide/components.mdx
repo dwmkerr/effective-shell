@@ -1,0 +1,38 @@
+---
+title: Components
+---
+
+This page shows the custom components that are available for Effective Shell. These are primarily used to improve the reading experience for code samples.
+
+To add more components to this page, please check the `src/theme/ReactLiveScope/index.js` file, which has been swizzled as per the guide at [Docusaurus - Code Blocks - Interactive code editor](https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor). Each custom component you want to use must be included in this file.
+
+## Caret
+
+The `Caret` component is useful when showing Vim or Terminal samples where you need to indicate the position of the caret. It can show a block caret, which is the standard for an ASCII terminal, or a line caret, which can be used in things like iTerm to indicate Insert Mode for Vim.
+
+First, import the component:
+
+```jsx
+import Caret from '@site/src/components/Caret';
+```
+
+Use the component as below:
+
+```jsx live
+<code className="language-python">
+    def search_for_word<Caret caretStyle='block'>(</Caret>word):
+</code>
+```
+
+The following properties are exposed:
+
+| Property         | Usage                                                                             |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `caretStyle`           | The style of the cursor, `block` by default, or `line` for an 'insert mode' cursor. |
+
+## Tips for Developing Components
+
+Check the following resources for useful tips on Component Development:
+
+- [Docusaurus - Styling and Layout](https://docusaurus.io/docs/styling-layout)
+- [Docusaurus - Code Blocks - Interactive code editor](https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor)

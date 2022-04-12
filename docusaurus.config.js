@@ -129,6 +129,16 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      liveCodeBlock: {
+        /**
+         * The position of the live playground, above or under the editor
+         * Possible values: "top" | "bottom"
+         * We use 'top' as we are currently using this editor to preview
+         * components, and we want to show the rendered component before its
+         * code (see 'Developer Guide > Components').
+         */
+        playgroundPosition: 'top',
+      },
     }),
 
   plugins: [
@@ -140,6 +150,10 @@ const config = {
     ],
     [
       require.resolve('docusaurus-plugin-drawio'),
+      {}
+    ],
+    [
+      require.resolve('@docusaurus/theme-live-codeblock'),
       {}
     ],
   ],

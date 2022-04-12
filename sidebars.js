@@ -92,6 +92,13 @@ const sidebars = {
         'xx-appendices/thanks',
       ]
     },
+    {
+      type: 'category',
+      label: 'Developer Guide',
+      items: [
+        'zz-developer-guide/components',
+      ]
+    },
   ],
 };
 
