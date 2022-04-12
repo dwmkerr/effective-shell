@@ -6,6 +6,30 @@ This page shows the custom components that are available for Effective Shell. Th
 
 To add more components to this page, please check the `src/theme/ReactLiveScope/index.js` file, which has been swizzled as per the guide at [Docusaurus - Code Blocks - Interactive code editor](https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor). Each custom component you want to use must be included in this file.
 
+## AnnotatedCommand
+
+The `AnnotatedCommand` component is used to create a set of keystrokes, for example for Vim, with a small text annotation beneath. This is useful in Markdown tables showing how Vim commands work, as multiline text in tables is a bit fiddly to work with.
+
+First, import the component:
+
+```jsx
+import AnnotatedCommand from '@site/src/components/AnnotatedCommand/AnnotatedCommand.tsc';
+```
+
+Use the component as below:
+
+```jsx live
+<AnnotatedCommand
+  annotation="Go to beginning of buffer, change two words"
+>gg2cw</AnnotatedCommand>
+```
+
+The following properties are exposed:
+
+| Property         | Usage                                                                             |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `annotation`           | The text to show beneath the command. |
+
 ## Caret
 
 The `Caret` component is useful when showing Vim or Terminal samples where you need to indicate the position of the caret. It can show a block caret, which is the standard for an ASCII terminal, or a line caret, which can be used in things like iTerm to indicate Insert Mode for Vim.
@@ -13,7 +37,7 @@ The `Caret` component is useful when showing Vim or Terminal samples where you n
 First, import the component:
 
 ```jsx
-import Caret from '@site/src/components/Caret';
+import Caret from '@site/src/components/Caret/Caret.tsx';
 ```
 
 Use the component as below:
