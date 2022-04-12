@@ -7,6 +7,7 @@ import ReactLiveScope from '@theme-original/ReactLiveScope';
 //  import CodeBlock from '@theme/CodeBlock';
 
 import AnnotatedCommand from '@site/src/components/AnnotatedCommmand/AnnotatedCommand.tsx';
+import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer/AsciinemaPlayer.tsx';
 import Caret from '@site/src/components/Caret/Caret.tsx';
 
 const ReactLiveScopeWrapper = (props) => (
@@ -18,6 +19,7 @@ const ReactLiveScopeWrapper = (props) => (
 //  Add any custom components you want to have available in the React Live
 //  Codeblock component to the ReactLiveScopeWrapper below.
 ReactLiveScopeWrapper.AnnotatedCommand = AnnotatedCommand;
+ReactLiveScopeWrapper.AsciinemaPlayer = AsciinemaPlayer;
 ReactLiveScopeWrapper.Caret = Caret;
 
 export default ReactLiveScopeWrapper;

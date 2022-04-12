@@ -6,6 +6,47 @@ This page shows the custom components that are available for Effective Shell. Th
 
 To add more components to this page, please check the `src/theme/ReactLiveScope/index.js` file, which has been swizzled as per the guide at [Docusaurus - Code Blocks - Interactive code editor](https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor). Each custom component you want to use must be included in this file.
 
+## AsciinemaPlayer
+
+The `AsciinemaPlayer` component is renders an [`asciinema`](https://asciinema.org/) recording. Note that the recording file must be available to be served to the browser, so it will normally live somewhere in the `static` folder.
+
+First, import the component:
+
+```jsx
+import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer/AsciinemaPlayer.tsc';
+```
+
+Use the component as below:
+
+```jsx live
+<AsciinemaPlayer
+    style={{'width': '800px'}}
+    src="/casts/483782.cast"
+    poster="npt:0:23"
+    autoPlay={true}
+    preload={true}
+/>
+```
+
+The bulk of the properties that are exposed are directly from the [`asciinema-player`](https://github.com/asciinema/asciinema-player) component - this page has a more detailed description of many of the properties listed below. The following properties are exposed:
+
+| Property         | Usage                                                                             |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `src` | The location of the cast file, must be available from the browser. |
+| `style` | Any additional CSS styles to apply. |
+| `cols` | The number of columns in the player's terminal. |
+| `rows` | The number of rows in the player's terminal. |
+| `autoPlay` |  Set this option to `true` if playback should start automatically. |
+| `preload` | Set this option to `true` if the recording should be preloaded on player's initialization. |
+| `loop` | Set this option to either true or a number if playback should be looped. When set to a number (e.g. 3) then the recording will be re-played given number of times and stopped after that. |
+| `startAt` |  Start playback at a given time. |
+| `speed` |  Playback speed. The value of 2 means 2x faster. |
+| `idleTimeLimit` | Limit terminal inactivity to a given number of seconds. |
+| `theme` | Terminal color theme. |
+| `poster` | Poster (a preview frame) to display until the playback is started. |
+| `fit` | Controls the player's fitting (sizing) behaviour inside its container element. |
+| `fontSize` | Size of the terminal font. |
+
 ## AnnotatedCommand
 
 The `AnnotatedCommand` component is used to create a set of keystrokes, for example for Vim, with a small text annotation beneath. This is useful in Markdown tables showing how Vim commands work, as multiline text in tables is a bit fiddly to work with.
