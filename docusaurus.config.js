@@ -55,6 +55,11 @@ const config = {
             require.resolve('react-mailchimp-email-signup-form/dist/esm/index.css'),
             require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
           ],
+
+          //  Add theming support for languages we use.
+          prism: {
+            additionalLanguages: [],
+          },
         },
         gtag: {
           trackingID: 'G-8HZFMZV9Z4',

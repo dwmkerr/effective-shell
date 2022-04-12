@@ -4,6 +4,10 @@ slug: '/part-6-advanced-techniques/the-power-of-terminal-editors/'
 chapterNumber: 32
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+import AnnotatedCommand from '../../../src/components/AnnotatedCommmand/AnnotatedCommand.tsx';
+import Caret from '../../../src/components/Caret/Caret.tsx';
+
 A Terminal Editor is a text editor that you can open directly in your terminal, normally from the shell. Many users find these editors hard to use, and some of them have a reputation for being highly complex.
 
 In this chapter we'll look at perhaps the most popular terminal editor - Vim. We'll see why we might want to use or, or at least become familiar with it, and show just a few features that might excite you enough to want to dive in and learn more!
@@ -272,7 +276,6 @@ The table below shows what I think are the most essential Vim motions:
 
 Let's see a few of these motions in action. Make sure to use `<C-c>` to exit Insert Mode and enter Command Mode before entering the keystrokes below:
 
-import Caret from '../../../src/components/Caret/Caret.tsx';
 
 | Keystrokes           | Output                |
 |----------------------|-----------------------|
@@ -349,9 +352,88 @@ Now that we have seen motions and text insert commands, let's look at some essen
 
 A Vim operator is any command that can be applied to a range of text. We can combine _counts_, _motions_ and _operators_ to rapidly manipulate a specific part of the buffer.
 
-## The Dot Command
+Some of the operators that are particularly useful are listed in the table below - we'll see them in action afterwards:
 
-TODO
+| Operator | Description                                                  |
+|----------|--------------------------------------------------------------|
+| `c`      | Change the range, i.e. delete the characters and move into insert mode at the beginning of the range.                                            |
+| `d`      | Delete the range.                                            |
+| `y`      | Yank the range - copy it to a register ready to paste later. |
+| `g~`     | Swap case.                                                   |
+| `gu`     | Make lowercase ('go lower').                                 |
+| `gU`     | Make uppercase ('go upper').                                 |
+| `!`      | Send through external program.                               |
+
+We can use one of these operators with a motion to alter a range of text. Let's see some of the basic operators:
+
+| Keystrokes                                   | Output                                                 |
+|----------------------------------------------|--------------------------------------------------------|
+| <AnnotatedCommand annotation="Go to the beginning of the buffer">gg</AnnotatedCommand> | <pre><Caret>W</Caret>elcome to Vim!</pre>              |
+| <AnnotatedCommand annotation="Move forwards one word">w</AnnotatedCommand> | <pre>Welcome <Caret>t</Caret>o Vim!</pre>              | 
+| <AnnotatedCommand annotation="Change two words">c2w</AnnotatedCommand> | <pre>Welcome to <Caret> </Caret></pre>                 |
+| <AnnotatedCommand annotation="Enter new text, go to Command Mode">to Terminal Editing!&lt;C-c&gt;</AnnotatedCommand> | <pre>Welcome to Terminal Editing<Caret>!</Caret></pre> |
+| <AnnotatedCommand annotation="Go uppercase to the beginning of the line">gU0</AnnotatedCommand>  | <pre><Caret>W</Caret>ELCOME TO TERMINAL EDITING!</pre> |
+
+Hopefully from these examples you are starting to get an idea of just how powerful modal editing is - you are able to express complex changes to text, ranges of text, and movements in the buffer with just a few keystrokes.
+
+These operators can also quickly be applied to the current line - just type them twice!
+
+Let's look at some other ways to combine motions and operators to manipulate text.
+
+| Operator | Description                                                  |
+|----------|--------------------------------------------------------------|
+| `cc`      | Change current line, i.e. delete the line and move into insert mode at the beginning of the line.                                            |
+| `dd`      | Delete the current line.                                            |
+| `yy`      | Yank the current line - copy it to a register ready to paste later. |
+| `g~~`     | Swap case for the current line.                                                   |
+| `guu`     | Make lowercase ('go lower') for the current line.                                 |
+| `gUU`     | Make uppercase ('go upper') for the current line.                                 |
+
+## Search Motions and the 'In' and 'A' Operators
+
+Some of the most powerful motions are the ones that can be used to search for a specific character. These 'search' motions can be used to quickly select a range of characters for an operator to perform on. Let's see a few of the most essential search motions:
+
+| Motion         | Description                                     |
+|----------------|-------------------------------------------------|
+| `f{character}` | Find the next specified character.              |
+| `F{character}` | Find the previous specified character.          |
+| `t{character}` | 'To' the next specified character.              |
+| `T{character}` | 'To' the previous previous specified character. |
+
+Now let's see how these motions look in action, by quickly moving around a little bit of Python code:
+
+| keystrokes                                   | output                                                 |
+|----------------------------------------------|--------------------------------------------------------|
+| <AnnotatedCommand annotation="go to next '(' character">f(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>word):</CodeBlock> |
+| <AnnotatedCommand annotation="go to second previous 'd' character">2fd</AnnotatedCommand> | <CodeBlock language="python"><Caret>d</Caret>ef search_for_word(word):</CodeBlock> |
+| <AnnotatedCommand annotation="go to first '_' character">t_</AnnotatedCommand> | <CodeBlock language="python">def searc<Caret>h</Caret>_for_word(word):</CodeBlock> |
+| <AnnotatedCommand annotation="go to previous space character">t </AnnotatedCommand> | <CodeBlock language="python">def<Caret> </Caret>search_for_word(word):</CodeBlock> |
+
+Just like any motion, we can add a `{count}` to indicate how many times we want the motion to run.
+
+Two other powerful motions are 'in' and 'a' - these motions are special because they come after the operator. Let's change some text using these motions:
+
+| Keystrokes                                   | output                                                 |
+|----------------------------------------------|--------------------------------------------------------|
+| <AnnotatedCommand annotation="Find first '(' character">f(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>word):</CodeBlock> |
+| <AnnotatedCommand annotation="Go uppercase in brackets">gUi)</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(<Caret>W</Caret>ORD):</CodeBlock> |
+| <AnnotatedCommand annotation="Make entire line lowercase">guu</AnnotatedCommand> | <CodeBlock language="python"><Caret>d</Caret>ef search_for_word(word):</CodeBlock> |
+| <AnnotatedCommand annotation="Find first bracket, delete a 'brackets'">f(da(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>:</Caret></CodeBlock> |
+
+The 'in' and 'a' modifiers for an operator are particularly useful when you want to change the contents of something like brackets, parenthesis, braces and so on. If you use `ca)` for example, you are saying 'Change a Brackets' - the brackets are removed and you are put into insert mode at the position the brackets were in. In comparison, `ci{` changes 'in' braces, removing the text inside the braces, but keeping the braces themselves. If you use an open bracket or brace, space is added to pad out your insert, if you use a close bracket or brace, no spaces are used:
+
+| Keystrokes                                   | Output                                                 |
+|----------------------------------------------|--------------------------------------------------------|
+| <AnnotatedCommand annotation="Change in brackets">ci)</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>):</CodeBlock> |
+| <AnnotatedCommand annotation="Enter text, return to Command Mode">{`word = "default"<C-c>`}</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = "default"<Caret>)</Caret>):</CodeBlock> |
+| <AnnotatedCommand annotation="Change a quotes">ca"</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = <Caret>)</Caret>:</CodeBlock> |
+
+
+At this stage we have seen just a few of the essential Vim features. Let's update our cheatsheet.
+
+## Editing Commands in Vim
+
+We're going to update our cheatsheet with a few notes - at this stage you can add any notes that you think are the most relevant, here are the first few lines of what I have added:
 
 ```sh
 # Vim Cheatsheet
@@ -383,31 +465,76 @@ These simple formatting features will make the cheatsheet look excellent when it
 
 <img alt="Screenshot: Basic Markdown Rendered by GitHub" src={require('./images/markdown-basic.png').default} width="800px" />
 
+Let's add these changes to Git - and show one more way to use Vim. Enter the line of text below in the shell but don't press 'Enter' to execute it yet!
 
-### TODO structuring this chapter
+```
+$ git commit -m 'added more detail on motions'
+```
 
-    So iteratively build the cheatsheet, vim commit messages, vim the commandline for more complex commands.
+This command will commit the changes - but we haven't added any yet! Rather than fixing this by moving around the command line, let's just open the current shell command line in Vim. Press `^x^e` - this is the shell command to open the current line in the editor:
 
-    Fixup a command like git commit -m 'some long message with a mistake in it'
+```
+git commit -m 'added more detail on motions'
+~
+~
+~
+"/tmp/bash-fc-5094983766" 1L, 45B                             1,1           All
+```
 
-    TODO  introduce markdown, show what it looks like rendered
-    use vim help command style, e.g <C-c>
+Let's fix up the command with our new Vim skills:
 
-## Example: edit the current prompt
+| Keystrokes                                   | Output                                                 |
+|----------------------------------------------|--------------------------------------------------------|
+| <AnnotatedCommand annotation="Enter insert mode">i</AnnotatedCommand> | <CodeBlock><Caret>g</Caret>it commit -m 'added more detail on motions'</CodeBlock> |
+| <AnnotatedCommand annotation="Add text, enter command mode">{`git add . && <C-c>`}</AnnotatedCommand> | <CodeBlock>git add . &&<Caret> </Caret>git commit -m 'added more detail on motions'</CodeBlock> |
+| <AnnotatedCommand annotation="Write and quit">:wq</AnnotatedCommand> | (Vim closes and `git commit` compltes) |
 
-## Example: git commands
+Being able to rapidly edit the current shell command in Vim is a huge time saver.
 
-Note: using vi as the command line editor for Git would this be a good way to start?
+## Next Steps with Vim
 
-Note: show how vim config works remotely
+Vim is a huge topic - we've barely scratched the surface but I hope have focused on the features that you can use most immediately. As you use Vim more, I would recommend learning about the following features in order:
 
-## TODO
+1. The dot command
+2. Visual mode
+3. Yank and paste and registers
+4. Search and replace
+5. Customising Vim with the _~/.vimrc_ file
 
-- note that we will create a cheatsheet.
-- show an asciinema of what vim can do ;) - show how to turn the plain text into markdown
-- is a title with Vim in it better or will it turn people off?
+There are a few resources that I would recommend. The first is `vimtutor` and the next are some excellent online resources and books.
 
+### Vimtutor
+
+Vim comes installed with a very useful `vimtutor` program. You can run this program to open Vim with a special file that describes the key functionality of Vim.
+
+Use this program regularly while you are learning Vim to see how familiar you are getting and refresh your skills!
+
+### Vimcasts
+
+The excellent website [Vimcasts](http://vimcasts.org/) by Drew Neil has some superb videos on how to use Vim - from the basics to some really advanced functionality.
+
+Drew Neil is an extremely skilled Vim user and does a superb job of making a complex subject easy to follow.
+
+### Practical Vim & Modern Vim
+
+If you are enjoying using Vim, Drew Neil's books "Practical Vim" and "Modern" Vim should be on your bookshelf! They are truly excellent and again, just like his Vimcasts, make a complex subject much more user friendly.
 
 ## Summary
 
-In this chapter we discussed 
+In this chapter we introduced the concept of the terminal editor. We looked at the essentials of Vim, Insert Mode, Command Mode, motions, operators and more. We also introduced some resources that will help with your learning journey.
+
+In the next chapter we'll look at another essential tool - the Terminal Multiplexer.
+
+## TODO
+
+- show an asciinema of what vim can do ;) - show how to turn the plain text into markdown, recording can show lowercase text in the headings being headerised with tilde and visual mode, insert mode to add the title symbol
+- is a title with Vim in it better or will it turn people off?
+- visual mode - headingise with tilde
+- Caret as a component like this `<Caret style='select' />` that uses CSS post to format the next letter, with insert mode caret
+- Edit command - go back to apostropme in `-m 'message'` and `ci'`
+- add reading list to this and next chapter
+- essential next steps: line numbers, style, configuration
+- 'selection' component
+- style guide showing components in action, with the online editor would be v cool, as an appendix
+- two of the examples that have braces in the annotation are showing extra braces
+
