@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0](https://github.com/dwmkerr/effective-shell/compare/v0.24.3...v0.25.0) (2022-04-14)
+
+
+### Features
+
+* chapter 31 - the power of terminal editors ([#196](https://github.com/dwmkerr/effective-shell/issues/196)) ([0a02579](https://github.com/dwmkerr/effective-shell/commit/0a02579dfe14c94964fe1b0337c43d296c4573c9))
+
 ### [0.24.3](https://github.com/dwmkerr/effective-shell/compare/v0.24.2...v0.24.3) (2022-04-07)
 
 
