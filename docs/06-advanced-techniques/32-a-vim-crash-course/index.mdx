@@ -1,16 +1,17 @@
 ---
-title: 'The Power of Terminal Editors'
-slug: '/part-6-advanced-techniques/the-power-of-terminal-editors/'
+title: 'A Vim Crash Course'
+slug: '/part-6-advanced-techniques/a-vim-crash-course/'
 chapterNumber: 32
 ---
 
 import CodeBlock from '@theme/CodeBlock';
+import Image from '@theme/IdealImage';
 import AnnotatedCommand from '@site/src/components/AnnotatedCommmand/AnnotatedCommand.tsx';
 import Caret from '@site/src/components/Caret/Caret.tsx';
 
-A Terminal Editor is a text editor that you can open directly in your terminal, normally from the shell. Many users find these editors hard to use, and some of them have a reputation for being highly complex.
+In this chapter we're going to introduce the popular Terminal Editor _Vim_. A Terminal Editor is a text editor that you can open directly in your terminal, normally from the shell. Many users find these editors hard to use, and some of them have a reputation for being highly complex.
 
-In this chapter we'll look at perhaps the most popular terminal editor - Vim. We'll see why we might want to use or, or at least become familiar with it, and show just a few features that might excite you enough to want to dive in and learn more!
+In this chapter we'll see why we might want to use or at least become familiar with Vim, and show just a few features that might excite you enough to want to dive in and learn more!
 
 ## What is a Terminal Editor
 
@@ -26,9 +27,9 @@ So with such a selection of powerful and user-friendly text editing options avai
 
 There are many reason, but perhaps the most compelling one is that you will not always have a graphical environment available! If you are working on a remote server using the `ssh` tool as described in [Chapter 31 - The Secure Shell](../31-the-secure-shell/index.mdx), you will not have a desktop or windowed environment to run a graphical tool. The _only_ options available for you to edit text, code or scripts in such an environment are terminal editors - because the terminal is your only interface to the server.
 
-There are other times where you might not have easy access to a graphical environment - for example if you are editing a file in a Docker container using your terminal.
+There are other times where you might not have easy access to a graphical environment - for example if you are editing a file in a Docker container.
 
-For this reason alone it is useful to become familiar with at least one terminal editor. However, there are some other reasons I think are quite compelling:
+There are some other reasons that being able to use a terminal editor is powerful:
 
 **Maintaining flow** - if you are working in a shell already and need to edit text, being able to quickly do so without leaving the shell, and ideally without even having to touch the mouse, will allow you to maintain your 'flow' while you work.
 
@@ -42,17 +43,15 @@ All in all I believe it is extremely useful to get to grips with at least the ba
 
 ## Introducing Vim
 
-We're going to learn the basics of the editor Vim in this chapter. I have chosen Vim as it has the reputation for being the most complex of the terminal text editors to work with, but actually with an hour or two of practice you'll find that it is quite straightforward to use for simple tasks.
+I have chosen Vim as it has the reputation for being the most complex of the terminal text editors to work with, but actually with an hour or two of practice you'll find that it is quite straightforward to use for simple tasks. With just a little knowledge you'll be effective - and as you invest more time in learning you'll become increasingly efficient.
 
 Vim is installed on most Linux distributions out of the box and is an extremely popular editor. But it has a style of editing, called _Modal Editing_ that can be a bit confusing at first.
 
 ### What is Modal Editing?
 
-Vim is a _modal text editor_. This means that it runs in different 'modes' - and in each mode the keyboard has different functions. One of these modes is 'insert mode' - in this mode your keyboard is used just like with a normal text editor, as you type you edit the text on the screen. This is the mode that will be familiar to most users. But it is not Vim's only mode - or even the mode it will be in when you open it. So let's take a look at modal editing in action by opening Vim and performing some basic text editing operations.
+Vim is a _modal text editor_. This means that it runs in different 'modes' - and in each mode the keyboard has different functions. For example, when you are in _Command Mode_ the keyboard is used to enter sequences that manipulate text or move the cursor. In _Insert Mode_ your keyboard is used just like with a normal text editor - typing edits the text on the screen.
 
 ### Modal Editing in Action
-
-Before we go into the bulk of this chapter, which will be using Vim to create our own personal Vim Cheatsheet, let's just take a look at Vim's modal editing in action.
 
 First, we'll open Vim by running the `vi` command:
 
@@ -85,7 +84,7 @@ $ vi
                                                               0,0-1         All 
 ```
 
-When Vim is started, it either displays the file that it has been asked to open, or if no file has been provided it shows the welcome message above.
+When Vim is started it either displays the file that it has been asked to open or if no file has been provided it shows the welcome message above.
 
 Vim starts in **Command Mode**. This means that the keys on the keyboard are not used to enter text - they are used to enter commands. One command that is going to be useful is the 'insert' command, which tells vim to enter **Insert Mode**, before the cursor. The position of the cursor in the code block above is shown with a full-block `█` symbol.
 
@@ -93,8 +92,8 @@ Let's insert some text. Enter the characters in the first column of the table be
 
 | Keystrokes   | Output        |
 |--------------|---------------|
-| `i`          | `█`           |
-| `Hello Vim!` | `Hello Vim!█` |
+| <AnnotatedCommand annotation="Enter insert mode">i</AnnotatedCommand> | <CodeBlock><Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Enter text">Hello Vim!</AnnotatedCommand> | <CodeBlock>Hello Vim!<Caret> </Caret></CodeBlock> |
 
 The `i` command tells Vim to enter **Insert Mode**. Insert mode is the mode that will be most familiar to you - when Vim is in insert mode your keystrokes enter text in the current file. When Vim is in insert mode it behaves more like a non-modal editor. We can enter some text as shown above.
 
@@ -108,7 +107,7 @@ Hello Vim!█
 -- INSERT --                                                  1,11          All
 ```
 
-If Vim is not in its default 'Command Mode', it will show you what mode you are in on the status line at the bottom of the screen.
+Vim will show you what mode you are in on the status line at the bottom of the screen. Vim's default mode is 'Command Mode' - when Vim is in command mode the mode is not shown - it's what you assume Vim is in unless it tells you otherwise.
 
 To return to Command Mode, press Control and 'C', or 'Escape'. In Vim's documentation a 'chord', which is more than one key pressed at the same time, is shown in angled brackets, to differentiate it from a 'sequence' which is a set of keystrokes pressed one after the other. Control and C is written as `<C-c>` in the documentation for Vim. We will use the same style to describe chords and sequences.
 
@@ -116,7 +115,7 @@ Let's exit insert mode:
 
 | Keystrokes | Output       |
 |------------|--------------|
-| `<C-c>`    | `Hello Vim!` |
+| <AnnotatedCommand annotation="Command mode">&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock>Hello Vim<Caret>!</Caret></CodeBlock> |
 
 You will notice that the `-- INSERT --` text in the status bar is no longer shown - meaning we are back in Command Mode.
 
@@ -124,10 +123,10 @@ Let's exit Vim. When we are in Command Mode, the keystrokes when enter are used 
 
 | Keystrokes | Output |
 |------------|--------|
-| `:`        | `:█`   |
-| `q!`       | `:q!█` |
+| <AnnotatedCommand annotation="Start ex command">:</AnnotatedCommand> | <CodeBlock>:<Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Quit without saving">q!</AnnotatedCommand> | <CodeBlock>:q!<Caret> </Caret></CodeBlock> |
 
-Ketstrokes we enter after entering Ex mode will show in the status line, showing the text for the command we are building. At this point the status bar for Vim will look like this:
+Keystrokes we enter after entering Ex mode will show in the status line, showing the text for the command we are building. At this point the status bar for Vim will look like this:
 
 ```
 Hello Vim!
@@ -139,13 +138,13 @@ Hello Vim!
 
 Vim is showing us that our current command is `q!`. This command translates to 'quit without saving'. Press the Enter key to execute the command - Vim will now close.
 
-We have seen the basics of modal editing - showing Vim's Command Mode, Insert Mode and Ex Mode. We can also close Vim - which is famously a task that people who haven't used Vim before struggle with! Now let's start building our own Vim Cheat Sheet - using Vim - to show more of what it can do!
+We have seen the basics of modal editing - showing Vim's Command Mode, Insert Mode and Ex Mode. We can also close Vim - which is famously a task that people who haven't used Vim before struggle with! Now let's start building our own Vim Cheatsheet - using Vim - to show more of what it can do!
 
 ## Building a Vim Cheat Sheet
 
-We're going to build a Vim Cheat Sheet - this will be a great way to show what Vim can do at the same time as documenting our learnings as we go along. You'll then be able to extend your personal Cheat Sheet over time with the commands that you find useful.
+We're going to build a Vim Cheatsheet - this will be a great way to show what Vim can do at the same time as documenting our learnings as we go along. You'll then be able to extend your personal Cheatsheet over time with the commands that you find useful.
 
-Let's start by creating a folder to keep the cheat sheet in and initialing an empty Git Repostory in the folder so that we can track changes to the cheat sheet. If you need a reminder on how Git works, check [Chapter 27 - Controlling Changes with Git](../../05-building-your-toolkit/27-controlling-changes-with-git/index.md).
+Let's start by creating a folder to keep the cheat sheet in and initialing an empty Git Repository in the folder so that we can track changes to the cheat sheet. If you need a reminder on how Git works, check [Chapter 27 - Controlling Changes with Git](../../05-building-your-toolkit/27-controlling-changes-with-git/index.md).
 
 First we'll create a new folder, move into it and then initialise an empty Git repository with the main branched named `main`:
 
@@ -179,9 +178,9 @@ Let's enter insert mode, and create a title for our cheatsheet, then exit insert
 
 | Keystrokes         | Output              |
 |--------------------|---------------------|
-| `i`                | `█`                 |
-| `# Vim Cheatsheet` | `# Vim Cheatsheet█` |
-| `<C-c>`            | `# Vim Cheatsheet`  |
+| <AnnotatedCommand annotation="Enter insert mode">i</AnnotatedCommand> | <CodeBlock><Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Enter text"># Vim Cheatsheet</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Enter command mode">&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock># Vim Cheatshee<Caret>t</Caret></CodeBlock> |
 
 Now let's use the `w` (_write_) ex-mode command to save the file. Enter `:w<Enter>` - the Vim status line will to tell us it has written the buffer to disk:
 
@@ -193,19 +192,19 @@ Now let's use the `w` (_write_) ex-mode command to save the file. Enter `:w<Ente
 "cheatsheet.md" [New] 1L, 17B written                         1,16          All
 ```
 
-Exit Vim by entering `:q<Enter`. Let's add this new cheatsheet file to our repository:
+Exit Vim by entering `:q<Enter>`. Let's add this new cheatsheet file to our repository:
 
 ```
 $ git add cheatsheet.md
 ```
 
-We're now going to commit this new file. Before we do so, let's tell our shell to use Vim as our text editor - we're going to use Vim to work with Git for the duration of this chapter. When you are more familiar with Vim, being able to to work with Git repositories and commands without leaving the shell and using Vim as the editor will start to feel extremely efficient:
+Let's tell our shell to use Vim as our text editor. We're going to use Vim to work with Git for the duration of this chapter. When you are more familiar with Vim, being able to to work with Git repositories and commands without leaving the shell and using Vim as the editor will start to feel extremely efficient:
 
 ```
 $ export EDITOR=vi
 $ git commit
 
-
+█
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 #
@@ -227,9 +226,9 @@ Git has opened Vim to ask us to provide a commit message. Git has also provided 
 
 | Keystrokes           | Output                |
 |----------------------|-----------------------|
-| `i`                  | `█`                   |
-| `add the cheatsheet` | `add the cheatsheet█` |
-| `<C-c>`              | `add the cheatsheet`  |
+| <AnnotatedCommand annotation="Enter insert mode">i</AnnotatedCommand> | <CodeBlock><Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Enter text">add the cheatsheet</AnnotatedCommand> | <CodeBlock>add the cheatsheet<Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Enter command mode">&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock>add the cheatshee<Caret>t</Caret></CodeBlock> |
 
 Now type `:wq` to _write_ and _quit_ - Git will use the message we have provided for the commit:
 
@@ -276,14 +275,13 @@ The table below shows what I think are the most essential Vim motions:
 
 Let's see a few of these motions in action. Make sure to use `<C-c>` to exit Insert Mode and enter Command Mode before entering the keystrokes below:
 
-
 | Keystrokes           | Output                |
 |----------------------|-----------------------|
-| `gg` | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
-| `l` | <pre>#<Caret> </Caret>Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
-| `h` | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
-| `j` | <pre># Vim Cheatsheet<br /><Caret> </Caret><br />## Vim Motions<br /></pre> |
-| `k` | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /></pre> |
+| <AnnotatedCommand annotation="Go to beginning of buffer">gg</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions<br /><br />## Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go right">l</AnnotatedCommand> | <CodeBlock>#<Caret>#</Caret> Vim Motions<br /><br />## Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go left">h</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions<br /><br />## Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go down">j</AnnotatedCommand> | <CodeBlock>## Vim Motions<br /><Caret> </Caret><br />## Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go up">k</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions<br /><br />## Vim Motions</CodeBlock> |
 
 The first motion is `gg` - go to the beginning of the buffer.
 
@@ -293,16 +291,16 @@ We can use the `0` and `$` motions to go to the beginning and end of a line:
 
 | Keystrokes           | Output                |
 |----------------------|-----------------------|
-| `0` | <pre><Caret>V</Caret>im Cheatsheet</pre> |
-| `$` | <pre>Vim Cheatshee<Caret>t</Caret></pre> |
+| <AnnotatedCommand annotation="Go to beginning of line">0</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go to end of line">$</AnnotatedCommand> | <CodeBlock>## Vim Motion<Caret>s</Caret></CodeBlock> |
 
 The `w` and `b` motions move backwards and forwards by one word:
 
 | Keystrokes           | Output                |
 |----------------------|-----------------------|
-| `gg` | <pre><Caret>V</Caret>im Cheatsheet</pre> |
-| `w` | <pre>Vim <Caret>C</Caret>heatsheet</pre> |
-| `b` | <pre><Caret>V</Caret>im Cheatsheet</pre> |
+| <AnnotatedCommand annotation="Go to beginning of line">0</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go forward one word">w</AnnotatedCommand> | <CodeBlock>## <Caret>V</Caret>im Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go to back one word">b</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions</CodeBlock> |
 
 ## Vim Command Counts
 
@@ -312,9 +310,9 @@ Let's see how the cursor moves when we add counts to motion commands:
 
 | Keystrokes | Output |
 |-|-|
-| `gg`        | <pre><Caret>#</Caret> Vim Cheatsheet<br /><br />## Vim Motions<br /><br />Vim motions are commands used to move the cursor.</pre> |
-| `4j`        | <pre># Vim Cheatsheet<br /><br />## Vim Motions<br /><br /><Caret>V</Caret>im motions are commands used to move the cursor.</pre> |
-| `3w`        | <pre># Vim Cheatsheet<br /><br />## Vim Motions<br /><br />Vim motions <Caret>a</Caret>re commands used to move the cursor.</pre> |
+| <AnnotatedCommand annotation="Go to beginning of buffer">gg</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions<br /><br />## Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go down four lines">4j</AnnotatedCommand> | <CodeBlock>## Vim Motions<br /><br /><Caret>#</Caret># Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Go forwards three words">3w</AnnotatedCommand> | <CodeBlock>## Vim Motions<br /><br />## Vim <Caret>M</Caret>otions</CodeBlock> |
 
 ## Vim Text Insert Commands
 
@@ -335,16 +333,16 @@ These commands make it much faster to quickly enter Insert Mode just where you l
 
 | Keystrokes | Output |
 |-|-|
-| `gg`        | <pre><Caret>#</Caret> Vim Cheatsheet</pre> |
-| `o`        | <pre># Vim Cheatsheet<br /><Caret> </Caret></pre> |
-| `Hello<C-c>`        | <pre># Vim Cheatsheet<br />Hello<Caret> </Caret></pre> |
-| `I`        | <pre># Vim Cheatsheet<br /><Caret>H</Caret>ello</pre> |
-| `Welcome and <C-c>` | <pre># Vim Cheatsheet<br />Welcome and <Caret>H</Caret>ello</pre> |
-| `A` | <pre># Vim Cheatsheet<br />Welcome and Hell<Caret>o</Caret></pre> |
-| ` Vim!<C-c>` | <pre># Vim Cheatsheet<br />Welcome and Hello Vim<Caret>!</Caret></pre> |
-| `o<C-c>` | <pre># Vim Cheatsheet<br /><Caret> </Caret><br />Welcome and Hello Vim</pre> |
+| <AnnotatedCommand annotation="Go to beginning of buffer">gg</AnnotatedCommand> | <CodeBlock><Caret>#</Caret># Vim Motions</CodeBlock> |
+| <AnnotatedCommand annotation="Open line below current line">o</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<br /><Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Enter text, enter command mode">Hello&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<br />Hello<Caret> </Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Insert at beginning of line">I</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<br /><Caret>H</Caret>ello</CodeBlock> |
+| <AnnotatedCommand annotation="Enter text, enter command mode">Welcome and &lt;C-c&gt;</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<br />Welcome and <Caret>H</Caret>ello</CodeBlock> |
+| <AnnotatedCommand annotation="Append at end of line">A</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<br />Welcome and Hell<Caret>o</Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Enter text, enter command mode">Vim!&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<br />Welcome and Hello Vim<Caret>!</Caret></CodeBlock> |
+| <AnnotatedCommand annotation="Open line above current line, enter command mode">O&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock># Vim Cheatsheet<br /><Caret> </Caret><br />Welcome and Hello Vim</CodeBlock> |
 
-We use the `<C-c>` chord to quickly go back into Command Mode when we have inserted text. This should start to become a habit as you use Vim - it is faster to enter small amounts of text, then go back to command mode and reposition the cursor, than to enter lots of text and use the arrow keys to move around in Insert Mode. There is also another benefit to short commands - it makes them easier to repeat with the _Dot Command_ which we'll look at shortly.
+We use the `<C-c>` chord to quickly go back into Command Mode when we have inserted text. This should start to become a habit as you use Vim - it is faster to enter small amounts of text, then go back to command mode and reposition the cursor, than to enter lots of text and use the arrow keys to move around in Insert Mode[^1].
 
 Now that we have seen motions and text insert commands, let's look at some essential Vim operators.
 
@@ -364,7 +362,7 @@ Some of the operators that are particularly useful are listed in the table below
 | `gU`     | Make uppercase ('go upper').                                 |
 | `!`      | Send through external program.                               |
 
-We can use one of these operators with a motion to alter a range of text. Let's see some of the basic operators:
+We can use operators with a motion to alter a range of text. Let's see some of the basic operators:
 
 | Keystrokes                                   | Output                                                 |
 |----------------------------------------------|--------------------------------------------------------|
@@ -377,8 +375,6 @@ We can use one of these operators with a motion to alter a range of text. Let's 
 Hopefully from these examples you are starting to get an idea of just how powerful modal editing is - you are able to express complex changes to text, ranges of text, and movements in the buffer with just a few keystrokes.
 
 These operators can also quickly be applied to the current line - just type them twice!
-
-Let's look at some other ways to combine motions and operators to manipulate text.
 
 | Operator | Description                                                  |
 |----------|--------------------------------------------------------------|
@@ -420,22 +416,32 @@ Two other powerful motions are 'in' and 'a' - these motions are special because 
 | <AnnotatedCommand annotation="Make entire line lowercase">guu</AnnotatedCommand> | <CodeBlock language="python"><Caret>d</Caret>ef search_for_word(word):</CodeBlock> |
 | <AnnotatedCommand annotation="Find first bracket, delete a 'brackets'">f(da(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>:</Caret></CodeBlock> |
 
-The 'in' and 'a' modifiers for an operator are particularly useful when you want to change the contents of something like brackets, parenthesis, braces and so on. If you use `ca)` for example, you are saying 'Change a Brackets' - the brackets are removed and you are put into insert mode at the position the brackets were in. In comparison, `ci{` changes 'in' braces, removing the text inside the braces, but keeping the braces themselves. If you use an open bracket or brace, space is added to pad out your insert, if you use a close bracket or brace, no spaces are used:
+When you have searched for a character, you can use the following keystrokes to find the next or previous result:
+
+| Motion         | Description                                     |
+|----------------|-------------------------------------------------|
+| `;` | Move to the next result for the search motion. |
+| `,` | Move to the previous result for the search motion. |
+
+##  The 'In' and 'A' Modifiers
+
+The 'in' and 'a' modifiers for an operator are particularly useful when you want to change the contents of something like brackets, parenthesis, braces and so on. If you use `ca)` for example, you are saying 'Change a Brackets' - the brackets are removed and you are put into insert mode at the position the brackets were in. In comparison, `ci{` changes 'in' braces, removing the text inside the braces, but keeping the braces themselves.
+
+If you use an open bracket or brace, a space is added before and after the text you insert, if you use a close bracket or brace, no spaces are used:
 
 | Keystrokes                                   | Output                                                 |
 |----------------------------------------------|--------------------------------------------------------|
+| <AnnotatedCommand annotation="Go to first open bracket">g(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>word):</CodeBlock> |
 | <AnnotatedCommand annotation="Change in brackets">ci)</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>):</CodeBlock> |
-| <AnnotatedCommand annotation="Enter text, return to Command Mode">{`word = "default"<C-c>`}</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = "default"<Caret>)</Caret>):</CodeBlock> |
+| <AnnotatedCommand annotation="Enter text, return to Command Mode">word = "default"&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = "default"<Caret>)</Caret>):</CodeBlock> |
 | <AnnotatedCommand annotation="Change a quotes">ca"</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = <Caret>)</Caret>:</CodeBlock> |
-
-
-At this stage we have seen just a few of the essential Vim features. Let's update our cheatsheet.
+| <AnnotatedCommand annotation="Enter text, return to Command Mode">'sample'&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = 'sample<Caret>'</Caret>):</CodeBlock> |
 
 ## Editing Commands in Vim
 
 We're going to update our cheatsheet with a few notes - at this stage you can add any notes that you think are the most relevant, here are the first few lines of what I have added:
 
-```sh
+```markdown
 # Vim Cheatsheet
 
 ## Vim Motions
@@ -447,7 +453,7 @@ Vim motions are commands used to move the cursor. Essential motions are:
 * `b` - back one word
 * `(` - back one sentence
 * `)` - forwards one sentence
-* `0` - begining of line
+* `0` - beginning of line
 * `$` - end of line
 * `gg` - beginning of buffer
 * `G` - end of buffer
@@ -465,29 +471,30 @@ These simple formatting features will make the cheatsheet look excellent when it
 
 <img alt="Screenshot: Basic Markdown Rendered by GitHub" src={require('./images/markdown-basic.png').default} width="800px" />
 
-Let's add these changes to Git - and show one more way to use Vim. Enter the line of text below in the shell but don't press 'Enter' to execute it yet!
+
+Let's look at another way we can use Vim in our day to day work. We'll enter a shell command that has a mistake, and quickly edit the command and fix the mistake in Vim. Let's add these changes to Git - and show one more way to use Vim. Enter the line of text below in the shell but don't press 'Enter' to execute it yet!
 
 ```
 $ git commit -m 'added more detail on motions'
 ```
 
-This command will commit the changes - but we haven't added any yet! Rather than fixing this by moving around the command line, let's just open the current shell command line in Vim. Press `^x^e` - this is the shell command to open the current line in the editor:
+This command will commit the changes - but we haven't added any yet! Rather than fixing this by moving around the command line, let's just open the current shell command line in Vim. Press `^x^e` (Control X, Control E) - this is the shell command to open the current line in the editor:
 
-```
-git commit -m 'added more detail on motions'
-~
-~
-~
-"/tmp/bash-fc-5094983766" 1L, 45B                             1,1           All
-```
+<CodeBlock>
+<Caret>g</Caret>it commit -m 'added more detail on motions'<br />
+~<br />
+~<br />
+~<br />
+"/tmp/bash-fc-5094983766" 1L, 45B                             1,1           All<br />
+</CodeBlock>
 
 Let's fix up the command with our new Vim skills:
 
 | Keystrokes                                   | Output                                                 |
 |----------------------------------------------|--------------------------------------------------------|
 | <AnnotatedCommand annotation="Enter insert mode">i</AnnotatedCommand> | <CodeBlock><Caret>g</Caret>it commit -m 'added more detail on motions'</CodeBlock> |
-| <AnnotatedCommand annotation="Add text, enter command mode">{`git add . && <C-c>`}</AnnotatedCommand> | <CodeBlock>git add . &&<Caret> </Caret>git commit -m 'added more detail on motions'</CodeBlock> |
-| <AnnotatedCommand annotation="Write and quit">:wq</AnnotatedCommand> | (Vim closes and `git commit` compltes) |
+| <AnnotatedCommand annotation="Add text, enter command mode">git add . && &lt;C-c&gt;</AnnotatedCommand> | <CodeBlock>git add . &&<Caret> </Caret>git commit -m 'added more detail on motions'</CodeBlock> |
+| <AnnotatedCommand annotation="Write and quit">:wq</AnnotatedCommand> | (Vim closes and `git commit` completes) |
 
 Being able to rapidly edit the current shell command in Vim is a huge time saver.
 
@@ -500,6 +507,7 @@ Vim is a huge topic - we've barely scratched the surface but I hope have focused
 3. Yank and paste and registers
 4. Search and replace
 5. Customising Vim with the _~/.vimrc_ file
+6. Macros
 
 There are a few resources that I would recommend. The first is `vimtutor` and the next are some excellent online resources and books.
 
@@ -519,23 +527,20 @@ Drew Neil is an extremely skilled Vim user and does a superb job of making a com
 
 If you are enjoying using Vim, Drew Neil's books "Practical Vim" and "Modern" Vim should be on your bookshelf! They are truly excellent and again, just like his Vimcasts, make a complex subject much more user friendly.
 
+### The Vim Shortcuts Wallpaper
+
+Something I found useful when learning Vim was to have a wallpaper with the most common shortcuts. There are a number available on the web if you search for "Vim Wallpaper" - the one I currently use is below:
+
+![Vim Cheatsheet Wallpaper](./images/vim-cheatsheet.png)
+
+Unfortunately I have not been able to find the name of the original author. I found this file at:
+
+https://wallha.com/wallpaper/vim-cheat-sheet-minimalism-linux-1250034
+
 ## Summary
 
 In this chapter we introduced the concept of the terminal editor. We looked at the essentials of Vim, Insert Mode, Command Mode, motions, operators and more. We also introduced some resources that will help with your learning journey.
 
 In the next chapter we'll look at another essential tool - the Terminal Multiplexer.
 
-## TODO
-
-- show an asciinema of what vim can do ;) - show how to turn the plain text into markdown, recording can show lowercase text in the headings being headerised with tilde and visual mode, insert mode to add the title symbol
-- is a title with Vim in it better or will it turn people off?
-- visual mode - headingise with tilde
-- Caret as a component like this `<Caret style='select' />` that uses CSS post to format the next letter, with insert mode caret
-- Edit command - go back to apostropme in `-m 'message'` and `ci'`
-- add reading list to this and next chapter
-- essential next steps: line numbers, style, configuration
-- 'selection' component
-- style guide showing components in action, with the online editor would be v cool, as an appendix
-- two of the examples that have braces in the annotation are showing extra braces
-- rename to 'vim crash course'
-
+[^1]: There is also another benefit to short commands - it makes them easier to repeat with the _Dot Command_ which is not covered in this chapter but something that you will learn about as you use Vim more.

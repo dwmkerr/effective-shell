@@ -1,0 +1,38 @@
+---
+title: Images and Diagrams
+---
+
+import Image from '@theme/IdealImage';
+import Drawio from '@theme/Drawio'
+
+## Images
+
+The [`@docusaurus/plugin-ideal-image`](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-ideal-image) is used to allow lazy loading and zoom of images.
+
+Use the `Image` tag as shown:
+
+```markdown
+import Image from '@theme/IdealImage';
+<Image img={require('./images/vim-cheatsheet.png')} />
+```
+
+This will render an image as shown below:
+
+<Image img={require('./images/vim-cheatsheet.png')} />
+
+## Diagrams
+
+Render a Draw.io diagram like so:
+
+```
+import Drawio from '@theme/Drawio'
+import asymmetricEncryption from '!!raw-loader!./images/asymmetric-encryption.drawio';
+
+<Drawio content={asymmetricEncryption} />
+```
+
+This would render as below:
+
+import asymmetricEncryption from '!!raw-loader!./images/asymmetric-encryption.drawio';
+
+<Drawio content={asymmetricEncryption} />

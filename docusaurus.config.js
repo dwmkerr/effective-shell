@@ -156,6 +156,13 @@ const config = {
       require.resolve('@docusaurus/theme-live-codeblock'),
       {}
     ],
+    [
+      require.resolve('@docusaurus/plugin-ideal-image'),
+      {
+        //  Enable this plugin in dev so that we can test it.
+        disableInDev: false,
+      },
+    ],
   ],
 };
 
