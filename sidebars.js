@@ -82,6 +82,7 @@ const sidebars = {
         'advanced-techniques/understanding-shell-expansion/index',
         'advanced-techniques/how-to-avoid-scripting/index',
         'advanced-techniques/the-secure-shell/index',
+        'advanced-techniques/a-vim-crash-course/index',
         'advanced-techniques/master-the-multiplexer/index',
       ]
     },
@@ -90,6 +91,14 @@ const sidebars = {
       label: 'Appendices',
       items: [
         'xx-appendices/thanks',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Developer Guide',
+      items: [
+        'zz-developer-guide/components',
+        'zz-developer-guide/images-and-diagrams',
       ]
     },
   ],

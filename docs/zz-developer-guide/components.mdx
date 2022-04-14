@@ -1,0 +1,103 @@
+---
+title: Components
+---
+
+This page shows the custom components that are available for Effective Shell. These are primarily used to improve the reading experience for code samples.
+
+To add more components to this page, please check the `src/theme/ReactLiveScope/index.js` file, which has been swizzled as per the guide at [Docusaurus - Code Blocks - Interactive code editor](https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor). Each custom component you want to use must be included in this file.
+
+## AsciinemaPlayer
+
+The `AsciinemaPlayer` component is renders an [`asciinema`](https://asciinema.org/) recording. Note that the recording file must be available to be served to the browser, so it will normally live somewhere in the `static` folder.
+
+First, import the component:
+
+```jsx
+import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer/AsciinemaPlayer.tsc';
+```
+
+Use the component as below:
+
+```jsx live
+<AsciinemaPlayer
+    style={{'width': '800px'}}
+    src="/casts/483782.cast"
+    poster="npt:0:23"
+    autoPlay={true}
+    preload={true}
+/>
+```
+
+The bulk of the properties that are exposed are directly from the [`asciinema-player`](https://github.com/asciinema/asciinema-player) component - this page has a more detailed description of many of the properties listed below. The following properties are exposed:
+
+| Property         | Usage                                                                             |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `src` | The location of the cast file, must be available from the browser. |
+| `style` | Any additional CSS styles to apply. |
+| `cols` | The number of columns in the player's terminal. |
+| `rows` | The number of rows in the player's terminal. |
+| `autoPlay` |  Set this option to `true` if playback should start automatically. |
+| `preload` | Set this option to `true` if the recording should be preloaded on player's initialization. |
+| `loop` | Set this option to either true or a number if playback should be looped. When set to a number (e.g. 3) then the recording will be re-played given number of times and stopped after that. |
+| `startAt` |  Start playback at a given time. |
+| `speed` |  Playback speed. The value of 2 means 2x faster. |
+| `idleTimeLimit` | Limit terminal inactivity to a given number of seconds. |
+| `theme` | Terminal color theme. |
+| `poster` | Poster (a preview frame) to display until the playback is started. |
+| `fit` | Controls the player's fitting (sizing) behaviour inside its container element. |
+| `fontSize` | Size of the terminal font. |
+
+## AnnotatedCommand
+
+The `AnnotatedCommand` component is used to create a set of keystrokes, for example for Vim, with a small text annotation beneath. This is useful in Markdown tables showing how Vim commands work, as multiline text in tables is a bit fiddly to work with.
+
+First, import the component:
+
+```jsx
+import AnnotatedCommand from '@site/src/components/AnnotatedCommand/AnnotatedCommand.tsc';
+```
+
+Use the component as below:
+
+```jsx live
+<AnnotatedCommand
+  annotation="Go to beginning of buffer, change two words"
+>gg2cw</AnnotatedCommand>
+```
+
+The following properties are exposed:
+
+| Property         | Usage                                                                             |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `annotation`           | The text to show beneath the command. |
+
+## Caret
+
+The `Caret` component is useful when showing Vim or Terminal samples where you need to indicate the position of the caret. It can show a block caret, which is the standard for an ASCII terminal, or a line caret, which can be used in things like iTerm to indicate Insert Mode for Vim.
+
+First, import the component:
+
+```jsx
+import Caret from '@site/src/components/Caret/Caret.tsx';
+```
+
+Use the component as below:
+
+```jsx live
+<code className="language-python">
+    def search_for_word<Caret caretStyle='block'>(</Caret>word):
+</code>
+```
+
+The following properties are exposed:
+
+| Property         | Usage                                                                             |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `caretStyle`           | The style of the cursor, `block` by default, or `line` for an 'insert mode' cursor. |
+
+## Tips for Developing Components
+
+Check the following resources for useful tips on Component Development:
+
+- [Docusaurus - Styling and Layout](https://docusaurus.io/docs/styling-layout)
+- [Docusaurus - Code Blocks - Interactive code editor](https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor)

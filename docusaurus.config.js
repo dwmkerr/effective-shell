@@ -55,6 +55,11 @@ const config = {
             require.resolve('react-mailchimp-email-signup-form/dist/esm/index.css'),
             require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
           ],
+
+          //  Add theming support for languages we use.
+          prism: {
+            additionalLanguages: [],
+          },
         },
         gtag: {
           trackingID: 'G-8HZFMZV9Z4',
@@ -124,6 +129,16 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      liveCodeBlock: {
+        /**
+         * The position of the live playground, above or under the editor
+         * Possible values: "top" | "bottom"
+         * We use 'top' as we are currently using this editor to preview
+         * components, and we want to show the rendered component before its
+         * code (see 'Developer Guide > Components').
+         */
+        playgroundPosition: 'top',
+      },
     }),
 
   plugins: [
@@ -136,6 +151,17 @@ const config = {
     [
       require.resolve('docusaurus-plugin-drawio'),
       {}
+    ],
+    [
+      require.resolve('@docusaurus/theme-live-codeblock'),
+      {}
+    ],
+    [
+      require.resolve('@docusaurus/plugin-ideal-image'),
+      {
+        //  Enable this plugin in dev so that we can test it.
+        disableInDev: false,
+      },
     ],
   ],
 };
