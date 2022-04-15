@@ -322,7 +322,7 @@ In this video, the following actions are performed:
 
 1. We start a local Tmux session with `tmux`
 2. We split the window, giving us space to open a secure shell, using `^b %`
-3. In our new split, we ssh onto the box we created in [TODO](TODO ssh chapter)
+3. In our new split, we ssh onto the box we created in [Chapter 31 - The Secure Shell](../31-the-secure-shell/index.mdx)
 4. On this box, we start a new Tmux session
 5. In this Tmux session we start creating a new Python script
 6. Now we connect to this session from our local machine over ssh using `ssh -t effective-shell-aws-linux tmux attach`
@@ -332,6 +332,25 @@ In this video, the following actions are performed:
 In this demo we have two separate machines connecting to our server, able to collaborate real-time on a Tmux session that will persist even if we shut down the machines we are connecting from. This just touches the surface of what is possible!
 
 <AsciinemaPlayer style={{'width': '800px'}} src="/casts/484227.cast" poster="npt:0:23" autoPlay={true} preload={true} />
+
+In this example we used the command `ssh -t effective-shell-aws-linux tmux attach`. The `ssh` program allows you to run a command on the server. The command we are running is `tmux attach`. Now by default if we ask `ssh` to run a command it will not connect the input of our terminal to the server - the idea is that sometimes we are just using `ssh` to run one-off commands and don't need to stay connected. But for this command we actually want to stay attached to the server, so we use the `-t` _request tty`_ flag to attach our terminal input to the SSH session.
+
+You can setup your SSH config file to automatically attach to the Tmux session. This is how my _~/.ssh/config_ file entry is setup for the virtual machine we created in [Chapter 31 - The Secure Shell](../31-the-secure-shell/index.mdx):
+
+```
+Host effective-shell-aws-linux
+  HostName ec2-13-213-71-135.ap-southeast-1.compute.amazonaws.com
+  User ec2-user
+  IdentityFile ~/.ssh/effective-shell
+  RequestTTY yes # ensure that we attach our terminal input
+  RemoteCommand tmux attach # attach to the tmux session
+```
+
+This configuration means that when we SSH onto the _effective-shell-aws-linux_ box we will run the `tmux attach` command and attach our terminal. To connect to Tmux on the server now we only need to run:
+
+```sh
+ssh effective-shell-aws-linux
+```
 
 ## Going Further with Tmux
 
@@ -343,7 +362,29 @@ I'd highly recommend using Tmux as part of your standard workflow - get familiar
 
 ## Getting Help
 
-You can quickly see all of the Tmux commands by running `^b ?`.
+You can quickly see all of the Tmux commands by running `^b ?`. The output of this command will look something like this:
+
+```
+C-b C-b     Send the prefix key
+C-b C-o     Rotate through the panes
+C-b C-z     Suspend the current client
+C-b Space   Select next layout
+C-b !       Break pane to a new window
+C-b "       Split window vertically
+C-b #       List all paste buffers
+C-b $       Rename current session
+C-b %       Split window horizontally
+C-b &       Kill current window
+C-b '       Prompt for window index to select
+C-b (       Switch to previous client
+C-b )       Switch to next client
+C-b ,       Rename current window
+C-b .       Move the current window
+C-b /       Describe key binding
+C-b 0       Select window 0
+C-b 1       Select window 1
+...
+```
 
 A quick reference of command commands below:
 
@@ -379,17 +420,12 @@ A quick reference of command commands below:
 | `^b z`                        | Zoom in or out of a pane                                                           |
 | `^b !`                        | Convert pane to window                                                             |
 
+## Going Further with Tmux
+
+To learn more about Tmux I recommend the excellent book [tmux 2: Productive Mouse-Free Development](https://www.amazon.sg/gp/product/1680502212/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1) by Brian Hogen. This is suitable for anyone, from beginner to expert, you can regularly go back to it as you become more familiar with the basics of Tmux and learn how to take your skills to the next level!
+
 ## Summary
 
 In this chapter we introduced the concept of Terminal Multiplexers, in particular GNU screen and Tmux. We saw how to manage windows, panes and sessions. We learned how to configure Tmux to suit your personal working style. We also looked at how we can use Tmux to manage sessions on remote machines and even collaborate real time with other users.
 
 [^1]: You can find my complete set of dotfiles at [github.com/dwmkerr/dofiles](https://github.com/dwmkerr/dotfiles) if you would like to see how I configure other programs.
-
-## TODO
-
-```
-RequestTTY yes
-RemoteCommand screen -UDr
-```
-
-TODO update tmux info, so that we always open tmux in our ssh client

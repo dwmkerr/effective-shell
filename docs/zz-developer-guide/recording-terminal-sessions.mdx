@@ -1,0 +1,39 @@
+---
+title: Recording Terminal Sessions
+---
+
+There are a couple of techniques that can be useful to record terminal sessions. The first is the [`asciinema`](https://asciinema.org) too. The second is the `script` and `scriptreplay` commands, which can be used to record the actual keystrokes typed and then reply them.
+
+## Asciinema
+
+The [`asciinema`](https://asciinema.org) tool can record the output of terminal sessions. You can see the results in action in pages like [Chapter 33 - Master the Multiplexer](../06-advanced-techniques/33-master-the-multiplexer/index.md).
+
+Some tips for working with `asciinema`:
+
+To record a Tmux session, you will need to start _detached_ from Tmux and then attach. You can do this by hand, simply using `tmux attach`, but this adds some noise to the beginning of the recording. A better way is to use the command below:
+
+```bash
+asciinema rec --command "tmux attach [-t session-name]"
+```
+
+## Script Recording
+
+Record a shell session by running:
+
+```bash
+# Start recording...
+script recording.txt
+
+# ...run your commands...
+
+# Finish the recording.
+exit
+```
+
+Once you have this recording, you can use it to rapidly record an `asciinema` file:
+
+```bash
+asciinema rec --command "tmux attach [-t session-name] && scriptreplay recording.txt"
+```
+
+It can be helpful to _not_ record a timing file for the keystrokes. If your typing is slow or irregular, or you have to look something up halfway through a script, then having a consistent typing speed provided via a script is better. One way to do this is with the [`scriptreplay_ng`](https://github.com/scoopex/scriptreplay_ng) tool.
