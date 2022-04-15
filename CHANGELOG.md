@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.25.1](https://github.com/dwmkerr/effective-shell/compare/v0.25.0...v0.25.1) (2022-04-15)
+
+
+### Documentation
+
+* finish chapter 33 ([0ad443b](https://github.com/dwmkerr/effective-shell/commit/0ad443b7a10c772698475c01707d4ce7c79e7cc8))
+
 ## [0.25.0](https://github.com/dwmkerr/effective-shell/compare/v0.24.3...v0.25.0) (2022-04-14)
 
 
