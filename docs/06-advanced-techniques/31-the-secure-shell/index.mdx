@@ -37,15 +37,28 @@ Now in reality there are ways to obscure and protect this secret somewhat, but n
 
 ### Asymmetric Encryption
 
-We we use asymmetric encryption, Alice first creates a 'key pair'. This is two files - a public key and a private key. Alice keeps the private key. She uses this to encrypt the message. Bob receives the public key - he can use this to decrypt the message:
+We we use asymmetric encryption, Alice first creates a 'key pair'. This is two files - a public key and a private key. Alice keeps the private key and sends the public key to Bob:
 
 import asymmetricEncryption from '!!raw-loader!./diagrams/asymmetric-encryption.drawio';
 
 <Drawio content={asymmetricEncryption} />
 
-The fantastic thing about this mechanism is that _only Alice can encrypt messages_ - Bob can decrypt and read the messages, but cannot encrypt them on behalf of Alice. So Alice can keep her key private. Her public key is not sensitive - it can only be used to verify that a message has come from Alice, decrypt the message and ensure the message has not been tampered with.
+Now that Bob has the public key, he creates a secret that only he knows and then encrypts it with Alice's public key. He then sends this secret to Alice. The secret was encrypted by Alice's Public Key - meaning only the associated Private Key can decrypt it. This means _even if someone intercepts the secret_ they cannot decrypt it! Only Alice can, as only Alice has the private key:
 
-Almost all modern day encryption is built on this mechanism - when you open a secure connection to a website, an exchange of keys is made between you and the server[^2].
+
+import asymmetricEncryptionShareSecret from '!!raw-loader!./diagrams/asymmetric-encryption-share-secret.drawio';
+
+<Drawio content={asymmetricEncryptionShareSecret} />
+
+Now Alice has Bob's secret and only she can decrypt it. Once she decrypts it both she and Bob have a shared secret - that no one has been able to intercept. They can now use Symmetric Encryption to exchange messages, safe in the knowledge that the secret is kept just between them.
+
+The fantastic thing about this mechanism is that _only Alice can decrypt messages encrypted with her public key_. Alice can keep her key private. Her public key is not sensitive - it can only be used to encrypt messages for Alice.
+
+Alice can also encrypt messages with her Private Key - anyone who has the Public Key can decrypt them. This means that this is not a secure way to encrypt a message - but it is a very good way to _sign_ a message. Given that only Alice has the private key, only she can encrypt messages with it. This means if she sends a message encrypted with her private key anyone who has the public key can decrypt it to assert it was sent by Alice - she's the only person with the private key.
+
+This method of signing messages with the Private Key is typically called 'signing' - it is not used to keep the message private but instead to verify the identity of the sender.
+
+Most modern day cryptography protocols are based on this technique. In many of them Bob will not actually send back a secret - instead he'll generate _his own_ key-pair and return the Public Key. This is called a 'key exchange'. Almost all modern day encryption is built on this mechanism - when you open a secure connection to a website, an exchange of keys is made between you and the server[^2].
 
 When we use the secure shell to communicate with a remote machine, we will give the remote machine our _public key_, and we will encrypt our communications with the _private key_. This is essential because _other users_ might have access to the remote machine - we don't want them seeing our sensitive data such as passwords or private keys.
 
@@ -309,6 +322,37 @@ ssh effective-shell-aws-linux
 
 There are many other options available for the SSH config file, you can see them all with `man ssh_config`. We'll see some other options in [Chapter 33 - Master the Multiplexer](../33-master-the-multiplexer/index.md).
 
+## Running SSH Commands
+
+You don't need to actually run a shell on a remote machine over SSH to execute commands. You can simply provide the commands that you want to run to the `ssh` program and it will execute them on the server.
+
+Here's an example:
+
+```
+$ ssh effective-shell-aws-linux 'curl effective.sh | ES_EXISTING_FOLDER_ACTION=o sh'
+...
+effective-shell: installed samples version 0.25.1 to '/home/ec2-user/effective-shell'
+effective-shell: read 'effective shell' online at: www.effective-shell.com
+```
+
+In this example we downloaded and ran the Effective Shell samples installer on the server. Now normally when we install the samples, the installer will ask the user whether to overwrite, delete or keep the existing samples. This means that it will be requesting input from the terminal. The `ssh` program is not actually attaching _stdin_ to the remote machine, so we use the `ES_EXISTING_FOLDER_ACTION=o` option to tell the installer to overwrite the samples.
+
+If we wanted to be able to interact with the server, using our terminal to provide input, we can use the `-t` (_request TTY_) parameter:
+
+```
+$ ssh -t effective-shell-aws-linux 'curl effective.sh | sh'
+...
+effective-shell: downloaded samples, version 0.25.1
+effective-shell: preparing to install the 'effective-shell.com' samples...
+effective-shell: the '/home/ec2-user/effective-shell' folder already exists, would you like to:
+effective-shell: [d]elete - remove the existing folder
+effective-shell: [o]verwrite - extract over the existing folder
+effective-shell: [q]uit
+Your choice (d/o/q): d
+```
+
+In this example my terminal is attached to the remote server via SSH, meaning I can use the keyboard to provide input to the installer script.
+
 ## Handling Disconnections
 
 One thing that will soon become a pain if you are regularly SSH-ing into virtual machines is disconnections. This can occur when you lose network connectivity. You might not even notice that a disconnection has occurred - I find it is more common that the `ssh` session is simply frozen and not responding to any input at all.
@@ -386,6 +430,7 @@ We can see that our lookup program has been copied to our server and we can run 
 Let's save this definition then close our connection to the server, then copy the definition back to our local machine:
 
 ```
+[ec2-user@ip-172-31-23-196 ~]$ chmod +x ./lookup.py
 [ec2-user@ip-172-31-23-196 ~]$ ./lookup.py cryptography > definition.txt
 [ec2-user@ip-172-31-23-196 ~]$ exit
 logout
@@ -401,7 +446,7 @@ on of messages, and many other related issues), regardless of the used medium su
 ch as pencil and paper or computers.
 ```
 
-That's all there is to it! Copying files and folders to and from remote machines is remarkably easy to do with `scp` once you know the basics of how `ssh` works.
+Before we ran the script on the server, we used the `chmod` (_change file permissions_) command to ensure the script can be executed. That's all there is to it! Copying files and folders to and from remote machines is remarkably easy to do with `scp` once you know the basics of how `ssh` works.
 
 There are many other operations that you can perform with `scp`, you can read more about the tool with `man scp`.
 
@@ -409,4 +454,5 @@ There are many other operations that you can perform with `scp`, you can read mo
 
 In this chapter we discussed the SSH protocol, and how keys are used to protect connections to remote servers. We saw how to setup an AWS account, create a virtual machine with a given public key, connect to it with the `ssh` program, and configure SSH with an alias to make future connections faster. We also saw some of the challenges we can face with network connectivity - which we'll see techniques to handle in Chapter 33. Finally, we looked at how to copy files to and from remote machines.
 
-[^1]: This process is very useful to know about, it is called Diffie–Hellman key exchange. There are many great articles online that explain it in detail.
+[^1]: My favourite book on this topic is "Applied Cryptography: Protocols, Algorithms, and Source Code in C - Bruce Schneier". There are more details at the end of the chapter and in the [Reading List](../../xx-appendices/reading-list.md).
+[^2]: This process is very useful to know about, it is called Diffie–Hellman key exchange. There are many great articles online that explain it in detail.
