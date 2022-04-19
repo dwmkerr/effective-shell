@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.25.3](https://github.com/dwmkerr/effective-shell/compare/v0.25.2...v0.25.3) (2022-04-19)
+
+
+### Bug Fixes
+
+* fix images by disabled ideal-image ([239f0eb](https://github.com/dwmkerr/effective-shell/commit/239f0eb0f69dce74f7793b50b5252c625f29e8cf))
+
 ### [0.25.2](https://github.com/dwmkerr/effective-shell/compare/v0.25.1...v0.25.2) (2022-04-19)
 
 
