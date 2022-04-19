@@ -34,3 +34,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # End of Docusaurus ignores
+
+# Ignore Draw.io backups.
+*.bkp

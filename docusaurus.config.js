@@ -157,12 +157,18 @@ const config = {
       {}
     ],
     [
-      require.resolve('@docusaurus/plugin-ideal-image'),
-      {
-        //  Enable this plugin in dev so that we can test it.
-        disableInDev: false,
-      },
+      require.resolve('plugin-image-zoom'),
+      {}
     ],
+    //  Ideal Image seems to clash with Docusaurus native lazy loading, causing
+    //  most images not to load. So disabling this for now.
+    // [
+    //   require.resolve('@docusaurus/plugin-ideal-image'),
+    //   {
+    //     //  Enable this plugin in dev so that we can test it.
+    //     disableInDev: false,
+    //   },
+    // ],
   ],
 };
 

@@ -9,7 +9,7 @@ import ReactLiveScope from '@theme-original/ReactLiveScope';
 import AnnotatedCommand from '@site/src/components/AnnotatedCommmand/AnnotatedCommand.tsx';
 import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer/AsciinemaPlayer.tsx';
 import Caret from '@site/src/components/Caret/Caret.tsx';
-import Image from '@theme/IdealImage';
+//  import Image from '@theme/IdealImage'; // disabled until I work out why it breaks non-ideal images
 
 const ReactLiveScopeWrapper = (props) => (
   <>
@@ -22,6 +22,6 @@ const ReactLiveScopeWrapper = (props) => (
 ReactLiveScopeWrapper.AnnotatedCommand = AnnotatedCommand;
 ReactLiveScopeWrapper.AsciinemaPlayer = AsciinemaPlayer;
 ReactLiveScopeWrapper.Caret = Caret;
-ReactLiveScopeWrapper.Image = Image;
+//ReactLiveScopeWrapper.Image = Image;
 
 export default ReactLiveScopeWrapper;

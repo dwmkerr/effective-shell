@@ -2,10 +2,15 @@
 title: Images and Diagrams
 ---
 
-import Image from '@theme/IdealImage';
 import Drawio from '@theme/Drawio'
 
 ## Images
+
+:::info Not in Use
+
+Ideal Image is not currently enabled as it appears to clash with native Docusaurus lazy-loading.
+
+:::
 
 The [`@docusaurus/plugin-ideal-image`](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-ideal-image) is used to allow lazy loading and zoom of images.
 
@@ -18,7 +23,13 @@ import Image from '@theme/IdealImage';
 
 This will render an image as shown below:
 
+::: warn Currently Disabled
+
+```
 <Image img={require('./images/vim-cheatsheet.png')} />
+```
+
+:::
 
 ## Diagrams
 
