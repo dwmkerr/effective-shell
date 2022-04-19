@@ -24,6 +24,16 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "dougfoo",
+      "name": "Doug Foo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15166953?v=4",
+      "profile": "http://foostack.ai",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
