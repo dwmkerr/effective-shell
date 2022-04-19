@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.25.2](https://github.com/dwmkerr/effective-shell/compare/v0.25.1...v0.25.2) (2022-04-19)
+
+
+### Documentation
+
+* add dougfoo as a contributor for doc, review ([#200](https://github.com/dwmkerr/effective-shell/issues/200)) ([debf6ce](https://github.com/dwmkerr/effective-shell/commit/debf6cea6dafc8b7b9094b284644411217962546))
+* further proofing on 'the secure shell' ([#199](https://github.com/dwmkerr/effective-shell/issues/199)) ([1d3b93d](https://github.com/dwmkerr/effective-shell/commit/1d3b93d98a0e5aa49e0af5f798c7a4acb6312790))
+
 ### [0.25.1](https://github.com/dwmkerr/effective-shell/compare/v0.25.0...v0.25.1) (2022-04-15)
 
 
