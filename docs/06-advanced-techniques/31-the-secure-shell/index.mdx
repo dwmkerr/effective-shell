@@ -16,13 +16,13 @@ When you connect to a remote machine, you will typically have to authenticate. I
 
 Asymmetric encryption uses special 'keys', called 'public keys' and 'private keys' to manage authentication and secure data. This might be new to you if you are used to using simple authentication protocols such as username and password. But public/private key based security is _extremely_ secure and a great thing to know about! So let's start by looking at how public and private keys work and then create our own key pair which we will later use to secure our connections.
 
-## Public and Private Keys
+## An Authentication Crash Course
 
-The details of Asymmetric encryption are a complex subject, the low-level details are beyond the scope of this book, we'll cover the only essential concepts and techniques in this chapter[^1].
+The details of symmetric and asymmetric encryption complex and beyond the scope of this book[^1]. We'll cover the only essential concepts and techniques in this chapter.
 
 Before we look at asymmetric encryption, let's take a quick look at the challenges of symmetric encryption - which will help explain _why_ asymmetric encryption is preferred.
 
-### Symmetric Encryption
+### Symmetric Encryption for Authentication
 
 When we use symmetric encryption, we have a shared 'secret', normally something like a username and password. If a user 'Alice' wants to send a message to another user, 'Bob', we have to share the secret so that Bob can decrypt the message that Alice sends:
 
@@ -33,11 +33,13 @@ import symmetricEncryption from '!!raw-loader!./diagrams/symmetric-encryption.dr
 
 The diagram above is a hugely simplified view, but essentially shows that when the users want to exchange a message they _both_ need to know the secret - one user uses the secret to encrypt the message, the other uses the same secret to decrypt it.
 
+When you connect to a remote machine using symmetric authentication, you are the client (Alice) and the machine is the server (Bob).
+
 Now in reality there are ways to obscure and protect this secret somewhat, but no matter how many clever tricks are used, we are still in the situation where the recipient has sensitive data - the user's secret. This is actually quite problematic because it means if we don't trust this user, or their machine or environment, we might not want to share a secret.
 
-### Asymmetric Encryption
+### Asymmetric Encryption for Authentication
 
-We we use asymmetric encryption, Alice first creates a 'key pair'. This is two files - a public key and a private key. Alice keeps the private key and sends the public key to Bob:
+We use asymmetric encryption, Alice first creates a 'key pair'. This is two files - a public key and a private key. Alice keeps the private key and sends the public key to Bob:
 
 import asymmetricEncryption from '!!raw-loader!./diagrams/asymmetric-encryption.drawio';
 
@@ -66,7 +68,7 @@ Let's look at how to create a key-pair now.
 
 ## Creating a Key Pair
 
-We can use the `ssh-keygen` (_OpenSSH authentication key utility_)<!--index--> to create a key pair. We are going to use this key pair to communicate with a server we will create on Amazon Web Services or AWS. AWS requires that we use a particular format known as _PEM_, so let's create a key pair in that format now. We will move to the _~/.ssh_ folder first, which is where users often store their SSH keys:
+We can use the `ssh-keygen` (_OpenSSH authentication key utility_)<!--index--> to create a key pair. We are going to use this key pair to communicate with a server that we will create on Amazon Web Services or AWS. AWS requires that we use a particular format known as _PEM_, so let's create a key pair in that format now. We will move to the _~/.ssh_ folder first, which is where users often store their SSH keys:
 
 ```bash
 cd ~/.ssh
@@ -288,6 +290,44 @@ When I want to disconnect, I can just run the `exit` command to close the connec
 
 Hopefully if you have followed this far, you also have access to a virtual machine to play with. Now let's look at some of the things we can do with the SSH to make accessing these machines even easier!
 
+## Dealing with Key Permission Errors
+
+It is possible that when you try to use a private key to connect to a virtual machine, you will see an error message like the below:
+
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for 'my-key.pem' are too open.
+It is recommended that your private key files are NOT accessible by others.
+This private key will be ignored.
+bad permissions: ignore key: my-key.pem
+Permission denied (publickey).
+```
+
+In this case the server is warning you that your private key could be opened by other users on the system. You can verify this by running `ls -a` to check the file permissions:
+
+```
+$ ls -al
+-rw-r--r--    1 dwmkerr  dwmkerr    1103 Apr 19 12:02 my-key.pem
+```
+
+If you recall that the permissions are the first thing that is shown, you'll see that they are `-rw-r--r--`. This translates to:
+
+- `-rw` - read and write for the owner, which is the _dwmkerr_ user
+- `-r-` - read to the group the owner belongs to, which is the _dwmkerr_ group
+- `-r-` - read to all users
+
+We can see that this is not ideal - other users on the system would be allowed to open the file, and members of the same group would also be allowed to read the file. There is a quick fix for this - set the permissions to read and write for the owner only:
+
+```
+$ chmod 400 my-key.pem
+$ ls -al
+-rw-------    1 dwmkerr  dwmkerr    1103 Apr 19 12:02 my-key.pem
+```
+
+The `chmod` (_change file permissions_) command is used here to set the permissions to `400` - which means read and write for the current user. Once this change is made you will be able to SSH into the server without it complaining about the permissions on your key.
+
 ## Configuring SSH Hosts
 
 It can be difficult to remember the details such as the host name, location of the key and username of your virtual machines. One thing you can do to make it far easier to connect is to create an entry in your _SSH Config_ file that stores this information. This will let you connect much more quickly.
@@ -393,7 +433,7 @@ scp -P 8022 effective-shell.com:~/downloads/backup.zip ~/backups
 
 - This copies the _downloads/backups_ folder to the local _~/backups_ folder
 - No username or credentials are specified, so the current user's name is used and any keys that are loaded in the SSH agent will be used to try and authenticate
-- We use a non-standard port, 8022, rather than the default port which is 22
+- We use the `-P` (_port number_) flag to specify port 8022, rather than the default port which is 22
 
 Let's see this in action by copying the `lookup` tool we created in [Chapter 30 - How to Avoid Scripting](../30-how-to-avoid-scripting/index.md) to our server. Then we'll run it, save some definitions, and copy them _back_ to our local machine.
 
@@ -450,9 +490,43 @@ Before we ran the script on the server, we used the `chmod` (_change file permis
 
 There are many other operations that you can perform with `scp`, you can read more about the tool with `man scp`.
 
+## Next Steps
+
+Once you are familiar with the core techniques introduced in this chapter, I would suggest that you look into configuration for _bastion hosts_, _port forwarding_ and _VPN tunneling_ - these are two more advanced scenarios for SSH. As a teaser for when you might want to use some of these techniques, consider the diagram below:
+
+import bastionExample from '!!raw-loader!./diagrams/bastion-example.drawio';
+
+<Drawio content={bastionExample} />
+
+In this scenario we have two hosts, _host1.myproject_ and _host2.myproject_ in a private part of a network, that is not open to the internet. To access these hosts, we use a 'jump box' or 'bastion' - a host that is running in a part of the network that is accessible to external users. We carefully control access to this box and use it as way to connect to the private host.
+
+Now you could SSH onto the bastion, and then SSH onto either of the hosts. But you can speed this process up by setting your _~/.ssh/config_ like so:
+
+```
+Host bastion
+  HostName bastion.myproject.com
+  IdentityFile ~/.ssh/myproject.pem
+  ForwardAgent yes
+
+Host *.myproject
+  ProxyJump bastion
+```
+
+With this configuration we can connect to either of the private hosts by simply using the `ssh` command with the host name:
+
+```sh
+ssh host1.internal
+```
+
+The `ssh` program recognises that `host1.internal` matches the patter `*.myproject` from our configuration file. It then sees that we have set the `ProxyJump` option, which instructs `ssh` to connect through another host. The other host is the bastion, which is accessible to the user, and has the key specified. We also tell the bastion that it should have its authentication forwarded, so that our private key is used when connecting to the host in the private network (without this option when we connect to the bastion we will not have our keys accessible).
+
+This network configuration is very common and you can see the SSH configuration file supports quickly and conveniently configuring the SSH agent to use the bastion.
+
+There are many advanced options for SSH that will make more complex tasks like this easier to manage.
+
 ## Summary
 
 In this chapter we discussed the SSH protocol, and how keys are used to protect connections to remote servers. We saw how to setup an AWS account, create a virtual machine with a given public key, connect to it with the `ssh` program, and configure SSH with an alias to make future connections faster. We also saw some of the challenges we can face with network connectivity - which we'll see techniques to handle in Chapter 33. Finally, we looked at how to copy files to and from remote machines.
 
-[^1]: My favourite book on this topic is "Applied Cryptography: Protocols, Algorithms, and Source Code in C - Bruce Schneier". There are more details at the end of the chapter and in the [Reading List](../../xx-appendices/reading-list.md).
+[^1]: If you want to go deeper, my favourite book on this topic is "Applied Cryptography: Protocols, Algorithms, and Source Code in C - Bruce Schneier". There are more details at the end of the chapter and in the [Recommended Reading](../../xx-appendices/recommended-reading/index.mdx) section.
 [^2]: This process is very useful to know about, it is called Diffie–Hellman key exchange. There are many great articles online that explain it in detail.
