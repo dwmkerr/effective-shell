@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.25.4](https://github.com/dwmkerr/effective-shell/compare/v0.25.3...v0.25.4) (2022-04-21)
+
+
+### Documentation
+
+* add skokaina as a contributor for doc, review ([#204](https://github.com/dwmkerr/effective-shell/issues/204)) ([3280890](https://github.com/dwmkerr/effective-shell/commit/32808900dbc800a51a6b7f9859d5cd4d3fc2b55c))
+* refine SSH chapter ([#203](https://github.com/dwmkerr/effective-shell/issues/203)) ([77d7340](https://github.com/dwmkerr/effective-shell/commit/77d734001114ac4a77d36587038641166e24f1a6))
+
 ### [0.25.3](https://github.com/dwmkerr/effective-shell/compare/v0.25.2...v0.25.3) (2022-04-19)
 
 
