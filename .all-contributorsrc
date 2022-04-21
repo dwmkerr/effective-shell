@@ -34,6 +34,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "skokaina",
+      "name": "Sallah Kokaina",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2756985?v=4",
+      "profile": "https://github.com/skokaina",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
