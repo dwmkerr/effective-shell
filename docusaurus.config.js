@@ -5,7 +5,7 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 //  Load our package so we can show metadata like the version.
-const package = require('./package.json');
+const packageJson = require('./package.json');
 
 const title = 'Effective Shell';
 const organizationName = 'dwmkerr';
@@ -123,7 +123,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Effective Shell v${package.version}. Copyright © ${new Date().getFullYear()} Dave Kerr. Website built with Docusaurus.`,
+        copyright: `Effective Shell v${packageJson.version}. Copyright © ${new Date().getFullYear()} Dave Kerr. Website built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -154,10 +154,6 @@ const config = {
     ],
     [
       require.resolve('@docusaurus/theme-live-codeblock'),
-      {}
-    ],
-    [
-      require.resolve('plugin-image-zoom'),
       {}
     ],
     //  Ideal Image seems to clash with Docusaurus native lazy loading, causing
