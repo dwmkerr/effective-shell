@@ -4,7 +4,6 @@ slug: '/part-3-manipulating-text/variables-reading-input-and-mathematics/'
 ---
 
 We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
-
 ## Variables
 
 _Variables_ are places where the system, the shell, or shell users like ourselves can store data.
@@ -101,7 +100,7 @@ To execute a set of commands in a 'sub shell', we can use the `$()` sequence. Ev
 You can use curly braces around the name of a variable to be more explicit about what the variable name is. Let's take a look at why you might need to do this:
 
 ```bash
-echo "Creating backup folder at: '$USERbackup'"
+echo "Creating backup folder at: '$USER_backup'"
 mkdir $USERbackup
 ```
 
@@ -201,7 +200,7 @@ Running this command will show the output:
 Book details: Effective Shell - Dave Kerr
 ```
 
-If you find yourself using associative arrays, I would expect that there is a good chance you are trying to do something that is more complex than is suitable for a shell script. In this circumstance I'd suggest you read the chapter [How to avoid scripting!](../../work-in-progress) to see how I'd look at alternative options!
+If you find yourself using associative arrays, I expect that there is a good chance you are trying to do something that is more complex than is suitable for a shell script. In this circumstance I'd suggest you read [Chapter 30 - How to Avoid Scripting](../../06-advanced-techniques/30-how-to-avoid-scripting/index.md) to see how I'd look at alternative options!
 
 ## Quoting Variables and Values
 
@@ -275,7 +274,7 @@ The date is Sun 23 May 2021 11:36:54 AM +08
 However, you should _not_ use the backtick character to run a sub-shell, it is harder to read than using the dollar and parenthesis syntax we've already seen:
 
 ```
-$ echo "The date is `date`"
+$ echo "The date is $(date)`"
 The date is Sun 23 May 2021 11:36:54 AM +08
 ```
 
@@ -309,7 +308,7 @@ We do not use quotes around a variable or a value if we want the shell to shell 
 - Word splitting: this is a more complex topic discussed in [Chapter 21 - Loops and working with Files and Folders](../../04-shell-scripting/21-loops-and-working-with-files-and-folders/index.md)
 - Pathname expansion: `ls *.txt` is expanded to all filename that match the wildcard pattern `*.txt`
 
-We are going to see more detail on Shell Expansion as we continue through this part of the book. There is also a detailed explanation in the final section of the book and an appendix with a quick reference.
+We are going to see more detail on Shell Expansion as we continue through this part of the book. There is also a detailed explanation in [Chapter 29 - Understanding Shell Expansion](../../06-advanced-techniques/29-understanding-shell-expansion/index.md) final section of the book and an appendix with a quick reference.
 
 ### Quoting Tips
 
