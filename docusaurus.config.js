@@ -143,12 +143,6 @@ const config = {
 
   plugins: [
     [
-      require.resolve('@cmfcmf/docusaurus-search-local'),
-      {
-        indexBlog: false, // we are not using the blog features.
-      },
-    ],
-    [
       require.resolve('docusaurus-plugin-drawio'),
       {}
     ],
@@ -166,6 +160,21 @@ const config = {
     //   },
     // ],
   ],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        indexDocs: true,
+        indexBlog: false,
+        docsRouteBasePath: ['/'],
+        docsDir: 'docs',
+        highlightSearchTermsOnTargetPage: true,
+        language: ['en'],
+      },
+    ],
+  ]
 };
 
 module.exports = config;
