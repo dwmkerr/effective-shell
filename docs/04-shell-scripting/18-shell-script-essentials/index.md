@@ -3,9 +3,9 @@ title: 'Shell Script Essentials'
 slug: '/part-3-manipulating-text/shell-script-essentials/'
 ---
 
-First we're going to look at how to write shell scripts as well as the different ways to execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run.
+In this chapter we're going to look at how to write shell scripts and the different ways we can execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run.
 
-These will be essential techniques to have as a foundation for building your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about using the `env` command in shebangs.
+We'll learn the essential techniques that will be help you build your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about using the `env` command in shebangs.
 
 ## What is a Shell Script?
 
@@ -19,7 +19,7 @@ Let's create a simple shell script that shows us our most commonly used shell co
 
 Almost every command that is needed to build the script has been discussed in the book already, so it shouldn't be too unfamiliar. But I'll still break it down blow-by-blow to help us understand it.
 
-As we go through this section of the book we're going to extend this script and make it more useful!
+As we go through this section of the book, we're going to extend this script and make it more useful!
 
 ### The 'common' Command
 
@@ -29,7 +29,7 @@ We should be able to do this using techniques we've seen so far. We'll do it lik
 
 1. Read a large number of commands from the history
 2. Sort the commands, then count the number of duplicates
-3. Sort the commands, by the number of duplicates (i.e. ordering by 'most commonly used')
+3. Sort this list showing the most commonly run commands first
 4. Print the results to the screen.
 
 Let's get started!
@@ -53,19 +53,21 @@ vi ~/scripts.sh
 ```
 I have called the script `common.v1.sh` rather than `common.sh` because in each chapter of this section we are going to improve upon the script and change the version number. So in later chapters we will create `common.v2.sh`, `common.v3.sh` and so on.
 
-These commands should be familiar. The `mkdir` command creates a directory. The `-p` (create parent directories if needed) flag stops the command from returning an error if the directory already exist.
+These commands should be familiar. The `mkdir` command creates a directory. The `-p` (create parent directories if needed) flag stops the command from returning an error if the directory already exists.
 
-The `touch` command creates an empty file with the given name. Finally, I open the file in an editor. I am using Vim, but you can open this file in any editor you like.
+The `touch` command creates an empty file with the given name. Finally, I open the file in an editor. I am using Vim, but you can open this file in any editor you like. If you would like to see how to use Vim you can also jump to [Chapter 32 - A Vim Crash Course](../../06-advanced-techniques/32-a-vim-crash-course/index.mdx).
 
-Before we build the script, let's quickly talk about _comments_.
+Before we run the script, let's quickly talk about _comments_.
 
 ## Comments<!--index..>
 
-The shell ignores any text which follows a `#` hash symbol. Whether this is text you type into a shell, or text in a shell script, the shell will ignore the content.
+Comments are lines of text that you add to a script or program to help the reader understand what is going on. Comments are not interpreted by the shell – they are purely for the benefit of the reader.
 
-This is extremely useful - it means we can use the hash symbol to add _comments_ to our scripts and commands. These comments are not interpreted by the shell, they are added just to make it easier for us to describe what is going on. If you come from a programming background you will likely be familiar with comments.
+Any text that follows a `#` hash symbol is treated as a comment. Whether this is text you type into a shell, or text in a shell script, the shell will ignore anything after the hash and not try to interpret it.
 
-Here are a few examples:
+Using comments effectively can be a huge time-saver – it is amazing how quickly you can forget what a certain piece of code means, or why you solved a problem in a particular way.
+
+Let’s look at some examples of comments.
 
 ```bash
 # This is a comment - we can use this to describe what we're trying to do.
@@ -75,6 +77,8 @@ echo "Hello Shell" # Comments can go at the end of a line...
 # You can also use a comment symbol to 'comment out' a line:
 # echo "Goodbye Shell"
 ```
+
+There are three comments in this sample. The first comment takes up a whole line, the second comment is at the end of a line to add some explanation, and the third comment is some 'commented out' code – we've just put a hash in front of some commands so that they will not be executed.
 
 From this point on we'll use comments a lot to explain what we are trying to accomplish with each section of a script. It is generally good practice to use comments to describe your _intent_ - why you are doing something. This is far more useful for the reader than _what_ you are doing. The 'what' should be clear from the commands - the 'why' is the thing readers will likely want to understand.
 
@@ -88,16 +92,11 @@ cat ~/effective-shell/data/top100.csv | rev | cut -d',' -f1 | rev
 The comment just describes what the script is doing. But it doesn't explain _why_. A better comment would be:
 
 ```bash
-# We want to extract the last field (the number of reviews) for each film.
-# Because we don't know how many fields there are we can reverse the text before
-# we cut it - then the last field becomes the first, which we extract and then
-# put back into the correct order by reversing it again.
+# Get the last field of each line in the csv file.
 cat ~/effective-shell/data/top100.csv | rev | cut -d',' -f1 | rev
 ```
 
-If you _don't_ come from a programming background you might think that many of these comments are a little obvious. But as you write more and more code you'll realise that something that seemed obvious when you wrote it a while ago can look surprisingly baffling even just a few days later!
-
-Now that we've discussed comments, we'll build our `common.v1.sh` shell script.
+If you _don't_ come from a programming background, you might think that many of these comments are a little obvious. But as you write more and more code, you'll realise that something that seemed obvious when you wrote it a while ago can look surprisingly baffling even just a few days later!
 
 ## Building and Testing the Script
 
@@ -120,7 +119,7 @@ This is a short script, but there is quite a lot going on. Let's look at it blow
 5. Then we sort _numerically_ and in reverse - the highest count first
 6. Finally, we limit the results to the first ten items
 
-If you need a refresher on the shell history, `sort` or `uniq` the check the [Slice and Dice Text](../../part-3-manipulating-text/slice-and-dice-text) chapter. If the `sed` command doesn't look familiar then check the [Advanced Text Manipulation with Sed](../../part-3-manipulating-text/advanced-text-manipulation) chapter.
+If you need a refresher on the shell history, `sort` or `uniq` the check the [Slice and Dice Text](../../03-manipulating-text/15-slice-and-dice-text/index.md) chapter. If the `sed` command doesn't look familiar then check the [Advanced Text Manipulation with Sed](../../03-manipulating-text/16-advanced-text-manipulation/index.md) chapter.
 
 If you want to see a more detailed breakdown of how the script works, check [Appendix - How the Script Works](#appendix-how-the-script-works). But this is not necessary for you to follow the content in this chapter.
 
@@ -187,7 +186,7 @@ The next way we can run a script it is make it 'executable'. This means we chang
 chmod +x ~/scripts/common.v1.sh
 ```
 
-If the `chmod` command looks unfamiliar then check the [Understanding Commands](../../part-2-core-skills/understanding-commands) chapter. Now that the file has been made executable, we can simply enter the path to the file and run it, as if it was any other command:
+If the `chmod` command looks unfamiliar then check the [Understanding Commands](../../02-core-skills/10-understanding-commands/index.md) chapter. Now that the file has been made executable, we can simply enter the path to the file and run it, as if it was any other command:
 
 ```
 ~/scripts/common.v1.sh

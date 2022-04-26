@@ -1,0 +1,9 @@
+vi README.md
+git status
+git checkout main
+git status
+restart-shell
+git status
+open .
+vi README.md
+open .
