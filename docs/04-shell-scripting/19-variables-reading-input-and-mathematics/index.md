@@ -4,6 +4,7 @@ slug: '/part-3-manipulating-text/variables-reading-input-and-mathematics/'
 ---
 
 We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
+
 ## Variables
 
 _Variables_ are places where the system, the shell, or shell users like ourselves can store data.
@@ -75,6 +76,38 @@ cd "/home/$USER"
 
 If you set a system variable to something incorrect, the impact will be limited to only the script you are running or the shell session you are in, or any commands you run from the script or session - other running programs will _not_ have their copy of the variable changed. You can read more about this in the [Processes](../../work-in-progress) chapter of the [Linux Fundamentals](../../work-in-progress) section.
 
+### Shell Variables and Environment Variables
+
+The variables we create in the Shell are called _Shell Variables_. They are accessible in the current shell session that we are running.
+
+Shell variables are isolated to the current process. If we run another process from our shell, such as another shell script or program, our shell variables are not inherited by this process. This is by design - these shell variables are expected to be used for our local session only.
+
+If you want to ensure that a variable is available to all child processes, you can use the `export` (_set export attribute_) builtin to tell the shell to export the variable as an _Environment Variable_.
+
+Environment Variables are always inherited by child processes - so if you need to provide some kind of configuration or context to a child process, you will likely want to export your variable.
+
+As an example, let's set a variable to indicate whether we want to show some kind of extra diagnostic information to the user when running scripts:
+
+```sh
+export DEBUG_MODE=1
+sh -c 'echo "Debug Mode is: ${DEBUG_MODE}"'
+```
+
+Note that we are _not_ using the `DEBUG_MODE` variable in the current script, we have provided a _literal command_ to the `sh` program which will run in its own process. This process will inherit the shells environment and therefore can use the value of the `DEBUG_MODE` variable. If we did _not_ use the `export` keyword then the value would be undefined in the child process.
+
+We also see another convention here - environment variables are generally capitalized. This can make them a bit more noticeable. These variables should be used with care, you could potentially overwrite a variable in your environment (and therefore the child environments) that another program has set.
+
+You can see a list of the current environment variables that are set with the `env` (_set or print environment_) command:
+
+```sh
+env
+SHELL=/bin/zsh
+LSCOLORS=ExFxBxDxCxegedabagacad
+COLORTERM=truecolor
+PYENV_SHELL=bash
+# etc
+```
+
 ### Storing the Output of a Command into a Variable
 
 We can use a _subshell_<!--index--> to run a command and store the result in a variable.
@@ -101,7 +134,7 @@ You can use curly braces around the name of a variable to be more explicit about
 
 ```bash
 echo "Creating backup folder at: '$USER_backup'"
-mkdir $USERbackup
+mkdir $USER_backup
 ```
 
 This script shows the output:
@@ -111,27 +144,27 @@ Creating backup folder at: ''
 usage: mkdir [-pv] [-m mode] directory ...
 ```
 
-Rather than creating a folder called `dwmkerrbackup` (which is my `$USER` variable followed by the text `backup`), the script has actually failed. That is because it is looking for a variable called `USERbackup` - which has does not exist!
+Rather than creating a folder called `dwmkerr_backup` (which is my `$USER` variable followed by the text `_backup`), the script has actually failed. That is because it is looking for a variable called `USER_backup` - which has does not exist!
 
 To get around this we would surround the variable name with curly braces like so:
 
 ```bash
-echo "Creating backup folder at: '${USER}backup'"
-mkdir "${USER}backup"
+echo "Creating backup folder at: '${USER}_backup'"
+mkdir "${USER}_backup"
 ```
 
 This script will show the correct output:
 
 ```
-Creating backup folder at: 'dwmkerrbackup'
+Creating backup folder at: 'dwmkerr_backup'
 ```
 
 If there is ever any potential ambiguity with a variable name you should enclose it with curly braces to be on the safe side. Some people will use curly braces in all circumstances to be as explicit as possible about what the variable name is and reduce the risk of mistakes if someone later comes along to edit or change the code.
 
-This script would be improved with the use of a variable of our own to avoid us having to repeat the `${USER}backup` text:
+This script would be improved with the use of a variable of our own to avoid us having to repeat the `${USER}_backup` text:
 
 ```bash
-backupdir="${USER}backup"
+backupdir="${USER}_backup"
 echo "Creating backup folder at: '${backupdir}'"
 mkdir "${backupdir}"
 ```
