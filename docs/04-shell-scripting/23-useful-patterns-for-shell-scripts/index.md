@@ -542,7 +542,7 @@ You will sometimes see shebangs in shell scripts that contain options, like so:
 
 It is possible to specify the arguments to the program that is used to execute the script in the shebang. In the case above, the `-ex` flags are passed to the `bash` program, enabling the 'exit on error' and 'trace' options.
 
-I include this pattern because it is possible you will see it in other scripts, but please do not do this. There are a two particular reasons that it is risky.
+I include this pattern because it is possible you will see it in other scripts, but please do not do this. There are two particular reasons that it is risky.
 
 The first is that pattern requires that you know the path to the shell. As we saw in [Chapter 18 - Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md), we should use the `#!/usr/bin/env` program so that we search the `$PATH` for the shell rather than assuming that we know the location of the shell program.
 
@@ -560,9 +560,9 @@ The shell is amazing. Considering how long it has been around, it has in many wa
 
 However, the shell is _not_ generally going to be the best choice for any kind of complex logic or work. Shell scripts are great for automating simple tasks, creating utilities to help you out, but come with many challenges. The syntax can be confusing, making scripts work across multiple systems can be challenging, and there are not many features to help you write robust code.
 
-Perhaps the biggest anti-pattern in shell scripts is to simply let them get to large and do too much with them. There comes a certain point where you will almost certainly create a more portable, performant and maintainable solution to your problem using a dedicated programming language like Python (which is available on almost all systems) or one of the many other languages available.
+Perhaps the biggest anti-pattern in shell scripts is to simply let them get too large and do too much with them. There comes a certain point where you will almost certainly create a more portable, performant and maintainable solution to your problem using a dedicated programming language like Python (which is available on almost all systems) or one of the many other languages available.
 
-This is a topic we discuss in detail in the [Chapter 24 - How to avoid shell scripting](../../work-in-progress), but for now I would just say that as soon as your script starts to get longer than a page, or takes more than a few minutes to reason about, then you might be reaching the point that a programming language could be a better option.
+This is a topic we discuss in detail in the [Chapter 30 - How to Avoid Scripting](../../06-advanced-techniques/30-how-to-avoid-scripting/index.md), but for now I would just say that as soon as your script starts to get longer than a page, or takes more than a few minutes to reason about, then you might be reaching the point that a programming language could be a better option.
 
 ### Scripts without Shebangs
 
