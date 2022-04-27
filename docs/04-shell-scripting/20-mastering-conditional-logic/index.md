@@ -3,7 +3,7 @@ title: 'Mastering Conditional Logic'
 slug: '/part-4-shell-scripting/mastering-conditional-logic'
 ---
 
-In this chapter we'll introduce the 'conditional logic', a set of powerful features that allow us to run operations only when certain conditions are met. We'll look at the _if statement_ and the different ways we can evaluate conditions. We'll also look at more sophisticated conditional constructs such as the _case statement_ and the _select statement_, and how to 'chain' commands based on conditions.
+In this chapter we'll introduce 'conditional logic', a set of powerful features that allow us to run operations only when certain conditions are met. We'll look at the _if statement_ and the different ways we can evaluate conditions. We'll also look at more sophisticated conditional constructs such as the _case statement_ and the _select statement_, and how to 'chain' commands based on conditions.
 
 Let's get right into it!
 
@@ -336,7 +336,7 @@ In this case we evaluate the second command _only_ if the first command fails. L
 does (command1 or command2) succeed?
 ```
 
-If the first command succeeds, the shell doesn't need to evaluate the second command, so it is doesn't. However, if the first command fails, the shell does have to evaluate the second command, to see if either of them succeed.
+If the first command succeeds, the shell doesn't need to evaluate the second command. However, if the first command fails, the shell does have to evaluate the second command, to see if either of them succeed.
 
 In summary, here's how command chaining works:
 
@@ -418,7 +418,7 @@ The case statement can look quite complex, I often think that even if it takes m
 
 Now that we know how to use if statements, we can update the 'common' command that we have been improving as part of each chapter.
 
-We will update it to check to see whether the user is using Bash or Z-Shell and search through the history for for common commands appropriately.
+We will update it to check to see whether the user is using Bash or Z-Shell and search through the history for common commands appropriately.
 
 As a reference, let's look at the `common.v2.sh` command we created in the previous chapter:
 

@@ -201,7 +201,7 @@ do
 done
 ```
 
-You might think the logical result is that nothing is printed - there is not _bad shell_ folder, so the pattern should not find any files. But instead, we see the following output:
+You might think the logical result is that nothing is printed - there is not a _bad shell_ folder, so the pattern should not find any files. But instead, we see the following output:
 
 ```
 Found: ~/bad-shell/scripts/*.sh
@@ -304,7 +304,7 @@ This will cover you in most cases. However, this method is not ideal for a numbe
 
 The `$IFS` variable can be complex to work with and discussed at the end of the chapter.
 
-I believe that in this case it is probably best to not use a shell script. There is _no_ solution that is particularly clean or simple. In this case I think you might be better off using a programming language. Check the [How to avoid scripting!](../../work-in-progress) Chapter for more details on this.
+I believe that in this case it is probably best to not use a shell script. There is _no_ solution that is particularly clean or simple. In this case I think you might be better off using a programming language. Check [Chapter 30 - How to Avoid Scripting](../../06-advanced-techniques/30-how-to-avoid-scripting/index.md) for more details on this.
 
 ### For Loops - C Style Loops
 
