@@ -93,7 +93,7 @@ run_loop() {
 }
 ```
 
-Let's see what happens if we run function:
+Let's see what happens if we run this function:
 
 ```
 $ run_loop
@@ -124,7 +124,7 @@ Count is: 10
 The 'count' variable is: 3
 ```
 
-Notice that even though we used a variable named _count_ in the _run_loop_ function, we did not overwrite the value that was set outside of the function. If we were to run the same script but not use the 'local' keyword for he count variable, we would get the following output:
+Notice that even though we used a variable named _count_ in the _run_loop_ function, we did not overwrite the value that was set outside of the function. If we were to run the same script but not use the 'local' keyword for the count variable, we would get the following output:
 
 ```
 Count is: 10
@@ -192,7 +192,7 @@ Summed 5 values for a total of: 15
 
 In this script we've used two special variables. The `$@` variable is expanded into a list of all of the function parameters. The `$#` variable contains the number of parameters provided to the function.
 
-You might recognise that these variables look quite similar to the syntax that is used to get the members of an array or the length of an array as described in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md). You can actually use some of the array-style operators with the special parameters variable:
+You might recognise that these variables look quite similar to the syntax that is used to get the members of an array or the length of an array as described in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md). You can actually use some of the array-style operators with the special parameters variables:
 
 ```bash
 # Show the top 'n' values of a set.
@@ -368,9 +368,7 @@ Result is: touch is hashed (/usr/bin/touch)
 
 This is not a well written function, we'll look at a better way to write it next. But it shows an important challenge to be aware of - when `type` is used to find out whether a command exists it returns success if the command exists but also writes to _stdout_.
 
-
 In [Chapter 7 - Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) we saw that we can send the output of a command to the 'null' device to silence its output. We can use this trick in our functions to stop commands from 'polluting' our result:
-T
 
 ```bash
 command_exists() {
