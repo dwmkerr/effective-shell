@@ -144,7 +144,7 @@ You can list the options available to set by running `shopt -p`, or searching th
 | `checkjobs`   | Show the status of stopped and running jobs before exiting the shell.                           |
 | `cmdhist`     | Save multi-line commands in the shell history as single entries, rather than an entry per line. |
 | `dirspell`    | Try to correct typos when auto-completing directory names.                                      |
-| `globstar`    | Support recurive globbing such as `**/*.py` to find files in subdirectories.                    |
+| `globstar`    | Support recursive globbing such as `**/*.py` to find files in subdirectories.                    |
 | `histappend`  | Append to the history file when the shell exists, rather than overwriting it.                   |
 
 As well as the options that can be set using the `shopt` command, there are also many variables that are used to configure the shell. We've seen some of these variables already, such as the `EDITOR` variable that defines what text editor to use and the `PAGER` variable that defines what pager program to use.
@@ -241,7 +241,7 @@ You may have seen references to files such as _/etc/profile_, _~/.bash_profile_,
 
 ## Different Types of Shells
 
-For us to be able to understand how shells are configured, we need to understand the different types of shells that can run. This does not mean different shell programs, such as `bash`, `zsh` or `dash`, but instead the differences between _interactive_ and _non-interactive_ shells, as well a _login_ shells.
+For us to be able to understand how shells are configured, we need to understand the different types of shells that can run. This does not mean different shell programs, such as `bash`, `zsh` or `dash`, but instead the differences between _interactive_ and _non-interactive_ shells, as well as _login_ shells.
 
 A lot of people get confused by how the shell is configured because they don't fully understand what these different types of shells are. So let's introduce each one, what it is and how it is used.
 
@@ -372,7 +372,7 @@ The shell will then attempt to read each of the following files. If the shell fi
 - _~/.bash_login_<!--index-->
 - _~/.profile_<!--index-->
 
-There are very few circumstances in which you should change any of theses files. It is based to think of the profile files as essential operating system specific configuration that is needed to have a functional login shell.
+There are very few circumstances in which you should change any of these files. It is based to think of the profile files as essential operating system specific configuration that is needed to have a functional login shell.
 
 When a login shell closes, it will run any commands in the _~/.bash_logout_ file. However, users might terminate the shell process forcibly, which means that you cannot be sure this file will always be sourced as the shell exits.
 
@@ -470,7 +470,7 @@ exit
 chsh -s "/bin/zsh" $USER
 ```
 
-Be careful when changing your shell - if you get this wrong then you may inadvertently lock yourself out of your account, if logging in trys to start a shell that is not properly configured. Always test that the new shell works before you set it!
+Be careful when changing your shell - if you get this wrong then you may inadvertently lock yourself out of your account, if logging in tries to start a shell that is not properly configured. Always test that the new shell works before you set it!
 
 ## Summary
 

@@ -104,7 +104,7 @@ The special characters that the shell uses are listed below:
 | `\nnn`       | The character corresponding to the octal number `nnn`, used to show special characters.       |
 | `\\`         | A `\` backslash character.                                                                    |
 | `\[`         | The 'start of non-printing characters' sequence.                                              |
-| `\[`         | The 'end of non-printing characters' sequence.                                                |
+| `\]`         | The 'end of non-printing characters' sequence.                                                |
 
 Some of these sequences are reasonably self-explanatory, some are a little more complex. Let's use some of them now to see how we can customise the prompt.
 
@@ -213,7 +213,7 @@ BLACK ON GREEN
 
 However, the colour of the foreground and background should change on each line. The exact formatting will change depending on the terminal emulator you use. Some terminal emulators use bold text for the 'bright' colours. 
 
-With our new knowledge of how to use ANSI Escape Sequences to set the format of text, we can update our `PS1` variable to show a prompt in colour. As an example, the code below sets the prompt to show the username in blue and the name of the current working directory in green, followed by a white `$` prompt symbol, followed by the 'reset' sequence so that the text we type afterwords does not have its colour changed:
+With our new knowledge of how to use ANSI Escape Sequences to set the format of text, we can update our `PS1` variable to show a prompt in colour. As an example, the code below sets the prompt to show the username in blue and the name of the current working directory in green, followed by a white `$` prompt symbol, followed by the 'reset' sequence so that the text we type afterwards does not have its colour changed:
 
 ```
 dwmkerr@effective-shell-ubuntu-20:~/effective-shell$ PS1='\033[34m\u \033[32m\W \033[37m\$ '
@@ -241,7 +241,7 @@ dwmkerr@effective-shell-ubuntu-20:~$ PS1='-Ready?---> '
 -Ready?---> 
 ```
 
-We don't need to limit ourselves to the special sequences we've seen so far in this chapter - we can run any commands we like to build a command prompt. For example, we could use the use the `ls` (_list directory contents_) and `wc` (_count lines and works_) commands to count the number of files and folders in the current directory and show that in the prompt:
+We don't need to limit ourselves to the special sequences we've seen so far in this chapter - we can run any commands we like to build a command prompt. For example, we could use the use the `ls` (_list directory contents_) and `wc` (_count lines and words_) commands to count the number of files and folders in the current directory and show that in the prompt:
 
 ```bash
 PS1="$(ls -al | wc -l | tr -d '[:space:]') \\$ "
@@ -569,7 +569,7 @@ For Z-Shell users, you might also consider the very popular "Oh-My-Zsh" project.
 
 However, just like with most things in computing, I would strongly recommend that you learn how the fundamentals work as they are described in this chapter before using "Oh-My-Zsh" themes. This will help you understand how things like "Oh-My-Zsh" actually work under the hood.
 
-You might also realise that you don't need to install an additional package to get the styling you want. For example, my own shell prompt includes information on Git, the working directory (trimmed to only show up to three entries), but only requires a few lines of of setup and works consistently in Bash-like shells _and_ Z-Shell.
+You might also realise that you don't need to install an additional package to get the styling you want. For example, my own shell prompt includes information on Git, the working directory (trimmed to only show up to three entries), but only requires a few lines of setup and works consistently in Bash-like shells _and_ Z-Shell.
 
 Enjoy playing around with the prompt customisation! It can be a lot of fun and the options are almost limitless!
 
