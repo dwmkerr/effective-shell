@@ -89,7 +89,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 The first thing that `git status` tells us is the name of the _branch_ we are on. We'll look at branches in detail shortly. The next thing we see is that there are no _commits_ - commits are sets of changes that we track. Finally, git is telling us that there are three files that are 'untracked'. These are the _install.sh_ and _shell.sh_ files as well as the _shell.d_ folder.
 
-If we are going to use Git to track changes to these file, we need to add them to the repository. We can do that with the _git add_ (_add file contents to index_) command<!--index-->:
+If we are going to use Git to track changes to these files, we need to add them to the repository. We can do that with the _git add_ (_add file contents to index_) command<!--index-->:
 
 ```
 $ git add .
@@ -329,7 +329,7 @@ $ tree
 └── shell.sh
 ```
 
-When we switch back to the _main_ branch and look our our working tree we can see that the _git_aliases.sh_ file is not present. This is very cool - by passing the name of the branch we want to switch to as the parameter to the `git checkout` command we can switch branches. If we are on the _main_ branch we don't see the _git_aliases.sh_ file, because the commit that added is was not on the _main_ branch. To go back to the _aliases_ branch we can just checkout again:
+When we switch back to the _main_ branch and look at our working tree we can see that the _git_aliases.sh_ file is not present. This is very cool - by passing the name of the branch we want to switch to as the parameter to the `git checkout` command we can switch branches. If we are on the _main_ branch we don't see the _git_aliases.sh_ file, because the commit that added is was not on the _main_ branch. To go back to the _aliases_ branch we can just checkout again:
 
 ```
 $ git checkout aliases

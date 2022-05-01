@@ -257,7 +257,7 @@ Choose the 'fork' option and GitHub will create a copy of the repository in your
 
 If you have made changes to a fork, you can then open a _Pull Request_. A pull request is a request to merge a set of changes from one branch into another, or from one fork into the original repository. So if you were to improve upon the dotfiles that you forked, and wanted to share your changes back, you could open a pull request to do so.
 
-Typically when a pull request is opened, the project maintainer will then review the changes, make suggestions or discuss the proposal, and then either merge the pull request or reject it. In the screenshot below I am opening a pull request from my clone of the dorfile repository to the original dotfiles repository, this pull requests adds an uninstall script to the repository. A maintainer of the target repository will then review the changes:
+Typically when a pull request is opened, the project maintainer will then review the changes, make suggestions or discuss the proposal, and then either merge the pull request or reject it. In the screenshot below I am opening a pull request from my clone of the dotfiles repository to the original dotfiles repository, this pull requests adds an uninstall script to the repository. A maintainer of the target repository will then review the changes:
 
 ![Screenshot of a pull request being opened](./images/github-open-pull-request.png)
 

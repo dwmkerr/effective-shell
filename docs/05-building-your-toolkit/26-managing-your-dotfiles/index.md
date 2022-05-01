@@ -36,7 +36,7 @@ You will mostly see dotfiles in your `HOME` directory. They have a dot to mark t
 
 As an example, a user's personal Bash configuration is stored in _~/.bashrc_, but the global Bash configuration applied to _all_ users is stored in _/etc/bash.bashrc_. The second configuration file does not need a dot in front of it - the _/etc_ folder is where configuration is kept so there is no need to differentiate it from other files like a user's personal files.
 
-Nowadays, when a user say "my dotfiles", they typically mean their _configuration_ files that are kept in their home directory. In a sense, your dotfiles are a bit like your personal settings for your computer. On a desktop environment your settings might be things like your theme or wallpaper. For a shell user, you settings will be files like _~/.bashrc_ for your shell configuration, _~/.ssh/config_ for your SSH configuration and so on.
+Nowadays, when a user says "my dotfiles", they typically mean their _configuration_ files that are kept in their home directory. In a sense, your dotfiles are a bit like your personal settings for your computer. On a desktop environment your settings might be things like your theme or wallpaper. For a shell user, you settings will be files like _~/.bashrc_ for your shell configuration, _~/.ssh/config_ for your SSH configuration and so on.
 
 You will likely change the dotfiles over time to suit your preferences. Let's take a look at some sensible ways to organise and structure your dotfiles so that you can easily see what is your personal configuration, rather than what is the default configuration provided by the system, and easily manage these configurations.
 
@@ -201,7 +201,7 @@ VISUAL=nano
 EDITOR=nano
 ```
 
-There are two variables are are used by the shell and command line programs to run an editor. The first, and original, variable was `EDITOR`. This was originally often a _line mode_ editor - i.e. a text editor that doesn't take up the whole screen. This was useful in the days of printed output, before screens were used. The `VISUAL` variable was used to specify the editor that could be used for 'full screen' terminal editing. Some programs use `EDITOR` and some use `VISUAL` so it is best to set both.
+There are two variables are used by the shell and command line programs to run an editor. The first, and original, variable was `EDITOR`. This was originally often a _line mode_ editor - i.e. a text editor that doesn't take up the whole screen. This was useful in the days of printed output, before screens were used. The `VISUAL` variable was used to specify the editor that could be used for 'full screen' terminal editing. Some programs use `EDITOR` and some use `VISUAL` so it is best to set both.
 
 I have used the `nano` editor in this example as it available on many distributions and is a little easier than `vi` or `emacs`, but you can use whatever you like. For my personal dotfiles I use `vi`.
 
@@ -330,7 +330,7 @@ This is a great way to verify that the script works as expected, before we actua
 
 Now that we have a working shell dotfile, we can source it as part of our shell startup.
 
-Rather than having our shell startup file know about our _~/dotfiles_ folder, we will create a symlink to th shell script from our home directory:
+Rather than having our shell startup file know about our _~/dotfiles_ folder, we will create a symlink to the shell script from our home directory:
 
 Finally, we can create a symlink in our home directory that points to our _~/dotfiles/shell.sh_ file and we are good to go!
 
