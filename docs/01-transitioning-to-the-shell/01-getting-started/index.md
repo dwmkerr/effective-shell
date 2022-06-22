@@ -33,7 +33,7 @@ When we are talking about the shell in this book, we're talking about the simple
 
 Why would you want to do this? There are a few reasons!
 
-Firstly, using the shell can help you learn more about the internals of how your computer can work. This can be really helpful if you are technology professional or work with computers.
+Firstly, using the shell can help you learn more about the internals of how your computer can work. This can be really helpful if you are a technology professional or work with computers.
 
 Secondly, there are some scenarios where you _have_ to use a shell. Not every program or system can be operated with a _Graphical User Interface_, which is the visual point-and-click interface you are probably using now. Some lower-level programs do not have such interfaces, and many computers do not either.
 
