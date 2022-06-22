@@ -44,6 +44,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "alexvinall",
+      "name": "Alex Vinall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5629393?v=4",
+      "profile": "https://www.alexvinall.com",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
