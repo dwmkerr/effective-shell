@@ -1,7 +1,7 @@
 # effective-shell 
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -133,6 +133,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://linkedin.com/in/tbueschel"><img src="https://avatars.githubusercontent.com/u/13087421?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tobias Büschel</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Atobiasbueschel" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://foostack.ai"><img src="https://avatars.githubusercontent.com/u/15166953?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Doug Foo</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=dougfoo" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Adougfoo" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/skokaina"><img src="https://avatars.githubusercontent.com/u/2756985?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sallah Kokaina</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=skokaina" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Askokaina" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/JosephFKnight"><img src="https://avatars.githubusercontent.com/u/45918817?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joseph Knight</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=JosephFKnight" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3AJosephFKnight" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
