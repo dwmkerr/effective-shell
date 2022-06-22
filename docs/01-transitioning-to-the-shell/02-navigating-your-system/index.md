@@ -7,7 +7,7 @@ Switching from a graphical user interface to the shell can take some getting use
 
 This section will introduce the `pwd`, `ls`, `cd`, `pushd` and `popd` commands, as well as the concepts of the "working directory" and "environment variables". We'll also take a bit of a look into how "Paths" work.
 
-If these commands far familiar to you then feel free to jump to the next chapter! Otherwise, let's get started.
+If these commands are familiar to you then feel free to jump to the next chapter! Otherwise, let's get started.
 
 ## The Working Directory
 
