@@ -44,6 +44,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "JosephFKnight",
+      "name": "Joseph Knight",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45918817?v=4",
+      "profile": "https://github.com/JosephFKnight",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
