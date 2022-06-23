@@ -33,7 +33,7 @@ When we are talking about the shell in this book, we're talking about the simple
 
 Why would you want to do this? There are a few reasons!
 
-Firstly, using the shell can help you learn more about the internals of how your computer can work. This can be really helpful if you are technology professional or work with computers.
+Firstly, using the shell can help you learn more about the internals of how your computer can work. This can be really helpful if you are a technology professional or work with computers.
 
 Secondly, there are some scenarios where you _have_ to use a shell. Not every program or system can be operated with a _Graphical User Interface_, which is the visual point-and-click interface you are probably using now. Some lower-level programs do not have such interfaces, and many computers do not either.
 
@@ -80,7 +80,7 @@ If you are using a Linux or Unix system, I'll assume that you are familiar enoug
 
 Shells can vary enormously between different systems. In general, Linux systems tend to use the "Bash" shell and require little configuration. Apple's MacOS operating system is actually based on BSD Unix, and under the hood is somewhat different to most Linux systems. Microsoft Windows is a completely unrelated operating system to either Linux or Unix and operates in a fundamentally different way both of them.
 
-In this book, we assume that you are using a "Linux-like" system, something which operates like a modern Linux distribution. This is a deliberate choice. If you become comfortable using a Linux-like shell, you can generally apply the techniques we'll show to MacOS with no difficulties. For Windows, the techniques are not necessarily transferable immediately, but still valuable to know. Windows is actually being updated at the time of writing to provide a Linux-like shell interface as part of the core operating system (this is known as the [Windows Subsystem Linux](https://docs.microsoft.com/en-us/windows/wsl). As time progresses it will be easier to run commands using the techniques in this book natively, but for now we'll have to tweak a few things.
+In this book, we assume that you are using a "Linux-like" system, something which operates like a modern Linux distribution. This is a deliberate choice. If you become comfortable using a Linux-like shell, you can generally apply the techniques we'll show to MacOS with no difficulties. For Windows, the techniques are not necessarily transferable immediately, but still valuable to know. Windows is actually being updated at the time of writing to provide a Linux-like shell interface as part of the core operating system (this is known as the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl). As time progresses it will be easier to run commands using the techniques in this book natively, but for now we'll have to tweak a few things.
 
 In this section we'll make sure that we are running with a setup which is close to Linux, and aim to set the latest version of our shell to the popular "Bash" program. If you are familiar with Bash but prefer to use another shell, that is fine, most of the book will work with any modern shell. However, if you are not sure what shell you should be using, I would recommend you follow the guides below to setup the most popular shell at its latest version.
 
@@ -246,7 +246,7 @@ First, follow the instructions online to install [Homebrew](https://brew.sh/):
 
 <img alt="Screenshot: OSX Installation" src={require('./images/setup-osx-1.png').default} width="800px" />
 
-In most cases, this will require opening the terminal programming and running a snippet which looks like this:
+In most cases, this will require opening the Terminal program and running a snippet which looks like this:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

@@ -54,6 +54,26 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "JosephFKnight",
+      "name": "Joseph Knight",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45918817?v=4",
+      "profile": "https://github.com/JosephFKnight",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "Zambrella",
+      "name": "Doug Todd",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53582591?v=4",
+      "profile": "http://bit.ly/doug-todd",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,

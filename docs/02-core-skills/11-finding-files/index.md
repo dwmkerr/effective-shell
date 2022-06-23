@@ -481,7 +481,7 @@ This example uses the `-perm` test, checking if 'all' (users, the owner and grou
 We can use the `-empty` test to find empty folders:
 
 ```
-find ~ -type d -maxdepth -empty -ok rmdir {} \;
+find ~ -type d -maxdepth 3 -empty -ok rmdir {} \;
 ```
 
 This example uses the `-empty` test, as well as the `-maxdepth` parameter to limit the search to only three folders deep.
