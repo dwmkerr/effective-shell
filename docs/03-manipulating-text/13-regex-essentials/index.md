@@ -67,7 +67,7 @@ Some are valid, some are not. Some you might not be sure about - such as the one
 Here's how I would start building a regex for an email address:
 
 1. Any set of characters
-2. Followed by an `@` ampersand
+2. Followed by an `@` at symbol
 3. Followed by any set of characters
 
 That regex would look like this:
@@ -78,7 +78,7 @@ That regex would look like this:
 
 The first bit, `.*` means 'any character' (this is what the `.` dot symbol means), 'any number of times (this is what the `*` asterisk symbol means).
 
-The second bit is just the literal `@` ampersand character.
+The second bit is just the literal `@` at symbol character.
 
 The third bit is the same as the first - any characters any number of times.
 
@@ -96,13 +96,13 @@ Note that from this point onwards we'll not show screenshots of the results as y
 
 The regular expression we have is very simple - `.*@.*`. The complexity in regular expressions tends to come from the fact that we need to handle 'edge cases' and be very explicit about what we can and cannot allow.
 
-Let's see how we can refine this expression further to eliminate some of the invalid addresses. Let's start with `@yahoo.com`. It doesn't have anything before the ampersand.
+Let's see how we can refine this expression further to eliminate some of the invalid addresses. Let's start with `@yahoo.com`. It doesn't have anything before the at symbol.
 
-This is being matched by our pattern because our pattern allows any characters before and after the ampersand _any number of times_ - including _zero times_.
+This is being matched by our pattern because our pattern allows any characters before and after the at symbol _any number of times_ - including _zero times_.
 
-Let's change number of characters before and after the ampersand to be 'between one and many'. To do this we use a different _quantifier_ (a 'quantifier' is the part of a pattern which says 'how many occurrences of the characters do we expect).
+Let's change number of characters before and after the at symbol to be 'between one and many'. To do this we use a different _quantifier_ (a 'quantifier' is the part of a pattern which says 'how many occurrences of the characters do we expect).
 
-Previously we used the `*` ampersand quantifier (which means 'any number of times'). Now we'll use the `+` plus quantifier (which means 'at least one time'). Let's see how it looks:
+Previously we used the `*` asterisk quantifier (which means 'any number of times'). Now we'll use the `+` plus quantifier (which means 'at least one time'). Let's see how it looks:
 
 <pre>
 .+@.+{'\n'}
@@ -139,9 +139,9 @@ Now let's look at the character itself.
 
 When we are matching text, we match a set of characters a number of times. The set of characters we match can be a _character set_ (which is when we explicitly say what is allowed), or a _metacharacter_ (which is a predefined character set). This concept is far easier to explain with an example.
 
-Let's look at the address `dave@kerr@effective.shell.com`. This is clearly invalid, it has two ampersands. We can use character sets or metacharacters to fix this.
+Let's look at the address `dave@kerr@effective.shell.com`. This is clearly invalid, it has two at symbols. We can use character sets or metacharacters to fix this.
 
-The reason this address matches our expressions is that we are using the `.` dot _metacharacter_ before and after the ampersand. The dot metacharacter means 'any character' (except a newline). This _includes_ the ampersand character.
+The reason this address matches our expressions is that we are using the `.` dot _metacharacter_ before and after the at symbol. The dot metacharacter means 'any character' (except a newline). This _includes_ the at symbol character.
 
 There are a few ways we would be more explicit. Let's look at each of them, as each one will show a character set or metacharacter in detail.
 
@@ -169,7 +169,7 @@ whatever123@😂.com{'\n'}
 <strong>dave@kerr</strong>@effective.shell.com{'\n'}
 </pre>
 
-This fails to match the valid email address `dave@effective-shell.com` - because it has a hyphen after the ampersand, and the hyphen character is not in our character set. It also fails to match others for the same reason - we haven't got the 'dot' character in our character set.
+This fails to match the valid email address `dave@effective-shell.com` - because it has a hyphen after the at symbol, and the hyphen character is not in our character set. It also fails to match others for the same reason - we haven't got the 'dot' character in our character set.
 
 Let's see how we can do better.
 
@@ -251,9 +251,9 @@ dave@{'\n'}
 <strong>dave@kerr@effective.shell.com</strong>{'\n'}
 </pre>
 
-We've used the character set `[\S^@]` which means 'any none-whitespace character' (this is the `\S` part) and 'not the ampersand character' (this is the `^@` part).
+We've used the character set `[\S^@]` which means 'any none-whitespace character' (this is the `\S` part) and 'not the at symbol character' (this is the `^@` part).
 
-Notice that in this case we have more matches - because the set of characters we are using is larger than a set such as `\w`. This expression now covers the email address with the emoji, because the emoji is not a whitespace character or an ampersand.
+Notice that in this case we have more matches - because the set of characters we are using is larger than a set such as `\w`. This expression now covers the email address with the emoji, because the emoji is not a whitespace character or an at symbol.
 
 **Character Sets - Escaping Characters**
 
@@ -360,8 +360,8 @@ Here's an example:
 Now the entire line matches, but everything surrounded by `()` parentheses is a capture group. This means that the regular expression has actually made _three_ matches:
 
 1. `dave@effective-shell.com` - The first match in an expression is always the complete match
-2. `dave` - This is the first capture group, everything before the ampersand
-3. `effective-shell.com` - This is the second capture group, everything after the ampersand.
+2. `dave` - This is the first capture group, everything before the at symbol
+3. `effective-shell.com` - This is the second capture group, everything after the at symbol.
 
 We're actually going to see how to use capture groups directly in the shell in the next chapter so we won't go into much more detail now.
 
@@ -413,7 +413,7 @@ This has led to cases of what is called 'catastrophic backtracking' - where the 
 
 In short - very broad and greedy expressions such as `.+` (match _anything_ at least once) may be susceptible to this problem. Be careful when writing your expressions to test them with short and long strings to see if there's a noticeable performance difference. Regex101 and other tools can show you if your expression is time consuming. Avoid this by making expressions lazy when you can and matching more explicit characters.
 
-**Lookarounds** are special constructs which allow you to essentially say 
+**Lookarounds** are special constructs which allow you to essentially say
 "find me a pattern, but only if it comes before or after another pattern". A lookahead is used to say "find me a pattern, but only match it if it comes before another pattern", a lookbehind says "find me a pattern, but only match it if it comes after another pattern". There are 'negative' lookaheads and lookbehinds which essentially say "find me a pattern which is *not* preceded or followed by another pattern".
 
 As an example, the expression `\d+(?=€)` matches digits (this is the `\d` metacharacter), at least one or more (this is the `+` plus symbol), but only if the digits are followed by a Euro symbol. In this case the `(?=€)` part of the pattern is a 'positive lookahead'.
