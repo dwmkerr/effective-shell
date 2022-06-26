@@ -59,7 +59,7 @@ The `touch` command creates an empty file with the given name. Finally, I open t
 
 Before we run the script, let's quickly talk about _comments_.
 
-## Comments<!--index..>
+## Comments<!--index-->
 
 Comments are lines of text that you add to a script or program to help the reader understand what is going on. Comments are not interpreted by the shell – they are purely for the benefit of the reader.
 
