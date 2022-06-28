@@ -94,6 +94,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "valankar",
+      "name": "valankar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31250800?v=4",
+      "profile": "https://github.com/valankar",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
