@@ -240,6 +240,6 @@ There's a great cheat sheet on emacs readline commands at [readline.kablamo.org/
 
 We'll also see _GNU Readline_ later on when we talk about writing programs which work well in the shell.
 
-I Hope that was useful! Being able to rapidly move around the command line will hopefully save you time and make you a more confident user of not just the shell, but many command line programs.
+I hope that was useful! Being able to rapidly move around the command line will hopefully save you time and make you a more confident user of not just the shell, but many command line programs.
 
 [^1]: GIFs were made with [LICEcap](http://www.cockos.com/licecap/).
