@@ -329,7 +329,7 @@ ps -a | grep vim
 Show all processes, then filter the list down to only `vim` processes.
 
 ```
-grep -Hv -C 3 -R password ./k8s/**/*.yaml | less
+grep -Hn -C 3 -R password ./k8s/**/*.yaml | less
 ```
 
 Search through all of the `yaml` files in my `k8s` folder, for the text 'password', show three lines of context, as well as the file name and number, and put the output in my pager so that it is easy to search through.
