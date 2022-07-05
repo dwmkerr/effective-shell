@@ -48,7 +48,7 @@ So by default, the `sort` command is reading _input_ from the keyboard (until we
 
 In fact, `sort` is using two special _files_ - `stdin` and `stdout` - but what does this mean?
 
-## Standing Input, Output and Error
+## Standard Input, Output and Error
 
 Every program has access to three 'special' files, `stdin`, `stdout` and `stderr`:
 

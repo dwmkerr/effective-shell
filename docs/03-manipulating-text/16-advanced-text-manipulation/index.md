@@ -271,7 +271,7 @@ Check `man sed` to see more about line patterns.
 
 ### Appending Text
 
-In a regular expression the ampersand `$` symbol represents the end of a line.
+In a regular expression the dollar-sign `$` symbol represents the end of a line.
 
 We can use this symbol to add content to the end of lines - we just search for `$` and replace it with whatever we want to end the line with! And if we want to only do this on certain lines, we can use a line pattern to limit where we apply the expression.
 
@@ -311,7 +311,7 @@ Easy!
 
 In a regular expression the caret `^` symbol represents the start of a line.
 
-We can apply the same trick as with the ampersand `$` symbol to add text to the start of a line - we just replace `^` with whatever we want the line to start with.
+We can apply the same trick as with the dollar-sign `$` symbol to add text to the start of a line - we just replace `^` with whatever we want the line to start with.
 
 Here's how we can use this trick!
 

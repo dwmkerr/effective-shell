@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.26.0](https://github.com/dwmkerr/effective-shell/compare/v0.25.4...v0.26.0) (2022-05-13)
+
+
+### Features
+
+* improve the search functionality ([fe0047c](https://github.com/dwmkerr/effective-shell/commit/fe0047cca7e3f1d8920df1f9fd17ea73936573f6))
+
+
+### Bug Fixes
+
+* remove the broken image zoom plugin ([584730d](https://github.com/dwmkerr/effective-shell/commit/584730df82db10a5ebf93f5ae30a65f1423fe15d))
+
+
+### Documentation
+
+* fix index tag ([1067d47](https://github.com/dwmkerr/effective-shell/commit/1067d47e403482a0dd0ab478199697feeca22341))
+* further improvements of chap 19 ([d1df054](https://github.com/dwmkerr/effective-shell/commit/d1df05404ddfa5bd345a82d469f0644c6d1d6199))
+* minor typo cleanup ([dd40c64](https://github.com/dwmkerr/effective-shell/commit/dd40c6417f47ae64acb5b56c558fedaa8ef021b0))
+* minor typo cleanup ([2350f14](https://github.com/dwmkerr/effective-shell/commit/2350f14ab7e4c0407e05c50f6f00c3b2dbfe2526))
+* minor typo fixes ([bfde922](https://github.com/dwmkerr/effective-shell/commit/bfde92255e34d16eb5240367c768dfdf7a0434cc))
+* more proofing ([629db2a](https://github.com/dwmkerr/effective-shell/commit/629db2a6cd70aba3d12ef80600ace7f8878a8a4d))
+* refine chapter 19 ([83c3b9d](https://github.com/dwmkerr/effective-shell/commit/83c3b9d822538a329bd15894947091624f26cbb3))
+* refine shell script essentials ([aa171cb](https://github.com/dwmkerr/effective-shell/commit/aa171cbdf8f095e0ef83c0b4c5ea4ef1bc05be4b))
+* typo cleanup on chapter 24/25 ([674e408](https://github.com/dwmkerr/effective-shell/commit/674e408b82a51df38aabd5605620577204e96062))
+
 ### [0.25.4](https://github.com/dwmkerr/effective-shell/compare/v0.25.3...v0.25.4) (2022-04-21)
 
 

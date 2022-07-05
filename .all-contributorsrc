@@ -44,6 +44,66 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "samhinton88",
+      "name": "samhinton88",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26925206?v=4",
+      "profile": "http://www.fetch-template.com",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "alexvinall",
+      "name": "Alex Vinall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5629393?v=4",
+      "profile": "https://www.alexvinall.com",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "JosephFKnight",
+      "name": "Joseph Knight",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45918817?v=4",
+      "profile": "https://github.com/JosephFKnight",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "Zambrella",
+      "name": "Doug Todd",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53582591?v=4",
+      "profile": "http://bit.ly/doug-todd",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "jdhzzz",
+      "name": "jdhzzz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1476690?v=4",
+      "profile": "https://github.com/jdhzzz",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "valankar",
+      "name": "valankar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31250800?v=4",
+      "profile": "https://github.com/valankar",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
