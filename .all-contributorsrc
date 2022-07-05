@@ -104,6 +104,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "mbogatzki",
+      "name": "Marek Bogatzki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/39946827?v=4",
+      "profile": "https://github.com/mbogatzki",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
