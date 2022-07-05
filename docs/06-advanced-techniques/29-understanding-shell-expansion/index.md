@@ -91,7 +91,7 @@ When the dollar symbol `$` is used, this indicates that the shell is going to pe
 
 A lot of these expansions are covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md) but I have included each of the available expansions here for reference.
 
-In it's most simple form, parameter expansion simple replaces the name of a variable or parameter with its value:
+In its most simple form, parameter expansion simple replaces the name of a variable or parameter with its value:
 
 ```bash
 fruit=apples
@@ -331,7 +331,7 @@ The output of this script is:
 /home/dwmkerr
 ```
 
-This can be very useful if you are writing scripts that will work with arbitrary of variable parameter names.
+This can be very useful if you are writing scripts that will work with arbitrary or variable parameter names.
 
 You can see more examples of how parameter expansion works, and in particular how to use parameter expansion with the parameters to functions or scripts in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md).
 

@@ -236,7 +236,7 @@ def search_for_word(word):
     return first_definition
 ```
 
-I'm not going to go through this blow-by-blow, it's a fairly rough and ready way to try and get the definition of a word from an online resource. In a nutshell it does the follow:
+I'm not going to go through this blow-by-blow, it's a fairly rough and ready way to try and get the definition of a word from an online resource. In a nutshell it does the following:
 
 1. Make sure that have the right address to search for the word
 2. Search for the word and download the result
@@ -294,7 +294,7 @@ parser.add_argument(
 args = parser.parse_args()
 ```
 
-The `argparse` module is very sophisticated, you can read more about it online if you'd like to discover more. But for now its enough to know that this code defines an optional argument named `crop`, that can be provided with a number, or without a number. We'll see it in action shortly.
+The `argparse` module is very sophisticated, you can read more about it online if you'd like to discover more. But for now, it's enough to know that this code defines an optional argument named `crop`, that can be provided with a number, or without a number. We'll see it in action shortly.
 
 Next we'll add a function that writes a word and its definition in a nicer way:
 
@@ -409,7 +409,7 @@ There are all sorts of other features you could add as a coding and learning exe
 - **Clearer interactive mode** - when stdin is a terminal, meaning the user is interactive, show a prompt and instructions
 - **A verbose flag** - a `--verbose` flag to show detailed error messages if they are encountered
 
-If you find yourself writing more complex command-line tools in Python, you might also explore the excellent [Click](https://click.palletsprojects.com/en/8.0.x/) Python package. This is a very popular package among Python developers and is used by a number of large and well-established projects. The [Typer](https://typer.tiangolo.com/) package is also worth exploring. The `urllib` package I have used works, but it can be quite unweildy when dealing with more complex options - many developers will prefer alternative packages.
+If you find yourself writing more complex command-line tools in Python, you might also explore the excellent [Click](https://click.palletsprojects.com/en/8.0.x/) Python package. This is a very popular package among Python developers and is used by a number of large and well-established projects. The [Typer](https://typer.tiangolo.com/) package is also worth exploring. The `urllib` package I have used works, but it can be quite unwieldy when dealing with more complex options - many developers will prefer alternative packages.
 
 ## Summary
 
