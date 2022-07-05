@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          package-name: "Effective Shell"
+          package-name: effective-shell
           # We include 'docs' in the changelog types, this means document
           # changes will be in the CHANGELOG and also that docs changes will
           # trigger a patch release. This is essential as we basically are
