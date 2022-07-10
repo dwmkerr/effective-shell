@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.26.1](https://github.com/dwmkerr/effective-shell/compare/v0.26.0...v0.26.1) (2022-07-05)
+
+
+### Bug Fixes
+
+* correct all incorrect usages of "ampersand" ([#211](https://github.com/dwmkerr/effective-shell/issues/211)) ([1f03db9](https://github.com/dwmkerr/effective-shell/commit/1f03db98475f49d8813e387a3f449784fedd1370))
+* find - add 3 to maxdepth ([#216](https://github.com/dwmkerr/effective-shell/issues/216)) ([1e03f1f](https://github.com/dwmkerr/effective-shell/commit/1e03f1f52df5632a9295293aa0293d47d17c8755))
+* Improve grammar ([#208](https://github.com/dwmkerr/effective-shell/issues/208)) ([4c732e0](https://github.com/dwmkerr/effective-shell/commit/4c732e01ebd52a55067b132291563dbd3263b870))
+* release please package name ([#224](https://github.com/dwmkerr/effective-shell/issues/224)) ([08bf4d6](https://github.com/dwmkerr/effective-shell/commit/08bf4d6aa8d6a860d218411675a4d1720bf1aaf2))
+* typo in 'navigating your system' ([42e1518](https://github.com/dwmkerr/effective-shell/commit/42e1518c701a63a770d15c750e6b1bd9692e9828))
+* wrong grep params ([#222](https://github.com/dwmkerr/effective-shell/issues/222)) ([5ecc3eb](https://github.com/dwmkerr/effective-shell/commit/5ecc3eb7f0baf5795ca3d906a1973e89cab98434))
+
+
+### Documentation
+
+* add alexvinall as a contributor for doc, review ([#214](https://github.com/dwmkerr/effective-shell/issues/214)) ([8a4c96c](https://github.com/dwmkerr/effective-shell/commit/8a4c96cd6571d8e9bd73fa37c8282764d386161a))
+* add jdhzzz as a contributor for doc, review ([#217](https://github.com/dwmkerr/effective-shell/issues/217)) ([85c995a](https://github.com/dwmkerr/effective-shell/commit/85c995a6958084de302c99816686392092dca755))
+* add JosephFKnight as a contributor for doc, review ([#213](https://github.com/dwmkerr/effective-shell/issues/213)) ([96da190](https://github.com/dwmkerr/effective-shell/commit/96da1908f7f255e6f811c0aa64549422b6b989f7))
+* add samhinton88 as a contributor for doc, review ([#215](https://github.com/dwmkerr/effective-shell/issues/215)) ([6cbb936](https://github.com/dwmkerr/effective-shell/commit/6cbb936ab93ffa604206f66362a2f0ecb91e6a23))
+* add valankar as a contributor for doc, review ([#219](https://github.com/dwmkerr/effective-shell/issues/219)) ([f3d82be](https://github.com/dwmkerr/effective-shell/commit/f3d82bed620655970f980f31cf6eab7b79cf9f11))
+* add Zambrella as a contributor for doc, review ([#212](https://github.com/dwmkerr/effective-shell/issues/212)) ([319e502](https://github.com/dwmkerr/effective-shell/commit/319e5023fafb71d885fe5a43a1f2396f94409ea1))
+* Fixed typo ([#209](https://github.com/dwmkerr/effective-shell/issues/209)) ([0871b96](https://github.com/dwmkerr/effective-shell/commit/0871b9636c2eee4261ba392d11af4220ae7e4305))
+
 ## [0.26.0](https://github.com/dwmkerr/effective-shell/compare/v0.25.4...v0.26.0) (2022-05-13)
 
 
