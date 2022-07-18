@@ -104,6 +104,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "Denpeer",
+      "name": "Denpeer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5969147?v=4",
+      "profile": "https://github.com/Denpeer",
+      "contributions": [
+        "review",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
