@@ -114,6 +114,17 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "MichaelWarnecke",
+      "name": "MWarnecke",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7615963?v=4",
+      "profile": "https://github.com/MichaelWarnecke",
+      "contributions": [
+        "doc",
+        "review",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
