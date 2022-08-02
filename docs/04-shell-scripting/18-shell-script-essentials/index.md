@@ -192,7 +192,7 @@ If the `chmod` command looks unfamiliar then check the [Understanding Commands](
 ~/scripts/common.v1.sh
 ```
 
-There is a problem with this approach though. How this file is executed is going to vary depending on how your system is set up[^3]. For example, if you are using Bash, then the script will run in a new instance of the Bash shell. However, if you are using the Z shell, then the script will most likely run in the `sh` program (and depending on your system, this program might just be a link to _another_ type of shell).
+There is a problem with this approach though. How this file is executed is going to vary depending on how your system is set up[^2]. For example, if you are using Bash, then the script will run in a new instance of the Bash shell. However, if you are using the Z shell, then the script will most likely run in the `sh` program (and depending on your system, this program might just be a link to _another_ type of shell).
 
 We want to avoid any ambiguity and be explicit about _what_ program should run our script. We can do this using a special construct called a _shebang_.
 
@@ -404,7 +404,7 @@ common commands:
 
 This works because when the shell sees a command, it searches through the folders in the $PATH environment variable to find out where the command is. And the `/usr/bin/local` folder is in this list of paths.
 
-Why do we use the `/usr/bin/local` folder rather than the `/usr/bin` folder? This is just a convention. In general, the `/usr/bin` folder is for commands which are installed with package manager tools like `apt` or Homebrew (on MacOS). The `/usr/local/bin` folder is used for commands which you create for yourself on your local machine and manage yourself[^4].
+Why do we use the `/usr/bin/local` folder rather than the `/usr/bin` folder? This is just a convention. In general, the `/usr/bin` folder is for commands which are installed with package manager tools like `apt` or Homebrew (on MacOS). The `/usr/local/bin` folder is used for commands which you create for yourself on your local machine and manage yourself[^3].
 
 ## Summary
 
@@ -496,5 +496,5 @@ Why the numeric sort? If we didn't sort numerically and instead performed the de
 This is a lexographic sort - the line starting with 13 comes after the line starting with 2. We want to sort by the value of the number.
 
 [^1]: The path to the shell history file is normally available in the `$HISTFILE` environment variable. However, in a non-interactive shell this variable is not set (and when we run a shell script, it is run in a non-interactive shell). We'll see more about interactive and non-interactive shells later, this is just a note in case you are wondering why we don't use the `$HISTFILE` variable or `history` command!
-[^3]: Try putting the command `pstree -p $$` in a shell script and running the script - you'll see exactly what process is run.
-[^4]: If you want to know more about these folders and the conventions behind them then check back soon, I am going to be adding an entire section on Linux Fundamentals, and one of the chapters will specifically be on the Linux Filesystem. This will cover 'The Linux Filesystem Hierarchy Standard' which defines how folders like this should be used.
+[^2]: Try putting the command `pstree -p $$` in a shell script and running the script - you'll see exactly what process is run.
+[^3]: If you want to know more about these folders and the conventions behind them then check back soon, I am going to be adding an entire section on Linux Fundamentals, and one of the chapters will specifically be on the Linux Filesystem. This will cover 'The Linux Filesystem Hierarchy Standard' which defines how folders like this should be used.

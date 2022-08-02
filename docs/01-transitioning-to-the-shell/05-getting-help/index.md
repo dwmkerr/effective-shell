@@ -477,4 +477,3 @@ In this chapter we looked at some of the ways we can get help. To quickly summar
 
 [^1]: Weirdly satisfying to run.
 [^2]: Which it is always fun to try if you get the chance, and a great way to learn more about the fundamentals of the operating system.
-[^3]: Dash is a paid product. Full disclosure - I don't get any money from them or anyone else to write about anything, all content is 100% based on my experiences. I don't run ads on my site either.

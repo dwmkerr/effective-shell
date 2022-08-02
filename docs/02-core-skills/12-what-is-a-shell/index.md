@@ -212,7 +212,7 @@ In this example, we have:
 - iTerm2 as the terminal program
 - `tmux` running as a 'terminal multiplexer' (see [Effective Shell: Terminal Multiplexers](https://github.com/dwmkerr/effective-shell#coming-soon))
 - `zsh` (Z Shell) as the shell program, using 'oh my zsh', which is easily recognised by the `%` sign in the command prompt.
-- A customised command line, which shows the user and folder on one line, with only the `%` symbol below, to leave lots of space for the input commands[^10].
+- A customised command line, which shows the user and folder on one line, with only the `%` symbol below, to leave lots of space for the input commands[^9].
 
 #### Example: Bash
 
