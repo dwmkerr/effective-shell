@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.3](https://github.com/dwmkerr/effective-shell/compare/v0.26.2...v0.26.3) (2022-10-18)
+
+
+### Documentation
+
+* add more to recommended reading ([e36fd2f](https://github.com/dwmkerr/effective-shell/commit/e36fd2f698a8020d48eed87f7e53f2fea611b4f8))
+
 ## [0.26.2](https://github.com/dwmkerr/effective-shell/compare/v0.26.1...v0.26.2) (2022-08-02)
 
 
