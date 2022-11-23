@@ -364,7 +364,7 @@ In this chapter we introduced the following:
 - The `cp` (_copy_) command can copy a file.
 - The `cp` can also be given wildcards like `*` to copy many files.
 - The `mv` (_move_) command can move or rename a file.
-- The `mkdir` command can create a folder - it can even create a whole tree of folders if you pass the `-p` (_create parent directories) flag.
+- The `mkdir` command can create a folder - it can even create a whole tree of folders if you pass the `-p` (_create parent directories_) flag.
 - The `rmdir` command can delete a folder - but just like `rm` it will fail if the folder is not empty!
 - When we delete files in the shell with `rm` or `rmdir` they are gone forever, no recycle bin!
 - The `cat` command (_concatenated_) can be used to write the contents of a file to the screen.
