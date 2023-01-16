@@ -16,15 +16,15 @@ In this chapter we'll see why we might want to use or at least become familiar w
 
 A Terminal Editor is any text editor that is designed to run inside a terminal, often from a shell. This means it is designed to be used without a mouse, on a smaller screen, and on a system that might have no graphical user interface or windowing or desktop environment.
 
-Some of the most popular terminal editors you might have hard of are _GNU nano_, _Vim_ and _Emacs_. Let's take a look at why we might want to know how to use a terminal editor.
+Some of the most popular terminal editors you might have heard of are _GNU nano_, _Vim_ and _Emacs_. Let's take a look at why we might want to know how to use a terminal editor.
 
 ## Why use a Terminal Editor?
 
 Many technologists will be familiar with Graphical Text Editors, such as [Visual Studio Code](https://code.visualstudio.com/), [Atom](https://atom.io/) and [Sublime](https://www.sublimetext.com/). Software engineers will likely be familiar with Integrated Development Environments such as [Visual Studio](https://visualstudio.microsoft.com/) or the JetBrains family of IDEs which include dedicated environments for many languages, such as [IntelliJ IDEA](https://www.jetbrains.com/idea/) for Java.
 
-So with such a selection of powerful and user-friendly text editing options available, why would you choose to use a Terminal Editor?
+So, with such a selection of powerful and user-friendly text editing options available, why would you choose to use a Terminal Editor?
 
-There are many reason, but perhaps the most compelling one is that you will not always have a graphical environment available! If you are working on a remote server using the `ssh` tool as described in [Chapter 31 - The Secure Shell](../31-the-secure-shell/index.mdx), you will not have a desktop or windowed environment to run a graphical tool. The _only_ options available for you to edit text, code or scripts in such an environment are terminal editors - because the terminal is your only interface to the server.
+There are many reasons, but perhaps the most compelling one is that you will not always have a graphical environment available! If you are working on a remote server using the `ssh` tool as described in [Chapter 31 - The Secure Shell](../31-the-secure-shell/index.mdx), you will not have a desktop or windowed environment to run a graphical tool. The _only_ options available for you to edit text, code or scripts in such an environment are terminal editors - because the terminal is your only interface to the server.
 
 There are other times where you might not have easy access to a graphical environment - for example if you are editing a file in a Docker container.
 
@@ -171,7 +171,7 @@ The text we are editing in Vim is called a _buffer_. A buffer can be thought of 
 
 Vim is showing us in the status line that we have a buffer named _cheatsheet.md_ and that this is a 'New' buffer - it has not been saved.
 
-The extension `md` at the end of the file is short for 'Markdown'. Markdown is a plain text format that is great for documentation. You write text as normal - you can also use some special characters such as Hash `#` to format things like headings, or dash `-` for bullets. Markdown will be rendered in a very reader-friendl way when we look at on things like GitHub.
+The extension `md` at the end of the file is short for 'Markdown'. Markdown is a plain text format that is great for documentation. You write text as normal - you can also use some special characters such as Hash `#` to format things like headings, or dash `-` for bullets. Markdown will be rendered in a very reader-friendly way when we look at on things like GitHub.
 
 Let's enter insert mode, and create a title for our cheatsheet, then exit insert mode.
 
@@ -197,7 +197,7 @@ Exit Vim by entering `:q<Enter>`. Let's add this new cheatsheet file to our repo
 $ git add cheatsheet.md
 ```
 
-Let's tell our shell to use Vim as our text editor. We're going to use Vim to work with Git for the duration of this chapter. When you are more familiar with Vim, being able to to work with Git repositories and commands without leaving the shell and using Vim as the editor will start to feel extremely efficient:
+Let's tell our shell to use Vim as our text editor. We're going to use Vim to work with Git for the duration of this chapter. When you are more familiar with Vim, being able to work with Git repositories and commands without leaving the shell and using Vim as the editor will start to feel extremely efficient:
 
 ```
 $ export EDITOR=vi
@@ -284,7 +284,7 @@ Let's see a few of these motions in action. Make sure to use `<C-c>` to exit Ins
 
 The first motion is `gg` - go to the beginning of the buffer.
 
-The next four motions are `hjkl` - move left, down, up and right. Vim uses these keys as they are all next to each other and on the home row for the right hand. Although it takes a little getting used to, once you use `hjkl` instead of arrow keys to move around you'll wonder how you lived without them - being able to navigate without moving your right hand from the home row let's you navigate text incredibly quickly.
+The next four motions are `hjkl` - move left, down, up and right. Vim uses these keys as they are all next to each other and on the home row for the right hand. Although it takes a little getting used to, once you use `hjkl` instead of arrow keys to move around you'll wonder how you lived without them - being able to navigate without moving your right hand from the home row lets you navigate text incredibly quickly.
 
 We can use the `0` and `$` motions to go to the beginning and end of a line:
 
@@ -393,7 +393,7 @@ Some of the most powerful motions are the ones that can be used to search for a 
 | `f{character}` | Find the next specified character.              |
 | `F{character}` | Find the previous specified character.          |
 | `t{character}` | 'To' the next specified character.              |
-| `T{character}` | 'To' the previous previous specified character. |
+| `T{character}` | 'To' the previous specified character. |
 
 Now let's see how these motions look in action, by quickly moving around a little bit of Python code:
 
@@ -402,7 +402,7 @@ Now let's see how these motions look in action, by quickly moving around a littl
 | <AnnotatedCommand annotation="go to next '(' character">f(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>word):</CodeBlock> |
 | <AnnotatedCommand annotation="go to second previous 'd' character">2fd</AnnotatedCommand> | <CodeBlock language="python"><Caret>d</Caret>ef search_for_word(word):</CodeBlock> |
 | <AnnotatedCommand annotation="go to first '_' character">t_</AnnotatedCommand> | <CodeBlock language="python">def searc<Caret>h</Caret>_for_word(word):</CodeBlock> |
-| <AnnotatedCommand annotation="go to previous space character">t </AnnotatedCommand> | <CodeBlock language="python">def<Caret> </Caret>search_for_word(word):</CodeBlock> |
+| <AnnotatedCommand annotation="go to previous space character">t&nbsp;</AnnotatedCommand> | <CodeBlock language="python">def<Caret> </Caret>search_for_word(word):</CodeBlock> |
 
 Just like any motion, we can add a `{count}` to indicate how many times we want the motion to run.
 
@@ -432,7 +432,7 @@ If you use an open bracket or brace, a space is added before and after the text 
 |----------------------------------------------|--------------------------------------------------------|
 | <AnnotatedCommand annotation="Go to first open bracket">g(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>word):</CodeBlock> |
 | <AnnotatedCommand annotation="Change in brackets">ci)</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>):</CodeBlock> |
-| <AnnotatedCommand annotation="Enter text, return to Command Mode">word = "default"&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = "default"<Caret>)</Caret>):</CodeBlock> |
+| <AnnotatedCommand annotation="Enter text, return to Command Mode">word = "default"&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = "default"<Caret>)</Caret>:</CodeBlock> |
 | <AnnotatedCommand annotation="Change a quotes">ca"</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = <Caret>)</Caret>:</CodeBlock> |
 | <AnnotatedCommand annotation="Enter text, return to Command Mode">'sample'&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = 'sample<Caret>'</Caret>):</CodeBlock> |
 
