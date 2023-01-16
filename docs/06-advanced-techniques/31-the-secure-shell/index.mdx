@@ -39,7 +39,7 @@ Now in reality there are ways to obscure and protect this secret somewhat, but n
 
 ### Asymmetric Encryption for Authentication
 
-We use asymmetric encryption, Alice first creates a 'key pair'. This is two files - a public key and a private key. Alice keeps the private key and sends the public key to Bob:
+When we use asymmetric encryption, Alice first creates a 'key pair'. This is two files - a public key and a private key. Alice keeps the private key and sends the public key to Bob:
 
 import asymmetricEncryption from '!!raw-loader!./diagrams/asymmetric-encryption.drawio';
 
@@ -58,7 +58,7 @@ The fantastic thing about this mechanism is that _only Alice can decrypt message
 
 Alice can also encrypt messages with her Private Key - anyone who has the Public Key can decrypt them. This means that this is not a secure way to encrypt a message - but it is a very good way to _sign_ a message. Given that only Alice has the private key, only she can encrypt messages with it. This means if she sends a message encrypted with her private key anyone who has the public key can decrypt it to assert it was sent by Alice - she's the only person with the private key.
 
-This method of signing messages with the Private Key is typically called 'signing' - it is not used to keep the message private but instead to verify the identity of the sender.
+This method of signing messages with the Private Key is not used to keep the message private but instead to verify the identity of the sender.
 
 Most modern day cryptography protocols are based on this technique. In many of them Bob will not actually send back a secret - instead he'll generate _his own_ key-pair and return the Public Key. This is called a 'key exchange'. Almost all modern day encryption is built on this mechanism - when you open a secure connection to a website, an exchange of keys is made between you and the server[^2].
 
@@ -89,7 +89,7 @@ Enter file in which to save the key (/home/dwmkerr/.ssh/id_rsa): effective-shell
 Enter passphrase (empty for no passphrase):
 ```
 
-At this point you will be asked to provide an optional passphrase. We will leave this blank as we are not going to use the server or key for any particularly sensitive data. However, if you are creating keys that will encrypt sensitive data you should definitely add a passphrase. If you add a passphrase, you'll be required to enter each each time you load the key. This adds a layer of security - if someone steals your private key they would have to know the passphrase to open it.
+At this point you will be asked to provide an optional passphrase. We will leave this blank as we are not going to use the server or key for any particularly sensitive data. However, if you are creating keys that will encrypt sensitive data you should definitely add a passphrase. If you add a passphrase, you'll be required to enter each time you load the key. This adds a layer of security - if someone steals your private key they would have to know the passphrase to open it.
 
 Once you have skipped the passphrase and passphrase confirmation by pressing the enter key twice, you'll see the final output:
 
@@ -187,15 +187,13 @@ Select the default _t2.micro_ instance type. This is free-tier eligible and more
 
 Now press 'Review and Launch' - we do not need to configure any of the advanced options.
 
-**Step 7: Review Instance Launch**
+**Step 3: Review Instance Launch**
 
 There will be a warning saying that 'your security group is open to the world' on this page. We can safely ignore that as we are not putting anything sensitive on this instance. This message is telling us that _anyone_ who knows the address of our instance can try and connect to it.
 
 This is not a problem for what we are doing, as we are creating this machine to experiment with and not putting sensitive data on it.
 
 Press the 'Launch' button on the bottom right - another screen will pop up, don't dismiss this screen, it is where we will choose our key pair!
-
-**Select Key Pair**
 
 We will be asked to provide a key pair. Make sure the key pair you just imported is selected!
 
@@ -251,7 +249,7 @@ You can see that we have provided three pieces of information:
 - The username, which is the `ec2-user` part of the command, coming before the at symbol `@`
 - The hostname, which is the address that follows the `@`
 
-When I run this command a warning is shown telling me that 
+When I run this command a warning is shown:
 
 ```
 The authenticity of host 'ec2-13-213-71-135.ap-southeast-1.compute.amazonaws.com (13.213.71.135)' can't be established.
