@@ -20,7 +20,7 @@ const config = {
   url: 'https://effective-shell.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'error',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.png',
   organizationName: organizationName,
   projectName: projectName,
@@ -57,9 +57,9 @@ const config = {
           ],
 
           //  Add theming support for languages we use.
-          prism: {
-            additionalLanguages: [],
-          },
+          // prism: {
+          //   additionalLanguages: [],
+          // },
         },
         gtag: {
           trackingID: 'G-8HZFMZV9Z4',
