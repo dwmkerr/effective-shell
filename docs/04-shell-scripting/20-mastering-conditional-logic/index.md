@@ -76,7 +76,7 @@ This expression uses the `-d` (_file exists and is a directory_) operator to che
 You can surround an expression with square bracket and the shell will evaluate the expression with the `test` command. This can make your scripts far more compact:
 
 ```bash
-if ! [ -d ~/backups]
+if ! [ -d ~/backups ]
 then
     echo "Creating backups folder"
     mkdir ~/backups
