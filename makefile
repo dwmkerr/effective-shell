@@ -8,7 +8,7 @@ help: # Show help for each of the Makefile recipes.
 
 .PHONY: setup
 setup: # Setup tools required for local development.
-	npm install
+	npm install --legacy-peer-deps # needed for the react signup form compatiblity
 
 .PHONY: serve
 serve: # Serve the site locally for testing.
@@ -31,7 +31,7 @@ build: # Build the site and artifacts.
 	cp ./artifacts/samples.tar.gz ./static/downloads/effective-shell-samples.tar.gz
 	test -e ./static/downloads/effective-shell-samples.zip
 	test -e ./static/downloads/effective-shell-samples.tar.gz
-	npm ci && npm run build
+	npm ci --legacy-peer-deps && npm run build
 
 # Create the summary structure in word format, easier to share.
 .PHONY: structure

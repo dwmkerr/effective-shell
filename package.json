@@ -21,7 +21,7 @@
     "@docusaurus/theme-live-codeblock": "2.2.0",
     "@easyops-cn/docusaurus-search-local": "^0.23.1",
     "@mdx-js/react": "^1.6.21",
-    "@tsconfig/docusaurus": "^1.0.5",
+    "@tsconfig/docusaurus": "^1.0.6",
     "@types/node": "^17.0.25",
     "@types/react": "^17.0.44",
     "asciinema-player": "^3.0.0-rc.1",

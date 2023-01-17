@@ -20,7 +20,7 @@ const config = {
   url: 'https://effective-shell.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'error',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.png',
   organizationName: organizationName,
   projectName: projectName,
