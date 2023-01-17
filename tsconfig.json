@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/docusaurus/tsconfig.json"
+  "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
     "types": ["node"]
   },

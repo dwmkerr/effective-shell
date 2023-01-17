@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.26.3](https://github.com/dwmkerr/effective-shell/compare/v0.26.2...v0.26.3) (2022-10-18)
+
+
+### Documentation
+
+* add more to recommended reading ([e36fd2f](https://github.com/dwmkerr/effective-shell/commit/e36fd2f698a8020d48eed87f7e53f2fea611b4f8))
+
+## [0.26.2](https://github.com/dwmkerr/effective-shell/compare/v0.26.1...v0.26.2) (2022-08-02)
+
+
+### Bug Fixes
+
+* typo ([#226](https://github.com/dwmkerr/effective-shell/issues/226)) ([5e98512](https://github.com/dwmkerr/effective-shell/commit/5e985120ed6e3210489ac3ae0e6cc376e79809b1))
+
+
+### Documentation
+
+* add mbogatzki as a contributor for doc, review ([#223](https://github.com/dwmkerr/effective-shell/issues/223)) ([e046b33](https://github.com/dwmkerr/effective-shell/commit/e046b33a11319be08c6f5562eddcd47a4dd96a7e))
+* add MichaelWarnecke as a contributor for doc, review, bug ([#231](https://github.com/dwmkerr/effective-shell/issues/231)) ([41fa300](https://github.com/dwmkerr/effective-shell/commit/41fa30088e697b0f88bfacdcbd7e6ff7fe2d37d8))
+
 ## [0.26.1](https://github.com/dwmkerr/effective-shell/compare/v0.26.0...v0.26.1) (2022-07-05)
 
 

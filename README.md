@@ -1,7 +1,7 @@
 # effective-shell 
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -142,6 +142,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/jdhzzz"><img src="https://avatars.githubusercontent.com/u/1476690?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jdhzzz</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=jdhzzz" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Ajdhzzz" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/valankar"><img src="https://avatars.githubusercontent.com/u/31250800?v=4?s=100" width="100px;" alt=""/><br /><sub><b>valankar</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=valankar" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Avalankar" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/Denpeer"><img src="https://avatars.githubusercontent.com/u/5969147?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Denpeer</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3ADenpeer" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=Denpeer" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/mbogatzki"><img src="https://avatars.githubusercontent.com/u/39946827?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marek Bogatzki</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=mbogatzki" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Ambogatzki" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/MichaelWarnecke"><img src="https://avatars.githubusercontent.com/u/7615963?v=4?s=100" width="100px;" alt=""/><br /><sub><b>MWarnecke</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=MichaelWarnecke" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3AMichaelWarnecke" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3AMichaelWarnecke" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

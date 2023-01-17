@@ -392,7 +392,7 @@ A nice trick to remember the slightly obscure ampersand `&` which references a f
 cat some-file-that-might-not-exist 2>1
 ```
 
-What would happen is that the shell would write `stderr` to a _new file_ with the name `1`! Why don't we need an ampersand _before_ the `>` symbol, only for the file descriptor afterwards? This is just because the shell only supports redirecting file descriptors, so an additional ampersand would be superfluous. 
+What would happen is that the shell would write `stderr` to a _new file_ with the name `1`! Why don't we need an ampersand _before_ the `>` symbol, only for the file descriptor afterwards? This is just because the shell only supports redirecting file descriptors, so an additional ampersand would be superfluous.
 
 **To a File**
 
@@ -510,7 +510,7 @@ In this chapter we looked at:
 - The standard error stream is available as a file at `/dev/stderr`, is often called `stderr` in programming languages, and always has the special file descriptor `2`
 - The `Ctrl+D` sequence means 'end of transmission' - we can use it to signal that we have completed putting our input into `stdin`...
 - ...but the `Ctrl+C` sequence means 'interrupt' and is normally used to force a program to close
-- We can _pipe_ the output of one program to the input of another with the pipe `|` symbol 
+- We can _pipe_ the output of one program to the input of another with the pipe `|` symbol
 - We can _redirect_ a file to the standard input of a program with the `<` operator
 - We can _redirect_ the standard output of a program to create or overwrite a file with the `>` operator
 - We can _redirect_ the standard output of a program to create or append to a file with the `>>` operator
@@ -538,7 +538,7 @@ There are a few chapters which are planned to come later which go into detail on
 
 When these chapters are published I'll update the links here. If you want to be updated when new chapters are published, you can [Join the Mailing Lits on the Homepage](https://effective-shell.com).
 
-[^1]: Technically there is another layer here, which is the `tty`. You can see this by running `tty` in the shell. We'll more about this in the [Interlude - What is a Shell](#TODO) section.
+[^1]: Technically there is another layer here, which is the `tty`. You can see this by running `tty` in the shell. We'll talk more about this in the [Interlude - What is a Shell](../../02-core-skills/12-what-is-a-shell/index.md) section.
 [^2]: Check [Chapter 4 - Becoming a Clipboard Gymnast](../../01-transitioning-to-the-shell/04-clipboard-gymnastics/index.md) for how to do this on a Linux or Windows machine.
 [^3]: Although always use tricks like this with caution! If we had a _different_ error, perhaps one we really do want to know about, we would lose the message in this case.
 [^4]: There is a very detailed explanation of this behaviour at https://linuxnewbieguide.org/21-and-understanding-other-shell-scripts-idioms/.

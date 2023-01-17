@@ -120,7 +120,7 @@ Serving HTTP on 0.0.0.0 port 3000 ...
 [1]  + 7657 suspended  python -m SimpleHTTPServer 3000
 ```
 
-The process is currently in the foreground, so my shell is inactive. Hitting `Ctrl+Z` sends a 'suspend' signal to the process[^3], pausing it and moving it to the background.
+The process is currently in the foreground, so my shell is inactive. Hitting `Ctrl+Z` sends a 'suspend' signal to the process[^2], pausing it and moving it to the background.
 
 Let's dissect this:
 
@@ -161,7 +161,7 @@ $ %1 &
 
 In the same way ending a command with `&` runs it in the background, ending a job identifier with `&` _continues_ it in the background.
 
-There is at least one more way to move a job to the background[^4], but I have not yet found it useful in any scenarios, and it is overly complex to explain. See the footnote for details if you are interested.
+There is at least one more way to move a job to the background[^3], but I have not yet found it useful in any scenarios, and it is overly complex to explain. See the footnote for details if you are interested.
 
 ## Moving Background Jobs to the Foreground
 
@@ -199,7 +199,7 @@ $ jobs
 [1]  + suspended  python -m SimpleHTTPServer 3000
 ```
 
-There's my old web server. Note that even though it is suspended, it'll still be blocking the port it is serving on[^5]. The process is paused, but it is still holding onto all of the resources it is using.
+There's my old web server. Note that even though it is suspended, it'll still be blocking the port it is serving on[^4]. The process is paused, but it is still holding onto all of the resources it is using.
 
 Now that I know the job identifier (`%1` in this case), I can kill the job:
 
@@ -208,7 +208,7 @@ $ kill %1
 [1]  + 22843 terminated  python -m SimpleHTTPServer 3000
 ```
 
-*This is why job identifiers start with a percentage sign!* The `kill` command I have used is not a special job control command (like `bg` or `fg`). It is the normal `kill` command, which terminates a process. But shells that support job control can normally use a job identifier in place of a _process identifier_. So rather than working out what the process identifier is that I need to kill, I can just use the job identifier[^6].
+*This is why job identifiers start with a percentage sign!* The `kill` command I have used is not a special job control command (like `bg` or `fg`). It is the normal `kill` command, which terminates a process. But shells that support job control can normally use a job identifier in place of a _process identifier_. So rather than working out what the process identifier is that I need to kill, I can just use the job identifier[^5].
 
 ## Why You Shouldn't Use Jobs
 
@@ -222,7 +222,7 @@ This is what happens when I run a job, which just outputs text every second. It'
 
 Input is even more complex. If a job is _running_ in the background, but requires input, it will be _silently suspended_. This can cause confusion.
 
-Jobs _can_ be used in scripts but must be done so with caution and could easily confuse a consumer of the script if they leave background jobs hanging around, which cannot be easily cleaned up[^7].
+Jobs _can_ be used in scripts but must be done so with caution and could easily confuse a consumer of the script if they leave background jobs hanging around, which cannot be easily cleaned up[^6].
 
 Handling errors and exit codes for jobs can be problematic, causing confusion, poor error handling, or overly complex code.
 
@@ -276,12 +276,12 @@ If you want to find out more about the gory details of jobs, the best place to s
 
 [^1]: If you are not a heavy shell user, this might seem unlikely. But if you do a lot of work in shells, such as sysadmin, devops, or do your coding from a terminal, this happens all the time!
 
-[^3]: Technically, `SIGTSTP` signal - which is 'TTY stop'. If you have always wondered about the 'TTY' acronym, check the chapter, [Interlude: Understanding the Shell](../../02-core-skills/10-understanding-commands/index.md).
+[^2]: Technically, `SIGTSTP` signal - which is 'TTY stop'. If you have always wondered about the 'TTY' acronym, check the chapter, [Interlude: Understanding the Shell](../../02-core-skills/10-understanding-commands/index.md).
 
-[^4]: The alternative method is to use `Ctrl+Y`, which will send a _delayed interrupt_, which will continue to run the process until it tries to read from `stdin`. At this point, the job is suspended and the control given to the shell. The operator can then use `bg` or `kill` or `fg` to either move to the background, stop the process, or keep in the foreground as preferred. See: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control
+[^3]: The alternative method is to use `Ctrl+Y`, which will send a _delayed interrupt_, which will continue to run the process until it tries to read from `stdin`. At this point, the job is suspended and the control given to the shell. The operator can then use `bg` or `kill` or `fg` to either move to the background, stop the process, or keep in the foreground as preferred. See: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control
 
-[^5]: Another super-useful snippet: `lsof -i -P -n | grep 8000` to find any process that has a given port open. Another one for the aliases chapter!
+[^4]: Another super-useful snippet: `lsof -i -P -n | grep 8000` to find any process that has a given port open. Another one for the aliases chapter!
 
-[^6]: There are times this is needed. If a job runs _many processes_ - for example, by running a pipeline - the process identifier will change as the command moves from one stage of the pipeline to the next. The job identifier will remain constant. Remember, a job is a shell _command_, so could run many processes.
+[^5]: There are times this is needed. If a job runs _many processes_ - for example, by running a pipeline - the process identifier will change as the command moves from one stage of the pipeline to the next. The job identifier will remain constant. Remember, a job is a shell _command_, so could run many processes.
 
-[^7]: To see how bad this can be, create a script that starts jobs, then run it. Then run the `jobs` command to see what is running. The output might surprise you!
+[^6]: To see how bad this can be, create a script that starts jobs, then run it. Then run the `jobs` command to see what is running. The output might surprise you!

@@ -219,7 +219,7 @@ do
 done
 ```
 
-The `shopt` (_set and unset shell option_)<!--index--> command is used to configure shell options. We will be looking at shell options in detail in Part 5. The 'nullglob' option changes the shell behaviour so that if a wildcard pattern does not match any results, it is set to null string[^1].
+The `shopt` (_set and unset shell option_)<!--index--> command is used to configure shell options. We will be looking at shell options in detail in Part 5. The 'nullglob' option changes the shell behaviour so that if a wildcard pattern does not match any results, it is set to null string[^2].
 
 The second way we can deal with this problem is to just use a `test` command. I think that this is actually far more readable than the `shopt` solution. Here's how it would look:
 
@@ -299,7 +299,7 @@ This will cover you in most cases. However, this method is not ideal for a numbe
 
 1. It is quite verbose - we have to store the current value of `$IFS` and then reset it later
 2. It is not quite foolproof - filenames on some systems can have a newline character and this script would fail for those files
-3. We have to use the complex looking 'ANSI C Quoting' syntax to set `$IFS` to a newline[^2]
+3. We have to use the complex looking 'ANSI C Quoting' syntax to set `$IFS` to a newline[^3]
 4. If the reader doesn't know what `$IFS` is then the entire script will be difficult to follow
 
 The `$IFS` variable can be complex to work with and discussed at the end of the chapter.
@@ -814,5 +814,5 @@ Word: one two three
 If you want to use more Posix-like functionality then you can set the `SH_WORD_SPLIT` parameter. You can find out more about this parameter by running `man zsh` and searching for `SH_WORD_SPLIT`.
 
 [^1]: If we had put quotes around the wildcard text it would _not_ be expanded - check the section on 'Quoting' in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md) if you need a refresher on this.
-[^2]: ANSI C Quoting is described in the 'Quoting' section in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md)
 [^2]: There is a good reason for this. Would you prefer `ls *.nothing-here` to show a warning that _*.nothing-here_ doesn't exist or show the result of `ls` - which lists the current directory! This is discussed in more detail on this Stack Overflow thread: https://unix.stackexchange.com/questions/204803/why-is-nullglob-not-default
+[^3]: ANSI C Quoting is described in the 'Quoting' section in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md)
