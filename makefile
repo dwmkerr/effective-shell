@@ -16,7 +16,7 @@ serve: # Serve the site locally for testing.
 
 .PHONY: typescript-check
 typescript-check: # Check typescript types.
-	npm install
+	npm install --legacy-peer-deps
 	npm run ts:check
 
 # Build the site, including the downloads directory. This requires that we also
