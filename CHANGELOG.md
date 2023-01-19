@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.5](https://github.com/dwmkerr/effective-shell/compare/v0.26.4...v0.26.5) (2023-01-19)
+
+
+### Bug Fixes
+
+* correct gh pages deploy action version ([384fc25](https://github.com/dwmkerr/effective-shell/commit/384fc254cc8bfca62ec64813d32207b9ab8004bd))
+
 ## [0.26.4](https://github.com/dwmkerr/effective-shell/compare/v0.26.3...v0.26.4) (2023-01-17)
 
 
