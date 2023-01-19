@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.26.4](https://github.com/dwmkerr/effective-shell/compare/v0.26.3...v0.26.4) (2023-01-17)
+
+
+### Bug Fixes
+
+* correct typo in test command ([#242](https://github.com/dwmkerr/effective-shell/issues/242)) ([7a59b8e](https://github.com/dwmkerr/effective-shell/commit/7a59b8ec94feb5dd809a9b5bcb924de45d4d8321))
+
+
+### Documentation
+
+* add Denpeer as a contributor for review, doc ([#227](https://github.com/dwmkerr/effective-shell/issues/227)) ([2303738](https://github.com/dwmkerr/effective-shell/commit/230373805d17f065d58044e63e5019bc103cd02d))
+* corrections for vim chapter ([#240](https://github.com/dwmkerr/effective-shell/issues/240)) ([53f28c6](https://github.com/dwmkerr/effective-shell/commit/53f28c6bdca75fd35b0cb2f8ee4e14caca349d7c))
+* fix typo ([#236](https://github.com/dwmkerr/effective-shell/issues/236)) ([b09dbc1](https://github.com/dwmkerr/effective-shell/commit/b09dbc131c1f93bd29785baa42a2b29f07b8830b))
+* minor fixes to ssh chapter ([#238](https://github.com/dwmkerr/effective-shell/issues/238)) ([26aa5e8](https://github.com/dwmkerr/effective-shell/commit/26aa5e805fc1893685bac430f0136f73644bb244))
+* recommended reading updates ([#239](https://github.com/dwmkerr/effective-shell/issues/239)) ([0cff20e](https://github.com/dwmkerr/effective-shell/commit/0cff20e1905f1b91e488baefc86e2b910611f468))
+
 ## [0.26.3](https://github.com/dwmkerr/effective-shell/compare/v0.26.2...v0.26.3) (2022-10-18)
 
 
