@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.6](https://github.com/dwmkerr/effective-shell/compare/v0.26.5...v0.26.6) (2023-01-31)
+
+
+### Bug Fixes
+
+* repair broken gif ([#245](https://github.com/dwmkerr/effective-shell/issues/245)) ([e88ecc3](https://github.com/dwmkerr/effective-shell/commit/e88ecc3887a7621417e0c91a2af3993de17454e0)), closes [#221](https://github.com/dwmkerr/effective-shell/issues/221)
+
 ## [0.26.5](https://github.com/dwmkerr/effective-shell/compare/v0.26.4...v0.26.5) (2023-01-19)
 
 
