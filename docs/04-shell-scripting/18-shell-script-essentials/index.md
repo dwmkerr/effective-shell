@@ -402,9 +402,9 @@ common commands:
 ...
 ```
 
-This works because when the shell sees a command, it searches through the folders in the $PATH environment variable to find out where the command is. And the `/usr/bin/local` folder is in this list of paths.
+This works because when the shell sees a command, it searches through the folders in the $PATH environment variable to find out where the command is. And the `/usr/local/bin` folder is in this list of paths.
 
-Why do we use the `/usr/bin/local` folder rather than the `/usr/bin` folder? This is just a convention. In general, the `/usr/bin` folder is for commands which are installed with package manager tools like `apt` or Homebrew (on MacOS). The `/usr/local/bin` folder is used for commands which you create for yourself on your local machine and manage yourself[^3].
+Why do we use the `/usr/local/bin` folder rather than the `/usr/bin` folder? This is just a convention. In general, the `/usr/bin` folder is for commands which are installed with package manager tools like `apt` or Homebrew (on MacOS). The `/usr/local/bin` folder is used for commands which you create for yourself on your local machine and manage yourself[^3].
 
 ## Summary
 
