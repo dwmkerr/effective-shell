@@ -114,7 +114,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/effective-shell',
+                href: 'https://github.com/dwmkerr/effective-shell',
               },
               {
                 label: 'Twitter',
