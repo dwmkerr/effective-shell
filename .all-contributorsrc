@@ -135,6 +135,16 @@
         "review",
         "bug"
       ]
+    },
+    {
+      "login": "Spike-Leung",
+      "name": "Spike",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30440218?v=4",
+      "profile": "https://taxodium.ink/",
+      "contributions": [
+        "review",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -142,5 +152,6 @@
   "projectOwner": "dwmkerr",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
