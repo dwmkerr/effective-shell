@@ -16,6 +16,7 @@ If you find this book useful, please do consider [sponsoring me](https://github.
 * [Installing the Samples](#installing-the-samples)
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
+* [Custom Components](#custom-components)
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [Copyright & Licensing](#copyright--licensing)
@@ -86,6 +87,24 @@ Note that the [`samples`](./samples) folder is automatically zipped up and added
 ```
 https://effective-shell.com/downloads/effective-shell-samples.zip
 https://effective-shell.com/downloads/effective-shell-samples.tar.gz
+```
+
+## Custom Components
+
+Custom Components to support styling are available at:
+
+```
+src/components
+```
+
+There is a live view that can be used to preview each component:
+
+http://localhost:3000/zz-developer-guide/components
+
+Components can be added to global scope, i.e. available in call pages, by adding to the `MDXComponents.js` swizzled file:
+
+```
+src/theme/MDXComponents.js
 ```
 
 ## Versioning
