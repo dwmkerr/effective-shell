@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.26.7](https://github.com/dwmkerr/effective-shell/compare/v0.26.6...v0.26.7) (2023-02-07)
+
+
+### Bug Fixes
+
+* correct quotes in all-contrib names ([ef03554](https://github.com/dwmkerr/effective-shell/commit/ef03554f3721484d17824053395f1b11165c0e8d))
+
+
+### Documentation
+
+* add Spike-Leung as a contributor for review, and bug ([#248](https://github.com/dwmkerr/effective-shell/issues/248)) ([66a3c4e](https://github.com/dwmkerr/effective-shell/commit/66a3c4eb89636eb040dcc97115b24e232e3f9c6a))
+* **intro:** improve intro page ([#251](https://github.com/dwmkerr/effective-shell/issues/251)) ([59d8430](https://github.com/dwmkerr/effective-shell/commit/59d843093c66997317ad279634239685422d49ae))
+
 ## [0.26.6](https://github.com/dwmkerr/effective-shell/compare/v0.26.5...v0.26.6) (2023-01-31)
 
 
