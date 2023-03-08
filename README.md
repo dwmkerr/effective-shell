@@ -113,6 +113,12 @@ The version of the site and the code is defined in the [`package.json`](./packag
 
 Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
 
+If you need to manually trigger a release, run:
+
+```bash
+git commit --allow-empty -m "chore: release 2.0.0" -m "Release-As: 2.0.0"
+```
+
 ## Contributing
 
 Please carefully read the [Contributing Guide](./.github/contributing.md) before working on changes.
