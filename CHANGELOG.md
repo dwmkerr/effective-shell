@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.26.8](https://github.com/dwmkerr/effective-shell/compare/v0.26.7...v0.26.8) (2023-03-08)
+
+
+### Documentation
+
+* additional books ([#256](https://github.com/dwmkerr/effective-shell/issues/256)) ([521d757](https://github.com/dwmkerr/effective-shell/commit/521d757877f87542f5ee83573dccc330e45c05e5))
+* **recommended-reading:** added pro git ([#253](https://github.com/dwmkerr/effective-shell/issues/253)) ([4202a0a](https://github.com/dwmkerr/effective-shell/commit/4202a0a7ef9e2e61cb6107d007e27e5266dc2267))
+
 ## [0.26.7](https://github.com/dwmkerr/effective-shell/compare/v0.26.6...v0.26.7) (2023-02-07)
 
 
