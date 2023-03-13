@@ -145,6 +145,16 @@
         "review",
         "bug"
       ]
+    },
+    {
+      "login": "nosarthur",
+      "name": "Dong Zhou",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1400272?v=4",
+      "profile": "https://nosarthur.github.io/",
+      "contributions": [
+        "review",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -1,7 +1,7 @@
 # effective-shell 
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -171,6 +171,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mbogatzki"><img src="https://avatars.githubusercontent.com/u/39946827?v=4?s=100" width="100px;" alt="Marek Bogatzki"/><br /><sub><b>Marek Bogatzki</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=mbogatzki" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Ambogatzki" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MichaelWarnecke"><img src="https://avatars.githubusercontent.com/u/7615963?v=4?s=100" width="100px;" alt="MWarnecke"/><br /><sub><b>MWarnecke</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=MichaelWarnecke" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3AMichaelWarnecke" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3AMichaelWarnecke" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://taxodium.ink/"><img src="https://avatars.githubusercontent.com/u/30440218?v=4?s=100" width="100px;" alt="Spike"/><br /><sub><b>Spike</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3ASpike-Leung" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3ASpike-Leung" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://nosarthur.github.io/"><img src="https://avatars.githubusercontent.com/u/1400272?v=4?s=100" width="100px;" alt="Dong Zhou"/><br /><sub><b>Dong Zhou</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Anosarthur" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Anosarthur" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
