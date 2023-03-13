@@ -5,7 +5,7 @@ slug: '/part-3-manipulating-text/shell-script-essentials/'
 
 In this chapter we're going to look at how to write shell scripts and the different ways we can execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run.
 
-We'll learn the essential techniques that will be help you build your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about using the `env` command in shebangs.
+We'll learn the essential techniques that will help you build your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about the `env` command in shebangs.
 
 ## What is a Shell Script?
 
@@ -43,7 +43,7 @@ In your favourite editor, create a file called `common.v1.sh` and put it somewhe
 ```bash
 # Create a directory called 'scripts'.
 # Using the '-p' flag means we won't get an error if the folder exists.
-mkdir -p ~/scripts 
+mkdir -p ~/scripts
 
 # Create the script file.
 touch ~/scripts/common.v1.sh
@@ -257,7 +257,7 @@ But there is a problem here. This will only work if you have the Ruby program in
 How can we know where the user will have a specific program installed?
 
 There is a common trick for dealing with this issue. We can use the `env` (_set environment and execute command_) command to run a command and it will work out the path for us.
- 
+
 The `env` command is often used to show environment variables, but you can also use it to execute an arbitrary command (often with a modified environment). One handy feature of the `env` command is that it looks through the `$PATH` variable to find the path of the command to execute.
 
 You can see this by running a command like the below:
