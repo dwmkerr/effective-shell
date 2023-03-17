@@ -180,7 +180,7 @@ bash ~/scripts/common.v1.sh
 
 This is a perfectly valid technique. Now let's see the other ways we can run a script.
 
-The next way we can run a script it is make it 'executable'. This means we change the file permissions of the script file, adding the 'executable bit'. This tells the systems we can run the file. We use the `chmod` (_change file mode_) command to do this:
+The next way we can run a script is to make it 'executable'. This means we change the file permissions of the script file, adding the 'executable bit'. This tells the systems we can run the file. We use the `chmod` (_change file mode_) command to do this:
 
 ```
 chmod +x ~/scripts/common.v1.sh
