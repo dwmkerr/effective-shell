@@ -242,9 +242,9 @@ console.log("Hello from Node.js");
 
 ### Shebangs - Dealing with Paths
 
-When we use a shebang we need to provide the full path the executable that will be used to run the script.
+When we use a shebang we need to provide the full path to the executable that runs the script.
 
-For example, what if we want to use Ruby to run a script we could write a script like this:
+For example, if we want to use Ruby to run a script we could write a script like this:
 
 ```ruby
 #!/usr/bin/ruby
@@ -254,7 +254,7 @@ puts 'Hello from Ruby'
 
 But there is a problem here. This will only work if you have the Ruby program installed in the location specified after the shebang (i.e. `/usr/bin/ruby`). If you do not have the Ruby program in this location the script will fail to run.
 
-How can we know where the user will have a specific program installed?
+How can we know where a specific program is installed?
 
 There is a common trick for dealing with this issue. We can use the `env` (_set environment and execute command_) command to run a command and it will work out the path for us.
 
