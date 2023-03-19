@@ -350,7 +350,7 @@ bash
 
 ### Dot Sourcing<!--index-->
 
-There is a slightly more concise syntax that can be used to source a script - the _dot sourcing_ notation. When the shell sees a `.` dot character, it will source the file that follows:
+There is a slightly more concise syntax to source a script - the _dot sourcing_ notation. When the shell sees a `.` dot character, it will source the file that follows:
 
 ```
 $ . ~/effective-shell/scripts/show-info.sh
@@ -358,7 +358,7 @@ bash
   └─pstree -l -a -s 2169
 ```
 
-You may encounter this syntax as you look at things like shell configuration files, which we discuss in [Chapter 24 - Configuring the Shell](../../part-5-building-your-toolkit/configuring-the-shell).
+You may encounter this syntax as you look at things like shell configuration files, which we will discuss in [Chapter 24 - Configuring the Shell](../../part-5-building-your-toolkit/configuring-the-shell).
 
 ## Installing Your Script
 
