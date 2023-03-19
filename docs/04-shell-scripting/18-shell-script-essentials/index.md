@@ -296,7 +296,7 @@ We have discussed how to _run_ shell scripts. You can also use the _source_ (_ex
 
 Remember that when we run a shell script, a new shell is created as a child process of the current shell. This means that if you change something in the environment, such as a variable, it will not affect the environment of the shell that ran the script.
 
-Let's see an example. We'll create a script called _set_editor.sh_ that sets the `EDITOR` environment variable to `nano`. The script's contents are below (can can also find it in the samples at _~/effective-shell/scripts/set_editor.sh_):
+Let's see an example. We'll create a script called _set_editor.sh_ that sets the `EDITOR` environment variable to `nano`. The script's contents are below (can also find it in the samples at _~/effective-shell/scripts/set_editor.sh_):
 
 ```bash
 EDITOR=nano
