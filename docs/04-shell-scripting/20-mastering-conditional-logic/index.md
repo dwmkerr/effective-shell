@@ -354,7 +354,7 @@ You will see this syntax a lot in shell scrips as it is very succinct. It can al
 make build && make deploy
 ```
 
-Here I am using the `make` (_build programs_) command. If the 'build' step for a project fails, I want to run the 'deploy' step. But I _don't_ want to run the 'deploy' step if the 'build' step fails!
+Here I am using the `make` (_build programs_) command. If the 'build' step for a project succeeds, I want to run the 'deploy' step. But I _don't_ want to run the 'deploy' step if the 'build' step fails!
 
 ## Case Statements
 
@@ -418,7 +418,7 @@ The case statement can look quite complex, I often think that even if it takes m
 
 Now that we know how to use if statements, we can update the 'common' command that we have been improving as part of each chapter.
 
-We will update it to check to see whether the user is using Bash or Z-Shell and search through the history for common commands appropriately.
+We will update it to check whether the user is using Bash or Z-Shell and search through the history for common commands appropriately.
 
 As a reference, let's look at the `common.v2.sh` command we created in the previous chapter:
 
@@ -448,7 +448,7 @@ history_file=""    # We will work out the history file later.
 history_lines=1000 # The number of lines of history to search through
 command_count=10   # The number of common commands to show
 
-# Check to see if we can work out the name of the shell binary.
+# Check if we can work out the name of the shell binary.
 shell_regex="([^/]+$)"
 if [[ $SHELL =~ $shell_regex ]]; then
     # Depending on the name of the shell binary, set the history file path.
@@ -491,7 +491,7 @@ else
 fi
 ```
 
-In this script we now first check to see if we can extract the name of the shell binary from the shell path. If we can, we store the name of the shell binary and its associated history in a pair of variables.
+In this script we now first check if we can extract the name of the shell binary from the shell path. If we can, we store the name of the shell binary and its associated history in a pair of variables.
 
 Then when we come to actually search through the history, we check the shell binary. If it is `bash`, we run the same command as before. If it is `zsh` we run a similar command, but account for the fact that the Z-Shell history file has some extra content which needs to be removed.
 
