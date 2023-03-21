@@ -296,7 +296,7 @@ We have discussed how to _run_ shell scripts. You can also use the _source_ (_ex
 
 Remember that when we run a shell script, a new shell is created as a child process of the current shell. This means that if you change something in the environment, such as a variable, it will not affect the environment of the shell that ran the script.
 
-Let's see an example. We'll create a script called _set_editor.sh_ that sets the `EDITOR` environment variable to `nano`. The script's contents are below (can can also find it in the samples at _~/effective-shell/scripts/set_editor.sh_):
+Let's see an example. We'll create a script called _set_editor.sh_ that sets the `EDITOR` environment variable to `nano`. The script's contents are below (can also find it in the samples at _~/effective-shell/scripts/set_editor.sh_):
 
 ```bash
 EDITOR=nano
@@ -350,7 +350,7 @@ bash
 
 ### Dot Sourcing<!--index-->
 
-There is a slightly more concise syntax that can be used to source a script - the _dot sourcing_ notation. When the shell sees a `.` dot character, it will source the file that follows:
+There is a slightly more concise syntax to source a script - the _dot sourcing_ notation. When the shell sees a `.` dot character, it will source the file that follows:
 
 ```
 $ . ~/effective-shell/scripts/show-info.sh
@@ -358,7 +358,7 @@ bash
   └─pstree -l -a -s 2169
 ```
 
-You may encounter this syntax as you look at things like shell configuration files, which we discuss in [Chapter 24 - Configuring the Shell](../../part-5-building-your-toolkit/configuring-the-shell).
+You may encounter this syntax as you look at things like shell configuration files, which we will discuss in [Chapter 24 - Configuring the Shell](../../part-5-building-your-toolkit/configuring-the-shell).
 
 ## Installing Your Script
 
