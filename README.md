@@ -173,7 +173,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://taxodium.ink/"><img src="https://avatars.githubusercontent.com/u/30440218?v=4?s=100" width="100px;" alt="Spike"/><br /><sub><b>Spike</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3ASpike-Leung" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3ASpike-Leung" title="Bug reports">🐛</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://nosarthur.github.io/"><img src="https://avatars.githubusercontent.com/u/1400272?v=4?s=100" width="100px;" alt="Dong Zhou"/><br /><sub><b>Dong Zhou</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Anosarthur" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Anosarthur" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://nosarthur.github.io/"><img src="https://avatars.githubusercontent.com/u/1400272?v=4?s=100" width="100px;" alt="Dong Zhou"/><br /><sub><b>Dong Zhou</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Anosarthur" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Anosarthur" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=nosarthur" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
