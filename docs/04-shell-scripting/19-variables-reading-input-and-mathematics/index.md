@@ -3,7 +3,7 @@ title: 'Variables, Reading Input, and Mathematics'
 slug: '/part-3-manipulating-text/variables-reading-input-and-mathematics/'
 ---
 
-We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell. 
+We've seen variables a few times in our journey so far. In this chapter we'll look at variables in a bit more detail. We'll then see how to read input from the user and also look at how to perform basic mathematical operations in the shell.
 
 ## Variables
 
@@ -23,7 +23,7 @@ If you run this command you will see something like this:
 Your pager is: less
 ```
 
-By convention, if a variable is in uppercase then it is an _environment variable_<!--index--> or a built in variable that comes from the shell. An environment variable is a variable that is set by the system. They often contain useful values and are used to help configure your system.
+By convention, if a variable is in uppercase then it is an _environment variable_<!--index--> or a built in variable that comes from the shell. An environment variable is a variable that is set by the system. They often contain useful values to help configure your system.
 
 Here's a few common environment variables we might use:
 
@@ -144,7 +144,7 @@ Creating backup folder at: ''
 usage: mkdir [-pv] [-m mode] directory ...
 ```
 
-Rather than creating a folder called `dwmkerr_backup` (which is my `$USER` variable followed by the text `_backup`), the script has actually failed. That is because it is looking for a variable called `USER_backup` - which has does not exist!
+Rather than creating a folder called `dwmkerr_backup` (which is my `$USER` variable followed by the text `_backup`), the script has actually failed. That is because it is looking for a variable called `USER_backup` - which does not exist!
 
 To get around this we would surround the variable name with curly braces like so:
 
@@ -159,7 +159,7 @@ This script will show the correct output:
 Creating backup folder at: 'dwmkerr_backup'
 ```
 
-If there is ever any potential ambiguity with a variable name you should enclose it with curly braces to be on the safe side. Some people will use curly braces in all circumstances to be as explicit as possible about what the variable name is and reduce the risk of mistakes if someone later comes along to edit or change the code.
+If there is ever any potential ambiguity with a variable name you should enclose it with curly braces to be on the safe side. Some people will use curly braces in all circumstances to be as explicit as possible about what the variable name is and reduce the risk of mistakes if someone later comes along to change the code.
 
 This script would be improved with the use of a variable of our own to avoid us having to repeat the `${USER}_backup` text:
 
@@ -197,7 +197,7 @@ There are a number of useful operations you can perform on arrays. An example of
 | Create Array             | `array=()`                 | `days=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday")`                               |
 | Get Array Element        | `${array[index]}`          | `echo ${days[2]} # prints 'Wednesday'`                                                                        |
 | Get All Elements         | `${array[@]}`              | `echo ${days[@]} # prints 'Monday Tuesday Wednesday Thursday Friday Saturday Sunday'`                         |
-| Set Array Element        | `${array[index]}=value`    | `days[0]="Mon"`                                                                                               |
+| Set Array Element        | `array[index]=value`    | `days[0]="Mon"`                                                                                               |
 | Get Array Indexes        | `${!array[@]}`             | `arr=(); arr[3]="apple"; arr[5]="pear"; echo ${!arr[@]} # prints 3 5`                                         |
 | Get Array Length         | `${#array[@]}`             | `echo ${#days[@]} # Prints 7`                                                                                 |
 | Append to Array          | `array+=(val1 val2 valN)`  | `fruits=(); fruits+=("Apples"); fruits+=("Pears" "Grapes"); echo ${fruits[@]} # prints 'Apples Pears Grapes'` |
@@ -216,7 +216,7 @@ More recent versions of Bash support the concept of _Associative Arrays_. These 
 An associative array is created using the `declare` (_set variable_) command<!--index-->:
 
 ```bash
-# Create an associative array called 'user'.
+# Create an associative array called 'book'.
 declare -A book
 
 # Set some values on the array.
@@ -237,7 +237,7 @@ If you find yourself using associative arrays, I expect that there is a good cha
 
 ## Quoting Variables and Values
 
-There is often a lot of confusion about a specific topic in the shell - when should you surround a variable in quotes? This might sound like it is a purely stylistic question, but surrounding a variable in quotes can dramatically change how your script works.
+There is often a lot of confusion about a specific topic in the shell - when should you surround a variable in quotes? This might sound like a purely stylistic question, but surrounding a variable in quotes can dramatically change how your script works.
 
 We're going to look at each type of quoting and when it should be used in the examples below. But if you ever need a reminder, run `man bash` and search for the text `QUOTING`.
 
@@ -307,7 +307,7 @@ The date is Sun 23 May 2021 11:36:54 AM +08
 However, you should _not_ use the backtick character to run a sub-shell, it is harder to read than using the dollar and parenthesis syntax we've already seen:
 
 ```
-$ echo "The date is $(date)`"
+$ echo "The date is $(date)"
 The date is Sun 23 May 2021 11:36:54 AM +08
 ```
 
@@ -353,7 +353,7 @@ Quoting can seem confusing - but remember these tips and you will generally be o
 
 ## Shell Parameter Expansion
 
-Shell Parameter Expansion is the process by which the shell evaluates a variable that follows the `$` dollar symbol. In most of our examples we've seen simple expansion where we just expand the variable into its value, like so:
+Shell Parameter Expansion is the process by which the shell evaluates a variable that follows the `$` dollar symbol. In most of our examples we simply expand the variable into its value, like so:
 
 ```
 $ echo "My shell is $SHELL"
@@ -500,7 +500,7 @@ Hello, Dave
 
 **Z-Shell Note**
 
-If you are using the Z-Shell, then this command will fail as `zsh` does not use the `-p` parameter for at prompt. To prompt a user for input with the `read` command in `zsh`, just put a line of text after the command that starts with a question mark:
+If you are using the Z-Shell, then this command will fail as `zsh` does not use the `-p` parameter for prompt. To prompt a user for input with the `read` command in `zsh`, just put a line of text after the command that starts with a question mark:
 
 ```bash
 read "?Please enter your name: "
@@ -513,7 +513,7 @@ The `-s` (_silent_) flag can be used to hide the input as it is being written. T
 
 ```bash
 read -s -p "Enter a new password: " password
-masked_password=$(echo "$password" | sed 's/./*/g') 
+masked_password=$(echo "$password" | sed 's/./*/g')
 echo ""
 echo "Your password is: $masked_password"
 ```
@@ -559,7 +559,7 @@ echo "Your favourite word is: ${word}"
 
 Because we used the `-d ' '` parameter, the read command will read up until it finds a 'space' symbol. This can be confusing for users however - if they press enter then `read` will read it as a newline and continue waiting for a space. So you should let the user know to finish input with the delimiter you have chosen!
 
-In general using another anything than a newline as the delimiter may be confusing to the user, and also causes some problems when the user wants to type special characters such as backspace, so I would suggest that you avoid this trick. Instead, let the user type their input and then use something like `sed` to extract everything up to the point that you want.
+In general using anything other than a newline as the delimiter may be confusing to the user, and also causes some problems when the user wants to type special characters such as backspace, so I would suggest that you avoid this trick. Instead, let the user type their input and then use something like `sed` to extract everything up to the point that you want.
 
 There are a number of other options for the `read` command that you can read about by typing `help read`. But these are the ones that I think you will see most commonly used.
 
