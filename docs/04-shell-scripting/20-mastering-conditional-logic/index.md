@@ -71,7 +71,7 @@ The `test` command evaluates an expression. In this case the expression is:
 -d ~/backups
 ```
 
-This expression uses the `-d` (_file exists and is a directory_) operator to check to see if the provided path is a directory. We to want to create the directory only if it _doesn't_ exist, so we use the 'not' operator to 'invert' the result of `test`. The 'not' operator is written with the `!` exclamation point symbol.
+This expression uses the `-d` (_file exists and is a directory_) operator to check if the provided path is a directory. We want to create the directory only if it _doesn't_ exist, so we use the 'not' operator to 'invert' the result of `test`. The 'not' operator is written with the `!` exclamation point symbol.
 
 You can surround an expression with square bracket and the shell will evaluate the expression with the `test` command. This can make your scripts far more compact:
 
@@ -144,7 +144,7 @@ Note that we still need to use the 'fi' keyword to close the 'if' statement.
 
 The _elif statement_ (which is short for 'else if') can be used to create additional checks and define statements that should run if _other_ conditions are true.
 
-Let's see this in action by updating our script to check to see whether the 'common' command is executable, using the `-x` (_is executable_) operator<!-- index -->:
+Let's see this in action by updating our script to check whether the 'common' command is executable, using the `-x` (_is executable_) operator<!-- index -->:
 
 ```bash
 if [ -x /usr/local/bin/common ]; then
@@ -213,10 +213,10 @@ Here are some of the most useful ones:
 | `-L`              | True if the file exists and is a symbolic link.                                                     |
 | `-r`              | True if the file exists and is readable.                                                            |
 | `-s`              | True if the file exists and has a size greater than zero.                                           |
-| `-w`              | True if the file exists is writable.                                                                |
+| `-w`              | True if the file exists and is writable.                                                            |
 | `-x`              | True if the file exists and is executable - if it is a directory this checks if it can be searched. |
-| `file1 -nt file2` | True if file1 is exists and is newer than file2.                                                    |
-| `file1 -ot file2` | True if file1 is exists and is older than file2.                                                    |
+| `file1 -nt file2` | True if file1 exists and is newer than file2.                                                       |
+| `file1 -ot file2` | True if file1 exists and is older than file2.                                                       |
 | `file1 -ef file2` | True if file1 and file2 exist and are the same file.                                                |
 
 There are plenty of other operators that you can use when working with files, you can see them all by running `man test`.
