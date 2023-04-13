@@ -156,6 +156,17 @@
         "bug",
         "doc"
       ]
+    },
+    {
+      "login": "drormaman",
+      "name": "Dror Maman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7041612?v=4",
+      "profile": "https://github.com/drormaman",
+      "contributions": [
+        "bug",
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
