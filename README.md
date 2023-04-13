@@ -1,7 +1,7 @@
 # effective-shell 
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -174,6 +174,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://nosarthur.github.io/"><img src="https://avatars.githubusercontent.com/u/1400272?v=4?s=100" width="100px;" alt="Dong Zhou"/><br /><sub><b>Dong Zhou</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Anosarthur" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Anosarthur" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=nosarthur" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/drormaman"><img src="https://avatars.githubusercontent.com/u/7041612?v=4?s=100" width="100px;" alt="Dror Maman"/><br /><sub><b>Dror Maman</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Adrormaman" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=drormaman" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Adrormaman" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
 </table>
