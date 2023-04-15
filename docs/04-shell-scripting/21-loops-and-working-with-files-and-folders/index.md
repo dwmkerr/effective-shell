@@ -46,7 +46,7 @@ Found: /home/dwmkerr/effective-shell/text
 Found: /home/dwmkerr/effective-shell/websites
 ```
 
-Notice how the shell is smart enough to _expand_ the wildcard expression that we have included in the _for loop_. In just the same way we can use wildcards in commands such as `ls` or `cp` or `mv`, we can also use them in for loops - or in fact any statement[^1]! 
+Notice how the shell is smart enough to _expand_ the wildcard expression that we have included in the _for loop_. In just the same way we can use wildcards in commands such as `ls` or `cp` or `mv`, we can also use them in for loops - or in fact any statement[^1]!
 
 You will also see that when we specify the name of the variable to use in the loop (which in this example was _item_) we don't need to use a dollar symbol. Remember - when we are _setting_ a variable, we don't use a dollar symbol, we only use the dollar symbol when we want to get the value of the variable.
 
@@ -71,7 +71,7 @@ If we run this script we'll see the following output:
 Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, happy days!
 ```
 
-It's important to remember that we want to go through every item in the array, so we have to use the `${days[@]}` syntax. This is the syntax that means 'all of the members of the array'.
+It's important to remember that we want to go through every item in the array, so we have to use the `${days[@]}` syntax. This is the syntax for 'all of the members of the array'.
 
 The `-n` (_don't output a trailing newline_) flag of the `echo` command is used inside the for loop so that we don't write each day on its own line.
 
@@ -133,7 +133,7 @@ $ ls ~/effective-shell
 data  docs  logs  pictures  programs  quotes  scripts  templates  text  websites
 ```
 
-The output that the `ls` program has written is plain text. It is not an array, it is just a set of files separated by spaces. What would we expect the shell to do if we ran the following command?
+The output of the `ls` program is plain text. It is not an array, it is just a set of files separated by spaces. What would we expect the shell to do if we ran the following command?
 
 ```bash
 files=$(ls ~/effective-shell)
@@ -357,7 +357,7 @@ milkshake-menu.txt
 tea-menu.txt
 ```
 
-Brace expansion can be use in for loops, and brace expansion can be used to create sequences. For example, the loop below could be used as a way to loop through the numbers from one to ten:
+Brace expansion can be used in for loops, and brace expansion can be used to create sequences. For example, the loop below could be used as a way to loop through the numbers from one to ten:
 
 ```bash
 for i in {1..10}
@@ -415,7 +415,7 @@ do
     # Get a random number, ask the user if they want to add it to the array.
     random_number=$RANDOM
     read -p "Add $random_number to the list? (y/n): " choice
-    
+
     # If the user chose 'y' add the random number to the array.
     if [ "$choice" = "y" ]; then random_numbers+=($random_number); fi
 done
@@ -503,7 +503,7 @@ do
     echo "4) Turn Right"
     echo "5) Explore"
     echo "0) Quit"
-    
+
     read -p "What will you do: " choice
     if [ $choice -eq 0 ]; then
         exit
@@ -595,7 +595,7 @@ do
 done
 ```
 
-Using `break` and `continue` can simplify our loops - if we it would be much harder to write the loop above.
+Using `break` and `continue` can simplify our loops - otherwise it would be much harder to write the loop above.
 
 ## Creating Compact Loops
 
@@ -666,7 +666,7 @@ $ for file in "*"; do echo "Found: $file"; done
 Found: *
 ```
 
-Because we have quoted the asterisks, the shell does not treat it as a special character and expand it into a list of files.
+Because we have quoted the asterisks, the shell does not treat it as a special character which expands into a list of files.
 
 What about this example, when we use wildcard expansion to list files, but the results do _not_ have word splitting applied?
 
@@ -738,7 +738,7 @@ If you need a refresher on what is in the script, you can view it in your pager 
 less ~/effective-shell/scripts/common.v3.sh
 ```
 
-Let's add a loop to our common, that let's use show a number next to each command so that we can see the order of the commands.
+Let's add a loop to our common to show a number next to each command so that we can see the order of the commands.
 
 As the file is a little larger now, I am not going to show the entire file, only the key changes we will make.
 
