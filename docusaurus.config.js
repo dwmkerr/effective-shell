@@ -79,12 +79,16 @@ const config = {
           src: 'img/logo.png',
         },
         items: [
-          //  Create a link to the home page.
           {
             type: 'doc',
             docId: 'index',
             position: 'left',
             label: 'Home',
+          },
+          {
+            to: 'donate',
+            label: 'Donate',
+            position: 'left'
           },
           {
             type: 'search',
@@ -106,6 +110,10 @@ const config = {
               {
                 label: 'Home',
                 to: '/',
+              },
+              {
+                to: 'donate',
+                label: 'Donate',
               },
             ],
           },

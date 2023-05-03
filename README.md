@@ -23,6 +23,7 @@ If you find this book useful, please do consider [sponsoring me](https://github.
 * [ASCII Terminal Recordings](#ascii-terminal-recordings)
 * [Thanks!](#thanks)
 * [Contributors ✨](#contributors-)
+* [TODO: Donate](#todo-donate)
 
 <!-- vim-markdown-toc -->
 
@@ -181,3 +182,31 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## TODO: Donate
+
+- [ ] Create donate button
+- [ ] Create donate page
+- [ ] Create cancel page
+- [ ] Create thanks page
+- [ ] Create share page
+- [ ] Test
+- [ ] Add GA funnel and goals
+- [ ] Setup Task for integrated button (on page experience?)
+
+No need for leanpub - it generates a manu and I have that
+However, markdown to manu could easily generate text for leanpub, most of leanpub is just markdown, except for 
+
+{aside category='warning'}
+whatever
+{/aside}
+
+However, why bother with this, if it's online reading people will want, just create a donate page and offer a PDF download for minimum donations.
+
+- Donation could be a sliding bar, showing how much the author gets
+- Create a donate page, suggested minimum and maximum
+- track this as a goal in GA
+- share the book more widely
+- integrate 'donate' links or a 'donate' popup some time
+- collect feedback when donating
+- [ ] leanpub style slider: https://codesandbox.io/s/leanpub-pricing-slider-clone-8mr9692nl?file=/src/Slider/index.js
