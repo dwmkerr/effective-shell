@@ -5,7 +5,7 @@ slug: '/part-3-manipulating-text/shell-script-essentials/'
 
 In this chapter we're going to look at how to write shell scripts and the different ways we can execute them. We'll look at how shell script files should be structured and how to use 'shebangs' to define how a shell script will run.
 
-We'll learn the essential techniques that will be help you build your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about using the `env` command in shebangs.
+We'll learn the essential techniques that will help you build your own scripts. Even if you are familiar with shell scripts I would suggest skimming this chapter to make sure you understand each of the concepts, particularly the later section where we talk about the `env` command in shebangs.
 
 ## What is a Shell Script?
 
@@ -43,7 +43,7 @@ In your favourite editor, create a file called `common.v1.sh` and put it somewhe
 ```bash
 # Create a directory called 'scripts'.
 # Using the '-p' flag means we won't get an error if the folder exists.
-mkdir -p ~/scripts 
+mkdir -p ~/scripts
 
 # Create the script file.
 touch ~/scripts/common.v1.sh
@@ -180,7 +180,7 @@ bash ~/scripts/common.v1.sh
 
 This is a perfectly valid technique. Now let's see the other ways we can run a script.
 
-The next way we can run a script it is make it 'executable'. This means we change the file permissions of the script file, adding the 'executable bit'. This tells the systems we can run the file. We use the `chmod` (_change file mode_) command to do this:
+The next way we can run a script is to make it 'executable'. This means we change the file permissions of the script file, adding the 'executable bit'. This tells the systems we can run the file. We use the `chmod` (_change file mode_) command to do this:
 
 ```
 chmod +x ~/scripts/common.v1.sh
@@ -242,9 +242,9 @@ console.log("Hello from Node.js");
 
 ### Shebangs - Dealing with Paths
 
-When we use a shebang we need to provide the full path the executable that will be used to run the script.
+When we use a shebang we need to provide the full path to the executable that runs the script.
 
-For example, what if we want to use Ruby to run a script we could write a script like this:
+For example, if we want to use Ruby to run a script we could write a script like this:
 
 ```ruby
 #!/usr/bin/ruby
@@ -254,10 +254,10 @@ puts 'Hello from Ruby'
 
 But there is a problem here. This will only work if you have the Ruby program installed in the location specified after the shebang (i.e. `/usr/bin/ruby`). If you do not have the Ruby program in this location the script will fail to run.
 
-How can we know where the user will have a specific program installed?
+How can we know where a specific program is installed?
 
 There is a common trick for dealing with this issue. We can use the `env` (_set environment and execute command_) command to run a command and it will work out the path for us.
- 
+
 The `env` command is often used to show environment variables, but you can also use it to execute an arbitrary command (often with a modified environment). One handy feature of the `env` command is that it looks through the `$PATH` variable to find the path of the command to execute.
 
 You can see this by running a command like the below:
@@ -296,7 +296,7 @@ We have discussed how to _run_ shell scripts. You can also use the _source_ (_ex
 
 Remember that when we run a shell script, a new shell is created as a child process of the current shell. This means that if you change something in the environment, such as a variable, it will not affect the environment of the shell that ran the script.
 
-Let's see an example. We'll create a script called _set_editor.sh_ that sets the `EDITOR` environment variable to `nano`. The script's contents are below (can can also find it in the samples at _~/effective-shell/scripts/set_editor.sh_):
+Let's see an example. We'll create a script called _set_editor.sh_ that sets the `EDITOR` environment variable to `nano`. The script's contents are below (can also find it in the samples at _~/effective-shell/scripts/set_editor.sh_):
 
 ```bash
 EDITOR=nano
@@ -350,7 +350,7 @@ bash
 
 ### Dot Sourcing<!--index-->
 
-There is a slightly more concise syntax that can be used to source a script - the _dot sourcing_ notation. When the shell sees a `.` dot character, it will source the file that follows:
+There is a slightly more concise syntax to source a script - the _dot sourcing_ notation. When the shell sees a `.` dot character, it will source the file that follows:
 
 ```
 $ . ~/effective-shell/scripts/show-info.sh
@@ -358,7 +358,7 @@ bash
   └─pstree -l -a -s 2169
 ```
 
-You may encounter this syntax as you look at things like shell configuration files, which we discuss in [Chapter 24 - Configuring the Shell](../../part-5-building-your-toolkit/configuring-the-shell).
+You may encounter this syntax as you look at things like shell configuration files, which we will discuss in [Chapter 24 - Configuring the Shell](../../part-5-building-your-toolkit/configuring-the-shell).
 
 ## Installing Your Script
 
