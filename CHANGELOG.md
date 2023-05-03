@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.0](https://github.com/dwmkerr/effective-shell/compare/v0.26.9...v0.27.0) (2023-05-03)
+
+
+### Features
+
+* add donate page ([#273](https://github.com/dwmkerr/effective-shell/issues/273)) ([86e1960](https://github.com/dwmkerr/effective-shell/commit/86e1960c6b44321c4bcd865a13548c7474881fdb))
+
 ## [0.26.9](https://github.com/dwmkerr/effective-shell/compare/v0.26.8...v0.26.9) (2023-05-03)
 
 
