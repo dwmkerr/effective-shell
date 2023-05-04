@@ -118,7 +118,7 @@ dave@{'\n'}
 <strong>dave@kerr@effective.shell.com</strong>{'\n'}
 </pre>
 
-This is better - we've eliminated some invalid addresses, _test123.effective-shell.com_, _@yahoo.com_ and _dave@_.
+This is better - we've eliminated some invalid addresses, `test123.effective-shell.com`, `@yahoo.com` and `dave@`.
 
 We have introduced a key concept - the _quantifier_. The quantifier we have used is the `+` plus symbol. This is the part of a regular expression which says 'how many times can a character be matched?'.
 
