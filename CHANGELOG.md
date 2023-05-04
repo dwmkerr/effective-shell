@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.1](https://github.com/dwmkerr/effective-shell/compare/v0.27.0...v0.27.1) (2023-05-04)
+
+
+### Bug Fixes
+
+* correct email formatting ([#275](https://github.com/dwmkerr/effective-shell/issues/275)) ([fd897f1](https://github.com/dwmkerr/effective-shell/commit/fd897f1f94ec74801e0564279047eeaae00c6f53)), closes [#255](https://github.com/dwmkerr/effective-shell/issues/255)
+
 ## [0.27.0](https://github.com/dwmkerr/effective-shell/compare/v0.26.9...v0.27.0) (2023-05-03)
 
 
