@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.27.2](https://github.com/dwmkerr/effective-shell/compare/v0.27.1...v0.27.2) (2023-05-21)
+
+
+### Bug Fixes
+
+* Typo ([#278](https://github.com/dwmkerr/effective-shell/issues/278)) ([2ba4df4](https://github.com/dwmkerr/effective-shell/commit/2ba4df4674882a80b556aefa1b7b4608eadbe3f1))
+
+
+### Documentation
+
+* add nimid as a contributor for review ([#279](https://github.com/dwmkerr/effective-shell/issues/279)) ([3f8210e](https://github.com/dwmkerr/effective-shell/commit/3f8210e93c786b3d75dc350d3f3914ec3a04e71e))
+* add saraid as a contributor for review ([#277](https://github.com/dwmkerr/effective-shell/issues/277)) ([2a2210a](https://github.com/dwmkerr/effective-shell/commit/2a2210a4d7296f7e23a4b20fa9899f540b94cece))
+
 ## [0.27.1](https://github.com/dwmkerr/effective-shell/compare/v0.27.0...v0.27.1) (2023-05-04)
 
 
