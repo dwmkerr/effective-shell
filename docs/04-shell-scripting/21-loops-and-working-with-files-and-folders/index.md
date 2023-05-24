@@ -319,7 +319,7 @@ do
 done
 ```
 
-This loop structure uses three arithmetic expressions to run the loop. The first is in 'initialise' expression, this is typically used to setup the initial state of the loop. The second is the 'conditional' expression, this is used to check whether the loop is complex. The third is the 'iterate' expression, this is evaluated after the loop commands are completed.
+This loop structure uses three arithmetic expressions to run the loop. The first is in 'initialise' expression, this is typically used to setup the initial state of the loop. The second is the 'conditional' expression, this is used to check whether the loop is complete. The third is the 'iterate' expression, this is evaluated after the loop commands are completed.
 
 Here's how we can use a C style for loop to iterate through five numbers:
 
