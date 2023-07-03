@@ -103,7 +103,7 @@ nvim perfor<strong>man</strong>ce.md{'\n'}
 
 Here I can see all of the commands I have recently entered which have the text `man` in them. Note that the text which matches is highlighted and shown in bold.
 
-Now what if you a different shell, or forget where the history file lives? A nice trick here is to use the `history` command. This command prints out the history, as well as the line number. The `history` command writes to `stdout`. If we don't give `grep` a source file, it will simply search through `stdin`. Just as we learnt in [Chapter 7 - Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) this means we can just `grep` the output of the `history` command!
+Now what if you use a different shell, or forget where the history file lives? A nice trick here is to use the `history` command. This command prints out the history, as well as the line number. The `history` command writes to `stdout`. If we don't give `grep` a source file, it will simply search through `stdin`. Just as we learnt in [Chapter 7 - Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) this means we can just `grep` the output of the `history` command!
 
 Here's how that would work:
 
