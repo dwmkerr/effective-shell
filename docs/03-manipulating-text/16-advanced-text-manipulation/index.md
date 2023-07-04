@@ -302,7 +302,7 @@ Now we have a command which strips comments, deletes empty lines and then adds t
 What if we want to add a semicolon to the end of all lines?
 
 ```
-sed s/$/;/
+sed 's/$/;/'
 ```
 
 Easy!
