@@ -392,7 +392,7 @@ In this example we have actually captured _two_ results - the contents of the op
 To get the same results without using the lazy quantifier, we'd have to have an expression like this:
 
 <pre>
-&lt;[^&gt;]+?&gt;{'\n'}
+&lt;[^&gt;]+&gt;{'\n'}
 {'\n'}
 This text is <strong>&lt;strong&gt;</strong>bold<strong>&lt;/strong&gt;</strong>.{'\n'}
 </pre>
