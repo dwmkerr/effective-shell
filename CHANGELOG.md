@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.27.3](https://github.com/dwmkerr/effective-shell/compare/v0.27.2...v0.27.3) (2023-07-05)
+
+
+### Bug Fixes
+
+* correct grammar in loops chapter ([#281](https://github.com/dwmkerr/effective-shell/issues/281)) ([19278d4](https://github.com/dwmkerr/effective-shell/commit/19278d4866f4a4a78669bfead8eb006a81d78744)), closes [#269](https://github.com/dwmkerr/effective-shell/issues/269)
+
+
+### Documentation
+
+* add linjielig as a contributor for review ([#287](https://github.com/dwmkerr/effective-shell/issues/287)) ([bd5e6ff](https://github.com/dwmkerr/effective-shell/commit/bd5e6ffb819818553168e625660d1658c8ca6629))
+
 ## [0.27.2](https://github.com/dwmkerr/effective-shell/compare/v0.27.1...v0.27.2) (2023-05-21)
 
 
