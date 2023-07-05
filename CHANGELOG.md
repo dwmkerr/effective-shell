@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.27.4](https://github.com/dwmkerr/effective-shell/compare/v0.27.3...v0.27.4) (2023-07-05)
+
+
+### Bug Fixes
+
+* correct quotes ([e2ae8c3](https://github.com/dwmkerr/effective-shell/commit/e2ae8c3615c278e5e2eedc3f47818bbe86934393))
+
+
+### Documentation
+
+* more recommended reading ([1ad1d2e](https://github.com/dwmkerr/effective-shell/commit/1ad1d2ee2b89d07f16e63745043bd59d6e280c75))
+
 ## [0.27.3](https://github.com/dwmkerr/effective-shell/compare/v0.27.2...v0.27.3) (2023-07-05)
 
 
