@@ -185,6 +185,15 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "linjielig",
+      "name": "Lee Li",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11633940?v=4",
+      "profile": "https://github.com/linjielig",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -193,5 +202,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }
