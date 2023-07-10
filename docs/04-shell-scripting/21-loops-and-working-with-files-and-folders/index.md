@@ -723,7 +723,7 @@ Be careful when changing the `IFS` variable - it could cause subsequent commands
 old_ifs="$IFS"
 IFS=":"
 # Do some stuff
-IFS="$IFS"
+IFS="$old_ifs"
 ```
 
 In general if you are changing `IFS` you might be doing something that would be better done with a programming language.
