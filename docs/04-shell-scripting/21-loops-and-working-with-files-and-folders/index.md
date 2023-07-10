@@ -246,7 +246,7 @@ Let's use the `find` command to run a loop that prints every symlink in the user
 
 ```bash
 # Create a symlink to 'effective-shell' that has a space in it...
-ln -s ~/effective shell ~/effective\ shell
+ln -s ~/effective-shell ~/effective\ shell
 
 # Find all symlinks and print each one.
 links=$(find ~ -type l)
