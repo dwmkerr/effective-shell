@@ -192,7 +192,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/11633940?v=4",
       "profile": "https://github.com/linjielig",
       "contributions": [
-        "review"
+        "review",
+        "bug",
+        "doc"
       ]
     }
   ],
