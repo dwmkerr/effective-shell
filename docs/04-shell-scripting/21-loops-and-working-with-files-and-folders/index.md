@@ -742,7 +742,7 @@ Let's add a loop to our common to show a number next to each command so that we 
 
 As the file is a little larger now, I am not going to show the entire file, only the key changes we will make.
 
-First, in each of the sections that performs the command to get the common commands we will use Shell Parameter Expansion to run a sub-shell and store the results in a variable:
+First, in each of the sections that performs the command to get the common commands we will use Command Substitution to run a sub-shell and store the results in a variable:
 
 ```bash
 # Store the most recently used commands in the 'commands' variable.
