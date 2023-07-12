@@ -253,7 +253,7 @@ Let's imagine we wanted to update our 'common' command to support the following 
 - `-h` for 'help', which shows command help
 - `-e` for 'execute', which takes the number of a command from the list which will be executed
 
-The 'getopts' command takes two parameters. The first is an 'option string', which is a list of the parameter letters that are allowed. This string starts with a colon, and any letter which is followed by a colon is expected to have a value provided. The second parameter is the name of the variable to set when we are processing options.
+The 'getopts' command takes two parameters. The first is an 'option string', which is a list of the parameter letters that are allowed. The option string for 'getopts' expects that each letter followed by a colon represents an option that requires a value. The second parameter specifies the name of the variable that will be set to the currently processed option. If the option string starts with a colon, it affects how 'getopts' assigns values to the shell variables specified by 'name' and 'OPTARG'. For more detailed information, please refer to the 'man getopts' manual.
 
 Typically this command is used in a while loop, as it will return 'success' until the final option has been processed. A case statement is typically used to process the option:
 
