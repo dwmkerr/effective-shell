@@ -348,7 +348,7 @@ rainbow () {
 If we run this function in most terminals, we'll see the provided message with the colour number in seven different colours:
 
 ```bash
-$ rainbow hello
+$ rainbow test
 31 - test
 32 - test
 33 - test
