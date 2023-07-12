@@ -196,6 +196,15 @@
         "bug",
         "doc"
       ]
+    },
+    {
+      "login": "leeli0",
+      "name": "Lee Li",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11633940?v=4",
+      "profile": "https://github.com/leeli0",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
