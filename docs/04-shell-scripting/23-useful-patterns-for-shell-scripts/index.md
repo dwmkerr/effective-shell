@@ -180,7 +180,7 @@ tmp_tar="${tmp_dir}/effective-shell.tar.gz"
 # Define a cleanup function that we will call when the script exits or if
 # it is aborted.
 cleanup () {
-    if [ -e "${tmp_tar}" ]; then rm "$tmp_tar}"; fi
+    if [ -e "${tmp_tar}" ]; then rm "${tmp_tar}"; fi
     if [ -d "${tmp_dir}" ]; then rm -rf "${tmp_dir}"; fi
 }
 
