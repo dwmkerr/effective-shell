@@ -1,7 +1,7 @@
 # effective-shell 
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -179,6 +179,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nimid"><img src="https://avatars.githubusercontent.com/u/4145121?v=4?s=100" width="100px;" alt="Saroj Sangphongamphai"/><br /><sub><b>Saroj Sangphongamphai</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Animid" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/linjielig"><img src="https://avatars.githubusercontent.com/u/11633940?v=4?s=100" width="100px;" alt="Lee Li"/><br /><sub><b>Lee Li</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Alinjielig" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Alinjielig" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=linjielig" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/leeli0"><img src="https://avatars.githubusercontent.com/u/11633940?v=4?s=100" width="100px;" alt="Lee Li"/><br /><sub><b>Lee Li</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Aleeli0" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://stratus3d.com"><img src="https://avatars.githubusercontent.com/u/1520926?v=4?s=100" width="100px;" alt="Trevor Brown"/><br /><sub><b>Trevor Brown</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3AStratus3D" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
