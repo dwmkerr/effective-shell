@@ -332,7 +332,7 @@ So how do we deal with `stderr`? Here are some common options:
 
 <img src={require('./images/diagram-stderr-options.png').default} alt="Diagram: Standard Error Options" width="1024px" />
 
-Now this might be the **ah-ha!** moment if you have done some shell scripting before - some of these obscure sequences like `2>&1` might look familiar (even if it is just the thing you know you you always have to Google to get right!).
+Now this might be the **ah-ha!** moment if you have done some shell scripting before - some of these obscure sequences like `2>&1` might look familiar (even if it is just the thing you know you always have to Google to get right!).
 
 Let's take a quick look at some of these options.
 
