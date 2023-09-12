@@ -143,7 +143,7 @@ declare -A BASH_CMDS=()
 You can also use this command to validate whether a variable has been set or not:
 
 ```bash
-if declare -p -A my_options 2>1 /dev/null; then
+if declare -p -A my_options > /dev/null 2>&1; then
     echo "'my_options' exists"
 else
     echo "'my_options' does not exist"

@@ -270,7 +270,7 @@ A function could set any number of variables to provide output. Here's how we co
 ```
 $ number=33
 $ is_even $number
-$ echo "Result is: $0"
+$ echo "Result is: $result"
 Result is: 0
 ```
 
