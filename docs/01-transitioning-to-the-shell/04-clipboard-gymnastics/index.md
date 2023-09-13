@@ -312,7 +312,7 @@ Timothy_Lovejoy@simpsons.com
 This looks perfect! We can now put the transformed text back onto the clipboard:
 
 ```
-$ pbpaste | sort | uniq | tr ' ' '_' | sed 's/$/@simpsons.com' | pbcopy
+$ pbpaste | sort | uniq | tr ' ' '_' | sed 's/$/@simpsons.com/' | pbcopy
 ```
 
 All in all we have the following pipeline:
