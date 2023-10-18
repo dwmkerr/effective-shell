@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.6](https://github.com/dwmkerr/effective-shell/compare/v0.27.5...v0.27.6) (2023-10-18)
+
+
+### Bug Fixes
+
+* correct quotes ([505624c](https://github.com/dwmkerr/effective-shell/commit/505624c29528e412208f492a9c6f52ca99d3bb65))
+
 ## [0.27.5](https://github.com/dwmkerr/effective-shell/compare/v0.27.4...v0.27.5) (2023-10-18)
 
 
