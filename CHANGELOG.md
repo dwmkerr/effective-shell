@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.27.5](https://github.com/dwmkerr/effective-shell/compare/v0.27.4...v0.27.5) (2023-10-18)
+
+
+### Documentation
+
+* add leeli0 as a contributor for bug ([#295](https://github.com/dwmkerr/effective-shell/issues/295)) ([d735d7b](https://github.com/dwmkerr/effective-shell/commit/d735d7bb05dc3c1bb015aaef5f07d518c9f2a2c5))
+* add linjielig as a contributor for bug, doc, and review ([#293](https://github.com/dwmkerr/effective-shell/issues/293)) ([9fd60bd](https://github.com/dwmkerr/effective-shell/commit/9fd60bdf67bda225415188f36c7284434a50c095))
+* add Stratus3D as a contributor for bug ([#300](https://github.com/dwmkerr/effective-shell/issues/300)) ([d11b220](https://github.com/dwmkerr/effective-shell/commit/d11b22023b756d99a2240de9deb03c55c832de7c))
+* further reading links ([80b7e75](https://github.com/dwmkerr/effective-shell/commit/80b7e757b106de0640208be46cfe3c7d12b3a2c0))
+
+
+### Bug Fixes
+
+* add missing `/` of sed command ([#304](https://github.com/dwmkerr/effective-shell/issues/304)) ([7942856](https://github.com/dwmkerr/effective-shell/commit/7942856bf732720c84570d356b1151b2e8da0050))
+* add required copy to 'thanks' page ([81943ff](https://github.com/dwmkerr/effective-shell/commit/81943ff8aa19ce0e7bc7443d7355f4b06e2c93df))
+
 ## [0.27.4](https://github.com/dwmkerr/effective-shell/compare/v0.27.3...v0.27.4) (2023-07-05)
 
 
