@@ -11,7 +11,7 @@ export default function Donate() {
               alignItems: 'center',
             }}>
             <p>
-              Thank-you for your donation!
+              Thank you for your payment. Your transaction has been completed and we've emailed you a receipt for your purchase. Log in to your PayPal account to view transaction details.
             </p>
           </div>
         </div>
