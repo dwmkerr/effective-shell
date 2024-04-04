@@ -147,6 +147,10 @@ const config = {
          */
         playgroundPosition: 'top',
       },
+      metadatas: [{
+        name: 'google-site-verification',
+        content: 'ca-pub-6181461532532600',
+      }],
     }),
 
   plugins: [
