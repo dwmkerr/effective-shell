@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.28.0](https://github.com/dwmkerr/effective-shell/compare/v0.27.6...v0.28.0) (2024-04-04)
+
+
+### Features
+
+* adsense meta tag ([#306](https://github.com/dwmkerr/effective-shell/issues/306)) ([c7c77cf](https://github.com/dwmkerr/effective-shell/commit/c7c77cfd182f310f64f11aee0389a8179e23b473))
+
 ## [0.27.6](https://github.com/dwmkerr/effective-shell/compare/v0.27.5...v0.27.6) (2023-10-18)
 
 
