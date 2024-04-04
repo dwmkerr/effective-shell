@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.30.0](https://github.com/dwmkerr/effective-shell/compare/v0.29.0...v0.30.0) (2024-04-04)
+
+
+### Features
+
+* adsense verification ([8298a23](https://github.com/dwmkerr/effective-shell/commit/8298a23608dcad55a82026094cd1b514e9ca2881))
+
 ## [0.29.0](https://github.com/dwmkerr/effective-shell/compare/v0.28.0...v0.29.0) (2024-04-04)
 
 
