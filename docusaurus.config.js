@@ -147,7 +147,7 @@ const config = {
          */
         playgroundPosition: 'top',
       },
-      metadatas: [{
+      metadata: [{
         name: 'google-site-verification',
         content: 'ca-pub-6181461532532600',
       }],
