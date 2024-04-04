@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.29.0](https://github.com/dwmkerr/effective-shell/compare/v0.28.0...v0.29.0) (2024-04-04)
+
+
+### Features
+
+* ads snippet ([df5e776](https://github.com/dwmkerr/effective-shell/commit/df5e7762fe302b7612cf2b085525d49dc24c2def))
+
 ## [0.28.0](https://github.com/dwmkerr/effective-shell/compare/v0.27.6...v0.28.0) (2024-04-04)
 
 
