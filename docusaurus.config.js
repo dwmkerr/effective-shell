@@ -191,6 +191,9 @@ const config = {
     src:
         'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6181461532532600',
       async: true,
+  }, {
+    src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6181461532532600",
+    async: true,
   }],
 };
 
