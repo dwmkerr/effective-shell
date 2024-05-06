@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.30.2](https://github.com/dwmkerr/effective-shell/compare/v0.30.1...v0.30.2) (2024-05-06)
+
+
+### Bug Fixes
+
+* correct name of dot git folder for samples tarball ([#313](https://github.com/dwmkerr/effective-shell/issues/313)) ([974b748](https://github.com/dwmkerr/effective-shell/commit/974b748c855f05c4aece6b93b888ed86668920df))
+
 ## [0.30.1](https://github.com/dwmkerr/effective-shell/compare/v0.30.0...v0.30.1) (2024-05-06)
 
 
