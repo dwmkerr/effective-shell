@@ -33,13 +33,13 @@ mkdir -p ./artifacts/samples/repositories
     && git clone git://github.com/effective-shell/chapter-27-dotfiles \
     && cd chapter-27-dotfiles \
     && git remote remove origin \
-    && rm -rf ./git \
+    && rm -rf ./.git \
 )
 (   cd ./artifacts/samples/repositories \
     && git clone git://github.com/effective-shell/chapter-28-dotfiles \
     && cd chapter-28-dotfiles \
     && git remote remove origin \
-    && rm -rf ./git \
+    && rm -rf ./.git \
 )
 
 # Zip up and tar up the samples
