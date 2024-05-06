@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.30.1](https://github.com/dwmkerr/effective-shell/compare/v0.30.0...v0.30.1) (2024-05-06)
+
+
+### Bug Fixes
+
+* the samples for chapters 27 and 28 no longer contain .git folders ([#311](https://github.com/dwmkerr/effective-shell/issues/311)) ([79ff1c0](https://github.com/dwmkerr/effective-shell/commit/79ff1c0955d8f652e151ba25921d40fd7394d132))
+
 ## [0.30.0](https://github.com/dwmkerr/effective-shell/compare/v0.29.0...v0.30.0) (2024-04-04)
 
 
