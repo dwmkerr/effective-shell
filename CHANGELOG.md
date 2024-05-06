@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.30.3](https://github.com/dwmkerr/effective-shell/compare/v0.30.2...v0.30.3) (2024-05-06)
+
+
+### Bug Fixes
+
+* add emails for regex chapter ([#315](https://github.com/dwmkerr/effective-shell/issues/315)) ([93b2db0](https://github.com/dwmkerr/effective-shell/commit/93b2db09728dfa5d71c0b5c11f6dfbd9cd292228))
+
 ## [0.30.2](https://github.com/dwmkerr/effective-shell/compare/v0.30.1...v0.30.2) (2024-05-06)
 
 
