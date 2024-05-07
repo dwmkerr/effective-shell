@@ -27,7 +27,7 @@ jobs:
       # deploy the website.
       # Note: *every* step here needs to check the 'release_created' flag.
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
 
       # Fixup Git URLs, see:

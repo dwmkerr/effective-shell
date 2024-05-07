@@ -1,11 +1,13 @@
 ---
 title: Effective Shell
+leanpub_title: Introduction
+leanpub_header: |-
+  {sample: true}
+  {class: part}
 sidebar_position: 1
 sidebar_label: Introduction
 slug: '/'
 ---
-
-import { EmailSignupForm } from '@site/src/components/EmailSignupForm/EmailSignupForm';
 
 Investing just a few hours in your ability to use text based interfaces for your computer can have an enormous impact on your productivity. It can also make your work more fun, allowing you to maintain that creative 'flow' state that can make technology so exciting.
 
@@ -13,7 +15,9 @@ I've been lucky enough to spend many years working as a software engineer, but a
 
 This is not a book on shell scripting or Linux administration! Each chapter in this book can be read as a standalone set of techniques to help you be more efficient, understand your system in more depth, and craft your environment to suit your working style. This book does not advocate that you totally change the way you work or drop your current tooling; it just brings together a set of skills that you can add to your toolkit and incorporate in your own way.
 
+<!-- manuscript:ignore:start -->
 If you find this book useful, please consider [donating](/donate) to support my open source work.
+<!-- manuscript:ignore:end -->
 
 ## Who Should Read This Book
 
@@ -27,12 +31,12 @@ Hobbyists, polymaths and explorers should also read on - as well as going into s
 
 Each chapter of this book aims to work as a stand-alone description of a set of techniques that you should be able to apply immediately. I have focused on keeping the information to the essentials that allow you to use the skill, rather than create an exhaustive description of every possible feature. This should allow you to pick up the book and read a chapter over a coffee and try out the skills straight away.
 
- - [_Part 1 - Transitioning to the Shell_](./01-transitioning-to-the-shell/index.md) is aimed at people who are new to the shell. You'll learn how to set up your environment, navigate your system, manage files, move between a desktop environment and the shell and how to get help. More advanced users may want to skip some of this content.
- - [_Part 2 - Core Skills_](./02-core-skills/index.md) introduces the essential techniques that you should be able to apply immediately to improve your productivity. You'll learn how to use pipelines, rapidly move around the command-line and commands quickly, manage multiple tasks in parallel with jobs, the different types of commands that are available and how to search for files.
- - [_Part 3 - Manipulating Text and Streams_](./03-manipulating-text/index.md) demonstrates many techniques to work with text -whether it's code, data or configuration. You'll learn how to use regular expressions, how to search through text, how to slice and dice text, how to manipulate code and data, and then how to apply these techniques to your shell commands themselves.
- - [_Part 4 - Shell Scripting_](./04-shell-scripting/index.md) is a crash course in shell scripting. You'll learn how to write and run scripts, read and process input, perform logical operations, iterate over files and folders, build functions, handle errors and a set of re-usable patterns you can apply to your own scripts.
- - [_Part 5 - Building Your Toolkit_](./05-building-your-toolkit/index.md) goes into the techniques you can use to create and customize your own environment. You'll learn how to configure the shell, customize your command prompt, manage your configuration files and share and manage your configuration with the Git version control system.
- - [_Part 6 - Advanced Techniques_](./06-advanced-techniques/index.md) introduces even more powerful tools and techniques, showing the fundamentals of each skill and how you might incorporate it into your work. You'll learn how shell expansion works, which is key to understanding many of the nuances of complex commands, when you should move away from shell scripts and into a full-blown programming language, how to build programs that integrate well into other tools in the shell, how to connect to other machines with the secure shell, how to use the popular terminal editor Vim and how to use terminal multiplexers. 
+ - [_Part 1 - Transitioning to the Shell_](./01-transitioning-to-the-shell/00-index.md) is aimed at people who are new to the shell. You'll learn how to set up your environment, navigate your system, manage files, move between a desktop environment and the shell and how to get help. More advanced users may want to skip some of this content.
+ - [_Part 2 - Core Skills_](./02-core-skills/00-index.md) introduces the essential techniques that you should be able to apply immediately to improve your productivity. You'll learn how to use pipelines, rapidly move around the command-line and commands quickly, manage multiple tasks in parallel with jobs, the different types of commands that are available and how to search for files.
+ - [_Part 3 - Manipulating Text and Streams_](./03-manipulating-text/00-index.md) demonstrates many techniques to work with text -whether it's code, data or configuration. You'll learn how to use regular expressions, how to search through text, how to slice and dice text, how to manipulate code and data, and then how to apply these techniques to your shell commands themselves.
+ - [_Part 4 - Shell Scripting_](./04-shell-scripting/00-index.md) is a crash course in shell scripting. You'll learn how to write and run scripts, read and process input, perform logical operations, iterate over files and folders, build functions, handle errors and a set of re-usable patterns you can apply to your own scripts.
+ - [_Part 5 - Building Your Toolkit_](./05-building-your-toolkit/00-index.md) goes into the techniques you can use to create and customize your own environment. You'll learn how to configure the shell, customize your command prompt, manage your configuration files and share and manage your configuration with the Git version control system.
+ - [_Part 6 - Advanced Techniques_](./06-advanced-techniques/00-index.md) introduces even more powerful tools and techniques, showing the fundamentals of each skill and how you might incorporate it into your work. You'll learn how shell expansion works, which is key to understanding many of the nuances of complex commands, when you should move away from shell scripts and into a full-blown programming language, how to build programs that integrate well into other tools in the shell, how to connect to other machines with the secure shell, how to use the popular terminal editor Vim and how to use terminal multiplexers. 
 
 For the newcomer, you'll learn what a shell is, how to use it on your system, and then how to become more effective everyday by integrating the shell into your work. For the experienced professional, there is a wealth of detailed tips and tricks in each chapter that go into advanced topics and techniques to make you even more of a power user.
 
@@ -61,8 +65,12 @@ Z shell specifics are highlighted like this.
 
 :::
 
+<!-- manuscript:ignore:start -->
 ## Email Updates
 
 If you would like to get email updates when new chapters are published, please do provide your email below. I won't be using it for anything beyond updates to the book.
 
+import { EmailSignupForm } from '@site/src/components/EmailSignupForm/EmailSignupForm';
 <EmailSignupForm />
+
+<!-- manuscript:ignore:end -->
