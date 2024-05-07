@@ -34,7 +34,7 @@ jobs:
       - name: Install and Build
         if: github.event.action != 'closed' # You might want to skip the build if the PR has been closed
         run: |
-          npm install
+	      npm install --legacy-peer-deps # needed for the react signup form compatiblity
           npm run build # do a lightweight build, no download bundle
 
       - name: Deploy preview
