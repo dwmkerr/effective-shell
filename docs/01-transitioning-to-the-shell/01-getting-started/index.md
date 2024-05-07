@@ -134,7 +134,7 @@ You can use this link to start using the "Bash" shell, or if you prefer you can 
 
 Note that you shouldn't use the `--norc` option. I have used it in the screenshot above just so that my Bash looks like it would after a clean install, without my own customisations added.
 
-At this point you have a ready-to-go bash environment and can continue on to the [Summary](#Summary) and [Next Section](../02-navigating-your-system/00-index.md).
+At this point you have a ready-to-go bash environment and can continue on to the [Summary](#Summary) and [Next Section](../02-navigating-your-system/index.md).
 
 #### Option 2: Use a Virtual Machine
 
