@@ -1,6 +1,9 @@
 ---
 title: 'Part 2 - Core Skills'
 slug: '/part-2-core-skill/'
+leanpub_header: |-
+  {sample: true}
+  {class: part}
 ---
 
 In the first part of this book we look at the shell from the perspective of someone who is familiar with a graphical user interface. We studied how to transition from a GUI to the shell, introducing the 'shell way' of performing tasks which you might have previously performed using a GUI.
