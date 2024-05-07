@@ -33,10 +33,7 @@ jobs:
 
       - name: Install and Build
         if: github.event.action != 'closed' # You might want to skip the build if the PR has been closed
-         # do a lightweight build, no download bundle
-        run: |
-	      npm install --legacy-peer-deps
-          npm run build
+        run: npm install --legacy-peer-deps && npm run build
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
