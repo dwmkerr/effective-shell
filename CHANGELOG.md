@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.31.0](https://github.com/dwmkerr/effective-shell/compare/v0.30.3...v0.31.0) (2024-05-07)
+
+
+### Features
+
+* basic leanpub generation ([#317](https://github.com/dwmkerr/effective-shell/issues/317)) ([f91d5f7](https://github.com/dwmkerr/effective-shell/commit/f91d5f75a446b899272f19e1c6a18ffa73f846a8))
+
+
+### Bug Fixes
+
+* rename ads.txt ([#319](https://github.com/dwmkerr/effective-shell/issues/319)) ([902845c](https://github.com/dwmkerr/effective-shell/commit/902845ceb0aecda44cd886e91d1d1a1b840a78e9))
+
 ## [0.30.3](https://github.com/dwmkerr/effective-shell/compare/v0.30.2...v0.30.3) (2024-05-06)
 
 
