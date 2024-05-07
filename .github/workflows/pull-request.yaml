@@ -34,7 +34,7 @@ jobs:
       - name: Install and Build
         if: github.event.action != 'closed' # You might want to skip the build if the PR has been closed
         run: |
-          make build
+          npm run build # do a lightweight build, no download bundle
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
