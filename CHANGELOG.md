@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.33.0](https://github.com/dwmkerr/effective-shell/compare/v0.32.0...v0.33.0) (2024-05-10)
+
+
+### Features
+
+* added alias for 'rm' sample ([#322](https://github.com/dwmkerr/effective-shell/issues/322)) ([856f1be](https://github.com/dwmkerr/effective-shell/commit/856f1be60207a89f7997af295fd3e13991da7b58))
+
 ## [0.32.0](https://github.com/dwmkerr/effective-shell/compare/v0.31.0...v0.32.0) (2024-05-10)
 
 
