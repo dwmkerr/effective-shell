@@ -96,6 +96,15 @@ alias gocode='cd ~/repos/github/dwmkerr'
 
 If you are not familiar with aliases, check [Chapter 10 - Understanding Commands](../../part-2-core-skills/understanding-commands).
 
+You might also use aliases to change the behaviour of existing commands. For example, we can change the `rm` command to automatically ask for confirmation before a file is deleted:
+
+```bash
+# Always run 'rm' in interactive mode.
+alias rm='rm -i'
+```
+
+Be aware that the more you customise default commands the more that you run the risk that tutorials or samples you use may not work as expected, as those samples will expect the _default_ behaviour of the command.
+
 #### Functions
 
 If you have more complex operations that you regularly perform, you could add them to your _~/.bashrc_ as a function:
