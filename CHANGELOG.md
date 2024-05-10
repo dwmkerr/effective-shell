@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.0](https://github.com/dwmkerr/effective-shell/compare/v0.31.0...v0.32.0) (2024-05-10)
+
+
+### Features
+
+* add data file to samples ([#320](https://github.com/dwmkerr/effective-shell/issues/320)) ([fb34545](https://github.com/dwmkerr/effective-shell/commit/fb34545856af3b22ab87692a927b38920defc714))
+
 ## [0.31.0](https://github.com/dwmkerr/effective-shell/compare/v0.30.3...v0.31.0) (2024-05-07)
 
 
