@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.1](https://github.com/dwmkerr/effective-shell/compare/v0.34.0...v0.34.1) (2024-05-12)
+
+
+### Bug Fixes
+
+* appendices links ([#326](https://github.com/dwmkerr/effective-shell/issues/326)) ([d5b5257](https://github.com/dwmkerr/effective-shell/commit/d5b52577d8a30fc25eddcdcba8717f135c47cd6c))
+
 ## [0.34.0](https://github.com/dwmkerr/effective-shell/compare/v0.33.0...v0.34.0) (2024-05-12)
 
 
