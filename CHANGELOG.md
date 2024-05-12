@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.2](https://github.com/dwmkerr/effective-shell/compare/v0.34.1...v0.34.2) (2024-05-12)
+
+
+### Bug Fixes
+
+* correct sidebar ([#328](https://github.com/dwmkerr/effective-shell/issues/328)) ([05e0187](https://github.com/dwmkerr/effective-shell/commit/05e0187ca7ed652b352b0cce560e9bf50f14ef4e))
+
 ## [0.34.1](https://github.com/dwmkerr/effective-shell/compare/v0.34.0...v0.34.1) (2024-05-12)
 
 
