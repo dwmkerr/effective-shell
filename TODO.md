@@ -1,0 +1,1 @@
+- [ ] build: sample site on PR build doesn't have working links as they appear to be hard-coded to `effective-shell.com`
