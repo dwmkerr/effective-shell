@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.0](https://github.com/dwmkerr/effective-shell/compare/v0.33.0...v0.34.0) (2024-05-12)
+
+
+### Features
+
+* appendix - installing the samples ([#324](https://github.com/dwmkerr/effective-shell/issues/324)) ([6d5b482](https://github.com/dwmkerr/effective-shell/commit/6d5b482575c2d5ef7b533022b1249a71092d43af))
+
 ## [0.33.0](https://github.com/dwmkerr/effective-shell/compare/v0.32.0...v0.33.0) (2024-05-10)
 
 
