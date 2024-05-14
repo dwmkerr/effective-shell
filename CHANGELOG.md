@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.3](https://github.com/dwmkerr/effective-shell/compare/v0.34.2...v0.34.3) (2024-05-14)
+
+
+### Bug Fixes
+
+* samples path in zip ([#330](https://github.com/dwmkerr/effective-shell/issues/330)) ([cba5448](https://github.com/dwmkerr/effective-shell/commit/cba54482223b08c3bbeac4f4b1eb3e3dbed469e3))
+
 ## [0.34.2](https://github.com/dwmkerr/effective-shell/compare/v0.34.1...v0.34.2) (2024-05-12)
 
 
