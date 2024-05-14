@@ -46,6 +46,13 @@ jobs:
         run: make build
         if: ${{ steps.release.outputs.release_created }}
 
+      # Store the artifacts in case we want to validate samples etc.
+      - name: Store Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts
+          path: artifacts
+
       # Deploy the website.
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
