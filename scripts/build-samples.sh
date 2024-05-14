@@ -43,5 +43,5 @@ mkdir -p ./artifacts/samples/repositories
 )
 
 # Zip up and tar up the samples
-(cd ../artifacts && zip -r ./samples.zip ./samples)
+(cd ./artifacts && zip -r ./samples.zip ./samples)
 tar czf ./artifacts/samples.tar.gz -C ./artifacts/samples .
