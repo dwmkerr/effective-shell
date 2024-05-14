@@ -23,6 +23,13 @@ jobs:
     - name: Build
       run: make build
 
+    # Store the artifacts in case we want to validate samples etc.
+    - name: Store Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: artifacts
+        path: artifacts
+
   # See:
   # https://github.com/marketplace/actions/deploy-pr-preview
   deploy-preview:
