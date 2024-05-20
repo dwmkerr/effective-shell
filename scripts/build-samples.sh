@@ -47,5 +47,5 @@ mkdir -p ./artifacts/effective-shell/repositories
 )
 
 # Zip up and tar up the samples
-(cd ./artifacts && zip -r ./effective-shell-samples.zip ./effective-shell)
-tar czf ./artifacts/effective-shell-samples.tar.gz -C ./artifacts/effective-shell .
+(cd ./artifacts && zip -r ./effective-shell.zip ./effective-shell)
+tar czf ./artifacts/effective-shell.tar.gz -C ./artifacts/effective-shell .
