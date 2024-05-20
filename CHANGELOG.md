@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.34.4](https://github.com/dwmkerr/effective-shell/compare/v0.34.3...v0.34.4) (2024-05-20)
+
+
+### Bug Fixes
+
+* consistent samples path ([#334](https://github.com/dwmkerr/effective-shell/issues/334)) ([2072ff2](https://github.com/dwmkerr/effective-shell/commit/2072ff271799fce103140618cfe8e401f33341f9))
+* rename 'samples' to 'effective-shell' ([#332](https://github.com/dwmkerr/effective-shell/issues/332)) ([60f9168](https://github.com/dwmkerr/effective-shell/commit/60f9168f044de68938f64f3a43e5c0f7857a69a9))
+
 ## [0.34.3](https://github.com/dwmkerr/effective-shell/compare/v0.34.2...v0.34.3) (2024-05-14)
 
 
