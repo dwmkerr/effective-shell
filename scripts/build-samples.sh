@@ -20,10 +20,14 @@ set -x
 # create a new folder based on the current samples.
 [ -d ./artifacts/effective-shell ] && rm -rf ./artifacts/effective-shell
 mkdir -p ./artifacts
-cp -r ./effective-shell ./artifacts
+cp -r ./samples ./artifacts
+
+# For the purposes of the downloadable samples, the folder is called
+# 'effective shell' - just like what we'd create with the instal script.
+mv ./artifacts/samples ./artifacts/effective-shell
 
 # Copy over the version identifier.
-cp package.json ./artifacts/effective-shell/.package.json
+cp package.json ./artifacts/samples/.package.json
 
 # Clone our sample repositories. If we have repositories that should not have
 # remotes (i.e. for the chapter on getting started with git, where we work with
