@@ -27,12 +27,12 @@ cp -r ./samples ./artifacts
 mv ./artifacts/samples ./artifacts/effective-shell
 
 # Copy over the version identifier.
-cp package.json ./artifacts/samples/.package.json
+cp package.json ./artifacts/effective-shell/.package.json
 
 # Clone our sample repositories. If we have repositories that should not have
 # remotes (i.e. for the chapter on getting started with git, where we work with
 # a local repository only) we just remove the remote.
-mkdir -p ./artifacts/samples/repositories
+mkdir -p ./artifacts/effective-shell/repositories
 (   cd ./artifacts/effective-shell/repositories \
     && git clone git://github.com/effective-shell/chapter-27-dotfiles \
     && cd chapter-27-dotfiles \
