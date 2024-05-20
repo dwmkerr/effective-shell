@@ -27,8 +27,8 @@ typescript-check: # Check typescript types.
 build: # Build the site and artifacts.
 	mkdir -p ./static/downloads
 	./scripts/build-samples.sh
-	cp ./artifacts/samples.zip  ./static/downloads/effective-shell-samples.zip
-	cp ./artifacts/samples.tar.gz ./static/downloads/effective-shell-samples.tar.gz
+	cp ./artifacts/effective-shell-samples.zip  ./static/downloads/effective-shell-samples.zip
+	cp ./artifacts/effective-shell-samples.tar.gz ./static/downloads/effective-shell-samples.tar.gz
 	test -e ./static/downloads/effective-shell-samples.zip
 	test -e ./static/downloads/effective-shell-samples.tar.gz
 	npm ci --legacy-peer-deps && npm run build
