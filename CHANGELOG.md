@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.5](https://github.com/dwmkerr/effective-shell/compare/v0.34.4...v0.34.5) (2024-05-22)
+
+
+### Bug Fixes
+
+* missing line in sample file ([#335](https://github.com/dwmkerr/effective-shell/issues/335)) ([23909b9](https://github.com/dwmkerr/effective-shell/commit/23909b92dd6647e5aafa2b101152bee1b64650b3))
+
 ## [0.34.4](https://github.com/dwmkerr/effective-shell/compare/v0.34.3...v0.34.4) (2024-05-20)
 
 
