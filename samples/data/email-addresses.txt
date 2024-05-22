@@ -4,5 +4,6 @@ to: dave@effective-shell.com
 dave@effective-shell.com <Dave Kerr>
 test123.effective-shell.com
 @yahoo.com
+dave@
 whatever123@😂.com
 dave@kerr@effective.shell.com
