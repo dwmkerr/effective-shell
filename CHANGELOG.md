@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.6](https://github.com/dwmkerr/effective-shell/compare/v0.34.5...v0.34.6) (2024-06-12)
+
+
+### Bug Fixes
+
+* add missing sample ([#337](https://github.com/dwmkerr/effective-shell/issues/337)) ([961d50a](https://github.com/dwmkerr/effective-shell/commit/961d50ad29d27cc871164fe4db0edbaab1497644))
+
 ## [0.34.5](https://github.com/dwmkerr/effective-shell/compare/v0.34.4...v0.34.5) (2024-05-22)
 
 
