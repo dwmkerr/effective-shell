@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.7](https://github.com/dwmkerr/effective-shell/compare/v0.34.6...v0.34.7) (2024-06-24)
+
+
+### Bug Fixes
+
+* update sample chapter number ([9e07138](https://github.com/dwmkerr/effective-shell/commit/9e0713840c6c2a79107cdb76f0917c0b90d6a289))
+
 ## [0.34.6](https://github.com/dwmkerr/effective-shell/compare/v0.34.5...v0.34.6) (2024-06-12)
 
 
