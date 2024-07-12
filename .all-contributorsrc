@@ -215,6 +215,15 @@
         "bug",
         "review"
       ]
+    },
+    {
+      "login": "pfrischmuth",
+      "name": "Philipp Frischmuth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/351542?v=4",
+      "profile": "https://twitter.com/pfrischmuth",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
