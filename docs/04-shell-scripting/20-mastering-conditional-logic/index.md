@@ -262,7 +262,7 @@ Conditional expressions have a number of benefits over plain `test` commands. So
 
 You can find more details on conditional expressions by using `man bash` and searching for `\[\[` (this is the double square brackets with each one escaped with a backslash).
 
-Some people prefer to use single brackets so that their script is more portable, as the double brackets are specific to Bash and Bash-like shells. Others prefer to use the double brackets so that they can use the additional featured offered.
+Some people prefer to use single brackets so that their script is more portable, as the double brackets are specific to Bash and Bash-like shells. Others prefer to use the double brackets so that they can use the additional features offered.
 
 Whether you use single or double brackets will partly be down to preference and whether it is more important in your use case to have portability or whether it is more important to have the more 'correct' behaviour.
 
