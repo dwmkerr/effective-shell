@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.8](https://github.com/dwmkerr/effective-shell/compare/v0.34.7...v0.34.8) (2024-07-12)
+
+
+### Documentation
+
+* add pfrischmuth as a contributor for review ([#341](https://github.com/dwmkerr/effective-shell/issues/341)) ([f439383](https://github.com/dwmkerr/effective-shell/commit/f439383179a410c95978a39cd9d462b33f4f0261))
+
 ## [0.34.7](https://github.com/dwmkerr/effective-shell/compare/v0.34.6...v0.34.7) (2024-06-24)
 
 
