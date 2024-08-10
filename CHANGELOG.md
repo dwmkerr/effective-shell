@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.34.8](https://github.com/dwmkerr/effective-shell/compare/v0.34.7...v0.34.8) (2024-08-10)
+
+
+### Documentation
+
+* add pfrischmuth as a contributor for review ([#341](https://github.com/dwmkerr/effective-shell/issues/341)) ([f439383](https://github.com/dwmkerr/effective-shell/commit/f439383179a410c95978a39cd9d462b33f4f0261))
+
+
+### Bug Fixes
+
+* correct samples repository path ([#343](https://github.com/dwmkerr/effective-shell/issues/343)) ([d15a209](https://github.com/dwmkerr/effective-shell/commit/d15a2098c647b3fb7886ec503016c8c49a190e62))
+
 ## [0.34.7](https://github.com/dwmkerr/effective-shell/compare/v0.34.6...v0.34.7) (2024-06-24)
 
 
