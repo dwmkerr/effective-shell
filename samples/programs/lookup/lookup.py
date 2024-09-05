@@ -19,22 +19,22 @@ examples = '''example:
 
 # Create an argument parser and define the arguments for our program.
 parser = argparse.ArgumentParser(
-    prog='parser',
-    description='lookup the defintion of words from dictionaryapi.dev',
+    prog="parser",
+    description="lookup the defintion of words from dictionaryapi.dev",
     epilog=examples,
     formatter_class=argparse.RawDescriptionHelpFormatter
 )
 parser.add_argument(
-    'words',
-    help='optional list of words to define - if omitted stdin is used',
+    "words",
+    help="optional list of words to define - if omitted stdin is used",
     type=str,
     nargs='*'
 )
 parser.add_argument(
-    '-c', '--crop',
-    help='crop the output line length',
+    "-c", "--crop",
+    help="crop the output line length",
     type=int,
-    nargs='?',
+    nargs="?",
     const=80,         # Default value if -c is supplied
     default=None      # Default value if -c is not supplied
 )

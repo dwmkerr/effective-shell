@@ -11,10 +11,10 @@ ERROR_PARSE = 2
 # Create an argument parser and define the arguments for our program.
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '-c', '--crop',
-    help='crop the output line length',
+    "-c", "--crop",
+    help="crop the output line length",
     type=int,
-    nargs='?',
+    nargs="?",
     const=80,         # Default value if -c is supplied
     default=None)     # Default value if -c is not supplied
 args = parser.parse_args()
