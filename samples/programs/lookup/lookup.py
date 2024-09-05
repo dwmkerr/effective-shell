@@ -56,7 +56,7 @@ def search_for_word(word):
     # If the word is not found, return an empty definition.
     except urllib.error.HTTPError as http_error:
         if http_error.code == 404:
-            return ''
+            return ""
         raise
     # If the user hits ctrl hit, exit without an error message.
     except KeyboardInterrupt:

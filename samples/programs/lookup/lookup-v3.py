@@ -35,7 +35,7 @@ def search_for_word(word):
     # If the word is not found, return an empty definition.
     except urllib.error.HTTPError as http_error:
         if http_error.code == 404:
-            return ''
+            return ""
         raise
     except Exception as e:
         sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))

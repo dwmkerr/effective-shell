@@ -19,7 +19,7 @@ def search_for_word(word):
     # If the word is not found, return an empty definition.
     except urllib.error.HTTPError as http_error:
         if http_error.code == 404:
-            return ''
+            return ""
         raise
         
     # Now try and parse the data.
@@ -49,4 +49,4 @@ while True:
     definition = search_for_word(stripped_word)
 
     # Write the result.
-    print("{} - {}".format(word, definition))
+    print(word, " - ", definition)
