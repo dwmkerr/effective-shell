@@ -11,10 +11,10 @@ ERROR_PARSE = 2
 # Create an argument parser and define the arguments for our program.
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '-c', '--crop',
-    help='crop the output line length',
+    "-c", "--crop",
+    help="crop the output line length",
     type=int,
-    nargs='?',
+    nargs="?",
     const=80,         # Default value if -c is supplied
     default=None)     # Default value if -c is not supplied
 args = parser.parse_args()
@@ -35,7 +35,7 @@ def search_for_word(word):
     # If the word is not found, return an empty definition.
     except urllib.error.HTTPError as http_error:
         if http_error.code == 404:
-            return ''
+            return ""
         raise
     except Exception as e:
         sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))

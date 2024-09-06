@@ -17,7 +17,7 @@ while True:
     # Add the word to our list of lookups, and strip any whitespace from the
     # beginning and end of it. For now, we don't have a definition.
     word = word.strip()
-    definition = ''
+    definition = ""
 
     # Write the result.
-    print("{} - {}".format(word, definition))
+    print(word, " - ", definition)
