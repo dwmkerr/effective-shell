@@ -24,7 +24,7 @@ def search_for_word(word):
     # Now try and parse the data.
     data = json.loads(result.stdout)
 
-    # Grab the first 'meaning' value. If it doesn't exist in the respone then
+    # Grab the first 'meaning' value. If it doesn't exist in the response then
     # the word was not found.
     try:
         return data[0]["meanings"][0]["definitions"][0]["definition"]
