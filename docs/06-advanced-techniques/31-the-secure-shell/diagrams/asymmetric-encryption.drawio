@@ -1,1 +1,186 @@
-<mxfile host="Electron" modified="2022-04-21T03:51:18.673Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/17.4.2 Chrome/100.0.4896.60 Electron/18.0.1 Safari/537.36" etag="7sCCDBH1tMChZubWopAo" version="17.4.2" type="device"><diagram id="zMdPa7TFIofes7aEGqtK" name="Page-1">7Vhdb9owFP01aNtDkZMQmj7yVTa1VVGZtO5pMolJPJxc5jgF+utnJ05CMNB2olUrrS+1jz9in3PPtU3LGcTrMcfL6AYCwlo2CtYtZ9iybctCXflPIZsC8ZxOAYScBrpTDUzpI9Eg0mhGA5I2OgoAJuiyCfqQJMQXDQxzDqtmtzmw5leXOCQGMPUxM9EfNBBRua/uRd3wldAw0p/27POiIcZlZ72TNMIBrLYgZ9RyBhxAFKV4PSBMkVfyUoy7PNBaLYyTRDxnwB3/tpmNbl3ujv84KBAukF9nehcPmGV6wy27y+R8/RmXpVCVTKTHqE8+pWbDhNMHLIjZcEU2mgWxKamVhCxVMQE5wumvIirIdIl9ha1kNEksEjGTNUvNhf1FyCFLgttMMJoQjQeYL27lKCpUhKE2cvMl73Kj6XogXJD1FqS5GhOIieBykUi3XrjFCB23jqXjdlVHgaeVjbb0t5AGsQ68sJq51kYWtDwvkMo1CCSBDFVdBS4iCCHBbFSj/ZwvomZFslb3uQZYav5+EyE22nc4E9BkXfLHN/d6fF75mbPsltXhertxuNG1gwKkkHGfHNlmaXLMQyKO9HOKfoqDo3JywrCgD007n1ycruGjKUkCiUyymTSLLOxzgFr8NZ7JlNkgHTMaJrLsS/IIl4CKWipzUk83xDQICn1JSh/xLJ9P0b4Emoh8b26/5Q73CnEsuAx7VIlVf6SRu/bZ5gy1LeRpcZ7NvZ5uopZfz2U5zREwn6cyJna1qhbx7/JZhnxjkhCep7JCOTTBlBsCNv31RAZLVZZKwu+59VANXJO5aCJ9EALiJiZrJ8psVnki6dRmd5CR2qo+27mt+1qpzTboz08Y8xj5PGBUbvzLwbMki1nPF7BtmtxgE0ipoKDMM9PkGq4SsCMYFAfNoLpaHM1sLxCg2zxbrD0COG/Jv2NmL8mhiv3qpD+eyD6kDzree/NBx9ChD7M9LpgSLrf5wV3g2u/MBZ7BvkHwFi1PEmuc4kz17FfX2AEwpZCc1pnnfwfFSAWHRfX8sCtkawaEPHSZu6R8ZaD8bpxGlSvL4IjXoXqqtSmk520qj/e0zcBfqH4nuTdfNFR1rHNDVbtjquq8lqrlQ/JkTxydBz/+C8dFaEeqN3zi3NMetm5mV3drPKGXdNTtDM/2XMP+S1W0em/3GpXV+keJ4oJd/7TjjP4C</diagram></mxfile>
+<mxfile host="Electron" modified="2024-09-21T14:15:31.407Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="sAWZv_wji7GXaf45qotH" version="22.0.3" type="device">
+  <diagram id="zMdPa7TFIofes7aEGqtK" name="Page-1">
+    <mxGraphModel dx="1306" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-2" value="Create and encrypt a Secret" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" parent="1" vertex="1">
+          <mxGeometry x="410" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-4" value="Bob&lt;br&gt;(Server)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="455" y="350" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-5" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="385" y="524" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-6" value="&lt;br&gt;&lt;br&gt;Bob&#39;s&lt;br&gt;Secret" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="475" y="524" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-7" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
+          <mxGeometry x="489" y="527" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" target="x8Ufa_XHc4xC65FokdQA-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="479.5" as="targetPoint" />
+            <mxPoint x="405" y="480" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-9" value="Encrypt Secret and send to Alice" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="x8Ufa_XHc4xC65FokdQA-8" vertex="1" connectable="0">
+          <mxGeometry x="-0.1083" relative="1" as="geometry">
+            <mxPoint x="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-10" value="Decrypt Bob&#39;s Secret" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" parent="1" vertex="1">
+          <mxGeometry x="70" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-11" value="Alice&lt;br&gt;(Client)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="115" y="350" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-12" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Private&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="45" y="524" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-13" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
+          <mxGeometry x="59" y="527" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-14" value="&lt;br&gt;&lt;br&gt;Bob&#39;s&lt;br&gt;Secret" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="135" y="524" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x8Ufa_XHc4xC65FokdQA-15" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
+          <mxGeometry x="149" y="527" width="26" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-1" value="Generate Key Pair" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" parent="1" vertex="1">
+          <mxGeometry x="430" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-2" value="Bob&lt;br&gt;(Server)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="475" y="650" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-3" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="365" y="821" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-4" value="&lt;br&gt;&lt;br&gt;Bob&#39;s&lt;br&gt;Private&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="455" y="821" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-5" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
+          <mxGeometry x="469" y="824" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" target="yT-V4XzvWI6aOqd3bx2p-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="779.5" as="targetPoint" />
+            <mxPoint x="425" y="780" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-7" value="Encrypt Public Key and send to Alice" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="yT-V4XzvWI6aOqd3bx2p-6" vertex="1" connectable="0">
+          <mxGeometry x="-0.1083" relative="1" as="geometry">
+            <mxPoint x="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-8" value="Store Bob&#39;s Public Key" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" parent="1" vertex="1">
+          <mxGeometry x="90" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-9" value="Alice&lt;br&gt;(Client)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="135" y="650" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-10" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Private&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="20" y="824" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-11" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
+          <mxGeometry x="34" y="827" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-12" value="&lt;br&gt;&lt;br&gt;Bob&#39;s&lt;br&gt;Secret" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="110" y="824" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-13" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
+          <mxGeometry x="124" y="827" width="26" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-14" value="Bob&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="545" y="824" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="yT-V4XzvWI6aOqd3bx2p-15" value="Bob&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="200" y="824" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-11" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Private&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="45" y="214" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="DvSf9iNp-QRnO9okl4TN-14" target="DvSf9iNp-QRnO9okl4TN-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-13" value="Send Public Key" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="DvSf9iNp-QRnO9okl4TN-12" vertex="1" connectable="0">
+          <mxGeometry x="-0.1083" relative="1" as="geometry">
+            <mxPoint x="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-14" value="Generate Key Pair" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" parent="1" vertex="1">
+          <mxGeometry x="70" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-15" value="Alice&lt;br&gt;(Client)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="115" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-16" value="Store Alice&#39;s Public Key" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" parent="1" vertex="1">
+          <mxGeometry x="430" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-17" value="Bob&lt;br&gt;(Server)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="475" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-18" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" parent="1" vertex="1">
+          <mxGeometry x="49" y="217" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-19" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="450" y="214" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="DvSf9iNp-QRnO9okl4TN-20" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="135" y="214" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-1" value="Decrypt message with Bob&#39;s Private Key" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1060" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-2" value="Bob&lt;br&gt;(Server)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="475" y="960" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-3" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="365" y="1131" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-4" value="&lt;br&gt;&lt;br&gt;Bob&#39;s&lt;br&gt;Private&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="455" y="1131" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-5" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" vertex="1" parent="1">
+          <mxGeometry x="469" y="1134" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" target="GbM7fKzbICdOy66SiVsj-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="1089.5" as="targetPoint" />
+            <mxPoint x="425" y="1090" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-7" value="Encrypted Message" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GbM7fKzbICdOy66SiVsj-6">
+          <mxGeometry x="-0.1083" relative="1" as="geometry">
+            <mxPoint x="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-8" value="Encrypt message with Bob&#39;s Public Key" style="rounded=0;whiteSpace=wrap;html=1;spacingTop=0;spacingLeft=0;spacingBottom=0;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="90" y="1060" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-9" value="Alice&lt;br&gt;(Client)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="135" y="960" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-10" value="&lt;br&gt;&lt;br&gt;Alice&#39;s&lt;br&gt;Private&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1134" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-11" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" vertex="1" parent="1">
+          <mxGeometry x="34" y="1137" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-12" value="&lt;br&gt;&lt;br&gt;Bob&#39;s&lt;br&gt;Secret" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="110" y="1134" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-13" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.locked;" vertex="1" parent="1">
+          <mxGeometry x="124" y="1137" width="26" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-14" value="Bob&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="545" y="1134" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="GbM7fKzbICdOy66SiVsj-15" value="Bob&#39;s&lt;br&gt;Public&lt;br&gt;Key" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1134" width="80" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
