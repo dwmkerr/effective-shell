@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.10](https://github.com/dwmkerr/effective-shell/compare/v0.34.9...v0.34.10) (2024-10-01)
+
+
+### Bug Fixes
+
+* correct python sample merge issues ([#346](https://github.com/dwmkerr/effective-shell/issues/346)) ([c3f6823](https://github.com/dwmkerr/effective-shell/commit/c3f68236ae7df60614ff13ee9e467290ed349cc5))
+
 ## [0.34.9](https://github.com/dwmkerr/effective-shell/compare/v0.34.8...v0.34.9) (2024-09-06)
 
 
