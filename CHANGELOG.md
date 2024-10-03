@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.35.0](https://github.com/dwmkerr/effective-shell/compare/v0.34.10...v0.35.0) (2024-10-03)
+
+
+### Features
+
+* add the lookup-requests.py sample ([#349](https://github.com/dwmkerr/effective-shell/issues/349)) ([c87eed8](https://github.com/dwmkerr/effective-shell/commit/c87eed82d1de228189b31c70b712618d483e4207))
+
 ## [0.34.10](https://github.com/dwmkerr/effective-shell/compare/v0.34.9...v0.34.10) (2024-10-01)
 
 
