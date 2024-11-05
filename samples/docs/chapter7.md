@@ -1,6 +1,6 @@
 ---
 title: "Advanced Text Manipulation"
-slug: advanced-text-manipulation
+slug: "advanced-text-manipulation"
 weight: 14
 ---
 
