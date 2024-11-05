@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.35.0](https://github.com/dwmkerr/effective-shell/compare/v0.34.10...v0.35.0) (2024-11-05)
+
+
+### Features
+
+* add the lookup-requests.py sample ([#349](https://github.com/dwmkerr/effective-shell/issues/349)) ([c87eed8](https://github.com/dwmkerr/effective-shell/commit/c87eed82d1de228189b31c70b712618d483e4207))
+
+
+### Bug Fixes
+
+* correct the 'sed' chapter sample file ([#351](https://github.com/dwmkerr/effective-shell/issues/351)) ([a39462a](https://github.com/dwmkerr/effective-shell/commit/a39462a46275ca64807d565ca5f3a7c3636ad4dc))
+* update diagrams ([#348](https://github.com/dwmkerr/effective-shell/issues/348)) ([8be210a](https://github.com/dwmkerr/effective-shell/commit/8be210a709cd2b760878d1e781d0db0f00b639b0))
+
 ## [0.34.10](https://github.com/dwmkerr/effective-shell/compare/v0.34.9...v0.34.10) (2024-10-01)
 
 
