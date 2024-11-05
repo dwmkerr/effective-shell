@@ -1,7 +1,7 @@
 ---
 title: "Advanced Text Manipulation"
 slug: "advanced-text-manipulation"
-weight: 7
+weight: 14
 ---
 
 # Chapter 7 - Advanced Text Manipulation
