@@ -50,6 +50,11 @@ const requestHandler = (req, res) => {
 
   //  Try and read the file. If it doesn't exist, bomb.
   filePath = path.join(config.root, url);
+
+  if (url.includes('..')) {
+    res.writeHead(403);
+    return res.end();
+  }
   fs.readFile(filePath, function (err,data) {
     if (err) {
       if (err.code === 'ENOENT') {
