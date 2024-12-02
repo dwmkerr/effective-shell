@@ -26,7 +26,7 @@ fi
 # to get the most common commands.
 if [[ $shell_binary == "bash" ]]; then
     # Store the most commonly used commands.
-    commands=$(tail "${history_file}" -n ${history_lines} \
+    commands=$(tail -n ${history_lines} "${history_file}" \
         | sort \
         | uniq -c \
         | sed 's/^ *//' \
@@ -36,7 +36,7 @@ elif [[ $shell_binary == "zsh" ]]; then
     # Each line in the has some extra information at the beginning, the command
     # text only appears after a semi-colon. So extract the text from after the
     # semi-colon and then process it just like in the bash example.
-    commands=$(tail "${history_file}" -n ${history_lines} \
+    commands=$(tail -n ${history_lines} "${history_file}" \
         | rev \
         | cut -d';' -f1 \
         | rev \
