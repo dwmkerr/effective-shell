@@ -246,6 +246,8 @@ You'll see something like this:
 
 This long list of files would be hard to search through if it was printed directly to the shell, but in the pager we can use the `d` and `u` keys to go _down_ and _up_, or the `/` and `?` keys to search forwards or backwards.
 
+To quit the pager and get back to your shell, use the `q` key. This is a useful command to know: lots of tools will show their output in a pager without asking you, and pressing `q` will generally get you out of them.
+
 Piping into your pager is a really useful trick - you can read more about pagers in [Chapter 5 - Getting Help](../../01-transitioning-to-the-shell/05-getting-help/index.md).
 
 **File**
