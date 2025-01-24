@@ -24,7 +24,7 @@ def search_for_word(word):
     url = "https://api.dictionaryapi.dev/api/v2/entries/en/{}".format(encoded_word)
     command = ["curl", url]
 
-    # Run the 'curl' command to retrieve the definition.
+    # Run the "curl" command to retrieve the definition.
     result = subprocess.run(command,
                             stdout=subprocess.PIPE,
                             stderr=subprocess.PIPE,
@@ -37,7 +37,7 @@ def search_for_word(word):
     # Now try and parse the data.
     data = json.loads(result.stdout)
 
-    # Grab the first 'meaning' value. If it doesn't exist in the response then
+    # Grab the first "meaning" value. If it doesn't exist in the response then
     # the word was not found.
     try:
         return data[0]["meanings"][0]["definitions"][0]["definition"]
@@ -51,7 +51,7 @@ def write_definition(word, definition):
     # We will separate the word and the definition with a colon and space.
     separator = ": "
 
-    # If the 'crop' argument is set, use it.
+    # If the "crop" argument is set, use it.
     if args.crop:
         output_length = len(word) + len(separator) + len(definition)
         if output_length > args.crop:
@@ -68,12 +68,12 @@ def write_definition(word, definition):
     # Write out the word, separator and definition.
     print(word + separator + definition)
 
-# Read standard input until there is nothing left to read.
+# Read standard input until nothing is left to read.
 while True:
     # Read a line of input.
     word = sys.stdin.readline()
 
-    # If the user hits 'Ctrl+D' to end transmission, readline returns an
+    # If the user presses Ctrl-D to end transmission, readline returns an
     # empty string and we can stop reading.
     if not word:
         break

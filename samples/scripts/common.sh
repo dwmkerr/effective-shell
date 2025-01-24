@@ -77,7 +77,7 @@ fi
 # to get the most common commands.
 if [[ $shell_binary == "bash" ]]; then
     # Store the most commonly used commands.
-    commands=$(tail "${history_file}" -n ${history_lines} \
+    commands=$(tail -n ${history_lines}" ${history_file}" \
         | sort \
         | uniq -c \
         | sed 's/^ *//' \
