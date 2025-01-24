@@ -19,7 +19,7 @@ const log = levels.reduce((logObject, level) => {
 }, {});
 
 //  Helper to return an optional numeric environment variable or the default.
-function getOptonalEnvInt(name, defaultValue) {
+function getOptionalEnvInt(name, defaultValue) {
   const val = process.env[name];
   if (!val) return defaultValue;
   const intVal = parseInt(val, 10);
@@ -31,7 +31,7 @@ function getOptonalEnvInt(name, defaultValue) {
 //  environment variables.
 const config = {
   host: process.env.HOST || 'localhost',
-  port: process.env.PORT || getOptonalEnvInt('PORT', 8080),
+  port: process.env.PORT || getOptionalEnvInt('PORT', 8080),
   root: process.env.ROOT || process.cwd(),
   defaultPage: 'index.html',
 };
