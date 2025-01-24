@@ -5,8 +5,6 @@ chapterNumber: 32
 ---
 
 import CodeBlock from '@theme/CodeBlock';
-import AnnotatedCommand from '@site/src/components/AnnotatedCommmand/AnnotatedCommand.tsx';
-import Caret from '@site/src/components/Caret/Caret.tsx';
 
 In this chapter we're going to introduce the popular Terminal Editor _Vim_. A Terminal Editor is a text editor that you can open directly in your terminal, normally from the shell. Many users find these editors hard to use, and some of them have a reputation for being highly complex.
 
@@ -430,7 +428,7 @@ If you use an open bracket or brace, a space is added before and after the text 
 
 | Keystrokes                                   | Output                                                 |
 |----------------------------------------------|--------------------------------------------------------|
-| <AnnotatedCommand annotation="Go to first open bracket">g(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>word):</CodeBlock> |
+| <AnnotatedCommand annotation="Go to first open bracket">f(</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>word):</CodeBlock> |
 | <AnnotatedCommand annotation="Change in brackets">ci)</AnnotatedCommand> | <CodeBlock language="python">def search_for_word<Caret>(</Caret>):</CodeBlock> |
 | <AnnotatedCommand annotation="Enter text, return to Command Mode">word = "default"&lt;C-c&gt;</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = "default"<Caret>)</Caret>:</CodeBlock> |
 | <AnnotatedCommand annotation="Change a quotes">ca"</AnnotatedCommand> | <CodeBlock language="python">def search_for_word(word = <Caret>)</Caret>:</CodeBlock> |

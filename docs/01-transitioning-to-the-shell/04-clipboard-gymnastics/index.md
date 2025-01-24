@@ -7,7 +7,7 @@ For those who are new to the shell, we've covered a lot. In this chapter we'll s
 
 You have probably already been using the clipboard with the shell, copying and pasting commands and their outputs. However, there's a lot more we can do with the clipboard. Now we'll look at how to take this to the next level.
 
-We'll also briefly introduce introduce _aliases_ and _pipelines_, which will be covered in a lot more detail in later chapters.
+We'll also briefly introduce _aliases_ and _pipelines_, which will be covered in a lot more detail in later chapters.
 
 ## The Clipboard Essentials
 
@@ -312,7 +312,7 @@ Timothy_Lovejoy@simpsons.com
 This looks perfect! We can now put the transformed text back onto the clipboard:
 
 ```
-$ pbpaste | sort | uniq | tr ' ' '_' | sed 's/$/@simpsons.com' | pbcopy
+$ pbpaste | sort | uniq | tr ' ' '_' | sed 's/$/@simpsons.com/' | pbcopy
 ```
 
 All in all we have the following pipeline:

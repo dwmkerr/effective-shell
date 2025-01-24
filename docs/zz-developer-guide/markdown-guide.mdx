@@ -1,0 +1,86 @@
+---
+title: Markdown
+---
+
+The contents of this book are primarily written in MDX. Some key concepts to be aware of:
+
+- [MDX](https://github.com/mdx-js/specification) is the language that most files in the `./doc` folder are written in
+- [Commonmark](https://commonmark.org/) is the standard markdown spec that MDX is based on
+- [GitHub Flavored Markdown](https://github.github.com/gfm/) is also based on Commonmark
+- [Markua](https://leanpub.com/markua/read) is used internally for the Leanpub distribution
+
+Essentially this means that for the book to render properly in Docusaurus, preview nicely in GitHub, and be able to be transformed into a format for use with Leanpub, some specific rules should be followed.
+
+## Links
+
+TODO: links should be explicit e.g.  `00-index.md` rather than `index.md`
+
+## Emphasis
+
+TODO: Use *single stars for italics* and **double stars for bold** - because Markua confusingly uses _single underscores for underline_.
+
+## Asides / Admonitions / Blurbs
+
+TODO
+
+## Markua Tags
+
+TODO
+
+`frontmatter` marks content that is considered part of the introduction or preface. It is numbered in the manuscript with numerals such as *i*, *ii*, *xii*.
+
+`mainmatter` indicates content that is part of the main book, it is numbered with numerals.
+
+`backmatter` todo
+
+## Titles
+
+Frontmatter
+
+## Images
+
+TODO image names must be unique
+
+## Images
+
+:::info Not in Use
+
+Ideal Image is not currently enabled as it appears to clash with native Docusaurus lazy-loading.
+
+:::
+
+The [`@docusaurus/plugin-ideal-image`](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-ideal-image) is used to allow lazy loading and zoom of images.
+
+Use the `Image` tag as shown:
+
+```markdown
+import Image from '@theme/IdealImage';
+<Image img={require('./images/vim-cheatsheet.png')} />
+```
+
+This will render an image as shown below:
+
+::: warn Currently Disabled
+
+```
+<Image img={require('./images/vim-cheatsheet.png')} />
+```
+
+:::
+
+## Diagrams
+
+Render a Draw.io diagram like so:
+
+```
+import Drawio from '@theme/Drawio'
+import asymmetricEncryption from '!!raw-loader!./images/asymmetric-encryption.drawio';
+
+<Drawio content={asymmetricEncryption} />
+```
+
+This would render as below:
+
+import asymmetricEncryption from '!!raw-loader!./images/asymmetric-encryption.drawio';
+
+<Drawio content={asymmetricEncryption} />

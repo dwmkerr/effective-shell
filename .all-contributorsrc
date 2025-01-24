@@ -145,6 +145,94 @@
         "review",
         "bug"
       ]
+    },
+    {
+      "login": "nosarthur",
+      "name": "Dong Zhou",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1400272?v=4",
+      "profile": "https://nosarthur.github.io/",
+      "contributions": [
+        "review",
+        "bug",
+        "doc"
+      ]
+    },
+    {
+      "login": "drormaman",
+      "name": "Dror Maman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7041612?v=4",
+      "profile": "https://github.com/drormaman",
+      "contributions": [
+        "bug",
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "saraid",
+      "name": "Michael Chui",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40923?v=4",
+      "profile": "https://github.com/saraid",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "nimid",
+      "name": "Saroj Sangphongamphai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4145121?v=4",
+      "profile": "https://github.com/nimid",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "linjielig",
+      "name": "Lee Li",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11633940?v=4",
+      "profile": "https://github.com/linjielig",
+      "contributions": [
+        "review",
+        "bug",
+        "doc"
+      ]
+    },
+    {
+      "login": "leeli0",
+      "name": "Lee Li",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11633940?v=4",
+      "profile": "https://github.com/leeli0",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Stratus3D",
+      "name": "Trevor Brown",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1520926?v=4",
+      "profile": "https://stratus3d.com",
+      "contributions": [
+        "bug",
+        "review"
+      ]
+    },
+    {
+      "login": "pfrischmuth",
+      "name": "Philipp Frischmuth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/351542?v=4",
+      "profile": "https://twitter.com/pfrischmuth",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "illicitonion",
+      "name": "Daniel Wagner-Hall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1131704?v=4",
+      "profile": "https://github.com/illicitonion",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -153,5 +241,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }

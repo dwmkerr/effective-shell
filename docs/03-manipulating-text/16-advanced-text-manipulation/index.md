@@ -19,7 +19,6 @@ Rather than dissecting each and every option or flag and every nuance of the pro
 
 :::tip Downloading the Samples
 
-
 Run the following command in your shell to download the samples:
 
 ```bash
@@ -302,7 +301,7 @@ Now we have a command which strips comments, deletes empty lines and then adds t
 What if we want to add a semicolon to the end of all lines?
 
 ```
-sed s/$/;/
+sed 's/$/;/'
 ```
 
 Easy!

@@ -1,7 +1,7 @@
 # effective-shell 
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Release Please](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell?label=version) [![Creative Commons BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -16,6 +16,7 @@ If you find this book useful, please do consider [sponsoring me](https://github.
 * [Installing the Samples](#installing-the-samples)
 * [The Website](#the-website)
     * [Building the Website](#building-the-website)
+* [Custom Components](#custom-components)
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [Copyright & Licensing](#copyright--licensing)
@@ -88,11 +89,35 @@ https://effective-shell.com/downloads/effective-shell-samples.zip
 https://effective-shell.com/downloads/effective-shell-samples.tar.gz
 ```
 
+## Custom Components
+
+Custom Components to support styling are available at:
+
+```
+src/components
+```
+
+There is a live view that can be used to preview each component:
+
+http://localhost:3000/zz-developer-guide/components
+
+Components can be added to global scope, i.e. available in call pages, by adding to the `MDXComponents.js` swizzled file:
+
+```
+src/theme/MDXComponents.js
+```
+
 ## Versioning
 
 The version of the site and the code is defined in the [`package.json`](./package.json) file.
 
 Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
+
+If you need to manually trigger a release, run:
+
+```bash
+git commit --allow-empty -m "chore: release 2.0.0" -m "Release-As: 2.0.0"
+```
 
 ## Contributing
 
@@ -146,6 +171,19 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mbogatzki"><img src="https://avatars.githubusercontent.com/u/39946827?v=4?s=100" width="100px;" alt="Marek Bogatzki"/><br /><sub><b>Marek Bogatzki</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=mbogatzki" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Ambogatzki" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MichaelWarnecke"><img src="https://avatars.githubusercontent.com/u/7615963?v=4?s=100" width="100px;" alt="MWarnecke"/><br /><sub><b>MWarnecke</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=MichaelWarnecke" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3AMichaelWarnecke" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3AMichaelWarnecke" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://taxodium.ink/"><img src="https://avatars.githubusercontent.com/u/30440218?v=4?s=100" width="100px;" alt="Spike"/><br /><sub><b>Spike</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3ASpike-Leung" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3ASpike-Leung" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://nosarthur.github.io/"><img src="https://avatars.githubusercontent.com/u/1400272?v=4?s=100" width="100px;" alt="Dong Zhou"/><br /><sub><b>Dong Zhou</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Anosarthur" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Anosarthur" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=nosarthur" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/drormaman"><img src="https://avatars.githubusercontent.com/u/7041612?v=4?s=100" width="100px;" alt="Dror Maman"/><br /><sub><b>Dror Maman</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Adrormaman" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=drormaman" title="Documentation">📖</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Adrormaman" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/saraid"><img src="https://avatars.githubusercontent.com/u/40923?v=4?s=100" width="100px;" alt="Michael Chui"/><br /><sub><b>Michael Chui</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Asaraid" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/nimid"><img src="https://avatars.githubusercontent.com/u/4145121?v=4?s=100" width="100px;" alt="Saroj Sangphongamphai"/><br /><sub><b>Saroj Sangphongamphai</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Animid" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/linjielig"><img src="https://avatars.githubusercontent.com/u/11633940?v=4?s=100" width="100px;" alt="Lee Li"/><br /><sub><b>Lee Li</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Alinjielig" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Alinjielig" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/commits?author=linjielig" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/leeli0"><img src="https://avatars.githubusercontent.com/u/11633940?v=4?s=100" width="100px;" alt="Lee Li"/><br /><sub><b>Lee Li</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3Aleeli0" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://stratus3d.com"><img src="https://avatars.githubusercontent.com/u/1520926?v=4?s=100" width="100px;" alt="Trevor Brown"/><br /><sub><b>Trevor Brown</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/issues?q=author%3AStratus3D" title="Bug reports">🐛</a> <a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3AStratus3D" title="Reviewed Pull Requests">👀</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://twitter.com/pfrischmuth"><img src="https://avatars.githubusercontent.com/u/351542?v=4?s=100" width="100px;" alt="Philipp Frischmuth"/><br /><sub><b>Philipp Frischmuth</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/pulls?q=is%3Apr+reviewed-by%3Apfrischmuth" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/illicitonion"><img src="https://avatars.githubusercontent.com/u/1131704?v=4?s=100" width="100px;" alt="Daniel Wagner-Hall"/><br /><sub><b>Daniel Wagner-Hall</b></sub></a><br /><a href="https://github.com/dwmkerr/effective-shell/commits?author=illicitonion" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

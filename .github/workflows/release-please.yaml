@@ -27,7 +27,7 @@ jobs:
       # deploy the website.
       # Note: *every* step here needs to check the 'release_created' flag.
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
 
       # Fixup Git URLs, see:
@@ -45,6 +45,13 @@ jobs:
       - name: Build
         run: make build
         if: ${{ steps.release.outputs.release_created }}
+
+      # Store the artifacts in case we want to validate samples etc.
+      - name: Store Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts
+          path: artifacts
 
       # Deploy the website.
       - name: Deploy

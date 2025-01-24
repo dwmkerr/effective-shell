@@ -1,5 +1,279 @@
 # Changelog
 
+## [0.34.10](https://github.com/dwmkerr/effective-shell/compare/v0.34.9...v0.34.10) (2024-10-01)
+
+
+### Bug Fixes
+
+* correct python sample merge issues ([#346](https://github.com/dwmkerr/effective-shell/issues/346)) ([c3f6823](https://github.com/dwmkerr/effective-shell/commit/c3f68236ae7df60614ff13ee9e467290ed349cc5))
+
+## [0.34.9](https://github.com/dwmkerr/effective-shell/compare/v0.34.8...v0.34.9) (2024-09-06)
+
+
+### Bug Fixes
+
+* correct python sample ([#344](https://github.com/dwmkerr/effective-shell/issues/344)) ([047595d](https://github.com/dwmkerr/effective-shell/commit/047595df77ecb1bf4b18f3fdb65769e6b0336739))
+
+## [0.34.8](https://github.com/dwmkerr/effective-shell/compare/v0.34.7...v0.34.8) (2024-08-10)
+
+
+### Documentation
+
+* add pfrischmuth as a contributor for review ([#341](https://github.com/dwmkerr/effective-shell/issues/341)) ([f439383](https://github.com/dwmkerr/effective-shell/commit/f439383179a410c95978a39cd9d462b33f4f0261))
+
+
+### Bug Fixes
+
+* correct samples repository path ([#343](https://github.com/dwmkerr/effective-shell/issues/343)) ([d15a209](https://github.com/dwmkerr/effective-shell/commit/d15a2098c647b3fb7886ec503016c8c49a190e62))
+
+## [0.34.7](https://github.com/dwmkerr/effective-shell/compare/v0.34.6...v0.34.7) (2024-06-24)
+
+
+### Bug Fixes
+
+* update sample chapter number ([9e07138](https://github.com/dwmkerr/effective-shell/commit/9e0713840c6c2a79107cdb76f0917c0b90d6a289))
+
+## [0.34.6](https://github.com/dwmkerr/effective-shell/compare/v0.34.5...v0.34.6) (2024-06-12)
+
+
+### Bug Fixes
+
+* add missing sample ([#337](https://github.com/dwmkerr/effective-shell/issues/337)) ([961d50a](https://github.com/dwmkerr/effective-shell/commit/961d50ad29d27cc871164fe4db0edbaab1497644))
+
+## [0.34.5](https://github.com/dwmkerr/effective-shell/compare/v0.34.4...v0.34.5) (2024-05-22)
+
+
+### Bug Fixes
+
+* missing line in sample file ([#335](https://github.com/dwmkerr/effective-shell/issues/335)) ([23909b9](https://github.com/dwmkerr/effective-shell/commit/23909b92dd6647e5aafa2b101152bee1b64650b3))
+
+## [0.34.4](https://github.com/dwmkerr/effective-shell/compare/v0.34.3...v0.34.4) (2024-05-20)
+
+
+### Bug Fixes
+
+* consistent samples path ([#334](https://github.com/dwmkerr/effective-shell/issues/334)) ([2072ff2](https://github.com/dwmkerr/effective-shell/commit/2072ff271799fce103140618cfe8e401f33341f9))
+* rename 'samples' to 'effective-shell' ([#332](https://github.com/dwmkerr/effective-shell/issues/332)) ([60f9168](https://github.com/dwmkerr/effective-shell/commit/60f9168f044de68938f64f3a43e5c0f7857a69a9))
+
+## [0.34.3](https://github.com/dwmkerr/effective-shell/compare/v0.34.2...v0.34.3) (2024-05-14)
+
+
+### Bug Fixes
+
+* samples path in zip ([#330](https://github.com/dwmkerr/effective-shell/issues/330)) ([cba5448](https://github.com/dwmkerr/effective-shell/commit/cba54482223b08c3bbeac4f4b1eb3e3dbed469e3))
+
+## [0.34.2](https://github.com/dwmkerr/effective-shell/compare/v0.34.1...v0.34.2) (2024-05-12)
+
+
+### Bug Fixes
+
+* correct sidebar ([#328](https://github.com/dwmkerr/effective-shell/issues/328)) ([05e0187](https://github.com/dwmkerr/effective-shell/commit/05e0187ca7ed652b352b0cce560e9bf50f14ef4e))
+
+## [0.34.1](https://github.com/dwmkerr/effective-shell/compare/v0.34.0...v0.34.1) (2024-05-12)
+
+
+### Bug Fixes
+
+* appendices links ([#326](https://github.com/dwmkerr/effective-shell/issues/326)) ([d5b5257](https://github.com/dwmkerr/effective-shell/commit/d5b52577d8a30fc25eddcdcba8717f135c47cd6c))
+
+## [0.34.0](https://github.com/dwmkerr/effective-shell/compare/v0.33.0...v0.34.0) (2024-05-12)
+
+
+### Features
+
+* appendix - installing the samples ([#324](https://github.com/dwmkerr/effective-shell/issues/324)) ([6d5b482](https://github.com/dwmkerr/effective-shell/commit/6d5b482575c2d5ef7b533022b1249a71092d43af))
+
+## [0.33.0](https://github.com/dwmkerr/effective-shell/compare/v0.32.0...v0.33.0) (2024-05-10)
+
+
+### Features
+
+* added alias for 'rm' sample ([#322](https://github.com/dwmkerr/effective-shell/issues/322)) ([856f1be](https://github.com/dwmkerr/effective-shell/commit/856f1be60207a89f7997af295fd3e13991da7b58))
+
+## [0.32.0](https://github.com/dwmkerr/effective-shell/compare/v0.31.0...v0.32.0) (2024-05-10)
+
+
+### Features
+
+* add data file to samples ([#320](https://github.com/dwmkerr/effective-shell/issues/320)) ([fb34545](https://github.com/dwmkerr/effective-shell/commit/fb34545856af3b22ab87692a927b38920defc714))
+
+## [0.31.0](https://github.com/dwmkerr/effective-shell/compare/v0.30.3...v0.31.0) (2024-05-07)
+
+
+### Features
+
+* basic leanpub generation ([#317](https://github.com/dwmkerr/effective-shell/issues/317)) ([f91d5f7](https://github.com/dwmkerr/effective-shell/commit/f91d5f75a446b899272f19e1c6a18ffa73f846a8))
+
+
+### Bug Fixes
+
+* rename ads.txt ([#319](https://github.com/dwmkerr/effective-shell/issues/319)) ([902845c](https://github.com/dwmkerr/effective-shell/commit/902845ceb0aecda44cd886e91d1d1a1b840a78e9))
+
+## [0.30.3](https://github.com/dwmkerr/effective-shell/compare/v0.30.2...v0.30.3) (2024-05-06)
+
+
+### Bug Fixes
+
+* add emails for regex chapter ([#315](https://github.com/dwmkerr/effective-shell/issues/315)) ([93b2db0](https://github.com/dwmkerr/effective-shell/commit/93b2db09728dfa5d71c0b5c11f6dfbd9cd292228))
+
+## [0.30.2](https://github.com/dwmkerr/effective-shell/compare/v0.30.1...v0.30.2) (2024-05-06)
+
+
+### Bug Fixes
+
+* correct name of dot git folder for samples tarball ([#313](https://github.com/dwmkerr/effective-shell/issues/313)) ([974b748](https://github.com/dwmkerr/effective-shell/commit/974b748c855f05c4aece6b93b888ed86668920df))
+
+## [0.30.1](https://github.com/dwmkerr/effective-shell/compare/v0.30.0...v0.30.1) (2024-05-06)
+
+
+### Bug Fixes
+
+* the samples for chapters 27 and 28 no longer contain .git folders ([#311](https://github.com/dwmkerr/effective-shell/issues/311)) ([79ff1c0](https://github.com/dwmkerr/effective-shell/commit/79ff1c0955d8f652e151ba25921d40fd7394d132))
+
+## [0.30.0](https://github.com/dwmkerr/effective-shell/compare/v0.29.0...v0.30.0) (2024-04-04)
+
+
+### Features
+
+* adsense verification ([8298a23](https://github.com/dwmkerr/effective-shell/commit/8298a23608dcad55a82026094cd1b514e9ca2881))
+
+## [0.29.0](https://github.com/dwmkerr/effective-shell/compare/v0.28.0...v0.29.0) (2024-04-04)
+
+
+### Features
+
+* ads snippet ([df5e776](https://github.com/dwmkerr/effective-shell/commit/df5e7762fe302b7612cf2b085525d49dc24c2def))
+
+## [0.28.0](https://github.com/dwmkerr/effective-shell/compare/v0.27.6...v0.28.0) (2024-04-04)
+
+
+### Features
+
+* adsense meta tag ([#306](https://github.com/dwmkerr/effective-shell/issues/306)) ([c7c77cf](https://github.com/dwmkerr/effective-shell/commit/c7c77cfd182f310f64f11aee0389a8179e23b473))
+
+## [0.27.6](https://github.com/dwmkerr/effective-shell/compare/v0.27.5...v0.27.6) (2023-10-18)
+
+
+### Bug Fixes
+
+* correct quotes ([505624c](https://github.com/dwmkerr/effective-shell/commit/505624c29528e412208f492a9c6f52ca99d3bb65))
+
+## [0.27.5](https://github.com/dwmkerr/effective-shell/compare/v0.27.4...v0.27.5) (2023-10-18)
+
+
+### Documentation
+
+* add leeli0 as a contributor for bug ([#295](https://github.com/dwmkerr/effective-shell/issues/295)) ([d735d7b](https://github.com/dwmkerr/effective-shell/commit/d735d7bb05dc3c1bb015aaef5f07d518c9f2a2c5))
+* add linjielig as a contributor for bug, doc, and review ([#293](https://github.com/dwmkerr/effective-shell/issues/293)) ([9fd60bd](https://github.com/dwmkerr/effective-shell/commit/9fd60bdf67bda225415188f36c7284434a50c095))
+* add Stratus3D as a contributor for bug ([#300](https://github.com/dwmkerr/effective-shell/issues/300)) ([d11b220](https://github.com/dwmkerr/effective-shell/commit/d11b22023b756d99a2240de9deb03c55c832de7c))
+* further reading links ([80b7e75](https://github.com/dwmkerr/effective-shell/commit/80b7e757b106de0640208be46cfe3c7d12b3a2c0))
+
+
+### Bug Fixes
+
+* add missing `/` of sed command ([#304](https://github.com/dwmkerr/effective-shell/issues/304)) ([7942856](https://github.com/dwmkerr/effective-shell/commit/7942856bf732720c84570d356b1151b2e8da0050))
+* add required copy to 'thanks' page ([81943ff](https://github.com/dwmkerr/effective-shell/commit/81943ff8aa19ce0e7bc7443d7355f4b06e2c93df))
+
+## [0.27.4](https://github.com/dwmkerr/effective-shell/compare/v0.27.3...v0.27.4) (2023-07-05)
+
+
+### Bug Fixes
+
+* correct quotes ([e2ae8c3](https://github.com/dwmkerr/effective-shell/commit/e2ae8c3615c278e5e2eedc3f47818bbe86934393))
+
+
+### Documentation
+
+* more recommended reading ([1ad1d2e](https://github.com/dwmkerr/effective-shell/commit/1ad1d2ee2b89d07f16e63745043bd59d6e280c75))
+
+## [0.27.3](https://github.com/dwmkerr/effective-shell/compare/v0.27.2...v0.27.3) (2023-07-05)
+
+
+### Bug Fixes
+
+* correct grammar in loops chapter ([#281](https://github.com/dwmkerr/effective-shell/issues/281)) ([19278d4](https://github.com/dwmkerr/effective-shell/commit/19278d4866f4a4a78669bfead8eb006a81d78744)), closes [#269](https://github.com/dwmkerr/effective-shell/issues/269)
+
+
+### Documentation
+
+* add linjielig as a contributor for review ([#287](https://github.com/dwmkerr/effective-shell/issues/287)) ([bd5e6ff](https://github.com/dwmkerr/effective-shell/commit/bd5e6ffb819818553168e625660d1658c8ca6629))
+
+## [0.27.2](https://github.com/dwmkerr/effective-shell/compare/v0.27.1...v0.27.2) (2023-05-21)
+
+
+### Bug Fixes
+
+* Typo ([#278](https://github.com/dwmkerr/effective-shell/issues/278)) ([2ba4df4](https://github.com/dwmkerr/effective-shell/commit/2ba4df4674882a80b556aefa1b7b4608eadbe3f1))
+
+
+### Documentation
+
+* add nimid as a contributor for review ([#279](https://github.com/dwmkerr/effective-shell/issues/279)) ([3f8210e](https://github.com/dwmkerr/effective-shell/commit/3f8210e93c786b3d75dc350d3f3914ec3a04e71e))
+* add saraid as a contributor for review ([#277](https://github.com/dwmkerr/effective-shell/issues/277)) ([2a2210a](https://github.com/dwmkerr/effective-shell/commit/2a2210a4d7296f7e23a4b20fa9899f540b94cece))
+
+## [0.27.1](https://github.com/dwmkerr/effective-shell/compare/v0.27.0...v0.27.1) (2023-05-04)
+
+
+### Bug Fixes
+
+* correct email formatting ([#275](https://github.com/dwmkerr/effective-shell/issues/275)) ([fd897f1](https://github.com/dwmkerr/effective-shell/commit/fd897f1f94ec74801e0564279047eeaae00c6f53)), closes [#255](https://github.com/dwmkerr/effective-shell/issues/255)
+
+## [0.27.0](https://github.com/dwmkerr/effective-shell/compare/v0.26.9...v0.27.0) (2023-05-03)
+
+
+### Features
+
+* add donate page ([#273](https://github.com/dwmkerr/effective-shell/issues/273)) ([86e1960](https://github.com/dwmkerr/effective-shell/commit/86e1960c6b44321c4bcd865a13548c7474881fdb))
+
+## [0.26.9](https://github.com/dwmkerr/effective-shell/compare/v0.26.8...v0.26.9) (2023-05-03)
+
+
+### Documentation
+
+* add drormaman as a contributor for bug, doc, and review ([#271](https://github.com/dwmkerr/effective-shell/issues/271)) ([aac5cba](https://github.com/dwmkerr/effective-shell/commit/aac5cbaaaab0755122718f9060633952fb7964d3))
+* add nosarthur as a contributor for doc, and review ([#264](https://github.com/dwmkerr/effective-shell/issues/264)) ([1949d00](https://github.com/dwmkerr/effective-shell/commit/1949d0086e2557d406fb1dd58ec1ba988050c194))
+* add nosarthur as a contributor for review, and bug ([#258](https://github.com/dwmkerr/effective-shell/issues/258)) ([5be7805](https://github.com/dwmkerr/effective-shell/commit/5be780577525fc43f7f9030c4cdb8b72102393a9))
+* fix typo ([4ab645a](https://github.com/dwmkerr/effective-shell/commit/4ab645a70288c305b247b8ab0598cfd64e9b9ad8))
+
+## [0.26.8](https://github.com/dwmkerr/effective-shell/compare/v0.26.7...v0.26.8) (2023-03-08)
+
+
+### Documentation
+
+* additional books ([#256](https://github.com/dwmkerr/effective-shell/issues/256)) ([521d757](https://github.com/dwmkerr/effective-shell/commit/521d757877f87542f5ee83573dccc330e45c05e5))
+* **recommended-reading:** added pro git ([#253](https://github.com/dwmkerr/effective-shell/issues/253)) ([4202a0a](https://github.com/dwmkerr/effective-shell/commit/4202a0a7ef9e2e61cb6107d007e27e5266dc2267))
+
+## [0.26.7](https://github.com/dwmkerr/effective-shell/compare/v0.26.6...v0.26.7) (2023-02-07)
+
+
+### Bug Fixes
+
+* correct quotes in all-contrib names ([ef03554](https://github.com/dwmkerr/effective-shell/commit/ef03554f3721484d17824053395f1b11165c0e8d))
+
+
+### Documentation
+
+* add Spike-Leung as a contributor for review, and bug ([#248](https://github.com/dwmkerr/effective-shell/issues/248)) ([66a3c4e](https://github.com/dwmkerr/effective-shell/commit/66a3c4eb89636eb040dcc97115b24e232e3f9c6a))
+* **intro:** improve intro page ([#251](https://github.com/dwmkerr/effective-shell/issues/251)) ([59d8430](https://github.com/dwmkerr/effective-shell/commit/59d843093c66997317ad279634239685422d49ae))
+
+
+### chore
+
+* release 0.26.7 ([e600507](https://github.com/dwmkerr/effective-shell/commit/e600507cc05faf54d555e0f31861be9e405eb63c))
+
+## [0.26.7](https://github.com/dwmkerr/effective-shell/compare/v0.26.6...v0.26.7) (2023-02-07)
+
+
+### Bug Fixes
+
+* correct quotes in all-contrib names ([ef03554](https://github.com/dwmkerr/effective-shell/commit/ef03554f3721484d17824053395f1b11165c0e8d))
+
+
+### Documentation
+
+* add Spike-Leung as a contributor for review, and bug ([#248](https://github.com/dwmkerr/effective-shell/issues/248)) ([66a3c4e](https://github.com/dwmkerr/effective-shell/commit/66a3c4eb89636eb040dcc97115b24e232e3f9c6a))
+* **intro:** improve intro page ([#251](https://github.com/dwmkerr/effective-shell/issues/251)) ([59d8430](https://github.com/dwmkerr/effective-shell/commit/59d843093c66997317ad279634239685422d49ae))
+
 ## [0.26.6](https://github.com/dwmkerr/effective-shell/compare/v0.26.5...v0.26.6) (2023-01-31)
 
 

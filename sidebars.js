@@ -83,6 +83,7 @@ const sidebars = {
       type: 'category',
       label: 'Appendices',
       items: [
+        'xx-appendices/installing-samples/index',
         'xx-appendices/recommended-reading/index',
         'xx-appendices/thanks',
       ]

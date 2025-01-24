@@ -79,12 +79,16 @@ const config = {
           src: 'img/logo.png',
         },
         items: [
-          //  Create a link to the home page.
           {
             type: 'doc',
             docId: 'index',
             position: 'left',
             label: 'Home',
+          },
+          {
+            to: 'donate',
+            label: 'Donate',
+            position: 'left'
           },
           {
             type: 'search',
@@ -106,6 +110,10 @@ const config = {
               {
                 label: 'Home',
                 to: '/',
+              },
+              {
+                to: 'donate',
+                label: 'Donate',
               },
             ],
           },
@@ -139,6 +147,10 @@ const config = {
          */
         playgroundPosition: 'top',
       },
+      metadata: [{
+        name: 'google-site-verification',
+        content: 'ca-pub-6181461532532600',
+      }],
     }),
 
   plugins: [
@@ -174,7 +186,15 @@ const config = {
         language: ['en'],
       },
     ],
-  ]
+  ],
+  scripts: [{
+    src:
+        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6181461532532600',
+      async: true,
+  }, {
+    src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6181461532532600",
+    async: true,
+  }],
 };
 
 module.exports = config;

@@ -361,7 +361,7 @@ anut fo raj a rof tun A
 At first glance this doesn't seem very useful - but there's a nice trick we can do with this:
 
 ```
-$ pwd | rev | cut -d\ -f 1 | rev
+$ pwd | rev | cut -d'/' -f 1 | rev
 
 effective-shell
 ```

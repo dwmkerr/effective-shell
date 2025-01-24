@@ -120,7 +120,7 @@ For find, we are going to use the `-print0` action and for `xargs` we'll use the
 
 ```
 $ find . -type f -print0 | xargs -0 -t rm
-rm './chapter 1.md' './chapter 2.md' './chapter 3.md' 
+rm './chapter 1.md' './chapter 2.md' './chapter 3.md'
 ```
 
 In [Chapter 11 - Finding Files](../../02-core-skills/11-finding-files/index.md) we saw that the _default_ action of the `find` command is `-print`, which writes out the path of each item found. The `-print0` action is very similar - but it instead it writes out each item followed by a special 'null' character[^1].
@@ -172,12 +172,6 @@ Here we've allowed up to three input lines per command.
 
 You will probably _not_ use the `-L` parameter very often, but it is really important that you understand what it does. And that is because many of the other options we'll use _imply_ `-L 1` - we'll see why in the next example.
 
-
-```
-find . -name "chapter*" | xargs rm
-rm: cannot remove './chapter': No such file or directory
-rm: cannot remove '1.txt': No such file or directory
-```
 
 ## Constructing more complex commands with the 'I' Parameter
 

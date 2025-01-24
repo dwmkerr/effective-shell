@@ -27,10 +27,10 @@ typescript-check: # Check typescript types.
 build: # Build the site and artifacts.
 	mkdir -p ./static/downloads
 	./scripts/build-samples.sh
-	cp ./artifacts/samples.zip  ./static/downloads/effective-shell-samples.zip
-	cp ./artifacts/samples.tar.gz ./static/downloads/effective-shell-samples.tar.gz
-	test -e ./static/downloads/effective-shell-samples.zip
-	test -e ./static/downloads/effective-shell-samples.tar.gz
+	cp ./artifacts/effective-shell.zip  ./static/downloads/effective-shell.zip
+	cp ./artifacts/effective-shell.tar.gz ./static/downloads/effective-shell.tar.gz
+	test -e ./static/downloads/effective-shell.zip
+	test -e ./static/downloads/effective-shell.tar.gz
 	npm ci --legacy-peer-deps && npm run build
 
 # Create the summary structure in word format, easier to share.

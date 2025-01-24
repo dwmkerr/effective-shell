@@ -71,7 +71,7 @@ The `test` command evaluates an expression. In this case the expression is:
 -d ~/backups
 ```
 
-This expression uses the `-d` (_file exists and is a directory_) operator to check to see if the provided path is a directory. We to want to create the directory only if it _doesn't_ exist, so we use the 'not' operator to 'invert' the result of `test`. The 'not' operator is written with the `!` exclamation point symbol.
+This expression uses the `-d` (_file exists and is a directory_) operator to check if the provided path is a directory. We want to create the directory only if it _doesn't_ exist, so we use the 'not' operator to 'invert' the result of `test`. The 'not' operator is written with the `!` exclamation point symbol.
 
 You can surround an expression with square bracket and the shell will evaluate the expression with the `test` command. This can make your scripts far more compact:
 
@@ -144,7 +144,7 @@ Note that we still need to use the 'fi' keyword to close the 'if' statement.
 
 The _elif statement_ (which is short for 'else if') can be used to create additional checks and define statements that should run if _other_ conditions are true.
 
-Let's see this in action by updating our script to check to see whether the 'common' command is executable, using the `-x` (_is executable_) operator<!-- index -->:
+Let's see this in action by updating our script to check whether the 'common' command is executable, using the `-x` (_is executable_) operator<!-- index -->:
 
 ```bash
 if [ -x /usr/local/bin/common ]; then
@@ -213,10 +213,10 @@ Here are some of the most useful ones:
 | `-L`              | True if the file exists and is a symbolic link.                                                     |
 | `-r`              | True if the file exists and is readable.                                                            |
 | `-s`              | True if the file exists and has a size greater than zero.                                           |
-| `-w`              | True if the file exists is writable.                                                                |
+| `-w`              | True if the file exists and is writable.                                                            |
 | `-x`              | True if the file exists and is executable - if it is a directory this checks if it can be searched. |
-| `file1 -nt file2` | True if file1 is exists and is newer than file2.                                                    |
-| `file1 -ot file2` | True if file1 is exists and is older than file2.                                                    |
+| `file1 -nt file2` | True if file1 exists and is newer than file2.                                                       |
+| `file1 -ot file2` | True if file1 exists and is older than file2.                                                       |
 | `file1 -ef file2` | True if file1 and file2 exist and are the same file.                                                |
 
 There are plenty of other operators that you can use when working with files, you can see them all by running `man test`.
@@ -262,7 +262,7 @@ Conditional expressions have a number of benefits over plain `test` commands. So
 
 You can find more details on conditional expressions by using `man bash` and searching for `\[\[` (this is the double square brackets with each one escaped with a backslash).
 
-Some people prefer to use single brackets so that their script is more portable, as the double brackets are specific to Bash and Bash-like shells. Others prefer to use the double brackets so that they can use the additional featured offered.
+Some people prefer to use single brackets so that their script is more portable, as the double brackets are specific to Bash and Bash-like shells. Others prefer to use the double brackets so that they can use the additional features offered.
 
 Whether you use single or double brackets will partly be down to preference and whether it is more important in your use case to have portability or whether it is more important to have the more 'correct' behaviour.
 
@@ -354,7 +354,7 @@ You will see this syntax a lot in shell scrips as it is very succinct. It can al
 make build && make deploy
 ```
 
-Here I am using the `make` (_build programs_) command. If the 'build' step for a project fails, I want to run the 'deploy' step. But I _don't_ want to run the 'deploy' step if the 'build' step fails!
+Here I am using the `make` (_build programs_) command. If the 'build' step for a project succeeds, I want to run the 'deploy' step. But I _don't_ want to run the 'deploy' step if the 'build' step fails!
 
 ## Case Statements
 
@@ -418,7 +418,7 @@ The case statement can look quite complex, I often think that even if it takes m
 
 Now that we know how to use if statements, we can update the 'common' command that we have been improving as part of each chapter.
 
-We will update it to check to see whether the user is using Bash or Z-Shell and search through the history for common commands appropriately.
+We will update it to check whether the user is using Bash or Z-Shell and search through the history for common commands appropriately.
 
 As a reference, let's look at the `common.v2.sh` command we created in the previous chapter:
 
@@ -448,7 +448,7 @@ history_file=""    # We will work out the history file later.
 history_lines=1000 # The number of lines of history to search through
 command_count=10   # The number of common commands to show
 
-# Check to see if we can work out the name of the shell binary.
+# Check if we can work out the name of the shell binary.
 shell_regex="([^/]+$)"
 if [[ $SHELL =~ $shell_regex ]]; then
     # Depending on the name of the shell binary, set the history file path.
@@ -491,7 +491,7 @@ else
 fi
 ```
 
-In this script we now first check to see if we can extract the name of the shell binary from the shell path. If we can, we store the name of the shell binary and its associated history in a pair of variables.
+In this script we now first check if we can extract the name of the shell binary from the shell path. If we can, we store the name of the shell binary and its associated history in a pair of variables.
 
 Then when we come to actually search through the history, we check the shell binary. If it is `bash`, we run the same command as before. If it is `zsh` we run a similar command, but account for the fact that the Z-Shell history file has some extra content which needs to be removed.
 

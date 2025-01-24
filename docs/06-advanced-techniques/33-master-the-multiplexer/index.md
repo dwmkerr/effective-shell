@@ -75,7 +75,7 @@ Now that Tmux is installed let's see what we can do with it.
 
 One thing you'll notice when reading about Tmux and GNU screen is the _Leader_. The leader is a key combination that prefixes any commands for the multiplexer. We just this leader combination so that the multiplexer key bindings don't clash with any existing ones. Typically you will use the leader keys to tell the multiplexer you are about to enter a command, then strike the keys that correspond to the command.
 
-For Tmux, the default leader is `Ctrl + B`. For GNU screen it is `Ctrl + A`. You can easily remember these buy remembering that Tmux is a successor to GNU screen, so the leader key letter is one letter further in the alphabet!
+For Tmux, the default leader is `Ctrl + B`. For GNU screen it is `Ctrl + A`. You can easily remember these by remembering that Tmux is a successor to GNU screen, so the leader key letter is one letter further in the alphabet!
 
 ### Window Management
 

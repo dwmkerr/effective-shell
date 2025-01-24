@@ -1,56 +1,48 @@
-import sys
 import argparse
-import urllib.request
-import urllib.parse
 import json
 import os
-
-ERROR_HTTP = 1
-ERROR_PARSE = 2
+import subprocess
+import sys
+import urllib.parse
 
 # Create an argument parser and define the arguments for our program.
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '-c', '--crop',
-    help='crop the output line length',
+    "-c", "--crop",
+    help="crop the output line length",
     type=int,
-    nargs='?',
+    nargs="?",
     const=80,         # Default value if -c is supplied
     default=None)     # Default value if -c is not supplied
 args = parser.parse_args()
 
 def search_for_word(word):
     # Encode the word for HTML.
-    encoded_word = urllib.parse.quote(word.encode('utf8'))
+    encoded_word = urllib.parse.quote(word.encode("utf8"))
 
-    # Try and download the definition using the amazing dictionaryapi.dev site.
-    try:
-        url = "https://api.dictionaryapi.dev/api/v2/entries/en/{}".format(encoded_word)
-        response = urllib.request.urlopen(url)
-        if response.status == 404:
-            print("NOT FOUND")
-            sys.exit(1)
-        with urllib.request.urlopen(url) as response:
-            raw_json_data = response.read().decode('utf-8')
-    # If the word is not found, return an empty definition.
-    except urllib.error.HTTPError as http_error:
-        if http_error.code == 404:
-            return ''
-        raise
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to download the definition of '{}'".format(word))
-        sys.exit(ERROR_HTTP)
-        
+    # Construct the URL required to load the definition.
+    url = "https://api.dictionaryapi.dev/api/v2/entries/en/{}".format(encoded_word)
+    command = ["curl", url]
+
+    # Run the "curl" command to retrieve the definition.
+    result = subprocess.run(command,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            text=True)
+
+    # If there was an error, show it as the definition.
+    if result.returncode != 0:
+        return "error: " + result.stderr
+
     # Now try and parse the data.
-    try:
-        data = json.loads(raw_json_data)
-        first_definition = data[0]['meanings'][0]['definitions'][0]['definition']
-    except Exception as e:
-        sys.stderr.write("An error occurred trying to parse the definition of '{}'".format(word))
-        sys.exit(ERROR_PARSE)
+    data = json.loads(result.stdout)
 
-    # Return the result.
-    return first_definition
+    # Grab the first "meaning" value. If it doesn't exist in the response then
+    # the word was not found.
+    try:
+        return data[0]["meanings"][0]["definitions"][0]["definition"]
+    except KeyError:
+        return "definition not found!"
 
 def write_definition(word, definition):
     # Check if stdout is a terminal - if it is we'll colour the output.
@@ -59,7 +51,7 @@ def write_definition(word, definition):
     # We will separate the word and the definition with a colon and space.
     separator = ": "
 
-    # If the 'crop' argument is set, use it.
+    # If the "crop" argument is set, use it.
     if args.crop:
         output_length = len(word) + len(separator) + len(definition)
         if output_length > args.crop:
@@ -76,12 +68,12 @@ def write_definition(word, definition):
     # Write out the word, separator and definition.
     print(word + separator + definition)
 
-# Read standard input until there is nothing left to read.
+# Read standard input until nothing is left to read.
 while True:
     # Read a line of input.
     word = sys.stdin.readline()
 
-    # If the user hits 'Ctrl+D' to end transmission, readline returns an
+    # If the user presses Ctrl-D to end transmission, readline returns an
     # empty string and we can stop reading.
     if not word:
         break
