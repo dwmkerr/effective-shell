@@ -224,6 +224,15 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "illicitonion",
+      "name": "Daniel Wagner-Hall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1131704?v=4",
+      "profile": "https://github.com/illicitonion",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
