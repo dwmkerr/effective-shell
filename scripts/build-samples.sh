@@ -34,7 +34,7 @@ cp package.json ./artifacts/effective-shell/.package.json
 # a local repository only) we just remove the remote.
 mkdir -p ./artifacts/effective-shell/repositories
 (   cd ./artifacts/effective-shell/repositories \
-    && git clone git://github.com/effective-shell/chapter-19-dotfiles \
+    && git clone git@github.com:effective-shell/chapter-19-dotfiles.git \
     && cd chapter-19-dotfiles \
     && git remote remove origin \
     && rm -rf ./.git \
