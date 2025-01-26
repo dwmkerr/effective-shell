@@ -1,4 +1,4 @@
-# Write the title of our command.
+# Inform the user of the output they can expect.
 echo "common commands:"
 
 # Show the most commonly used commands.

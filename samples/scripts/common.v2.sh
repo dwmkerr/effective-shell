@@ -1,4 +1,4 @@
-# Write the title of our command.
+# Inform the user of the output they can expect.
 echo "common commands:"
 
 # The following variables control how the command runs.
