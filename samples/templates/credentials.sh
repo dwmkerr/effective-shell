@@ -1,0 +1,2 @@
+USERNAME=admin
+PASSWORD=ThisIsVerySensitive!
