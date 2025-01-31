@@ -46,9 +46,8 @@ while True:
         continue
 
     # Strip whitespace from the word and find the definition.
-    word = word.strip()
     stripped_word = word.strip()
     definition = search_for_word(stripped_word)
 
     # Write the result.
-    print(word, "-", definition)
+    print(stripped_word, "-", definition)
