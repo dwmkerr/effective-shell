@@ -117,9 +117,8 @@ for word in read_words():
         continue
 
     # Strip whitespace from the word and find the definition.
-    word = word.strip()
     stripped_word = word.strip()
     definition = search_for_word(stripped_word)
 
     # Write the result.
-    write_definition(word, definition)
+    write_definition(stripped_word, definition)
