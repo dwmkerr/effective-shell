@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.35.0](https://github.com/dwmkerr/effective-shell/compare/v0.34.10...v0.35.0) (2025-02-13)
+
+
+### Features
+
+* add the lookup-requests.py sample ([#349](https://github.com/dwmkerr/effective-shell/issues/349)) ([c87eed8](https://github.com/dwmkerr/effective-shell/commit/c87eed82d1de228189b31c70b712618d483e4207))
+* shell prompt ([#250](https://github.com/dwmkerr/effective-shell/issues/250)) ([c566b48](https://github.com/dwmkerr/effective-shell/commit/c566b481732ec057432abae70fe55a77e56ce690))
+
+
+### Documentation
+
+* add illicitonion as a contributor for doc ([#359](https://github.com/dwmkerr/effective-shell/issues/359)) ([ab282c4](https://github.com/dwmkerr/effective-shell/commit/ab282c426cfeac1926a56062edd6956b38c564b9))
+* terminal ai links ([#364](https://github.com/dwmkerr/effective-shell/issues/364)) ([dc49155](https://github.com/dwmkerr/effective-shell/commit/dc49155e3fd4bbbd2409837183e43649d42437d1))
+
+
+### Bug Fixes
+
+* chapter 7 samples, fixes [#356](https://github.com/dwmkerr/effective-shell/issues/356) ([#360](https://github.com/dwmkerr/effective-shell/issues/360)) ([de61cb3](https://github.com/dwmkerr/effective-shell/commit/de61cb3085ba18854380618275d6984b9e7a20e6))
+* correct build script ([#358](https://github.com/dwmkerr/effective-shell/issues/358)) ([891d717](https://github.com/dwmkerr/effective-shell/commit/891d717e4304b14a527bc1e7f4a53125dd8bfcb8))
+* correct sed chapter sample ([#353](https://github.com/dwmkerr/effective-shell/issues/353)) ([34281d7](https://github.com/dwmkerr/effective-shell/commit/34281d73ab33219efdd2eec14ae6c1fccaf4aae0))
+* correct the 'sed' chapter sample file ([#351](https://github.com/dwmkerr/effective-shell/issues/351)) ([a39462a](https://github.com/dwmkerr/effective-shell/commit/a39462a46275ca64807d565ca5f3a7c3636ad4dc))
+* python sample bug ([#363](https://github.com/dwmkerr/effective-shell/issues/363)) ([6937497](https://github.com/dwmkerr/effective-shell/commit/6937497be4374d596ed1941bc0ee72dacbd93f67))
+* showpstree script errors if pstree not installed and shows how to install it ([#362](https://github.com/dwmkerr/effective-shell/issues/362)) ([167a6d3](https://github.com/dwmkerr/effective-shell/commit/167a6d384552ce73f49e4a738166cf87f5e1e7b4))
+* title lines in common scripts, fixes [#357](https://github.com/dwmkerr/effective-shell/issues/357) ([#361](https://github.com/dwmkerr/effective-shell/issues/361)) ([41e6db6](https://github.com/dwmkerr/effective-shell/commit/41e6db66ffbecb2354da6f1fd5e19e1db3960cc3))
+* typo in web-server.js ([#355](https://github.com/dwmkerr/effective-shell/issues/355)) ([2bde6de](https://github.com/dwmkerr/effective-shell/commit/2bde6defe7e3be0aac69d3d5bf0ab6e8ddd1a234))
+* update diagrams ([#348](https://github.com/dwmkerr/effective-shell/issues/348)) ([8be210a](https://github.com/dwmkerr/effective-shell/commit/8be210a709cd2b760878d1e781d0db0f00b639b0))
+
 ## [0.34.10](https://github.com/dwmkerr/effective-shell/compare/v0.34.9...v0.34.10) (2024-10-01)
 
 
