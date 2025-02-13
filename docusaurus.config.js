@@ -91,6 +91,11 @@ const config = {
             position: 'left'
           },
           {
+            href: 'https://github.com/dwmkerr/terminal-ai',
+            label: 'Terminal AI',
+            position: 'left',
+          },
+          {
             type: 'search',
             position: 'right',
           },
