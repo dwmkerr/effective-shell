@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.36.0](https://github.com/dwmkerr/effective-shell/compare/v0.35.0...v0.36.0) (2025-03-11)
+
+
+### Features
+
+* add links to other projects ([3fb3416](https://github.com/dwmkerr/effective-shell/commit/3fb3416921e65554eb01b53a37e678db3821b783))
+
 ## [0.35.0](https://github.com/dwmkerr/effective-shell/compare/v0.34.10...v0.35.0) (2025-02-13)
 
 
