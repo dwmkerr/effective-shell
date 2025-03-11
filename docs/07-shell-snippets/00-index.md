@@ -9,17 +9,30 @@ After finishing the [Effective Shell Book](https://amzn.to/4ho0F91) I still find
 
 A fun snippet I built is the function `aigac` - this is short for "AI Git Add & Commit". It performs an interactive patch add of changes to the working tree, commits the changes, then uses the [Terminal AI](https://github.com/dwmkerr/terminal-ai) tool to create a commit message with a title and description that follows [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) syntax:
 
-![Demo](./recording/cast)
+![Demo](./casts/aigac.svg)
 
 The function looks like this:
 
 ```bash
-here's the function
+aigac() {
+  # Add untracked files but none of their content - so that 'git add --patch'
+  # lets us interactively stage new files as well as existing file changes.
+  git add -N .
+  git add --patch
+
+  # If there's no changes, bail.
+  if git diff --cached --quiet; then
+    echo "No changes staged for commit."
+    return 1
+  fi
+
+  # Generate the commit message using terminal-ai. Pipe it into 'git commit'
+  # by using the '-F -' (i.e. read from the stdin file). Make sure we edit it
+  # in the editor first with '-e'.
+  git diff --cached |\
+    ai -- 'summarise this git diff into a conventional commit, e.g. feat(feature): short description\n\nlong description' |\
+    git commit -e -F - 
+}
 ```
 
-And it works by:
-
-1. Interactively staging all of the working changes with the `--patch` option, which lets you visually inspect and edit each change before you stage it
-2. Creating a diff of the staged changes
-3. Piping that diff to `ai` and asking for a message
-4. Piping the message to `git commit` and opening the message in the editor
+This snippet may change over time - you should be able to find the latest version in my [`dotfiles`](https://github.com/dwmkerr/dotfiles).

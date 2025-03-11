@@ -86,6 +86,12 @@ const config = {
             label: 'Home',
           },
           {
+            type: 'doc',
+            docId: 'shell-snippets/index',
+            position: 'left',
+            label: 'Snippets',
+          },
+          {
             href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
             label: 'Buy me a Coffee!',
             position: 'right'
@@ -125,6 +131,10 @@ const config = {
               {
                 label: 'Home',
                 to: '/',
+              },
+              {
+                label: 'Snippets',
+                to: '/shell-snippets/',
               },
               {
                 href: 'https://amzn.to/4ho0F91',
