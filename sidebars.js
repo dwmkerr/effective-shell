@@ -98,6 +98,11 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'html',
+      value: '<AmazonBookPreview title="Effective Shell" imageUrl="https://m.media-amazon.com/images/I/71xI0lAzRzL._SL1500_.jpg" affiliateLink="https://amzn.to/4ho0F91" /> ', // The HTML to be rendered
+      defaultStyle: true, // Use the default menu item styling
+    },
   ],
 };
 

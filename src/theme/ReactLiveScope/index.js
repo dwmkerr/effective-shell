@@ -10,6 +10,7 @@ import AnnotatedCommand from '@site/src/components/AnnotatedCommmand/AnnotatedCo
 import AsciinemaPlayer from '@site/src/components/AsciinemaPlayer/AsciinemaPlayer.tsx';
 import Caret from '@site/src/components/Caret/Caret.tsx';
 import ShellPrompt from '@site/src/components/ShellPrompt/ShellPrompt.tsx';
+import AmazonBookPreview from '@site/src/components/AmazonBookPreview/index.tsx';
 //  import Image from '@theme/IdealImage'; // disabled until I work out why it breaks non-ideal images
 
 const ReactLiveScopeWrapper = (props) => (
@@ -24,6 +25,7 @@ ReactLiveScopeWrapper.AnnotatedCommand = AnnotatedCommand;
 ReactLiveScopeWrapper.AsciinemaPlayer = AsciinemaPlayer;
 ReactLiveScopeWrapper.Caret = Caret;
 ReactLiveScopeWrapper.ShellPrompt = ShellPrompt;
+ReactLiveScopeWrapper.AmazonBookPreview = AmazonBookPreview;
 //ReactLiveScopeWrapper.Image = Image;
 
 export default ReactLiveScopeWrapper;

@@ -1,0 +1,30 @@
+.book-preview {
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.book-image {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.buy-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #ff9900;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.buy-link:hover {
+    background-color: #e68a00;
+}
+

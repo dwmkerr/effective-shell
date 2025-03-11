@@ -86,14 +86,24 @@ const config = {
             label: 'Home',
           },
           {
-            to: 'donate',
-            label: 'Donate',
-            position: 'left'
+            href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
+            label: 'Buy me a Coffee!',
+            position: 'right'
+          },
+          {
+            href: 'https://amzn.to/4ho0F91',
+            label: 'Buy the Book on Amazon!',
+            position: 'right',
           },
           {
             href: 'https://github.com/dwmkerr/terminal-ai',
             label: 'Terminal AI',
-            position: 'left',
+            position: 'right',
+          },
+          {
+            href: 'https://hacker-laws.com',
+            label: 'Hacker Laws',
+            position: 'right',
           },
           {
             type: 'search',
@@ -117,8 +127,29 @@ const config = {
                 to: '/',
               },
               {
-                to: 'donate',
-                label: 'Donate',
+                href: 'https://amzn.to/4ho0F91',
+                label: 'Buy the Book on Amazon!',
+                position: 'right',
+              },
+              {
+                href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
+                label: 'Buy me a Coffee!',
+                position: 'right'
+              },
+            ],
+          },
+          {
+            title: 'Other Projects',
+            items: [
+              {
+                href: 'https://github.com/dwmkerr/terminal-ai',
+                label: 'Terminal AI',
+                position: 'right',
+              },
+              {
+                href: 'https://hacker-laws.com',
+                label: 'Hacker Laws',
+                position: 'right',
               },
             ],
           },
