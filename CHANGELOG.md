@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.38.0](https://github.com/dwmkerr/effective-shell/compare/v0.37.0...v0.38.0) (2025-03-11)
+
+
+### Features
+
+* **docs:** cleanup header bar ([5d14eed](https://github.com/dwmkerr/effective-shell/commit/5d14eed13cc1fe45ca826738d8f33b50e24e1357))
+
 ## [0.37.0](https://github.com/dwmkerr/effective-shell/compare/v0.36.0...v0.37.0) (2025-03-11)
 
 
