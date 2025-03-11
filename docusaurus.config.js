@@ -92,13 +92,8 @@ const config = {
             label: 'Snippets',
           },
           {
-            href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
-            label: 'Buy me a Coffee!',
-            position: 'right'
-          },
-          {
             href: 'https://amzn.to/4ho0F91',
-            label: 'Buy the Book on Amazon!',
+            label: 'Effective Shell on Amazon',
             position: 'right',
           },
           {
@@ -110,6 +105,11 @@ const config = {
             href: 'https://hacker-laws.com',
             label: 'Hacker Laws',
             position: 'right',
+          },
+          {
+            href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
+            label: 'Grab me a Coffee!',
+            position: 'right'
           },
           {
             type: 'search',
