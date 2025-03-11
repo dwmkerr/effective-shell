@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.37.0](https://github.com/dwmkerr/effective-shell/compare/v0.36.0...v0.37.0) (2025-03-11)
+
+
+### Features
+
+* snippets ([#366](https://github.com/dwmkerr/effective-shell/issues/366)) ([a35bf37](https://github.com/dwmkerr/effective-shell/commit/a35bf3722832e0b859496407d76a72c7f2796470))
+
 ## [0.36.0](https://github.com/dwmkerr/effective-shell/compare/v0.35.0...v0.36.0) (2025-03-11)
 
 
