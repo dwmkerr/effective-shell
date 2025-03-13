@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.0](https://github.com/dwmkerr/effective-shell/compare/v0.38.0...v0.39.0) (2025-03-13)
+
+
+### Features
+
+* **docs:** amazon link in sidebar ([f422fc4](https://github.com/dwmkerr/effective-shell/commit/f422fc47e0d05f2856beceebcb7fbf108b0b84a8))
+
 ## [0.38.0](https://github.com/dwmkerr/effective-shell/compare/v0.37.0...v0.38.0) (2025-03-11)
 
 
