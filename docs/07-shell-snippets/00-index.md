@@ -36,3 +36,43 @@ aigac() {
 ```
 
 This snippet may change over time - you should be able to find the latest version in my [`dotfiles`](https://github.com/dwmkerr/dotfiles).
+
+### Open GitHub for Current Directory
+
+When I'm working on some code I often want to open its GitHub home page, to check for issues, see the status of pipelines and so on. You can use the [`gh`](https://github.com/cli/cli) CLI for many of these operations, but if I just want to open the webpage, I like use the `ghopen` function:
+
+![Demo](./casts/ghopen.svg)
+
+This command will open the URL shown in your browser.
+
+Here's the code:
+
+```bash title="https://github.com/dwmkerr/dotfiles/blob/main/shell.functions.d/ghopen.sh"
+ghopen() {
+    # Get the origin for the current repo.
+    local origin=$(git remote get-url origin 2> /dev/null)
+
+    # Bail if we're not in a github repo.
+    if [[ ($? -ne 0) || ("${origin}" != *github*) ]]; then
+        echo "current dir '$(basename "${PWD}")' is not in a github repo..."
+        return
+    fi
+
+    # The origin probably looks like this:
+    # git@github.com:dwmkerr/effective-shell.git
+    # The org/repo is everything after the colon and before '.git'.
+    local org_repo=$(echo "${origin%.git}" | cut -f2 -d:)
+    local url="http://github.com/${org_repo}"
+
+    # Let the user know what we're opening, formatting org/repo in green, open.
+    echo -e "opening github.com/\e[32m${org_repo}\e[0m"
+    python3 -c "import webbrowser; webbrowser.open_new_tab('${url}')"
+}
+```
+
+Some useful techniques - all of which are covered in various chapters across the book!
+
+- Stream Redirection: We pipe errors from `git` to `/dev/null` so that we don't spam the user's screen, and check the result of the command with `$?`
+- Conditionals: The Bash 'if statement' let's us check whether the origin contains the text 'github'
+- Shell Expansion: We can use the `${origin%.git}` brace expansion to remove `.git` from the end of a variable
+- Opening a browser with `python3` is more portable than using `open` or similar
