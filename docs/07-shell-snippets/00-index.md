@@ -37,9 +37,9 @@ aigac() {
 
 This snippet may change over time - you should be able to find the latest version in my [`dotfiles`](https://github.com/dwmkerr/dotfiles).
 
-### Open GitHub Page for Repo
+### Open GitHub for Current Directory
 
-When I'm working on some code I often have to open its GitHub home page, to check for issues, see the status of pipelines and so on. You can use the [`gh`](https://github.com/cli/cli) CLI for many of these operations, but if I just want to open the webpage, I like use the `ghopen` function:
+When I'm working on some code I often want to open its GitHub home page, to check for issues, see the status of pipelines and so on. You can use the [`gh`](https://github.com/cli/cli) CLI for many of these operations, but if I just want to open the webpage, I like use the `ghopen` function:
 
 ![Demo](./casts/ghopen.svg)
 
