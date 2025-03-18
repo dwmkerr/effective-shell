@@ -13,7 +13,7 @@ A fun snippet I built is the function `aigac` - this is short for "AI Git Add & 
 
 The function looks like this:
 
-```bash
+```bash title="https://github.com/dwmkerr/dotfiles/blob/main/shell.functions.d/aigac.sh"
 aigac() {
   # Add untracked files but none of their content - so that 'git add --patch'
   # lets us interactively stage new files as well as existing file changes.
@@ -73,6 +73,7 @@ ghopen() {
 Some useful techniques - all of which are covered in various chapters across the book!
 
 - Stream Redirection: We pipe errors from `git` to `/dev/null` so that we don't spam the user's screen, and check the result of the command with `$?`
-- Conditionals: The Bash 'if statement' let's us check whether the origin contains the text 'github'
+- Conditionals: The Bash 'if statement' lets us check whether the origin contains the text 'github'
+- Manipulating Text: The `cut` command can quickly cut out everything after the `:` in the origin
 - Shell Expansion: We can use the `${origin%.git}` brace expansion to remove `.git` from the end of a variable
 - Opening a browser with `python3` is more portable than using `open` or similar
