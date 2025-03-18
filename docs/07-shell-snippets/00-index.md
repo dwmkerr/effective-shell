@@ -66,7 +66,7 @@ ghopen() {
 
     # Let the user know what we're opening, formatting org/repo in green, open.
     echo -e "opening github.com/\e[32m${org_repo}\e[0m"
-    python -c "import webbrowser; webbrowser.open_new_tab('${url}')"
+    python3 -c "import webbrowser; webbrowser.open_new_tab('${url}')"
 }
 ```
 
