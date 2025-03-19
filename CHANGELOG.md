@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.40.1](https://github.com/dwmkerr/effective-shell/compare/v0.40.0...v0.40.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* cleanup formatting ([2e41307](https://github.com/dwmkerr/effective-shell/commit/2e41307334eccc2e47a4cb00954d1987b97bb150))
+
 ## [0.40.0](https://github.com/dwmkerr/effective-shell/compare/v0.39.0...v0.40.0) (2025-03-18)
 
 
