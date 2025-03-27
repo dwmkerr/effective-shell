@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.41.0](https://github.com/dwmkerr/effective-shell/compare/v0.40.0...v0.41.0) (2025-03-27)
+
+
+### Features
+
+* **shell-snippets:** add the 'make help' snippet ([#373](https://github.com/dwmkerr/effective-shell/issues/373)) ([92dc0cc](https://github.com/dwmkerr/effective-shell/commit/92dc0ccd98ccebaa6213224bac5f6399a3f86a4c))
+
+
+### Documentation
+
+* Improve introduction and add Amazon link ([#374](https://github.com/dwmkerr/effective-shell/issues/374)) ([6046482](https://github.com/dwmkerr/effective-shell/commit/6046482b18841e4deb029feb00c9c5bd002ea184))
+
+
+### Bug Fixes
+
+* cleanup formatting ([2e41307](https://github.com/dwmkerr/effective-shell/commit/2e41307334eccc2e47a4cb00954d1987b97bb150))
+
 ## [0.40.0](https://github.com/dwmkerr/effective-shell/compare/v0.39.0...v0.40.0) (2025-03-18)
 
 
