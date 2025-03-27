@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.41.1](https://github.com/dwmkerr/effective-shell/compare/v0.41.0...v0.41.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* fix missing image ([63bfc49](https://github.com/dwmkerr/effective-shell/commit/63bfc492110a4d1f79cdb09836d4d6c5292ca2c1))
+
 ## [0.41.0](https://github.com/dwmkerr/effective-shell/compare/v0.40.0...v0.41.0) (2025-03-27)
 
 
