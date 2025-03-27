@@ -77,3 +77,32 @@ Some useful techniques - all of which are covered in various chapters across the
 - Manipulating Text: The `cut` command can quickly cut out everything after the `:` in the origin
 - Shell Expansion: We can use the `${origin%.git}` brace expansion to remove `.git` from the end of a variable
 - Opening a browser with `python3` is more portable than using `open` or similar
+
+:::tip
+
+A super useful comment on [Reddit](https://www.reddit.com/r/commandline/comments/1jeqznz/comment/miswst8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+) on an alternative way to do this!
+
+:::
+
+### Makefile Help
+
+This is a snippet I include in every Makefile that I use. It simply adds a default recipe called `help` that shows each recipe in the Makefile along with a description:
+
+![Makefile Help Demo](./casts/make-help/make-help.svg)
+
+All you need to add to your Makefile is the recipe `help` shown below. To add a description to any other recipe just add a comment that follows its name!
+
+```make
+default: help
+
+.PHONY: help
+help: # Show help for each of the Makefile recipes.
+	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
+
+.PHONY: example
+example: # Here's an example of how to add a description!
+	@echo "Hello!"
+```
+
+This is also documented in a little repo at [github.com/dwmkerr/makefile-help](https://github.com/dwmkerr/makefile-help).
