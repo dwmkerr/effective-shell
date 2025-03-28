@@ -93,7 +93,13 @@ This is a snippet I include in every Makefile that I use. It simply adds a defau
 
 All you need to add to your Makefile is the recipe `help` shown below. To add a description to any other recipe just add a comment that follows its name!
 
-```make
+:::warning
+
+Makefiles must be indented with tabs, not spaces, copy the source-code from [`makefile-help`](https://github.com/dwmkerr/makefile-help) if the code below doesn't work, it seems that docusaurus might transform tabs to spaces.
+
+:::
+
+```makefile title="https://github.com/dwmkerr/makefile-help"
 default: help
 
 .PHONY: help
