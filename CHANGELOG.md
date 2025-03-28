@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.41.2](https://github.com/dwmkerr/effective-shell/compare/v0.41.1...v0.41.2) (2025-03-28)
+
+
+### Bug Fixes
+
+* makefile tabs warning ([d026ede](https://github.com/dwmkerr/effective-shell/commit/d026ede1df8447438c68109717a78877e174ce91))
+
 ## [0.41.1](https://github.com/dwmkerr/effective-shell/compare/v0.41.0...v0.41.1) (2025-03-27)
 
 
