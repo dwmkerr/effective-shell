@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.42.1](https://github.com/dwmkerr/effective-shell/compare/v0.42.0...v0.42.1) (2025-06-16)
+
+
+### Bug Fixes
+
+* **snippets:** add missing cast ([7c3326c](https://github.com/dwmkerr/effective-shell/commit/7c3326c5340f860235ae97cbe07f1d413ee0f390))
+
 ## [0.42.0](https://github.com/dwmkerr/effective-shell/compare/v0.41.1...v0.42.0) (2025-06-16)
 
 
