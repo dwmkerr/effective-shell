@@ -176,7 +176,7 @@ $ killport 3000
 killed process with id 48022 using port 3000: next-server (v15.3.3)
 ```
 
-![Demo](./snippets/killport/recording.cast)
+![Demo](./snippets/killport/recording.svg)
 
 In this case I use the `killport` function defined below:
 
