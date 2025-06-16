@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.42.0](https://github.com/dwmkerr/effective-shell/compare/v0.41.1...v0.42.0) (2025-06-16)
+
+
+### Features
+
+* **snippets:** killport ([#377](https://github.com/dwmkerr/effective-shell/issues/377)) ([3888140](https://github.com/dwmkerr/effective-shell/commit/3888140713f02b9271b52a23c17fc2fadc7f6b47))
+
+
+### Bug Fixes
+
+* makefile tabs warning ([d026ede](https://github.com/dwmkerr/effective-shell/commit/d026ede1df8447438c68109717a78877e174ce91))
+
 ## [0.41.1](https://github.com/dwmkerr/effective-shell/compare/v0.41.0...v0.41.1) (2025-03-27)
 
 
