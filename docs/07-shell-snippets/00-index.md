@@ -176,6 +176,8 @@ $ killport 3000
 killed process with id 48022 using port 3000: next-server (v15.3.3)
 ```
 
+![Demo](./snippets/killport/recording.cast)
+
 In this case I use the `killport` function defined below:
 
 ```bash
@@ -185,10 +187,10 @@ killport() {
     echo "usage: ${name} <port>"
     echo "  Kills the process using the specified port, e.g:"
     echo "  ${name} 8080"
-    exit 0
+    return 0
   fi
 
-  # Show help if port number was not provided.
+  # Check if port number was provided
   if [[ -z "$1" ]]; then
     echo "error: no port specified"
     echo "usage: ${name} <port>"
@@ -197,8 +199,8 @@ killport() {
 
   local port="$1"
   
-  # Find the process id using the port.
-  local pid=$(lsof -ti :${port})
+  # Find the process using the port
+  local pid=$(lsof -ti :"${port}")
   
   if [[ -z "$pid" ]]; then
     echo "no process found using port ${port}"
@@ -206,13 +208,11 @@ killport() {
   fi
   
   # Get process info before killing it
-  local process_info=$(ps -p ${pid} -o comm | tail -n 1)
+  local process_info=$(ps -p "${pid}" -o comm | tail -n 1)
   
-  # Kill the process
-  kill ${pid}
-  
-  if [[ $? -eq 0 ]]; then
-    echo "killed process with id ${pid} using port ${port}: ${process_info}"
+  # Kill the process, update the user.
+  if kill "${pid}"; then
+    echo -e "killed process using port \e[1;37m${port}\e[0m: \e[1;32m${process_info}\e[0m"
   else
     echo "failed to kill process ${pid} using port ${port}"
     return 1
