@@ -3,7 +3,7 @@ title: 'Shell Snippets'
 slug: '/shell-snippets/'
 ---
 
-After finishing the [Effective Shell Book](https://amzn.to/4ho0F91) I still find myself regularly discovering techniques that are huge time-savers. I've called these **Effective Shell Snippets** and will update this page with them from time to time, so check back regularly!
+After finishing the [Effective Shell Book](https://amzn.to/4ho0F91) I still find myself regularly discovering or remembering techniques that are huge time-savers. I've called these **Effective Shell Snippets** and will update this page with them from time to time, so check back regularly!
 
 ### Git + AI: Interactively Staging Changes, Summarising with AI
 
@@ -112,3 +112,116 @@ example: # Here's an example of how to add a description!
 ```
 
 This is also documented in a little repo at [github.com/dwmkerr/makefile-help](https://github.com/dwmkerr/makefile-help).
+
+### Dot files and `envsubst`
+
+The `envsubst` command can be used to quickly create and populate template files. When combined with `.env` files, which are a common feature of projects that need to manage secrets, you can rapidly inject secrets or configuration into workflows. Here's a quick demo - which is detailed below:
+
+![Envsubst Demo](./snippets/envsubst/envsubst.svg)
+
+In this demo we:
+
+- Show the contents of a `.env` file. This is shown in colour by using `bat` - a popular alternative to `cat`.
+- Show the contents of a `secret.template.yaml` file - which has placeholders for sensitive confiratu
+
+```bash
+# First create a template.
+cat <<EOF > secret.template.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+type: Opaque
+data:
+  username: \${USERNAME}
+  password: \${PASSWORD}
+EOF
+
+# Demo is better in colors. This is the template above but from bat.
+alias cat="bat --plain --theme base16 --force-colorization --language yaml" && clear
+
+# Let's check how this looks.
+cat secret.template.yaml
+
+# Now demo substitute env vars. Pipe into cat for colors.
+USERNAME=developer PASSWORD=123 envsubst < config.template.yaml | cat
+
+# Demo:
+
+# Setup
+source ./init.sh
+
+# Show secret.
+bat secret.template.yaml
+
+# Show env.
+bat .env
+
+# Show subsitution.
+source .env
+envsubst < secret.template.yaml
+
+# Show more.
+PASSWORD=123 envsubst < secret.template.yaml
+```
+
+### Free up a port
+
+It's really easy to leave applications that are listening to a port, such as application servers or docker containers running by mistake. In this circumstance you can find the process that is using the port, grab its process ID and then kill it. But beyond the fact that `lsof` needs to be used, I always forget the command.
+
+The `killport` function finds the process using the port, kills it, and shows a quick summary:
+
+```
+$ killport 3000
+killed process with id 48022 using port 3000: next-server (v15.3.3)
+```
+
+In this case I use the `killport` function defined below:
+
+```bash
+killport() {
+  local name="killport"
+  if [[ "$1" == "-h" ]]; then
+    echo "usage: ${name} <port>"
+    echo "  Kills the process using the specified port, e.g:"
+    echo "  ${name} 8080"
+    exit 0
+  fi
+
+  # Show help if port number was not provided.
+  if [[ -z "$1" ]]; then
+    echo "error: no port specified"
+    echo "usage: ${name} <port>"
+    return 1
+  fi
+
+  local port="$1"
+  
+  # Find the process id using the port.
+  local pid=$(lsof -ti :${port})
+  
+  if [[ -z "$pid" ]]; then
+    echo "no process found using port ${port}"
+    return 1
+  fi
+  
+  # Get process info before killing it
+  local process_info=$(ps -p ${pid} -o comm | tail -n 1)
+  
+  # Kill the process
+  kill ${pid}
+  
+  if [[ $? -eq 0 ]]; then
+    echo "killed process with id ${pid} using port ${port}: ${process_info}"
+  else
+    echo "failed to kill process ${pid} using port ${port}"
+    return 1
+  fi
+} 
+```
+
+Lots of fun tweaks could be made to this function, such as:
+
+- Asking for operator to confirm before killing the process
+- Listing all processes using a port range, or all ports
+- Allowing the user for force kill if a regular kill doesn't free up the port
