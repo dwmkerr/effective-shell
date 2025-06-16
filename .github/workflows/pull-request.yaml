@@ -33,7 +33,7 @@ jobs:
   # See:
   # https://github.com/marketplace/actions/deploy-pr-preview
   deploy-preview:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
