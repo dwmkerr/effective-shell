@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.43.0](https://github.com/dwmkerr/effective-shell/compare/v0.42.1...v0.43.0) (2025-08-22)
+
+
+### chore
+
+* release 0.43.0 ([243f7fe](https://github.com/dwmkerr/effective-shell/commit/243f7fe41dade2765e9ed4e4c7004f15c169e4fc))
+
 ## [0.42.1](https://github.com/dwmkerr/effective-shell/compare/v0.42.0...v0.42.1) (2025-06-16)
 
 
