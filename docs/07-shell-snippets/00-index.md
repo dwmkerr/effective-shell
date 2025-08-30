@@ -178,7 +178,7 @@ killed process with id 48022 using port 3000: next-server (v15.3.3)
 
 ![Demo](./snippets/killport/recording.cast)
 
-In this case I use the `killport` function defined below:
+In this case I use the `killport` function defined below (latest version available in [dotfiles](https://github.com/dwmkerr/dotfiles/blob/main/shell.functions.d/killport.sh)):
 
 ```bash
 killport() {
@@ -199,8 +199,8 @@ killport() {
 
   local port="$1"
   
-  # Find the process using the port
-  local pid=$(lsof -ti :"${port}")
+  # Find the first process using the port (handles parent/child PIDs)
+  local pid=$(lsof -ti :"${port}" | head -n 1)
   
   if [[ -z "$pid" ]]; then
     echo "no process found using port ${port}"
