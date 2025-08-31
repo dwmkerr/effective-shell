@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.43.1](https://github.com/dwmkerr/effective-shell/compare/v0.43.0...v0.43.1) (2025-08-31)
+
+
+### Documentation
+
+* fix killport function to handle multiple PIDs ([#380](https://github.com/dwmkerr/effective-shell/issues/380)) ([5bb48b6](https://github.com/dwmkerr/effective-shell/commit/5bb48b6d50856b9e5c67eef784461507dcd17e20))
+
 ## [0.43.0](https://github.com/dwmkerr/effective-shell/compare/v0.42.1...v0.43.0) (2025-08-22)
 
 
