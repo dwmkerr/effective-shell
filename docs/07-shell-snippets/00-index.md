@@ -176,8 +176,6 @@ $ killport 3000
 killed process with id 48022 using port 3000: next-server (v15.3.3)
 ```
 
-![Demo](./snippets/killport/recording.cast)
-
 In this case I use the `killport` function defined below (latest version available in [dotfiles](https://github.com/dwmkerr/dotfiles/blob/main/shell.functions.d/killport.sh)):
 
 ```bash

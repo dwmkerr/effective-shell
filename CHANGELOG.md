@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.43.0](https://github.com/dwmkerr/effective-shell/compare/v0.42.1...v0.43.0) (2025-08-22)
+
+
+### chore
+
+* release 0.43.0 ([243f7fe](https://github.com/dwmkerr/effective-shell/commit/243f7fe41dade2765e9ed4e4c7004f15c169e4fc))
+
+## [0.42.1](https://github.com/dwmkerr/effective-shell/compare/v0.42.0...v0.42.1) (2025-06-16)
+
+
+### Bug Fixes
+
+* **snippets:** add missing cast ([7c3326c](https://github.com/dwmkerr/effective-shell/commit/7c3326c5340f860235ae97cbe07f1d413ee0f390))
+
+## [0.42.0](https://github.com/dwmkerr/effective-shell/compare/v0.41.1...v0.42.0) (2025-06-16)
+
+
+### Features
+
+* **snippets:** killport ([#377](https://github.com/dwmkerr/effective-shell/issues/377)) ([3888140](https://github.com/dwmkerr/effective-shell/commit/3888140713f02b9271b52a23c17fc2fadc7f6b47))
+
+
+### Bug Fixes
+
+* makefile tabs warning ([d026ede](https://github.com/dwmkerr/effective-shell/commit/d026ede1df8447438c68109717a78877e174ce91))
+
 ## [0.41.1](https://github.com/dwmkerr/effective-shell/compare/v0.41.0...v0.41.1) (2025-03-27)
 
 

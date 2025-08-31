@@ -1,6 +1,6 @@
 {
   "name": "effective-shell",
-  "version": "0.41.1",
+  "version": "0.43.0",
   "private": false,
   "scripts": {
     "docusaurus": "docusaurus",
