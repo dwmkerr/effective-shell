@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.44.1](https://github.com/dwmkerr/effective-shell/compare/v0.44.0...v0.44.1) (2025-12-29)
+
+
+### Bug Fixes
+
+* set correct baseUrl for PR preview deployments ([#388](https://github.com/dwmkerr/effective-shell/issues/388)) ([88ed037](https://github.com/dwmkerr/effective-shell/commit/88ed03771099cfd67f93c2d5c64c945d90f347b7))
+
 ## [0.44.0](https://github.com/dwmkerr/effective-shell/compare/v0.43.0...v0.44.0) (2025-12-29)
 
 
