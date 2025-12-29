@@ -38,9 +38,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Build with the correct baseUrl for PR previews. The preview action
+      # deploys to /pr-preview/pr-{number}/ so we need to set baseUrl to match,
+      # otherwise Docusaurus assets won't load correctly.
       - name: Install and Build
-        if: github.event.action != 'closed' # You might want to skip the build if the PR has been closed
-        run: npm install --legacy-peer-deps && npm run build
+        if: github.event.action != 'closed'
+        env:
+          BASE_URL: /pr-preview/pr-${{ github.event.number }}/
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
