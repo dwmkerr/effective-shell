@@ -48,11 +48,7 @@ const config = {
         },
         blog: false,
         theme: {
-          //  It looks like Docosaurus doesn't yet support directly importing
-          //  this style in the EmailSignupForm component, so as a workaround
-          //  it is imported here, along with other stylesheets we need.
           customCss: [
-            require.resolve('react-mailchimp-email-signup-form/dist/esm/index.css'),
             require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
           ],
         },
@@ -87,28 +83,13 @@ const config = {
             label: 'Snippets',
           },
           {
-            href: 'https://amzn.to/4ho0F91',
-            label: 'Effective Shell on Amazon',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/dwmkerr/terminal-ai',
-            label: 'Terminal AI',
-            position: 'right',
-          },
-          {
-            href: 'https://hacker-laws.com',
-            label: 'Hacker Laws',
+            type: 'search',
             position: 'right',
           },
           {
             href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
-            label: 'Grab me a Coffee!',
+            label: 'Sponsor',
             position: 'right'
-          },
-          {
-            type: 'search',
-            position: 'right',
           },
           {
             href: githubRepoUrl,
