@@ -80,11 +80,6 @@ const sidebars = {
       ]
     },
     'shell-snippets/index',
-    {
-      type: 'html',
-      value: '<div style="text-align: center; width: 100%;"><a href="https://amzn.to/4ho0F91" target="_blank"><img alt="Effective Shell" src="/images/es-amazon.png" style="max-width:140px;" /></a></div>',
-      defaultStyle: true, // Use the default menu item styling
-    },
   ],
 };
 
