@@ -44,14 +44,10 @@ jobs:
       - name: Install and Build
         if: github.event.action != 'closed'
         env:
-          PR_NUMBER: ${{ github.event.number }}
+          BASE_URL: /pr-preview/pr-${{ github.event.number }}/
         run: |
           npm install --legacy-peer-deps
-          if [ -n "$PR_NUMBER" ]; then
-            npm run build -- --config "baseUrl:/pr-preview/pr-${PR_NUMBER}/"
-          else
-            npm run build
-          fi
+          npm run build
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1

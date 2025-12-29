@@ -13,12 +13,15 @@ const projectName = 'effective-shell';
 const githubRepoUrl = `https://github.com/${organizationName}/${projectName}/`
 const editUrl = `${githubRepoUrl}/edit/main/`;
 
+// Allow baseUrl override via environment variable for PR previews
+const baseUrl = process.env.BASE_URL || '/';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: title,
   tagline: 'Essential techniques for the modern technologist',
   url: 'https://effective-shell.com',
-  baseUrl: '/',
+  baseUrl: baseUrl,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.png',
