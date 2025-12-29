@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.44.0](https://github.com/dwmkerr/effective-shell/compare/v0.43.0...v0.44.0) (2025-12-29)
+
+
+### Features
+
+* add Google Tag Manager for Amazon click tracking ([#385](https://github.com/dwmkerr/effective-shell/issues/385)) ([02ba964](https://github.com/dwmkerr/effective-shell/commit/02ba964547ce9ca7ce810078824525d14185f856))
+
+
+### Documentation
+
+* fix killport function to handle multiple PIDs ([#380](https://github.com/dwmkerr/effective-shell/issues/380)) ([5bb48b6](https://github.com/dwmkerr/effective-shell/commit/5bb48b6d50856b9e5c67eef784461507dcd17e20))
+
 ## [0.43.0](https://github.com/dwmkerr/effective-shell/compare/v0.42.1...v0.43.0) (2025-08-22)
 
 
