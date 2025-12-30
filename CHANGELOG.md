@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.47.0](https://github.com/dwmkerr/effective-shell/compare/v0.46.0...v0.47.0) (2025-12-30)
+
+
+### Features
+
+* **navbar:** add mobile icons for Amazon and No Starch ([75b1975](https://github.com/dwmkerr/effective-shell/commit/75b1975cf616b4f363540eba777a3b94eb8498ce))
+
 ## [0.46.0](https://github.com/dwmkerr/effective-shell/compare/v0.45.0...v0.46.0) (2025-12-30)
 
 
