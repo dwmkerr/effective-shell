@@ -86,12 +86,14 @@ const config = {
           {
             href: 'https://nostarch.com/effective-shell',
             label: 'No Starch',
-            position: 'right'
+            position: 'right',
+            className: 'header-nostarch-link',
           },
           {
             href: 'https://amzn.to/4ho0F91',
             label: 'Amazon',
-            position: 'right'
+            position: 'right',
+            className: 'header-amazon-link',
           },
           {
             href: githubRepoUrl,
@@ -120,14 +122,12 @@ const config = {
                 to: '/shell-snippets/',
               },
               {
-                href: 'https://amzn.to/4ho0F91',
-                label: 'Buy the Book on Amazon!',
-                position: 'right',
+                href: 'https://nostarch.com/effective-shell',
+                label: 'No Starch',
               },
               {
-                href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
-                label: 'Buy me a Coffee!',
-                position: 'right'
+                href: 'https://amzn.to/4ho0F91',
+                label: 'Amazon',
               },
             ],
           },

@@ -39,3 +39,51 @@ html[data-theme='dark'] .header-github-link::before {
 .navbar__link svg[class*="external"] {
   display: none !important;
 }
+
+/* Amazon and No Starch icons for mobile navbar */
+.header-amazon-link::before,
+.header-nostarch-link::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Amazon icon */
+.header-amazon-link::before {
+  background-image: url('/images/amazon-tile.svg');
+}
+
+/* No Starch icon */
+.header-nostarch-link::before {
+  background-image: url('/images/nostarch-logo.jpg');
+}
+
+/* On mobile: show icons, hide text */
+@media (max-width: 996px) {
+  /* Override Docusaurus hiding right navbar items */
+  .header-amazon-link,
+  .header-nostarch-link,
+  .header-github-link {
+    display: flex !important;
+  }
+
+  .header-amazon-link::before,
+  .header-nostarch-link::before {
+    display: flex;
+  }
+
+  .header-amazon-link,
+  .header-nostarch-link {
+    font-size: 0;
+    padding: 0.5rem;
+  }
+
+  .header-amazon-link {
+    margin-right: 1rem;
+  }
+}
+
