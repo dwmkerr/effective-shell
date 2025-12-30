@@ -20,6 +20,7 @@ const baseUrl = process.env.BASE_URL || '/';
 const config = {
   title: title,
   tagline: 'Essential techniques for the modern technologist',
+  clientModules: [require.resolve('./src/clientModules/titleOverride.js')],
   url: 'https://effective-shell.com',
   baseUrl: baseUrl,
   onBrokenLinks: 'warn',
@@ -67,18 +68,18 @@ const config = {
         title: title,
         logo: {
           alt: 'Effective Shell Logo',
-          src: 'img/logo.png',
+          src: 'images/mini-cover-illustration.png',
         },
         items: [
           {
             to: '/introduction/',
-            position: 'right',
+            position: 'left',
             label: 'The Book',
             activeBaseRegex: '^/(?!shell-snippets).*',
           },
           {
             to: '/shell-snippets/',
-            position: 'right',
+            position: 'left',
             label: 'Snippets',
             activeBasePath: '/shell-snippets/',
           },

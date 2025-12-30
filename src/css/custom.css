@@ -1,3 +1,9 @@
+/* Navbar logo size */
+.navbar__logo img {
+  height: 42px;
+  padding-right: 8px;
+}
+
 /* GitHub icon in navbar - matches Jest's implementation */
 .header-github-link:hover {
   opacity: 0.6;
