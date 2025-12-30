@@ -1,30 +1,32 @@
 .heroBanner {
-  padding: 4rem 0;
+  padding: 3rem 0 5rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .heroContent {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  max-width: 1200px;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .heroText {
-  flex: 1 1 400px;
+  flex: 1 1 280px;
   text-align: left;
+  max-width: 400px;
 }
 
 .heroTitle {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 .heroSubtitle {
@@ -34,13 +36,20 @@
 }
 
 .heroImage {
-  flex: 0 0 280px;
+  flex: 1 1 450px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: -220px;
+  margin-right: -60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .bookCover {
-  max-width: 280px;
-  border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   transition: transform 0.3s ease;
 }
 
@@ -51,17 +60,17 @@
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: center;
 }
 
 .buttonPrimary {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 4px;
   text-decoration: none;
   transition: all 0.2s ease;
   background: var(--ifm-color-primary);
@@ -77,10 +86,10 @@
 .buttonSecondary {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 4px;
   text-decoration: none;
   transition: all 0.2s ease;
   border: 2px solid var(--ifm-color-primary);
@@ -130,27 +139,55 @@
 }
 
 @media (max-width: 768px) {
+  .heroBanner {
+    padding: 1.5rem 0 2rem;
+    overflow: visible;
+  }
+
   .heroContent {
-    flex-direction: column-reverse;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    align-items: flex-start;
   }
 
   .heroText {
-    text-align: center;
+    flex: 1 1 50%;
+    text-align: left;
+    max-width: none;
   }
 
   .heroTitle {
-    font-size: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .buttons {
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .buttonPrimary,
+  .buttonSecondary {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+    width: auto;
+    max-width: none;
   }
 
   .heroImage {
-    flex: 0 0 200px;
+    flex: 1 1 50%;
+    margin-bottom: -100px;
+    margin-right: -2rem;
   }
 
   .bookCover {
-    max-width: 200px;
+    max-width: 100%;
   }
 }

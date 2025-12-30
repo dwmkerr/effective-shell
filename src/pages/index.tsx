@@ -9,11 +9,16 @@ function HeroSection() {
     <header className={styles.heroBanner}>
       <div className={styles.heroContent}>
         <div className={styles.heroText}>
-          <h1 className={styles.heroTitle}>Effective Shell</h1>
+          <h2 className={styles.heroTitle}>Effective Shell</h2>
           <p className={styles.heroSubtitle}>
-            Master the command line and transform your productivity. A free
-            online book for developers, sysadmins, and power users who want to
-            work faster and smarter.
+            Do you want to master the command line? Do you want to transform
+            your productivity and work faster than ever before?{' '}
+            <em>Then you need to read this book!</em>
+          </p>
+          <p className={styles.heroSubtitle}>
+            In <em>Effective Shell</em>, you'll learn essential techniques for
+            the modern technologist—from basic navigation to advanced scripting,
+            from pipelines to multiplexers.
           </p>
           <div className={styles.buttons}>
             <Link
@@ -37,7 +42,7 @@ function HeroSection() {
           <a href="https://amzn.to/4ho0F91">
             <img
               className={styles.bookCover}
-              src="/images/es-amazon-cover.png"
+              src="/images/es-cover-3d.png"
               alt="Effective Shell Book Cover"
             />
           </a>
