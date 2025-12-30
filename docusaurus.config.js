@@ -20,6 +20,7 @@ const baseUrl = process.env.BASE_URL || '/';
 const config = {
   title: title,
   tagline: 'Essential techniques for the modern technologist',
+  clientModules: [require.resolve('./src/clientModules/titleOverride.js')],
   url: 'https://effective-shell.com',
   baseUrl: baseUrl,
   onBrokenLinks: 'warn',
@@ -53,11 +54,8 @@ const config = {
         theme: {
           customCss: [
             require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
+            require.resolve('./src/css/custom.css'),
           ],
-        },
-        gtag: {
-          trackingID: 'G-8HZFMZV9Z4',
-          anonymizeIP: true,
         },
       }),
     ],
@@ -70,33 +68,39 @@ const config = {
         title: title,
         logo: {
           alt: 'Effective Shell Logo',
-          src: 'img/logo.png',
+          src: 'images/mini-cover-illustration.png',
         },
         items: [
           {
-            type: 'doc',
-            docId: 'index',
+            to: '/introduction/',
             position: 'left',
-            label: 'Home',
+            label: 'The Book',
+            activeBaseRegex: '^/(?!shell-snippets).*',
           },
           {
-            type: 'doc',
-            docId: 'shell-snippets/index',
+            to: '/shell-snippets/',
             position: 'left',
             label: 'Snippets',
+            activeBasePath: '/shell-snippets/',
           },
           {
-            type: 'search',
-            position: 'right',
+            href: 'https://nostarch.com/effective-shell',
+            label: 'No Starch',
+            position: 'right'
           },
           {
-            href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
-            label: 'Sponsor',
+            href: 'https://amzn.to/4ho0F91',
+            label: 'Amazon',
             position: 'right'
           },
           {
             href: githubRepoUrl,
-            label: 'GitHub',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
+          },
+          {
+            type: 'search',
             position: 'right',
           },
         ],

@@ -80,7 +80,7 @@
 
 .heroContent {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   gap: 2rem;
@@ -220,7 +220,7 @@
   margin: 0;
 }
 
-/* Mobile responsive */
+/* Tablet/mobile responsive */
 @media (max-width: 768px) {
   .navbarContent {
     padding: 0 1rem;
@@ -232,54 +232,48 @@
   }
 
   .topSpacer {
-    height: 40px;
+    height: 0;
   }
 
   .heroBanner {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
 
   .heroContent {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 0 1rem;
+    gap: 1rem;
   }
 
   .heroText {
-    flex: 1 1 50%;
-    max-width: none;
+    flex: 0 0 auto;
+    max-width: 100%;
   }
 
   .heroTitle {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .heroSubtitle {
-    font-size: 0.8rem;
-    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
   }
 
   .buttons {
-    gap: 0.3rem;
-  }
-
-  .buttonPrimary,
-  .buttonSecondary {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.7rem;
+    justify-content: center;
   }
 
   .heroImage {
-    flex: 0 0 40%;
-    margin-top: -80px;
-    margin-bottom: -80px;
+    flex: 0 0 auto;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .bookCover {
-    width: 100%;
-    max-width: 180px;
+    width: 200px;
   }
 
   .bottomSpacer {
