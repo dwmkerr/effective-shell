@@ -1,0 +1,309 @@
+/* Landing page - fixed colors, no dark/light mode */
+.landingPage {
+  min-height: 100vh;
+  background: #3a3a3a;
+}
+
+/* Navbar */
+.navbar {
+  background: #3a3a3a;
+  padding: 1rem 0;
+}
+
+.navbarContent {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbarLeft,
+.navbarRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbarBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbarBrand:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbarLogo {
+  height: 28px;
+  width: auto;
+}
+
+.navbarLink {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbarLink:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbarLinkActive {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Top spacer - light grey, book overlaps into this */
+.topSpacer {
+  height: 80px;
+  background: #3a3a3a;
+}
+
+/* Hero section - dark middle band */
+.heroBanner {
+  background: #2d2d2d;
+  padding: 4rem 0;
+  position: relative;
+  overflow: visible;
+}
+
+.heroContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.heroText {
+  flex: 0 1 500px;
+  text-align: left;
+  max-width: 500px;
+}
+
+.heroTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  color: #fff;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.heroImage {
+  flex: 0 0 350px;
+  position: relative;
+  z-index: 10;
+  margin-top: -160px;
+  margin-bottom: -160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookCover {
+  width: 350px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.bookCover:hover {
+  transform: translateY(-5px);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.buttonPrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: #4a9eff;
+  color: white;
+}
+
+.buttonPrimary:hover {
+  background: #3a8eef;
+  color: white;
+  text-decoration: none;
+}
+
+.buttonSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+}
+
+.buttonSecondary:hover {
+  border-color: #fff;
+  color: white;
+  text-decoration: none;
+}
+
+/* Bottom spacer - light grey, book overlaps into this */
+.bottomSpacer {
+  height: 80px;
+  background: #3a3a3a;
+}
+
+/* Features section */
+.features {
+  padding: 2rem 0 4rem;
+  background: #3a3a3a;
+}
+
+.featuresContainer {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.featureCard {
+  padding: 1.25rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.featureDescription {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .navbarContent {
+    padding: 0 1rem;
+  }
+
+  .navbarLeft,
+  .navbarRight {
+    gap: 1rem;
+  }
+
+  .topSpacer {
+    height: 40px;
+  }
+
+  .heroBanner {
+    padding: 2rem 0;
+  }
+
+  .heroContent {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0 1rem;
+  }
+
+  .heroText {
+    flex: 1 1 50%;
+    max-width: none;
+  }
+
+  .heroTitle {
+    font-size: 1.3rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .buttons {
+    gap: 0.3rem;
+  }
+
+  .buttonPrimary,
+  .buttonSecondary {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .heroImage {
+    flex: 0 0 40%;
+    margin-top: -80px;
+    margin-bottom: -80px;
+  }
+
+  .bookCover {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .bottomSpacer {
+    height: 40px;
+  }
+
+  .featuresContainer {
+    padding: 0 1rem;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .featureCard {
+    padding: 1rem;
+  }
+
+  .featureTitle {
+    font-size: 0.95rem;
+  }
+
+  .featureDescription {
+    font-size: 0.8rem;
+  }
+}

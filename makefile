@@ -10,8 +10,8 @@ help: # Show help for each of the Makefile recipes.
 setup: # Setup tools required for local development.
 	npm install --legacy-peer-deps # needed for the react signup form compatiblity
 
-.PHONY: serve
-serve: # Serve the site locally for testing.
+.PHONY: dev
+dev: # Serve the site locally for testing.
 	npm start
 
 .PHONY: typescript-check
