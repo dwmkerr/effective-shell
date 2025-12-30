@@ -23,7 +23,7 @@ function HeroSection() {
           <div className={styles.buttons}>
             <Link
               className={styles.buttonPrimary}
-              to="/transitioning-to-the-shell/">
+              to="/introduction/">
               Read for Free
             </Link>
             <Link
@@ -98,11 +98,14 @@ function Navbar() {
       <div className={styles.navbarContent}>
         <div className={styles.navbarLeft}>
           <Link to="/" className={styles.navbarLinkActive}>Home</Link>
-          <Link to="/introduction" className={styles.navbarLink}>Introduction</Link>
+          <Link to="/introduction" className={styles.navbarLink}>Read Now</Link>
         </div>
         <div className={styles.navbarRight}>
-          <Link href="https://github.com/sponsors/dwmkerr" className={styles.navbarLink}>
-            Sponsor
+          <Link href="https://amzn.to/4ho0F91" className={styles.navbarLink}>
+            Amazon
+          </Link>
+          <Link href="https://nostarch.com/effective-shell" className={styles.navbarLink}>
+            No Starch
           </Link>
           <Link href="https://github.com/dwmkerr/effective-shell" className={styles.navbarLink}>
             GitHub

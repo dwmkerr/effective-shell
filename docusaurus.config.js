@@ -53,11 +53,8 @@ const config = {
         theme: {
           customCss: [
             require.resolve('asciinema-player/dist/bundle/asciinema-player.css'),
+            require.resolve('./src/css/custom.css'),
           ],
-        },
-        gtag: {
-          trackingID: 'G-8HZFMZV9Z4',
-          anonymizeIP: true,
         },
       }),
     ],
@@ -74,29 +71,35 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'index',
-            position: 'left',
-            label: 'Home',
-          },
-          {
-            type: 'doc',
-            docId: 'shell-snippets/index',
-            position: 'left',
-            label: 'Snippets',
-          },
-          {
-            type: 'search',
+            to: '/introduction/',
             position: 'right',
+            label: 'The Book',
+            activeBaseRegex: '^/(?!shell-snippets).*',
           },
           {
-            href: 'https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr',
-            label: 'Sponsor',
+            to: '/shell-snippets/',
+            position: 'right',
+            label: 'Snippets',
+            activeBasePath: '/shell-snippets/',
+          },
+          {
+            href: 'https://nostarch.com/effective-shell',
+            label: 'No Starch',
+            position: 'right'
+          },
+          {
+            href: 'https://amzn.to/4ho0F91',
+            label: 'Amazon',
             position: 'right'
           },
           {
             href: githubRepoUrl,
-            label: 'GitHub',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
+          },
+          {
+            type: 'search',
             position: 'right',
           },
         ],
