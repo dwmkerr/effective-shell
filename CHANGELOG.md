@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.46.0](https://github.com/dwmkerr/effective-shell/compare/v0.45.0...v0.46.0) (2025-12-30)
+
+
+### Features
+
+* **landing:** improve responsive layout and navbar ([#392](https://github.com/dwmkerr/effective-shell/issues/392)) ([e0ae816](https://github.com/dwmkerr/effective-shell/commit/e0ae816c89e9ddad1cce7eec38ee6fe0a13fdcb4))
+
 ## [0.45.0](https://github.com/dwmkerr/effective-shell/compare/v0.44.1...v0.45.0) (2025-12-30)
 
 
