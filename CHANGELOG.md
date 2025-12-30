@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.45.0](https://github.com/dwmkerr/effective-shell/compare/v0.44.1...v0.45.0) (2025-12-30)
+
+
+### Features
+
+* **landing:** redesign landing page with custom layout ([#390](https://github.com/dwmkerr/effective-shell/issues/390)) ([190a198](https://github.com/dwmkerr/effective-shell/commit/190a198bb4b6ded15de4aaf60b4457eca41d1692))
+
 ## [0.44.1](https://github.com/dwmkerr/effective-shell/compare/v0.44.0...v0.44.1) (2025-12-29)
 
 
