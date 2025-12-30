@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 
@@ -11,14 +11,14 @@ function HeroSection() {
         <div className={styles.heroText}>
           <h2 className={styles.heroTitle}>Effective Shell</h2>
           <p className={styles.heroSubtitle}>
-            Do you want to master the command line? Do you want to transform
-            your productivity and work faster than ever before?{' '}
-            <em>Then you need to read this book!</em>
+            The hands-on guide for developers who want to master the command
+            line and build a fast, flexible, and portable development environment.
           </p>
           <p className={styles.heroSubtitle}>
-            In <em>Effective Shell</em>, you'll learn essential techniques for
-            the modern technologist—from basic navigation to advanced scripting,
-            from pipelines to multiplexers.
+            This isn't a tour of shell commands. It's a blueprint for creating
+            workflows that scale across machines, teams, and projects. By the
+            end, your shell won't just be a tool; it'll be an extension of your
+            thinking.
           </p>
           <div className={styles.buttons}>
             <Link
@@ -55,24 +55,24 @@ function HeroSection() {
 function FeatureSection() {
   const features = [
     {
-      title: 'From Beginner to Power User',
+      title: 'Understand Your AI',
       description:
-        'Start with the basics and progress to advanced techniques. Each chapter works as a standalone guide.',
+        'AI regularly composes shell commands. Understanding the shell helps you verify and build on what AI generates.',
     },
     {
-      title: 'Practical & Immediately Useful',
+      title: 'Pipelines & Data',
       description:
-        'Real-world examples you can apply right away. No fluff, just techniques that make a difference.',
+        'Find, filter, and reshape data using grep, regex, and pipelines. Compose powerful commands from simple building blocks.',
     },
     {
-      title: 'Cross-Platform',
+      title: 'Scripts & Automation',
       description:
-        'Works on Linux, macOS, and Windows (WSL). Learn skills that transfer across systems.',
+        'Automate setup, configuration, and repetitive tasks. From one-liners to robust shell programs.',
     },
     {
-      title: 'Shell Scripting',
+      title: 'Portable Toolkit',
       description:
-        'Automate repetitive tasks with scripts. From simple one-liners to robust shell programs.',
+        'Manage your environment with Git and dotfiles. Build workflows that scale across machines and projects.',
     },
   ];
 
@@ -92,16 +92,45 @@ function FeatureSection() {
   );
 }
 
+function Navbar() {
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.navbarContent}>
+        <div className={styles.navbarLeft}>
+          <Link to="/" className={styles.navbarLinkActive}>Home</Link>
+          <Link to="/introduction" className={styles.navbarLink}>Introduction</Link>
+        </div>
+        <div className={styles.navbarRight}>
+          <Link href="https://github.com/sponsors/dwmkerr" className={styles.navbarLink}>
+            Sponsor
+          </Link>
+          <Link href="https://github.com/dwmkerr/effective-shell" className={styles.navbarLink}>
+            GitHub
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
+
   return (
-    <Layout
-      title={siteConfig.title}
-      description="Master the command line with Effective Shell - a free online book for developers and power users">
-      <main>
-        <HeroSection />
+    <>
+      <Head>
+        <title>{siteConfig.title}</title>
+        <meta name="description" content="Master the command line with Effective Shell - a free online book for developers and power users" />
+      </Head>
+      <div className={styles.landingPage}>
+        <Navbar />
+        <div className={styles.topSpacer} />
+        <main>
+          <HeroSection />
+        </main>
+        <div className={styles.bottomSpacer} />
         <FeatureSection />
-      </main>
-    </Layout>
+      </div>
+    </>
   );
 }
