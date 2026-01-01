@@ -87,3 +87,13 @@ html[data-theme='dark'] .header-github-link::before {
   }
 }
 
+/* Keyboard shortcuts - smallcaps style matching print book */
+kbd {
+  font-variant: small-caps;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 3px;
+  background-color: var(--ifm-color-emphasis-100);
+}
+

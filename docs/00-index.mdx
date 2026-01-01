@@ -1,79 +1,88 @@
 ---
-title: Effective Shell
-leanpub_title: Introduction
-leanpub_header: |-
-  {sample: true}
-  {class: part}
+title: Introduction
 sidebar_position: 1
 sidebar_label: Introduction
 slug: '/introduction'
 ---
 
-One trait that defines great technologists is their ability to adapt their tools to their unique styles and needs. This book will help you do just that by using the shell. Investing a few hours in learning the command line techniques in Effective Shell will have a huge impact on your productivity. It will also make your work more fun.
+import ZshNote from '@site/src/components/ZshNote';
 
-You can read this book online for free, or [pre-order Effective Shell in paperback or for Kindle](https://amzn.to/4ho0F91):
+I've been lucky enough to spend many years working as a software engineer, and I've worked with data scientists, data engineers, site reliability engineers, and technologists of all sorts. One trait that stands out in great technologists is their ability to make their tools work for them by stitching the tools together in creative ways to suit their unique styles and needs. This book will help you do just that by using the shell.
 
-<div style={{ textAlign: "center", width: "100%;" }}>
-<a href="https://amzn.to/4ho0F91" target="_blank"><img alt="Effective Shell" src="/images/es-amazon-cover.png" style={{ maxWidth: "240px" }} /></a>
-</div>
+This isn't a book on shell scripting or Linux administration. Each chapter presents a set of techniques to help you work more efficiently, understand your system in more depth, and craft your environment to suit your individual workflow. This book doesn't ask you to totally change the way you work or to drop your current tooling. Instead, it brings together a set of skills that you can add to your toolkit and incorporate as you like.
 
-The shell's simple text-based interface lets you maintain a state of creative flow, free from the distractions of a graphical environment.
+Effective Shell is available in print from [Amazon](https://amzn.to/4ho0F91) and [No Starch Press](https://nostarch.com/effective-shell).
 
-This is not a book on shell scripting or Linux administration! Each chapter in this book can be read as a standalone set of techniques to help you be more efficient, understand your system in more depth, and craft your environment to suit your working style. This book does not advocate that you totally change the way you work or drop your current tooling; it just brings together a set of skills that you can add to your toolkit and incorporate in your own way.
+## What Is the Shell?
+
+The shell is the simple, text-based interface used to control a computer or a program. In Windows, it looks like this:
+
+<img alt="The shell on Windows" src={require('./00-introduction-images/ch00-figure-1.png').default} width="800px" />
+
+Here's what it looks like on a Mac:
+
+<img alt="The shell on macOS" src={require('./00-introduction-images/ch00-figure-2.png').default} width="800px" />
+
+And here's what it looks like on Fedora, a popular Linux distribution:
+
+<img alt="The shell on Fedora Linux" src={require('./00-introduction-images/ch00-figure-3.png').default} width="800px" />
+
+There are several reasons why you might want to use the shell instead of a graphical user interface (GUI):
+
+- **Learn more about your computer's internals** - Using the shell can help you understand how your computer works, which is helpful if you're a technology professional or simply want to better understand your system.
+- **Some scenarios require a shell** - Not every program or system can be operated with a GUI.
+- **Efficiency** - Many operations that are time-consuming or repetitive to perform using the GUI are much faster to perform in a shell. You can also write shell scripts to automate such operations.
+- **Simplicity** - The shell's text-based interface is a distraction-free environment to work in.
+
+Investing just a few hours in learning to use the shell can have an enormous impact on your productivity. It can also make your work more fun, allowing you to maintain a state of creative flow and work more effectively.
 
 ## Who Should Read This Book
 
-Developers and engineers should find almost every chapter of this book immediately applicable in day-to-day work. Whether you use Python, Golang, .NET, Java, whether you use an IDE or the terminal, these skills will help in day-to-day work.
+This book's primary audience will be readers who have some basic programming knowledge and familiarity with the command line on a Windows, macOS, or Linux system. If you're totally new to the shell environment, be sure to start with [Part 1 - Transitioning to the Shell](./01-transitioning-to-the-shell/00-index.md) before you dive in. There, you'll learn fundamentals such as setting up the shell on your system and navigating the files and folders on your machine.
 
-Site reliability engineers, system administrators and DevSecOps professionals will find these skills essential - if you regularly administer remote machines, connect to containers, manage clusters or cloud environments, you will find many techniques to help you with your work.
+Developers, data scientists, and engineers should find almost every chapter of this book immediately applicable in their day-to-day work. Whether you use Python, Golang, JavaScript, .NET, Java, or another language, an integrated development environment (IDE) or the terminal, the skills you'll learn here will improve your ability to quickly solve problems by using a simple, adaptable, and general-purpose toolkit.
 
-<!-- manuscript:ignore:start -->
-If you find this book useful, please consider [donating](https://github.com/sponsors/dwmkerr?frequency=one-time&sponsor=dwmkerr) to support my open source work - just a one off contribution for a coffee helps!
-<!-- manuscript:ignore:end -->
+Site reliability engineers, system administrators, and DevSecOps professionals will also find essential tips and tricks. If you regularly administer remote machines, connect to containers, or manage clusters or cloud environments, you'll find many techniques to help you work more efficiently.
 
-Hobbyists, polymaths and explorers should also read on - as well as going into specific techniques, each chapter gives essential knowledge on how these computers, operating systems and networking works.
+Hobbyists, polymaths and explorers should also read on - as well as going into specific techniques, each chapter gives essential knowledge on how computers, operating systems and networking work.
 
-## What's In This Book? 
+## What's In This Book?
 
-Each chapter of this book aims to work as a stand-alone description of a set of techniques that you should be able to apply immediately. I have focused on keeping the information to the essentials that allow you to use the skill, rather than create an exhaustive description of every possible feature. This should allow you to pick up the book and read a chapter over a coffee and try out the skills straight away.
+Each chapter of this book aims to work as a stand-alone description of a set of techniques that you should be able to apply immediately. I have focused on keeping the information to the essentials that allow you to use the skill, rather than creating an exhaustive description of every possible feature. This should allow you to pick up the book and read a chapter over a coffee and try out the skills straight away. Depending on your familiarity with and comfort in the shell, you can generally skip straight to chapters you're interested in rather than having to read the book in order.
 
- - [_Part 1 - Transitioning to the Shell_](./01-transitioning-to-the-shell/00-index.md) is aimed at people who are new to the shell. You'll learn how to set up your environment, navigate your system, manage files, move between a desktop environment and the shell and how to get help. More advanced users may want to skip some of this content.
- - [_Part 2 - Core Skills_](./02-core-skills/00-index.md) introduces the essential techniques that you should be able to apply immediately to improve your productivity. You'll learn how to use pipelines, rapidly move around the command-line and commands quickly, manage multiple tasks in parallel with jobs, the different types of commands that are available and how to search for files.
- - [_Part 3 - Manipulating Text and Streams_](./03-manipulating-text/00-index.md) demonstrates many techniques to work with text -whether it's code, data or configuration. You'll learn how to use regular expressions, how to search through text, how to slice and dice text, how to manipulate code and data, and then how to apply these techniques to your shell commands themselves.
- - [_Part 4 - Shell Scripting_](./04-shell-scripting/00-index.md) is a crash course in shell scripting. You'll learn how to write and run scripts, read and process input, perform logical operations, iterate over files and folders, build functions, handle errors and a set of re-usable patterns you can apply to your own scripts.
- - [_Part 5 - Building Your Toolkit_](./05-building-your-toolkit/00-index.md) goes into the techniques you can use to create and customize your own environment. You'll learn how to configure the shell, customize your command prompt, manage your configuration files and share and manage your configuration with the Git version control system.
- - [_Part 6 - Advanced Techniques_](./06-advanced-techniques/00-index.md) introduces even more powerful tools and techniques, showing the fundamentals of each skill and how you might incorporate it into your work. You'll learn how shell expansion works, which is key to understanding many of the nuances of complex commands, when you should move away from shell scripts and into a full-blown programming language, how to build programs that integrate well into other tools in the shell, how to connect to other machines with the secure shell, how to use the popular terminal editor Vim and how to use terminal multiplexers. 
-
-For the newcomer, you'll learn what a shell is, how to use it on your system, and then how to become more effective everyday by integrating the shell into your work. For the experienced professional, there is a wealth of detailed tips and tricks in each chapter that go into advanced topics and techniques to make you even more of a power user.
+- [_Part 1 - Transitioning to the Shell_](./01-transitioning-to-the-shell/00-index.md) is aimed at people who are new to the shell. You'll learn how to set up your environment, navigate your system, manage files, move between a desktop environment and the shell and how to get help.
+- [_Part 2 - Core Skills_](./02-core-skills/00-index.md) introduces essential techniques that you'll use again and again in your everyday work. You'll learn how to use pipelines, rapidly navigate the command-line, manage multiple tasks in parallel with jobs, the different types of commands that are available and how to search for files.
+- [_Part 3 - Manipulating Text and Streams_](./03-manipulating-text/00-index.md) demonstrates many techniques to work with text - whether it's code, data or configuration. You'll learn how to use regular expressions, search through text, slice and dice text, and how to apply these techniques to your shell commands themselves.
+- [_Part 4 - Shell Scripting_](./04-shell-scripting/00-index.md) is a crash course in shell scripting. You'll learn how to write and run scripts, read and process input, perform logical operations, iterate over files and folders, build functions, handle errors and apply re-usable patterns to your own scripts.
+- [_Part 5 - Building Your Toolkit_](./05-building-your-toolkit/00-index.md) goes into the techniques you can use to create and customize your own environment. You'll learn how to configure the shell, customize your command prompt, manage your configuration files and share your configuration with the Git version control system.
+- [_Part 6 - Advanced Techniques_](./06-advanced-techniques/00-index.md) introduces powerful tools and techniques. You'll learn how shell expansion works, when to move away from shell scripts into a full programming language, how to connect to other machines with the secure shell, how to use the terminal editor Vim and how to use terminal multiplexers.
+- [_Afterword - Generative AI and the Shell_](./coming-soon) looks at how generative AI can bring us to new levels of efficiency in the shell, tools that let you interact with AI systems from the command line, and what the future might hold.
 
 ## What You'll Need
 
-If you are using a computer, you have enough to get started! In [_Chapter 1 - Setting Up Your Shell Environment_](./01-transitioning-to-the-shell/01-getting-started/index.md) you'll learn how to setup your shell in Windows, Linux or MacOS. 
+If you do not have a Bash-like shell setup on your machine, check [Appendix A - Setup](./xx-appendices/setup/index.md) to learn how to setup your shell in Windows, Linux or macOS.
 
-Run the following command in your shell to download the samples:
-
-```bash
-curl -fsSL effective.sh | bash
-```
-
-No Linux, shell or programming knowledge is required to use this book, all underlying concepts will be explained as we go along. Advanced users will be able to skip some of the explanations, but there is also enough depth in each chapter that users of all levels should be able to learn something new. 
+No Linux, shell or programming knowledge is required to use this book, all underlying concepts will be explained as we go along. Advanced users will be able to skip some of the explanations, but there is also enough depth in each chapter that users of all levels should be able to learn something new.
 
 ## How To Read This Book
 
-Commands that you can type into your shell, such as `grep` are shown as `monospaced text`. Paths to file and folders, such as the _~/effective-shell_ folder are shown in _italics_.
+Commands that you can type into your shell, such as `grep` are shown as `monospaced text`. Paths to files and folders, such as the _~/effective-shell_ folder are shown in _italics_.
 
-In larger code samples, the dollar sign is used to indicate where you would start typing - this is the command prompt. The text that you type is shown in `**bold**`:
+In larger code samples, the dollar sign is used to indicate where you would start typing - this is the command prompt. The text that you type is shown in <strong><code>bold</code></strong>:
 
 <pre>
 $ <strong>echo "my shell is $SHELL"</strong><br />
 my shell is /bin/bash<br />
 </pre>
 
-This book assumes that you are using a Bash-like shell, most of these shells should operate in a similar way. However, given the popularity of the Z shell (Zsh) are called out like so:
+This book assumes that you are using a Bash-like shell. Given the popularity of the Z shell (Zsh), which is now the default for macOS, Z shell specifics are called out like so:
 
-:::info Z shell
+<ZshNote>
 
 Z shell specifics are highlighted like this.
 
-:::
+</ZshNote>
 
+## Bugs and Suggestions
+
+I've made every effort to keep samples bug-free and cross-platform. However, tools and operating systems change, and it's impossible to catch every issue. If you find a bug, or if you have any suggestions, please open an issue in the GitHub repository at [github.com/dwmkerr/effective-shell](https://github.com/dwmkerr/effective-shell).

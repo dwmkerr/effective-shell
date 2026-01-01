@@ -79,6 +79,14 @@ const sidebars = {
         'advanced-techniques/master-the-multiplexer/index',
       ]
     },
+    {
+      type: 'category',
+      label: 'Appendices',
+      items: [
+        'xx-appendices/setup/index',
+      ]
+    },
+    'zz-coming-soon/index',
     'shell-snippets/index',
   ],
 };

@@ -9,6 +9,11 @@ Book chapters (extracted from final manuscript):
 ~/repos/github/dwmkerr/effective-shell-book/migration/chapters/
 ```
 
+Book images (production-ready):
+```
+~/repos/github/dwmkerr/effective-shell-book/from-rachel/images/for-prod/
+```
+
 ## Book → Website Chapter Mapping
 
 Source files are in: `~/repos/github/dwmkerr/effective-shell-book/migration/chapters/`
@@ -16,7 +21,7 @@ Source files are in: `~/repos/github/dwmkerr/effective-shell-book/migration/chap
 | Book Section | Source File | Website Section | Status |
 |-------------|-------------|-----------------|--------|
 | **Front Matter** | | | |
-| Introduction | `introduction.md` | docs/00-index.mdx | ⬜ TODO |
+| Introduction | `introduction.md` | docs/00-index.mdx | ✅ Done |
 | **Part I: Core Skills** | | | |
 | Ch 1: Flying on the Command Line | `ch01-flying-on-the-command-line.md` | 02-core-skills/08-fly-on-the-command-line | ⬜ TODO |
 | Ch 2: Thinking in Pipelines | `ch02-thinking-in-pipelines.md` | 02-core-skills/07-thinking-in-pipelines | ⬜ TODO |
@@ -49,7 +54,7 @@ Source files are in: `~/repos/github/dwmkerr/effective-shell-book/migration/chap
 | **Afterword** | | | |
 | Afterword: Generative AI and the Shell | `afterword-generative-ai.md` | *NEW - needs website page* | ⬜ TODO |
 | **Appendices** | | | |
-| Appendix A: Setup | `appendix-a-setup.md` | xx-appendices/01-installing-samples | ⬜ TODO |
+| Appendix A: Setup | `appendix-a-setup.md` | xx-appendices/setup | ✅ Done |
 | Appendix B: Shell Basics | `appendix-b-shell-basics.md` | 01-transitioning-to-the-shell/* | ⬜ TODO |
 
 ## Website Content NOT in Book → Part VI: Additional Topics
@@ -66,6 +71,43 @@ These website sections are not in the published book and should be reorganized:
 | xx-appendices/exercises.md | Part VI or remove | Website-only |
 | xx-appendices/the-future.md | Part VI or remove | Website-only |
 | xx-appendices/thanks.md | Keep as appendix | Acknowledgments |
+
+## Editing Guide
+
+### General Principles
+
+- **Never change book content** - Assume the published book text is correct. If something seems wrong, raise a question or comment rather than making changes.
+- **Preserve formatting intent** - Match the book's formatting as closely as possible using web equivalents.
+
+### Formatting Conversions
+
+| Book Format | Website Format |
+|-------------|----------------|
+| `**Note**` blocks | `:::note` admonition |
+| `[enter]{.smallcaps}` keyboard keys | `<kbd>Enter</kbd>` (needs CSS - see below) |
+| `**Menu**4**Item**` navigation | `**Menu > Item**` |
+| `*https://example.com*` italic URLs | Plain `https://example.com` links |
+| Page references ("see page 123") | Remove or convert to section links |
+
+### Keyboard Shortcuts (Smallcaps Style)
+
+The book uses smallcaps for keyboard keys like Enter, Return, Tab. To preserve this style:
+
+1. Use the `<kbd>` HTML element: `<kbd>Enter</kbd>`
+2. CSS styling is needed in `src/css/custom.css`:
+
+```css
+kbd {
+  font-variant: small-caps;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 3px;
+  background-color: var(--ifm-color-emphasis-100);
+}
+```
+
+This CSS has been added to `src/css/custom.css`.
 
 ## Migration Workflow
 
