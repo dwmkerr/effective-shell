@@ -362,7 +362,7 @@ ssh e<tab> # when I press tab, the shell expands this to:
 ssh effective-shell-aws-linux
 ```
 
-There are many other options available for the SSH config file, you can see them all with `man ssh_config`. We'll see some other options in [Chapter 33 - Master the Multiplexer](../33-master-the-multiplexer/index.md).
+There are many other options available for the SSH config file, you can see them all with `man ssh_config`. We'll see some other options in [Chapter 33 - Master the Multiplexer](../33-master-the-multiplexer/index.mdx).
 
 ## Running SSH Commands
 
@@ -401,7 +401,7 @@ One thing that will soon become a pain if you are regularly SSH-ing into virtual
 
 It is annoying when this happens - often the shell is so unresponsive that you cannot even free it by pressing `^D` or `^C`. There is actually an escape sequence that you can use to end a broken session, which is the `Enter` then `~` then `.`.
 
-In [Chapter 33 - Master the Multiplexer](../33-master-the-multiplexer/index.md) we'll look at some great ways to improve upon this, for now if you forget the Enter/Tidle/Dot escape sequence the easiest thing to do is to close your terminal program.
+In [Chapter 33 - Master the Multiplexer](../33-master-the-multiplexer/index.mdx) we'll look at some great ways to improve upon this, for now if you forget the Enter/Tidle/Dot escape sequence the easiest thing to do is to close your terminal program.
 
 When you disconnect from your SSH session, the commands you are running will be terminated. This is because your shell will send the 'hang up' signal. Again, this can be frustrating if you actually want to keep something running on the server. We'll also look at how to work around this behaviour in Chapter 33.
 
@@ -437,7 +437,7 @@ scp -P 8022 effective-shell.com:~/downloads/backup.zip ~/backups
 - No username or credentials are specified, so the current user's name is used and any keys that are loaded in the SSH agent will be used to try and authenticate
 - We use the `-P` (_port number_) flag to specify port 8022, rather than the default port which is 22
 
-Let's see this in action by copying the `lookup` tool we created in [Chapter 30 - How to Avoid Scripting](../30-how-to-avoid-scripting/index.md) to our server. Then we'll run it, save some definitions, and copy them _back_ to our local machine.
+Let's see this in action by copying the `lookup` tool we created in [Chapter 30 - How to Avoid Scripting](../30-how-to-avoid-scripting/index.mdx) to our server. Then we'll run it, save some definitions, and copy them _back_ to our local machine.
 
 First we'll use `scp` to copy our `lookup` program to our remote machine:
 

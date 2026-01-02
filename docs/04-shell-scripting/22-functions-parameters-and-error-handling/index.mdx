@@ -196,7 +196,7 @@ Summed 5 values for a total of: 15
 
 In this script we've used two special variables. The `$@` variable is expanded into a list of all of the function parameters. The `$#` variable contains the number of parameters provided to the function.
 
-You might recognise that these variables look quite similar to the syntax that is used to get the members of an array or the length of an array as described in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md). You can actually use some of the array-style operators with the special parameters variables:
+You might recognise that these variables look quite similar to the syntax that is used to get the members of an array or the length of an array as described in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx). You can actually use some of the array-style operators with the special parameters variables:
 
 ```bash
 # Show the top 'n' values of a set.
@@ -228,7 +228,7 @@ The table below shows some of the common variables you can use when working with
 | `$*`               | The full set of parameters as a string separated by the first value in the `$IFS` variable    |
 | `${@:start:count}` | A subset of 'count' parameters starting at parameter number 'start'                           |
 
-The `$@` and `@*` parameters look quite similar. The first one is an array, just like we saw in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md). The second version is the parameters collected together into a single string separated by spaces (actually, separated by the first character in the `$IFS` variable).
+The `$@` and `@*` parameters look quite similar. The first one is an array, just like we saw in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx). The second version is the parameters collected together into a single string separated by spaces (actually, separated by the first character in the `$IFS` variable).
 
 ### Parameter Shifting
 
@@ -372,7 +372,7 @@ Result is: touch is hashed (/usr/bin/touch)
 
 This is not a well written function, we'll look at a better way to write it next. But it shows an important challenge to be aware of - when `type` is used to find out whether a command exists it returns success if the command exists but also writes to _stdout_.
 
-In [Chapter 7 - Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) we saw that we can send the output of a command to the 'null' device to silence its output. We can use this trick in our functions to stop commands from 'polluting' our result:
+In [Chapter 7 - Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.mdx) we saw that we can send the output of a command to the 'null' device to silence its output. We can use this trick in our functions to stop commands from 'polluting' our result:
 
 ```bash
 command_exists() {
@@ -392,7 +392,7 @@ The `return` (_return from shell function_)<!--index--> command causes a functio
 
 This is something that often causes confusion in shell scripts. The reason is that in most programming languages, you would use a 'return' statement to return the result of a function. But in the shell, when we return, we set the _status code_ of the function.
 
-What is a status code? We actually touched on this in [Chapter 20 - Mastering Conditional Logic](../../04-shell-scripting/20-mastering-conditional-logic/index.md). When a command runs, we expect it to return a _status code_ of 'zero' to indicate success. Any non-zero status code is used to specify an _error code_.
+What is a status code? We actually touched on this in [Chapter 20 - Mastering Conditional Logic](../../04-shell-scripting/20-mastering-conditional-logic/index.mdx). When a command runs, we expect it to return a _status code_ of 'zero' to indicate success. Any non-zero status code is used to specify an _error code_.
 
 Let's see how we could re-write the _command_exists_ function to set a status code:
 
@@ -612,7 +612,7 @@ command_count=${1:-10} # The number of common commands to show
 # ...
 ```
 
-Here we are using the `$1` variable. But we are also using _Shell Parameter Expansion_ as described in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md) to provide a default value to use if the parameter is not set.
+Here we are using the `$1` variable. But we are also using _Shell Parameter Expansion_ as described in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx) to provide a default value to use if the parameter is not set.
 
 Next, let's change the line that writes out the count and the name of the command. At the moment, the count is shown and then the command name. Let's write a function that takes a number and line of text and writes it as a line of text with the number _after_ the text and in brackets:
 

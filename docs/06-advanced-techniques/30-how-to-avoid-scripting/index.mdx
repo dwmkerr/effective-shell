@@ -48,7 +48,7 @@ Given it's almost universal presence on systems, its huge (and increasing) popul
 
 When we are writing a tool that is aimed at shell users, it makes sense to follow the conventions set by _other_ shell tools. This means that users will be able to use the tool in a familiar way, and complement it by combining it with existing tools on their system. So what makes a shell-friendly tool?
 
-- **Being able to read from standard input** - this allows us to pipe inputs from _other_ tools into our programs (see [Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) for more on this), we also want to read and process line-by-line, in case the input is very large
+- **Being able to read from standard input** - this allows us to pipe inputs from _other_ tools into our programs (see [Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.mdx) for more on this), we also want to read and process line-by-line, in case the input is very large
 - **Being able to write to standard output** - this sounds obvious, but it means making sure that our output can be read by a human operator, but also ideally be processed by other tools such as `cut`, `sed`, `rev` and so on, it also means thinking about how colour will or will not be used in output, and avoiding superfluous output that might make it harder to process the output (such as titles, version numbers and so on)
 - **Being able to specify options using sensibly defined flags** - there are many common conventions for how flags or parameters work in tools, using these patterns (rather than inventing our own) will make our tool easier to use. For example, having an `-h` flag to show help is a very common convention[^1]
 - **Being able to run on different systems** - shell users are used to being able to use tools like `grep`, `sed` and so on in a similar way across platforms, a well-written tool will do the same
@@ -140,7 +140,7 @@ while True:
     print("{} - {}".format(word, definition))
 ```
 
-Let's test this out and then we'll dissect the code. First, we'll just run the program, type some words, then press `Ctrl D` to signal end-of-transmission (check [Thinking In Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md) if you need a reminder on what 'end-of-transmission' means). You can also press `Ctrl C` to close the program.
+Let's test this out and then we'll dissect the code. First, we'll just run the program, type some words, then press `Ctrl D` to signal end-of-transmission (check [Thinking In Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.mdx) if you need a reminder on what 'end-of-transmission' means). You can also press `Ctrl C` to close the program.
 
 ```
 $ python3 ~/effective-shell/programs/lookup/lookup-v1.py
@@ -330,7 +330,7 @@ def write_definition(word, definition):
 
 This code first checks to see whether `stdout` is a terminal. This is useful because if we are in a terminal, we can show colour codes, but if the output is something like a file, we can skip the colour codes (which would look messy in the resulting file). Then we do some arithmetic if the `crop` argument is provided, shortening the definition if needed.
 
-The weird looking characters such as `/033[92m` are ANSI control codes to set the colour of the output - you can read all about them in [Useful Patterns for Shell Scripts](../../04-shell-scripting/23-useful-patterns-for-shell-scripts/index.md) in the section 'Colouring Output'.
+The weird looking characters such as `/033[92m` are ANSI control codes to set the colour of the output - you can read all about them in [Useful Patterns for Shell Scripts](../../04-shell-scripting/23-useful-patterns-for-shell-scripts/index.mdx) in the section 'Colouring Output'.
 
 With this function added, and called in the right place in our program, we can now lookup definitions, have the output printed in colour, and specify a 'crop' value:
 
@@ -371,7 +371,7 @@ All we need to do is first tell the shell that if it encounters this script and 
 # ...the rest of the code goes here, it's been omitted for brevity!
 ```
 
-This shebang uses the `env` program to locate the `python3` program. This is important as `python3` might be installed in different locations on different systems. You can read more about how to use `env` in shebangs in the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md) under 'Using Shebangs'.
+This shebang uses the `env` program to locate the `python3` program. This is important as `python3` might be installed in different locations on different systems. You can read more about how to use `env` in shebangs in the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.mdx) under 'Using Shebangs'.
 
 Now that we have a shebang, we can make the file executable using the `chmod` program and link to it from our personal `bin` folder:
 
@@ -380,7 +380,7 @@ chmod +x ~/effective-shell/programs/lookup/lookup.py
 ln -s ~/effective-shell/programs/lookup/lookup.py /usr/local/bin/lookup
 ```
 
-If you need a reminder how to use the `chmod` tool and `ln` tool to install scripts, check the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md) under the section 'Installing Your Script'.
+If you need a reminder how to use the `chmod` tool and `ln` tool to install scripts, check the chapter [Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.mdx) under the section 'Installing Your Script'.
 
 Now that we have the tool in our local binaries folder, we can call it like so:
 

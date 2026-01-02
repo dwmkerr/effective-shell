@@ -48,9 +48,9 @@ If you have a command that you expect may fail, but want to continue execution e
 rm "$HOME/.shell.sh" || true
 ```
 
-In this case I have used a conditional operator, as described in [Chapter 20 - Mastering Conditional Logic](../../04-shell-scripting/20-mastering-conditional-logic/index.md), to ensure that even if the `rm` command fails for some reason, the overall result of the statement will be true and the script will not exit.
+In this case I have used a conditional operator, as described in [Chapter 20 - Mastering Conditional Logic](../../04-shell-scripting/20-mastering-conditional-logic/index.mdx), to ensure that even if the `rm` command fails for some reason, the overall result of the statement will be true and the script will not exit.
 
-Check Chapter [Chapter 22 - Functions, Parameters and Error Handling](../../04-shell-scripting/22-functions-parameters-and-error-handling/index.md) if you need a refresher on the `set -e` or `set -o pipefail` commands.
+Check Chapter [Chapter 22 - Functions, Parameters and Error Handling](../../04-shell-scripting/22-functions-parameters-and-error-handling/index.mdx) if you need a refresher on the `set -e` or `set -o pipefail` commands.
 
 ## Debugging Shell Scripts
 
@@ -132,7 +132,7 @@ This combines the first two patterns we've seen - failing on errors and having t
 
 ## Checking for Existing Variables or Functions
 
-The `declare` (_set variable values and attributes_)<!--index--> command can be used to explicitly declare that we are creating a variable. We saw in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md) that sometimes this command is required - if we want to create an associative array for example.
+The `declare` (_set variable values and attributes_)<!--index--> command can be used to explicitly declare that we are creating a variable. We saw in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx) that sometimes this command is required - if we want to create an associative array for example.
 
 There are a number of options for the 'declare' command, but one that is particularly useful is the `-p` (_display attributes and value_) option. This can be used to show all of the variables of a certain type.
 
@@ -391,7 +391,7 @@ else
 fi
 ```
 
-You will see `-t 1` in a number of scripts as a way to check whether the output is going to a terminal device. The `-t` test returns success if the provided file descriptor is associated with a terminal device. The file descriptor '1' is the descriptor for the _stdout_ stream (if this is unfamiliar, check [Chapter 7 - Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.md)).
+You will see `-t 1` in a number of scripts as a way to check whether the output is going to a terminal device. The `-t` test returns success if the provided file descriptor is associated with a terminal device. The file descriptor '1' is the descriptor for the _stdout_ stream (if this is unfamiliar, check [Chapter 7 - Thinking in Pipelines](../../02-core-skills/07-thinking-in-pipelines/index.mdx)).
 
 Here's how we could use the test in our rainbow function:
 
@@ -467,7 +467,7 @@ The _~/effective-shell/scripts/common.sh_ script checks to see whether the opera
 
 ## Checking for Installed Programs
 
-As we saw in [Chapter 10 - Understanding Commands](../../02-core-skills/10-understanding-commands/index.md) there are many different ways to determine whether a command is available. The most correct and portable way to test to see whether a command is available is to use the `command -v` command as shown below:
+As we saw in [Chapter 10 - Understanding Commands](../../02-core-skills/10-understanding-commands/index.mdx) there are many different ways to determine whether a command is available. The most correct and portable way to test to see whether a command is available is to use the `command -v` command as shown below:
 
 ```bash
 if ! command -v "curl" >/dev/null 2>&1; then
@@ -548,7 +548,7 @@ It is possible to specify the arguments to the program that is used to execute t
 
 I include this pattern because it is possible you will see it in other scripts, but please do not do this. There are two particular reasons that it is risky.
 
-The first is that pattern requires that you know the path to the shell. As we saw in [Chapter 18 - Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md), we should use the `#!/usr/bin/env` program so that we search the `$PATH` for the shell rather than assuming that we know the location of the shell program.
+The first is that pattern requires that you know the path to the shell. As we saw in [Chapter 18 - Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.mdx), we should use the `#!/usr/bin/env` program so that we search the `$PATH` for the shell rather than assuming that we know the location of the shell program.
 
 The second reason is that multiple parameters are not handled consistently across operating systems. For example, on some Unix systems the following shebang will run `bash` with the `-e` parameter:
 
@@ -566,7 +566,7 @@ However, the shell is _not_ generally going to be the best choice for any kind o
 
 Perhaps the biggest anti-pattern in shell scripts is to simply let them get too large and do too much with them. There comes a certain point where you will almost certainly create a more portable, performant and maintainable solution to your problem using a dedicated programming language like Python (which is available on almost all systems) or one of the many other languages available.
 
-This is a topic we discuss in detail in the [Chapter 30 - How to Avoid Scripting](../../06-advanced-techniques/30-how-to-avoid-scripting/index.md), but for now I would just say that as soon as your script starts to get longer than a page, or takes more than a few minutes to reason about, then you might be reaching the point that a programming language could be a better option.
+This is a topic we discuss in detail in the [Chapter 30 - How to Avoid Scripting](../../06-advanced-techniques/30-how-to-avoid-scripting/index.mdx), but for now I would just say that as soon as your script starts to get longer than a page, or takes more than a few minutes to reason about, then you might be reaching the point that a programming language could be a better option.
 
 ### Scripts without Shebangs
 

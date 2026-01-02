@@ -134,7 +134,7 @@ else
 fi
 ```
 
-In this case we used the `-e` (_file or folder exists_) operator to check whether a file or folder exists in the location _/usr/local/bin/common_. The 'common' command is the command we created in [Chapter 18 - Shell Script Essentials](../../04-shell-scripting/20-mastering-conditional-logic/index.md).
+In this case we used the `-e` (_file or folder exists_) operator to check whether a file or folder exists in the location _/usr/local/bin/common_. The 'common' command is the command we created in [Chapter 18 - Shell Script Essentials](../../04-shell-scripting/20-mastering-conditional-logic/index.mdx).
 
 Now if you run the script and you don't have the 'common' command installed you will see the following output:
 
@@ -272,7 +272,7 @@ Whether you use single or double brackets will partly be down to preference and 
 
 ### Using Regexes in a Conditional Expression
 
-When you use the double square brackets conditional expression syntax you can use the `=~` operator to test for a regular expression. This can be extremely useful. If you need a reminder on how regular expressions work check [Chapter 13 - Regex Essentials](../../03-manipulating-text/13-regex-essentials/index.md).
+When you use the double square brackets conditional expression syntax you can use the `=~` operator to test for a regular expression. This can be extremely useful. If you need a reminder on how regular expressions work check [Chapter 13 - Regex Essentials](../../03-manipulating-text/13-regex-essentials/index.mdx).
 
 In the example below we check to see if the user's shell is 'zsh' by seeing whether the path of the shell ends with the text `zsh`:
 
@@ -308,7 +308,7 @@ On my machine this script shows the following output:
 Your shell binary is: bash
 ```
 
-The `$BASH_REMATCH` variable is an array - the first result value in the array is the entire match, each subsequent value in the array is the result of each capture group in the expression. Double check [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md) if you need a reminder on how arrays work in Bash.
+The `$BASH_REMATCH` variable is an array - the first result value in the array is the entire match, each subsequent value in the array is the result of each capture group in the expression. Double check [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx) if you need a reminder on how arrays work in Bash.
 
 ## Chaining Commands
 

@@ -64,7 +64,7 @@ alias l='ls -CF'
 ```
 
 
-It's very important to understand that this file is _sourced_ by the shell - so we have to use `return` if we want to stop processing it. If we used `exit` instead then the shell would close, which is definitely not what we want! If you need a reminder on sourcing, check [Chapter 18 - Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.md).
+It's very important to understand that this file is _sourced_ by the shell - so we have to use `return` if we want to stop processing it. If we used `exit` instead then the shell would close, which is definitely not what we want! If you need a reminder on sourcing, check [Chapter 18 - Shell Script Essentials](../../04-shell-scripting/18-shell-script-essentials/index.mdx).
 
 The next section of the file sets up some of the configuration for the history features of the shell. Some variables are set, such as `HISTSIZE` (the number of commands to store in the history), we also set some options using the `shopt` (_set shell option_ flag).
 

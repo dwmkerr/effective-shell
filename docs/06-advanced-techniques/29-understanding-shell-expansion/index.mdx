@@ -93,7 +93,7 @@ Tilde expansion is very simple!
 
 When the dollar symbol `$` is used, this indicates that the shell is going to perform _parameter expansion_, which expands variables or the parameters of a script. It can also be used to indicate _command substitution_ or _arithmetic expansion_ - which we will see once we've looked at parameter expansion.
 
-A lot of these expansions are covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md) but I have included each of the available expansions here for reference.
+A lot of these expansions are covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx) but I have included each of the available expansions here for reference.
 
 In its most simple form, parameter expansion simple replaces the name of a variable or parameter with its value:
 
@@ -301,7 +301,7 @@ echo "Goodbye Dave"
 
 There are actually a number of options available for Pattern Replacement that can control things like the number of replacements that are performed and how arrays are treated. I would recommend not using overly complex replacements using these types of expressions though - instead use a command like `tr` or `sed` to make it very explicit what is going on - the built-in shell parameter replacement can be quite complex for the reader to parse and can also vary from shell to shell.
 
-For suggestions on alternative ways to manipulate text check [Chapter 15 - Slice and Dice Text](../../03-manipulating-text/15-slice-and-dice-text/index.md) or [Chapter 16 - Advanced Text Manipulation with Sed](../../03-manipulating-text/16-advanced-text-manipulation/index.md).
+For suggestions on alternative ways to manipulate text check [Chapter 15 - Slice and Dice Text](../../03-manipulating-text/15-slice-and-dice-text/index.mdx) or [Chapter 16 - Advanced Text Manipulation with Sed](../../03-manipulating-text/16-advanced-text-manipulation/index.mdx).
 
 **Lowercase or Uppercase**
 
@@ -337,7 +337,7 @@ The output of this script is:
 
 This can be very useful if you are writing scripts that will work with arbitrary or variable parameter names.
 
-You can see more examples of how parameter expansion works, and in particular how to use parameter expansion with the parameters to functions or scripts in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md).
+You can see more examples of how parameter expansion works, and in particular how to use parameter expansion with the parameters to functions or scripts in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx).
 
 ### Command Substitution
 
@@ -377,7 +377,7 @@ echo "The result of 23*4 is: $((23*4))"
 echo "The result of 23*4 is: 92"
 ```
 
-Arithmetic expansion is covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.md).
+Arithmetic expansion is covered in detail in [Chapter 19 - Variables, Reading Input, and Mathematics](../../04-shell-scripting/19-variables-reading-input-and-mathematics/index.mdx).
 
 ### Word Splitting
 

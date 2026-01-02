@@ -85,7 +85,7 @@ We have a problem. The `python` process is still running - it's serving the webs
 
 In the example above, I try to run `vi`, but nothing is happening. Standard input is not being read by the server and not being interpreted by the shell.
 
-I have to kill the server by hitting `Ctrl+C`. This sends a `SIGINT` signal (which tells the command to stop). We saw signals briefly in [Chapter 4 - Becoming a Clipboard Gymnast](../../01-transitioning-to-the-shell/04-clipboard-gymnastics/index.md) and we'll see more of them in as we continue. Now I need to clear my screen to get rid of all of the error messages, then start again.
+I have to kill the server by hitting `Ctrl+C`. This sends a `SIGINT` signal (which tells the command to stop). We saw signals briefly in [Chapter 4 - Becoming a Clipboard Gymnast](../../01-transitioning-to-the-shell/04-clipboard-gymnastics/index.mdx) and we'll see more of them in as we continue. Now I need to clear my screen to get rid of all of the error messages, then start again.
 
 This is obviously not optimal. Let's look at some solutions.
 
@@ -280,7 +280,7 @@ If you want to find out more about the gory details of jobs, the best place to s
 
 [^1]: If you are not a heavy shell user, this might seem unlikely. But if you do a lot of work in shells, such as sysadmin, devops, or do your coding from a terminal, this happens all the time!
 
-[^2]: Technically, `SIGTSTP` signal - which is 'TTY stop'. If you have always wondered about the 'TTY' acronym, check the chapter, [Interlude: Understanding the Shell](../../02-core-skills/10-understanding-commands/index.md).
+[^2]: Technically, `SIGTSTP` signal - which is 'TTY stop'. If you have always wondered about the 'TTY' acronym, check the chapter, [Interlude: Understanding the Shell](../../02-core-skills/10-understanding-commands/index.mdx).
 
 [^3]: The alternative method is to use `Ctrl+Y`, which will send a _delayed interrupt_, which will continue to run the process until it tries to read from `stdin`. At this point, the job is suspended and the control given to the shell. The operator can then use `bg` or `kill` or `fg` to either move to the background, stop the process, or keep in the foreground as preferred. See: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Job-Control
 
