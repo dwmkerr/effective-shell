@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.47.1](https://github.com/dwmkerr/effective-shell/compare/v0.47.0...v0.47.1) (2026-01-04)
+
+
+### Documentation
+
+* migrate introduction and appendix A from print book ([#395](https://github.com/dwmkerr/effective-shell/issues/395)) ([0b275b9](https://github.com/dwmkerr/effective-shell/commit/0b275b9509f70455667d94d06667b6547ce1ec55))
+
 ## [0.47.0](https://github.com/dwmkerr/effective-shell/compare/v0.46.0...v0.47.0) (2025-12-30)
 
 
