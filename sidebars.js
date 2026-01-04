@@ -87,7 +87,6 @@ const sidebars = {
       ]
     },
     'zz-coming-soon/index',
-    'shell-snippets/index',
   ],
 };
 

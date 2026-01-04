@@ -42,7 +42,7 @@ const config = {
           //  We don't need the breadcrumbs as we don't have much nesting and
           //  they distract from the core content at the top of each page.
           breadcrumbs: false,
-          
+
           //  Set the route base path - it doesn't need 'docs' or 'blog' as we
           //  only have a single set of documents to show.
           routeBasePath: '/',
@@ -185,6 +185,17 @@ const config = {
     }),
 
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'snippets',
+        path: 'snippets',
+        routeBasePath: 'shell-snippets',
+        sidebarPath: require.resolve('./sidebarsSnippets.js'),
+        breadcrumbs: false,
+        editUrl: editUrl,
+      },
+    ],
     [
       require.resolve('docusaurus-plugin-drawio'),
       {}
