@@ -1,6 +1,6 @@
 ---
 title: 'Shell Snippets'
-slug: '/shell-snippets/'
+slug: '/'
 ---
 
 After finishing the [Effective Shell Book](https://amzn.to/4ho0F91) I still find myself regularly discovering or remembering techniques that are huge time-savers. I've called these **Effective Shell Snippets** and will update this page with them from time to time, so check back regularly!
