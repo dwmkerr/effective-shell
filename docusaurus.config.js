@@ -154,8 +154,8 @@ const config = {
                 href: 'https://github.com/dwmkerr/effective-shell',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/dwmkerr',
+                label: 'LinkedIn',
+                href: 'https://uk.linkedin.com/in/dwmkerr',
               },
             ],
           },

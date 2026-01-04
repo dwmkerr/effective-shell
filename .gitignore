@@ -38,4 +38,3 @@ yarn-error.log*
 # Ignore Draw.io backups.
 *.bkp
 .playwright-mcp/
-tasks/
