@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import styles from './ShellwrightRecording.module.css';
 
 type ShellwrightRecordingProps = {
   src: string;
   alt?: string;
-  prompt?: string;
+  children?: ReactNode;
 };
 
 const ShellwrightRecording: React.FC<ShellwrightRecordingProps> = ({
   src,
   alt,
-  prompt
+  children
 }) => {
   const [showPrompt, setShowPrompt] = useState(false);
 
@@ -22,7 +22,7 @@ const ShellwrightRecording: React.FC<ShellwrightRecordingProps> = ({
           Generated with{' '}
           <a href="https://github.com/dwmkerr/shellwright">Shellwright</a>
         </span>
-        {prompt && (
+        {children && (
           <button
             className={styles.toggle}
             onClick={() => setShowPrompt(!showPrompt)}
@@ -31,8 +31,8 @@ const ShellwrightRecording: React.FC<ShellwrightRecordingProps> = ({
           </button>
         )}
       </div>
-      {showPrompt && prompt && (
-        <pre className={styles.prompt}>{prompt}</pre>
+      {showPrompt && children && (
+        <div className={styles.prompt}>{children}</div>
       )}
     </div>
   );

@@ -4,37 +4,35 @@ title: 'sourceenv'
 
 import ShellwrightRecording from '@site/src/components/ShellwrightRecording';
 
-export const recordingPrompt = `Create a shell recording using shellwright for the sourceenv snippet:
+# Source Environment Variables
 
-1. Setup (before recording starts):
-   - Start shell in: snippets/snippets/sourceenv/project/
-   - Set simple PS1: set_ps1 dwmkerr_simple
+The `sourceenv` function sources environment variables from `.env` files into your current shell session. It's a common need when working with projects that use `.env` files for configuration - rather than manually exporting each variable, just run `sourceenv`:
+
+<ShellwrightRecording src={require('./sourceenv.gif').default} alt="sourceenv demo">
+
+**Create a shell recording using shellwright for the sourceenv snippet:**
+
+1. **Setup** (before recording starts):
+   - Start shell in: `snippets/snippets/sourceenv/project/`
+   - Set simple PS1: `set_ps1 dwmkerr_simple`
    - Clear the screen
 
-2. Recording settings:
+2. **Recording settings:**
    - Terminal size: 80x20
    - FPS: 10
    - Use typewriter-style keystroke entry
    - Wait 2 seconds between commands
 
-3. Commands to record:
-   - ls -al (show .env files)
-   - cat .env (show contents)
-   - clear (execute quickly, no typewriter)
-   - sourceenv (shows 4 vars set)
-   - sourceenv .env.prod (shows 2 updated, 2 new)
+3. **Commands to record:**
+   - `ls -al` (show .env files)
+   - `cat .env` (show contents)
+   - `clear` (execute quickly, no typewriter)
+   - `sourceenv` (shows 4 vars set)
+   - `sourceenv .env.prod` (shows 2 updated, 2 new)
 
-4. Save recording to: snippets/snippets/sourceenv/sourceenv.gif`;
+4. **Save recording to:** `snippets/snippets/sourceenv/sourceenv.gif`
 
-# Source Environment Variables
-
-The `sourceenv` function sources environment variables from `.env` files into your current shell session. It's a common need when working with projects that use `.env` files for configuration - rather than manually exporting each variable, just run `sourceenv`:
-
-<ShellwrightRecording
-  src={require('./sourceenv.gif').default}
-  alt="sourceenv demo"
-  prompt={recordingPrompt}
-/>
+</ShellwrightRecording>
 
 ## Usage
 
