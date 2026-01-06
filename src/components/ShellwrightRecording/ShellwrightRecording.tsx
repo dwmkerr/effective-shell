@@ -24,7 +24,7 @@ const ShellwrightRecording: React.FC<ShellwrightRecordingProps> = ({
       <div className={styles.footer}>
         <span className={styles.credit}>
           Generated with{' '}
-          <a href="https://github.com/dwmkerr/shellwright">Shellwright</a>
+          <a href="https://github.com/dwmkerr/shellwright" target="_blank" rel="noopener noreferrer">Shellwright</a>
         </span>
         {children && (
           <button
