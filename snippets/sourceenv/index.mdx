@@ -6,7 +6,10 @@ import ShellwrightRecording from '@site/src/components/ShellwrightRecording';
 
 # Source Environment Variables
 
-The `sourceenv` function sources environment variables from `.env` files into your current shell session. It's a common need when working with projects that use `.env` files for configuration - rather than manually exporting each variable, just run `sourceenv`:
+The `sourceenv` function sources environment variables from `.env` files into your current shell session. These `.env` files are commonly used in software engineering projects to keep track of environment variables. You might see `.env.example` showing you what values you should set ([like this](https://github.com/mckinsey/agents-at-scale-ark/blob/main/services/ark-api/.env.example)) and then instruct users to copy this file to `.env` and fill with the real values - this file is then normally git ignored.
+
+Many services and tools will read these files by default (there are libraries for [node](https://www.npmjs.com/package/dotenv), [python](https://pypi.org/project/python-dotenv/) and [almost anything else](https://github.com/search?q=dotenv&type=repositories)). The `sourceenv` snippet works in a very similar way - it simply sets these values in your current shell session.
+
 
 <ShellwrightRecording src={require('./sourceenv.gif').default} alt="sourceenv demo">
 
@@ -34,19 +37,27 @@ The `sourceenv` function sources environment variables from `.env` files into yo
 
 </ShellwrightRecording>
 
-## Usage
+You can run `sourceenv` like so:
 
 ```bash
-sourceenv              # Source .env in current directory
-sourceenv .env.prod    # Source a specific env file
-sourceenv -v           # Verbose mode (show values being set)
+# Just source whatever is in .env in the current directory.
+sourceenv
+
+# Source a specific file.
+sourceenv .env.prod
+
+# Source in verbose mode, which shows the actual values being set. Use with
+# caution as this will write what might be sensitive values to stdout.
+sourceenv -v
 ```
 
 The function shows feedback as it works:
-- **set** (green) - new variable added to environment
-- **updated** (blue) - existing variable changed
+
+![sourceenv output](./sourceenv-prod.png)
 
 ## The Code
+
+Find the original code in my [dotfiles](https://github.com/dwmkerr/dotfiles/blob/main/shell.functions.d/sourceenv.sh). It is shown below with much more extensive documentation and explanation!
 
 ```bash title="https://github.com/dwmkerr/dotfiles/blob/main/shell.functions.d/sourceenv.sh"
 sourceenv() {
@@ -126,11 +137,11 @@ sourceenv() {
 
 ## How It Works
 
-- **Skips comments and empty lines** - lines starting with `#` or whitespace are ignored
-- **Handles inline comments** - `KEY=value # comment` extracts just `value`
-- **Removes quotes** - both single and double quotes are stripped from values
-- **Color-coded feedback** - green for new variables, blue for updates
-- **Verbose mode** - use `-v` to see the actual values being set
+The code above is extensively commented to explain each step. To learn more about the shell techniques used, check out these chapters from the book:
+
+- [Variables, Reading Input, and Mathematics](/part-3-manipulating-text/variables-reading-input-and-mathematics/) - how shell variables and parameter expansion work
+- [Shell Script Essentials](/part-4-shell-scripting/shell-script-essentials/) - functions, conditionals, and loops
+- [Customising Your Command Prompt](/part-5-building-your-toolkit/customising-your-command-prompt/) - ANSI escape codes for colored output
 
 ## Installation
 
