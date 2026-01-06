@@ -16,7 +16,11 @@ const ShellwrightRecording: React.FC<ShellwrightRecordingProps> = ({
 
   return (
     <div className={styles.container}>
-      <img src={src} alt={alt || 'Shell recording'} className={styles.gif} />
+      {showPrompt ? (
+        <div className={styles.prompt}>{children}</div>
+      ) : (
+        <img src={src} alt={alt || 'Shell recording'} className={styles.gif} />
+      )}
       <div className={styles.footer}>
         <span className={styles.credit}>
           Generated with{' '}
@@ -27,13 +31,10 @@ const ShellwrightRecording: React.FC<ShellwrightRecordingProps> = ({
             className={styles.toggle}
             onClick={() => setShowPrompt(!showPrompt)}
           >
-            {showPrompt ? 'Hide prompt' : 'Show prompt'}
+            {showPrompt ? 'Show recording' : 'Show prompt'}
           </button>
         )}
       </div>
-      {showPrompt && children && (
-        <div className={styles.prompt}>{children}</div>
-      )}
     </div>
   );
 };
