@@ -64,7 +64,8 @@ sourceenv() {
   local name="sourceenv"
   local verbose=false
 
-  # Parse arguments
+  # Parse the command line arguments using a case statement.
+  # Read more in the chapter "Shell Script Essentials".
   while [[ $# -gt 0 ]]; do
     case $1 in
       -h)
@@ -85,34 +86,41 @@ sourceenv() {
     esac
   done
 
-  # Determine the path to the environment file
+  # Default to '.env' in the current directory if no file was specified.
+  # Read more in the chapter "Variables, Reading Input, and Mathematics".
   env_file="${env_file:-.env}"
 
   if [ ! -f "$env_file" ]; then
     echo "error: ${env_file} not found"
     echo "usage: ${name} [-v] [<path_to_env_file>]"
   else
-    # Process each line in the env file
+    # Read the file line-by-line. The '|| [ -n "$line" ]' ensures we process
+    # the last line even if it doesn't end with a newline.
     while IFS= read -r line || [ -n "$line" ]; do
-      # Skip empty lines and comment lines
+      # Skip empty lines and lines that start with a comment.
       [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
 
-      # Remove inline comments (but not inside quotes)
+      # Strip inline comments. The regex captures everything before a '#' that
+      # isn't followed by quoted content.
       if [[ "$line" =~ ^([^#]*[^[:space:]])([[:space:]]*#.*)?$ ]]; then
         line="${BASH_REMATCH[1]}"
       fi
 
-      # Split on first = sign
+      # Match lines that look like 'KEY=value'. The regex ensures the variable
+      # name starts with a letter or underscore.
       if [[ "$line" =~ ^([A-Za-z_][A-Za-z0-9_]*)=(.*)$ ]]; then
         var_name="${BASH_REMATCH[1]}"
         var_value="${BASH_REMATCH[2]}"
 
-        # Remove surrounding quotes if present
+        # Strip surrounding quotes (single or double) from the value.
         if [[ "$var_value" =~ ^\"(.*)\"$ ]] || [[ "$var_value" =~ ^\'(.*)\'$ ]]; then
           var_value="${BASH_REMATCH[1]}"
         fi
 
-        # Check if variable already exists and show status
+        # Show the user whether we're setting a new variable or updating an
+        # existing one. The '${!var_name:-}' syntax checks if the variable is
+        # already set. Blue for updates, green for new variables.
+        # Read more in the chapter "Customising Your Command Prompt".
         if [[ -n "${!var_name:-}" ]]; then
           if [[ "$verbose" == true ]]; then
             echo -e "\033[34m${var_name}\033[0m: updated ($var_value)"
@@ -127,7 +135,7 @@ sourceenv() {
           fi
         fi
 
-        # Set the variable
+        # Export the variable so it's available to child processes.
         export "${var_name}=${var_value}"
       fi
     done < "$env_file"
