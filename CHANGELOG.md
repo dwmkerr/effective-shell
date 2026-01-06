@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.48.1](https://github.com/dwmkerr/effective-shell/compare/v0.48.0...v0.48.1) (2026-01-06)
+
+
+### Bug Fixes
+
+* remove duplicative ([a33597a](https://github.com/dwmkerr/effective-shell/commit/a33597aa36a479c38cb1da9cb8cfad6696aa315e))
+
 ## [0.48.0](https://github.com/dwmkerr/effective-shell/compare/v0.47.1...v0.48.0) (2026-01-06)
 
 
