@@ -17,22 +17,30 @@ const ShellwrightRecording: React.FC<ShellwrightRecordingProps> = ({
   return (
     <div className={styles.container}>
       {showPrompt ? (
-        <div className={styles.prompt}>{children}</div>
+        <div className={styles.prompt}>
+          <div className={styles.promptHeader}>
+            This is the prompt used to generate this recording with{' '}
+            <a href="https://github.com/dwmkerr/shellwright" target="_blank" rel="noopener noreferrer">Shellwright</a>.
+          </div>
+          {children}
+        </div>
       ) : (
         <img src={src} alt={alt || 'Shell recording'} className={styles.gif} />
       )}
       <div className={styles.footer}>
-        <span className={styles.credit}>
-          Generated with{' '}
-          <a href="https://github.com/dwmkerr/shellwright" target="_blank" rel="noopener noreferrer">Shellwright</a>
-        </span>
         {children && (
-          <button
-            className={styles.toggle}
-            onClick={() => setShowPrompt(!showPrompt)}
-          >
-            {showPrompt ? 'Show recording' : 'Show prompt'}
-          </button>
+          <>
+            <span className={styles.credit}>
+              Generated with{' '}
+              <a href="https://github.com/dwmkerr/shellwright" target="_blank" rel="noopener noreferrer">Shellwright</a>
+            </span>
+            <button
+              className={styles.toggle}
+              onClick={() => setShowPrompt(!showPrompt)}
+            >
+              {showPrompt ? 'Show recording' : 'Show prompt'}
+            </button>
+          </>
         )}
       </div>
     </div>
