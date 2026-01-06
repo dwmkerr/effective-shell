@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.48.0](https://github.com/dwmkerr/effective-shell/compare/v0.47.1...v0.48.0) (2026-01-06)
+
+
+### Features
+
+* add sourceenv snippet with shell recording ([#398](https://github.com/dwmkerr/effective-shell/issues/398)) ([11d4660](https://github.com/dwmkerr/effective-shell/commit/11d4660811d18a85609bcb2e277ccb4824f9d04b))
+
 ## [0.47.1](https://github.com/dwmkerr/effective-shell/compare/v0.47.0...v0.47.1) (2026-01-04)
 
 
