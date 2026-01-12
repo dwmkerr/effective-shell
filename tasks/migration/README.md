@@ -90,6 +90,7 @@ These website sections are not in the published book and should be reorganized:
 | Issue | Description |
 |-------|-------------|
 | [#403](https://github.com/dwmkerr/effective-shell/issues/403) | Book shows user-entered text in bold within code blocks (e.g., `$ **ls -al**`). Our bash code blocks don't support this. |
+| [#404](https://github.com/dwmkerr/effective-shell/issues/404) | Book uses numbered reference annotations in code blocks (e.g., ①②③) with explanations below. Need custom component. |
 
 ## Progress Tracking
 
