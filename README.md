@@ -99,7 +99,9 @@ src/components
 
 There is a live view that can be used to preview each component:
 
-http://localhost:3000/zz-developer-guide/components
+http://localhost:3745/zz-developer-guide/components
+
+(Port 3745 = "ESHL" on a phone dialpad)
 
 Components can be added to global scope, i.e. available in call pages, by adding to the `MDXComponents.js` swizzled file:
 
