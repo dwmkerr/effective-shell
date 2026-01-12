@@ -7,6 +7,16 @@ description: Development workflow for the Effective Shell website
 
 Guidelines for developing the Effective Shell website (Docusaurus-based).
 
+## Samples Installation Command
+
+The canonical command to install samples is:
+
+```bash
+curl -fsSL effective.sh | bash
+```
+
+Always use this form (not `curl effective.sh | sh`).
+
 ## Adding or Changing Pages
 
 When you add, remove, or rename pages, you MUST update the sidebar:

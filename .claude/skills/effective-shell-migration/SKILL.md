@@ -62,7 +62,18 @@ Before committing migrated content:
 - [ ] Page references removed or converted to links
 - [ ] Build passes (`npm run build`)
 
+## Samples Installation Command
+
+The canonical command to install samples is:
+
+```bash
+curl -fsSL effective.sh | bash
+```
+
+Always use this form (not `curl effective.sh | sh`).
+
 ## Source Files
 
 Book chapters: `~/repos/github/dwmkerr/effective-shell-book/migration/chapters/`
 Book images: `~/repos/github/dwmkerr/effective-shell-book/from-rachel/images/for-prod/`
+Final manuscript: `~/repos/github/dwmkerr/effective-shell-book/zz-manuscript/EffectiveShell_txt_FIN.docx`

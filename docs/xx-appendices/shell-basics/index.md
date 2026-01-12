@@ -14,7 +14,7 @@ Switching from a graphical user interface (GUI) to the shell can take some getti
 This section will introduce the `pwd`, `ls`, `pushd`, `popd`, and `cd` commands, as well as the related concepts of directories, stacks, and paths. To follow along, make sure you've downloaded and installed the *Effective Shell* samples and tools by running this command:
 
 ```bash
-curl effective.sh | sh
+curl -fsSL effective.sh | bash
 ```
 
 Note that the exact output you see will differ slightly from mine to reflect your user and system information.
