@@ -84,6 +84,7 @@ const sidebars = {
       label: 'Appendices',
       items: [
         'xx-appendices/setup/index',
+        'xx-appendices/shell-basics/index',
       ]
     },
     'zz-coming-soon/index',

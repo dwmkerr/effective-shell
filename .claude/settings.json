@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-commit-build.sh",
+            "timeout": 120
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-push-checks.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}
