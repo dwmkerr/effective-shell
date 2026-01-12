@@ -85,6 +85,12 @@ These website sections are not in the published book and should be reorganized:
 | xx-appendices/the-future.md | Part VI or remove | Website-only |
 | xx-appendices/thanks.md | Keep as appendix | Acknowledgments |
 
+## Open Issues
+
+| Issue | Description |
+|-------|-------------|
+| [#403](https://github.com/dwmkerr/effective-shell/issues/403) | Book shows user-entered text in bold within code blocks (e.g., `$ **ls -al**`). Our bash code blocks don't support this. |
+
 ## Progress Tracking
 
 - [ ] Phase 1: Content audit complete
