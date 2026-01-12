@@ -2,6 +2,19 @@
 
 This guide maps the published book content to the website and tracks migration progress.
 
+## Required Skill
+
+**Always load the migration skill before making changes:**
+
+```
+/skill effective-shell-migration
+```
+
+The skill contains all technical details for:
+- Typography rules (em-dashes, quotes, etc.)
+- Format conversions (admonitions, keyboard shortcuts, code blocks)
+- Step-by-step workflow and validation checklist
+
 ## Source Files
 
 Book chapters (extracted from final manuscript):
@@ -55,7 +68,7 @@ Source files are in: `~/repos/github/dwmkerr/effective-shell-book/migration/chap
 | Afterword: Generative AI and the Shell | `afterword-generative-ai.md` | *NEW - needs website page* | ⬜ TODO |
 | **Appendices** | | | |
 | Appendix A: Setup | `appendix-a-setup.md` | xx-appendices/setup | ✅ Done |
-| Appendix B: Shell Basics | `appendix-b-shell-basics.md` | 01-transitioning-to-the-shell/* | ⬜ TODO |
+| Appendix B: Shell Basics | `appendix-b-shell-basics.md` | xx-appendices/shell-basics | ✅ Done |
 
 ## Website Content NOT in Book → Part VI: Additional Topics
 
@@ -72,67 +85,6 @@ These website sections are not in the published book and should be reorganized:
 | xx-appendices/the-future.md | Part VI or remove | Website-only |
 | xx-appendices/thanks.md | Keep as appendix | Acknowledgments |
 
-## Editing Guide
-
-### General Principles
-
-- **Never change book content** - Assume the published book text is correct. If something seems wrong, raise a question or comment rather than making changes.
-- **Preserve formatting intent** - Match the book's formatting as closely as possible using web equivalents.
-
-### Formatting Conversions
-
-| Book Format | Website Format |
-|-------------|----------------|
-| `**Note**` blocks | `:::note` admonition |
-| `[enter]{.smallcaps}` keyboard keys | `<kbd>Enter</kbd>` (needs CSS - see below) |
-| `**Menu**4**Item**` navigation | `**Menu > Item**` |
-| `*https://example.com*` italic URLs | Plain `https://example.com` links |
-| Page references ("see page 123") | Remove or convert to section links |
-
-### Typography
-
-| Character | Correct | Incorrect |
-|-----------|---------|-----------|
-| Em-dash | `—` (unicode U+2014) | `---` or `--` |
-| En-dash | `–` (unicode U+2013) | `--` |
-| Ellipsis | `...` (three dots) | `…` (unicode) |
-| Quotes | `"text"` (straight) | `"text"` (curly) |
-
-**Em-dashes**: The book uses em-dashes for parenthetical statements. Preserve them as the actual `—` character, not hyphens:
-- ✅ `text—such as this—more text`
-- ❌ `text---such as this---more text`
-
-### Keyboard Shortcuts (Smallcaps Style)
-
-The book uses smallcaps for keyboard keys like Enter, Return, Tab. To preserve this style:
-
-1. Use the `<kbd>` HTML element: `<kbd>Enter</kbd>`
-2. CSS styling is needed in `src/css/custom.css`:
-
-```css
-kbd {
-  font-variant: small-caps;
-  font-size: 0.9em;
-  padding: 0.1em 0.3em;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 3px;
-  background-color: var(--ifm-color-emphasis-100);
-}
-```
-
-This CSS has been added to `src/css/custom.css`.
-
-## Migration Workflow
-
-For each chapter:
-
-1. **Compare content**: Diff book chapter against website section
-2. **Update text**: Apply book edits to website MDX
-3. **Preserve components**: Keep website-specific elements (AsciinemaPlayer, etc.)
-4. **Update code examples**: Ensure code blocks match book
-5. **Test locally**: Run `make serve` and verify rendering
-6. **Commit**: One commit per chapter with message like `docs: update ch01 from book`
-
 ## Progress Tracking
 
 - [ ] Phase 1: Content audit complete
@@ -141,6 +93,6 @@ For each chapter:
 - [ ] Phase 4: Part III chapters migrated
 - [ ] Phase 5: Part IV chapters migrated
 - [ ] Phase 6: Part V chapters migrated
-- [ ] Phase 7: Appendices migrated
+- [x] Phase 7: Appendices migrated
 - [ ] Phase 8: Part VI (Additional Topics) reorganization
 - [ ] Phase 9: Afterword added
