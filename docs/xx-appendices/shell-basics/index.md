@@ -3,7 +3,7 @@ title: 'Appendix B: Shell Basics'
 slug: '/appendices/shell-basics/'
 ---
 
-Performing basic operations in the shell---such as navigating your filesystem, managing files and folders, copying and pasting text, and getting help---can be a bit daunting at first. This appendix is a quick-start guide to build your confidence with these tasks.
+Performing basic operations in the shell—such as navigating your filesystem, managing files and folders, copying and pasting text, and getting help—can be a bit daunting at first. This appendix is a quick-start guide to build your confidence with these tasks.
 
 You can skip this appendix if you're comfortable running a shell, if you know what Bash is, and if you can run basic commands like `ls` and `cd`.
 
@@ -94,7 +94,7 @@ You might notice a pattern here: shell commands are typically very short, making
 
 ### Options, Parameters, Flags, and Arguments
 
-You've seen two options so far: the `-l` and `-a` options for the `ls` command. Options are sometimes referred to as *flags*, *parameters*, or *arguments*. In most cases---and in this book---the terms are used interchangeably, although *flag* generally means a simple option you can switch on or off. Don't worry too much about which word is used; they all just refer to ways you can modify a command's default behavior.
+You've seen two options so far: the `-l` and `-a` options for the `ls` command. Options are sometimes referred to as *flags*, *parameters*, or *arguments*. In most cases—and in this book—the terms are used interchangeably, although *flag* generally means a simple option you can switch on or off. Don't worry too much about which word is used; they all just refer to ways you can modify a command's default behavior.
 
 ### Returning to the Home Directory
 
@@ -122,7 +122,7 @@ Now that you can move around to different folders, let's talk a bit about how pa
 
 A *path* is the location of a file or folder within the filesystem structure. There are two types of paths: absolute and relative.
 
-An *absolute path* gives the exact location of a file---for example, `/home/dwmkerr/effective-shell`. Absolute paths always start with a slash. The first slash represents the *root* of the filesystem, or the single folder that every other folder lives in. If you come from a Windows background, you might be used to *drives*, such as `c:/` or `d:/`, instead of roots. On Linux, all files and folders live within one single root folder.
+An *absolute path* gives the exact location of a file—for example, `/home/dwmkerr/effective-shell`. Absolute paths always start with a slash. The first slash represents the *root* of the filesystem, or the single folder that every other folder lives in. If you come from a Windows background, you might be used to *drives*, such as `c:/` or `d:/`, instead of roots. On Linux, all files and folders live within one single root folder.
 
 A *relative path* is expressed in relation to your current working directory, rather than the root, and does not start with a slash. For example, the relative path of a file in the `/home/dwmkerr/effective-shell/pictures` folder would be `effective-shell/pictures/laos-gch.jpg`.
 
@@ -161,7 +161,7 @@ drwxr-xr-x  3 dwmkerr dwmkerr 4096 Apr  3 19:00 logs
 ...
 ```
 
-Displaying the output in a detailed list reveals the dot and double-dot folders. The dot folder represents the current folder, so in this case it's essentially an alias for the *effective-shell* folder. The dot folder can be useful because sometimes you'll want a quick way to say, "Right here---the folder I'm in right now!" in a command. For example, to copy the *effective-shell* folder to the *backups* folder, I can do the following:
+Displaying the output in a detailed list reveals the dot and double-dot folders. The dot folder represents the current folder, so in this case it's essentially an alias for the *effective-shell* folder. The dot folder can be useful because sometimes you'll want a quick way to say, "Right here—the folder I'm in right now!" in a command. For example, to copy the *effective-shell* folder to the *backups* folder, I can do the following:
 
 ```bash
 $ cp -r . ~/backups
@@ -620,7 +620,7 @@ $ ls -l ~
 ...
 ```
 
-The last modified time---which, in this case, is the same as the file creation time---is 10:20 PM on August 21.
+The last modified time—which, in this case, is the same as the file creation time—is 10:20 PM on August 21.
 
 Using `touch` is just one way to create a file in the shell; you'll see many others throughout the book.
 
@@ -669,7 +669,7 @@ The *pictures* folder has now been deleted. You can also delete the folder and i
 $ rm -r pictures
 ```
 
-You can use whichever method you prefer. Most people use `rm -r` as it will delete the folder whether it's empty or not, but I suggest you use `rmdir` to be certain you don't delete files unintentionally---it gives you a bit of a safety net and reminds you to check the files inside first!
+You can use whichever method you prefer. Most people use `rm -r` as it will delete the folder whether it's empty or not, but I suggest you use `rmdir` to be certain you don't delete files unintentionally—it gives you a bit of a safety net and reminds you to check the files inside first!
 
 One final folder trick: if you decide you don't want the `2020/outdoors/climbing` directory, you can use `rmdir -p` to remove the empty folder and any empty parents:
 
@@ -738,7 +738,7 @@ Earlier you used the `unzip` command to extract the zipped playground file you d
 $ zip -r new-playground.zip .
 ```
 
-The `-r` flag tells `zip` to zip the folder you specify and all of its contents. As its first parameter, the `zip` command takes the name and location of the file you want to create---in this example, *new-playground.zip*. Then you pass the files or folders you want to zip. Here, the dot folder specifies that you want to zip the current folder, so make sure you're in the top-level *effective-shell* folder before you execute the command.
+The `-r` flag tells `zip` to zip the folder you specify and all of its contents. As its first parameter, the `zip` command takes the name and location of the file you want to create—in this example, *new-playground.zip*. Then you pass the files or folders you want to zip. Here, the dot folder specifies that you want to zip the current folder, so make sure you're in the top-level *effective-shell* folder before you execute the command.
 
 You can also give `zip` more than one file or folder. To zip both the *quotes* and the *photos* folders, run this command:
 
@@ -762,7 +762,7 @@ $ ^V^V^V
 
 Instead of pasting the contents of the clipboard into the shell, this key combination has written the characters `^V` to the terminal. Why is this?
 
-One reason is historical (the shell has been around for a long time, so you'll see this answer a lot). Using <kbd>Ctrl</kbd> in a shell sends a *signal*---a special command the shell uses to control programs. Specifically, by using <kbd>Ctrl</kbd> you're signaling your intention to perform an action rather than enter text with your next keystroke. Most modern operating systems have adopted this convention. For example, <kbd>Ctrl</kbd>+<kbd>S</kbd> is used almost universally as a shortcut for the save command.
+One reason is historical (the shell has been around for a long time, so you'll see this answer a lot). Using <kbd>Ctrl</kbd> in a shell sends a *signal*—a special command the shell uses to control programs. Specifically, by using <kbd>Ctrl</kbd> you're signaling your intention to perform an action rather than enter text with your next keystroke. Most modern operating systems have adopted this convention. For example, <kbd>Ctrl</kbd>+<kbd>S</kbd> is used almost universally as a shortcut for the save command.
 
 Modern shells tend to follow the conventions established by earlier shells to ensure a consistent experience for users. Both <kbd>Ctrl</kbd>+<kbd>C</kbd> and <kbd>Ctrl</kbd>+<kbd>V</kbd> have long had specific meanings in the shell that predate the current copy and paste shortcuts. Using <kbd>Ctrl</kbd>+<kbd>C</kbd> cancels a running program by telling the shell to send an *interrupt signal* to the program, which terminates it. You'll see signals again and again throughout the book.
 
@@ -854,7 +854,7 @@ Instead, you'll use a *pipeline* to pass the output of the `cat` command into th
 $ cat ~/effective-shell/text/simpsons-characters.txt | pbcopy
 ```
 
-Now try pasting---you should see the contents of the file.
+Now try pasting—you should see the contents of the file.
 
 The `|` symbol is the *pipe* operator, which is used to "chain" commands together in a *pipeline*. Here, the pipe tells the shell to take the output from the command on the left and send it straight to the input of the program on the right. Pipelines are covered in detail in Chapter 2, and you'll see them in use throughout the book.
 
@@ -937,7 +937,7 @@ NAME
 ...
 ```
 
-This happens when the command you are looking up---`cd`, in this case---is a built-in shell command rather than a program with a man page. Most shells still offer a way to get help with such commands. For example, Bash has the `help` command:
+This happens when the command you are looking up—`cd`, in this case—is a built-in shell command rather than a program with a man page. Most shells still offer a way to get help with such commands. For example, Bash has the `help` command:
 
 ```bash
 $ help cd
@@ -1021,7 +1021,7 @@ You can also use the `apropos` or `whatis` commands to search through the manual
 
 ### Summarizing Output with tldr
 
-Say you want to compress some files. You know you can do this with the `zip` command, but you've forgotten the syntax, so you run `man zip`. The output is extensive---about 30 pages!
+Say you want to compress some files. You know you can do this with the `zip` command, but you've forgotten the syntax, so you run `man zip`. The output is extensive—about 30 pages!
 
 Now compare that to this output from the `tldr` (short for "too long, didn't read") tool:
 
@@ -1057,6 +1057,6 @@ $ curl cht.sh
 
 The `curl` command, which you'll see again and again, is a tool for downloading content from the web. If you load cheat.sh (or its shortened version, cht.sh) from the shell, you get a text version of the website. You can then look at all sorts of content by following the guide shown.
 
-The cheat.sh website aggregates many data sources---including `tldr`. This means you can get information on tools without even having to install them locally.
+The cheat.sh website aggregates many data sources—including `tldr`. This means you can get information on tools without even having to install them locally.
 
 Now *that* can be a real time saver!

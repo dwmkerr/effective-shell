@@ -89,6 +89,19 @@ These website sections are not in the published book and should be reorganized:
 | `*https://example.com*` italic URLs | Plain `https://example.com` links |
 | Page references ("see page 123") | Remove or convert to section links |
 
+### Typography
+
+| Character | Correct | Incorrect |
+|-----------|---------|-----------|
+| Em-dash | `—` (unicode U+2014) | `---` or `--` |
+| En-dash | `–` (unicode U+2013) | `--` |
+| Ellipsis | `...` (three dots) | `…` (unicode) |
+| Quotes | `"text"` (straight) | `"text"` (curly) |
+
+**Em-dashes**: The book uses em-dashes for parenthetical statements. Preserve them as the actual `—` character, not hyphens:
+- ✅ `text—such as this—more text`
+- ❌ `text---such as this---more text`
+
 ### Keyboard Shortcuts (Smallcaps Style)
 
 The book uses smallcaps for keyboard keys like Enter, Return, Tab. To preserve this style:
