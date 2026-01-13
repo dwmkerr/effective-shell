@@ -89,6 +89,18 @@ Before committing, verify:
 - [ ] Sidebar updated (if new page)
 ```
 
+## Tracking Issues
+
+When you encounter book features we can't yet support, update the corresponding GitHub issue with the affected page:
+
+| Feature | Issue |
+|---------|-------|
+| Bold user input in code blocks | [#403](https://github.com/dwmkerr/effective-shell/issues/403) |
+| Reference numbers in code blocks (①②③) | [#404](https://github.com/dwmkerr/effective-shell/issues/404) |
+
+Add an entry to the issue's **Affected Pages** task list:
+`- [ ] [Page Title - Section](https://effective.sh/path/#anchor)`
+
 ## Common Mistakes
 
 | Mistake | Fix |

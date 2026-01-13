@@ -238,6 +238,10 @@ Let's break this down. First, I show my current working directory with the `pwd`
 
 You might be familiar with the concepts of pushing and popping if you've ever studied computing or programming, but if not, you're probably wondering where these terms come from. They have to do with the *directory stack*, the structure the shell uses to keep track of your current working directory. You can picture the directory stack as a stack of plates in a cafeteria. You can easily put plates on top of that stack but not in the middle or at the bottom. When you remove plates, you start by removing the top plate, then the next, and so on.
 
+The diagram below illustrates the directory stack for the previous example.
+
+![The pushd and popd directory stack](./appendix-b-figure-1.png)
+
 When I used the `pushd` command, the shell recorded my current working directory (`/home/dwmkerr/effective-shell/pictures`) and then "pushed" the new location (the *Downloads* folder) to the top of the stack. Then, when I used the `popd` command, the shell "popped" *Downloads* off the top and moved to the location beneath it in the stack, the *pictures* folder. The item at the top of the stack is always your current working directory.
 
 You can also run `pushd` without providing any parameters to *swap* the top two items on the stack. This is a handy trick to quickly switch between two directories you're working in regularly.
