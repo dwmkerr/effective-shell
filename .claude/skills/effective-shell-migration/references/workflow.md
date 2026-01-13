@@ -97,6 +97,7 @@ When you encounter book features we can't yet support, update the corresponding 
 |---------|-------|
 | Bold user input in code blocks | [#403](https://github.com/dwmkerr/effective-shell/issues/403) |
 | Reference numbers in code blocks (①②③) | [#404](https://github.com/dwmkerr/effective-shell/issues/404) |
+| Links to other chapters (backfill later) | [#405](https://github.com/dwmkerr/effective-shell/issues/405) |
 
 Add an entry to the issue's **Affected Pages** task list:
 `- [ ] [Page Title - Section](https://effective.sh/path/#anchor)`
