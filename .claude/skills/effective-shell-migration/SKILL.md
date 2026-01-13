@@ -29,6 +29,7 @@ Converts published book content to website format while preserving the author's 
 | `[key]{.smallcaps}` | `<kbd>Key</kbd>` |
 | `**Menu**4**Item**` | `**Menu > Item**` |
 | Page references | Section links or remove |
+| `Figure X-Y: Caption` | `![Caption](./image.png)` |
 
 ### Code Blocks
 
@@ -60,6 +61,7 @@ Before committing migrated content:
 - [ ] `<kbd>` tags for keyboard keys
 - [ ] Code blocks have language specifier
 - [ ] Page references removed or converted to links
+- [ ] All figures copied and referenced
 - [ ] Build passes (`npm run build`)
 
 ## Samples Installation Command

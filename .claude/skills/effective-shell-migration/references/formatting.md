@@ -151,6 +151,47 @@ Or use anchor links if in different page:
 See [Navigating with Dot Folders](/appendices/shell-basics#navigating-with-the-dot-and-double-dot-folders).
 ```
 
+## Images
+
+Book images are in:
+```
+~/repos/github/dwmkerr/effective-shell-book/from-rachel/images/for-prod/
+```
+
+Named by chapter: `ch01-figure-1-1.png`, `appendix-b-figure-1.png`, etc.
+
+### Adding Images
+
+1. Copy image to the same folder as the page
+2. Use relative markdown syntax
+
+**Book format:**
+```
+Take a look at Figure B-1, which illustrates the directory stack.
+
+Figure B-1: The *pushd* and *popd* directory stack
+```
+
+**Website format:**
+```markdown
+The diagram below illustrates the directory stack.
+
+![The pushd and popd directory stack](./appendix-b-figure-1.png)
+```
+
+### Finding Images
+
+Check which images exist for a chapter:
+```bash
+ls ~/repos/github/dwmkerr/effective-shell-book/from-rachel/images/for-prod/ch01*
+ls ~/repos/github/dwmkerr/effective-shell-book/from-rachel/images/for-prod/appendix-b*
+```
+
+Search for figure references in book source:
+```bash
+grep -n "Figure" ~/repos/github/dwmkerr/effective-shell-book/migration/chapters/ch01*.md
+```
+
 ## URLs
 
 Convert italic URLs to plain links.
