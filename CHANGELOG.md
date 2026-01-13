@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.49.0](https://github.com/dwmkerr/effective-shell/compare/v0.48.1...v0.49.0) (2026-01-13)
+
+
+### Features
+
+* add Appendix B - Shell Basics and migration tooling ([#406](https://github.com/dwmkerr/effective-shell/issues/406)) ([f2bdd3b](https://github.com/dwmkerr/effective-shell/commit/f2bdd3bad0a34fd165c9cd7fab975e37e2b889c7))
+
 ## [0.48.1](https://github.com/dwmkerr/effective-shell/compare/v0.48.0...v0.48.1) (2026-01-06)
 
 
