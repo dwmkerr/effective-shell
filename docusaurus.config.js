@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const redirects = require('./redirects');
 
 //  Load our package so we can show metadata like the version.
 const packageJson = require('./package.json');
@@ -185,6 +186,12 @@ const config = {
     }),
 
   plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: redirects,
+      },
+    ],
     [
       '@docusaurus/plugin-content-docs',
       {
