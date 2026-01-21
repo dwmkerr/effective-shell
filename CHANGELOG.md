@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.50.0](https://github.com/dwmkerr/effective-shell/compare/v0.49.0...v0.50.0) (2026-01-21)
+
+
+### Features
+
+* enable URL redirects for future content migration ([#408](https://github.com/dwmkerr/effective-shell/issues/408)) ([6750832](https://github.com/dwmkerr/effective-shell/commit/675083202e0b68755a8fd654ded1977b487262cf))
+
 ## [0.49.0](https://github.com/dwmkerr/effective-shell/compare/v0.48.1...v0.49.0) (2026-01-13)
 
 
