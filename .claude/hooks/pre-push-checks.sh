@@ -23,16 +23,18 @@ fi
 
 # Run build before push
 echo "Running build before push..." >&2
-if ! npm run build 2>&1; then
+if ! npm run build >&2 2>&1; then
   echo "Build failed. Fix errors before pushing." >&2
   exit 2
 fi
 
-# Require explicit confirmation
-echo "" >&2
-echo "=== PUSH CONFIRMATION REQUIRED ===" >&2
-echo "Command: $cmd" >&2
-echo "" >&2
-echo "Build passed. Please confirm you want to push." >&2
-echo "Ask the user for explicit confirmation before proceeding." >&2
-exit 2
+# Build passed - output JSON to trigger permission dialog
+cat <<EOF
+{
+  "hookSpecificOutput": {
+    "hookEventName": "PreToolUse",
+    "permissionDecision": "ask",
+    "permissionDecisionReason": "Build passed. Confirm push to remote."
+  }
+}
+EOF
