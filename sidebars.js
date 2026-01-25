@@ -6,20 +6,7 @@ const sidebars = {
     'index',
     {
       type: 'category',
-      label: 'Transitioning to the Shell',
-      link: { type: 'doc', id: 'transitioning-to-the-shell/index'},
-      items: [
-        'transitioning-to-the-shell/getting-started/index',
-        'transitioning-to-the-shell/navigating-your-system/index',
-        'transitioning-to-the-shell/managing-your-files/index',
-        'transitioning-to-the-shell/clipboard-gymnastics/index',
-        'transitioning-to-the-shell/getting-help/index',
-        'transitioning-to-the-shell/the-renaissance-of-the-shell/index',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Core Skills',
+      label: 'Part I - Core Skills',
       link: { type: 'doc', id: 'core-skills/index'},
       items: [
         'core-skills/thinking-in-pipelines/index',
@@ -32,7 +19,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Manipulating Text and Streams',
+      label: 'Part II - Manipulating Text and Streams',
       link: { type: 'doc', id: 'manipulating-text/index'},
       items: [
         'manipulating-text/regex-essentials/index',
@@ -44,7 +31,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Shell Scripting',
+      label: 'Part III - Shell Scripting',
       link: { type: 'doc', id: 'shell-scripting/index'},
       items: [
         'shell-scripting/shell-script-essentials/index',
@@ -57,7 +44,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Building Your Toolkit',
+      label: 'Part IV - Building Your Toolkit',
       link: { type: 'doc', id: 'building-your-toolkit/index'},
       items: [
         'building-your-toolkit/configuring-the-shell/index',
@@ -69,7 +56,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Advanced Techniques',
+      label: 'Part V - Advanced Techniques',
       link: { type: 'doc', id: 'advanced-techniques/index'},
       items: [
         'advanced-techniques/understanding-shell-expansion/index',
@@ -85,6 +72,7 @@ const sidebars = {
       items: [
         'xx-appendices/setup/index',
         'xx-appendices/shell-basics/index',
+        'xx-appendices/perspectives/index',
       ]
     },
     'zz-coming-soon/index',
