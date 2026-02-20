@@ -9,8 +9,8 @@ const sidebars = {
       label: 'Part I - Core Skills',
       link: { type: 'doc', id: 'core-skills/index'},
       items: [
-        'core-skills/thinking-in-pipelines/index',
         'core-skills/fly-on-the-command-line/index',
+        'core-skills/thinking-in-pipelines/index',
         'core-skills/job-control/index',
         'core-skills/understanding-commands/index',
         'core-skills/finding-files/index',
