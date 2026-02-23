@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flying on the Command Line - Effective Shell</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #0d1117;
+  }
+
+  .card {
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    position: relative;
+  }
+
+  .left {
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 65px;
+    padding-right: 40px;
+    background: linear-gradient(135deg, #0d1117 0%, #111318 60%, #12141a 100%);
+    position: relative;
+  }
+
+  .title {
+    font-size: 52px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+  }
+
+  .subtitle {
+    font-size: 32px;
+    font-weight: 600;
+    color: #e6edf3;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .tagline {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 14px;
+    color: #484f58;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 58%;
+    top: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 8%,
+      #39d353 25%,
+      #39d353 75%,
+      transparent 92%
+    );
+    z-index: 10;
+  }
+
+  .right {
+    width: 42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px 0 28px;
+    background: #0d1117;
+  }
+
+  .terminal {
+    width: 100%;
+    background: #161b22;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .terminal-titlebar {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 14px;
+    background: #1c2129;
+    border-bottom: 1px solid #30363d;
+  }
+
+  .terminal-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    margin-right: 7px;
+  }
+
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 12px;
+    color: #484f58;
+    margin-right: 40px;
+  }
+
+  .terminal-body {
+    padding: 18px 16px 22px 16px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+
+  .line {
+    white-space: nowrap;
+    min-height: 1.7em;
+  }
+
+  .prompt { color: #39d353; }
+  .cmd { color: #e6edf3; }
+  .flag { color: #ffa657; }
+  .model-val { color: #d2a8ff; }
+  .spacer { height: 6px; }
+
+  .animated-line {
+    position: relative;
+    white-space: nowrap;
+    min-height: 1.7em;
+  }
+
+  /*
+    Cursor positions measured in ch units from the left edge of .animated-line.
+    Text: "$ claude --dangerously-skip-permissions --model sonnet"
+    Chars: $=1, space=1, claude=6, space=1, --dangerously-skip-permissions=30, space=1, --model=7, space=1, sonnet=6
+    Total = 54 chars.
+
+    Position A (end of line): left = 54ch
+    Position B (before "--model"): left = 39ch (after "$ claude --dangerously-skip-permissions ")
+    Position C (before "--dangerously"): left = 9ch (after "$ claude ")
+    Position D (before "dangerously", past "--"): left = 11ch
+  */
+
+  .cursor-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .cursor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1ch;
+    height: 1.15em;
+    background: #e6edf3;
+    animation: cursorHop 6s infinite;
+  }
+
+  @keyframes cursorHop {
+    /* Sit at end of line, blink */
+    0%      { left: 54ch; opacity: 1; }
+    4%      { left: 54ch; opacity: 1; }
+    4.5%    { left: 54ch; opacity: 0; }
+    5.5%    { left: 54ch; opacity: 1; }
+    10%     { left: 54ch; opacity: 1; }
+    10.5%   { left: 54ch; opacity: 0; }
+    11.5%   { left: 54ch; opacity: 1; }
+    16%     { left: 54ch; opacity: 1; }
+    16.5%   { left: 54ch; opacity: 0; }
+    17.5%   { left: 54ch; opacity: 1; }
+    25%     { left: 54ch; opacity: 1; }
+
+    /* Hop 1: before "--model" */
+    25.1%   { left: 39ch; opacity: 1; }
+    30%     { left: 39ch; opacity: 1; }
+    30.5%   { left: 39ch; opacity: 0; }
+    31.5%   { left: 39ch; opacity: 1; }
+    37%     { left: 39ch; opacity: 1; }
+
+    /* Hop 2: before "--dangerously-skip-permissions" */
+    37.1%   { left: 9ch; opacity: 1; }
+    42%     { left: 9ch; opacity: 1; }
+    42.5%   { left: 9ch; opacity: 0; }
+    43.5%   { left: 9ch; opacity: 1; }
+    49%     { left: 9ch; opacity: 1; }
+
+    /* Hop 3: before "dangerously" (past the "--") */
+    49.1%   { left: 11ch; opacity: 1; }
+
+    /* Blink at final resting position */
+    53%     { left: 11ch; opacity: 1; }
+    53.5%   { left: 11ch; opacity: 0; }
+    54.5%   { left: 11ch; opacity: 1; }
+    60%     { left: 11ch; opacity: 1; }
+    60.5%   { left: 11ch; opacity: 0; }
+    61.5%   { left: 11ch; opacity: 1; }
+    67%     { left: 11ch; opacity: 1; }
+    67.5%   { left: 11ch; opacity: 0; }
+    68.5%   { left: 11ch; opacity: 1; }
+    74%     { left: 11ch; opacity: 1; }
+    74.5%   { left: 11ch; opacity: 0; }
+    75.5%   { left: 11ch; opacity: 1; }
+    81%     { left: 11ch; opacity: 1; }
+    81.5%   { left: 11ch; opacity: 0; }
+    82.5%   { left: 11ch; opacity: 1; }
+    88%     { left: 11ch; opacity: 1; }
+    88.5%   { left: 11ch; opacity: 0; }
+    89.5%   { left: 11ch; opacity: 1; }
+    95%     { left: 11ch; opacity: 1; }
+
+    /* Fade out, then reset */
+    96%     { left: 11ch; opacity: 0; }
+    100%    { left: 54ch; opacity: 0; }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 12px;
+    color: #30363d;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="left">
+    <div class="title">Fly on the<br>Command Line</div>
+    <div class="subtitle">and Claude Code</div>
+    <div class="tagline">Chapter 1 // Effective Shell</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="right">
+    <div class="terminal">
+      <div class="terminal-titlebar">
+        <div class="terminal-dot dot-red"></div>
+        <div class="terminal-dot dot-yellow"></div>
+        <div class="terminal-dot dot-green"></div>
+        <div class="terminal-title">bash</div>
+      </div>
+      <div class="terminal-body">
+        <div class="line"><span class="prompt">$</span> <span class="cmd">cat</span> <span class="cmd">urls.txt</span> <span class="flag">|</span> <span class="cmd">sort</span> <span class="flag">|</span> <span class="cmd">uniq</span> <span class="flag">-c</span></div>
+        <div class="spacer"></div>
+        <div class="line"><span class="prompt">$</span> <span class="cmd">grep</span> <span class="flag">-rn</span> <span class="model-val">"TODO"</span> <span class="cmd">./src</span></div>
+        <div class="spacer"></div>
+        <div class="line"><span class="prompt">$</span> <span class="cmd">find</span> <span class="cmd">.</span> <span class="flag">-name</span> <span class="model-val">"*.sh"</span> <span class="flag">-exec</span> <span class="cmd">chmod</span> <span class="flag">+x</span> <span class="cmd">{}</span> <span class="flag">\;</span></div>
+        <div class="spacer"></div>
+        <div class="animated-line"><!--
+          --><span class="prompt">$</span> <span class="cmd">claude</span> <span class="flag">--dangerously-skip-permissions</span> <span class="flag">--model</span> <span class="model-val">sonnet</span><!--
+          --><span class="cursor-track"><span class="cursor"></span></span><!--
+        --></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">effective-shell.com</div>
+</div>
+</body>
+</html>
