@@ -1,0 +1,11 @@
+.websiteOnly {
+  display: inline;
+  cursor: help;
+  margin-right: 0.25rem;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.websiteOnly:hover {
+  opacity: 1;
+}
