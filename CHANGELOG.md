@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.51.1](https://github.com/dwmkerr/effective-shell/compare/v0.51.0...v0.51.1) (2026-02-23)
+
+
+### Bug Fixes
+
+* make pre-push hook executable and correct edit-in-place image ([#419](https://github.com/dwmkerr/effective-shell/issues/419)) ([e3a347c](https://github.com/dwmkerr/effective-shell/commit/e3a347c2ad84bde2c9ab82459b4616b174231f43))
+
 ## [0.51.0](https://github.com/dwmkerr/effective-shell/compare/v0.50.0...v0.51.0) (2026-02-23)
 
 
