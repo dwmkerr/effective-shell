@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.51.0](https://github.com/dwmkerr/effective-shell/compare/v0.50.0...v0.51.0) (2026-02-23)
+
+
+### Features
+
+* align website structure with print book (Part I-V) ([#411](https://github.com/dwmkerr/effective-shell/issues/411)) ([c7d1730](https://github.com/dwmkerr/effective-shell/commit/c7d173080e03febe1e83afd163f99c19847352f9))
+
 ## [0.50.0](https://github.com/dwmkerr/effective-shell/compare/v0.49.0...v0.50.0) (2026-01-21)
 
 
