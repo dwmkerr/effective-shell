@@ -275,7 +275,7 @@ $ ls -al /usr/bin >> binaries.txt
 
 But instead of pressing <kbd>Enter</kbd> to execute this code, press <kbd>Ctrl</kbd>-<kbd>X</kbd>, <kbd>Ctrl</kbd>-<kbd>E</kbd> to edit it in place (see Figure 1-1).
 
-![The "edit in place" functionality in nano](./images/ch01-figure-1.png)
+![The "edit in place" functionality in nano](./images/edit-in-place.gif)
 
 *Figure 1-1: The "edit in place" functionality in nano*
 
@@ -286,10 +286,6 @@ Now you can edit the command text by deleting characters and typing new ones. Sa
 :::note
 If the editor does not look like the screenshot in Figure 1-1, you may have opened Vim by mistake. If so, type `:q!` and press <kbd>Enter</kbd> to exit Vim, then enter `export EDITOR=nano` to change the default editor for your shell.
 :::
-
-![Edit in place demonstration](./images/edit-in-place.gif)
-
-*Opening the command line editor with <kbd>Ctrl</kbd>-<kbd>X</kbd>, <kbd>Ctrl</kbd>-<kbd>E</kbd>*
 
 Keep in mind that the <kbd>Ctrl</kbd>-<kbd>X</kbd>, <kbd>Ctrl</kbd>-<kbd>E</kbd> shortcut opens the shell's *default* editor, which might not be the one you expect. For example, your shell is unlikely to use Visual Studio Code for editing commands unless you configure it to do so, even if you have set it as your editor for shell scripts. The default editor will be one that works *inside* a shell, because the shell doesn't assume that you have a windowing system running that can open a full-featured editor like Visual Studio Code, Notepad++, or other popular editors.
 

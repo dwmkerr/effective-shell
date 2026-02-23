@@ -12,7 +12,8 @@
     "serve": "docusaurus serve --port 3745",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "ts:check": "tsc --resolveJsonModule"
+    "ts:check": "tsc --resolveJsonModule",
+    "prepare": "husky"
   },
   "dependencies": {
     "@docusaurus/core": "2.2.0",
@@ -48,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.34.1"
+    "eslint-plugin-react": "^7.34.1",
+    "husky": "^9.1.7"
   }
 }
