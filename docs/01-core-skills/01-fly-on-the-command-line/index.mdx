@@ -473,16 +473,18 @@ There are many other Claude Code specific keyboard shortcuts and some of the mos
 
 Claude Code also supports vim mode, which you can enable with the `/vim` command. We'll cover vim editing in detail in [A Vim Crash Course](/part-6-advanced-techniques/a-vim-crash-course/). For a complete reference of all Claude Code shortcuts, see the [Interactive Mode documentation](https://code.claude.com/docs/en/interactive-mode).
 
-Under the hood, the reason that many of these shortcuts work consistently in tools like Claude Code is that they use GNU Readline under the hood - which we'll look at next.
+Under the hood, the reason that many of these shortcuts work consistently in tools like Claude Code is that they use GNU Readline - which we'll look at next.
 
 ## <WebsiteOnly />The Power of Readline
 
 All of the movement commands you've learned in this chapter apply to many command-line programs:
 
-1. Bash
+1. Bash / 
 2. zsh
 3. The Python REPL
 4. The Node.js REPL
+5. Claude Code
+6. OpenCode
 
 And many more! The reason is that all of these programs use the same library under the hood to control reading command line input. This library is called *GNU Readline*.
 
