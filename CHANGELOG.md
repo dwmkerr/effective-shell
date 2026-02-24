@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.52.0](https://github.com/dwmkerr/effective-shell/compare/v0.51.1...v0.52.0) (2026-02-24)
+
+
+### Features
+
+* add YouTube video embed to Flying on the Command Line chapter ([#421](https://github.com/dwmkerr/effective-shell/issues/421)) ([7c6aaa3](https://github.com/dwmkerr/effective-shell/commit/7c6aaa38ce0cc235d88c07c23ac2a58f0d2baf8b))
+
 ## [0.51.1](https://github.com/dwmkerr/effective-shell/compare/v0.51.0...v0.51.1) (2026-02-23)
 
 
