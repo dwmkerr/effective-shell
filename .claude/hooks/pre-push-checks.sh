@@ -21,8 +21,9 @@ if echo "$cmd" | grep -Eq '\bgit\s+push\s+.*--force'; then
   exit 2
 fi
 
-# Run build before push
+# Run build before push (clean first to avoid redirect plugin EEXIST errors)
 echo "Running build before push..." >&2
+rm -rf build
 if ! npm run build >&2 2>&1; then
   echo "Build failed. Fix errors before pushing." >&2
   exit 2
