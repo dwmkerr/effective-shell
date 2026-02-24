@@ -22,7 +22,7 @@ Contains: typography rules, format conversions, validation checklist.
 
 ### Before Making Changes
 
-1. Run `make serve` to start the dev server (port 3745 = ESHL on dialpad)
+1. Start the dev server with `npx docusaurus start --port 3745` (`make serve` may not exist)
 2. Load the appropriate skill(s)
 3. Check the sidebar structure in `sidebars.js`
 
@@ -35,17 +35,22 @@ Contains: typography rules, format conversions, validation checklist.
 ### Git Workflow
 
 - **Never commit directly to main** - Always use feature branches
+- **Never force push** - Accumulate commits; PRs use squash merge
 - **Always ask before pushing** - Get explicit user confirmation
 - Run build before commits to catch errors early
 
-## Migration Work
+## Content Patterns
 
 When editing any file in `docs/`:
 
 1. Load `/skill effective-shell-migration`
 2. Follow typography rules (em-dashes `—` not `---`)
 3. Use validation checklist before committing
-4. Check for common mistakes:
+4. Image captions use `*italic text*` on the line below the image
+5. Web-only sections use `## <WebsiteOnly />Section Title`
+6. YouTube embeds use `<iframe>` directly (no component), place inline where relevant
+7. Clean the `build/` directory before building if a previous build exists
+8. Check for common mistakes:
    - Triple hyphens instead of em-dashes
    - Missing `:::note` admonitions
    - Code blocks without language specifiers
