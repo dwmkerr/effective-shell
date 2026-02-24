@@ -35,6 +35,7 @@ Contains: typography rules, format conversions, validation checklist.
 ### Git Workflow
 
 - **Never commit directly to main** - Always use feature branches
+- **Never force push** - Accumulate commits; PRs use squash merge
 - **Always ask before pushing** - Get explicit user confirmation
 - Run build before commits to catch errors early
 
