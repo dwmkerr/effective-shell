@@ -6,6 +6,15 @@
         "hooks": [
           {
             "type": "command",
+            "command": "npx block-no-verify@1.1.2"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
             "command": ".claude/hooks/pre-commit-build.sh",
             "timeout": 120
           },
