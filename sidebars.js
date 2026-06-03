@@ -73,6 +73,7 @@ const sidebars = {
         'xx-appendices/setup/index',
         'xx-appendices/shell-basics/index',
         'xx-appendices/perspectives/index',
+        'xx-appendices/errata',
       ]
     },
     'zz-coming-soon/index',
