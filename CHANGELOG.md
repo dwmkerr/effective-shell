@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.52.1](https://github.com/dwmkerr/effective-shell/compare/v0.52.0...v0.52.1) (2026-06-03)
+
+
+### Documentation
+
+* add errata appendix tracking print/ebook corrections ([#429](https://github.com/dwmkerr/effective-shell/issues/429)) ([2b8d84f](https://github.com/dwmkerr/effective-shell/commit/2b8d84f78bd9344b92459f4e95ae8fadbf75436b))
+* extend errata + fix manpage refs, sed g flag explanation ([#430](https://github.com/dwmkerr/effective-shell/issues/430)) ([883c63f](https://github.com/dwmkerr/effective-shell/commit/883c63fe38b0d04d6fa8964238bf170270b1a041))
+
+
+### Bug Fixes
+
+* clean build dir in pre-push hook to avoid EEXIST errors ([#423](https://github.com/dwmkerr/effective-shell/issues/423)) ([e132c10](https://github.com/dwmkerr/effective-shell/commit/e132c10a68831b0975ca4a571f69cc00b475c9ef))
+
 ## [0.52.0](https://github.com/dwmkerr/effective-shell/compare/v0.51.1...v0.52.0) (2026-02-24)
 
 
