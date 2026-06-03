@@ -23,6 +23,10 @@ The text presents `bind -p` as an "alternative form" of `bindkey`. They are not 
 
 A shell-agnostic alternative for inspecting terminal-level key bindings is `stty -a`.
 
+### Page 20 (and Appendix B) — Clipboard / working with the system clipboard
+
+The chapter introduces working with the system clipboard from the shell, with further detail in Appendix B. Clipboard handling varies significantly across platforms — Cygwin, WSL, OpenBSD, macOS, and various Linux desktop environments each use different tools and have different limitations. The goal of the book is to free your hands from the mouse and work more productively from the keyboard, not to send you down a rabbit hole tracking down a clipboard utility. If the clipboard examples don't work on your system, it is safe to skip them — none of the rest of the book depends on them.
+
 ## Chapter 3 — Thinking in Pipelines
 
 ### Page 19 — Ctrl-D
@@ -32,6 +36,26 @@ A shell-agnostic alternative for inspecting terminal-level key bindings is `stty
 ### Page 19 — `wc` flag typo
 
 One print run shows `wc -1` (digit one) instead of `wc -l` (lowercase L) for the line-count flag. Page 20 prints correctly. This is a print typo only; the website is correct.
+
+## Chapter 4 — Regular Expression Essentials
+
+### Page 51 — `man re_pattern`
+
+The text refers to `man re_pattern` for further regex documentation. No manpage with that name exists on any common platform. The correct references are `man re_format` on macOS and BSD, and `man 7 regex` on Linux. The same incorrect reference appears in Chapter 7 (page 85) and the appendix manpage list — all three locations have been corrected on the website.
+
+### Regex flavours — regex101 vs BRE / ERE / PCRE
+
+The chapter teaches regular expressions using [regex101.com](https://regex101.com) as the primary reference tool. regex101 defaults to a PCRE-compatible engine. Several subsequent chapters cover tools that use different regex flavours:
+
+| Tool                 | Flavour                              |
+|----------------------|--------------------------------------|
+| `grep`               | Basic Regular Expressions (BRE)      |
+| `grep -E`, `egrep`   | Extended Regular Expressions (ERE)   |
+| `sed`                | BRE (ERE with `-E`)                  |
+| `awk`                | ERE                                  |
+| `perl`, `pcregrep`   | PCRE                                 |
+
+Constructs such as `\d`, unescaped `+`, `?`, and `{n,m}` work in regex101 but behave differently in `grep` BRE. The chapter has a short note on tool differences toward the end, but readers building a mental model around regex101 will hit surprises the first time they use `grep` or `sed`. A flavour overview has been added near the start of the chapter to make this explicit.
 
 ## Chapter 7 — Get to Grips with `sed`
 
@@ -115,19 +139,17 @@ tail ~/.bash_history -n 1000 |
 
 This is a style point rather than an error — both forms run identically. The website examples use the implicit form in long pipelines.
 
-## Chapter 13 — Regular Expression Essentials
+## Chapter 10 — Variables, Reading Input, and Mathematics
 
-The chapter teaches regular expressions using [regex101.com](https://regex101.com) as the primary reference tool. regex101 defaults to a PCRE-compatible engine. Several subsequent chapters cover tools that use different regex flavours:
+### Page 134 — `g` flag in `sed`
 
-| Tool             | Flavour                              |
-|------------------|--------------------------------------|
-| `grep`           | Basic Regular Expressions (BRE)      |
-| `grep -E`, `egrep` | Extended Regular Expressions (ERE) |
-| `sed`            | BRE (ERE with `-E`)                  |
-| `awk`            | ERE                                  |
-| `perl`, `pcregrep` | PCRE                              |
+The example `sed 's/./*/g'` is shown without explaining the `g` flag. The book usually unpacks small details like this. The `g` stands for *global*: without it, `sed` only replaces the first match on each line. With `g`, every match on the line is replaced — which is what makes the password-masking example mask every character rather than just the first one. The website now includes a short explanation alongside the example.
 
-Constructs such as `\d`, unescaped `+`, `?`, and `{n,m}` work in regex101 but behave differently in `grep` BRE. The chapter has a short note on tool differences toward the end, but readers building a mental model around regex101 will hit surprises the first time they use `grep` or `sed`. A flavour overview has been added near the start of the chapter to make this explicit.
+## Chapter 24 — Master the Multiplexer (tmux)
+
+### Page 365 — tmux on Cygwin
+
+The text suggests `tmux` is not available on Cygwin. A `tmux` package is in fact available through the Cygwin installer and works well for most of the functionality covered in the chapter. There are some minor limitations compared to a native Linux or BSD environment, but Cygwin users do not need to skip this chapter.
 
 ---
 
