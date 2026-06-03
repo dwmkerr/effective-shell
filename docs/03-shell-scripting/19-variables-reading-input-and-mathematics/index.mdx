@@ -124,6 +124,8 @@ masked_password=$(echo "$password" | sed 's/./*/g')
 echo "Setting password '${masked_password}'..."
 ```
 
+The `g` flag at the end of the `sed` expression stands for *global* - without it, `sed` would only replace the first character on each line. With `g`, every character matched by the pattern is replaced, masking the entire password.
+
 The output of this script will look like this:
 
 ```
