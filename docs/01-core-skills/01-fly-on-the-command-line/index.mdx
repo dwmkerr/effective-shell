@@ -227,6 +227,10 @@ The shell will search the previous commands for the term file, jumping farther b
 
 Press <kbd>Enter</kbd> to get back to the regular prompt. Searching forward with <kbd>Ctrl</kbd>-<kbd>S</kbd> works in much the same way.
 
+:::note
+On many terminals, pressing <kbd>Ctrl</kbd>-<kbd>S</kbd> won't search forward — instead it triggers *XOFF*, a legacy flow-control signal that freezes terminal output and makes the shell appear to hang. If this happens, press <kbd>Ctrl</kbd>-<kbd>Q</kbd> (*XON*) to unfreeze it. To free up <kbd>Ctrl</kbd>-<kbd>S</kbd> for forward search, disable flow control with `stty -ixon`.
+:::
+
 If your code lines are long, these two shortcuts are often the fastest ways to move to the desired location in the current line. You can also use them to quickly search through your entire command history. For example, to find your last mkdir ("make directory") command, press <kbd>Ctrl</kbd>-<kbd>R</kbd>, enter `mkdir`, and then press <kbd>Ctrl</kbd>-<kbd>R</kbd> again to search backward through all mkdir commands stored in your history.
 
 A quick way to test this is also to search for echo. If you've been using the echo command to enter the quote as in the earlier examples, it should be the first result that the reverse search finds.
@@ -325,6 +329,10 @@ There are a few other shortcuts that, while they don't fit into the categories w
 
 The shortcut <kbd>Ctrl</kbd>-<kbd>L</kbd> clears the screen but doesn't affect anything unexecuted in your current line. This is very helpful if you have a lot of "noisy" output on the screen and want to clean it up.
 
+:::note
+<kbd>Ctrl</kbd>-<kbd>L</kbd> redraws the prompt at the top of the visible area — it doesn't wipe the scrollback buffer, so earlier output is still accessible by scrolling up. The `clear` command behaves the same way by default. To clear the scrollback too, use `clear -x` or `printf '\033[3J'`.
+:::
+
 ![Clearing the screen](./images/clear-screen.gif)
 
 *Using <kbd>Ctrl</kbd>-<kbd>L</kbd> to clear the screen*
@@ -411,7 +419,16 @@ $ bindkey
 ...
 ```
 
-This is an extremely useful command if you forget a specific keyboard shortcut or even if you just want to see the shortcuts available to you. If bindkey doesn't work for you, try using the alternative form bind -p.
+This is an extremely useful command if you forget a specific keyboard shortcut or even if you just want to see the shortcuts available to you.
+
+:::note
+`bindkey` is a Zsh builtin and won't work in Bash. `bind` and `bindkey` are *different* builtins, not alternative forms of the same command. To list the current bindings:
+
+- **Bash:** `bind -p` (and `help bind` for documentation)
+- **Zsh:** `bindkey` (and `man zshzle` for documentation)
+
+Neither has a dedicated man page — `man bind` lands on the C socket function, not the shell builtin. A shell-agnostic way to inspect terminal-level key bindings is `stty -a`.
+:::
 
 ### Transpose Text
 
@@ -450,24 +467,24 @@ Most of the keyboard shortcuts shown in this chapter work in exactly the same wa
 | <kbd>Ctrl</kbd>+<kbd>L</kbd> | Clear screen |
 | <kbd>Ctrl</kbd>+<kbd>G</kbd> | Edit in Place |
 
-There are many other Claude Code specific keyboard shortcuts and some of the most useful to consider commiting to memory are:
+There are many other Claude Code specific keyboard shortcuts and some of the most useful to consider committing to memory are:
 
 | Shortcut | Action |
 |----------|--------|
-| <kbd>Ctrl</kbd>+<kbd>G</kbd> | Open default text editor |
-| <kbd>Ctrl</kbd>+<kbd>S</kbd> | Stash prompt—stores current input, press again to restore |
 | <kbd>Alt</kbd>+<kbd>T</kbd> | Toggle extended thinking mode |
-| <kbd>Ctrl</kbd>+<kbd>O</kbd> | Toggle verbose output |
+| <kbd>Ctrl</kbd>+<kbd>O</kbd> | Toggle the transcript viewer (detailed tool usage) |
 | <kbd>Ctrl</kbd>+<kbd>V</kbd> | Paste image from clipboard |
-| <kbd>Ctrl</kbd>+<kbd>B</kbd> | Background running tasks |
-| <kbd>Ctrl</kbd>+<kbd>C</kbd> | Cancel current input or generation |
-| <kbd>Ctrl</kbd>+<kbd>F</kbd> | Kill all background agents |
-| <kbd>Ctrl</kbd>+<kbd>T</kbd> | Toggle task list |
-| <kbd>Alt</kbd>+<kbd>M</kbd> | Toggle permission modes |
+| <kbd>Ctrl</kbd>+<kbd>B</kbd> | Background a running task |
+| <kbd>Ctrl</kbd>+<kbd>C</kbd> | Interrupt, or clear the input |
+| <kbd>Ctrl</kbd>+<kbd>X</kbd> <kbd>Ctrl</kbd>+<kbd>K</kbd> | Stop all background subagents (press twice to confirm) |
+| <kbd>Ctrl</kbd>+<kbd>T</kbd> | Toggle Claude's task list |
+| <kbd>Shift</kbd>+<kbd>Tab</kbd> | Cycle permission modes |
 | <kbd>Alt</kbd>+<kbd>P</kbd> | Switch model |
-| <kbd>Esc</kbd>, <kbd>Esc</kbd> | Rewind or summarize conversation |
+| <kbd>Ctrl</kbd>+<kbd>Y</kbd> | Paste text deleted with <kbd>Ctrl</kbd>+<kbd>K</kbd> / <kbd>U</kbd> / <kbd>W</kbd> |
+| <kbd>Ctrl</kbd>+<kbd>J</kbd> | Insert a newline without submitting |
+| <kbd>Esc</kbd>, <kbd>Esc</kbd> | Clear the input draft, or rewind the conversation |
 
-Claude Code also supports vim mode, which you can enable with the `/vim` command. We'll cover vim editing in detail in [A Vim Crash Course](/part-6-advanced-techniques/a-vim-crash-course/). For a complete reference of all Claude Code shortcuts, see the [Interactive Mode documentation](https://code.claude.com/docs/en/interactive-mode).
+Claude Code also supports vim-style editing, which you can enable via `/config` → Editor mode. We'll cover vim editing in detail in [A Vim Crash Course](/part-6-advanced-techniques/a-vim-crash-course/). For a complete reference of all Claude Code shortcuts, see the [Interactive Mode documentation](https://code.claude.com/docs/en/interactive-mode).
 
 Under the hood, the reason that many of these shortcuts work consistently in tools like Claude Code is that they use GNU Readline - which we'll look at next.
 

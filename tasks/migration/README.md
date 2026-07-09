@@ -93,9 +93,29 @@ These website sections are not in the published book and should be reorganized:
 | [#404](https://github.com/dwmkerr/effective-shell/issues/404) | Book uses numbered reference annotations in code blocks (e.g., ①②③) with explanations below. Need custom component. |
 | [#405](https://github.com/dwmkerr/effective-shell/issues/405) | Book references other chapters that may not be migrated yet. Backfill internal links after migration complete. |
 
+## Content Audit (2026-07)
+
+Automated prose-similarity audit of each online chapter vs its print manuscript
+source (`tasks/migration/audit.py`). Online = old blog-era text; print is the
+authoritative version to backfill. Word-count delta is a stronger signal than
+raw similarity — where print ≫ online, the online is missing content.
+
+| Bucket | Chapters | Action |
+|--------|----------|--------|
+| **Already print** (sim ≥ .75) | ch01, ch04, ch05, ch14, ch16, ch17, ch20, ch23 | errata-sync only |
+| **Real backfill** (online ~½ of print) | **ch02, ch15, ch18** | replace with print text |
+| **Partial / reconcile** | ch03, ch06, ch07, ch08, ch09, ch11, ch12, ch13, ch19, ch21, ch22, ch24 | section-by-section |
+| **Broken source** | ch10 | manuscript extraction is a 102-word stub — re-extract first |
+| **Bonus → Part VI** | job-control, understanding-commands, what-is-a-shell | keep website-only |
+
+Backfill order (biggest gap first): ch02 → ch15 → ch18 → ch06 → ch13 → …
+
+Note: the mapping table above uses pre-#411 dir numbers; actual dirs were
+renumbered (e.g. `08-fly` → `01-fly`). See the audit script for the live map.
+
 ## Progress Tracking
 
-- [ ] Phase 1: Content audit complete
+- [x] Phase 1: Content audit complete (2026-07)
 - [ ] Phase 2: Part I chapters migrated
 - [ ] Phase 3: Part II chapters migrated
 - [ ] Phase 4: Part III chapters migrated
