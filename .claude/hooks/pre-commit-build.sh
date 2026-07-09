@@ -16,7 +16,8 @@ fi
 
 echo "Running build before commit..." >&2
 
-# Run the build
+# Clean first to avoid redirect plugin EEXIST errors on a stale build dir
+rm -rf build
 if ! npm run build 2>&1; then
   echo "Build failed. Fix errors before committing." >&2
   exit 2
