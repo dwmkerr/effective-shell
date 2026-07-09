@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.52.2](https://github.com/dwmkerr/effective-shell/compare/v0.52.1...v0.52.2) (2026-07-09)
+
+
+### Documentation
+
+* sync Fly on the Command Line chapter with errata + fix Claude Code shortcuts ([#431](https://github.com/dwmkerr/effective-shell/issues/431)) ([7059a7b](https://github.com/dwmkerr/effective-shell/commit/7059a7b2f3dc49948b6823747bce7f450c859538))
+
 ## [0.52.1](https://github.com/dwmkerr/effective-shell/compare/v0.52.0...v0.52.1) (2026-06-03)
 
 
