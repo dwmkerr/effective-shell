@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.53.0](https://github.com/dwmkerr/effective-shell/compare/v0.52.2...v0.53.0) (2026-09-01)
+
+
+### Features
+
+* add book purchase lead and footer to all chapters ([#433](https://github.com/dwmkerr/effective-shell/issues/433)) ([348b46f](https://github.com/dwmkerr/effective-shell/commit/348b46fac3032f7f7c2184dcea4c590610ff80af))
+
 ## [0.52.2](https://github.com/dwmkerr/effective-shell/compare/v0.52.1...v0.52.2) (2026-07-09)
 
 
