@@ -1,0 +1,38 @@
+.book-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding: 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.book-footer-cover {
+  max-width: 140px;
+  flex-shrink: 0;
+}
+
+.book-footer-text p {
+  margin-bottom: 0.5rem;
+}
+
+.book-footer-lead {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.book-footer-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .book-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,8 @@
+.book-banner {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1.5rem;
+}
