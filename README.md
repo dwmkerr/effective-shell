@@ -109,6 +109,44 @@ Components can be added to global scope, i.e. available in call pages, by adding
 src/theme/MDXComponents.js
 ```
 
+## Analytics
+
+The site uses Google Analytics 4 (`G-8HZFMZV9Z4`), loaded through Google Tag
+Manager (`GTM-WS7KMPTS`). Pageviews and outbound clicks are tracked
+automatically. Two GTM tags fire custom events when a reader clicks through to
+buy the book: `amazon_click` (any `amzn.to` link) and `nostarch_click` (any
+`nostarch.com` link). Both are marked as key events in GA4.
+
+### Book click attribution
+
+To see *which* button a buy-click came from — the chapter lead banner, the
+chapter footer, the homepage hero, or the menu bar — each book link carries a
+`data-book-cta` attribute:
+
+| Value | Where |
+|---|---|
+| `lead` | Chapter lead banner ([`BookBanner`](src/components/BookBanner)) |
+| `finale-cover` / `finale-button` | Chapter footer cover image / buttons ([`BookFooter`](src/components/BookFooter)) |
+| `home-hero-button` / `home-hero-cover` / `home-nav` | Homepage hero and nav ([`src/pages/index.tsx`](src/pages/index.tsx)) |
+| `menubar` | Docusaurus navbar (toolbar) links, matched by their `header-amazon-link` / `header-nostarch-link` class |
+| `sitefooter` | Docusaurus theme footer links, matched by the theme's `.footer` container |
+
+The last two are config-driven ([`docusaurus.config.js`](docusaurus.config.js))
+and can't take a `data-book-cta` attribute cleanly, so GTM matches them by class
+and container instead — no attribute needed.
+
+GTM reads all this with the `CJS - Book CTA Location` variable, which returns the
+clicked link's `data-book-cta`, else `menubar` for the header links, else
+`sitefooter` for anything inside the theme footer, and `(unmarked)` otherwise. It
+is sent as the `link_location` event parameter and surfaced in GA4 as the
+event-scoped custom dimension **Book CTA location**.
+
+Attribution is not retroactive: GA4 only records `link_location` from the point
+the tag is live, so newly added CTAs start showing up once this markup deploys.
+**When you add a new book link, give it a `data-book-cta` value** — a missing
+attribute never breaks tracking (the click still fires), it just reports as
+`(unmarked)`.
+
 ## Versioning
 
 The version of the site and the code is defined in the [`package.json`](./package.json) file.
