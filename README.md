@@ -26,7 +26,7 @@ Text, samples and references for my 'Effective Shell' series. This website is ho
 
 ## Introduction
 
-This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book.
+This repository contains all of the content for the [Effective Shell](https://effective-shell.com/) online book. If you find this book useful, please do consider [sponsoring me](https://github.com/sponsors/dwmkerr) to help support my open-source work!
 
 ## Installing the Samples
 
