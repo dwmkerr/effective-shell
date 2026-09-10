@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.53.1](https://github.com/dwmkerr/effective-shell/compare/v0.53.0...v0.53.1) (2026-09-10)
+
+
+### Documentation
+
+* add sponsor badge and funding metadata ([#436](https://github.com/dwmkerr/effective-shell/issues/436)) ([4f3fd92](https://github.com/dwmkerr/effective-shell/commit/4f3fd92a985a8526a41b7fd62c1a55e390237055))
+
 ## [0.53.0](https://github.com/dwmkerr/effective-shell/compare/v0.52.2...v0.53.0) (2026-09-01)
 
 
