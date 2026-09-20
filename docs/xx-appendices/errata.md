@@ -145,9 +145,9 @@ This is a style point rather than an error — both forms run identically. The w
 
 The example `sed 's/./*/g'` is shown without explaining the `g` flag. The book usually unpacks small details like this. The `g` stands for *global*: without it, `sed` only replaces the first match on each line. With `g`, every match on the line is replaced — which is what makes the password-masking example mask every character rather than just the first one. The website now includes a short explanation alongside the example.
 
-## Chapter 17 — Managing Your Dotfiles
+## Chapter 17 — Managing Your Dot Files
 
-### "Installing the Dotfiles" — `install.sh` shebang
+### "A Dot File Install Script" — `install.sh` shebang
 
 The `install.sh` listing begins with the shebang `#!/usr/bin/env sh`, but the script uses a Bash array to hold the list of shell configuration files:
 
