@@ -4,7 +4,7 @@ Corrections and clarifications for the print and ebook editions of *Effective Sh
 
 The website is kept up to date as corrections are confirmed — entries here note the original printed text and the fix applied online.
 
-## Chapter 2 — Flying on the Command Line
+## Chapter 1 — Flying on the Command Line
 
 ### Page 6–7, "Search Commands" — Ctrl-S and XOFF
 
@@ -27,7 +27,7 @@ A shell-agnostic alternative for inspecting terminal-level key bindings is `stty
 
 The chapter introduces working with the system clipboard from the shell, with further detail in Appendix B. Clipboard handling varies significantly across platforms — Cygwin, WSL, OpenBSD, macOS, and various Linux desktop environments each use different tools and have different limitations. The goal of the book is to free your hands from the mouse and work more productively from the keyboard, not to send you down a rabbit hole tracking down a clipboard utility. If the clipboard examples don't work on your system, it is safe to skip them — none of the rest of the book depends on them.
 
-## Chapter 3 — Thinking in Pipelines
+## Chapter 2 — Thinking in Pipelines
 
 ### Page 19 — Ctrl-D
 
