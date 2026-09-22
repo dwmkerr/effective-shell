@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.53.1](https://github.com/dwmkerr/effective-shell/compare/v0.53.0...v0.53.1) (2026-09-22)
+
+
+### Documentation
+
+* add sponsor badge and funding metadata ([#436](https://github.com/dwmkerr/effective-shell/issues/436)) ([4f3fd92](https://github.com/dwmkerr/effective-shell/commit/4f3fd92a985a8526a41b7fd62c1a55e390237055))
+
+
+### Bug Fixes
+
+* **samples:** correct common.sh tail quoting and two file modes ([#439](https://github.com/dwmkerr/effective-shell/issues/439)) ([acdadfd](https://github.com/dwmkerr/effective-shell/commit/acdadfd26a2f569c6ce893df105984a7abd6971d))
+* **samples:** use bash shebang for scripts that use bash syntax ([#438](https://github.com/dwmkerr/effective-shell/issues/438)) ([c101c6d](https://github.com/dwmkerr/effective-shell/commit/c101c6dc06a303577e3635c6e4f2aab914320444))
+
 ## [0.53.0](https://github.com/dwmkerr/effective-shell/compare/v0.52.2...v0.53.0) (2026-09-01)
 
 
