@@ -147,7 +147,7 @@ The example `sed 's/./*/g'` is shown without explaining the `g` flag. The book u
 
 ## Chapter 17 — Managing Your Dot Files
 
-### "A Dot File Install Script" — `install.sh` shebang
+### Page 247, "A Dot File Installation Script" — `install.sh` shebang
 
 The `install.sh` listing begins with the shebang `#!/usr/bin/env sh`, but the script uses a Bash array to hold the list of shell configuration files:
 
