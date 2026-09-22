@@ -4,7 +4,7 @@ Corrections and clarifications for the print and ebook editions of *Effective Sh
 
 The website is kept up to date as corrections are confirmed — entries here note the original printed text and the fix applied online.
 
-## Chapter 2 — Flying on the Command Line
+## Chapter 1 — Flying on the Command Line
 
 ### Page 6–7, "Search Commands" — Ctrl-S and XOFF
 
@@ -27,7 +27,7 @@ A shell-agnostic alternative for inspecting terminal-level key bindings is `stty
 
 The chapter introduces working with the system clipboard from the shell, with further detail in Appendix B. Clipboard handling varies significantly across platforms — Cygwin, WSL, OpenBSD, macOS, and various Linux desktop environments each use different tools and have different limitations. The goal of the book is to free your hands from the mouse and work more productively from the keyboard, not to send you down a rabbit hole tracking down a clipboard utility. If the clipboard examples don't work on your system, it is safe to skip them — none of the rest of the book depends on them.
 
-## Chapter 3 — Thinking in Pipelines
+## Chapter 2 — Thinking in Pipelines
 
 ### Page 19 — Ctrl-D
 
@@ -145,6 +145,26 @@ This is a style point rather than an error — both forms run identically. The w
 
 The example `sed 's/./*/g'` is shown without explaining the `g` flag. The book usually unpacks small details like this. The `g` stands for *global*: without it, `sed` only replaces the first match on each line. With `g`, every match on the line is replaced — which is what makes the password-masking example mask every character rather than just the first one. The website now includes a short explanation alongside the example.
 
+## Chapter 17 — Managing Your Dot Files
+
+### Page 247, "A Dot File Installation Script" — `install.sh` shebang
+
+The `install.sh` listing begins with the shebang `#!/usr/bin/env sh`, but the script uses a Bash array to hold the list of shell configuration files:
+
+```bash
+config_files=(~/.bashrc ~/.zshrc)
+```
+
+Arrays are not part of the POSIX shell. On the many Linux distributions where `/bin/sh` is `dash` — including Ubuntu and Debian, where it is the default — running the script as `./install.sh` fails immediately:
+
+```
+install.sh: 11: Syntax error: "(" unexpected
+```
+
+The shebang should be `#!/usr/bin/env bash`. The listing is otherwise correct, and the website has been updated to match.
+
+A related bug existed in the downloadable samples but not in the printed listing: the check that skips missing configuration files tested `~/.bashrc` rather than the loop variable `${config_file}`, so on a machine with only a `.bashrc` the script reported a `grep` error and created an unwanted `~/.zshrc`. The printed text has always been correct here. The sample has been fixed to match the book.
+
 ## Chapter 24 — Master the Multiplexer (tmux)
 
 ### Page 365 — tmux on Cygwin
@@ -153,4 +173,4 @@ The text suggests `tmux` is not available on Cygwin. A `tmux` package is in fact
 
 ---
 
-*Thanks to Bruno "GNUser" Dantas and other readers for the careful catches.*
+*Thanks to Bruno "GNUser" Dantas, Maya Chen, and other readers for the careful catches.*

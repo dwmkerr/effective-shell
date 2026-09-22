@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # This script installs the dotfiles locally. Note that it should be run from the
 # dotfiles folder so that the links are set properly!
@@ -11,7 +11,7 @@ ln -sf "$PWD/shell.d" "$HOME/.shell.d"
 config_files=(~/.bashrc ~/.zshrc)
 for config_file in ${config_files[@]}; do
     # Skip config files that don't exist.
-    ! [ -r ~/.bashrc ] && continue
+    [ -r "${config_file}" ] || continue
 
     # If we don't have the 'source ~/.shell.d' line in our config, add it.
     source_command="[ -r ~/.shell.sh ] && source ~/.shell.sh"

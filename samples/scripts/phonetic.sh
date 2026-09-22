@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # phonetic.sh - takes input and writes it out in phonetic:
 # https://en.wikipedia.org/wiki/NATO_phonetic_alphabet
