@@ -28,18 +28,20 @@ function HeroSection() {
             </Link>
             <Link
               className={styles.buttonSecondary}
+              data-book-cta="home-hero-button"
               href="https://amzn.to/4ho0F91">
               Amazon
             </Link>
             <Link
               className={styles.buttonSecondary}
+              data-book-cta="home-hero-button"
               href="https://nostarch.com/effective-shell">
               No Starch
             </Link>
           </div>
         </div>
         <div className={styles.heroImage}>
-          <a href="https://amzn.to/4ho0F91">
+          <a href="https://amzn.to/4ho0F91" data-book-cta="home-hero-cover">
             <img
               className={styles.bookCover}
               src="/images/es-cover-3d.png"
@@ -101,10 +103,10 @@ function Navbar() {
           <Link to="/introduction" className={styles.navbarLink}>Read Now</Link>
         </div>
         <div className={styles.navbarRight}>
-          <Link href="https://amzn.to/4ho0F91" className={styles.navbarLink}>
+          <Link href="https://amzn.to/4ho0F91" data-book-cta="home-nav" className={styles.navbarLink}>
             Amazon
           </Link>
-          <Link href="https://nostarch.com/effective-shell" className={styles.navbarLink}>
+          <Link href="https://nostarch.com/effective-shell" data-book-cta="home-nav" className={styles.navbarLink}>
             No Starch
           </Link>
           <Link href="https://github.com/dwmkerr/effective-shell" className={styles.navbarLink}>

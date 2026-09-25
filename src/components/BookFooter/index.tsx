@@ -4,7 +4,7 @@ import './styles.css';
 const BookFooter: React.FC = () => {
   return (
     <div className="book-footer">
-      <a href="https://amzn.to/4ho0F91" target="_blank" rel="noopener noreferrer">
+      <a href="https://amzn.to/4ho0F91" data-book-cta="finale-cover" target="_blank" rel="noopener noreferrer">
         <img
           src="/images/es-cover-3d.png"
           alt="Effective Shell book cover"
@@ -21,6 +21,7 @@ const BookFooter: React.FC = () => {
           <a
             className="button button--primary"
             href="https://amzn.to/4ho0F91"
+            data-book-cta="finale-button"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -29,6 +30,7 @@ const BookFooter: React.FC = () => {
           <a
             className="button button--secondary button--outline"
             href="https://nostarch.com/effective-shell"
+            data-book-cta="finale-button"
             target="_blank"
             rel="noopener noreferrer"
           >
