@@ -1,3 +1,108 @@
+/**
+ * Theme: a green palette with denser navigation and a narrower reading column.
+ * Colours and sizes follow the site redesign mock.
+ */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-menu-color: #4a4d52;
+  --ifm-toc-link-color: #4a4d52;
+  --ifm-toc-border-color: #e3e3e3;
+  --es-inline-code-background: #f0f0f0;
+  --es-inline-code-border: #e4e4e4;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-menu-color: #c4c7cc;
+  --ifm-toc-link-color: #b4b7bc;
+  --ifm-toc-border-color: #3a3d42;
+  --es-inline-code-background: #2a2c30;
+  --es-inline-code-border: #3a3d42;
+}
+
+/* Sidebar: smaller type and tighter rows so more of the book fits on screen */
+.theme-doc-sidebar-menu {
+  font-size: 14.5px;
+}
+
+.theme-doc-sidebar-menu .menu__link {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1.35;
+}
+
+.theme-doc-sidebar-menu .menu__list-item:not(:first-child) {
+  margin-top: 2px;
+}
+
+.theme-doc-sidebar-menu .menu__list .menu__list {
+  margin-top: 2px;
+}
+
+/* Top-level entries use the text colour, chapters a softer grey, so the hierarchy reads at a glance */
+.theme-doc-sidebar-menu > .menu__list-item > .menu__link:not(.menu__link--active),
+.theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link:not(.menu__link--active) {
+  color: var(--ifm-font-color-base);
+}
+
+/* Chapter links are regular weight so the part headings and the active chapter stand out */
+.theme-doc-sidebar-menu .menu__list .menu__list .menu__link {
+  font-weight: 400;
+}
+
+.theme-doc-sidebar-menu .menu__link--active:not(.menu__link--sublist) {
+  border-radius: 6px;
+  font-weight: 500 !important;
+}
+
+/* An expanded part is a heading, not a link to the current page, so keep it in the text colour */
+.theme-doc-sidebar-menu .menu__link--sublist.menu__link--active {
+  color: var(--ifm-font-color-base);
+}
+
+/* Table of contents */
+.table-of-contents {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Reading column: ~690px keeps lines at a comfortable length on wide screens */
+[class*='docItemContainer'] {
+  max-width: 690px;
+}
+
+@media (min-width: 997px) {
+  article .markdown h1:first-child {
+    --ifm-h1-font-size: 2.5rem;
+  }
+
+  article .markdown > h2 {
+    --ifm-h2-font-size: 1.75rem;
+  }
+}
+
+/* Inline code: small and boxed so it reads as code without dominating the line */
+:not(pre) > code {
+  font-size: 0.8125em;
+  background-color: var(--es-inline-code-background);
+  border: 1px solid var(--es-inline-code-border);
+  border-radius: 4px;
+  padding: 1px 4px;
+  vertical-align: baseline;
+}
+
 /* Navbar logo size */
 .navbar__logo img {
   height: 42px;
