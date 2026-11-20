@@ -4,6 +4,7 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const redirects = require('./redirects');
+const { humanBookUrl } = require('./src/components/HumanBookLinks/url');
 
 //  Load our package so we can show metadata like the version.
 const packageJson = require('./package.json');
@@ -83,6 +84,17 @@ const config = {
             position: 'left',
             label: 'Snippets',
             activeBasePath: '/shell-snippets/',
+          },
+          {
+            type: 'dropdown',
+            label: 'Human Book',
+            position: 'right',
+            className: 'header-human-book-link',
+            items: [
+              { label: 'Listen', href: humanBookUrl('listen', 'navbar'), 'data-book-cta': 'hb-navbar-listen' },
+              { label: 'Chat', href: humanBookUrl('chat', 'navbar'), 'data-book-cta': 'hb-navbar-chat' },
+              { label: 'Reader', href: humanBookUrl('reader', 'navbar'), 'data-book-cta': 'hb-navbar-reader' },
+            ],
           },
           {
             href: 'https://nostarch.com/effective-shell',
