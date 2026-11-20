@@ -38,8 +38,8 @@ const HumanBookLinks: React.FC<{ chapter: string }> = ({ chapter }) => (
         rel="noopener noreferrer"
       >
         <svg
-          width="15"
-          height="15"
+          width="13"
+          height="13"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -53,7 +53,6 @@ const HumanBookLinks: React.FC<{ chapter: string }> = ({ chapter }) => (
         {label}
       </a>
     ))}
-    <span className="human-book-links__note">Free on Human Book</span>
   </div>
 );
 
