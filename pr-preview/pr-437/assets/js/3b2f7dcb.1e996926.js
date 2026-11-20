@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeffective_shell=self.webpackChunkeffective_shell||[]).push([[3331],{637:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"snippets"}')}}]);
