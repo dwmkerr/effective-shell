@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.54.0](https://github.com/dwmkerr/effective-shell/compare/v0.53.0...v0.54.0) (2026-11-20)
+
+
+### Features
+
+* add Listen, Chat and Reader links to Human Book on every chapter ([#443](https://github.com/dwmkerr/effective-shell/issues/443)) ([7a98689](https://github.com/dwmkerr/effective-shell/commit/7a98689a69f26c0b737d2fd6095d5a000c77f8fb))
+* attribute book buy-clicks to the on-page CTA ([#435](https://github.com/dwmkerr/effective-shell/issues/435)) ([0cb80b1](https://github.com/dwmkerr/effective-shell/commit/0cb80b15df8f70ec531cdc89d520b0c3ec4fd5d6))
+
+
+### Documentation
+
+* add Human Book badge to the README ([#442](https://github.com/dwmkerr/effective-shell/issues/442)) ([cc580b2](https://github.com/dwmkerr/effective-shell/commit/cc580b22048dff9c297c761cc22264f5dc325e4c))
+* add sponsor badge and funding metadata ([#436](https://github.com/dwmkerr/effective-shell/issues/436)) ([4f3fd92](https://github.com/dwmkerr/effective-shell/commit/4f3fd92a985a8526a41b7fd62c1a55e390237055))
+
+
+### Bug Fixes
+
+* **samples:** correct common.sh tail quoting and two file modes ([#439](https://github.com/dwmkerr/effective-shell/issues/439)) ([acdadfd](https://github.com/dwmkerr/effective-shell/commit/acdadfd26a2f569c6ce893df105984a7abd6971d))
+* **samples:** use bash shebang for scripts that use bash syntax ([#438](https://github.com/dwmkerr/effective-shell/issues/438)) ([c101c6d](https://github.com/dwmkerr/effective-shell/commit/c101c6dc06a303577e3635c6e4f2aab914320444))
+
 ## [0.53.0](https://github.com/dwmkerr/effective-shell/compare/v0.52.2...v0.53.0) (2026-09-01)
 
 
