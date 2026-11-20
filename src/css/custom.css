@@ -204,3 +204,10 @@ kbd {
   background-color: var(--ifm-color-emphasis-100);
 }
 
+
+/* White on the dark-mode teal is too faint, so the filled Listen button's text goes dark. */
+[data-theme='dark'] .human-book-link--listen,
+[data-theme='dark'] .human-book-link--listen:hover,
+[data-theme='dark'] .human-book-link--listen svg {
+  color: #1b1b1d;
+}
