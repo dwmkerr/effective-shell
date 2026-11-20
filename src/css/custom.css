@@ -36,7 +36,9 @@ html[data-theme='dark'] .header-github-link::before {
 
 /* Hide all external link icons in navbar */
 .navbar__link svg[class*="iconExternalLink"],
-.navbar__link svg[class*="external"] {
+.navbar__link svg[class*="external"],
+.header-human-book-link + .dropdown__menu svg[class*="iconExternalLink"],
+.navbar-sidebar__item .menu__list .menu__list svg[class*="iconExternalLink"] {
   display: none !important;
 }
 
