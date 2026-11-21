@@ -15,9 +15,13 @@
   --ifm-toc-border-color: #e3e3e3;
   --es-inline-code-background: #f0f0f0;
   --es-inline-code-border: #e4e4e4;
+  --ifm-navbar-search-input-background-color: #f2f2f3;
+  --ifm-navbar-search-input-placeholder-color: #606770;
 }
 
 [data-theme='dark'] {
+  --ifm-navbar-search-input-background-color: #2a2b2d;
+  --ifm-navbar-search-input-placeholder-color: #a8abb0;
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -210,4 +214,23 @@ kbd {
 [data-theme='dark'] .human-book-link--listen:hover,
 [data-theme='dark'] .human-book-link--listen svg {
   color: #1b1b1d;
+}
+
+/* A plain search pill keeps the navbar quiet; the shortcut still works, it just isn't advertised.
+   Desktop only: on phones the box collapses to just its icon. */
+@media (min-width: 997px) {
+  .navbar__search-input {
+    width: 150px;
+    padding: 0 14px;
+    font-size: 14px;
+    background-image: none;
+  }
+
+  .navbar__search [class*='searchHintContainer'] {
+    display: none;
+  }
+
+  .navbar__link {
+    font-size: 15px;
+  }
 }
