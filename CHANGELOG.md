@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.55.0](https://github.com/dwmkerr/effective-shell/compare/v0.54.0...v0.55.0) (2026-11-23)
+
+
+### Features
+
+* retheme the site with a green palette and denser navigation ([#444](https://github.com/dwmkerr/effective-shell/issues/444)) ([4719c62](https://github.com/dwmkerr/effective-shell/commit/4719c623cfd62eedecbc267d7411b86b4a86f77f))
+
 ## [0.54.0](https://github.com/dwmkerr/effective-shell/compare/v0.53.0...v0.54.0) (2026-11-20)
 
 
