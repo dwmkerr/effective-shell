@@ -233,6 +233,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "francozappa",
+      "name": "Daniele Antonioli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4628017?v=4",
+      "profile": "https://francozappa.github.io",
+      "contributions": [
+        "bug",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
